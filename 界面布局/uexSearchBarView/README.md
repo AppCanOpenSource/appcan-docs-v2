@@ -1,6 +1,7 @@
 [TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 ## 1.1、说明
+搜索框插件
 
 ## 1.2、UI展示
 
@@ -11,37 +12,14 @@
 
 ## 2.1、方法
 
-## 2.2、回调方法
+> ### open 打开搜索框
 
-## 2.3、监听方法
+`uexSearchBarView.open(json)`  
+**说明:**  
+打开搜索框
 
-# 3、更新历史
-API 版本：uexXXX-3.0.X(iOS) uexXXX-3.0.X(Android)
-最近更新时间：2015-xx-xx
+**参数：**  
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.0 | 插件 | 插件|
-
-# uexSearchBarView
-   搜索框插件
-
-## 方法：
-### [open](#open) 打开搜索框
-### [close](#close) 关闭搜索框
-### [clearHistory](#clearhistory) 清空搜索历史
-
-
-## 监听方法：
-### [onItemClick](#onitemclick) item被点击的监听方法
-### [onSearch](#onsearch) 用户点击搜索之后的回调
-
-### open
-  打开搜索框
-```
-uexSearchBarView.open(json)
-```
-**参数：**
 ```
 var json = {
     x:,//(必选) 左间距
@@ -60,16 +38,14 @@ var json = {
     }
 }
 ```
-**平台支持：**
-```
-Android 2.2+
+**平台支持：**  
+Android 2.2+  
 iOS 6.0+
-```
-**版本支持：**
-```
-Android 3.0.0+
+
+**版本支持：**  
+Android 3.0.0+  
 iOS 3.0.0+
-```
+  
 **示例：**
 
 ```
@@ -98,62 +74,70 @@ iOS 3.0.0+
 ![](http://i.imgur.com/x980gf9.png)
 
 
-### close
-  关闭搜索框
+> ### close 关闭搜索框  
+
 ```
 uexSearchBarView.close()
 ```
-**参数：**
-```
+
+**说明:**  
+关闭搜索框  
+
+**参数：**  
+
 无
-```
-**平台支持：**
-```
-Android 2.2+
-iOS 6.0+
-```
-**版本支持：**
-```
-Android 3.0.0+
+
+**平台支持：**  
+
+Android 2.2+  
+iOS 6.0+  
+
+**版本支持：**  
+
+Android 3.0.0+  
 iOS 3.0.0+
-```
+  
 **示例：**
 
 ```
     uexSearchBarView.close()
 ```
 
-### clearHistory
-  清空搜索历史
+> ### clearHistory 清空搜索历史
+
 ```
 uexSearchBarView.clearHistory()
-```
-**参数：**
-```
+```  
+**说明:**  
+清空搜索历史  
+
+**参数：**  
+
 无
-```
+
 **平台支持：**
-```
-Android 2.2+
+  
+Android 2.2+  
 iOS 6.0+
-```
-**版本支持：**
-```
-Android 3.0.0+
+
+**版本支持：**  
+
+Android 3.0.0+  
 iOS 3.0.0+
-```
+
 **示例：**
 
 ```
     uexSearchBarView.clearHistory();
 ```
+## 2.2、监听方法
 
-### onItemClick
-item被点击的监听方法
-```
-uexSearchBarView.onItemClick(json);
-```
-**参数：**
+> ### onItemClick item被点击的监听方法
+
+`uexSearchBarView.onItemClick(json);`
+
+**参数：**  
+
 ```
 var json = {
     index:,//(必选) 索引
@@ -161,45 +145,60 @@ var json = {
 }
 ```
 **平台支持：**
-```
+
 Android 2.2+
+
 iOS 6.0+
-```
+
 **版本支持：**
-```
-Android 3.0.0+
+
+Android 3.0.0+  
+
 iOS 3.0.0+
-```
+
 **示例：**
+
 ```
     uexSearchBarView.onItemClick = function(data){
         alert(data);
     }
 ```
-### onSearch 
-用户点击搜索之后的回调
-```
-uexSearchBarView.onSearch(json);
-```
+
+> ### onSearch 用户点击搜索之后的回调
+
+`uexSearchBarView.onSearch(json);`
+
 **参数：**
+
 ```
 var json = {
     keyword://(必选) 关键字
 }
 ```
 **平台支持：**
-```
+
 Android 2.2+
+
 iOS 6.0+
-```
+
 **版本支持：**
-```
+
 Android 3.0.0+
+
 iOS 3.0.0+
-```
+
 **示例：**
+
 ```
     uexSearchBarView.onSearch = function(data){
         alert(data);
     }
 ```
+# 3、更新历史
+API 版本：uexSearchBarView-3.0.0(iOS) uexSearchBarView-3.0.0(Android)  
+
+最近更新时间：2015-08-11
+
+| 历史发布版本 | iOS更新 | 安卓更新 |
+| ------------ | ------------ | ------------ |
+| 3.0.0 | 搜索框 | 搜索框|
