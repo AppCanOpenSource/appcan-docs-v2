@@ -4,7 +4,7 @@ ActionSheet插件
 ## 1.1、说明
 ActionSheet插件
 ## 1.2、UI展示
- ![](http://newdocx.appcan.cn/docximg/164426l2015g6r16d.jpg)
+![](http://plugin.appcan.cn/pluginimg/162850y2015o8u11og.jpg)![](http://plugin.appcan.cn/pluginimg/170136f2015b8u11na.jpg)![](http://plugin.appcan.cn/pluginimg/170127y2015d8y11kf.jpg)![](http://plugin.appcan.cn/pluginimg/165111f2015o8w11la.jpg)
  
 ## 1.3、开源源码
 插件测试用例与源码下载：[点击](http://plugin.appcan.cn/details.html?id=417_index) 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
