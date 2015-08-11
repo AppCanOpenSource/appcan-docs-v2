@@ -1,45 +1,25 @@
 [TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+进度条控件插件
 ## 1.1、说明
-
+进度条控件插件
 ## 1.2、UI展示
-
+![](http://i.imgur.com/u3jwCGP.gif)
 ## 1.3、开源源码
-插件测试用例与源码下载：[点击](xxxx ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载：[点击]() 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
 
 # 2、API概览
 
 ## 2.1、方法
 
-## 2.2、回调方法
+> ### open 打开进度条
 
-## 2.3、监听方法
+`uexProgressView.open(json)`
 
-# 3、更新历史
-API 版本：uexXXX-3.0.X(iOS) uexXXX-3.0.X(Android)
-最近更新时间：2015-xx-xx
-
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.0 | 插件 | 插件|
-
-# uexProgressView
-   进度条控件插件
-
-## 方法：
-### [open](#open) 打开进度条
-### [setProgress](#setprogress) 设置进度值
-### [close](#close) 关闭进度条
-
-## 监听方法：
-### [onComplete](#oncomplete) 进度达到100%的监听方法
-
-### open
-  打开进度条
-```
-uexProgressView.open(json)
-```
+**说明：**
+打开进度条
 **参数：**
+
 ```
 var json = {
     id:,//(必选) 唯一标识符
@@ -60,17 +40,17 @@ var json = {
 }
 ```
 **平台支持：**
-```
 Android 2.2+
 iOS 6.0+
-```
+
 **版本支持：**
-```
 Android 3.0.0+
 iOS 3.0.0+
-```
+
+
 **示例：**
 示例1
+
 ```
     var param1 = {
         id:1,
@@ -95,6 +75,7 @@ iOS 3.0.0+
 ![](http://i.imgur.com/vIwZddy.png)
 
 示例2
+
 ```
     var param1 = {
         id:2,
@@ -120,6 +101,7 @@ iOS 3.0.0+
 ![](http://i.imgur.com/VW0PAK6.png)
 
 示例3
+
 ```
     var param1 = {
         id:3,
@@ -145,6 +127,7 @@ iOS 3.0.0+
 ![](http://i.imgur.com/rUi9vRj.png)
 
 示例4
+
 ```
     var param1 = {
         id:4,
@@ -167,12 +150,14 @@ iOS 3.0.0+
 运行效果：
 ![](http://i.imgur.com/hQ82Cq4.png)
 
-### setProgress
-  设置进度值
-```
-uexProgressView.setProgress(json)
-```
+> ### setProgress 设置进度值
+
+`uexProgressView.setProgress(json)`
+
+**说明：**
+设置进度值
 **参数：**
+
 ```
 var json = {
     id:,//(必选) 唯一标识符
@@ -180,17 +165,15 @@ var json = {
 }
 ```
 **平台支持：**
-```
 Android 2.2+
 iOS 6.0+
-```
+
 **版本支持：**
-```
 Android 3.0.0+
 iOS 3.0.0+
-```
+
 **示例：**
-示例
+
 ```
     var i = 0;
     var int = setInterval('setProgress(3, 13)', 1000);
@@ -218,26 +201,27 @@ iOS 3.0.0+
 运行效果：
 ![](http://i.imgur.com/u3jwCGP.gif)
 
-### close
-  关闭进度条
-```
-uexProgressView.close(json)
-```
+> ### close 关闭进度条
+
+`uexProgressView.close(json)`
+
+**说明：**
+关闭进度条
 **参数：**
+
 ```
 var json = []//(可选) 进度条唯一标识符数组，不传时关闭所有进度条
 ```
 **平台支持：**
-```
 Android 2.2+
 iOS 6.0+
-```
+
 **版本支持：**
-```
 Android 3.0.0+
 iOS 3.0.0+
-```
+
 **示例：**
+
 ```
 示例1
     var params = [1];
@@ -248,30 +232,39 @@ iOS 3.0.0+
     uexProgressView.close();//关闭所有进度条
 ```
 
-### onComplete
-进度达到100%的监听方法
-```
-uexProgressView.onComplete(json);
-```
+
+## 2.2、监听方法
+
+> ### onComplete 进度达到100%的监听方法
+
+`uexProgressView.onComplete(json);`
+
 **参数：**
+
 ```
 var json = {
     id://完成的进度条唯一标识符
 }
 ```
 **平台支持：**
-```
 Android 2.2+
 iOS 6.0+
-```
+
 **版本支持：**
-```
 Android 3.0.0+
 iOS 3.0.0+
-```
+
 **示例：**
+
 ```
     uexProgressView.onComplete = function(data){
         alert(data);
     }
 ```
+# 3、更新历史
+API 版本：uexProgressView-3.0.0(iOS) uexProgressView-3.0.0(Android)
+最近更新时间：2015-08-11
+
+| 历史发布版本 | iOS更新 | 安卓更新 |
+| ------------ | ------------ | ------------ |
+| 3.0.0 | 进度条控件 | 进度条控件|
