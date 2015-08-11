@@ -59,7 +59,6 @@ jsonData{
 	
 ```
 
-
 **平台支持:**
 Android 2.2+
 iOS 6.0+
@@ -114,7 +113,7 @@ uexActionSheet.open(x,y,width,height,JsonData);
 
 `uexActionSheet.onClickItem(index)	`	
 
-** 参数:**
+**参数:**
  
 |参数名称|参数类型 | 是否必选|  说明 |
 |------|-----|--------|------- |
@@ -125,10 +124,10 @@ uexActionSheet.open(x,y,width,height,JsonData);
 Android2.2+
 iOS6.0+
 
-** 版本支持:**
+**版本支持:**
 3.0.0+
 
-**  示例:**
+**示例:**
 ```
     uexActionSheet.onClickItem = function(data){
         alert("onClickItem" + data);
