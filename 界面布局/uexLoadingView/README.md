@@ -41,6 +41,16 @@
 }
 ```
 
+**平台支持：**  
+Android 2.2+  
+iOS 6.0+
+
+
+**版本支持：**  
+Android 3.0.0+  
+iOS 3.0.0+
+
+
 **示例：**
 ```
 var jsonstr = '{
@@ -69,13 +79,22 @@ uexLoadingView.open(jsonstr);
 **参数**
 无
 
+**平台支持：**  
+Android 2.2+  
+iOS 6.0+
+
+
+**版本支持：**  
+Android 3.0.0+  
+iOS 3.0.0+
+
 **示例：**
 ```
 uexLoadingView.close();
 ```
 
 # 3、更新历史
-API 版本：uexLoadingView-3.0.0(iOS) uexLoadingView-3.0.0(Android)
+API 版本：uexLoadingView-3.0.0(iOS) uexLoadingView-3.0.0(Android)  
 最近更新时间：2015-07-15
 
 | 历史发布版本 | iOS更新 | 安卓更新 |

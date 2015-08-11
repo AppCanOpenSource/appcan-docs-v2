@@ -11,7 +11,7 @@
 ![](http://i.imgur.com/QgSQ7zY.png)
 
 ## 1.3、开源源码
-插件测试用例与源码下载：[点击](xxxx ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+暂无
 
 # 2、API概览
 
@@ -38,15 +38,13 @@ var json = {
 }
 ```
 
-**平台支持：**
-
-Android 2.2+
+**平台支持：**  
+Android 2.2+  
 iOS 6.0+
 
 
-**版本支持：**
-
-Android 3.0.0+
+**版本支持：**  
+Android 3.0.0+  
 iOS 3.0.0+
 
 
@@ -89,15 +87,14 @@ uexPopTipsView.open(data1);
 **参数：**
 无
 
-**平台支持：**  
-
-Android 2.2+
+**平台支持：**   
+Android 2.2+  
 iOS 6.0+
 
 
 **版本支持：**  
 
-Android 3.0.0+
+Android 3.0.0+  
 iOS 3.0.0+
 
 
@@ -122,14 +119,13 @@ var json = {
 }
 
 ```
-**平台支持：**  
 
+**平台支持：**  
 Android 2.2+
 iOS 6.0+
 
 **版本支持：**  
-
-Android 3.0.0+
+Android 3.0.0+  
 iOS 3.0.0+
 
 **示例：**  
@@ -143,7 +139,7 @@ uexPopTipsView.onItemSelected = function(data){
 
 
 # 3、更新历史
-API 版本：uexPopTipsView-3.0.0(iOS) uexPopTipsView-3.0.0(Android)
+API 版本：uexPopTipsView-3.0.0(iOS) uexPopTipsView-3.0.0(Android)  
 最近更新时间：2015-08-11
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
