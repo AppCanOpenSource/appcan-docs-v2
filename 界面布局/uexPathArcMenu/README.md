@@ -31,11 +31,13 @@ var json = {
 ```
 
 **平台支持：**
+
 Android 2.2+
 iOS 6.0+
 
 
 **版本支持：**
+
 Android 3.0.0+
 iOS 3.0.0+
 
@@ -67,11 +69,13 @@ uexPathArcMenu.open(data1);
 
 
 **平台支持：**
+
 Android 2.2+
 iOS 6.0+
 
 
 **版本支持：**
+
 Android 3.0.0+
 iOS 3.0.0+
 
@@ -94,11 +98,13 @@ var json = {
 ```
 
 **平台支持：**
+
 Android 2.2+
 iOS 6.0+
 
 
 **版本支持：**
+
 Android 3.0.0+
 iOS 3.0.0+
 
@@ -127,11 +133,13 @@ var json = {
 ```
 
 **平台支持：**
+
 Android 2.2+
 iOS 6.0+
 
 
 **版本支持：**
+
 Android 3.0.0+
 iOS 3.0.0+
 
@@ -146,7 +154,7 @@ uexPathArcMenu.onItemClick = function(data){
 
 
 # 3、更新历史
-API 版本：uexPathArcMenu-3.0.0(iOS) uexPathArcMenu-3.0.0(Android)
+API 版本：uexPathArcMenu-3.0.0(iOS) uexPathArcMenu-3.0.0(Android)  
 最近更新时间：2015-08-11
 
 | 历史发布版本 | iOS更新 | 安卓更新 |

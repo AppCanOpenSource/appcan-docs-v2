@@ -19,9 +19,10 @@
 `uexCityListView.open(x,y,w,h)`
 
 **说明:**
-打开城市选择器，当用户在城市选择器上选择城市之后，会触发回调方法[onItemClick ](#onitemclick 点击城市之后的回调 "onItemClick")
+打开城市选择器，当用户在城市选择器上选择城市之后，会触发回调方法[onItemClick](#onitemclick 点击城市之后的回调 "onItemClick")
 
 **参数:**
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | x | String | 是 | x坐标 |
@@ -30,10 +31,11 @@
 | h | String | 是 | 高度|
 
 **平台支持：**
+
 Android2.2+
 iOS6.0+
 
-**版本支持：**
+**版本支持：**  
 3.0.0+
 
 **示例:**
@@ -50,18 +52,21 @@ uexCityListView.open("0","600","720","1230");
 设置当前定位城市
 
 **参数:**
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | localCity | String | 是 |json 格式字符串 |
+
 ```
  var localCity = '{"localCity":"北京"}';
 ```
 
 **平台支持：**
+
 Android2.2+
 iOS6.0+
 
-**版本支持：**
+**版本支持：**  
 3.0.0+
 
 **示例:**
@@ -80,6 +85,7 @@ uexCityListView.setLocalCity(localCity);
 设置热门城市
 
 **参数:**
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | hotCity | String | 是 |json 格式的字符串数组，如下 |
@@ -87,11 +93,12 @@ uexCityListView.setLocalCity(localCity);
 var hotCity = '{"hotCity":["北京","重庆","成都","广州","厦门","杭州","上海","武汉","深圳"]}';
 ```
 
-**平台支持：**
+**平台支持：**  
+
 Android2.2+
 iOS6.0+
 
-**版本支持：**
+**版本支持：**  
 3.0.0+
 
 **示例:**
@@ -109,6 +116,7 @@ uexCityListView.setHotCity(hotCity);
 导入文件，设置所有的城市
 
 **参数:**
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | jsonPath | String | 是 |存放所有城市数据的文件路径, 文件内容是json格式。文件的内容如下 |
@@ -125,10 +133,12 @@ allCity: {
 ```
 
 **平台支持：**
+
 Android2.2+
 iOS6.0+
 
 **版本支持：**
+
 3.0.0+
 
 **示例:**
@@ -176,6 +186,7 @@ var params ='
 ```
 
 **平台支持：**
+
 Android2.2+
 iOS6.0+
 
@@ -225,7 +236,8 @@ uexCityListView.setViewStyle(params);
 **参数:**
 无
 
-**平台支持：**
+**平台支持：** 
+
 Android2.2+
 iOS6.0+
 
@@ -248,11 +260,13 @@ uexCityListView.close();
 用户点击的城市列表中的某一个item后，回调这个函数
 
 **参数:**
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | city | String | 是 | 用户点击的城市 |
 
-**平台支持：**
+**平台支持：**  
+
 Android2.2+
 iOS6.0+
 
@@ -268,7 +282,7 @@ uexCityListView.onItemClick = function(result){
 ```
 
 # 3、更新历史
-API 版本：uexCityListView-3.0.0(iOS) uexCityListView-3.0.0(Android)
+API 版本：uexCityListView-3.0.0(iOS) uexCityListView-3.0.0(Android)  
 最近更新时间：2015-08-11
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
