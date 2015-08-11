@@ -1,50 +1,34 @@
 [TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+加载视图的动画
 ## 1.1、说明
-
+实现了加载视图的动画效果，提供了两种加载的视图动画样式，用户可以自定义View的颜色以及加载点个数。
 ## 1.2、UI展示
-
+![](http://plugin.appcan.cn/pluginApi/getCImg?img=140505s2015p7y15ew.png)
 ## 1.3、开源源码
-插件测试用例与源码下载：[点击](xxxx ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载：[点击](http://plugin.appcan.cn/details.html?id=453_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
 ## 2.1、方法
 
-## 2.2、回调方法
+> ### open 打开loading
 
-## 2.3、监听方法
+`uexLoadingView.open(jsonstr)`
 
-# 3、更新历史
-API 版本：uexXXX-3.0.X(iOS) uexXXX-3.0.X(Android)
-最近更新时间：2015-xx-xx
-
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.0 | 插件 | 插件|
-
-# uexLoadingView
-   
-
-### 方法：
-
-* [open](#open)
-* [close](#close)
-
----
-
-### open 
+**说明:**
 打开loading
 
-```
-uexLoadingView.open(jsonstr)
-```
 **参数**
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| hotCity | String | 是 |json 格式的字符串数组，如下 |
 ```
-    "x": 
-    "y":  
-    "w": 宽(宽度需要跟圆点数量相适应，太短会显示不完整)
-    "h": 高
+ {  
+    "x": //x坐标
+    "y": //y坐标
+    "w": //宽(宽度需要跟圆点数量相适应，太短会显示不完整)
+    "h": //高
     "style": {
         "styleId": //loading的样式，取值为0或1
         "pointNum": //圆点的数量
@@ -52,8 +36,9 @@ uexLoadingView.open(jsonstr)
             "#ffffff" //圆点的颜色
         ]
     }
-
+}
 ```
+
 **示例：**
 ```
 var jsonstr = '{
@@ -72,11 +57,28 @@ var jsonstr = '{
 uexLoadingView.open(jsonstr);
 ```
 
-### close
-关闭loading
+> ### close 关闭Loading
+
+`uexLoadingView.close()`
+
+**说明:**
+关闭Loading
+
+**参数**
+无
 
 **示例：**
-
 ```
 uexLoadingView.close();
 ```
+
+# 3、更新历史
+API 版本：uexLoadingView-3.0.0(iOS) uexLoadingView-3.0.0(Android)
+最近更新时间：2015-07-15
+
+| 历史发布版本 | iOS更新 | 安卓更新 |
+| ------------ | ------------ | ------------ |
+| 3.0.2 | uexLoadingView插件,修改open接口 | 修改open接口|
+| 3.0.2 |  修改配置文件 | 修复第二次打开界面空指针问题|
+| 3.0.1 | 适配iOS5的版本 | clean函数中调用close方法|
+| 3.0.0 | uexLoadingView插件 | uexLoadingView插件|
