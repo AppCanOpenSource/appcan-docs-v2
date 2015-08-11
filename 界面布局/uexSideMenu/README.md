@@ -1,43 +1,22 @@
 [TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 ## 1.1、说明
-
+ 侧边菜单插件
 ## 1.2、UI展示
-
+ ![](http://i.imgur.com/ketvg8l.png)
 ## 1.3、开源源码
-插件测试用例与源码下载：[点击](xxxx ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+ 插件测试用例与源码下载：[点击](xxxx ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
 ## 2.1、方法
+> ### open 打开菜单
 
-## 2.2、回调方法
+`uexSideMenu.open(json)`
 
-## 2.3、监听方法
+**说明:**
+打开菜单
 
-# 3、更新历史
-API 版本：uexXXX-3.0.X(iOS) uexXXX-3.0.X(Android)
-最近更新时间：2015-xx-xx
-
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.0 | 插件 | 插件|
-
-# uexSideMenu
-   侧边菜单插件
-
-## 方法：
-### [open](#open) 打开菜单
-### [close](#close) 关闭菜单
-
-## 监听方法：
-### [onItemClick](#onitemclick) item被点击的监听方法
-
-### open
-  打开菜单
-```
-uexSideMenu.open(json)
-```
 **参数：**
 ```
 var json = {
@@ -53,16 +32,17 @@ var json = {
     ]
 }
 ```
+
 **平台支持：**
-```
 Android 2.2+
 iOS 6.0+
-```
+
+
 **版本支持：**
-```
 Android 3.0.0+
 iOS 3.0.0+
-```
+
+
 **示例：**
 
 ```
@@ -101,55 +81,66 @@ iOS 3.0.0+
 ![](http://i.imgur.com/ketvg8l.png)
 
 
-### close
-  关闭菜单
-```
-uexSideMenu.close()
-```
+> ### close 关闭菜单
+
+`uexSideMenu.close()`
+
+**说明:**
+关闭菜单
+
 **参数：**
 ```
 无
 ```
+
 **平台支持：**
-```
 Android 2.2+
 iOS 6.0+
-```
+
 **版本支持：**
-```
 Android 3.0.0+
 iOS 3.0.0+
-```
+
 **示例：**
 
 ```
     uexSideMenu.close()
 ```
 
-### onItemClick
-item被点击的监听方法
-```
-uexSideMenu.onItemClick(json);
-```
+## 2.2、监听方法
+
+> ### onItemClick item被点击的监听方法
+
+`uexSideMenu.onItemClick(json);`
+
 **参数：**
 ```
 var json = {
     index://(必选) 索引
 }
 ```
+
 **平台支持：**
-```
 Android 2.2+
 iOS 6.0+
-```
+
 **版本支持：**
-```
 Android 3.0.0+
 iOS 3.0.0+
-```
+
 **示例：**
 ```
     uexSideMenu.onItemClick = function(data){
         alert(data);
     }
 ```
+
+
+# 3、更新历史
+API 版本：uexSideMenu-3.0.0(iOS) uexSideMenu-3.0.0(Android)
+最近更新时间：2015-08-11
+
+| 历史发布版本 | iOS更新 | 安卓更新 |
+| ------------ | ------------ | ------------ |
+| 3.0.0 | 侧边菜单插件 | 侧边菜单插件|
+
