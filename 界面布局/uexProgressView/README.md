@@ -17,7 +17,9 @@
 `uexProgressView.open(json)`
 
 **说明：**
+
 打开进度条
+
 **参数：**
 
 ```
@@ -39,16 +41,20 @@ var json = {
     bgColor://(可选) 进度条背景颜色，默认透明
 }
 ```
+
 **平台支持：**
-Android 2.2+
+
+Android 2.2+  
 iOS 6.0+
 
 **版本支持：**
-Android 3.0.0+
+
+Android 3.0.0+  
 iOS 3.0.0+
 
 
 **示例：**
+
 示例1
 
 ```
@@ -155,7 +161,9 @@ iOS 3.0.0+
 `uexProgressView.setProgress(json)`
 
 **说明：**
+
 设置进度值
+
 **参数：**
 
 ```
@@ -165,11 +173,13 @@ var json = {
 }
 ```
 **平台支持：**
-Android 2.2+
+
+Android 2.2+  
 iOS 6.0+
 
 **版本支持：**
-Android 3.0.0+
+
+Android 3.0.0+  
 iOS 3.0.0+
 
 **示例：**
@@ -198,7 +208,9 @@ iOS 3.0.0+
        uexProgressView.setProgress(JSON.stringify(param));
     }
 ```
+
 运行效果：
+
 ![](http://i.imgur.com/u3jwCGP.gif)
 
 > ### close 关闭进度条
@@ -206,18 +218,23 @@ iOS 3.0.0+
 `uexProgressView.close(json)`
 
 **说明：**
+
 关闭进度条
+
 **参数：**
 
 ```
 var json = []//(可选) 进度条唯一标识符数组，不传时关闭所有进度条
 ```
+
 **平台支持：**
-Android 2.2+
+
+Android 2.2+  
 iOS 6.0+
 
 **版本支持：**
-Android 3.0.0+
+
+Android 3.0.0+  
 iOS 3.0.0+
 
 **示例：**
@@ -247,11 +264,15 @@ var json = {
 }
 ```
 **平台支持：**
+
 Android 2.2+
+
 iOS 6.0+
 
 **版本支持：**
+
 Android 3.0.0+
+
 iOS 3.0.0+
 
 **示例：**
