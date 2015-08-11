@@ -1,86 +1,117 @@
 [TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 ## 1.1、说明
+该插件封装区域选择的功能，支持三级区域选择
 
 ## 1.2、UI展示
 
 ## 1.3、开源源码
-插件测试用例与源码下载：[点击](xxxx ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=449_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
 ## 2.1、方法
 
-## 2.2、回调方法
-
-## 2.3、监听方法
-
-# 3、更新历史
-API 版本：uexXXX-3.0.X(iOS) uexXXX-3.0.X(Android)
-最近更新时间：2015-xx-xx
-
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.0 | 插件 | 插件|
-
-# uexAreaPickerView
-   该插件封装区域选择的功能，支持三级区域选择
-
-### 方法：
-* [open](#open)
-* [close](#close)
-
-### 监听方法：
-* [onConfirmClick](https://github.com/AppCanOpenSource/appcan-docs/blob/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80%2FuexAreaPickerView%2FREADME.md#onconfirmclick)
-
----
+>### open 
 
 
-### open 
+`uexAreaPickerView.open();`
+
+
 打开区域选择
 
-```
-uexAreaPickerView.open();
-```
-**参数：**
+
+**参数:**
+
 无
-**平台支持：**
-```
+
+**平台支持:**
+
 Android 2.2+
 iOS 7.1+
-```
 
-### close
-关闭区域选择
+**版本支持:**
+3.0.0+
 
-**版本支持：**
-```
-Android 3.0.0+
-iOS 7.1+
-```
-**示例：**
+**示例:**
 
-示例1
 ```
 uexAreaPickerView.close();
 ```
 
-### onConfirmClick
-选中的区域回调
-**版本支持：**
-```
+>### close
+
+`uexAreaPickerView.close();`
+
+**说明:**
+
+关闭区域选择
+
+**平台支持:**
+
 Android 3.0.0+
 iOS 7.1+
+
+**版本支持:**
+3.0.0+
+
+**示例:**
+
 ```
-**示例：**
+uexAreaPickerView.close();
+```
+
+
+
+## 2.2、监听方法
+
+>### onConfirmClick
+
+`uexAreaPickerView.onConfirmClick（json）`
+
+**参数:**
+
+```
+var json={
+	city:"河北 石家庄市 长安区"
+}
+```
+* 区域直接有空格" "隔开，方便拆分
+
+**说明**
+
+选中的区域回调
+
+**平台支持:**
+
+Android 3.0.0+
+iOS 7.1+
+
+**版本支持:**
+3.0.0+
+
+**示例:**
 
 ```
 uexAreaPickerView.onConfirmClick = function(json){
  alert("onConfirmClick "+json);
 }
 ```
-**参数：**
-```
-city:"河北石家庄市长安区"
-```
+
+
+
+# 3、更新历史
+API 版本:uexAreaPickerView-3.0.X(iOS) uexAreaPickerView-3.0.3(Android)
+最近更新时间:2015-07-10
+
+| 历史发布版本 | iOS更新 | Android更新 |
+| ------------ | ------------ | ------------ |
+| 3.0.3 |onConfirmClick回调值中间添加空格(" ")，方便用户拆分| 返回数据添加空格便于分割|
+| 3.0.2 |修复了选择器会被错误关闭的bug | 修复第二次打开界面空指针问题|
+| 3.0.1 |修复open不能正常运作的bug | clean函数中调用close方法|
+| 3.0.0 | 城市选择器插件 | 城市选择器插件|
+
+
+
+
 
