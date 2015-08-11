@@ -12,7 +12,7 @@
 
 ## 2.1、方法
 
->### open 
+>### open  打开区域选择
 
 
 `uexAreaPickerView.open();`
@@ -39,7 +39,7 @@ iOS 7.1+
 uexAreaPickerView.close();
 ```
 
->### close
+>### close 关闭区域选择
 
 `uexAreaPickerView.close();`
 
@@ -65,9 +65,14 @@ uexAreaPickerView.close();
 
 ## 2.2、监听方法
 
->### onConfirmClick
+>### onConfirmClick 完成选择的监听方法
 
 `uexAreaPickerView.onConfirmClick（json）`
+
+**说明**
+
+完成选择的监听方法 
+
 
 **参数:**
 
@@ -78,9 +83,7 @@ var json={
 ```
 * 区域直接有空格" "隔开，方便拆分
 
-**说明**
 
-选中的区域回调
 
 **平台支持:**
 

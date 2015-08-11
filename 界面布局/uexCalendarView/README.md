@@ -11,15 +11,17 @@
 
 # 2、API概览
 
-## 2.1、方法
+## 2.1、方法 
 
->###open
+>###open 打开日历
 
 
 `uexCalendarView.open(json)`
 
 **说明**
+
 打开日历
+
 **参数**
 ```
 var json = {
@@ -54,7 +56,7 @@ uexCalendarView.open(jsonStr);
 
 ```
 
->###close
+>###close  关闭日历
 
 
 `uexCalendarView.close()`
@@ -83,7 +85,7 @@ iOS 3.0.0+
 uexCalendarView.close()
 
 ```
->###setSelectedDate
+>###setSelectedDate 设置被选中的日期
 
 
 `uexCalendarView.setSelectedDate(json)`
@@ -130,7 +132,7 @@ uexCalendarView.setSelectedDate(jsonStr);
 
 ## 2.2、监听方法
 
->###onItemClick
+>###onItemClick  点击日期时的监听方法
 
 `uexCalendarView.onItemClick(json)`
 

@@ -12,7 +12,7 @@
 ## 2.1、方法
 
 
->### open  
+>### open 打开聊天输入
  
 `uexChatKeyboard.open(viewInfo) `  
 
@@ -108,7 +108,7 @@ var jsonstr =
 }';
 uexChatKeyboard.open(jsonstr);
 ```
->### close
+>### close 关闭聊天输入 
 
  ` uexChatKeyboard.close() `
   
@@ -134,14 +134,14 @@ iOS 6.0+
 uexChatKeyboard.close();
 ```  
 
->### getInputBarHeight
+>### getInputBarHeight 获取输入工具条高度 
  
 `uexChatKeyboard.getInputBarHeight();  `
 
 **说明**
 
 获取输入工具条高度 
-通过回调`uexChatKeyboard.cbGetInputBarHeight(data);`返回结果
+通过回调[cbGetInputBarHeight](#getInputBarHeight 获取输入工具条高度)返回结果
 
 **参数:**
 
@@ -165,7 +165,7 @@ uexChatKeyboard.getInputBarHeight();
 
 ## 2.2、回调方法
 
->### cbGetInputBarHeight
+>### cbGetInputBarHeight 获取输入工具条高度的回调方法
  
 `uexChatKeyboard.cnGetInputBarHeight(data);  `
 
@@ -205,9 +205,14 @@ alert(json);
 
 
 
->### onCommit
+>### onCommit 完成输入的监听方法
 
 `uexChatKeyboard.onCommit (data)`
+
+
+**说明**
+
+完成输入的监听方法
 
 **参数: **
 ：
@@ -236,7 +241,7 @@ alert(data);
 
 ```
 
->### onShareMenuItem
+>### onShareMenuItem 点击分享里选项的监听方法 
 
  
 
@@ -273,7 +278,7 @@ alert(data);
 
 ```
 
->### onVoiceAction
+>### onVoiceAction 录音按钮的监听方法 
  
 `uexChatKeyboard. onVoiceAction (data) `
 
