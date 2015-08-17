@@ -20,76 +20,76 @@
 
 `uexJPush.init()`
 
-** 参数**
+**参数**    
 
 ```
 无
 ```
-**平台支持**
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-**版本支持**
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-**示例**
+**示例**    
 ```
 uexJPush.init();
 ```
->###  stopPush  停止推送服务
+>### stopPush  停止推送服务
 
 
 `uexJPush.stopPush()`
 
-** 参数**
+**参数**    
 
 ```
 无
 ```
-**平台支持**
+**平台支持**    
 
-Android 2.2+
+Android 2.2+    
 
-** 版本支持**
+**版本支持**    
 
-Android 3.0.0+
+Android 3.0.0+    
 
-**示例**
+**示例**    
 ```
 uexJPush.stopPush();
 ```
->###  resumePush  恢复推送服务
+>### resumePush  恢复推送服务
 
 
 `uexJPush.resumePush()`
 
-** 参数** 
+**参数**    
 
 ```
 无
 ```
-**  平台支持** 
+**平台支持**    
 
-Android 2.2+
+Android 2.2+    
 
-**  版本支持** 
+**版本支持**    
 
-Android 3.0.0+
+Android 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 uexJPush.resumePush();
 ```
 
->###  setAlias   设置别名
+>### setAlias   设置别名
 
 
 `uexJPush.setAlias(json)`
 
-**  参数** 
+**参数**    
 
 ```
 var json={
@@ -100,17 +100,17 @@ var json={
 	有效的别名组成：字母（区分大小写）、数字、下划线、汉字。
 	限制：alias 命名长度限制为 40 字节。（判断长度需采用UTF-8编码）
 ```
-**  平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-**  版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 var params = {
 	alias:"alias22"
@@ -118,12 +118,12 @@ var params = {
 var data = JSON.stringify(params);
 uexJPush.setAlias(data);
 ```
->###  setTags  设置标签
+>### setTags  设置标签
 
 
 `uexJPush.setTags(json)`
 
-**  参数** 
+**参数**    
 
 ```
 var json={
@@ -134,17 +134,17 @@ var json={
 	有效的标签组成：字母（区分大小写）、数字、下划线、汉字。
 	限制：每个tag命名长度限制为 40 字节，最多支持设置 100 个 tag，但总长度不得超过1K字节。（判断长度需采用UTF-8编码）
 ```
-**  平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-** 版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 var tags=new Array("tag1","tag2","tag3");
 var params = {
@@ -159,7 +159,7 @@ uexJPush.setTags(data);
 
 `uexJPush.setAliasAndTags(json)`
 
-** 参数** 
+**参数**    
 
 ```
 var json={
@@ -167,17 +167,18 @@ var json={
 	tags:,//Set<String> 设置的标签
 	}
 ```
-** 平台支持** 
 
-Android 2.2+
-iOS 6.0+
+**平台支持**    
 
-** 版本支持** 
+Android 2.2+    
+iOS 6.0+        
 
-Android 3.0.0+
-iOS 3.0.0+
+**版本支持**    
 
-** 示例** 
+Android 3.0.0+        
+iOS 3.0.0+        
+
+**示例**    
 ```
 var tags=new Array("tag4","tag5","tag6");
 var params = {
@@ -189,77 +190,77 @@ uexJPush.setAliasAndTags(data);
 ```
 
 
->###  getRegistrationID 取得应用程序对应的 RegistrationID
+>### getRegistrationID 取得应用程序对应的 RegistrationID
 
 
 `uexJPush.getRegistrationID()`
 
-**  参数** 
+**参数**    
 
 ```
 无
 ```
-**  平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+        
 
-**  版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 uexJPush.getRegistrationID();
 ```
 
->###  clearAllNotifications 清除所有通知
+>### clearAllNotifications 清除所有通知
 
 
 `uexJPush.clearAllNotifications()`
 
-**  参数** 
+**参数**    
 
 ```
 无
 ```
-**  平台支持** 
+**平台支持**    
 
-Android 2.2+
+Android 2.2+    
 
-**  版本支持** 
+**版本支持**    
 
-Android 3.0.0+
+Android 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 uexJPush.clearAllNotifications();
 ```
 
->###  clearNotificationById  根据Id清除某条通知
+>### clearNotificationById  根据Id清除某条通知
 
 
 `uexJPush.clearNotificationById(json)`
 
-**  参数** 
+**参数**    
 
 ```
 var json={
 	notificationId:,//int 通知Id
 }
 ```
-** 平台支持** 
+**平台支持**    
 
-Android 2.2+
-
-
-** 版本支持** 
-
-Android 3.0.0+
+Android 2.2+    
 
 
-** 示例** 
+**版本支持**    
+
+Android 3.0.0+    
+
+
+**示例**    
 ```
 var params = {
 	notificationId:123456789
@@ -268,37 +269,37 @@ var data = JSON.stringify(params);
 uexJPush.clearNotificationById(data);
 
 ```
->###  getConnectionState 获取推送连接状态
+>### getConnectionState 获取推送连接状态
 
 
 `uexJPush.getConnectionState()`
 
-** 参数** 
+**参数**    
 
 ```
 无
 ```
-**  平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-** 版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+        
+iOS 3.0.0+        
 
-** 示例** 
+**示例**        
 ```
 uexJPush.getConnectionState();
 ```
 
->###  addLocalNotification  添加一个本地通知
+>### addLocalNotification  添加一个本地通知
 
 
 `uexJPush.addLocalNotification(json)`
 
-** 参数** 
+**参数**        
 
 ```
 var json={
@@ -310,17 +311,18 @@ var json={
 	broadCastTime:,//long 设置本地通知延迟触发时间，毫秒为单位，如设置10000为延迟10秒添加通知
 };
 ```
-** 平台支持** 
 
-Android 2.2+
-iOS 6.0+
+**平台支持**        
 
-** 版本支持** 
+Android 2.2+    
+iOS 6.0+    
 
-Android 3.0.0+
-iOS 3.0.0+
+**版本支持**        
 
-** 示例** 
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例**    
 ```
 var params = {
 	builderId:0,
@@ -334,29 +336,29 @@ var data = JSON.stringify(params);
 uexJPush.addLocalNotification(data);
 ```
 
->###  removeLocalNotification 移除一个本地通知
+>### removeLocalNotification 移除一个本地通知
 
 
 `uexJPush.removeLocalNotification(json)`
 
-**  参数** 
+**参数**    
 
 ```
 var json={
 	notificationId://int 通知id
 };
 ```
-**  平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-**  版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 var notificationId=3;
 var params = {
@@ -371,22 +373,22 @@ uexJPush.removeLocalNotification(data);
 
 `uexJPush.clearLocalNotifications()`
 
-** 参数** 
+**参数**    
 
 ```
 无
 ```
-**  平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-**  版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 uexJPush.clearLocalNotifications();
 ```
@@ -399,7 +401,7 @@ uexJPush.clearLocalNotifications();
 
 `uexJPush.cbSetAlias(json)`
 
-**  参数** 
+**参数**    
 
 ```
 var json={
@@ -407,17 +409,17 @@ var json={
 	alias://设置的别名
 };
 ```
-** 平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-**  版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 window.uexOnload=function(type){
 	
@@ -429,12 +431,12 @@ window.uexOnload=function(type){
 }
 
 ```
->###  cbSetTags 设置别名的回调方法
+>### cbSetTags 设置别名的回调方法
 
 
 `uexJPush.cbSetTags(json)`
 
-**  参数** 
+**参数**    
 
 ```
 var json={
@@ -442,17 +444,17 @@ var json={
 	tags://设置的标签
 };
 ```
-**  平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-**  版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 window.uexOnload=function(type){
 	
@@ -464,12 +466,12 @@ window.uexOnload=function(type){
 }
 
 ```
->###  cbSetSetAliasAndTags 同时设置别名和标签的回调方法
+>### cbSetSetAliasAndTags 同时设置别名和标签的回调方法
 
 
 `uexJPush.SetAliasAndTags(json)`
 
-**  参数** 
+**参数**    
 
 ```
 var json={
@@ -478,17 +480,17 @@ var json={
 	tags://设置的标签
 };
 ```
-**  平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-** 版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 window.uexOnload=function(type){
 	
@@ -500,29 +502,29 @@ window.uexOnload=function(type){
 }
 
 ```
->###  cbGetRegistrationID  取得应用程序对应的RegistrationID的回调方法
+>### cbGetRegistrationID  取得应用程序对应的RegistrationID的回调方法
 
 
 `uexJPush.cbGetRegistrationID(json)`
 
-** 参数** 
+**参数**    
 
 ```
 var json={
 	registrationID://String 应用程序对应的RegistrationID
 };
 ```
-** 平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-** 版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 window.uexOnload=function(type){
 	
@@ -539,24 +541,24 @@ window.uexOnload=function(type){
 
 `uexJPush.cbGetConnectionState(json)`
 
-** 参数** 
+**参数**    
 
 ```
 var json={
 	result://0-已连接上，1-未连接
 };
 ```
-** 平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-** 版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-**示例**
+**示例**    
 ```
 window.uexOnload=function(type){
 	
@@ -569,12 +571,11 @@ window.uexOnload=function(type){
 ```
 ##2.3、监听方法
 
->###  onReceiveMessage 收到了自定义消息
-
+>### onReceiveMessage 收到了自定义消息
 
 `uexJPush.onReceiveMessage(json)`
 
-** 参数** 
+**参数**    
 
 ```
 var json={
@@ -582,17 +583,17 @@ var json={
 	extras:,// 对应 Portal 推送消息界面上的“可选设置”里的附加字段	
 };
 ```
-** 平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-** 版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 window.uexOnload=function(type){
 	
@@ -604,12 +605,12 @@ window.uexOnload=function(type){
 }
 ```
 
->###  onReceiveNotification 收到了通知
+>### onReceiveNotification 收到了通知
 
 
 `uexJPush.onReceiveNotification(json)`
 
-** 参数** 
+**参数**    
 
 ```
 var json={
@@ -618,17 +619,17 @@ var json={
 	notificationId:,//(仅Android) 消息Id，用于清除通知  
 };
 ```
-** 平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-** 版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 window.uexOnload=function(type){
 	
@@ -640,12 +641,12 @@ window.uexOnload=function(type){
 }
 ```
 
->###  onReceiveNotificationOpen  用户点击了通知
+>### onReceiveNotificationOpen  用户点击了通知
 
 
 `uexJPush.onReceiveNotificationOpen(json)`
 
-** 参数** 
+**参数**    
 
 ```
 var param={
@@ -655,17 +656,17 @@ var param={
 
 };
 ```
-** 平台支持** 
+**平台支持**    
 
-Android 2.2+
-
-
-**  版本支持** 
-
-Android 3.0.0+
+Android 2.2+    
 
 
-** 示例** 
+**版本支持**    
+
+Android 3.0.0+    
+
+
+**示例**    
 ```
 window.uexOnload=function(type){
 	
@@ -677,29 +678,29 @@ window.uexOnload=function(type){
 }
 ```
 
->###  onReceiveConnectionChange  连接状态变化
+>### onReceiveConnectionChange  连接状态变化
 
 
 `uexJPush.onReceiveConnectionChange(json)`
 
-**  参数** 
+**参数**    
 
 ```
 var json={
 	connect:,//0-已连接上，1-未连接
 };
 ```
-** 平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-** 版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 window.uexOnload=function(type){
 	
@@ -710,29 +711,29 @@ window.uexOnload=function(type){
 	...(其他回调或监听)
 }
 ```
->###  onReceiveRegistration  应用程序注册监听
+>### onReceiveRegistration  应用程序注册监听
 
 
 `uexJPush.onReceiveRegistration(json)`
 
-**  参数** 
+**参数**    
 
 ```
 var json={
 	title:,//RegistrationID
 };
 ```
-**  平台支持** 
+**平台支持**    
 
-Android 2.2+
-iOS 6.0+
+Android 2.2+    
+iOS 6.0+    
 
-**  版本支持** 
+**版本支持**    
 
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.0+    
+iOS 3.0.0+    
 
-** 示例** 
+**示例**    
 ```
 window.uexOnload=function(type){
 	
