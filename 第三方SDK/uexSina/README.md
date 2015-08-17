@@ -1,14 +1,14 @@
 ﻿[TOC]
 
- 
-#   1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
- 
+# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 新浪分享插件
+
 ## 1.1 说明
 调用新浪分享文字，图片。
+
 ## 1.2 UI展示
- 
  ![](http://newdocx.appcan.cn/docximg/164911i2015y6i16c.png)
+ 
 ## 1.3 开源源码：
 插件测试用例与源码下载：[点击](http://plugin.appcan.cn/details.html?id=186_index) 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
 
@@ -22,17 +22,19 @@ Path Types
 |  wgts:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/  |  /Documents/apps/xxx(widgetAppId)/ |
 |  wgts:// |  /storage/emulated/0/widgetone/widgets/ |  /Documents/widgets/ |
 |  file:///sdcard/ | /storage/emulated/0/  | 无  |
+
 # 2、API概览
 ##  2.1 方法
 
-> ###registerApp 用户授权
+> ### registerApp 用户授权
 
+`uexSina.registerApp(appKey,appSecret,registerURL) `
 
-`uexSina.registerApp(appKey,appSecret,registerURL)  `
-** 说明:**
+**说明:**
 用户授权    
-回调 [cbRegisterApp](#cbRegisterApp 用户授权的回调方法 "用户授权的回调方法")
-** 参数:**
+回调 [cbRegisterApp](#cbregisterapp 用户授权的回调方法 "用户授权的回调方法")
+
+**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
@@ -40,55 +42,61 @@ Path Types
 | appSecret|String类型 | 必选 | 通过开放平台注册的appSecret |
 | registerURL|String类型 | 必选 | 通过开放平台注册的registerURL |
   
-** 平台支持:**
-Android2.2+ 
+**平台支持:**
+Android2.2+  
 iOS6.0+ 
-** 版本支持:**
+
+**版本支持:**
 3.0.0+  
-** 示例:**
-      见sendImageContent方法示例 
-> ###sendTextContent 分享文字
 
+**示例:**
+见sendImageContent方法示例 
 
+> ### sendTextContent 分享文字
 
-`uexSina.sendTextContent(txt)   `
-** 说明:**
-分享文字    
-回调 [cbShare](#cbShare 分享后的回调方法 "分享后的回调方法")
-** 参数:**
+`uexSina.sendTextContent(txt)`
+
+**说明:**
+分享文字 回调 [cbShare](#cbshare 分享后的回调方法 "分享后的回调方法")
+
+**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | txt| String类型| 必选 | 文本内容   |
  
-** 平台支持:**
-Android2.2+ 
+**平台支持:**
+Android2.2+  
 iOS6.0+ 
-** 版本支持:**
+**版本支持:**
 3.0.0+  
-** 示例:**
-      见sendImageContent方法示例 
-> ###sendImageContent 分享图片
 
+**示例:**
+见sendImageContent方法示例 
 
+> ### sendImageContent 分享图片
 
-`uexSina.sendImageContent(imagePath,txt)    `
-** 说明:**
+`uexSina.sendImageContent(imagePath,txt)`
+
+**说明:**
 如果要分享网络图片需要申请新浪微博高级权限
-回调 [cbShare](#cbShare 分享后的回调方法 "分享后的回调方法")
-** 参数:**
+回调 [cbShare](#cbshare 分享后的回调方法 "分享后的回调方法")
+
+**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | imagePath| String类型| 必选 | 图片路径，路径协议详见CONSTANT中PathTypes。   |
 | txt|String类型 | 必选 | 文本内容 |
  
-** 平台支持:**
-Android2.2+ 
+**平台支持:**
+Android2.2+  
 iOS6.0+ 
-** 版本支持:**
+
+**版本支持:**
 3.0.0+  
-** 示例:**
+
+**示例:**
 
 ```
 <!DOCTYPE HTML>
@@ -143,17 +151,14 @@ iOS6.0+
 </div>
     </body>
 </html>
-
-
-
 ```
+
 ##  2.1 回调方法
-> ###cbRegisterApp 用户授权的回调方法
-
-
+> ### cbRegisterApp 用户授权的回调方法
 
 `uexSina.cbRegisterApp(opId,dataType,data)  `
-**参数:   **
+
+**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
@@ -161,13 +166,14 @@ iOS6.0+
 | dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
 | data|Number类型 | 必选 | 分享结果，0-成功，1-失败。  |
   
-**  版本支持:   **
+**版本支持**
 3.0.0+  
-> ###cbShare 分享后的回调方法
 
+> ### cbShare 分享后的回调方法
 
-`uexSina.cbShare(opId,dataType,data)    `
-**  参数: **
+`uexSina.cbShare(opId,dataType,data)`
+
+**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
@@ -175,11 +181,12 @@ iOS6.0+
 | dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
 | data|Number类型 | 必选 | 分享结果，成功:0，失败:状态码。 |
  
-**  版本支持:   **
+**版本支持:**
 3.0.0+  
-#  3、更新历史
- API 版本：uexSina-3.0.5(iOS) uexSina-3.0.6（Android）
- 最近更新时间：2015-06-19
+
+# 3、更新历史
+API 版本：uexSina-3.0.5(iOS) uexSina-3.0.6（Android）
+最近更新时间：2015-06-19
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
@@ -191,4 +198,3 @@ iOS6.0+
 | 3.0.2  |  统一回调方法名，统一回调参数 | 修复回调数据与文档不一致的问题  |
 | 3.0.1  | 添加uexSina.registerCallBack成功的回调,修复点击分享黑屏的bug| 修复插件配置问题|
 | 3.0.0  | 新浪分享功能插件  | 新浪分享功能插件|
-  
