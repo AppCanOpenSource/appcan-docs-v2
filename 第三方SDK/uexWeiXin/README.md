@@ -66,32 +66,9 @@ iOS6.0+
 **示例:**     
 
 ```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-window.uexOnload = function(){
-uexWeiXin.cbRegisterApp=function(opCode,dataType,data){
-alert(data);
-}
-}
-</script>
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>注册App </span>
-<input class="btn" type="button" value="注册App" onclick="uexWeiXin.registerApp('wxd930ea5d5a258f4f');">
-</div>
-</div>
-</body>
-</html>
-    
+uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 ```
+
 > ### weiXinLogin 微信授权登录
 
 `uexWeiXin.weiXinLogin(scope,state)`
@@ -212,6 +189,7 @@ iOS6.0+
 3.0.0+  
 
 **示例:**
+见weiXinLogin方法
 
 > ### getWeiXinLoginCheckAccessToken 检验accessToken是否有效
 
@@ -237,6 +215,7 @@ iOS6.0+
 3.0.0+  
 
 **示例:**
+见weiXinLogin方法
 
 > ### getWeiXinLoginRefreshAccessToken 获取微信登录的刷新或续期access_token
 
@@ -261,6 +240,7 @@ iOS6.0+
 3.0.0+  
 
 **示例:**
+见weiXinLogin方法
 
 > ### getWeiXinLoginUnionID 获取用户个人信息
 
@@ -285,6 +265,8 @@ iOS6.0+
 3.0.0+  
 
 **示例:**
+见weiXinLogin方法
+
 > ### isWXAppInstalled 检查微信是否已安装
 
 `uexWeiXin.isWXAppInstalled()`
@@ -306,29 +288,29 @@ iOS6.0+
 
 ```
 <!DOCTYPE HTML>
-    <HTML>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>微信功能</title>
-    <script type="text/javascript">
-    window.uexOnload = function(){
-    uexWeiXin.cbIsWXAppInstalled=function(opCode,dataType,data){
-    alert(data);
-    }
-    }
-    </script>
-    </head>
-    <body>
-    <div class="tit">微信功能</div>
-    <div class="conbor">
-    <div class="consj">
-    <span>检测是否安装微信 </span>
-    <input class="btn" type="button" value="检测是否安装微信" onclick="uexWeiXin.isWXAppInstalled();">
-    </div>
-    </div>
-    </body>
-    </html>
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>微信功能</title>
+<script type="text/javascript">
+window.uexOnload = function(){
+uexWeiXin.cbIsWXAppInstalled=function(opCode,dataType,data){
+alert(data);
+}
+}
+</script>
+</head>
+<body>
+<div class="tit">微信功能</div>
+<div class="conbor">
+<div class="consj">
+<span>检测是否安装微信 </span>
+<input class="btn" type="button" value="检测是否安装微信" onclick="uexWeiXin.isWXAppInstalled();">
+</div>
+</div>
+</body>
+</html>
 
 ```
 
@@ -352,29 +334,29 @@ iOS6.0+
 
 ```
 <!DOCTYPE HTML>
-    <HTML>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>微信功能</title>
-    <script type="text/javascript">
-    window.uexOnload = function(){
-    uexWeiXin.cbGetWXAppInstalUrl=function(opCode,dataType,data){
-    alert(data);
-    }
-    }
-    </script>
-    </head>
-    <body>
-    <div class="tit">微信功能</div>
-    <div class="conbor">
-    <div class="consj">
-    <span>获取微信安装地址 </span>
-    <input class="btn" type="button" value="获取微信安装地址" onclick="uexWeiXin.getWXAppInstalUrl();">
-    </div>
-    </div>
-    </body>
-    </html>
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>微信功能</title>
+<script type="text/javascript">
+window.uexOnload = function(){
+uexWeiXin.cbGetWXAppInstalUrl=function(opCode,dataType,data){
+alert(data);
+}
+}
+</script>
+</head>
+<body>
+<div class="tit">微信功能</div>
+<div class="conbor">
+<div class="consj">
+<span>获取微信安装地址 </span>
+<input class="btn" type="button" value="获取微信安装地址" onclick="uexWeiXin.getWXAppInstalUrl();">
+</div>
+</div>
+</body>
+</html>
 
 ```
 
@@ -401,29 +383,29 @@ iOS6.0+
 
 ```
 <!DOCTYPE HTML>
-    <HTML>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>微信功能</title>
-    <script type="text/javascript">
-    window.uexOnload = function(){
-    uexWeiXin.cbIsWXAppSupportApi=function(opCode,dataType,data){
-    alert(data);
-    }
-    }
-    </scriptv
-    </head>
-    <body>
-    <div class="tit">微信功能</div>
-    <div class="conbor">
-    <div class="consj">
-    <span>是否支持本API </span>
-    <input class="btn" type="button" value="是否支持本API" onclick="uexWeiXin.isWXAppSupportApi();">
-    </div>
-    </div>
-    </body>
-    </html>
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>微信功能</title>
+<script type="text/javascript">
+window.uexOnload = function(){
+uexWeiXin.cbIsWXAppSupportApi=function(opCode,dataType,data){
+alert(data);
+}
+}
+</scriptv
+</head>
+<body>
+<div class="tit">微信功能</div>
+<div class="conbor">
+<div class="consj">
+<span>是否支持本API </span>
+<input class="btn" type="button" value="是否支持本API" onclick="uexWeiXin.isWXAppSupportApi();">
+</div>
+</div>
+</body>
+</html>
 ```
 
 > ### getApiVersion 获取SDK的版本号
@@ -448,29 +430,29 @@ Android2.2+
 
 ```
 <!DOCTYPE HTML>
-    <HTML>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>微信功能</title>
-    <script type="text/javascript">
-    window.uexOnload = function(){
-    uexWeiXin.cbGetApiVersion =function(opCode,dataType,data){
-    alert(data);
-    }
-    }
-    </script>
-    </head>
-    <body>
-    <div class="tit">微信功能</div>
-    <div class="conbor">
-    <div class="consj">
-    <span>获取微信安装地址 </span>
-    <input class="btn" type="button" value="获取微信安装地址" onclick="uexWeiXin.getApiVersion();">
-    </div>
-    </div>
-    </body>
-    </html>
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>微信功能</title>
+<script type="text/javascript">
+window.uexOnload = function(){
+uexWeiXin.cbGetApiVersion =function(opCode,dataType,data){
+alert(data);
+}
+}
+</script>
+</head>
+<body>
+<div class="tit">微信功能</div>
+<div class="conbor">
+<div class="consj">
+<span>获取微信安装地址 </span>
+<input class="btn" type="button" value="获取微信安装地址" onclick="uexWeiXin.getApiVersion();">
+</div>
+</div>
+</body>
+</html>
 
 ```
 
@@ -495,26 +477,26 @@ Android2.2+
 
 ```
 <!DOCTYPE HTML>
-    <HTML>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>微信功能</title>
-    <script type="text/javascript">
-    window.uexOnload = function(){
-    }
-    </script>
-    </head>
-    <body>
-    <div class="tit">微信功能</div>
-    <div class="conbor">
-    <div class="consj">
-    <span>打开微信 </span>
-    <input class="btn" type="button" value="打开微信" onclick="uexWeiXin.openWeiXin();">
-    </div>
-    </div>
-    </body>
-    </html>
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>微信功能</title>
+<script type="text/javascript">
+window.uexOnload = function(){
+}
+</script>
+</head>
+<body>
+<div class="tit">微信功能</div>
+<div class="conbor">
+<div class="consj">
+<span>打开微信 </span>
+<input class="btn" type="button" value="打开微信" onclick="uexWeiXin.openWeiXin();">
+</div>
+</div>
+</body>
+</html>
 ```
 
 > ### sendTextContent 分享文本(旧接口不推荐)
@@ -543,34 +525,34 @@ iOS6.0+
 
 ```
 <!DOCTYPE HTML>
-    <HTML>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>微信功能</title>
-    <script type="text/javascript">
-    window.uexOnload = function(){
-    uexWeiXin.cbSendTextContent=function(opCode,dataType,data){
-    alert(data);
-    }
-    }
-    function shareText(){
-    var txt = "这是来自AppCan中国最大的移动中间平台对微信支持测试";
-    var sence = 1;
-    uexWeiXin.sendTextContent(sence,txt);
-    }
-    </script>
-    </head>
-    <body>
-    <div class="tit">微信功能</div>
-    <div class="conbor">
-    <div class="consj">
-    <span>打开微信 </span>
-    <input class="btn" type="button" value="打开微信" onclick="shareText();">
-    </div>
-    </div>
-    </body>
-    </html>
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>微信功能</title>
+<script type="text/javascript">
+window.uexOnload = function(){
+uexWeiXin.cbSendTextContent=function(opCode,dataType,data){
+alert(data);
+}
+}
+function shareText(){
+var txt = "这是来自AppCan中国最大的移动中间平台对微信支持测试";
+var sence = 1;
+uexWeiXin.sendTextContent(sence,txt);
+}
+</script>
+</head>
+<body>
+<div class="tit">微信功能</div>
+<div class="conbor">
+<div class="consj">
+<span>打开微信 </span>
+<input class="btn" type="button" value="打开微信" onclick="shareText();">
+</div>
+</div>
+</body>
+</html>
 
 ```
 
@@ -604,35 +586,35 @@ iOS6.0+
 
 ```
 <!DOCTYPE HTML>
-    <HTML>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>微信功能</title>
-    <script type="text/javascript">
-    window.uexOnload = function(){
-    uexWeiXin.cbSendImageContent=function(opCode,dataType,data){
-    //data是状态码
-    document.getElementById("showPicStatus").innerHTML = "返回分享图片状态码:"+data;
-    };}
-    function sharePic(){
-    var thumImgPath = "res://icon.png";
-    var realImgPath = "res://Default.png";
-    var sence = 1;
-    uexWeiXin.sendImageContent(sence,thumImgPath,realImgPath);
-    }
-    </script>
-    </head>
-    <body>
-    <div class="tit">微信功能</div>
-    <div class="conbor">
-    <div class="consj">
-    <span>分享图片 </span>
-    <input class="btn" type="button" value="分享图片" onclick="sharePic();">
-    </div>
-    </div>
-    </body>
-    </html>
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>微信功能</title>
+<script type="text/javascript">
+window.uexOnload = function(){
+uexWeiXin.cbSendImageContent=function(opCode,dataType,data){
+//data是状态码
+document.getElementById("showPicStatus").innerHTML = "返回分享图片状态码:"+data;
+};}
+function sharePic(){
+var thumImgPath = "res://icon.png";
+var realImgPath = "res://Default.png";
+var sence = 1;
+uexWeiXin.sendImageContent(sence,thumImgPath,realImgPath);
+}
+</script>
+</head>
+<body>
+<div class="tit">微信功能</div>
+<div class="conbor">
+<div class="consj">
+<span>分享图片 </span>
+<input class="btn" type="button" value="分享图片" onclick="sharePic();">
+</div>
+</div>
+</body>
+</html>
     
 ```
 
@@ -652,7 +634,10 @@ iOS6.0+
 | jsonData| String类型| 必选 | 分享的文本内容|
 
 ```
- JSON格式,格式为:{"text":"中国最大的移动中间键平台AppCan对微信分享的文本支持测试","scene":1}
+{
+"text":"中国最大的移动中间键平台AppCan对微信分享的文本支持测试",
+"scene":1
+}
 ```
 
 ![](http://newdocx.appcan.cn/docximg/115925v2014m11r9r.png)
@@ -668,33 +653,33 @@ iOS6.0+
 
 ```
 <!DOCTYPE HTML>
-    <HTML>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>微信功能</title>
-    <script type="text/javascript">
-    window.uexOnload = function(){
-    uexWeiXin.cbShareTextContent=function(data){
-    alert(data);
-    }
-    }
-    function shareText(){
-       var JsonData = '{"text":"中国最大的移动中间键平台AppCan对微信分享的图片支持测试","scene":1}';
-       uexWeiXin.shareTextContent(JsonData);
-    }
-    </script>
-    </head>
-    <body>
-    <div class="tit">微信功能</div>
-    <div class="conbor">
-    <div class="consj">
-    <span>分享文本 </span>
-    <input class="btn" type="button" value="分享文本" onclick="shareText();">
-    </div>
-    </div>
-    </body>
-    </html>
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>微信功能</title>
+<script type="text/javascript">
+window.uexOnload = function(){
+uexWeiXin.cbShareTextContent=function(data){
+alert(data);
+}
+}
+function shareText(){
+   var JsonData = '{"text":"中国最大的移动中间键平台AppCan对微信分享的图片支持测试","scene":1}';
+   uexWeiXin.shareTextContent(JsonData);
+}
+</script>
+</head>
+<body>
+<div class="tit">微信功能</div>
+<div class="conbor">
+<div class="consj">
+<span>分享文本 </span>
+<input class="btn" type="button" value="分享文本" onclick="shareText();">
+</div>
+</div>
+</body>
+</html>
 ```
 
 > ### shareImageContent 分享图片
@@ -731,33 +716,33 @@ iOS6.0+
 
 ```
 <!DOCTYPE HTML>
-    <HTML>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>微信功能</title>
-    <script type="text/javascript">
-    window.uexOnload = function(){
-    uexWeiXin.cbShareImageContent=function(data){
-    //data是状态码
-    alert(data);
-    };}
-    function sharePic(){
-        var JsonData = '{"thumbImg":"res://icon.png","image":"res://Default.png","scene":1}';
-    uexWeiXin.shareImageContent(JsonData);
-    }
-    </script>
-    </head>
-    <body>
-    <div class="tit">微信功能</div>
-    <div class="conbor">
-    <div class="consj">
-    <span>分享图片 </span>
-    <input class="btn" type="button" value="分享图片" onclick="sharePic();">
-    </div>
-    </div>
-    </body>
-    </html>
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>微信功能</title>
+<script type="text/javascript">
+window.uexOnload = function(){
+uexWeiXin.cbShareImageContent=function(data){
+//data是状态码
+alert(data);
+};}
+function sharePic(){
+    var JsonData = '{"thumbImg":"res://icon.png","image":"res://Default.png","scene":1}';
+uexWeiXin.shareImageContent(JsonData);
+}
+</script>
+</head>
+<body>
+<div class="tit">微信功能</div>
+<div class="conbor">
+<div class="consj">
+<span>分享图片 </span>
+<input class="btn" type="button" value="分享图片" onclick="sharePic();">
+</div>
+</div>
+</body>
+</html>
     
 ```
 
@@ -770,18 +755,17 @@ iOS6.0+
 回调 [cbShareLinkContent](#cbShareLinkContent 分享Link的回调方法 "分享Link的回调方法")   
 
 **参数:**
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | jsonData| String类型| 必选 | 分享的文本内容,JSON格式|
 
 ```
 var json = {
-    thumbImg:,//(必选) image url
-    wedpageUrl:,//(必选) 微信支付分配的商户号
-    scene:,//
-    title:,//
-    description:,//
+    thumbImg:
+    wedpageUrl:
+    scene:
+    title:
+    description:
 }
 ```
 ![](http://newdocx.appcan.cn/docximg/174228b2015w0k14h.png)
@@ -797,34 +781,34 @@ iOS6.0+
 
 ```
 <!DOCTYPE HTML>
-    <HTML>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>微信功能</title>
-    <script type="text/javascript">
-    window.uexOnload = function(){
-    uexWeiXin.cbShareLinkContent=function(data){
-    //data是状态码
-    alert(data);
-    };}
-    function sharePic(){
-    var JsonData = '{"thumbImg":"res://icon.png","wedpageUrl":"http://www.appcan.cn","scene":1,"title":"你好,我是AppCan","description":"中国最大的移动中间键平台AppCan对微信分享的图片支持测试"}';
-    uexWeiXin.shareLinkContent(JsonData);
-    
-    }
-    </script>
-    </head>
-    <body>
-    <div class="tit">微信功能</div>
-    <div class="conbor">
-    <div class="consj">
-    <span>分享Link </span>
-    <input class="btn" type="button" value="分享Link" onclick="sharePic();">
-    </div>
-    </div>
-    </body>
-    </html>
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>微信功能</title>
+<script type="text/javascript">
+window.uexOnload = function(){
+uexWeiXin.cbShareLinkContent=function(data){
+//data是状态码
+alert(data);
+};}
+function sharePic(){
+var JsonData = '{"thumbImg":"res://icon.png","wedpageUrl":"http://www.appcan.cn","scene":1,"title":"你好,我是AppCan","description":"中国最大的移动中间键平台AppCan对微信分享的图片支持测试"}';
+uexWeiXin.shareLinkContent(JsonData);
+
+}
+</script>
+</head>
+<body>
+<div class="tit">微信功能</div>
+<div class="conbor">
+<div class="consj">
+<span>分享Link </span>
+<input class="btn" type="button" value="分享Link" onclick="sharePic();">
+</div>
+</div>
+</body>
+</html>
     
 ```
 
@@ -848,7 +832,6 @@ iOS6.0+
 
 **示例:**
 见gotoPay方法示例  
-
 
 > ### getPrepayId 生成预支付订单
 
@@ -1082,7 +1065,6 @@ iOS6.0+
 生成预支付订单,generateAdvanceOrder方法的替代方法 
 
 **参数:**
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | token| String类型| 必选 | 支付token     |
@@ -1138,83 +1120,83 @@ iOS6.0+
 
 ```
 <!DOCTYPE HTML>
-    <HTML>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>微信支付功能</title>
-    <script type="text/javascript">
-    var cText = 0;
-    var cJson = 1;
-    var cInt = 2;
-    window.uexOnload = function(){
-    uexWeiXin.cbIsSupportPay =function(opCode,dataType,data) {
-    document.getElementById("showSupportInfo").innerHTML = data;
-    }
-    uexWeiXin.cbGotoPay = function(opCode,dataType,data) {
-    data = eval('(' + data + ')');
-    if(data.errCode==0){
-    document.getElementById("showPayInfo").innerHTML = data;
-    }else{
-    document.getElementById("showPayInfo").innerHTML = data.errCode;
-    }
-    }
-    
-    uexWeiXin.cbGenerateAdvanceOrder = function(opCode,dataType,data) {
-    document.getElementById("showOrderInfo").innerHTML = data;
-    }
-    uexWeiXin.cbGetAccessToken = function(opCode,dataType,data) {
-    document.getElementById("showAccess_tokenold").innerHTML = data;
-    }
-    uexWeiXin.cbGetAccessTokenLocal = function(opCode,dataType,data) {
-       document.getElementById("showAccess_token").innerHTML = data;
-       }
-       uexWeiXin.cbIsWXAppInstalled=function(opCode,dataType,data){
-       alert("cbIsWXAppInstalled："+data);
-       };
-       }
-       function generateAdvanceOrder(){
-       var token = document.getElementById("showAccess_token").innerHTML;
-       var postJsonStr = "{\"appid\":\"wx652070b3a10fcd45\",\"noncestr\":\"3b3ee08309979aa868ed5980d62e7db0\",\"package\":\"bank_type=WX&body=%C0%D6%B1%B4%CB%B9%CC%F0%C6%B7%C3%C0%CE%B6%CA%A5%B4%FA3%D1%A11%A3%AC%B2%DD%DD%AE%2F%C7%C9%BF%CB%C1%A6%2F%C3%A2%B9%FB&fee_type=1&input_charset=GBK?ify_url=http%3A%2F%2Ftuan.iweihai.cn%2Fmobile%2Fweixinpay%2Fnotify_url.php&out_trade_no=20140604260005&partner=1218583701&spbill_create_ip=221.2.146.40&total_fee=500&sign=9D3AC54D47C3346A07248E0C74AD996B\",\"timestamp\":1401861361,\"traceid\":\"\",\"sign_method\":\"sha1\",\"app_signature\":\"e647c6357755a1151fe1a1eb6dc6a2f4b7d33ba3\"}";
-       uexWeiXin.generateAdvanceOrder(token,postJsonStr);
-       }
-       function gotoPay(){
-       uexWeiXin.gotoPay('1218583701','1101000000140702906bfc8e71d49c1d','Sign=WXPay','62645c89febabd1906f1a56c635e6e3f','1404281177','8a94d714eaa156897c3d6dd0446eb04b7ec12a20');
-       }
-       </script>
-       </head>
-       <body>
-       <div class="tit">微信功能</div>
-       <div class="conbor">
-       <div class="consj">
-       <span>1.注册app id </span>
-       <input class="btn" type="button" value="注册App" onclick="uexWeiXin.registerApp('wxd930ea5d5a258f4f');">
-       <div class="tcxx" id="selectItem"></div><br>
-       <span>零.当前手机安装的微信版本是否支持微信支付</span>
-       <span>返回0支持，1版本太低不支持</span>
-       <input class="btn" type="button" value="判断是否支持微信支付" onclick="uexWeiXin.isSupportPay()">
-       <div class="tcxx" id="showSupportInfo"></div><br>
-       <span>一.获取微信支付access_token</span>
-       <span>准备工作:在使用接口之前请先保证持有向微信开放平台申请得到的 appid、appsecret(长度为
-       32 的字符串,用于获取 access_token)、appkey(长度为 128 的字符串,用于支付过程中生 成 app_signature)及 partnerkey(微信公众平台商户模块生成的商户密钥)。网页会在cbGetAccessTocken（）中获得。</span>
-       <input class="btn" type="button" value="获取access_token" onclick="uexWeiXin.getAccessToken('wx652070b3a10fcd45','00f373c57777e46ba86d461cbcc2fbe8');">
-       <div class="tcxx" id="showAccess_tokenold"></div><br>
-       <span>一.获取本地微信支付access_token</span>
-       <span>第一次调用getAccessTokenLocal，是没有办法获取access_token，必须通过getAccessToken获取access_token之后会把access_token存在本地，下次再使用access_token的时候就可以通过getAccessTokenLocal来获得，这么做的目的是因为微信对每天获得token的次数有限制</span>
-       <input class="btn" type="button" value="获取本地access_token" onclick="uexWeiXin.getAccessTokenLocal();">
-       <div class="tcxx" id="showAccess_token"></div><br>
-       <span>二.生成预支付订单</span>
-       <span>用第一步请求的 access_token 作为参数,然后往微信开放平台接口post订单详情(需要在服务器端生成)生成预支付订单。网页会在cbGetAccessTocken（）中获得生成订单情况</span>
-       <input class="btn" type="button" value="生成预支付订单" onclick="generateAdvanceOrder()">
-       <div class="tcxx" id="showOrderInfo"></div><br>
-       <span>三.调起微信支付</span>
-       <span>将第二步生成的 textareapayId 作为参数,调用微信 sdk 发送支付请求到微信。</span>
-       <input class="btn" type="button" value="调微信支付" onclick="gotoPay()">
-       <div class="tcxx" id="showPayInfo"></div><br>
-       </div>
-       </div>
-       </body>
-       </html>
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>微信支付功能</title>
+<script type="text/javascript">
+var cText = 0;
+var cJson = 1;
+var cInt = 2;
+window.uexOnload = function(){
+uexWeiXin.cbIsSupportPay =function(opCode,dataType,data) {
+document.getElementById("showSupportInfo").innerHTML = data;
+}
+uexWeiXin.cbGotoPay = function(opCode,dataType,data) {
+data = eval('(' + data + ')');
+if(data.errCode==0){
+document.getElementById("showPayInfo").innerHTML = data;
+}else{
+document.getElementById("showPayInfo").innerHTML = data.errCode;
+}
+}
+
+uexWeiXin.cbGenerateAdvanceOrder = function(opCode,dataType,data) {
+document.getElementById("showOrderInfo").innerHTML = data;
+}
+uexWeiXin.cbGetAccessToken = function(opCode,dataType,data) {
+document.getElementById("showAccess_tokenold").innerHTML = data;
+}
+uexWeiXin.cbGetAccessTokenLocal = function(opCode,dataType,data) {
+   document.getElementById("showAccess_token").innerHTML = data;
+   }
+   uexWeiXin.cbIsWXAppInstalled=function(opCode,dataType,data){
+   alert("cbIsWXAppInstalled："+data);
+   };
+   }
+   function generateAdvanceOrder(){
+   var token = document.getElementById("showAccess_token").innerHTML;
+   var postJsonStr = "{\"appid\":\"wx652070b3a10fcd45\",\"noncestr\":\"3b3ee08309979aa868ed5980d62e7db0\",\"package\":\"bank_type=WX&body=%C0%D6%B1%B4%CB%B9%CC%F0%C6%B7%C3%C0%CE%B6%CA%A5%B4%FA3%D1%A11%A3%AC%B2%DD%DD%AE%2F%C7%C9%BF%CB%C1%A6%2F%C3%A2%B9%FB&fee_type=1&input_charset=GBK?ify_url=http%3A%2F%2Ftuan.iweihai.cn%2Fmobile%2Fweixinpay%2Fnotify_url.php&out_trade_no=20140604260005&partner=1218583701&spbill_create_ip=221.2.146.40&total_fee=500&sign=9D3AC54D47C3346A07248E0C74AD996B\",\"timestamp\":1401861361,\"traceid\":\"\",\"sign_method\":\"sha1\",\"app_signature\":\"e647c6357755a1151fe1a1eb6dc6a2f4b7d33ba3\"}";
+   uexWeiXin.generateAdvanceOrder(token,postJsonStr);
+   }
+   function gotoPay(){
+   uexWeiXin.gotoPay('1218583701','1101000000140702906bfc8e71d49c1d','Sign=WXPay','62645c89febabd1906f1a56c635e6e3f','1404281177','8a94d714eaa156897c3d6dd0446eb04b7ec12a20');
+   }
+</script>
+</head>
+<body>
+<div class="tit">微信功能</div>
+<div class="conbor">
+<div class="consj">
+<span>1.注册app id </span>
+<input class="btn" type="button" value="注册App" onclick="uexWeiXin.registerApp('wxd930ea5d5a258f4f');">
+<div class="tcxx" id="selectItem"></div><br>
+<span>零.当前手机安装的微信版本是否支持微信支付</span>
+<span>返回0支持，1版本太低不支持</span>
+<input class="btn" type="button" value="判断是否支持微信支付" onclick="uexWeiXin.isSupportPay()">
+<div class="tcxx" id="showSupportInfo"></div><br>
+<span>一.获取微信支付access_token</span>
+<span>准备工作:在使用接口之前请先保证持有向微信开放平台申请得到的 appid、appsecret(长度为
+32 的字符串,用于获取 access_token)、appkey(长度为 128 的字符串,用于支付过程中生 成 app_signature)及 partnerkey(微信公众平台商户模块生成的商户密钥)。网页会在cbGetAccessTocken（）中获得。</span>
+<input class="btn" type="button" value="获取access_token" onclick="uexWeiXin.getAccessToken('wx652070b3a10fcd45','00f373c57777e46ba86d461cbcc2fbe8');">
+<div class="tcxx" id="showAccess_tokenold"></div><br>
+<span>一.获取本地微信支付access_token</span>
+<span>第一次调用getAccessTokenLocal，是没有办法获取access_token，必须通过getAccessToken获取access_token之后会把access_token存在本地，下次再使用access_token的时候就可以通过getAccessTokenLocal来获得，这么做的目的是因为微信对每天获得token的次数有限制</span>
+<input class="btn" type="button" value="获取本地access_token" onclick="uexWeiXin.getAccessTokenLocal();">
+<div class="tcxx" id="showAccess_token"></div><br>
+<span>二.生成预支付订单</span>
+<span>用第一步请求的 access_token 作为参数,然后往微信开放平台接口post订单详情(需要在服务器端生成)生成预支付订单。网页会在cbGetAccessTocken（）中获得生成订单情况</span>
+<input class="btn" type="button" value="生成预支付订单" onclick="generateAdvanceOrder()">
+<div class="tcxx" id="showOrderInfo"></div><br>
+<span>三.调起微信支付</span>
+<span>将第二步生成的 textareapayId 作为参数,调用微信 sdk 发送支付请求到微信。</span>
+<input class="btn" type="button" value="调微信支付" onclick="gotoPay()">
+<div class="tcxx" id="showPayInfo"></div><br>
+</div>
+</div>
+</body>
+</html>
 
 ```
 
@@ -1226,7 +1208,6 @@ iOS6.0+
 支付前需要生成预支付订单，gotoPay方法的替代方法 
 
 **参数:**
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | partnerID| String类型| 必选 | 商家向财付通申请的商家ID     |
@@ -1247,7 +1228,7 @@ iOS6.0+
 <!DOCTYPE HTML>
 <html>
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" /><link rel="stylesheet" type="text/css" href="../css/index.css">
 <title>微信功能</title>
 <script type="text/javascript">
@@ -1363,6 +1344,13 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
 **版本支持:**
 3.0.0+  
 
+**示例**
+```
+uexWeiXin.cbRegisterApp=function(opCode,dataType,data){
+    alert(data);
+}
+```
+
 > ### cbWeiXinLogin 微信登录授权的回调方法
 
 `uexWeiXin.cbWeiXinLogin(opid,dataType,data) `
@@ -1377,6 +1365,14 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
  
 **版本支持:**
 3.0.0+  
+
+**示例**
+```
+uexWeiXin.cbWeiXinLogin = function (opCode,dataType,data) {
+    alert(data);
+}
+```
+
 
 > ### cbGetWeiXinLoginAccessToken 获取微信accessToken的回调方法
 
@@ -1407,6 +1403,18 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
 **版本支持:**
 3.0.0+  
 
+**示例**
+
+```
+uexWeiXin.cbGetWeiXinLoginAccessToken = function (opCode,dataType,data) {
+    alert(data);
+    data = JSON.parse(data);
+    openid=data.openid;
+    access_token = data.access_token;
+    refresh_token = data.refresh_token;
+}
+```
+
 > ### cbGetWeiXinLoginCheckAccessToken 检验微信accessToken是否超时的回调方法
 
 `uexWeiXin.cbGetWeiXinLoginCheckAccessToken(opid,dataType,data)`
@@ -1421,6 +1429,13 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
  
 **版本支持:**
 3.0.0+  
+
+**示例**
+```
+uexWeiXin.cbGetWeiXinLoginCheckAccessToken = function (opCode,dataType,data) {
+    alert(data);
+}
+```
 
 > ### cbGetWeiXinLoginRefreshAccessToken 微信刷新或续期accessToken的回调方法
 
@@ -1444,14 +1459,19 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
     "scope":"SCOPE" 
 } 
 ```
-
-各字段说明见:  
-
+各字段说明见:
  ![](http://newdocx.appcan.cn/docximg/110655t2015f3i16k.png)
       图_uexWeiXin_3.0   
 	  
 **版本支持:**
 3.0.0+  
+
+**示例**
+```
+uexWeiXin.cbGetWeiXinLoginRefreshAccessToken = function (opCode,dataType,data) {
+    alert(data);
+}
+```
 
 > ### cbGetWeiXinLoginUnionID 获取用户个人信息的回调方法
 
@@ -1465,7 +1485,7 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
 | dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
 | data|Json类型 | 必选 | 返回的数据      |
 
-正确的格式: 
+data的格式: 
 
 ```
 {
@@ -1485,13 +1505,17 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
 ```
 
 各字段说明:    
- 
  ![](http://newdocx.appcan.cn/docximg/110725r2015e3y16g.png)
  
 **版本支持:**
 3.0.0+  
 
-
+**示例**
+```
+uexWeiXin.cbGetWeiXinLoginUnionID = function (opCode,dataType,data) {
+    alert(data);
+}
+```
 > ### cbIsWXAppInstalled 检查微信是否已安装的回调方法
 
 `uexWeixin.cbIsWXAppInstalled(opId,dataTpye,data)`
@@ -1508,6 +1532,13 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
 
 3.0.0+  
 
+**示例**
+```
+uexWeiXin.cbIsWXAppInstalled = function (opCode,dataType,data) {
+    alert(data);
+}
+```
+
 > ### cbGetWXAppInstalUrl 获取微信的itunes安装地址的回调方法
 
 `uexWeixin.cbGetWXAppInstalUrl(opId,dataTpye,data)`
@@ -1522,6 +1553,13 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
  
 **版本支持:**
 3.0.0+  
+
+**示例**
+```
+uexWeiXin.cbGetWXAppInstalUrl = function (opCode,dataType,data) {
+    alert(data);
+}
+```
 
 > ### cbIsWXAppSupportApi 判断API是否被支持的回调方法
 
@@ -1538,6 +1576,13 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
 **版本支持:**
 3.0.0+  
 
+**示例**
+```
+uexWeiXin.cbIsWXAppSupportApi = function (opCode,dataType,data) {
+    alert(data);
+}
+```
+
 > ### cbGetApiVersion 获取SDK的版本号的回调方法
 
 `uexWeixin.cbGetApiVersion(opId,dataType,data)`
@@ -1552,7 +1597,14 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
  
 **版本支持:**
 3.0.0+  
- 
+
+**示例**
+```
+uexWeiXin.cbGetApiVersion = function (opCode,dataType,data) {
+    alert(data);
+}
+```
+
 > ### cbSendTextContent 分享文本的回调方法(旧接口不推荐)
 
 `uexWeixin.cbSendTextContent(opId,dataTpye,data)`
@@ -1567,6 +1619,15 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
  
 **版本支持:**
 3.0.0+  
+
+
+**示例**
+```
+uexWeiXin.cbSendTextContent = function (opCode,dataType,data) {
+    alert(data);
+}
+```
+
 
 > ### cbSendImageContent 分享图片的回调方法(旧接口不推荐)
 
@@ -1583,6 +1644,13 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
 **版本支持:**
 3.0.0+  
 
+**示例**
+```
+uexWeiXin.cbSendImageContent = function (opCode,dataType,data) {
+    alert(data);
+}
+```
+
 > ### cbShareTextContent 分享文本的回调方法
 
 `uexWeixin.cbShareTextContent(data) `
@@ -1596,7 +1664,14 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
 **版本支持:**
 3.0.0+  
 
-> ###cbShareImageContent 分享图片的回调方法
+**示例**
+```
+uexWeiXin.cbShareTextContent = function (opCode,dataType,data) {
+    alert(data);
+}
+```
+
+> ### cbShareImageContent 分享图片的回调方法
 
 `uexWeixin.cbShareImageContent(data)`
 
@@ -1607,7 +1682,14 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
 | data|Number类型 | 必选 | 返回的错误码,0-成功,非0-失败.       |
  
 **版本支持:**
-3.0.0+  
+3.0.0+ 
+
+**示例**
+```
+uexWeiXin.cbShareImageContent = function (opCode,dataType,data) {
+    alert(data);
+}
+```
 
 > ### cbShareLinkContent 分享Link的回调方法
 
@@ -1621,6 +1703,13 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
  
 **版本支持:**
 3.0.0+  
+
+**示例**
+```
+uexWeiXin.cbShareLinkContent = function (opCode,dataType,data) {
+    alert(data);
+}
+```
 
 > ### cbIsSupportPay 是否支持支付功能的回调方法
  
@@ -1636,6 +1725,13 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
  
 **版本支持:**
 3.0.0+  
+
+**示例**
+```
+uexWeiXin.cbIsSupportPay = function (opCode,dataType,data) {
+    alert(data);
+}
+```
 
 > ### cbGetPrepayId 生成预支付订单的回调接口
 `uexWeiXin.cbGetPrepayId(json); `
@@ -1653,7 +1749,8 @@ uexWeiXin.cbGetPrepayId = function(data){
 	alert(data);
 }
 ```
-> ###cbStartPay 支付结果的回调方法
+
+> ### cbStartPay 支付结果的回调方法
 
 `uexWeiXin.cbStartPay(json);`
 
@@ -1691,6 +1788,14 @@ uexWeiXin.cbStartPay = function(data){
 **版本支持:**
 3.0.0+  
 
+**示例:**
+```
+uexWeiXin.cbGetAccessToken = function(data){
+	alert(data);
+}
+```
+
+
 > ### cbGetAccessTokenLocal 获取本地支付token的回调方法`<旧版接口，新版插件不支持>`使用新接口
 
 `uexWeiXin.cbGetAccessTokenLocal(opId,dataType,data)`
@@ -1706,6 +1811,13 @@ uexWeiXin.cbStartPay = function(data){
 **版本支持:**
 3.0.0+  
 
+**示例**
+```
+uexWeiXin.cbGetAccessTokenLocal = function (opCode,dataType,data) {
+    alert(data);
+}
+```
+
 > ### cbGenerateAdvanceOrder 生成预支付订单的回调方法`<旧版接口，新版插件不支持>`使用新接口
 
 `uexWeiXin.cbGenerateAdvanceOrder(opId,dataType,data)`
@@ -1720,6 +1832,13 @@ uexWeiXin.cbStartPay = function(data){
 
 **版本支持:**
 3.0.0+  
+
+**示例**
+```
+uexWeiXin.cbGenerateAdvanceOrder = function (opCode,dataType,data) {
+alert(data);
+}
+```
 
 > ### cbGotoPay 支付回调方法`<旧版接口，新版插件不支持>`使用新接口
 
@@ -1743,6 +1862,13 @@ uexWeiXin.cbStartPay = function(data){
 
 **版本支持:**
 3.0.0+  
+
+**示例**
+```
+uexWeiXin.cbGotoPay = function (opCode,dataType,data) {
+    alert(data);
+}
+```
 
 
 #3、更新历史
