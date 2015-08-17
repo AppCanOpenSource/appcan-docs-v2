@@ -225,6 +225,7 @@ iOS 3.0.0+
 
 **参数:**    
 无
+
 **平台支持:**    
 Android 2.2+    
 iOS 6.0+    
@@ -365,8 +366,8 @@ iOS 3.0.0+
 
 > ### setScrollEnable  开启或关闭手势移动
 
-
 `uexGaodeMap.setScrollEnable(json)`
+
 **参数:**    
 ```
 var json = {
@@ -390,8 +391,8 @@ iOS 3.0.0+
 
 > ###  addMarkersOverlay  添加标注
 
-
 `uexGaodeMap.addMarkersOverlay(json)`
+
 **参数:**    
 ```
 var json = [
@@ -442,8 +443,8 @@ iOS 3.0.0+
 
 > ###setMarkerOverlay  修改标注
 
-
 `uexGaodeMap.setMarkerOverlay(json)`
+
 **参数:**    
 ```
 var json = {
@@ -478,8 +479,8 @@ iOS 3.0.0+
 
 > ### addPolylineOverlay  添加折线覆盖物
 
-
 `uexGaodeMap.addPolylineOverlay(json)`
+
 **参数:**    
 ```
 var json = {
@@ -527,8 +528,8 @@ iOS 3.0.0+
 
 > ### removeOverlays  移除覆盖物
 
-
 `uexGaodeMap.removeOverlays(json)`
+
 **参数:**    
 ```
 var json = []////(可选)覆盖物唯一标识符数组，不传时移除所有覆盖物。
@@ -548,8 +549,8 @@ iOS 3.0.0+
 
 > ### addArcOverlay  添加弧形覆盖物
 
-
 `uexGaodeMap.addArcOverlay(json)`
+
 **参数:**    
 ```
 var json = {
@@ -599,8 +600,8 @@ Android 3.0.0+
 
 > ### addCircleOverlay  添加圆形覆盖物
 
-
 `uexGaodeMap.addCircleOverlay(json)`
+
 **参数:**    
 ```
 var json = {
@@ -638,6 +639,7 @@ iOS 3.0.0+
 
 
 `uexGaodeMap.addPolygonOverlay(json)`
+
 **参数:**    
 ```
 var json = {
@@ -691,8 +693,8 @@ iOS 3.0.0+
 
 > ### addGroundOverlay  添加图片覆盖物
 
-
 `uexGaodeMap.addGroundOverlay(json)`
+
 **参数:**    
 ```
 var json = {
@@ -737,8 +739,8 @@ iOS 3.0.0+
 
 > ### removeMarkersOverlays  移除标注
 
-
 `uexGaodeMap.removeMarkersOverlays(json)`
+
 **参数:**    
 ```
 var json = []//(可选)标注唯一标识符数组，不传时移除所有标注。
@@ -760,6 +762,7 @@ iOS 3.0.0+
 
 回调 [cbPoiSearch](#cbPoiSearch 兴趣点搜索的回调方法 "兴趣点搜索的回调方法")
 `uexGaodeMap.poiSearch(json)`
+
 **参数:**    
 ```
 var json = {
@@ -891,6 +894,7 @@ iOS 3.0.0+
 
 回调 [cbGeocode](#cbGeocode 地理编码的回调方法 "地理编码的回调方法")
 `uexGaodeMap.geocode(json)`
+
 **参数:**    
 ```
 var json = {
@@ -919,6 +923,7 @@ iOS 3.0.0+
 
 回调 [cbReverseGeocode](#cbReverseGeocode 反地理编码的回调方法 "反地理编码的回调方法")
 `uexGaodeMap.reverseGeocode(json)`
+
 **参数:**    
 ```
 var json = {
@@ -946,6 +951,7 @@ iOS 3.0.0+
 
 回调 [cbGetCurrentLocation](#cbGetCurrentLocation 获取当前位置的回调方法 "获取当前位置的回调方法")
 `uexGaodeMap.getCurrentLocation()`
+
 **参数:**    
 ```
 无
@@ -965,6 +971,7 @@ iOS 3.0.0+
 
 
 `uexGaodeMap.startLocation(json)`
+
 **参数:**    
 ```
 var json = {（仅Android支持参数）
@@ -990,8 +997,8 @@ iOS 3.0.0+
 
 > ### stopLocation  停止连续定位
 
-
 `uexGaodeMap.stopLocation()`
+
 **参数:**    
 ```
 无
@@ -1035,8 +1042,8 @@ iOS 3.0.0+
 
 > ### setUserTrackingMode  设置连续定位模式
 
-
 `uexGaodeMap.setUserTrackingMode(json)`
+
 **参数:**    
 ```
 var json = {
@@ -1074,8 +1081,8 @@ var json = {
 Android 2.2+    
 iOS 6.0+    
 **版本支持:**       
-Android 3.0.2+
-iOS 3.0.1+
+Android 3.0.2+    
+iOS 3.0.1+     
 **示例:**    
 ```
   var params = {
@@ -1101,7 +1108,7 @@ var json = {
 Android 2.2+    
    
 **版本支持:**       
-Android 3.0.2+
+Android 3.0.2+    
  
 **示例:**    
 ```
@@ -1126,7 +1133,7 @@ var json = {
 Android 2.2+    
 
 **版本支持:**       
-Android 3.0.2+
+Android 3.0.2+    
 **示例:**    
 ```
    var params = {
@@ -1139,6 +1146,7 @@ Android 3.0.2+
 
 
 `uexGaodeMap.clear()`
+
 **参数:**    
 ```
 无
@@ -1147,7 +1155,7 @@ Android 3.0.2+
 Android 2.2+    
 iOS 6.0+    
 **版本支持:**       
-Android 3.0.2+
+Android 3.0.2+    
 iOS 3.0.1+
 **示例:**    
 ```
@@ -1185,9 +1193,9 @@ iOS 3.0.0+
 
 > ### cbGeocode 地理编码的回调方法
 
-
 `uexGaodeMap.cbGeocode(json);`
-**参数:**    
+
+**参数:**
 ```
 var json = {
     longitude:,//当前位置经度
@@ -1280,6 +1288,7 @@ iOS 3.0.0+
 
 
 `uexGaodeMap.onMapLoadedListener();`
+
 **参数:**    
 ```
 无
@@ -1456,6 +1465,7 @@ iOS 3.0.2+
 > ### cbDownload 开始下载的回调方法
   
 `uexGaodeMap.cbDownload(json)`
+
 **参数:**    
 ```
 var json = {
@@ -1527,7 +1537,6 @@ iOS 3.0.2+
 ```
 
 > ### pause 暂停下载
-  
 
 `uexGaodeMap.pause(json)`
 
@@ -1574,6 +1583,7 @@ iOS 3.0.2+
   
 
 `uexGaodeMap.getAvailableCityList()`
+
 **参数:**    
 ```
 无
@@ -1618,7 +1628,6 @@ iOS 3.0.2+
 ```
 
 > ### getAvailableProvinceList 获取可下载离线地图的省和城市列表
-  
 
 `uexGaodeMap.getAvailableProvinceList()`
 
@@ -1731,7 +1740,7 @@ iOS 3.0.2+
 
 `uexGaodeMap.getDownloadingList(json)`
 
-**参数:**    
+**参数:**
 ```
 无
 ```
@@ -1833,14 +1842,12 @@ iOS 3.0.2+
 ```
 
 > ### delete  删除已下载或者正在下载数据
- 
 
 `uexGaodeMap.delete(json)`
 
 **参数:**    
 ```
 var json = []//(可选,仅Android) 省或城市名称数组
-
 
 ```
 
