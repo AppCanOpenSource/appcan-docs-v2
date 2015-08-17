@@ -43,6 +43,7 @@ Path Types
 
 **说明:**    
 登录QQ  回调 [cbLogin](#cbLogin  登录完成的回调方法  "cbLogin")
+
 **参数:**    
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
@@ -64,7 +65,8 @@ iOS6.0+
 ```
 > ### isQQInstalled 检查QQ是否已安装
 
-`uexQQ.isQQInstalled()          `       
+`uexQQ.isQQInstalled()`
+
 **说明:**    
 检查QQ是否已安装  
 回调 [cbIsQQInstalled](#cbIsQQInstalled  检查QQ是否已安装的回调方法  "cbIsQQInstalled")
@@ -78,7 +80,8 @@ iOS6.0+
 3.0.0+                  
 > ### shareWebImgTextToQQ     分享图文到QQ     
 
-`uexQQ.shareWebImgTextToQQ(appId,jsonData);         `       
+`uexQQ.shareWebImgTextToQQ(appId,jsonData);`
+
 **说明:**    
 分享图文信息到QQ  
 回调 [cbShareQQ](#cbShareQQ  分享完成的回调方法  "cbShareQQ")
@@ -118,9 +121,11 @@ iOS6.0+
 > ### shareLocalImgToQQ 分享本地图片到QQ
 
 `uexQQ.shareLocalImgToQQ(appId,jsonData);`
+
 **说明:**    
 分享本地图片到QQ       
 回调 [cbShareQQ](#cbShareQQ  分享完成的回调方法  "cbShareQQ")
+
 **参数:**    
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
@@ -152,12 +157,14 @@ iOS6.0+
   }
 
 ```
-> ### shareAudioToQQ          分享音频到QQ         
+> ### shareAudioToQQ 分享音频到QQ
 
-`uexQQ.shareAudioToQQ(appId,jsonData);                      `   
+`uexQQ.shareAudioToQQ(appId,jsonData);`
+
 **说明:**    
 分享音频到QQ          
 回调 [cbShareQQ](#cbShareQQ  分享完成的回调方法  "cbShareQQ")
+
 **参数:**    
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
@@ -167,6 +174,7 @@ iOS6.0+
 ````
  json格式如下:{"title":"title","summary":"summary","targetUrl":"url","imageUrl":"url",appName":"uexQQ","audio_url":"url","cflag":"2"}         
  ````
+
 各字段含义如下:
 
 | 参数 | 是否必须   | 说明 |
@@ -196,9 +204,11 @@ iOS6.0+
 > ### shareAppToQQ  分享应用到QQ         
 
 `uexQQ.shareAppToQQ(appId,jsonData);`
+
 **说明:**    
 分享应用到QQ      
 回调 [cbShareQQ](#cbShareQQ  分享完成的回调方法  "cbShareQQ")
+
 **参数:**    
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
@@ -234,9 +244,11 @@ iOS不支持
 > ###shareImgTextToQZone 分享图文到QQ空间   
 
 `uexQQ.shareImgTextToQZone(appId,jsonData);`
+
 **说明:**    
 分享图文到QQ空间       
 回调 [cbShareQQ](#cbShareQQ  分享完成的回调方法  "cbShareQQ")
+
 **参数:**    
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
@@ -274,6 +286,7 @@ iOS6.0+
 > ### cbLogin  登录完成的回调方法           
 
 `uexQQ.cbLogin(opId,dataType,data);`
+
 **参数:**    
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
@@ -293,6 +306,7 @@ iOS6.0+
 > ###cbShareQQ  分享完成的回调方法           
 
 `uexQQ.cbShareQQ(opId,dataType,data);`
+
 **参数:**    
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
