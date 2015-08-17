@@ -770,6 +770,7 @@ iOS6.0+
 回调 [cbShareLinkContent](#cbShareLinkContent 分享Link的回调方法 "分享Link的回调方法")   
 
 **参数:**
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | jsonData| String类型| 必选 | 分享的文本内容,JSON格式|
@@ -847,6 +848,7 @@ iOS6.0+
 
 **示例:**
 见gotoPay方法示例  
+
 
 > ### getPrepayId 生成预支付订单
 
@@ -1080,6 +1082,7 @@ iOS6.0+
 生成预支付订单,generateAdvanceOrder方法的替代方法 
 
 **参数:**
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | token| String类型| 必选 | 支付token     |
@@ -1223,6 +1226,7 @@ iOS6.0+
 支付前需要生成预支付订单，gotoPay方法的替代方法 
 
 **参数:**
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | partnerID| String类型| 必选 | 商家向财付通申请的商家ID     |
@@ -1440,7 +1444,9 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
     "scope":"SCOPE" 
 } 
 ```
-各字段说明见:
+
+各字段说明见:  
+
  ![](http://newdocx.appcan.cn/docximg/110655t2015f3i16k.png)
       图_uexWeiXin_3.0   
 	  
@@ -1479,10 +1485,12 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
 ```
 
 各字段说明:    
+ 
  ![](http://newdocx.appcan.cn/docximg/110725r2015e3y16g.png)
  
 **版本支持:**
 3.0.0+  
+
 
 > ### cbIsWXAppInstalled 检查微信是否已安装的回调方法
 
