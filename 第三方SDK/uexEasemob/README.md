@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 #1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 环信插件
 ##1.1、 业务限制资源规格限制说明
@@ -229,6 +229,19 @@ var param = {
 	ext:,//扩展属性（可选参数，String)
 }
 ````
+>###sendVideo(param) 发送视频
+
+````
+var param = {
+	username:,//单聊时聊天人的userid或者群聊时groupid
+	chatType:,//0-单聊，1-群聊
+	filePath:,//视频文件路径
+	length:,//长度(Android必选，iOS可选)
+	displayName：//对方接收时显示的文件名（仅iOS需要）
+	ext:,//扩展属性（可选参数，String)
+}
+````
+
 >###sendCmdMessage(param) 发送透传消息
 
 ````
@@ -267,18 +280,7 @@ var param = {
 };
 ````
 
->###sendVideo(param) 发送视频
 
-````
-var param = {
-	username:,//单聊时聊天人的userid或者群聊时groupid
-	chatType:,//0-单聊，1-群聊
-	filePath:,//视频文件路径
-	length:,//长度(Android必选，iOS可选)
-	displayName：//对方接收时显示的文件名（仅iOS需要）
-	ext:,//扩展属性（可选参数，String)
-}
-````
 >###sendHasReadResponseForMessage(param) 发送消息已读回执
 
 ````
@@ -299,6 +301,9 @@ var param ={
 ````
 - 所有send开头的发送消息的API均会触发此监听
 - 此监听仅表示消息是否成功发送至环信服务器，不能以此判断接收人是否收到消息
+
+
+
 ##2.3、Conversation
 ***
 >###getConversationByName(param) 根据用户名获取conversation对象
@@ -861,6 +866,8 @@ var param = {
 　
 >###endCall();//挂断通话
 
+
+
 ##2.7、Apns（以下方法全部仅限iOS）
 ***
 >###registerRemoteNotification();//注册Apns推送
@@ -988,6 +995,7 @@ thumbnailSecretKey|预览图文件的密钥(仅视频/图片消息)
 
 
 	返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略
+	
 
 >###EMConversation json字符串返回值结构 
 
@@ -1003,6 +1011,7 @@ messages	|"conversation所包含的message列表，表内元素为EMMessage的js
 
 
 	返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略
+	
 >###EMGroup json字符串返回值结构 
 
 
@@ -1027,10 +1036,6 @@ membersOnly|需要申请和验证才能加入
 * 所有的调用API中，入参里的isGroup改为chatType
 * 所有的回调API中，isGroup属性改为chatType
 
-考虑到有已经使用环信插件进行开发的用户，因此有如下**兼容性支持**:
-
-* 调用API中所有的isGroup入参仍然可用，但若传值与chatType冲突，以chatType为准
-* 回调API中如包含isGroup项的，现在会同时包含isGroup项和chatType项
 
 #4、更新历史
 API 版本：uexEasemob-3.0.12(iOS) uexEasemob-3.0.11（Android）
