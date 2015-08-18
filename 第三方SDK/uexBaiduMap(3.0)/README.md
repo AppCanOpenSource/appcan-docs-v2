@@ -512,13 +512,13 @@ iOS6.0+
 ```
 uexBaiduMap.setOverlookEnable(1);
 ```
-> ### addMarkersOverlay 添加标注覆盖物 
+> ### addMarkersOverlay 添加标注
 
 `uexBaiduMap.addMarkersOverlay(json);`
 
 **说明**
 
-添加标注覆盖物
+添加标注
 
 **参数**
 
