@@ -307,7 +307,10 @@ var param = {
 
 >###sendCmdMessage(param) 发送透传消息
 
-	var param = {
+param为json字符串
+
+```
+var param = {
 	chatType:,//0-单聊，1-群聊
 	action:,//
 	toUsername:,//
