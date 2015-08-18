@@ -1012,6 +1012,10 @@ var param = {
 
 >###cbGetBlockedUsers(param)//获取群组的黑名单用户列表回调（仅Android）
 
+param为json字符串
+
+```
+
 	var param = {
 	usernames:,// List<String> json格式 
 };
