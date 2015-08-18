@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 音频播放插件
 ## 1.1、说明
@@ -172,9 +172,9 @@ iOS6.0+
 ```
 uexAudio.closePlayer();
 ```
-> ### startBackgroudRecord 开始后台录音
+> ### startBackgroundRecord 开始后台录音
 
-`uexAudio.startBackgroudRecord(mode,fileName)`
+`uexAudio.startBackgroundRecord(mode,fileName)`
 **说明:**
 开始后台录音
 **参数:**
@@ -198,7 +198,7 @@ uexAudio.startBackgroundRecord(1,document.getElementById('RecordName').value);
 
 `uexAudio.stopBackgroundRecord()`
 **说明:**
-停止后台录音 回调方法[cbBackgroudRecord](#cbBackgroudRecord  停止后台录音的回调方法)
+停止后台录音 回调方法[cbBackgroundRecord](#cbBackgroundRecord  停止后台录音的回调方法)
 **参数:**
   无
 **平台支持:**
@@ -349,7 +349,7 @@ window.uexOnload = function(){
     uexAudio.cbRecord = cbRecord ;
 }
 ```
-> ### cbBackgroudRecord  停止后台录音的回调方法
+> ### cbBackgroundRecord  停止后台录音的回调方法
 
 `uexAudio.cbBackgroundRecord(opId,dataType,data)`
 **参数:**

@@ -24,8 +24,10 @@
 `uexBaiduMap.open(x,y,width,height,longitude,latitude)`
 
  **说明**
+
 在界面的指定位置显示地图
 回调 [cbOpen](#cbOpen 加载地图完成的回调方法 "cbOpen")
+
 **参数**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
@@ -42,13 +44,16 @@
 * (x,y)表示地图左上角的坐标
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.open(10,100,480,640,"116.309","39.977");
 ```
@@ -58,19 +63,25 @@ uexBaiduMap.open(10,100,480,640,"116.309","39.977");
 `uexBaiduMap.close()`
 
 **说明**
+
 关闭地图
 
 **参数**
+
 无
  
+
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.close();
 ```
@@ -79,19 +90,24 @@ uexBaiduMap.close();
 `uexBaiduMap.hideMap()`
 
 **说明**
+
 隐藏地图
 
 **参数**
+
 无
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.hideMap();
 ```
@@ -101,19 +117,24 @@ uexBaiduMap.hideMap();
 `uexBaiduMap.showMap()`
 
 **说明**
+
 显示地图
 
 **参数**
+
 无
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.showMap();
 ```
@@ -123,6 +144,7 @@ uexBaiduMap.showMap();
 `uexBaiduMap.setMapType(type)`
 
 **说明**
+
 设置地图的类型
 
 **参数**
@@ -132,13 +154,16 @@ type:(Number类型) 必选地图的类型(1-标准地图，2-卫星地图)
 ```
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.setMapType(1);
 ```
@@ -148,6 +173,7 @@ uexBaiduMap.setMapType(1);
 `uexBaiduMap.setTrafficEnabled(type)`
 
 **说明**
+
 开启或关闭交通图
 
 **参数**
@@ -156,15 +182,17 @@ uexBaiduMap.setMapType(1);
 | ----- | ----- | ----- | ----- |
 | type | Number | 是 | 0-关闭，1-开启 |
 
-
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.setTrafficEnabled(1);
 ```
@@ -174,6 +202,7 @@ uexBaiduMap.setTrafficEnabled(1);
 `uexBaiduMap.setCenter(longitude,latitude)`
 
 **说明**
+
 设置地图的中心点经纬度,地图会移动使此点成为地图的中心点
 
 **参数**
@@ -184,12 +213,13 @@ uexBaiduMap.setTrafficEnabled(1);
 |latitude|Number|是|中心点纬度|
 
 
-
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -202,21 +232,26 @@ uexBaiduMap.setCenter(121.481,31.227);
 `uexBaiduMap.setZoomLevel(zoomLevel)`
 
 **说明**
+
 设置地图的比例级别
 
 **参数**
+
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | zoomLevel | Number | 是 | 地图的缩放级别 范围:3~19 |
 
-
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
+
 **示例**
+
 ```
 uexBaiduMap.setZoomLevel(10);
 ```
@@ -226,19 +261,24 @@ uexBaiduMap.setZoomLevel(10);
 `uexBaiduMap.zoomIn()`
 
 **说明**
+
 放大一个地图级别
 
 **参数**
+
 无 
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.zoomIn();
 ```
@@ -248,19 +288,24 @@ uexBaiduMap.zoomIn();
 `uexBaiduMap.zoomOut()`
 
 **说明**
+
 缩小一个地图级别
 
 **参数**
+
 无
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.zoomOut();
 ```
@@ -270,6 +315,7 @@ uexBaiduMap.zoomOut();
 `uexBaiduMap.rotate(angle)`
 
 **说明**
+
 旋转地图
 
 **参数**
@@ -278,15 +324,17 @@ uexBaiduMap.zoomOut();
 | ----- | ----- | ----- | ----- |
 | angle| Number | 是 | 旋转地图的角度，旋转角范围:-180~180,单位:度，逆时针旋转 |
 
-
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.rotate(90);
 ```
@@ -295,6 +343,7 @@ uexBaiduMap.rotate(90);
 `uexBaiduMap.overlook(angle)`
 
 **说明**
+
 俯视地图
 
 **参数**
@@ -304,15 +353,17 @@ uexBaiduMap.rotate(90);
 | angle| Number | 是 | 俯视地图的角度，俯角范围:-45~0,单位:度 |
 
 
-
 **平台支持**
+
 Android2.2+ 
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.overlook(-30);
 ```
@@ -322,6 +373,7 @@ uexBaiduMap.overlook(-30);
 `uexBaiduMap.setZoomEnable(type)`
 
 **说明**
+
 开启或关闭缩放
 
 **参数**
@@ -331,15 +383,17 @@ uexBaiduMap.overlook(-30);
 | type| Number | 是 | 0-关闭，1-开启 |
 
 
-
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.setZoomEnable(1);
 ```
@@ -349,6 +403,7 @@ uexBaiduMap.setZoomEnable(1);
 `uexBaiduMap.setRotateEnable(type)`
 
 **说明**
+
 开启或关闭旋转
 
 **参数**
@@ -357,15 +412,17 @@ uexBaiduMap.setZoomEnable(1);
 | ----- | ----- | ----- | ----- |
 | type| Number | 是 | 0-关闭，1-开启 |
 
-
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.setRotateEnable(1);
 ```
@@ -375,7 +432,9 @@ uexBaiduMap.setRotateEnable(1);
 `uexBaiduMap.setCompassEnable(type)`
 
 **说明**
+
 开启或关闭指南针
+
 **参数**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
@@ -383,13 +442,16 @@ uexBaiduMap.setRotateEnable(1);
 | type| Number | 是 | 0-关闭，1-开启 |
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.setCompassEnable(1);
 ```
@@ -399,6 +461,7 @@ uexBaiduMap.setCompassEnable(1);
 `uexBaiduMap.setScrollEnable(type)`
 
 **说明**
+
 开启或关闭平移
 
 **参数**
@@ -408,13 +471,16 @@ uexBaiduMap.setCompassEnable(1);
 | type| Number | 是 | 0-关闭，1-开启 |
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.setScrollEnable(1);
 ```
@@ -423,6 +489,7 @@ uexBaiduMap.setScrollEnable(1);
 `uexBaiduMap.setOverlookEnable(type)`
 
 **说明**
+
 开启或关闭俯视
 
 **参数**
@@ -432,13 +499,16 @@ uexBaiduMap.setScrollEnable(1);
 | type| Number | 是 | 0-关闭，1-开启 |
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.setOverlookEnable(1);
 ```
@@ -447,6 +517,7 @@ uexBaiduMap.setOverlookEnable(1);
 `uexBaiduMap.addMarkersOverlay(json);`
 
 **说明**
+
 添加标注覆盖物
 
 **参数**
@@ -480,10 +551,12 @@ var json=[
 | bgImage | String | 否 | 自定义弹出气泡背景图片，格式:res://btn.png |
 
 **平台支持**
+
 Android2.2+ 
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -529,6 +602,7 @@ uexBaiduMap.openPieChart(dataStr);
 `uexBaiduMap.setMarkerOverlay(makerId,makerInfo);`
 
 **说明**
+
 更新设置标注信息
 
 **参数**
@@ -552,12 +626,13 @@ var makerInfo={
 	}
 ```
 
-
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -585,7 +660,9 @@ uexBaiduMap. setMarkerOverlay (makerId, jsonStr);
 `uexBaiduMap.showBubble(makerId);`
 
 **说明**
+
 显示指定ID的标注气泡，地图上仅有一个标注气泡显示，其他标注气泡将被隐。
+
 **参数**
 
 
@@ -594,10 +671,12 @@ uexBaiduMap. setMarkerOverlay (makerId, jsonStr);
 | makerId | String | 是 | 唯一标识符 |
 
 **平台支持**
+
 Android2.2+ 
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -611,16 +690,20 @@ uexBaiduMap. showBubble (makerId);
 `uexBaiduMap.hideBubble();`
 
 **说明**
+
 当前显示的标注气泡将被隐藏。
 
 **参数**
+
 无 
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -633,6 +716,7 @@ uexBaiduMap. hideBubble();
 `uexBaiduMap.addDotOverlay(dotInfo);`
 
 **说明**
+
 添加点覆盖物
 
 **参数**
@@ -686,9 +770,11 @@ uexBaiduMap.addDotOverlay(jsonStr);
 `uexBaiduMap.addPolylineOverlay(polylineInfo);`
 
 **说明**
+
 添加折线覆盖物
 
 **参数**
+
 ```
 polylineInfo:(String类型) 必选添加到地图上的折线信息的集合。该字符串为JSON格式:
 var polylineInfo={
@@ -726,6 +812,7 @@ Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -761,6 +848,7 @@ uexBaiduMap.addPolylineOverlay(jsonStr);
 `uexBaiduMap.addArcOverlay(arcInfo);`
 
 **说明**
+
 添加弧形覆盖物
 
 **参数**
@@ -801,6 +889,7 @@ Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -825,9 +914,11 @@ uexBaiduMap.addArcOverlay(jsonStr);
 `uexBaiduMap.addCircleOverlay(circleInfo);`
 
 **说明**
+
 添加圆形覆盖物
 
 **参数**
+
 ```
 circleInfo:(String类型) 必选添加到地图上的圆形覆盖物信息的集合。该字符串为JSON格式
 var circleInfo={
@@ -859,6 +950,7 @@ Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -881,9 +973,11 @@ uexBaiduMap.addCircleOverlay(jsonStr);
 `uexBaiduMap.addPolygonOverlay(polygonInfo);`
 
 **说明**
+
 向添加几何图形覆盖物
 
 **参数**
+
 ```
 polygonInfo:(String类型) 必选添加到地图上的集合图形信息的集合。该字符串为JSON格式:
 var polygonInfo={
@@ -919,6 +1013,7 @@ Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -957,6 +1052,7 @@ uexBaiduMap.addPolygonOverlay(jsonStr);
 `uexBaiduMap.addGroundOverlay(groundInfo);`
 
 **说明**
+
 添加地形图图层覆盖物
 
 **参数**
@@ -999,6 +1095,7 @@ Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1029,6 +1126,7 @@ uexBaiduMap.addGroundOverlay(jsonStr);
 `uexBaiduMap.addTextOverlay(textInfo);`
 
 **说明**
+
 添加文字覆盖物
 
 **参数**
@@ -1062,10 +1160,12 @@ var textInfo = {
 | rotate | Number或String | 否 | 文字旋转角度(逆时针),旋转角范围:-180~180,单位:度 |
 
 **平台支持**
+
 Android2.2+
 iOS 不支持
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1088,6 +1188,7 @@ uexBaiduMap.addTextOverlay(jsonStr);
 `uexBaiduMap.removeMakersOverlay(ids);`
 
 **说明**
+
 移除地图上对应标识的覆盖物
 
 **参数**
@@ -1096,12 +1197,13 @@ uexBaiduMap.addTextOverlay(jsonStr);
 |-----|-----|-----|-----|
 | ids | String | 是 | 唯一标识符数组，json结构字符串 |
 
-
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1116,18 +1218,22 @@ iOS6.0+
 `uexBaiduMap.removeOverlay(id);`
 
 **说明**
+
 移除地图上对应标识的覆盖物
 
 **参数**
+
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1142,6 +1248,7 @@ iOS6.0+
 `uexBaiduMap.poiSearchInCity(json);`
 
 **说明**
+
 根据单个关键字在指定城市内搜索兴趣点 
 回调 [cbPoiSearchResult](#cbPoiSearchResult:poiSearchInCity、poiNearbySearch、poiBoundSearch的回调方法 "cbPoiSearchResult")
 
@@ -1165,13 +1272,16 @@ var json={
 | pageNum | 是 | 结果页索引 |
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 var data={
 	city: "北京",
@@ -1186,8 +1296,10 @@ uexBaiduMap.poiSearchInCity(jsonStr);
 `uexBaiduMap.poiNearbySearch(json);`
 
 **说明**
+
 根据单个关键字在指定的中心点和半径范围内搜索兴趣点 
 回调 [cbPoiSearchResult](#cbPoiSearchResult:poiSearchInCity、poiNearbySearch、poiBoundSearch的回调方法 "cbPoiSearchResult")
+
 **参数**
 
 ```
@@ -1212,10 +1324,12 @@ var json={
 | pageNum | 是 | 结果页索引 |
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1237,9 +1351,12 @@ uexBaiduMap. poiNearbySearch (jsonStr);
 `uexBaiduMap.poiBoundSearch(json);`
 
 **说明**
+
 根据单个关键字在指定的矩形区域内搜索兴趣点
 回调 [cbPoiSearchResult](#cbPoiSearchResult:poiSearchInCity、poiNearbySearch、poiBoundSearch的回调方法 "cbPoiSearchResult")
+
 **参数**
+
 ```
 json:(String类型) 必选搜索所需要的信息。该字符串为JSON格式
 var json={
@@ -1268,10 +1385,12 @@ var json={
 | latitude | 是 | 纬度 |
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1298,8 +1417,10 @@ uexBaiduMap.poiBoundSearch(jsonstr);
 `uexBaiduMap.busLineSearch(json);`
 
 **说明**
+
 根据公交线路编号在指定城市范围内搜索公交线路详情
 回调 [cbBusLineSearchResult](#cbBusLineSearchResult 公交线路搜索的回调方法 "cbBusLineSearchResult")
+
 **参数**
 
 ```
@@ -1317,10 +1438,12 @@ var json={
 | busLineName | 是 | 公交名 |
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1340,19 +1463,24 @@ uexBaiduMap.busLineSearch(jsonStr);
 `uexBaiduMap.removeBusLine();`
 
 **说明**
+
 清除公交线路
 
 **参数**
+
 无
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.removeBusLine(); 
 ```
@@ -1362,16 +1490,20 @@ uexBaiduMap.removeBusLine();
 `uexBaiduMap.preBusLineNode();`
 
 **说明**
+
 显示公交线路中当前站点的上一个站点，起始站点无效 
 
 **参数**
+
 无
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1385,9 +1517,11 @@ uexBaiduMap.preBusLineNode();
 `uexBaiduMap.nextBusLineNode();`
 
 **说明**
+
 显示公交线路中当前站点的下一个站点，终点站点无效 
 
 **参数**
+
 无
 
 **平台支持**
@@ -1396,6 +1530,7 @@ Android2.2+
  iOS 6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1447,13 +1582,16 @@ var json={
 | latitude | 否 | 纬度 |
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 var data = {
 	id: "rp345",
@@ -1478,19 +1616,24 @@ uexBaiduMap.searchRoutePlan(jsonStr);
 `uexBaiduMap.preRouteNode();`
 
 **说明**
+
 显示线路规划中当前节点的上一个节点，起始节点无效 
 
 **参数**
+
 无
 
 **平台支持**
+
 Android2.2+
 iOS 不支持
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
  uexBaiduMap.preRouteNode(); 
 ```
@@ -1500,6 +1643,7 @@ iOS 不支持
 `uexBaiduMap.removeRoutePlan(id);` 
 
 **说明**
+
 清除线路规划
 
 **参数**
@@ -1507,7 +1651,6 @@ iOS 不支持
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
 | id | String | 是 | 线路id |
-
 
 **平台支持**
 
@@ -1528,16 +1671,20 @@ iOS6.0+
 `uexBaiduMap.nextRouteNode();`
 
 **说明**
+
  显示线路规划中当前节点的下一个节点，终点节点无效 
 
 **参数**
+
 无
 
 **平台支持**
+
 Android2.2+
 iOS6不支持
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1549,8 +1696,10 @@ iOS6不支持
 `uexBaiduMap.geocode(json)`
 
 **说明**
+
 根据地址获取经纬度信息
 回调 [cbGeoCodeResult](#cbGeoCodeResult 地理编码返回结果的回调方法 "地理编码返回结果的回调方法")
+
 **参数**
 
 ```
@@ -1569,10 +1718,12 @@ var json={
 | address | 是 | 地址 |
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1591,6 +1742,7 @@ uexBaiduMap.geocode(jsonstr);
 `uexBaiduMap.reverseGeocode(json)`
 
 **说明**
+
 根据经纬度获取地址信息
 回调 [cbReverseGeoCodeResult](#cbReverseGeoCodeResult 反地理编码返回结果的回调方法 "反地理编码返回结果的回调方法")
 
@@ -1613,6 +1765,7 @@ Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1631,19 +1784,25 @@ uexBaiduMap.reverseGeocode(jsonStr);
 `uexBaiduMap.getCurrentLocation()`
 
 **说明**
+
 获取当前的位置信息，仅定位一次 
 回调 [cbCurrentLocation](#cbCurrentLocation 获取到当前位置的回调方法 "获取到当前位置的回调方法")
+
 **参数**
+
 无 
 
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
  uexBaiduMap.getCurrentLocation(); 
 ```
@@ -1657,6 +1816,7 @@ iOS6.0+
 开始连续定位
 
 **参数**
+
  无 
 
 **平台支持**
@@ -1706,6 +1866,7 @@ iOS6.0+
 `uexBaiduMap.setMyLocationEnable(type)`
 
 **说明**
+
 显示或隐藏用户位置
 
 **参数**
@@ -1714,15 +1875,17 @@ iOS6.0+
 |-----|-----|-----|-----|
 | type | Number | 是 | 显示或隐藏用户位置(0-隐藏，1-显示)|
 
-
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
  uexBaiduMap.setMyLocationEnable(1); 
 ```
@@ -1732,22 +1895,26 @@ iOS6.0+
 `uexBaiduMap.setUserTrackingMode(mode)`
 
 **说明**
+
 设置定位时的跟踪模式
 
 **参数**
+
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
 | mode | Number | 是 |跟踪模式(0--普通定位模式，1--跟随模式，2--罗盘模式|
 
-
 **平台支持**
+
 Android2.2+
 iOS6.0+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
  uexBaiduMap.setUserTrackingMode(0); 
 ```
@@ -1757,6 +1924,7 @@ iOS6.0+
 `uexBaiduMap.zoomControlsEnabled(mode)`
 
 **说明**
+
 显示或隐藏缩放控件
 
 **参数**
@@ -1765,14 +1933,16 @@ iOS6.0+
 |-----|-----|-----|-----|
 | mode | Number | 是 |控件状态(0—隐藏，1—显示)|
 
-
 **平台支持**
+
 Android2.2+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.zoomControlsEnabled(0) 
 ```
@@ -1782,6 +1952,7 @@ uexBaiduMap.zoomControlsEnabled(0)
 `uexBaiduMap.onMapClickListener(data)`
 
 **参数**
+
 ```
 data:(String类型) 必选 经纬度，该字符串为JSON格式
 var data={
@@ -1798,15 +1969,18 @@ var data={
 | latitude | 是 | 纬度 |
 
 **版本支持**
+
 3.0.0+
 
 > ### onMapDoubleClickListener 双击地图的监听方法 
 `uexBaiduMap.onMapDoubleClickListener(data)`
 
 **参数**
+
 同onMapClickListener
 
 **版本支持**
+
 3.0.0+
 
 > ### onMapLongClickListener 长按地图的监听方法 
@@ -1814,15 +1988,18 @@ var data={
 `uexBaiduMap.onMapLongClickListener(data)`
 
 **参数**
+
 同onMapClickListener
 
 **版本支持**
+
 3.0.0+
 
 > ### onMapStatusChangeListener 地图状态改变的监听方法
 `uexBaiduMap.onMapStatusChangeListener(json);`
 
 **参数**
+
 ```
 var json = {
 	center: { // 地图中心点改变时返回值，回调改变后的中心点坐标
@@ -1853,9 +2030,11 @@ var json = {
 ```
 
 **平台支持**
+
 Android2.2+
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1870,12 +2049,13 @@ uexBaiduMap.onMapStatusChangeListener = function(data){
 `uexBaiduMap.onMarkerClickListener(markerId)`
 
 **参数**
+
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
 | markerId | Number | 是 |标注的ID|
 
-
 **版本支持**
+
 3.0.0+ 
 
 **示例**
@@ -1890,11 +2070,13 @@ uexBaiduMap.onMarkerClickListener = function(data){
 `uexBaiduMap.onMarkerBubbleClickListener(markerId)`
 
 **参数**
+
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
 | markerId | Number | 是 |标注的ID|
 
 **版本支持**
+
 3.0.0+ 
 
 **示例**
@@ -1910,6 +2092,7 @@ uexBaiduMap.onMarkerBubbleClickListener = function(data){
 `uexBaiduMap.onSDKReceiverError(data)`
 
 **参数**
+
 ```
 data:(String类型) 必选 失败信息  该字符串为JSON格式
 var data={
@@ -1918,6 +2101,7 @@ var data={
 ```
 
 **版本支持**
+
 3.0.0+
 
 **示例**
@@ -1932,6 +2116,7 @@ uexBaiduMap.onSDKReceiverError = function(data){
 `uexBaiduMap.onReceiveLocation(data)`
 
 **参数**
+
 ```
 data:(String类型) 必选 位置信息该字符串为JSON格式
 var data={
@@ -1950,6 +2135,7 @@ var data={
 | timestamp | 是 | 时间戳 "2014-11-2217:46:37"格式|
 
 **版本支持**
+
 3.0.0+ 
 
 **示例**
@@ -1965,9 +2151,11 @@ uexBaiduMap.onReceiveLocation = function(data){
 `uexBaiduMap.onSearchRoutePlan(id)`
 
 **参数**
+
  id:(Number类型) 必选 线路规划id。
 
 **版本支持**
+
 3.0.0+ 
 
 > ### onZoomLevelChangeListener 缩放级别改变时，获取缩放级别和中心点的监听方法 
@@ -1975,13 +2163,15 @@ uexBaiduMap.onReceiveLocation = function(data){
 `uexBaiduMap.onZoomLevelChangeListener(level,latitude,longitude)`
 
 **参数**
+
 ```
 level:(Number类型) 必选 缩放级别
 latitude:(Number类型) 必选 中心点纬度。
-longitude:(Number类型) 必选 中心点经度
+longitude:(Number类型) 必选 中心点经度h
 ```
 
 **版本支持**
+
 3.0.0+ 
 
 **示例**
@@ -1998,9 +2188,11 @@ uexBaiduMap.onSDKReceiverError = function(data){
 `uexBaiduMap.cbOpen();`
 
 **参数**
+
 无 
 
 **版本支持**
+
 3.0.0+ 
 
 > ### cbCurrentLocation 获取到当前位置的回调方法
@@ -2008,6 +2200,7 @@ uexBaiduMap.onSDKReceiverError = function(data){
 `uexBaiduMap.cbCurrentLocation(data)` 
 
 **参数**
+
 ```
 data:(String类型) 必选 位置信息该字符串为JSON格式:
 var data={
@@ -2026,10 +2219,12 @@ var data={
 | timestamp | 是 | 时间戳 "2014-11-2217:46:37"格式|
 
 **版本支持**
+
 3.0.0+
 
-**示例**
+**示例(**
 
+)
 ```
 uexBaiduMap.cbCurrentLocation = function(data){
 	alert(data);
@@ -2041,8 +2236,9 @@ uexBaiduMap.cbCurrentLocation = function(data){
 
 `uexBaiduMap.cbGeoCodeResult(data)`
 
-**参数**
-```
+**参数(**
+
+)```
 data:(String类型) 必选 经纬度该字符串为JSON格式。
 var data={
 	longitude:,
@@ -2058,6 +2254,7 @@ var data={
 | latitude | 是 | 纬度 |
 
 **版本支持**
+
 3.0.0+ 
 
 **示例**
@@ -2074,6 +2271,7 @@ uexBaiduMap.cbGeoCodeResult = function(data){
 `uexBaiduMap.cbReverseGeoCodeResult(data)`
 
 **参数**
+
 ```
 data:(String类型) 必选 地址该字符串为JSON格式。
 var data={
@@ -2090,6 +2288,7 @@ uexBaiduMap.cbReverseGeoCodeResult = function(data){
 ```
 
 **版本支持**
+
 3.0.0+ 
 
 > ###cbPoiSearchResult:poiSearchInCity、poiNearbySearch、poiBoundSearch的回调方法 
@@ -2097,6 +2296,7 @@ uexBaiduMap.cbReverseGeoCodeResult = function(data){
 `uexBaiduMap.cbPoiSearchResult(data)`
 
 **参数**
+
 ```
 data:(String类型) 必选 POI列表信息。该字符串为JSON格式
 var data={
@@ -2140,6 +2340,7 @@ var data={
 | currentPageCapacity | 是 | 当前页的poi结果数 |
 
 **版本支持**
+
 3.0.0+ 
 
 **示例**
@@ -2188,7 +2389,9 @@ var data={
 | title | 是 | 站点的名称 |
 
 **版本支持**
+
 3.0.0+ 
+
 **示例**
 
 ```
@@ -2199,7 +2402,9 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 ```
 # 3、更新历史
  
+
 **API 版本:uexBaiduMap-3.1.11(iOS) uexBaiduMap-3.1.22(Android)**
+
 **最近更新时间:2015-06-19**
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
