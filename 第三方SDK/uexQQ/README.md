@@ -1,4 +1,4 @@
-﻿
+
 [TOC]
  
 # 1、 简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
@@ -50,12 +50,14 @@ Path Types
 | ------------ | ------------ | ------------ | ------------ |
 | appId| String类型| 必选 | 在腾讯开放平台注册的应用appId，具体申请步骤可参考，点击跳转 |
     
+
 **平台支持:**    
 Android2.2+                 
 iOS6.0+    
 
 **版本支持:**    
 3.0.0+                  
+
 **示例:**    
 
 ```
@@ -70,8 +72,10 @@ iOS6.0+
 **说明:**    
 检查QQ是否已安装  
 回调 [cbIsQQInstalled](#cbIsQQInstalled  检查QQ是否已安装的回调方法  "cbIsQQInstalled")
+
 **参数:**    
 无       
+
 **平台支持:**    
 Android2.2+                 
 iOS6.0+    
@@ -85,6 +89,7 @@ iOS6.0+
 **说明:**    
 分享图文信息到QQ  
 回调 [cbShareQQ](#cbShareQQ  分享完成的回调方法  "cbShareQQ")
+
 **参数:**    
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
@@ -104,12 +109,14 @@ iOS6.0+
 | imageUrl | 否 | 图片地址，支持网络图片和本地图片 |
 | appName | 否 | 应用名称，显示在分享完成时的返回按钮，如下图所示 |
 | cflag | 否 |是否弹出分享到空间对话框。不传时，不弹出对话框,可以选择分享到QQ好友或QQ空间； 值为"1",弹出对话框;值为"2",不弹出对话框，只能分享到QQ好友 |
+
 **平台支持:**    
 Android2.2+                 
 iOS6.0+    
 
 **版本支持:**    
 3.0.0+                  
+
 **示例:**    
 
 ```
@@ -142,12 +149,14 @@ iOS6.0+
 | imageLocalUrl | 是 | 本地图片路径，路径协议详见<a href="http://newdocx.appcan.cn/newdocx/docx?type=978_975"target="_blank">CONSTANT</a>中PathTypes |
 | appName | 否 | 应用名称(说明同shareWebImgTextToQQ) |
 | cflag | 否 | 是否弹出分享到空间对话框(说明同shareWebImgTextToQQ) |
+
 **平台支持:**    
 Android2.2+                 
 iOS6.0+                     
 
 **版本支持:**    
 3.0.0+                  
+
 **示例:**    
 
 ```
@@ -193,6 +202,7 @@ iOS6.0+
 
 **版本支持:**    
 3.0.0+                          
+
 **示例:**    
 
 ```
@@ -227,12 +237,14 @@ iOS6.0+
 | imageUrl   | 否  | 图片地址，支持网络图片和本地图片   |
 | appName | 否  | 应用名称(说明同shareWebImgTextToQQ)   |
 | cflag  | 否  | 是否弹出分享到空间对话框(说明同shareWebImgTextToQQ)   |
+
 **平台支持:**           
 Android2.2+                         
 iOS不支持    
 
 **版本支持:**        
 3.0.0+                            
+
 **示例:**    
 
 ```
@@ -268,12 +280,14 @@ iOS不支持
 | summary | 否  | 消息摘要，最长40个字符   |
 | targetUrl  | 是  | 点击消息跳转URL  |
 | imageUrl   | 否  | 图片地址，支持网络图片和本地图片(iOS不支持发送多张图片) |
+
 **平台支持:**           
 Android2.2+                         
 iOS6.0+                             
 
 **版本支持:**        
 3.0.0+                          
+
 **示例:**    
 
 ```
@@ -327,7 +341,7 @@ iOS6.0+
 | ------------ | ------------ | ------------ | ------------ |
 | appId| Number类型| 必选 | 操作ID，此函数中不起作用，可忽略。 |
 | dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型 |
-| data|String类型 | 必选 | 分享结果，成功:0，失败:状态码。 |
+| data|String类型 | 必选 | 安装结果，0-已安装，1-未安装 |
 
 **版本支持:**    
 3.0.0+                                          

@@ -1,4 +1,4 @@
-﻿
+
 [TOC]
 
 #1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
@@ -466,10 +466,10 @@ window.uexOnload=function(type){
 }
 
 ```
->### cbSetSetAliasAndTags 同时设置别名和标签的回调方法
+>### cbSetAliasAndTags 同时设置别名和标签的回调方法
 
 
-`uexJPush.SetAliasAndTags(json)`
+`uexJPush.cbSetAliasAndTags(json)`
 
 **参数**    
 
@@ -494,7 +494,7 @@ iOS 3.0.0+
 ```
 window.uexOnload=function(type){
 	
-	uexJPush.cbSetAlias=function(data){
+	uexJPush.cbSetAliasAndTags=function(data){
 		alert(data);
 	}
 
