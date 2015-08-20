@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        input{
+            color: black;
+            padding: 1px 6px;
+            margin-left:6px;
+        }
+        input[type="text"]{
+            padding: .2em .4em;
+            margin:.4em .6em;
+            font-size:1em;
+        }
+        input[type="button"]{
+            padding: .6em .8em;
+            margin:.4em .6em;
+            font-size:1.2em;
+        }
+    </style>
+    <script src="js/zy_control.js">
+    </script>
+    <script src="js/zy_click.js">
+    </script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+    function openTest(name){
+        if(name == "uexWindow"){
+            openNewWin("uexWindow", "uexWindow.html?index=1&page=wind");
+        }else{
+            openNewWin(name, name+".html");
+        }
+    }
+    window.uexOnload = function(){
+                /*var params = {
+                    left:100,
+                    top:200,
+                    width:800,
+                    height:800,
+                    longitude:114.402815,
+                    latitude:30.475798
+                };
+                var data = JSON.stringify(params);
+                uexGaodeMap.open(data);*/
+    }
+
+    </script>
+  </head>
+<body class="um-vp " ontouchstart>
+    <div class="conbor">
+        <div class="consj">
+            <div onclick="openTest('uexGaodeMap_base_content')" class="testbtn">基本地图功能</div><br>
+            <div onclick="openTest('uexGaodeMap_base_zoom')" class="testbtn">地图操作功能</div><br>
+            <div onclick="openTest('uexGaodeMap_base_control')" class="testbtn">UI控制功能</div><br>
+            <div onclick="openTest('uexGaodeMap_base_overlay')" class="testbtn">覆盖物功能</div><br>
+            <div onclick="openTest('uexGaodeMap_base_loc')" class="testbtn">位置功能</div><br>
+            <div onclick="openTest('uexGaodeMap_base_geo')" class="testbtn">地理编码</div><br>
+            <div onclick="openTest('uexGaodeMap_base_poi')" class="testbtn">POI搜索</div><br>
+            <div onclick="openTest('uexGaodeMap_base_offline')" class="testbtn">离线地图</div><br>
+            <div onclick="openTest('uexGaodeMap_base_customButtons')" class="testbtn">自定义按钮</div><br>
+            <!--<div onclick="openTest('uexGaodeMap_base_plan')" class="testbtn">路径规划</div><br>-->
+        </div>
+    </div>
+</body>
+</html>

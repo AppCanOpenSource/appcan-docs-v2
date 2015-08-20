@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title>
+        </title>
+        <meta charset="utf-8">
+            <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+                <link rel="stylesheet" type="text/css" href="css/index.css">
+                    <link rel="stylesheet" href="css/ui-btn.css">
+                        <link rel="stylesheet" href="css/ui-base.css">
+                            <link rel="stylesheet" href="css/ui-box.css">
+                                <link rel="stylesheet" href="css/ui-color.css">
+                                    <link rel="stylesheet" href="css/ui-res.css">
+                                        <style>
+                                            input{
+                                                color: black;
+                                                padding: 1px 6px;
+                                                margin-left:6px;
+                                            }
+                                        input[type="text"]{
+                                            padding: .2em .4em;
+                                            margin:.4em .6em;
+                                            font-size:1em;
+                                        }
+                                        input[type="button"]{
+                                            padding: .6em .8em;
+                                            margin:.4em .6em;
+                                            font-size:1.2em;
+                                        }
+                                        </style>
+                                        <script src="js/zy_control.js">
+                                            </script>
+                                        <script src="js/main.js">
+                                            </script>
+                                        <script type="text/javascript">
+                                            var isSetLoc = 0;
+                                            var currentId;
+                                            var markerObj1 = new Object();
+                                            var markerObj2 = new Object();
+                                            window.uexOnload = function() {
+                                                uexWidgetOne.cbError = function(opid,type,data){
+                                                    alert(data);
+                                                }
+                                                uexGaodeMap.onMapClickListener = function makerListner(json) {
+                                                    alert("onMapClickListener: "+json);
+                                                    uexGaodeMap.hideBubble();
+                                                }
+                                                uexGaodeMap.onMapDoubleClickListener = function makerListner(json) {
+                                                    alert("onMapDoubleClickListener: "+json);
+                                                }
+                                                uexGaodeMap.onMapLongClickListener = function makerListner(json) {
+                                                    alert("onMapLongClickListener: "+json);
+                                                }
+                                                uexGaodeMap.onSDKReceiverError = function makerListner(json) {
+                                                    alert("onSDKReceiverError: "+json);
+                                                }
+                                                uexGaodeMap.onMarkerBubbleClickListener = onMarkerBubbleListener;
+                                                uexGaodeMap.onMapLoadedListener = onMapLoadedListener;
+                                                uexGaodeMap.onMarkerClickListener = onMarkerClickListener;
+                                                uexWindow.setReportKey(0,1);
+                                                uexWindow.onKeyPressed = function(keyCode){
+                                                    if(keyCode == 0){
+                                                        closeWin();
+                                                    }
+                                                }
+                                            }
+                                        function onMarkerClickListener(info){
+                                            var json = JSON.parse(info);
+                                            var id = json.id;
+                                            showBubble(id);
+                                            alert("onMarkerClickListener:" + id)
+                                        }
+                                        function onMapLoadedListener(){
+                                            uexWindow.toast(0,5,"地图加载完成",1000);
+                                        }
+                                        function showBubble(id){
+                                            var params = {
+                                                id:id
+                                            };
+                                            var data = JSON.stringify(params);
+                                            uexGaodeMap.showBubble(data);
+                                        }
+                                        function onMarkerBubbleListener(info){
+                                            alert("onMarkerBubbleClickListener:" + info);
+                                        }
+                                        function closeMap(){
+                                            uexGaodeMap.close();
+                                        }
+                                        
+                                        function openmap(){
+                                            var divTop = document.getElementById("topDiv").offsetTop + document.getElementById("topDiv").offsetHeight + 60;
+                                            var w = screen.availWidth-20;
+                                            var h = screen.availHeight/2;
+                                            isSetLoc = 0;
+                                            var params = {
+                                                left:10,
+                                                top:divTop,
+                                                width:w,
+                                                height:h,
+                                                longitude:114.402815,
+                                                latitude:30.475798
+                                            };
+                                            var data = JSON.stringify(params);
+                                            uexGaodeMap.open(data);
+                                        }
+                                        function removeOverLayer() {
+                                            var params = [];
+                                            var data = JSON.stringify(params);
+                                            uexGaodeMap.removeMarkersOverlays(data);
+                                        }
+                                        /*function removeOverLayers() {
+                                         var params = {
+                                         id:"10001"
+                                         };
+                                         var data = JSON.stringify(params);
+                                         uexGaodeMap.removeMarkersOverlay(data);
+                                         }*/
+                                        function hideBubble(){
+                                            uexGaodeMap.hideBubble();
+                                        }
+                                        
+                                        function addMakersOverLayer() {
+                                            var param = [
+                                                         {
+                                                         id:"10002",
+                                                         longitude:114.402965,
+                                                         latitude:30.475845,
+                                                         icon:"res://mark.png",
+                                                         
+                                                         //bubble:{
+                                                         //title:"title1",
+                                                         //subTitle:"subTitle1"
+                                                         //}
+                                                         },
+                                                         {
+                                                         id:10001,
+                                                         longitude:114.409308,
+                                                         latitude:30.476229,
+                                                         //icon:"http://www.iconpng.com/png/mapmarkers/marker_inside_azure.png",
+                                                         //bubble:{
+                                                         //title:"title2",
+                                                         //subTitle:"subTitle2"
+                                                         //}
+                                                         customBubble:{
+                                                            type:1,
+                                                            data:{
+                                                                width:300,//(必选)标注宽度
+                                                                bgImg:"res://bubble.9.png",
+                                                                bgColor:"#ddAFEEEE",//(可选)背景色
+                                                                shadowOffsetX:5,//(可选)x轴偏移量,向右为正，单位:px
+                                                                shadowOffsetY:5,//(可选)y轴偏移量,向下为正，单位:px
+                                                                shadowRadius:5,
+                                                                shadowColor:"#88000000",//(可选)阴影颜色
+                                                                titleContent:"title",//(必选)标题内容
+                                                                titleFontSize:18,//(必选)标题字号
+                                                                titleColor:"#B22222",//(必选)标题颜色
+                                                                textContent:"subTitle1-1\nsubTitle1-2\nsubTitle1-3\nsubTitle1-4",//(必选)文本内容
+                                                                textFontSize:12,//(必选)文本字号
+                                                                textColor:"#FF8C00"//(必选)文本颜色
+                                                            }
+                                                         }
+                                                         }
+                                                         ];
+                                                         var data = JSON.stringify(param);
+                                                         uexGaodeMap.addMarkersOverlay(data);
+                                        }
+                                        
+                                        function setMakerOverLayer() {
+                                            var makerInfo = {
+                                                id:10002,
+                                                bubble:{
+                                                    title:"change-title",
+                                                    subTitle:"change-subTitle"
+                                                }
+                                            };
+                                            var data = JSON.stringify(makerInfo);
+                                            uexGaodeMap.setMarkerOverlay(data);
+                                        }
+                                        function addMultiOverLayer(){
+                                            var jsonstr = {
+                                                id:"152",
+                                                fillColor:"#990033",
+                                                strokeColor:"#990033",
+                                                lineWidth:"2.0",
+                                                property:[
+                                                          {longitude:"116",latitude:"39"},
+                                                          {longitude:"115",latitude:"38"},
+                                                          {longitude:"117",latitude:"38"},
+                                                          {longitude:"117",latitude:"39"}
+                                                          ]
+                                            };
+                                            uexGaodeMap.addPolygonOverLayer(jsonstr);
+                                        }
+              
+                                        function addDot() {
+                                            var jsonstr = {
+                                                id:"150",
+                                                fillColor:"#990033",
+                                                radius:"50",
+                                                latitude:"39.963175",
+                                                longitude:"116.400244"
+                                            };
+                                            var data = JSON.stringify(jsonstr);
+                                            uexGaodeMap.addDotOverlay(data);
+                                        }
+                                        function addPolyline() {
+                                            var jsonstr = {
+                                                id:"151",
+                                                fillColor:"#f00",
+                                                lineWidth:"10.0",
+                                                property:[
+                                                          {
+                                                          longitude:"114.402965",
+                                                          latitude:"30.475845"
+                                                          },
+                                                          {
+                                                          longitude:"114.502965",
+                                                          latitude:"30.475845"
+                                                          },
+                                                          {
+                                                          longitude:"114.402965",
+                                                          latitude:"30.375845"
+                                                          }
+                                                          ]
+                                            };
+                                            var data = JSON.stringify(jsonstr);
+                                            uexGaodeMap.addPolylineOverlay(data);
+                                        }
+                                        function addArc() {
+                                            var jsonstr = {
+                                                id:"152",
+                                                strokeColor:"#f00",
+                                                lineWidth:"12.0",
+                                                start:{
+                                                    longitude:"114.402965",
+                                                    latitude:"30.475845"
+                                                },
+                                                center:{
+                                                    longitude:"114.502965",
+                                                    latitude:"30.475845"
+                                                },
+                                                end:{
+                                                    longitude:"114.402965",
+                                                    latitude:"30.375845"
+                                                }
+                                            };
+                                            var data = JSON.stringify(jsonstr);
+                                            uexGaodeMap.addArcOverlay(data);
+                                        }
+                                        function addCircle() {
+                                            var jsonstr = {
+                                                id:"153",
+                                                longitude:"114.402965",
+                                                latitude:"30.375845",
+                                                radius:"1000",
+                                                fillColor:"#4169E1",
+                                                strokeColor:"#990033",
+                                                lineWidth:"4"
+                                            };
+                                            var data = JSON.stringify(jsonstr);
+                                            uexGaodeMap.addCircleOverlay(data);
+                                        }
+                                        function addPolygon() {
+                                            var jsonstr = {
+                                                id:"154",
+                                                fillColor:"#990033",
+                                                strokeColor:"#990033",
+                                                lineWidth:"2.0",
+                                                property:[
+                                                          {
+                                                          longitude:"114.402965",
+                                                          latitude:"30.375845"
+                                                          },
+                                                          {
+                                                          longitude:"115.402965",
+                                                          latitude:"30.375845"
+                                                          },
+                                                          {
+                                                          longitude:"114.402965",
+                                                          latitude:"31.375845"
+                                                          },
+                                                          {
+                                                          longitude:"114.402965",
+                                                          latitude:"30.375845"
+                                                          }
+                                                          ]
+                                            };
+                                            var data = JSON.stringify(jsonstr);
+                                            uexGaodeMap.addPolygonOverlay(data);
+                                        }
+                                        function addGround() {
+                                            var jsonstr = {
+                                                id:"155",
+                                                imageUrl:"http://img0.bdstatic.com/img/image/9baf75d938553886ce515def29441ed31409109131.jpg",
+                                                transparency:"0.5",
+                                                property:[
+                                                          {
+                                                          longitude:"114.402165",
+                                                          latitude:"30.374845"
+                                                          },
+                                                          {
+                                                          longitude:"114.502165",
+                                                          latitude:"30.474845"
+                                                          }
+                                                          ]
+                                            };
+                                            var data = JSON.stringify(jsonstr);
+                                            uexGaodeMap.addGroundOverlay(data);
+                                        }
+                                        function clearOver(type){
+                                            var idarr = [{
+                                                id:type
+                                            }]
+                                            var data = JSON.stringify(idarr);
+                                            uexGaodeMap.removeOverlays(data);
+                                        }
+                                        /*function clearOvers(type){
+                                         var idarr = [type];
+                                         var data = JSON.stringify(idarr);
+                                         uexGaodeMap.removeOverlays(data);
+                                         }*/
+                                        </script>
+    </head>
+    <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh t-wh ub" style="background: #27A73F;">
+                <div class="umw4 ub ub-ac ub-pc" ontouchstart="zy_touch()" onclick="closeWin()">
+                    <div ontouchstart="zy_touch('btn-act')" class="btn uba b-bla uinn5 c-blu c-m1 uc-a t-wh" style="background: -webkit-gradient(linear,0 0,0 100%,from(#FFCD00),color-stop(50%,#FFBC00),color-stop(50%,orange));border: 1px solid #FFA700;-webkit-border-radius: 8px;  text-align: center;color: #712000;  display: block; font-size: 1em; padding: 0.2em;">返回</div>
+                </div>
+                <h1 class="ut ub-f1 ulev0 ut-s tx-c" tabindex="0">覆盖物功能</h1>
+                <div class="umw4" ontouchstart="zy_touch()" onclick="">
+                    <!--插入按钮控件-->
+                </div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l t-bla" style="">
+                <div class="conbor">
+                    <div class="consj">
+                        
+                        <input type="button" value="打开" onclick="openmap();">
+                            <input type="button" value="关闭" onclick="closeMap();">
+                                </div>
+                </div>
+                
+                <div class="consj" id="topDiv">
+                    <input type="button" value="添加" onclick="addMakersOverLayer();">
+                        <input type="button" value="修改" onclick="setMakerOverLayer();">
+                            <input type="button" value="删除" onclick="removeOverLayer();">
+                                
+                                <input type="button" value="折线" onclick="addPolyline();">
+                                    <input type="button" value="清折线" onclick="clearOver('151');">
+                                        <input type="button" value="弧形" onclick="addArc();">
+                                            <input type="button" value="清弧形" onclick="clearOver('152');">
+                                                <input type="button" value="圆形" onclick="addCircle();">
+                                                    <input type="button" value="清圆形" onclick="clearOver('153');">
+                                                        <input type="button" value="多边形" onclick="addPolygon();">
+                                                            <input type="button" value="清多边形" onclick="clearOver('154');">
+                                                                <input type="button" value="地形图" onclick="addGround();">
+                                                                    <input type="button" value="清地形图" onclick="clearOver('155');">
+                                                                        <input type="button" value="清除所有覆盖物" onclick="uexGaodeMap.removeOverlays()">
+                                                                            <!--<input type="button" value="圆点" onclick="addDot();">
+                                                                             <input type="button" value="清圆点" onclick="clearOver('150');">
+                                                                             <input type="button" value="文字" onclick="addText();">
+                                                                             <input type="button" value="清文字" onclick="clearOver('156');">-->
+                                                                            </div>
+                
+            </div>
+        </div>
+    </body>
+    <script>
+        </script>
+</html>

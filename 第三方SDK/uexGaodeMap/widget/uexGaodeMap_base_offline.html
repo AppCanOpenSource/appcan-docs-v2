@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+    <link rel="stylesheet" href="css/ui-res.css">
+
+    <script src="js/zy_control.js">
+    </script>
+    <script src="js/main.js">
+    </script>
+    <script type="text/javascript">
+    function download(){
+        var city = document.getElementById("city").value;
+        startDownload(city);
+    }
+
+    function startDownload(city, type){
+        var params;
+        if(type == 1){
+            params = [
+                {
+                    city:city
+                }
+            ];
+        }else{
+            params = [
+                {
+                    province:city
+                }
+            ];
+        }
+        var data = JSON.stringify(params);
+        uexGaodeMap.download(data);
+    }
+
+    function pause(city){
+        //var city = document.getElementById("city").value;
+        var params = city.split(',');
+        var data = JSON.stringify(params);
+        uexGaodeMap.pause(data);
+    }
+
+    function restart(city){
+        //var city = document.getElementById("city").value;
+        var params = city.split(',');
+        var data = JSON.stringify(params);
+        uexGaodeMap.restart(data);
+    }
+
+    function getAvailableCityList(){
+        uexGaodeMap.getAvailableCityList();
+    }
+
+    function getAvailableProvinceList(){
+        uexGaodeMap.getAvailableProvinceList();
+    }
+
+    function getDownloadList(){
+        uexGaodeMap.getDownloadList();
+    }
+
+    function getDownloadingList(){
+        uexGaodeMap.getDownloadingList();
+    }
+
+    function isUpdate(city, type){
+        var params;
+        if(type == 1){
+            params = {
+                city:city
+            };
+        }else{
+            params = {
+                province:city
+            };
+        }
+        var data = JSON.stringify(params);
+        uexGaodeMap.isUpdate(data);
+    }
+
+    function deleteOffline(city){
+        //var city = document.getElementById("city").value;
+        var params = city.split(',');
+        var data = JSON.stringify(params);
+        uexGaodeMap.delete(data);
+    }
+
+        window.uexOnload = function(type){
+            if(type == 0){
+            uexGaodeMap.cbDownload = cbDownload;
+            uexGaodeMap.cbPause = cbPause;
+            uexGaodeMap.cbRestart = cbRestart;
+            uexGaodeMap.cbStopDownload = cbStopDownload;
+            uexGaodeMap.cbGetAvailableCityList = cbGetAvailableCityList;
+            uexGaodeMap.cbGetAvailableProvinceList = cbGetAvailableProvinceList;
+            uexGaodeMap.cbGetDownloadList = cbGetDownloadList;
+            uexGaodeMap.cbGetDownloadingList = cbGetDownloadingList;
+            uexGaodeMap.cbIsUpdate = cbIsUpdate;
+            uexGaodeMap.cbDelete = cbDelete;
+            uexGaodeMap.onDownload = onDownload;
+
+            }
+        }
+    function cbDownload(info){
+        alert(info);
+    }
+
+    function cbPause(info){
+        alert(info);
+    }
+
+    function cbRestart(info){
+        alert(info);
+    }
+
+    function cbStopDownload(info){
+        alert(info);
+    }
+
+    function cbGetAvailableCityList(info){
+        alert(info);
+    }
+
+    function cbGetAvailableProvinceList(info){
+        alert(info);
+    }
+
+    function cbGetDownloadList(info){
+        alert(info);
+    }
+
+    function cbGetDownloadingList(info){
+        alert(info);
+    }
+
+    function cbIsUpdate(info){
+        alert(info);
+    }
+
+    function cbDelete(info){
+        alert(info);
+    }
+
+    function onDownload(info){
+        var data = JSON.parse(info);
+        if(data.status == 0){
+            //uexWindow.toast(1,5,data.name + " 正在下载...",0);
+            document.getElementById('result').innerHTML=data.name + " 正在下载..."+data.completeCode+"%";
+        }
+        if(data.status == 1){
+           document.getElementById('result').innerHTML=data.name + " 正在解压...";
+        }
+        if(data.status == 4){
+            document.getElementById('result').innerHTML="***";
+            alert(data.name + " 离线地图下载成功！");
+        }
+        if(data.status == 3){
+           document.getElementById('result').innerHTML=data.name + " 暂停下载...";
+        }
+        if(data.status == -1){
+            document.getElementById('result').innerHTML="***"
+            alert(data.name + " 下载失败！");
+        }
+    }
+
+
+    </script>
+</head>
+
+<body class="um-vp " ontouchstart>
+    <div id="page_0" class="up ub ub-ver" tabindex="0">
+        <!--header开始-->
+        <div id="header" class="uh t-wh ub" style="background: #27A73F;">
+            <div class="umw4 ub ub-ac ub-pc" ontouchstart="zy_touch()" onclick="closeWin()">
+                <div ontouchstart="zy_touch('btn-act')" class="btn uba b-bla uinn5 c-blu c-m1 uc-a t-wh" style="background: -webkit-gradient(linear,0 0,0 100%,from(#FFCD00),color-stop(50%,#FFBC00),color-stop(50%,orange));border: 1px solid #FFA700;-webkit-border-radius: 8px;  text-align: center;color: #712000;  display: block; font-size: 1em; padding: 0.2em;">返回</div>
+            </div>
+            <h1 class="ut ub-f1 ulev0 ut-s tx-c" tabindex="0">离线地图</h1>
+            <div class="umw4" ontouchstart="zy_touch()" onclick="">
+                <!--插入按钮控件-->
+            </div>
+        </div>
+        <!--header结束--><!--content开始-->
+        <div id="content" class="ub-f1 tx-l t-bla" style="">
+            
+            
+            
+            <div class="consj" id="topDiv">
+                <input class='btn' type='button' value='getAvailableCityList' onclick='getAvailableCityList()'>
+                <input class='btn' type='button' value='getAvailableProvinceList' onclick='getAvailableProvinceList()'>
+                <input class='btn' type='button' value='getDownloadList' onclick='getDownloadList()'>
+                <input class='btn' type='button' value='getDownloadingList' onclick='getDownloadingList()'>
+                    
+                    
+                    <br><div>info:</div><div id="result">***</div>
+                <table>
+                    <tr>
+                        <td style="padding:10px">北京</td>
+                        <td style="padding:10px;color:#00ff00;" onclick="startDownload('北京', 2)">开始</td>
+                        <td style="padding:10px;color:#0000ff;" onclick="pause('北京')">暂停</td>
+                        <td style="padding:10px;color:#00ff00;" onclick="restart('北京')">继续</td>
+                        <td style="padding:10px;color:#ff0000;" onclick="deleteOffline('北京')">删除</td>
+                        <td style="padding:10px" onclick="isUpdate('北京', 2)">检查更新</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px">武汉</td>
+                        <td style="padding:10px;color:#00ff00;" onclick="startDownload('武汉', 1)">开始</td>
+                        <td style="padding:10px;color:#0000ff;" onclick="pause('武汉')">暂停</td>
+                        <td style="padding:10px;color:#00ff00;" onclick="restart('武汉')">继续</td>
+                        <td style="padding:10px;color:#ff0000;" onclick="deleteOffline('武汉')">删除</td>
+                        <td style="padding:10px" onclick="isUpdate('武汉', 1)">检查更新</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px">上海</td>
+                        <td style="padding:10px;color:#00ff00;" onclick="startDownload('上海', 1)">开始</td>
+                        <td style="padding:10px;color:#0000ff;" onclick="pause('上海')">暂停</td>
+                        <td style="padding:10px;color:#00ff00;" onclick="restart('上海')">继续</td>
+                        <td style="padding:10px;color:#ff0000;" onclick="deleteOffline('上海')">删除</td>
+                        <td style="padding:10px" onclick="isUpdate('上海', 1)">检查更新</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px">天津</td>
+                        <td style="padding:10px;color:#00ff00;" onclick="startDownload('天津', 1)">开始</td>
+                        <td style="padding:10px;color:#0000ff;" onclick="pause('天津')">暂停</td>
+                        <td style="padding:10px;color:#00ff00;" onclick="restart('天津')">继续</td>
+                        <td style="padding:10px;color:#ff0000;" onclick="deleteOffline('天津')">删除</td>
+                        <td style="padding:10px" onclick="isUpdate('天津', 1)">检查更新</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td style="padding:10px">批量操作</td>
+                        <td style="padding:10px;color:#0000ff;" onclick="pause('北京,武汉,上海,天津')">批量暂停</td>
+                        <td style="padding:10px;color:#00ff00;" onclick="restart('北京,武汉,上海,天津')">批量继续</td>
+                        <td style="padding:10px;color:#ff0000;" onclick="deleteOffline('北京,武汉,上海,天津')">批量删除</td>
+                        <td style="padding:10px;color:#ff0000;" onclick="uexGaodeMap.delete()">删除所有</td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
