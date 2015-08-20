@@ -1273,8 +1273,8 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 
 #4、更新历史
-API 版本：uexEasemob-3.0.11(iOS) uexEasemob-3.0.10（Android）
-最近更新时间：2015-08-03
+API 版本：uexEasemob-3.0.12(iOS) uexEasemob-3.0.11（Android）
+最近更新时间：2015-08-18
 
   历史发布版本 | iOS更新 | 安卓更新
   ------------ | ------------ | ------------ 
