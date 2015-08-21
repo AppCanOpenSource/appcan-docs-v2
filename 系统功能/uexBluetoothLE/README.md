@@ -276,7 +276,7 @@ flag|desription
 #####writeType含义待补
 
 
-###uexBLEDescriptor 结构说明[有变化]
+###uexBLEDescriptor 结构说明
 	var uexBLEDescriptor{
 		serviceUUID://此descriptor所属的service的UUID
 		characteristicUUID://此descriptor所属的characteristic的UUID
