@@ -1417,6 +1417,7 @@ var json = {
 	bgImage:,//String,必选 按钮背景图路径 
 	title:,//String 可选 按钮文字 
 	titleColor:,// String 可选 按钮文字颜色
+	titleSize:,//Number 可选 按钮文字大小
 }
 ```
 

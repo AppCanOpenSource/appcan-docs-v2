@@ -111,7 +111,7 @@ var param={
 ```
 * uexBLECharacteristic结构说明见附录
 
-###从指定characteristic中搜索descriptor[添加service的参数]
+###从指定characteristic中搜索descriptor
 ```
 searchForDescriptor(param)
 var param={
@@ -120,7 +120,7 @@ var param={
 	}
 ```
 
-###从指定characteristic中搜索descriptor回调[添加service的参数]
+###从指定characteristic中搜索descriptor回调
 ```
 cbSearchForDescriptor(param)
 var param={
@@ -150,11 +150,12 @@ writeCharacteristic(param)
 var param={
 	serviceUUID://service的UUID
 	characteristicUUID://characteristic的UUID
-	value://要写入的值
+	value://要写入的值，
 }
 ```
+* 用户需要将实际要写入的值先base64编码成String，再调用此方法
 
-### cbReadCharacteristic回调[名字有更改]
+### cbReadCharacteristic回调
 
 ```
 cbReadCharacteristic(param)
@@ -166,7 +167,7 @@ var param={
 ```
 * uexBLECharacteristic结构说明见附录
 
-### cbWriteCharacteristic回调[名字有更改]
+### cbWriteCharacteristic回调
 
 ```
 cbWriteCharacteristic(param)
@@ -212,6 +213,8 @@ var param={
 }
 ```
 
+* 用户需要将实际要写入的值先base64编码成String，再调用此方法
+
 ### cbReadDescriptor回调
 
 ```
@@ -239,17 +242,18 @@ var param={
 
 
 ##附录
-###uexBLECharacteristic结构说明[有变化]
+###uexBLECharacteristic结构说明
 
 	var uexBLECharacteristic{
 		serviceUUID://string，此Characteristic所属的service的UUID
 		UUID,://string,此Characteristic的UUID 
-		value,://string,此Characteristic的值，UTF-8编码
+		value,://string,此Characteristic的值，base64编码
 		permissions,://int,此Characteristic的权限说明
 		writeType,;//(仅Android)int，此Characteristic的写入方式
 		descriptors;//list<uexBLEDescriptor> uexBLEDescriptor结构的数组，描述了此Characteristic下所有的Descriptor
 	}
 
+* 用户获取到value之后，需要先进行base64解码
 
 #####permissions 含义待补
 
@@ -267,6 +271,8 @@ flag|desription
 128|If set, additional characteristic properties are defined in the characteristic extended properties descriptor.
 256|If set, only trusted devices can enable notifications of the characteristic value.
 512|If set, only trusted devices can enable indications of the characteristic value.
+
+
 #####writeType含义待补
 
 
@@ -275,9 +281,13 @@ flag|desription
 		serviceUUID://此descriptor所属的service的UUID
 		characteristicUUID://此descriptor所属的characteristic的UUID
 		UUID,://string,此descriptor的UUID 
-		value,://string,此descriptor的值，UTF-8编码
+		value,://string,此descriptor的值
 		permissions,://(仅Android)int,此descriptor的权限说明
+		needDecode,://是否需要base64解码  true/false
 	}
+	
+	* 当needDecode为true时，用户需要将value进行base64解码，
+
 #####permissions 含义待补
 
 
