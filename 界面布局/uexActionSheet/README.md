@@ -140,12 +140,13 @@ iOS6.0+
     }
 ```
 # 3、更新历史
-API 版本：uexActionSheet-3.0.5(iOS) uexActionSheet-3.0.2（Android）
- 最近更新时间：2015-06-19
+API 版本：uexActionSheet-3.0.6(iOS) uexActionSheet-3.0.2（Android）
+ 最近更新时间：2015-08-25
  
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.6  | 修正textNColor不能正常识别的bug |    | 
 | 3.0.5  | 增加颜色边框 |    | 
 | 3.0.4 | 修复ActionSheet框和底部间存在间隙 |   |
 | 3.0.3  |  解决uexActionSheet"取消"按钮字体正常与高亮颜色无法设置问题 |   |
