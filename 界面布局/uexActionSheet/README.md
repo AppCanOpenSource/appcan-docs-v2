@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 ActionSheet插件
 ## 1.1、说明
@@ -42,12 +42,15 @@ jsonData{
 		frameBgColor:,//背景色	
 		frameBroundColor:,//边框颜色
 		frameBgImg:,//背景图
-		btnSelectBgImg:,//一般按钮被选中的背景图
-		btnUnSelectBgImg:,//一般按钮未被选中的背景图
-		cancelBtnSelectBgImg:,//取消按钮 被选中的背景图
-		cancelBtnUnSelectBgImg:,//取消按钮 未被选中的背景图
+		btnSelectBgImg:,//一般按钮，被选中的背景图
+		btnUnSelectBgImg:,//一般按钮，未被选中的背景图
+		cancelBtnSelectBgImg:,//取消按钮，被选中的背景图
+		cancelBtnUnSelectBgImg:,//取消按钮，未被选中的背景图
 		textSize:,//文字字号
-		textColor,//文字颜色
+		textNColor,//一般按钮，未被选中状态下的文字颜色
+		textHColor,//一般按钮，被选中状态下的文字颜色
+		cancleTextNColor,//取消按钮，未被选中状态下的文字颜色
+		cancleTextHColor,//取消按钮，被选中状态下的文字颜色
 		actionSheetList:[//按钮数据数组
 			{
 			name://item名称
@@ -87,7 +90,10 @@ var data={
 		cancelBtnSelectBgImg:"res://cancel-act.png",//取消按钮 被选中的背景图
 		cancelBtnUnSelectBgImg:"res://cancel.png",//取消按钮 未被选中的背景图
 		textSize:"17",//文字字号
-		textColor:"#ffffff",//文字颜色
+		textNColor:"#ffffff",//一般按钮，未被选中状态下的文字颜色
+		textHColor:"#ffff00",//一般按钮，被选中状态下的文字颜色
+		cancleTextNColor:"#ff00ff",//取消按钮，未被选中状态下的文字颜色
+		cancleTextHColor:"#000ffff",//取消按钮，被选中状态下的文字颜色
 		actionSheetList:[//按钮数据数组
 			{
 			name:"新浪微博"//item名称
