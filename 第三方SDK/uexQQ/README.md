@@ -4,23 +4,26 @@
 # 1、 简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
  
 QQ登录及分享插件
-## 1.1  说明
+## 1.1 说明
 调用QQ登录及分享插件，可以实现图文分享、音频分享、应用分享
-> 温馨提示:本插件需要配置，自定义插件上传打包使用，原因是部分接口涉及到scheme，如下,[插件下载](#开源源码:)
+> 温馨提示：
+(1)、目前安卓插件需要自定义插件上传打包使用，原因是部分接口完成调用后需要返回到应用中　,[插件下载](#1.3 开源源码)
+安卓QQ插件自定义使用，具体详细步骤请点击参考 :开发指导->Android QQ插件接入指引
+(2)、iOS插件uexQQ如果用到login接口和分享回调，需要通过config.xml配置插件的方法可直接在官网公共插件里直接勾选使用，示例配置代码如下： 
 
-(1)、安卓QQ插件自定义使用，具体详细步骤请点击参考 :开发指导->Android QQ插件接入指引
-(2)、iOS插件uexQQ如果用到login接口和分享回调需要自定义插件使用，即需要更改uexQQ插件包里的uexQQ.plist文件的CFBundleURLSchemes值；
 ````
-修改CFBundleURLSchemes值可参考: <string>uexQQ</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>这里填写的格式为“tencent+APP ID</string>
-            </array>
+<config desc="uexQQ" type="URLSCHEME">
+<urlScheme name="uexQQ" schemes="['A123124','Tencent24asd3431']"/>
+</config>
 ````
+* desc 和name均为描述性字段，可任意修改
+* schemes为数组结构的字符串,`每一个自定义UrlScheme用单引号(')包含起来，多个UrlScheme之间用逗号(,)隔开，然后所有这些UrlScheme用中括号([])再包括进去`
+* 以上述配置为例，假设应用A中有进行此UrlScheme配置，在另一个应用B中，通过引擎的JS方法`uexWidget.loadApp('A123124:');`即可打开应用A（注意不要漏掉引号!）
+
 ## 1.2  UI展示
  ![](http://newdocx.appcan.cn/docximg/162019s2015p6u16v.png)
  ![](http://newdocx.appcan.cn/docximg/163002w2015z6l16r.png)
-## 1.3 开源源码:
+## 1.3 开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=316_index) 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
  
  

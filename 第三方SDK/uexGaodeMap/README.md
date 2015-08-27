@@ -1,23 +1,19 @@
 
 [TOC]
 
-#1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
  高德地图插件
- 封装高德地图相关功能，包括放大缩小、移动和旋转等基本操作；标注；圆形、矩形和多边形覆盖物；定位、搜索、地理编码等功能。
-##1.1、 说明
-封装高德地图相关功能，包括放大缩小、移动和旋转等基本操作；标注；圆形、矩形和多边形覆盖物；定位、搜索、地理编码等功能。
+## 1.1、说明
+ 封装高德地图相关功能，包括放大缩小、移动和旋转等基本操作；标注；圆形、矩形和多边形覆盖物；定位、搜索、地理编码、离线地图等功能。
+> **`注意:`**
+　　插件需要通过config.xml配置插件的方法可直接在官网公共插件里直接勾选使用，详见[附录](#3 附录 "附录")。IDE插件因为涉及到高德地图方面的ID与Key暂时无法正常使用。具体操作见『[手册](http://newdocx.appcan.cn/newdocx/docx?type=1050_975 "手册")』
 
-
- * 用户可以在 config.xml 配置参数。若打包平台不支持config.xml配置，用户需要自定义插件进行使用，详见**附录**
- * 插件的**`搜索功能`**和**`定位功能`**需要用到AppKey以及证书/包名，因此IDE打包下或者没有配置AppKey时，这些功能无法正常使用
- * Android配置AppKey的具体操作可见『[手册](http://newdocx.appcan.cn/newdocx/docx?type=1050_975 "手册")』
-
-##1.2、 开源源码:
+## 1.2、 开源源码
 自定义插件下载:[点击此处](http://plugin.appcan.cn/details.html?id=428_index) （插件测试用例与插件包已经提供）
-##1.3、 UI展示
+## 1.3、 UI展示
  
 ## 1.4、术语表
-### 1.4.1 Download Status    
+### 1.4.1 Download Status
 
 | 状态码 | 描述 | 英文描述 |
 | ----- | ---- | ------- |
@@ -2683,24 +2679,40 @@ Android 3.0.3+
         alert("cbDelete: "+json);
     }
 ```
+# 4、附录
+## 4.1、通过config.xml配置插件的方法
 
-#4、附录
-###config.xml配置说明
 * 将配置代码添加到`config.xml`中即可完成插件配置，无需进行自定义插件相关步骤
 * 详见[打包服务器公测](http://newdocx.appcan.cn/newdocx/docx?type=1472_1291)
 * 该公测已完成，现在也支持正式版大众打包服务器
-* 示例代码如下
+
+
+
+#### iOS
+示例配置代码如下：
 
 ```
-<config desc="uexGaodeMap" type="KEY">
-	<param platform="iOS"   name="$uexGaodeMap_APIKey$" value="申请的APIKey"/>
-	<param platform="Android"   name="$uexGaodeMap_APIKey$" value="申请的APIKey"/>
-</config>
+    <config desc=“uexGaode“ type=“KEY“ > 
+        <param platform=“iOS“ name=“$uexGaodeMap_APIKey$“  value=“XXX“/>
+    </config>
 ```
 
-* **只需修改value的值**,将"申请的APIKey"替换为自己的key(例如"6d67ed96c0691f1c238ab3fee5ef2d9a"），即可完成相应key的配置
+#### Android
+示例配置代码如下：
+```
+    <config desc=“uexGaode“ type=“KEY“ > 
+        <param platform="Android" name="$uexGaodeMap_APIKey$" value="XXX"/>
+    </config>
+```
 
-
+或者Android和iOS合并写为：
+```
+    <config desc=“uexGaode“ type=“KEY“ > 
+        <param platform=“iOS“ name=“$uexGaodeMap_APIKey$“  value=“XXX“/>
+        <param platform="Android" name="$uexGaodeMap_APIKey$" value="XXX"/>
+    </config>
+```
+**用户需要将上面字段中的XXX替换为自己申请的对应平台的key，然后添加至config.xml中：**即可完成相应key的配置 
 
 #5、更新历史
  API 版本:uexGaodeMap-3.0.3(iOS) uexGaodeMap-3.0.3（Android）    

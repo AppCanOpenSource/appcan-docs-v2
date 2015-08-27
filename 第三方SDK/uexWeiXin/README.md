@@ -3,26 +3,25 @@
 微信分享插件
 
 ##  1.1 说明
- 封装了微信开放平台的SDK，集成了微信登录、微信分享功能；可用于实现第三方账号登录，分享内容到朋友圈或好友；使用之前须从[微信开放平台](https://open.weixin.qq.com/ "微信开放平台")申请开发者账号并创建应用，获取 **appid 和 secret。同时包含微信支付功能。如何申请请参考附录。
- 安卓微信插件在使用时，调用接口时只需填写对应的参数，直接在线勾选插件使用；IDE不建议测试使用，原因：IDE涉及证书和包名问题！**
-**iOS微信插件暂时需要自定义插件使用，需要更改uexWeiXin插件包里uexWeiXin.plist文件的CFBundleURLSchemes值**
+ 封装了微信开放平台的SDK，集成了微信登录、微信分享功能；可用于实现第三方账号登录，分享内容到朋友圈或好友；使用之前须从[微信开放平台](https://open.weixin.qq.com/ "微信开放平台")申请开发者账号并创建应用，获取 **appid 和 secret。同时包含微信支付功能。如何申请请参考[附录](http://newdocx.appcan.cn/newdocx/docx?type=1449_975 "附录")。
+> 　　安卓微信插件在使用时，调用接口时只需填写对应的参数，直接在线勾选插件使用；IDE不建议测试使用，原因：IDE涉及证书和包名问题！　
+　　iOS微信插件在使用在微信支付或分享过程中，App用过uexWeiXin插件打开微信客户端进行支付，支付过程完成后，微信客户端通过应用自定义的UrlScheme返回到本App,并传回支付结果时，需要配置CFBundleURLSchemes值
+ 
 
-修改CFBundleURLSchemes值可参考： 
+iOS插件需要通过config.xml配置插件的方法可直接在官网公共插件里直接勾选使用，示例配置代码如下： 
 
 ```
-<string>weixin</string>
-<key>CFBundleURLSchemes</key>
-<array>
-	<string>填写自己申请的appID</string>
-</array>
+<config desc="uexWeiXin" type="URLSCHEME">
+<urlScheme name="uexWeiXin" schemes="['A123124']"/>
+</config>
 ```
+ A123124改成申请到的微信appId
 
-下载地址：[iOS插件包](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=17089&extra=page%3D1 "iOS插件包")
 
 ## 1.2 UI展示
 ![](http://newdocx.appcan.cn/docximg/162019s2015p6u16v.png)
 
-## 1.3 开源源码：
+## 1.3 开源源码
 插件测试用例与源码下载：[点击](http://plugin.appcan.cn/details.html?id=195_index) 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
  
 ## 1.4 术语表
