@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 文件下载插件
 ## 1.1、说明
@@ -307,14 +307,14 @@ uexDownloaderMgr.onStatus = function(opCode,fileSize,percent,status){
 
 # 3、更新历史
 
-API 版本：uexDownloaderMgr-3.0.3(iOS) uexDownloaderMgr-3.0.7（Android）
-最近更新时间：2015-06-19
+API 版本：uexDownloaderMgr-3.0.5(iOS) uexDownloaderMgr-3.0.7（Android）
+最近更新时间：2015-08-21
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
 | 3.0.7  |   | 修复不支持HTTPS问题  |
 | 3.0.6  |   | 新增setHeaders接口  |
-| 3.0.5  |   | 引擎更新后，修复取消下载提示不准确的问题  |
+| 3.0.5  | 修改了请求头的验证 | 引擎更新后，修复取消下载提示不准确的问题  |
 | 3.0.4 |   | 修复下载速度慢的问题，修复取消下载提示不准确问题  |
 | 3.0.3  |支持https   | 新增接口cancelDownload  |
 | 3.0.2  |  为和文档保持统一增加uexDownloader Mgr.cancelDownload接口 | 修复下载速度的问题  |

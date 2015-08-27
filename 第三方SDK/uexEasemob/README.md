@@ -1273,12 +1273,12 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 
 #4、更新历史
-API 版本：uexEasemob-3.0.12(iOS) uexEasemob-3.0.11（Android）
-最近更新时间：2015-08-18
+API 版本：uexEasemob-3.0.13(iOS) uexEasemob-3.0.13（Android）
+最近更新时间：2015-08-21
 
   历史发布版本 | iOS更新 | 安卓更新
   ------------ | ------------ | ------------ 
-  3.0.13 | 修复若干bugs| |
+  3.0.13 | 修复若干bugs|支持声音和震动；修复若干bugs |
   3.0.12 | 新增API:onGroupCreated | 
   3.0.11 | 新增API:getRecentChatters，onMessageSent |添加创建群回调onGroupCreated  
   3.0.10 | SDK更新；EMGroup回调结构优化；支持IDE打包 | 添加getRecentChatters接口 

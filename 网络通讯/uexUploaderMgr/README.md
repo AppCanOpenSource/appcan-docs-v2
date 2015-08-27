@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 文件上传管理接口插件
 ## 1.1、说明
@@ -201,11 +201,13 @@ window.uexOnload = function(){
 ```
 
 # 3、更新历史
-API 版本：uexUploaderMgr-3.0.6(iOS) uexUploaderMgr-3.0.4（Android）
-最近更新时间：2015-06-19
+API 版本：uexUploaderMgr-3.0.7(iOS) uexUploaderMgr-3.0.4（Android）
+最近更新时间：2015-08-21
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+
+| 3.0.7  | 修改了请求头的验证  |   |
 | 3.0.6  | 支持https  |   |
 | 3.0.5  | 统一uexUploaderMgr插件Android和iOS的请求超时时间  |   |
 | 3.0.4 |  修复uexUploaderMgr插件设置请求头不成功的问题 | 修复不支持HTTPS问题  |

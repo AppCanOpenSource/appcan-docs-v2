@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
  跨域异步请求插件
 ## 1.1、说明
@@ -345,7 +345,7 @@ API 版本：uexXmlHttpMgr-3.0.8(iOS) uexXmlHttpMgr-3.0.15（Android）
 | 3.0.13  |   | 添加getCookie接口   |
 | 3.0.12  |   | 修复网络出错时的Status code  |
 | 3.0.11  |   | 修复退出应用时ANR问题  |
-| 3.0.10  |   | 修改onData回调方法中result参数的返回值信息  |
+| 3.0.10  | 修改获取appkey的方法  | 修改onData回调方法中result参数的返回值信息  |
 | 3.0.9  |   | 修改timeOut为空或者为0的时候的默认 请求超时时间为30\*1000    |
 |3.0.8  | 新增clearCookie接口  | 修复请求设置证书不成功的问题   |
 | 3.0.7  |  onData添加第五个参数是服务器response的数据，方 便调试 | 修改onData回调方法参数requestCode为必选参数  |

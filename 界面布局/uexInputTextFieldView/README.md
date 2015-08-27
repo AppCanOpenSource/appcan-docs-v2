@@ -121,11 +121,12 @@ uexInputTextFieldView.onCommit = function(data){
 ```
 
 # 3、更新历史
-API 版本：uexInputTextFieldView-3.0.3(iOS) uexInputTextFieldView-3.0.7(Android)
-最近更新时间：2015-06-26
+API 版本：uexInputTextFieldView-3.0.3(iOS) uexInputTextFieldView-3.0.8(Android)
+最近更新时间：2015-08-21
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
+| 3.0.8 |  | 修改EditText和webview中的输入框抢焦点的问题|
 | 3.0.7 |  | 修改open接口，可设置发送按钮颜色和按钮字体的颜色。|
 | 3.0.6 |  | 修改发送按钮为默认显示|
 | 3.0.5 |  | 修复点击输入框再点击物理返回键，直接退出插件问题|
