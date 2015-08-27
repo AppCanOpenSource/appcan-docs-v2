@@ -4,10 +4,13 @@
 #1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
  高德地图插件
  封装高德地图相关功能，包括放大缩小、移动和旋转等基本操作；标注；圆形、矩形和多边形覆盖物；定位、搜索、地理编码等功能。
-##1.1、 业务限制资源规格限制说明
+##1.1、 说明
 封装高德地图相关功能，包括放大缩小、移动和旋转等基本操作；标注；圆形、矩形和多边形覆盖物；定位、搜索、地理编码等功能。
-> 注意:安卓&iOS插件需要在线自定义上传打包使用。IDE插件因为涉及到高德地图方面的ID与Key暂时无法正常使用。
-具体操作见『[手册](http://newdocx.appcan.cn/newdocx/docx?type=1050_975 "手册")』
+
+
+ * 用户可以在 config.xml 配置参数。若打包平台不支持config.xml配置，用户需要自定义插件进行使用，详见**附录**
+ * 插件的**`搜索功能`**和**`定位功能`**需要用到AppKey以及证书/包名，因此IDE打包下或者没有配置AppKey时，这些功能无法正常使用
+ * Android配置AppKey的具体操作可见『[手册](http://newdocx.appcan.cn/newdocx/docx?type=1050_975 "手册")』
 
 ##1.2、 开源源码:
 自定义插件下载:[点击此处](http://plugin.appcan.cn/details.html?id=428_index) （插件测试用例与插件包已经提供）
@@ -1618,8 +1621,10 @@ iOS 3.0.0+
 
 ```
 var json = {
-    longitude:,//当前位置经度
-    latitude://当前位置纬度
+	longitude:,//当前位置经度
+	latitude:,//当前位置纬度
+	address:,//String  搜索的地址
+	city:,//String 搜索所在的城市
 }
 ```
 
@@ -1650,7 +1655,9 @@ iOS 3.0.0+
 
 ```
 var json = {
-    address://具体地址
+	address://具体地址
+	latitude:,//Number 搜索的纬度
+	longitude:,//Number 搜索的经度
 }
 ```
 
@@ -2677,7 +2684,25 @@ Android 3.0.3+
     }
 ```
 
-#4、更新历史
+#4、附录
+###config.xml配置说明
+* 将配置代码添加到`config.xml`中即可完成插件配置，无需进行自定义插件相关步骤
+* 详见[打包服务器公测](http://newdocx.appcan.cn/newdocx/docx?type=1472_1291)
+* 该公测已完成，现在也支持正式版大众打包服务器
+* 示例代码如下
+
+```
+<config desc="uexGaodeMap" type="KEY">
+	<param platform="iOS"   name="$uexGaodeMap_APIKey$" value="申请的APIKey"/>
+	<param platform="Android"   name="$uexGaodeMap_APIKey$" value="申请的APIKey"/>
+</config>
+```
+
+* **只需修改value的值**,将"申请的APIKey"替换为自己的key(例如"6d67ed96c0691f1c238ab3fee5ef2d9a"），即可完成相应key的配置
+
+
+
+#5、更新历史
  API 版本:uexGaodeMap-3.0.3(iOS) uexGaodeMap-3.0.3（Android）    
  最近更新时间:2015-06-19
  
