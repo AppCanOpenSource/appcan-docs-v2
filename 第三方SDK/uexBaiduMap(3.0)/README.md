@@ -2405,7 +2405,7 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 
 **API 版本:uexBaiduMap-3.1.11(iOS) uexBaiduMap-3.1.23(Android)**
 
-**最近更新时间:2015-08-28**
+**最近更新时间:2015-08-31**
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ----- | ----- | ----- |

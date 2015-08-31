@@ -2436,6 +2436,33 @@ iOS6.0+
 uexWindow.setStatusBarTitleColor(0);
 ```
 
+
+> ### getSlidingWindowState 获取侧滑窗口显示情况
+  
+`uexWindow.getSlidingWindowState()`
+
+**说明:**
+获取侧滑窗口显示情况
+
+**参数:**
+```
+无
+```
+
+**平台支持：**
+   Android2.2+
+   iOS6.0+
+
+**版本支持：**
+3.0.0+
+
+**示例：**
+
+```
+uexWindow.getSlidingWindowState();
+```
+
+
 ## 2.2 回调方法
 
 > ### cbConfirm 弹出confirm对话框的回调方法
@@ -2661,6 +2688,25 @@ iOS6.0+
 
 **版本支持：**
 3.0.0+
+
+
+> ### cbSlidingWindowState 获取侧滑窗口显示情况的回调方法
+  
+`uexWindow.cbSlidingWindowState(state)`
+
+**参数:**
+
+| 参数名称 | 参数类型  | 是否必选  |  说明 |
+| -------- | --------- | --------- | ----- |
+| state | Number | 是 | 返回的显示情况，0：左侧菜单显示；1：主界面显示；2：右侧菜单显示 |
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.0.0+
+
 
 ## 2.3 监听方法
 
