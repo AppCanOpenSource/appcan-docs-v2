@@ -8,7 +8,7 @@
 > **`注意:`**
 　　插件需要通过config.xml配置插件的方法可直接在官网公共插件里直接勾选使用，详见[附录](#4、附录 "附录")。IDE插件因为涉及到高德地图方面的ID与Key暂时无法正常使用。具体操作见『[手册](http://newdocx.appcan.cn/newdocx/docx?type=1050_975 "手册")』
 
-## 1.2、 开源源码
+## 1.2、开源源码
 自定义插件下载:[点击此处](http://plugin.appcan.cn/details.html?id=428_index) （插件测试用例与插件包已经提供）
 ## 1.3、 UI展示
  
@@ -26,7 +26,7 @@
 | 5 | 停止下载 | STOP |
 | 6 | 检查更新状态 | CHECKUPDATES |
 
-###1.4.2 cbDownload Status
+### 1.4.2 cbDownload Status
 
 | errorCode | 描述 | errorStr |
 | ----- | --------- | ------- |
@@ -36,8 +36,8 @@
 | -3 | 下载失败 | "已经下载完成，请到已下载列表查看！" | 
 
 
-#2、API概述 
-##2.1、方法:
+# 2、API概述 
+## 2.1、方法:
 > ### open  打开地图
 
 `uexGaodeMap.open(json)`
@@ -106,7 +106,7 @@ iOS 3.0.0+
 ```
     uexGaodeMap.close();
 ```
-> ###  setMapType  设置地图类型
+> ### setMapType 设置地图类型
 
 `uexGaodeMap.setMapType(json)`
 
@@ -537,7 +537,7 @@ iOS 3.0.0+
     uexGaodeMap.addMarkersOverlay(data);
 ```
 
-> ###setMarkerOverlay  修改标注
+> ### setMarkerOverlay  修改标注
 
 `uexGaodeMap.setMarkerOverlay(json)`
 
@@ -1620,7 +1620,7 @@ var json = {
 	longitude:,//当前位置经度
 	latitude:,//当前位置纬度
 	address:,//String  搜索的地址
-	city:,//String 搜索所在的城市
+	city://String 搜索所在的城市
 }
 ```
 
@@ -1651,9 +1651,9 @@ iOS 3.0.0+
 
 ```
 var json = {
-	address://具体地址
+	address:,//具体地址
 	latitude:,//Number 搜索的纬度
-	longitude:,//Number 搜索的经度
+	longitude://Number 搜索的经度
 }
 ```
 
@@ -1777,7 +1777,7 @@ uexGaodeMap.cbSetCustomButton = function(json) {
 ```
 var json = {
 	id:,//尝试删除的自定义按钮的唯一标识符
-	isSuccess:,// 设置是否成功 true/false
+	isSuccess:// 设置是否成功 true/false
 }
 ```
 
@@ -1813,7 +1813,7 @@ uexGaodeMap.cbDeleteCustomButton = function(json) {
 ```
 var json = {
 	successfulIds:,//list<string> 显示成功的按钮的唯一标识符数组
-	failedIds:,//list<string> 显示失败的按钮的唯一标识符数组
+	failedIds://list<string> 显示失败的按钮的唯一标识符数组
 }
 ```
 
@@ -1878,7 +1878,7 @@ uexGaodeMap.cbHideCustomButtons = function(json) {
 ```
 
 
-##2.3、 监听方法:
+## 2.3、 监听方法:
 > ### onMapLoadedListener 地图加载完成的监听方法
 
 
@@ -1909,8 +1909,6 @@ iOS 3.0.0+
 ```
 
 > ### onMarkerClickListener 点击标注的监听方法
-
-
 
 `uexGaodeMap.onMarkerClickListener(json);`
 
@@ -2483,7 +2481,7 @@ iOS 3.0.2+
     }
 ```
 
-``### getDownloadingList 获取正在下载列表
+> ### getDownloadingList 获取正在下载列表
   
 
 `uexGaodeMap.getDownloadingList(json)`
@@ -2714,12 +2712,13 @@ Android 3.0.3+
 ```
 **用户需要将上面字段中的XXX替换为自己申请的对应平台的key，然后添加至config.xml中：**即可完成相应key的配置 
 
-#5、更新历史
- API 版本:uexGaodeMap-3.0.3(iOS) uexGaodeMap-3.0.3（Android）    
- 最近更新时间:2015-06-19
+# 5、更新历史
+ API 版本:uexGaodeMap-3.0.5(iOS) uexGaodeMap-3.0.5（Android）    
+ 最近更新时间:2015-08-28
  
 |  历史发布版本 | iOS更新  | Android更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.5  | 地理编码和反地理编码的回调添加参数,方便用户区分 | 地理编码和反地理编码的回调添加参数,方便用户区分 |
 | 3.0.4  |添加自定义按钮相关功能 |  添加自定义按钮相关功能|
 | 3.0.3  |修复使用自定义气泡时自定义标注图标失效的问题 修复覆盖物设置透明色会失效的bug 修复getCurrentLocation不敏感的bug 修复clear接口可能会导致闪退的bug |  新增离线地图相关接口|
 | 3.0.2  | 新增离线地图相关接口  | 新增显示地图比例尺方法， 新增批量删除标注或覆盖物的方法  |

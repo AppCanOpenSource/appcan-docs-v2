@@ -1,7 +1,7 @@
 [TOC]
-#1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 环信插件
-##1.1、 说明
+## 1.1、 说明
 本插件是基于环信API封装的AppCan平台的插件模块，用户可以使用本插件实现基本的即时通讯功能，包括——
 单聊功能：支持发送语音，图片，表情，文字，位置，附件；
 群聊功能：支持500人到2000人大群，拥有完善的群组权限管理；
@@ -1273,25 +1273,26 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 
 #4、更新历史
-API 版本：uexEasemob-3.0.13(iOS) uexEasemob-3.0.13（Android）
-最近更新时间：2015-08-21
+API 版本：uexEasemob-3.0.13(iOS) uexEasemob-3.0.14（Android）
+最近更新时间：2015-08-28
 
-  历史发布版本 | iOS更新 | 安卓更新
-  ------------ | ------------ | ------------ 
-  3.0.13 | 修复若干bugs|支持声音和震动；修复若干bugs |
-  3.0.12 | 新增API:onGroupCreated | 
-  3.0.11 | 新增API:getRecentChatters，onMessageSent |添加创建群回调onGroupCreated  
-  3.0.10 | SDK更新；EMGroup回调结构优化；支持IDE打包 | 添加getRecentChatters接口 
-  3.0.9 | SDK更新，代码优化等，详见文档 | 支持离线消息 | 
-  3.0.8 | 新增方法 发送视频消息等，详见文档 | getGroup添加groupName,groupDescription 字段 
-  3.0.7 | 优化了本地数据库的相关设置 | getChatterInfo增加返回新加好友的聊天记录 
-  3.0.6 | 自动登录功能改在 初始化 中进行设置 | 添加getTotalUnreadMsgCount接口 
-  3.0.5 | 针对新版本做了一些代码优化 | 升级环信SDK 
-  3.0.4 | 支持自动登录，更新环信iOS SDK版本至V2.1.6 | 升级环信SDK 
-  3.0.3 | 新增了一个获取聊天对象信息的方法 | 发送语音添加length参数 
-  3.0.2 | 修复了回调信息不全引起程序崩溃的bug | 添加sendHasReadResponseForMessage 等接口 
-  3.0.1 | 修正了多次初始化会导致程序卡死的bug | 添加getChatterInfo接口  
-  3.0.0 | 环信(Easemob)插件 for iOS | 环信插件 
+|历史发布版本 | iOS更新 | 安卓更新|
+|------------ | ------------ | ------------|
+|3.0.14 | |修复CMD消息json不能解析的问题 |
+|3.0.13 | 修复若干bugs|支持声音和震动；修复若干bugs |
+|3.0.12 | 新增API:onGroupCreated |
+|3.0.11 | 新增API:getRecentChatters，onMessageSent |添加创建群回调onGroupCreated|
+|3.0.10 | SDK更新；EMGroup回调结构优化；支持IDE打包 | 添加getRecentChatters接口|
+|3.0.9 | SDK更新，代码优化等，详见文档 | 支持离线消息 |
+|3.0.8 | 新增方法 发送视频消息等，详见文档 | getGroup添加groupName,groupDescription 字段|
+|3.0.7 | 优化了本地数据库的相关设置 | getChatterInfo增加返回新加好友的聊天记录|
+|3.0.6 | 自动登录功能改在 初始化 中进行设置 | 添加getTotalUnreadMsgCount接口|
+|3.0.5 | 针对新版本做了一些代码优化 | 升级环信SDK|
+|3.0.4 | 支持自动登录，更新环信iOS SDK版本至V2.1.6 | 升级环信SDK|
+|3.0.3 | 新增了一个获取聊天对象信息的方法 | 发送语音添加length参数|
+|3.0.2 | 修复了回调信息不全引起程序崩溃的bug | 添加sendHasReadResponseForMessage 等接口|
+|3.0.1 | 修正了多次初始化会导致程序卡死的bug | 添加getChatterInfo接口|
+|3.0.0 | 环信(Easemob)插件 for iOS | 环信插件|
 
 ## 文档更新
 

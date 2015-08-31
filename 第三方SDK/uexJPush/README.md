@@ -881,8 +881,8 @@ $UEXJPUSH_APS_ENVIRONMENT$ -->推送证书类型   0-开发者证书(developemen
 
 #4、更新历史
 
-API 版本：uexJPush-3.0.2(iOS) uexJPush-3.0.6（Android）
- 最近更新时间：2015-08-20
+API 版本：uexJPush-3.0.3(iOS) uexJPush-3.0.6（Android）
+ 最近更新时间：2015-08-28
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
@@ -892,7 +892,7 @@ API 版本：uexJPush-3.0.2(iOS) uexJPush-3.0.6（Android）
 | 3.0.5  |   | 支持声音和震动；支持离线消息|
 
 | 3.0.4  |   | getGroup添加groupName,groupDescription字段；getChatterInfo返回新加好友的聊天记录|
-| 3.0.3  |   | 修复4.4以下版本点击通知闪退的问题  |
+| 3.0.3  | 修改推送的extras为字典格式 | 修复4.4以下版本点击通知闪退的问题  |
 | 3.0.2  |  添加config.xml配置支持 | 修复4.修复onReceiveNotificationOpen,调整初始化时机|
 | 3.0.1  | 支持onReceiveNotificationOpen接口| 修复退出应用时收到推送闪退的问题|
 | 3.0.0  | 极光推送(uexJPush) 插件 for iOS  | 极光推送插件|

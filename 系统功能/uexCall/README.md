@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 打电话功能插件
 ## 1.1、说明
@@ -12,11 +12,11 @@
     uexCall的call直接拨打电话接口和uexSMS的send直接发送短信接口都需要预先配置相应的权限。而这些权限对于手机系统来说，属于敏感权限。因此如果应用中带有这些权限，在上某些应用市场审核时，会被驳回。（已有开发者反馈该问题）但不影响功能使用，可以使用跳到拨号或者短信界面，使用`uexCall.dial(number) uexSMS.open(phoneNum, content)`方法
 ## 1.4、开源源码
 插件测试用例与源码下载：<a href="http://plugin.appcan.cn/details.html?id=158_index" target="_blank">点击此处</a>
-#2、API概览
+# 2、API概览
 ## 2.1、方法
 
 
-> ###dial  调用系统拨号界面
+> ### dial 调用系统拨号界面
 
 ``
 uexCall.dial(number)
@@ -38,7 +38,7 @@ iOS6.0+
 ```
 uexCall.dial("10086");
 ```
-> ### faceTime   视频通话
+> ### faceTime 视频通话
 
 `uexCall.faceTime(number)`
 **说明**
@@ -60,13 +60,13 @@ uexCall.faceTime("10086");
 ```
 
  
- # 3、更新历史
- 当前API 版本：uexCall-3.0.2(iOS) uexCall-3.0.2（Android）
- 最近更新时间：2015-06-19
- 
- 
+# 3、更新历史
+当前API 版本：uexCall-3.0.2(iOS) uexCall-3.0.3（Android）
+最近更新时间：2015-08-28
+
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.3  | | plugin文件中添加call接口，兼容老版本插件 |
 | 3.0.2  |  uexCall.call方法取消"应用程序需要 拨打电话,是否确定拨号?"的提示 | 兼容老版本插件   |
 | 3.0.1  | 使用新版Xcode重新编译,支持arm64  | 去掉直接拨打电话的接口|
 | 3.0.0  | 打电话功能插件  | 打电话功能插件|

@@ -1,5 +1,4 @@
 
-
 [TOC]
 
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
@@ -18,12 +17,12 @@
 
 
 # 2、API概览
-##2.1、方法
+## 2.1、方法
 > ### open 打开地图
 
 `uexBaiduMap.open(x,y,width,height,longitude,latitude)`
 
- **说明**
+**说明**
 
 在界面的指定位置显示地图
 回调 [cbOpen](#cbOpen 加载地图完成的回调方法 "cbOpen")
@@ -36,9 +35,8 @@
 | y | Number | 是 | y坐标 |
 | width | Number | 是 | 地图宽度 |
 | height | Number | 是 | 地图高度 |
-| longitude | Number或String | 是 | 地图中心点经度 |
-| latitude | Number或String | 是 | 地图中心点纬度|
-
+| longitude | Number | 是 | 地图中心点经度 |
+| latitude | Number | 是 | 地图中心点纬度|
 
 * x,y,width,height 的单位均为px
 * (x,y)表示地图左上角的坐标
@@ -739,9 +737,9 @@ var dotInfo={
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
 | fillColor | String | 是 | 圆点颜色，支持格式:”#000”,”#000000” |
-| radius | Number或String | 是 | 圆点半径，单位:像素 |
-| longitude | Number或String | 是 | 圆点经度 |
-| latitude | Number或String | 是 | 圆点纬度 |
+| radius | Number | 是 | 圆点半径，单位:像素 |
+| longitude | Number | 是 | 圆点经度 |
+| latitude | Number | 是 | 圆点纬度 |
 
 **平台支持**
 
@@ -801,10 +799,10 @@ var polylineInfo={
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
 | fillColor | String | 是 | 折线颜色,支持格式:”#000”，”#000000” |
-| lineWidth | Number或String | 是 | 折线线宽，单位:像素 |
+| lineWidth | Number | 是 | 折线线宽，单位:像素 |
 | property | Array | 是 |连接点经纬度集合 |
-| longitude | Number或String | 是 | 连接点经度 |
-| latitude | Number或String | 是 | 连接点纬度 |
+| longitude | Number | 是 | 连接点经度 |
+| latitude | Number | 是 | 连接点纬度 |
 
 **平台支持**
 
@@ -826,16 +824,16 @@ var polylineInfo=
 	property:
 		[
 			{
-			longitude:"116.357428",
-			latitude:"39.93923"
+				longitude:"116.357428",
+				latitude:"39.93923"
 			},
 			{
-			longitude:"116.401394",
-			latitude:"39.942821"
+				longitude:"116.401394",
+				latitude:"39.942821"
 			},
 			{
-			longitude:"116.347428",
-			latitude:"39.89923"
+				longitude:"116.347428",
+				latitude:"39.89923"
 			}
 		]
 	};
@@ -875,13 +873,13 @@ var arcInfo={
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
 | strokeColor | String | 是 | 颜色,支持格式:”#000”,”#000000” |
-| lineWidth | Number或String | 是 | 线宽 |
-| startLongitude | Number或String | 是 | 起点经度 |
-| startLatitude | Number或String | 是 | 起点纬度 |
-| centerLongitude | Number或String | 是 | 中点经度 |
-| centerLatitude | Number或String | 是 | 中点纬度 |
-| endLongitude | Number或String | 是 | 终点经度 |
-| endLatitude | Number或String | 是 | 终点纬度 |
+| lineWidth | Number | 是 | 线宽 |
+| startLongitude | Number | 是 | 起点经度 |
+| startLatitude | Number | 是 | 起点纬度 |
+| centerLongitude | Number | 是 | 中点经度 |
+| centerLatitude | Number | 是 | 中点纬度 |
+| endLongitude | Number | 是 | 终点经度 |
+| endLatitude | Number | 是 | 终点纬度 |
 
 **平台支持**
 
@@ -905,7 +903,7 @@ var data={
 	startLatitude:"39.963175",
 	startLongitude:"116.400244",
 	strokeColor:"#990033"
-	};
+};
 var jsonStr=JSON.stringify(data)
 uexBaiduMap.addArcOverlay(jsonStr); 
 ```
@@ -940,9 +938,9 @@ var circleInfo={
 | radius | Number | 是 | 半径,单位:米 |
 | fillColor | String | 是 | 填充颜色,支持格式:“#000”,“#000000” |
 | strokeColor | String | 是 | 边框颜色,支持格式:“#000”,“#000000” |
-| lineWidth | Number或String | 是 | 边框宽度 |
-| longitude | Number或String | 是 | 圆心经度 |
-| latitude | Number或String | 是 | 圆心纬度 |
+| lineWidth | Number | 是 | 边框宽度 |
+| longitude | Number | 是 | 圆心经度 |
+| latitude | Number | 是 | 圆心纬度 |
 
 **平台支持**
 
@@ -1002,10 +1000,10 @@ var polygonInfo={
 | id | String | 是 | 唯一标识符 |
 | fillColor | String | 是 | 填充颜色,支持格式:“#000”,“#000000” |
 | strokeColor | String | 是 | 边框颜色,支持格式:“#000”,“#000000” |
-| lineWidth | Number或String | 是 | 边框宽度 |
+| lineWidth | Number | 是 | 边框宽度 |
 | property | Array | 是 | 连接点经纬度数组 |
-| longitude | Number或String | 是 | 连接点经度 |
-| latitude | Number或String | 是 | 连接点纬度 |
+| longitude | Number | 是 | 连接点经度 |
+| latitude | Number | 是 | 连接点纬度 |
 
 **平台支持**
 
@@ -1025,20 +1023,20 @@ var data={
 	lineWidth:"2.0",
 	property:[
 		{
-		latitude:"39.93923",
-		longitude:"116.357428"
+			latitude:"39.93923",
+			longitude:"116.357428"
 		},
 		{
-		latitude:"39.91923",
-		longitude:"116.327428"
+			latitude:"39.91923",
+			longitude:"116.327428"
 		},
 		{
-		latitude:"39.89923",
-		longitude:"116.347428"
+			latitude:"39.89923",
+			longitude:"116.347428"
 		},
 		{
-		latitude:"39.89923",
-		longitude:"116.367428"
+			latitude:"39.89923",
+			longitude:"116.367428"
 		}
 	],
 	strokeColor:"#990033"
@@ -1068,10 +1066,10 @@ var groundInfo={
 	imageHeight:,
 	property:
 		[
-		{
-		longitude:,
-		latitude:
-		}
+			{
+				longitude:,
+				latitude:
+			}
 		]
 }
 ```
@@ -1082,12 +1080,12 @@ var groundInfo={
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
 | imageUrl | String | 是 | 图片路径,支持格式:”http://”,“res://” |
-| transparency | Number或String | 是 | 透明度,范围:[0.0f,1.0f] |
+| transparency | Number | 是 | 透明度,范围:[0.0f,1.0f] |
 | property | Array | 是 | 地理位置数组，长度为2 |
-| longitude | Number或String | 是 | 经度 |
-| latitude | Number或String | 是 | 纬度 |
-| imageWidth | Number或String | 是(property数组长度为1时)否(property数组长度为2时) | 图片宽度，单位:米 |
-| imageHeight | Number或String | 否 | 图片高度，单位:米 |
+| longitude | Number | 是 | 经度 |
+| latitude | Number | 是 | 纬度 |
+| imageWidth | Number | 是(property数组长度为1时)否(property数组长度为2时) | 图片宽度，单位:米 |
+| imageHeight | Number | 否 | 图片高度，单位:米 |
 
 **平台支持**
 
@@ -1108,12 +1106,12 @@ var data={
 	imageWidth:"10000",
 	property:[
 		{
-		longitude:"116.380338",
-		latitude:"39.92235"
+			longitude:"116.380338",
+			latitude:"39.92235"
 		},
 		{
-		longitude:"116.414977",
-		latitude:"39.947246"
+			longitude:"116.414977",
+			latitude:"39.947246"
 		}
 	],
 	transparency:"0.8"
@@ -1152,17 +1150,16 @@ var textInfo = {
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
 | bgColor | String | 是 | 文字背景,支持格式:“#000”,“#000000” |
-| fontSize | Number或String | 是 | 字体大小 |
+| fontSize | Number | 是 | 字体大小 |
 | fontColor | String | 是 | 字体颜色,支持格式:“#000”,“#000000” |
 | text | String | 是 | 文字内容 |
-| longitude | Number或String | 是 | 经度 |
-| latitude | Number或String | 是 | 纬度 |
-| rotate | Number或String | 否 | 文字旋转角度(逆时针),旋转角范围:-180~180,单位:度 |
+| longitude | Number | 是 | 经度 |
+| latitude | Number | 是 | 纬度 |
+| rotate | Number | 否 | 文字旋转角度(逆时针),旋转角范围:-180~180,单位:度 |
 
 **平台支持**
 
 Android2.2+
-iOS 不支持
 
 **版本支持**
 
@@ -1668,6 +1665,7 @@ iOS6.0+
 ```
 
 > ### nextRouteNode 显示下一个线路节点
+
 `uexBaiduMap.nextRouteNode();`
 
 **说明**
@@ -1693,6 +1691,7 @@ iOS6不支持
  uexBaiduMap.nextRouteNode();
 ```
 > ### geocode 地理编码 
+
 `uexBaiduMap.geocode(json)`
 
 **说明**
@@ -1729,11 +1728,11 @@ iOS6.0+
 **示例**
 
 ```
- var data=
+var data=
 {
-city: "北京",
-address: "东长安街33号"
-} ';
+	city: "北京",
+	address: "东长安街33号"
+};
 uexBaiduMap.geocode(jsonstr);
 ```
 
@@ -1947,8 +1946,10 @@ Android2.2+
 uexBaiduMap.zoomControlsEnabled(0) 
 ```
 
-##2.2、监听方法
- > ### onMapClickListener 点击地图的监听方法 
+## 2.2、监听方法
+
+> ### onMapClickListener 点击地图的监听方法 
+
 `uexBaiduMap.onMapClickListener(data)`
 
 **参数**
@@ -1972,7 +1973,8 @@ var data={
 
 3.0.0+
 
-> ### onMapDoubleClickListener 双击地图的监听方法 
+> ### onMapDoubleClickListener 双击地图的监听方法
+
 `uexBaiduMap.onMapDoubleClickListener(data)`
 
 **参数**
@@ -1996,6 +1998,7 @@ var data={
 3.0.0+
 
 > ### onMapStatusChangeListener 地图状态改变的监听方法
+
 `uexBaiduMap.onMapStatusChangeListener(json);`
 
 **参数**
@@ -2003,28 +2006,28 @@ var data={
 ```
 var json = {
 	center: { // 地图中心点改变时返回值，回调改变后的中心点坐标
-	longitude:, //经度
-	latitude:  //纬度
+		longitude:, //经度
+		latitude:  //纬度
 	},
 	zoom:{ // 地图缩放级别改变时返回值，回调改变前后的缩放级别
-	oldZoom:, // 地图状态改变前的缩放级别
-	newZoom: // 地图状态改变后的缩放级别
+		oldZoom:, // 地图状态改变前的缩放级别
+		newZoom: // 地图状态改变后的缩放级别
 	}
 	overlook: {//地图倾斜度改变时返回值，回调改变前后的倾斜度
-	oldOverlook:, // 地图状态改变前的倾斜度
-	newOverlook: // 地图状态改变后的倾斜度
+		oldOverlook:, // 地图状态改变前的倾斜度
+		newOverlook: // 地图状态改变后的倾斜度
 	},
 	northeast: {//地图东北角坐标改变时返回值，回调改变后的东北角坐标值
-	longitude:, // 经度
-	latitude: // 纬度
+		longitude:, // 经度
+		latitude: // 纬度
 	},
 	southwest: {//地图西南角坐标改变时返回值，回调改变后的西南角坐标值
-	longitude:, // 经度
-	latitude: // 纬度
+		longitude:, // 经度
+		latitude: // 纬度
 	},
 	rotate: {//地图旋转角度改变时返回值，回调改变前后的旋转角度
-	oldRotate:, // 地图状态改变前的旋转角度
-	newRotate: // 地图状态改变后的旋转角度
+		oldRotate:, // 地图状态改变前的旋转角度
+		newRotate: // 地图状态改变后的旋转角度
 	}
 }
 ```
@@ -2222,9 +2225,7 @@ var data={
 
 3.0.0+
 
-**示例(**
-
-)
+**示例**
 ```
 uexBaiduMap.cbCurrentLocation = function(data){
 	alert(data);
@@ -2236,9 +2237,8 @@ uexBaiduMap.cbCurrentLocation = function(data){
 
 `uexBaiduMap.cbGeoCodeResult(data)`
 
-**参数(**
-
-)```
+**参数**
+```
 data:(String类型) 必选 经纬度该字符串为JSON格式。
 var data={
 	longitude:,
@@ -2291,7 +2291,7 @@ uexBaiduMap.cbReverseGeoCodeResult = function(data){
 
 3.0.0+ 
 
-> ###cbPoiSearchResult:poiSearchInCity、poiNearbySearch、poiBoundSearch的回调方法 
+> ### cbPoiSearchResult:poiSearchInCity、poiNearbySearch、poiBoundSearch的回调方法 
 
 `uexBaiduMap.cbPoiSearchResult(data)`
 
@@ -2306,15 +2306,15 @@ var data={
 	currentPageCapacity:,
 	poiInfo:[
 		{
-		uid:,
-		poiType:,
-		phoneNum:,
-		address:,
-		name:,
-		longitude:,
-		latitude:,
-		city:,
-		postCode:
+			uid:,
+			poiType:,
+			phoneNum:,
+			address:,
+			name:,
+			longitude:,
+			latitude:,
+			city:,
+			postCode:
 		}
 	]
 }
@@ -2352,7 +2352,7 @@ uexBaiduMap.cbPoiSearchResult = function(data){
 
 ```
 
-> ###cbBusLineSearchResult 公交线路搜索的回调方法
+> ### cbBusLineSearchResult 公交线路搜索的回调方法
 
 `uexBaiduMap.cbBusLineSearchResult(data)`
 
@@ -2367,9 +2367,9 @@ var data={
 	endTime:,
 	busStation:[
 		{
-		title:"史各庄(辛庄桥西)",
-		longitude:116.297604,
-		latitude:40.099629
+			title:"史各庄(辛庄桥西)",
+			longitude:116.297604,
+			latitude:40.099629
 		}
 	]
 }
@@ -2403,28 +2403,29 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 # 3、更新历史
  
 
-**API 版本:uexBaiduMap-3.1.11(iOS) uexBaiduMap-3.1.22(Android)**
+**API 版本:uexBaiduMap-3.1.11(iOS) uexBaiduMap-3.1.23(Android)**
 
-**最近更新时间:2015-06-19**
+**最近更新时间:2015-08-28**
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ----- | ----- | ----- |
-| 3.0.22| |修复加入百度地图插件后 uexLocation.openLocation()中的onchange事件不能 使用问题
-| 3.0.21| |规避百度地图SDK的BitmapDescriptorFactory中fromView 方法重复调用crash问题
-| 3.0.20| |修复点击路径规划中的起终点标注 时，应用崩溃的问题
-| 3.0.19| |解决百度地图上箭头不转动的问题
-| 3.0.18| |增加onMapStatusChangeListener监听 方法监听地图状态改变，以及添加标注时增加 气泡属性
-| 3.0.17| |修复打开百度地图闪黑屏问题
-| 3.0.16| |增加onMarkerClickListener和 onMarker BubbleClickListener接口
-| 3.0.15| |增加onZoomLevelChangeListener地 图缩放级别改变时，获取缩放级别和中心点的 监听
-| 3.0.14| |增加zoomControlsEnabled显示或隐藏缩 放控件
-| 3.0.13| |增加hideMap(隐藏地图)和showMap(显示 地图) 的接口
-| 3.0.12| |修改添加相同url标注，标注不显示的问题
+| 3.0.23| |修复地理编码接口当地址错误时程序崩溃的问题|
+| 3.0.22| |修复加入百度地图插件后 uexLocation.openLocation()中的onchange事件不能 使用问题|
+| 3.0.21| |规避百度地图SDK的BitmapDescriptorFactory中fromView 方法重复调用crash问题|
+| 3.0.20| |修复点击路径规划中的起终点标注 时，应用崩溃的问题|
+| 3.0.19| |解决百度地图上箭头不转动的问题|
+| 3.0.18| |增加onMapStatusChangeListener监听 方法监听地图状态改变，以及添加标注时增加 气泡属性|
+| 3.0.17| |修复打开百度地图闪黑屏问题|
+| 3.0.16| |增加onMarkerClickListener和 onMarker BubbleClickListener接口|
+| 3.0.15| |增加onZoomLevelChangeListener地 图缩放级别改变时，获取缩放级别和中心点的 监听|
+| 3.0.14| |增加zoomControlsEnabled显示或隐藏缩 放控件|
+| 3.0.13| |增加hideMap(隐藏地图)和showMap(显示 地图) 的接口|
+| 3.0.12| |修改添加相同url标注，标注不显示的问题|
 | 3.1.11 | 修改uexBaiduMap.plist文件NSLocation WhenInUseUsageDescription字段对应value 的类型为字符串 | 修改cbOpen和onSearchRoutePlan的JS回 调方式 |
 | 3.1.10 | 新增onMarkerClickListener和onMarker BubbleClickListener监听方法 | 增加加载地图完成的cbOpen回调和线路规划搜 索结果返回时的监听onSearchRoutePlan |
 | 3.1.9 | 增加onZoomLevelChangeListener地图缩放 级别 改变时,获取缩放级别和中心点的监听 | 移动插件包中的定位jar包和so文件至引擎中 |
 | 3.1.8 |增加隐藏地图hideMap和显示地图showMap的接 口 | 修改在百度地图窗口打开新窗口报错问题 |
-| 3.1.7 | 修复onMapClickListener和onMapDoubleClick Listener的回调错误, 添加cbOpen方法，添加onSearchRoutePlan方法 | 修改获取当前位置时返回结果错误问题
+| 3.1.7 | 修复onMapClickListener和onMapDoubleClick Listener的回调错误, 添加cbOpen方法，添加onSearchRoutePlan方法 | 修改获取当前位置时返回结果错误问题|
 | 3.1.6 | 修复手势问题 | 增加setUserTrackingMode接口 |
 | 3.1.5 | 修复新SDK定位失败问题 | 修改点击显示线路和添加标注按钮无反应问题 |
 | 3.1.4 | 更新百度地图iOS_SDK_2.6.0 | 修改点击标注空指针异常问题 |
