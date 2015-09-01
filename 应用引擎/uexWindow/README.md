@@ -2442,7 +2442,7 @@ uexWindow.setStatusBarTitleColor(0);
 `uexWindow.getSlidingWindowState()`
 
 **说明:**
-获取侧滑窗口显示情况
+获取侧滑窗口显示情况,回调方法[cbSlidingWindowState](#cbSlidingWindowState 获取侧滑窗口显示情况的回调方法 "cbSlidingWindowState")
 
 **参数:**
 ```
