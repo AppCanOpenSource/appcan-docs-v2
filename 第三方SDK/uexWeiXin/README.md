@@ -1,8 +1,8 @@
-﻿[TOC]
-#1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+[TOC]
+# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 微信分享插件
 
-##  1.1 说明
+## 1.1 说明
  封装了微信开放平台的SDK，集成了微信登录、微信分享功能；可用于实现第三方账号登录，分享内容到朋友圈或好友；使用之前须从[微信开放平台](https://open.weixin.qq.com/ "微信开放平台")申请开发者账号并创建应用，获取 **appid 和 secret。同时包含微信支付功能。如何申请请参考[附录](http://newdocx.appcan.cn/newdocx/docx?type=1449_975 "附录")。
 > 　　安卓微信插件在使用时，调用接口时只需填写对应的参数，直接在线勾选插件使用；IDE不建议测试使用，原因：IDE涉及证书和包名问题！　
 　　iOS微信插件在使用在微信支付或分享过程中，App用过uexWeiXin插件打开微信客户端进行支付，支付过程完成后，微信客户端通过应用自定义的UrlScheme返回到本App,并传回支付结果时，需要配置CFBundleURLSchemes值
@@ -1327,6 +1327,214 @@ var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3
 
 ```
 
+> ### login 登录
+
+`uexWeiXin.login(json)`
+
+**说明:**
+微信登录，回调 [cbLogin](#cbLogin 登录的回调方法 "cbLogin")  
+
+**参数:**
+
+```
+var json = {
+    scope:,
+    state:
+}
+```
+各字段含义如下：
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| scope | String | 是 | 应用授权作用域，可传多个，用英文逗号隔开。详情请参考[授权域说明](https://open.weixin.qq.com/cgi-bin/showdocument?action=doc&id=open1419317851&t=0.009076760848984122#scope) |
+| state | String | 否 | 用于保持请求和回调的状态，授权请求后原样带回给第三方。该参数可用于防止csrf攻击（跨站请求伪造攻击），建议第三方带上该参数，可设置为简单的随机数加session进行校验 |
+
+**支持平台:**
+Android 2.2+  
+iOS 6.0+  
+
+**版本支持:**
+Android 3.1.31+  
+iOS 3.0.17+  
+
+**示例:**
+
+```
+    var params = {
+        scope:"snsapi_userinfo,snsapi_base",
+        state:"0902"
+    };
+    var data = JSON.stringify(params);
+    uexWeiXin.login(data);
+```
+
+> ### getLoginAccessToken 获取access_token
+
+`uexWeiXin.getLoginAccessToken(json)`
+
+**说明:**
+获取access_token，回调 [cbGetLoginAccessToken](#cbGetLoginAccessToken 获取access_token的回调方法 "cbGetLoginAccessToken")  
+
+**参数:**
+
+```
+var json = {
+    secret:,
+    code:,
+    grant_type:
+}
+```
+各字段含义如下：
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| secret | String | 是 | 应用密钥AppSecret，在微信开放平台提交应用审核通过后获得 |
+| code | String | 是 | 调用login接口时获得的code |
+| grant_type | String | 是 | 填authorization_code |
+
+**支持平台:**
+Android 2.2+  
+iOS 6.0+  
+
+**版本支持:**
+Android 3.1.31+  
+iOS 3.0.17+  
+
+**示例:**
+
+```
+    var params = {
+        secret:"APP_SECRET",
+        code:"CODE",
+        grant_type:"authorization_code"
+    };
+    var data = JSON.stringify(params);
+    uexWeiXin.getLoginAccessToken(data);
+```
+
+> ### getLoginRefreshAccessToken 获取刷新access_token
+
+`uexWeiXin.getLoginRefreshAccessToken(json)`
+
+**说明:**
+刷新access_token有效期，回调 [cbGetLoginRefreshAccessToken](#cbGetLoginRefreshAccessToken 获取刷新access_token的回调方法 "cbGetLoginRefreshAccessToken")  
+
+**参数:**
+
+```
+var json = {
+    grant_type:,
+    refresh_token:
+}
+```
+各字段含义如下：
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| grant_type | String | 是 | 填refresh_token |
+| refresh_token | String | 是 | 调用getLoginAccessToken接口时获得的refresh_token |
+
+**支持平台:**
+Android 2.2+  
+iOS 6.0+  
+
+**版本支持:**
+Android 3.1.31+  
+iOS 3.0.17+  
+
+**示例:**
+
+```
+    var params = {
+        grant_type:"refresh_token",
+        refresh_token:"REFRESH_TOKEN"
+    };
+    var data = JSON.stringify(params);
+    uexWeiXin.getLoginRefreshAccessToken(data);
+```
+
+> ### getLoginCheckAccessToken 检验access_token是否有效
+
+`uexWeiXin.getLoginCheckAccessToken(json)`
+
+**说明:**
+检验access_token是否有效，回调 [cbGetLoginCheckAccessToken](#cbGetLoginCheckAccessToken 检验access_token是否有效的回调方法 "cbGetLoginCheckAccessToken")  
+
+**参数:**
+
+```
+var json = {
+    access_token:,
+    openid:
+}
+```
+各字段含义如下：
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| access_token | String | 是 | 调用接口凭证 |
+| openid | String | 是 | 普通用户标识，通过调用getLoginAccessToken或者getLoginRefreshAccessToken可获得该唯一标识符 |
+
+**支持平台:**
+Android 2.2+  
+iOS 6.0+  
+
+**版本支持:**
+Android 3.1.31+  
+iOS 3.0.17+  
+
+**示例:**
+
+```
+    var params = {
+        access_token:"ACCESS_TOKEN",
+        openid:"OPENID"
+    };
+    var data = JSON.stringify(params);
+    uexWeiXin.getLoginCheckAccessToken(data);
+```
+
+> ### getLoginUnionID 获取用户个人信息
+
+`uexWeiXin.getLoginUnionID(json)`
+
+**说明:**
+获取用户个人信息，UnionID机制，开发者可通过OpenID来获取用户基本信息。特别需要注意的是，如果开发者拥有多个移动应用、网站应用和公众帐号，可通过获取用户基本信息中的unionid来区分用户的唯一性，因为只要是同一个微信开放平台帐号下的移动应用、网站应用和公众帐号，用户的unionid是唯一的。换句话说，同一用户，对同一个微信开放平台下的不同应用，unionid是相同的。回调 [cbGetLoginUnionID](#cbGetLoginUnionID 获取用户个人信息的回调方法 "cbGetLoginUnionID")  
+
+**参数:**
+
+```
+var json = {
+    access_token:,
+    openid:
+}
+```
+各字段含义如下：
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| access_token | String | 是 | 调用接口凭证 |
+| openid | String | 是 | 普通用户标识，通过调用getLoginAccessToken，getLoginRefreshAccessToken或者getLoginUnionID可获得该唯一标识符 |
+
+**支持平台:**
+Android 2.2+  
+iOS 6.0+  
+
+**版本支持:**
+Android 3.1.31+  
+iOS 3.0.17+  
+
+**示例:**
+
+```
+    var params = {
+        access_token:"ACCESS_TOKEN",
+        openid:"OPENID"
+    };
+    var data = JSON.stringify(params);
+    uexWeiXin.getLoginUnionID(data);
+```
+
 ## 2.2 回调方法
 > ### cbRegisterApp 用户授权的回调方法
 
@@ -1869,21 +2077,232 @@ uexWeiXin.cbGotoPay = function (opCode,dataType,data) {
 }
 ```
 
+> ### cbLogin 登录的回调方法
+
+`uexWeiXin.cbLogin(data)`
+
+**参数:**
+
+```
+var data = {
+    errCode: "0",
+    code: "CODE",
+    country: "CN",
+    language: "zh_CN",
+    state: "0902"
+}
+```
+
+各字段含义如下：
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| errCode| Number| 是 | 0：用户同意；-4：用户拒绝授权；-2：用户取消 |
+| code| String | 否 | 用户换取access_token的code，仅在errCode为0时有效 |
+| country| String | 是 | 微信用户当前国家信息 |
+| language| String | 是 | 微信客户端当前语言 |
+| state| String | 否 | 第三方程序发送时用来标识其请求的唯一性的标志，由login接口传入，由微信终端回传，state字符串长度不能超过1K。仅在errCode为0时有效 |
+
+**支持平台:**
+Android 2.2+  
+iOS 6.0+  
+
+**版本支持:**
+Android 3.1.31+  
+iOS 3.0.17+  
+
+**示例**
+```
+uexWeiXin.cbLogin = function (data) {
+    alert(data);
+}
+```
+
+> ### cbGetLoginAccessToken 获取access_token的回调方法
+
+`uexWeiXin.cbGetLoginAccessToken(data)`
+
+**参数:**
+
+```
+var data = {
+    access_token: "ACCESS_TOKEN",
+    expires_in: 7200,
+    refresh_token: "REFRESH_TOKEN",
+    openid: "OPENID",
+    scope: "snsapi_userinfo",
+    unionid:"UNIONID"
+}
+```
+
+各字段含义如下：
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| access_token| String| 是 | 接口调用凭证 |
+| expires_in| Number | 是 | access_token接口调用凭证超时时间，单位（秒） |
+| refresh_token| String | 是 | 用户刷新access_token |
+| openid| String | 是 | 授权用户唯一标识 |
+| scope| String | 是 | 用户授权的作用域，使用逗号（,）分隔 |
+| unionid| String | 否 | 只有在用户将公众号绑定到微信开放平台帐号后，才会出现该字段。 |
+
+**支持平台:**
+Android 2.2+  
+iOS 6.0+  
+
+**版本支持:**
+Android 3.1.31+  
+iOS 3.0.17+  
+
+**示例**
+```
+uexWeiXin.cbGetLoginAccessToken = function (data) {
+    alert(data);
+}
+```
+
+> ### cbGetLoginRefreshAccessToken 获取刷新access_token的回调方法
+
+`uexWeiXin.cbGetLoginRefreshAccessToken(data)`
+
+**参数:**
+
+```
+var data = {
+    access_token: "ACCESS_TOKEN",
+    expires_in: 7200,
+    refresh_token: "REFRESH_TOKEN",
+    openid: "OPENID",
+    scope: "snsapi_userinfo"
+}
+```
+
+各字段含义如下：
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| access_token| String| 是 | 接口调用凭证 |
+| expires_in| Number | 是 | access_token接口调用凭证超时时间，单位（秒） |
+| refresh_token| String | 是 | 用户刷新access_token |
+| openid| String | 是 | 授权用户唯一标识 |
+| scope| String | 是 | 用户授权的作用域，使用逗号（,）分隔 |
+
+**支持平台:**
+Android 2.2+  
+iOS 6.0+  
+
+**版本支持:**
+Android 3.1.31+  
+iOS 3.0.17+  
+
+**示例**
+```
+uexWeiXin.cbGetLoginRefreshAccessToken = function (data) {
+    alert(data);
+}
+```
+
+> ### cbGetLoginCheckAccessToken 检验access_token是否有效的回调方法
+
+`uexWeiXin.cbGetLoginCheckAccessToken(data)`
+
+**参数:**
+
+```
+var data = {
+    errcode: 0
+    errmsg: "ok"
+}
+```
+
+各字段含义如下：
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| errcode| Number| 是 | 返回码，0：有效。非0：无效。返回码参考[返回码说明](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318634&token=&lang=zh_CN) |
+| errmsg| String | 是 | 返回码文字描述 |
+
+**支持平台:**
+Android 2.2+  
+iOS 6.0+  
+
+**版本支持:**
+Android 3.1.31+  
+iOS 3.0.17+  
+
+**示例**
+```
+uexWeiXin.cbGetLoginCheckAccessToken = function (data) {
+    alert(data);
+}
+```
+
+> ### cbGetLoginUnionID 获取用户个人信息的回调方法
+
+`uexWeiXin.cbGetLoginUnionID(data)`
+
+**参数:**
+
+```
+var data = {
+    openid: "OPENID",
+    nickname: "xxx",
+    sex: 2,
+    language: "zh_CN",
+    city: "",
+    province: "",
+    country: "CN",
+    headimgurl: "xxxx",
+    privilege: [],
+    unionid: "UNIONID"
+}
+```
+
+各字段含义如下：
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| openid| String| 是 | 普通用户的标识，对当前开发者帐号唯一 |
+| nickname | String | 是 | 普通用户昵称 |
+| sex | String | 是 | 普通用户性别，1为男性，2为女性 |
+| language | String | 是 | 微信客户端当前语言 |
+| city | String | 是 | 普通用户个人资料填写的城市 |
+| province | String | 是 | 普通用户个人资料填写的省份 |
+| country | String | 是 | 国家，如中国为CN |
+| headimgurl | String | 是 | 用户头像，最后一个数值代表正方形头像大小（有0、46、64、96、132数值可选，0代表640*640正方形头像），用户没有头像时该项为空 |
+| privilege | String | 是 | 用户特权信息，json数组，如微信沃卡用户为（chinaunicom） |
+| unionid | String | 是 | 用户统一标识。针对一个微信开放平台帐号下的应用，同一用户的unionid是唯一的。 |
+
+**支持平台:**
+Android 2.2+  
+iOS 6.0+  
+
+**版本支持:**
+Android 3.1.31+  
+iOS 3.0.17+  
+
+**示例**
+```
+uexWeiXin.cbGetLoginUnionID = function (data) {
+    alert(data);
+}
+```
 
 #3、更新历史
 
-API 版本：uexWeiXin-3.0.15(iOS) uexWeiXin-3.0.30（Android）
-最近更新时间：2015-06-19
+API 版本：uexWeiXin-3.0.17(iOS) uexWeiXin-3.1.31（Android）
+最近更新时间：2015-09-06
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.1.31  |   | 更新微信登陆相关接口 |
 | 3.0.30  |   | 修复微信支付返回时偶尔没有回调的问题|
 | 3.0.29  |   | 微信支付sdk升级  |
 | 3.0.28  |   |  修正链接分享时图片本来已经比较小 不需要缩略导致的问题  |
 | 3.0.27  |   | 修复分享回调时应用奔溃退出的问题  |
 | 3.0.26  |   | 修改回调方法  |
 | 3.0.25  |  | 新添加微信登陆功能  |
-| 3.0.24|   | 修改分享文本、分享图片、分享链接回调接口参数  |
+| 3.0.24  |   | 修改分享文本、分享图片、分享链接回调接口参数  |
 | 3.0.23  |  |结合后台修复插件需要定制出包的问题   |
 | 3.0.22  |   |  修复在Popover中微信分享失败问题 |
 | 3.0.21  |  | 新增分享文本、分享图片、分享链接接口  |
