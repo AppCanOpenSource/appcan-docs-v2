@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="target-densitydpi=device-dpi,width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+        window.uexOnload = function(type){
+            //
+            uexBaiduNavi.cbStartRoutePlan=function(data){
+
+                document.getElementById('TestCallBack1').innerHTML="cbStartRoutePlan";
+                document.getElementById('TestData1').innerHTML=data;
+            };
+            uexBaiduNavi.cbInit=function(data){
+                
+                document.getElementById('TestCallBack1').innerHTML="cbInit";
+                document.getElementById('TestData1').innerHTML=data;
+            };
+                                                  
+                                                  
+            //
+            uexBaiduNavi.onExitNavi=function(data){
+                document.getElementById('TestCallBack1').innerHTML="onExitNavi";
+                document.getElementById('TestData1').innerHTML=data;
+            };
+
+            //
+            uexBaiduNavi.onExitDeclaration=function(data){
+                document.getElementById('TestCallBack1').innerHTML="onExitDeclaration";
+                document.getElementById('TestData1').innerHTML=data;
+            };
+            
+            
+            
+            uexBaiduNavi.onExitDigitDog=function(data){
+                document.getElementById('TestCallBack1').innerHTML="onExitDigitDog";
+                document.getElementById('TestData1').innerHTML=data;
+            };
+            /*
+            //[5.3]
+            uexBaiduNavi.onExitExternalGPSNavi=function(data){
+                document.getElementById('TestCallBack2').innerHTML="onExitExternalGPSNavi";
+                document.getElementById('TestData2').innerHTML=data;
+            };
+
+            //[5.5]
+            uexBaiduNavi.onExitExternalGPSDigitDog=function(data){
+                document.getElementById('TestCallBack2').innerHTML="onExitExternalGPSDigitDog";
+                document.getElementById('TestData2').innerHTML=data;
+            };
+
+
+             */
+            
+        };
+    
+    
+    //[1.1]
+    function initBaiduNavi(){
+        var data={
+            baiduAPIKey:"cCfq6oSxA8SKsHB7FopAocyX"
+        }
+        uexBaiduNavi.init(JSON.stringify(data));
+    }
+    
+    //[2.1]
+    function startRoutePlan(){
+        var data={
+            startNode:[113.948222,22.549555],
+            endNode:[114.089863,22.546236],
+            throughNodes:[[113.977004,22.556393]],
+            mode:2
+            
+        }
+        uexBaiduNavi.startRoutePlan(JSON.stringify(data));
+    }
+    
+
+    function startNavi(){
+        var data={
+            naviType:1,
+            isNeedLandscape:2
+        }
+    
+        uexBaiduNavi.startNavi(JSON.stringify(data));
+    }
+
+
+
+
+    function startDigitDog(){
+        uexBaiduNavi.startDigitDog('{"isNeedLandscape":"2"}');
+    }
+
+/*
+
+    function loadExternalGPSData(){
+        uexBaiduNavi.loadExternalGPSData('{"filePath":"res://1.txt"}');
+    }
+
+
+
+    function startExternalGPSNavi(){
+        uexBaiduNavi.startExternalGPSNavi('{"isNeedLandscape":"2"}');
+    }
+    
+    
+
+    
+    function startExternalGPSDigitDog(){
+        uexBaiduNavi.startExternalGPSDigitDog('{"isNeedLandscape":"2"}');
+    }
+
+*/
+
+
+        </script>
+</head>
+
+<body>
+    <div class="tit">uexBaiduNavi</div>
+    <div class="conbor">
+        <div class="consj">
+            
+            <div>====回调区域</div>
+            <div id='TestCallBack1'>原本内容</div>
+            <div id='TestData1'>原本内容</div>
+            <div>===============</div>
+            
+            <span>init</span>
+            <input class='btn' type='button' value='调用接口' onclick='initBaiduNavi()'>
+                
+
+            <span>startRoutePlan()</span>
+            <input class='btn' type='button' value='调用接口' onclick='startRoutePlan()'>
+            
+
+            
+
+            <span>startNavi()</span>
+            <input class='btn' type='button' value='调用接口' onclick='startNavi()'>
+                
+
+            <span>startDigitDog()</span>
+            <input class='btn' type='button' value='调用接口' onclick='startDigitDog()'>
+
+        <!--
+            <div>====测试</div>
+            <span>loadExternalGPSData()</span>
+            <input class='btn' type='button' value='调用接口' onclick='loadExternalGPSData()'>
+                
+            <span>startExternalGPSNavi()</span>
+            <input class='btn' type='button' value='调用接口' onclick='startExternalGPSNavi()'>
+                
+            <span>[startExternalGPSDigitDog()</span>
+            <input class='btn' type='button' value='调用接口' onclick='startExternalGPSDigitDog()'>
+                
+            <div>====回调区域</div>
+            <div id='TestCallBack2'>原本内容</div>
+            <div id='TestData2'>原本内容</div>
+            <div>===============</div>
+         -->
+      
+
+        </div>
+    </div>
+</body>
+</html>
