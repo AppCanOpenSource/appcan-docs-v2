@@ -87,7 +87,15 @@
     
         uexBaiduNavi.startNavi(JSON.stringify(data));
     }
-
+    function startNaviAndExit(){
+        var data={
+            naviType:1,
+            isNeedLandscape:2
+        }
+        
+        uexBaiduNavi.startNavi(JSON.stringify(data));
+        window.setTimeout(function(){uexBaiduNavi.exitNavi();},5000);
+    }
 
 
 
@@ -142,7 +150,8 @@
 
             <span>startNavi()</span>
             <input class='btn' type='button' value='调用接口' onclick='startNavi()'>
-                
+            <span>startNaviThenExit</span>
+            <input class='btn' type='button' value='调用接口' onclick='startNaviAndExit()'>
 
             <span>startDigitDog()</span>
             <input class='btn' type='button' value='调用接口' onclick='startDigitDog()'>

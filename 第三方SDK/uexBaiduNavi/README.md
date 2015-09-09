@@ -178,6 +178,42 @@ uexBaiduNavi.startNavi(JSON.stringify(data));
 ```
 
 
+>### exitNavi  退出导航
+
+
+`uexBaiduNavi.exitNavi()`
+
+
+
+**说明**
+
+安静退出导航，不会有提示框出现
+
+监听 [onExitNavi](#onExitNavi 退出导航的监听方法) 退出导航的监听方法
+
+
+
+**参数**
+
+无
+
+**平台支持**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例**
+
+```
+uexBaiduNavi.exitNavi();
+```
+
+
 >### startDigitDog  开始巡航
 
 
@@ -212,13 +248,11 @@ var param={
 
 
 **平台支持**
-
-Android 2.2+    
+  
 iOS 6.0+    
 
 **版本支持**
-
-Android 3.0.0+    
+ 
 iOS 3.0.0+    
 
 **示例**
@@ -430,13 +464,11 @@ uexBaiduNavi.onExitDeclaration=function(){
 无
 
 **平台支持**
-
-Android 2.2+    
+ 
 iOS 6.0+    
 
 **版本支持**
-
-Android 3.0.0+    
+  
 iOS 3.0.0+    
 
 **示例**
@@ -449,6 +481,16 @@ uexBaiduNavi.onExitDigitDog=function(){
 
 
 #3、 附录
+
+## AppKEY 申请
+
+可以参考[百度地图的AppKEY申请指引](http://newdocx.appcan.cn/newdocx/docx?type=1384_975)
+	
+## TTS语音平台授权
+SDK内置百度TTS语音播报功能，需要对应用进行授权验证才能够使用，因此需要主动注册应用相关信息。
+
+可以在[导航TTS平台](http://app.navi.baidu.com/ttsregister/appinfo)中进行注册申请
+
 
 ## iOS 插件配置指引
 
@@ -468,12 +510,4 @@ uexBaiduNavi.onExitDigitDog=function(){
 ## Android插件配置指引
 
 
-## AppKEY 申请
-
-可以参考[百度地图的AppKEY申请指引](http://newdocx.appcan.cn/newdocx/docx?type=1384_975)
-	
-## TTS语音平台授权
-SDK内置百度TTS语音播报功能，需要对应用进行授权验证才能够使用，因此需要主动注册应用相关信息。
-
-可以在[导航TTS平台](http://app.navi.baidu.com/ttsregister/appinfo)中进行注册申请
 
