@@ -452,10 +452,18 @@ uexBaiduNavi.onExitDigitDog=function(){
 
 ## iOS 插件配置指引
 
-* iOS 直接传入appKEY即可在**前台**正常使用导航功能
-* 如果您的应用需要用到**后台导航**，需要在config.xml中添加以下**后台权限**
+* iOS 直接传入AppKEY即可在**前台**正常使用导航功能
+* 如果您的应用需要用到**后台导航**，需要在[config.xml中添加以下**后台权限**](http://newdocx.appcan.cn/newdocx/docx?type=1492_1291#Authority)
 	* 后台音乐播放   
 	* 后台定位
+* 如果您没有用到其他后台权限，那么可以参考如下配置
+
+```
+<config desc="bgConfig" type="AUTHORITY">
+<permission platform="iOS" info="backGroundMode" flag="3"/>
+</config>
+```
+
 
 ## Android插件配置指引
 
