@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 该对象主要封装了文件操作，主要包含创建文件，打开文件，以及文件提供过路径或者文件对象进行文件增，删，改，查等，读取文件内容，限utf-8编码txt文件，以及文本阅读器等多个接口。
 
@@ -742,6 +742,114 @@ iOS6.0+
 uexFileMgr.getFileCreateTime('33','wgt://test.txt');
 ```
 
+
+>### renameFile 重命名文件
+
+`uexFileMgr.renameFile(param)`
+
+**说明:**
+
+重命名文件
+
+回调方法[cbRenameFile](#cbRenameFile 重命名文件的回调方法)
+
+**参数:**
+ 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| param| String| 是 | param是字典结构json字符串，详情见下 |
+
+```
+var param = {
+	oldFilePath:,//必选 String 重命名前的文件路径
+	newFilePath:,//必选 String 重命名后的文件路径
+}
+```
+
+
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+**版本支持:**
+
+iOS 3.0.9+
+Androd 3.0.4+
+
+**示例:**
+
+```
+var data = {
+	oldFilePath:"wgt://1.txt",
+	newFilePath:"wgt://2.txt"
+}
+
+uexFileMgr.renameFile(JSON.stringify(data));
+```
+
+
+
+>### search 搜索文件
+
+`uexFileMgr.search(param)`
+
+**说明:**
+
+重命名文件
+
+回调方法[cbSearch](#cbSearch 搜索文件的回调方法)
+
+**参数:**
+ 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| param| String| 是 | param是字典结构json字符串，详情见下 |
+
+
+```
+var param = {
+	path:,//必选,String,目标文件夹路径
+	option:,//可选 Number  搜索设置 见下 不传默认为0
+	keywords:[]//可选 要搜索的文件名关键字 不传时搜索所有
+	suffixes:[]//可选 要搜索的文件后缀名 不传时搜索所有
+	}
+```
+
+|option|说明|
+|---|---|
+|1|匹配文件夹 也搜索符合条件的文件夹(有设置suffixes时，此项设置失效)|
+|2|精确匹配 只搜索文件名恰为keyword的文件|
+|4|递归搜索 搜索目标文件夹及其子文件夹|
+
+* 需要多项option时 请将各option值相加再传入。比如传5 (=4+1)，表示既递归搜索，又匹配文件夹
+
+
+**平台支持:**
+
+
+iOS6.0+
+
+**版本支持:**
+
+iOS 3.0.12+
+
+
+**示例:**
+
+```
+var data={
+	path:"res://",
+	option:5,
+	keywords:["name1","name2","name3"],
+	suffixes:["txt","xml"]
+	}
+
+uexFileMgr.search(JSON.stringify(data));
+```
+
+
 ## 2.2、回调方法
 
 > ### cbCreateFile 创建文件的回调方法
@@ -761,9 +869,11 @@ Android2.2+
 iOS6.0+
 
 **版本支持:**
+
 3.0.0+
 
 **示例:**
+
 ```
     uexFileMgr.cbCreateFile = function(opId, dataType, data) {
         if (data == 0) {
@@ -1397,13 +1507,108 @@ uexFileMgr.cbGetFileCreateTime = function(opId,dataType,data){
 };
 ```
 
+
+
+>### cbRenameFile 重命名文件的回调方法
+
+`uexFileMgr.cbRenameFile(param)`
+
+**说明:**
+
+重命名文件的回调方法
+
+
+
+**参数:**
+ 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| param| String| 是 | param是字典结构json字符串，详情见下 |
+
+```
+var param = {
+	result:,//String,必选 重命名结果  "0" 失败  "1" 成功 
+}
+
+```
+
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+**版本支持:**
+
+iOS 3.0.9+
+Androd 3.0.4+
+
+
+**示例:**
+
+```
+uexFileMgr.cbRenameFile=function (info){
+	alert(info);
+}
+```
+
+>### cbSearch 搜索文件的回调方法
+
+`uexFileMgr.cbSearch(param)`
+
+**说明:**
+
+搜索文件的回调方法
+
+
+
+**参数:**
+ 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| param| String| 是 | param是字典结构json字符串，详情见下 |
+
+```
+var param = {
+	isSuccess:,//true false
+	result:[],//文件路径数组
+}
+
+```
+* 文件名规则
+	* 如果是文件，传完整文件名,比如:"1.txt" 
+	* 如果是文件夹，则以"/"结尾,比如:"dir/"
+
+* 文件路径规则
+	* 如果在目标文件夹下 传"文件名"  比如"1.txt"
+	* 如果在其子文件夹下 传"/子文件夹1/子文件夹2/.../文件名"  比如:"dir/1.txt" "dir/dir2/"
+
+
+**平台支持:**
+
+iOS6.0+
+
+**版本支持:**
+
+iOS 3.0.12+
+
+
+**示例:**
+
+```
+uexFileMgr.cbSearch=function (info){
+	alert(info);
+}
+```
+
 # 3、更新历史
-API 版本：uexFileMgr-3.0.11(iOS) uexFileMgr-3.0.5（Android）
-最近更新时间：2015-06-19
+API 版本：uexFileMgr-3.0.12(iOS) uexFileMgr-3.0.5（Android）
+最近更新时间：2015-09-10
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
-| 3.0.10  |新增cbWriteFile回调方法，优化RC4加密|   |
+| 3.0.12  |新增方法uexFileMgr.searcg 搜索文件|   |
+| 3.0.11  |新增cbWriteFile回调方法，优化RC4加密|   |
 | 3.0.10  | 解决多选文件打开浏览器显示空白问题  |   |
 | 3.0.9  | 新增方法uexFileMgr.renameFile 重命名文件  |   |
 | 3.0.8  | 修复uexFileMgr.multiExplorer(path)中path参数无效的BUG  |    |
