@@ -508,6 +508,13 @@ SDK内置百度TTS语音播报功能，需要对应用进行授权验证才能�
 
 
 ## Android插件配置指引
+将如下所示的value对应的值换成自己在百度上申请的秘钥即可。
+```
+<config desc="uexBaiduNavi" type="KEY">
+   <param name="$uexBaiduNavi_ApiKey$" platform="Android" value="BMZtlp2EMfWQgMG8nOqu6KzG"/>
+</config>
+```
 
-
-
+附：[百度私钥申请地址](http://developer.baidu.com/map/index.php?title=android-navsdk/guide/key)
+[安全码生成流程](http://newdocx.appcan.cn/newdocx/docx?type=1384_975)
+	
