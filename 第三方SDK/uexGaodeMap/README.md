@@ -50,6 +50,7 @@ var json = {
     top:,//(可选) 上间距，默认0
     width:,//(可选) 地图宽度
     height:,//(可选) 地图高度
+    isScrollWithWeb:,//(可选) 地图是否跟随网页滚动
     longitude:,//(可选) 中心点经度
     latitude://(可选) 中心点纬度
 }
@@ -73,6 +74,7 @@ iOS 3.0.0+
         top:0,
         width:800,
         height:800,
+        isScrollWithWeb:true,
         longitude:114.402815,
         latitude:30.475798
     };
@@ -2713,11 +2715,12 @@ Android 3.0.3+
 **用户需要将上面字段中的XXX替换为自己申请的对应平台的key，然后添加至config.xml中：**即可完成相应key的配置 
 
 # 5、更新历史
- API 版本:uexGaodeMap-3.0.5(iOS) uexGaodeMap-3.0.5（Android）    
+ API 版本:uexGaodeMap-3.0.5(iOS) uexGaodeMap-3.0.6（Android）    
  最近更新时间:2015-08-28
  
 |  历史发布版本 | iOS更新  | Android更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.6  |  | open接口增加地图是否随网页滚动接口 |
 | 3.0.5  | 地理编码和反地理编码的回调添加参数,方便用户区分 | 地理编码和反地理编码的回调添加参数,方便用户区分 |
 | 3.0.4  |添加自定义按钮相关功能 |  添加自定义按钮相关功能|
 | 3.0.3  |修复使用自定义气泡时自定义标注图标失效的问题 修复覆盖物设置透明色会失效的bug 修复getCurrentLocation不敏感的bug 修复clear接口可能会导致闪退的bug |  新增离线地图相关接口|
