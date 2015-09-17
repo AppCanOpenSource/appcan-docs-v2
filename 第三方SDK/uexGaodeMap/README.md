@@ -42,6 +42,9 @@
 
 `uexGaodeMap.open(json)`
 
+**说明:**
+打开地图。注意Android端isScrollWithWeb参数为true时，需要结合新引擎才能生效，引擎版本需在20150915及以上版本。否则地图只显示白板。
+
 **参数:**
 
 ```
