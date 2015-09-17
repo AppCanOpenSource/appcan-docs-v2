@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 日期选择器插件
 ## 1.1、说明
@@ -33,6 +33,7 @@ iOS6.0+
 ```
 uexControl.openDatePicker(1990,8,1);
 ```
+
 > ### openTimePicker 打开时间选择器
 
 `uexControl.openTimePicker(hour,minute)`
@@ -79,7 +80,35 @@ iOS6.0+
 uexControl.openInputDialog(0,"默认数据",“按钮”)
 ```
 
-##2.2、回调方法
+
+> ### openDatePickerWithoutDay 打开只有年月的日期选择器
+
+`uexControl.openDatePickerWithoutDay(year,month)`
+
+**说明：**
+打开日期选择器 回调方法[cbOpenDatePickerWithoutDay](#cbOpenDatePickerWithoutDay 打开只有年月的日期选择器的回调方法)
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| year | Number | 是 | 年 |
+| month | Number | 是 | 月 |
+
+**支持平台:**
+Android2.2+    
+iOS6.0+
+
+**版本支持：**
+Android 3.0.4+    
+iOS 3.0.8+
+
+**示例:**
+```
+uexControl.openDatePickerWithoutDay(1990,8);
+```
+
+## 2.2、回调方法
 
 > ### cbOpenDatePicker 获取日期的回调方法
 
@@ -118,19 +147,14 @@ window.uexOnload = function(){
 > ### cbOpenTimePicker 获取时间的回调方法
 
 `uexControl.cbOpenTimePicker(opId,dataType,data)`
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | opId | Number | 是 |  操作ID，在此函数中不起作用，可忽略 |
 | dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | String | 是 | 选择的日期，格式为：{"month":10,"second":0,"day":19,"year":1900,"hour":0,"minute":0} | 
-
-
-opId:(Number类型) 必选 操作ID，此方法中不起作用，可忽略
-dataType:(Number类型) 必选 数据类型，详见CONSTANT中Callback方法数据类型
-data:(String类型) 必选 选择的时间，格式为：{"month":10,"second":0,"day":19,"year":1900,"hour":0,"minute":0}
- 各字段含义如下:
+| data | String | 是 | 选择的日期，格式为：{"month":10,"second":0,"day":19,"year":1900,"hour":0,"minute":0} |
 
 |参数|是否必须|说明|
 |-----|-----|-----|
@@ -140,8 +164,10 @@ data:(String类型) 必选 选择的时间，格式为：{"month":10,"second":0,
 |hour|是|时|
 |minute|是|分|
 |second|是|秒|
+
 **版本支持：**
 3.0.0+
+
 **示例:**
 
 ```
@@ -177,17 +203,54 @@ window.uexOnload = function(){
 }
 ```
 
+
+> ### cbOpenDatePickerWithoutDay 打开只有年月的日期选择器的回调方法
+
+`uexControl.cbOpenDatePickerWithoutDay(opId,dataType,data)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| opId | Number | 是 |  操作ID，在此函数中不起作用，可忽略 |
+| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| data | String | 是 | 选择的日期，格式为：{"year":1900,"month":10} |
+
+|参数|是否必须|说明|
+|-----|-----|-----|
+|year|是|年|
+|month|是|月|
+
+**支持平台:**
+Android2.2+    
+iOS6.0+
+
+**版本支持：**
+Android 3.0.4+
+iOS 3.0.8+
+
+**示例:**
+
+```
+function cbOpenDatePickerWithoutDay(opId,dataType,data) {
+    alert(data);
+}
+window.uexOnload = function(){
+    uexControl.cbOpenDatePickerWithoutDay = cbOpenDatePickerWithoutDay;
+}
+```
+
 #3、更新历史
 API 版本：uexControl-3.0.8(iOS) uexControl-3.0.3（Android）
 最近更新时间：2015-06-19
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
-| 3.0.8  | 新增一个接口 只要年月  |    |
+| 3.0.8  | 新增接口openDatePickerWithoutDay，打开只有年月的日历选择器  |    |
 | 3.0.7  |  uexControl插件适配iphone6和6 |   |
 | 3.0.6  | 同一时间只允许打开一个picker  |   |
-| 3.0.5  | uexControl插件和安卓统一  |   |
-| 3.0.4 | 修复uexControl.openTimePicker方法调不起的bug  |   |
+| 3.0.5  | uexControl插件和安卓统一  | 在openInputDialog接口中添加参数  |
+| 3.0.4 | 修复uexControl.openTimePicker方法调不起的bug  | 新增接口openDatePickerWithoutDay，打开只有年月的日历选择器   |
 | 3.0.3  |  修复错误使用时的崩溃问题 | 修改不显示当前日期问题  |
 | 3.0.2  | 彻底修复输入框被键盘遮挡  | 增加弹出输入框输入完成的回调方法cbOpenInputDialog  |
 | 3.0.1  | 修复输入框被键盘遮挡 | 修改魅族手机点击日期和软键盘同时弹出问题|
