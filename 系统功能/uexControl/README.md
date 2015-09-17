@@ -241,7 +241,7 @@ window.uexOnload = function(){
 ```
 
 #3、更新历史
-API 版本：uexControl-3.0.8(iOS) uexControl-3.0.3（Android）
+API 版本：uexControl-3.0.8(iOS) uexControl-3.0.5（Android）
 最近更新时间：2015-06-19
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
