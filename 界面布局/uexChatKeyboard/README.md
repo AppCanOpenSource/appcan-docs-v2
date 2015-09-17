@@ -32,6 +32,7 @@ var viewInfo={
     "dragOutsideImg": ,//(可选)按下录音按钮后滑动到录音范围之外时提示控件的背景
     "textColor": ,//(可选)录音时间文字颜色
     "textSize": ,//(可选)录音时间文字大小
+    "inputMode"://(可选) 输入框默认输入方式，0-文字输入；1-语音输入。默认为0。
 }
 ```
 
@@ -104,7 +105,8 @@ var jsonstr =
     "touchDownImg": "res://1.png",
     "dragOutsideImg": "res://2.png",
     "textColor": "#FFF",
-    "textSize": "15.5"
+    "textSize": "15.5",
+    "inputMode":1
 }';
 uexChatKeyboard.open(jsonstr);
 ```
@@ -309,34 +311,29 @@ iOS 6.0+
 
 ```
 uexChatKeyboard.onVoiceAction = function(data){
-alert(data);
+    alert(data);
 }
 
 ```
 
- 
- 
- 
- 
 # 3、更新历史
-API 版本：uexChatKeyboard-3.0.4(iOS) uexChatKeyboard-3.0.7(Android)
-最近更新时间：2015-xx-xx
+API 版本：uexChatKeyboard-3.0.10(iOS) uexChatKeyboard-3.0.10(Android)
+最近更新时间：2015-09-17
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
-| 3.0.0 | 插件 | 插件|
+| 3.0.10 | open接口新增参数inputMode默认输入方式 | open接口新增参数inputMode默认输入方式|
+| 3.0.9 | 修复直接输入表情时输入框变形问题.修复联系点击录音按钮录音提示无法关闭问题 | 修改EditText和webview中的输入框抢焦点问题|
+| 3.0.8 | 修复输入内容过多时的显示问题 | 添加收回键盘接口;添加键盘状态的回调接口;部分代码的逻辑优化;添加onCommitJson回调,解决输入特殊字符的问题;|
+| 3.0.7 | 新增方法onCommitJson回调，onCommit方法保持不变 | 添加获取输入框高度的接口|
+| 3.0.6 | onCommit直接回调json对象,新增方法changeWebViewFrame | 修复点击表情，再点击空白区域，再点击输入框时撑满屏幕的问题|
+| 3.0.5 | 新增API：隐藏键盘 | 修复点击输入框再点击物理返回键，直接退出插件问题|
+| 3.0.4 | 新增API：获取键盘高度 | 修改open接口|
+| 3.0.3 | open方法参数改为json类型,可以设置默认文字，自定义语音输入时的提示框 | 修复插件关闭时系统键盘还显示问题|
+| 3.0.2 | 修复语音提示图片不显示的问题 | 修复第二次打开界面空指针问题|
+| 3.0.1 | onCommit接口的参数使用json格式 | clean函数中调用close方法|
+| 3.0.0 | EUExChatKeyboard插件 | ChatKeyboard插件基础版|
 
-
-## 方法:
-### [open](#open) 打开聊天输入
-###[close](#close) 关闭聊天输入
-### [getInputBarHeight](#getinputbarheight) 获取输入工具条高度
-
-## 监听方法：
-
-### [onCommit](#oncommit)  点击发送的监听方法
-### [onShareMenuItem](#onsharemenuitem)  点击分享里选项的监听方法
-### [onVoiceAction](#onvoiceaction)  录音按钮的监听方法
 
 
 
