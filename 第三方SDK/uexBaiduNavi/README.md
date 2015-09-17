@@ -517,4 +517,6 @@ SDK内置百度TTS语音播报功能，需要对应用进行授权验证才能�
 
 附：[百度私钥申请地址](http://developer.baidu.com/map/index.php?title=android-navsdk/guide/key)
 [安全码生成流程](http://newdocx.appcan.cn/newdocx/docx?type=1384_975)
-	
+
+如果需要使用语音播报，需要按照如下指引申请TTS白名单注册：
+http://developer.baidu.com/map/index.php?title=android-navsdk/guide/voice
