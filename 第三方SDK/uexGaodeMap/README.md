@@ -2690,23 +2690,23 @@ Android 3.0.3+
 示例配置代码如下：
 
 ```
-    <config desc=“uexGaode“ type=“KEY“ > 
-        <param platform=“iOS“ name=“$uexGaodeMap_APIKey$“  value=“XXX“/>
+    <config desc="uexGaode" type="KEY" > 
+        <param platform="iOS" name="$uexGaodeMap_APIKey$"  value="XXX"/>
     </config>
 ```
 
 #### Android
 示例配置代码如下：
 ```
-    <config desc=“uexGaode“ type=“KEY“ > 
+    <config desc="uexGaode" type="KEY" > 
         <param platform="Android" name="$uexGaodeMap_APIKey$" value="XXX"/>
     </config>
 ```
 
 或者Android和iOS合并写为：
 ```
-    <config desc=“uexGaode“ type=“KEY“ > 
-        <param platform=“iOS“ name=“$uexGaodeMap_APIKey$“  value=“XXX“/>
+    <config desc="uexGaode" type="KEY" > 
+        <param platform="iOS" name="$uexGaodeMap_APIKey$"  value="XXX"/>
         <param platform="Android" name="$uexGaodeMap_APIKey$" value="XXX"/>
     </config>
 ```
