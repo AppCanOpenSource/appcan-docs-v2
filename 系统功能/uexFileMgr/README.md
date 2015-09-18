@@ -797,7 +797,7 @@ uexFileMgr.renameFile(JSON.stringify(data));
 
 **说明:**
 
-重命名文件
+搜索文件
 
 回调方法[cbSearch](#cbSearch 搜索文件的回调方法)
 
