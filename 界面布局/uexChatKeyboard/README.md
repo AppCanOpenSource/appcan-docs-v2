@@ -164,6 +164,54 @@ iOS 6.0+
 uexChatKeyboard.getInputBarHeight();
 ```  
 
+> ### hideKeyboard 收起键盘
+
+`uexChatKeyboard.hideKeyboard()`
+
+**说明:**
+收起键盘。
+
+**参数:**
+```
+无
+```
+
+**平台支持:**
+Android2.2+    
+iOS6.0+
+
+**版本支持：**
+Android 3.0.10+    
+iOS 3.0.10+
+
+**示例:**
+```
+    uexChatKeyboard.hideKeyboard();
+```
+
+> ### changeWebViewFrame 改变webview的高度以适应弹出的键盘
+
+`uexChatKeyboard.changeWebViewFrame(height)`
+
+**说明:**
+收到 onKeyBoardShow回调，并且status为1时调用这个方法传入当前div的高度，键盘会根据高度将聊天内容推上去
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| height| Number | 是 | div的高度 |
+
+**平台支持:**
+iOS6.0+
+
+**版本支持：**
+iOS 3.0.10+
+
+**示例:**
+```
+uexChatKeyboard.changeWebViewFrame(600);
+```
 
 ## 2.2、回调方法
 
@@ -205,11 +253,9 @@ alert(json);
  
 ## 2.3、监听方法
 
-
-
 >### onCommit 完成输入的监听方法
 
-`uexChatKeyboard.onCommit (data)`
+`uexChatKeyboard.onCommit(data)`
 
 
 **说明**
@@ -313,8 +359,77 @@ iOS 6.0+
 uexChatKeyboard.onVoiceAction = function(data){
     alert(data);
 }
+```
+
+> ### onKeyBoardShow 键盘弹出或收起时的监听方法
+
+`uexChatKeyboard.onKeyBoardShow(json)`
+
+**参数:**
+```
+var json = {
+    status:
+}
+```
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| status | Number | 是 | 键盘状态  0-收起  1-弹出 |
+
+**支持平台:**
+Android2.2+    
+iOS6.0+
+
+**版本支持：**
+Android 3.0.10+
+iOS 3.0.10+
+
+**示例:**
 
 ```
+function onKeyBoardShow(data) {
+    alert(data);
+}
+window.uexOnload = function(){
+    uexChatKeyboard.onKeyBoardShow = onKeyBoardShow;
+}
+```
+
+
+> ### onCommitJson 点击发送的监听方法
+
+`uexChatKeyboard.onCommitJson(json)`
+
+**参数:**
+```
+var json = {
+    emojiconsText:
+}
+```
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| emojiconsText | String | 是 | 输入框里的内容 |
+
+**支持平台:**
+Android2.2+    
+iOS6.0+
+
+**版本支持：**
+Android 3.0.10+
+iOS 3.0.10+
+
+**示例:**
+
+```
+function onCommitJson(data) {
+    alert(data);
+}
+window.uexOnload = function(){
+    uexChatKeyboard.onCommitJson = onCommitJson;
+}
+```
+
 
 # 3、更新历史
 API 版本：uexChatKeyboard-3.0.10(iOS) uexChatKeyboard-3.0.10(Android)
