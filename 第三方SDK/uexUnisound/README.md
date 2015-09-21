@@ -244,49 +244,7 @@ uexUnisound.cancel();
 
 ```
 
->### recognizeFile 进行文件语音识别
 
-
-`uexUnisound.recognizeFile(param)`
-
-**说明**
-
-手动传入语音文件，然后进行语音识别
-语音文件格式只支持.PCM和.WAV
-
-**参数**
-
-| 参数名称|参数类型|是否必选|说明 |
-| -----|-----|-----|----- |
-|param|String|是|param是json字符串，详情见下|
-
-```
-var param = {
-	filePath:,//语音文件路径
-}
-```
-
-
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
-```
-var data = {
-	filePath:"res://1.wav"
-}
-uexUnisound.recognizeFile(JSON.stringify(data));
-
-```
 
 
 
@@ -327,7 +285,7 @@ iOS 3.0.0+
 
 ```
 var data = {
-	test:"今天天气不错"
+	test:"我爱你"
 }
 uexUnisound.runTextUnderstand(JSON.stringify(data));
 
@@ -344,8 +302,8 @@ uexUnisound.runTextUnderstand(JSON.stringify(data));
 
 有如下相关监听
 
-* [onSpeakingFinished](#onSpeakingFinished 语音合成结束的监听方法)语音合成结束的监听方法
-* [onSpeakingErrorOccurred](#onSpeakingErrorOccurred 语音合成过程出错的监听方法)语音合成过程出错的监听方法
+* [onSpeakingFinish](#onSpeakingFinish 语音合成结束的监听方法)语音合成结束的监听方法
+* [onSpeakingErrorOccurr](#onSpeakingErrorOccurr 语音合成过程出错的监听方法)语音合成过程出错的监听方法
 **参数**
 
 | 参数名称|参数类型|是否必选|说明 |
@@ -374,7 +332,7 @@ iOS 3.0.0+
 
 ```
 var data = {
-	test:"今天天气不错"
+	test:"你好"
 }
 uexUnisound.speaking(JSON.stringify(data));
 
@@ -387,7 +345,8 @@ uexUnisound.speaking(JSON.stringify(data));
 
 **说明**
 
-取消语音合成,调用该方法之后语音合成和播放都会取消
+* 取消语音合成,调用该方法之后语音合成和播放都会取消
+* 全部取消后会触发[onSpeakingCancel](#onSpeakingCancel 语音合成被取消的监听方法)语音合成被取消的监听方法
 
 
 **参数**
@@ -859,7 +818,6 @@ window.uexOnload = function(type){
 
 ```
 var param = {
-	requestText:,//String 可选 请求的文本，调用 语义文本理解 接口才会有此参数
 	stringResult:,//String 必选 请求返回的结果，json字符串
 	responseText:,//String 必选 json中的text项
 }
@@ -890,6 +848,47 @@ window.uexOnload = function(type){
 
 
 ```
+
+>### onSpeakingStart 语音合成开始的监听方法
+
+
+
+`uexUnisound.onSpeakingStart()`
+
+**说明**
+
+
+
+语音合成开始的监听方法
+
+
+**参数**
+
+无
+
+**平台支持**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例**
+
+```
+window.uexOnload = function(type){
+	uexUnisound.onSpeakingStart = function(){
+		alert("语音合成开始");
+	}
+}
+
+
+```
+
+
 
 >### onSpeakingFinish 语音合成结束的监听方法
 
@@ -930,11 +929,51 @@ window.uexOnload = function(type){
 
 ```
 
->### onSpeakingErrorOccurred 语音合成过程出错的监听方法
+>### onSpeakingCancel 语音合成被取消的监听方法
 
 
 
-`uexUnisound.onSpeakingErrorOccurred(param)`
+`uexUnisound.onSpeakingCancel()`
+
+**说明**
+
+
+
+语音合成被取消的监听方法
+
+
+**参数**
+
+无
+
+**平台支持**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例**
+
+```
+window.uexOnload = function(type){
+	uexUnisound.onSpeakingCancel = function(){
+		alert("语音合成被取消");
+	}
+}
+
+
+```
+
+
+>### onSpeakingErrorOccur 语音合成过程出错的监听方法
+
+
+
+`uexUnisound.onSpeakingErrorOccur(param)`
 
 **说明**
 
@@ -969,7 +1008,7 @@ iOS 3.0.0+
 
 ```
 window.uexOnload = function(type){
-	uexUnisound.onSpeakingErrorOccurred = function(info){
+	uexUnisound.onSpeakingErrorOccur = function(info){
 		alert(info);
 	}
 }
