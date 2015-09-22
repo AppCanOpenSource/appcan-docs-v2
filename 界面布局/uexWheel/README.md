@@ -1,25 +1,25 @@
-﻿[TOC]
+[TOC]
  
-#  1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
  
  轮盘菜单插件
-##1.1、 业务限制资源规格限制说明
+## 1.1、 业务限制资源规格限制说明
 轮盘菜单插件，可以创建全圆轮盘菜单、创建半圆轮盘菜单、创建四分之一圆轮盘菜单，通过api提供的设置创建轮盘菜单的数据源，传入数据、图片等资源，制定ui界面，同时并可以快速的完成事件的监听和控制
-##1.2、UI展示
+## 1.2、UI展示
  
  ![](http://newdocx.appcan.cn/docximg/152422q2015s6i16y.png)
-##1.3、 开源源码
+## 1.3、 开源源码
 插件测试用例与源码下载：[点击](http://plugin.appcan.cn/details.html?id=196_index) 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
-#2、API概览
- ##2.1、     方法
+# 2、API概览
+## 2.1、方法
 
-> ###           openCircle      创建全圆轮盘菜单        
+> ### openCircle 创建全圆轮盘菜单
 
-`uexWheel.openCircle(x,y,w,h,jsonData)                  `
-**  说明：     **
-创建全圆轮盘菜单                    
+`uexWheel.openCircle(x,y,w,h,jsonData)`
+**说明：**
+创建全圆轮盘菜单
 回调 [cbSelect](#cbSelect 点击按钮的监听方法 "点击按钮的监听方法")
-**  参数:     **
+**参数:**
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |------|-----|--------|------- |
@@ -27,16 +27,43 @@
 |y|Number类型|必选|y坐标|
 |w|Number类型|必选|宽度|
 |h|Number类型|必选|高度|
-|jsonData|String类型|必选|按钮内容|
+|jsonData|String类型|必选|按钮内容,json格式数据如下：|
 ```
-      jsonData JSON类型，格式为: '{"button":"res://circle/button.png","menuBg":"res://circle/tabbg.png","subMenuBg":"res://circle/iconbg.png","select_1":"res://circle/tabmenufirstbg.png","select_2":"res://circle/tbmenubg.png","menu":[{"img":"res://circle/tab1.png","subMenu":["res://circle/icon2.png","res://circle/icon1.png","res://circle/icon3.png"]},{"img":"res://circle/tab2.png","subMenu":["res://circle/icon3.png","res://circle/icon2.png","res://circle/icon1.png","res://circle/icon4.png"]}]}';
+{
+    "button": "res://circle/button.png",
+    "menuBg": "res://circle/tabbg.png",
+    "subMenuBg": "res://circle/iconbg.png",
+    "select_1": "res://circle/tabmenufirstbg.png",
+    "select_2": "res://circle/tbmenubg.png",
+    "menu": [
+        {
+            "img": "res://circle/tab1.png",
+            "subMenu": [
+                "res://circle/icon2.png",
+                "res://circle/icon1.png",
+                "res://circle/icon3.png"
+            ]
+        },
+        {
+            "img": "res://circle/tab2.png",
+            "subMenu": [
+                "res://circle/icon3.png",
+                "res://circle/icon2.png",
+                "res://circle/icon1.png",
+                "res://circle/icon4.png"
+            ]
+        }
+    ]
+}
 ```
-**  平台支持:       **
-Android2.2+                 
-iOS6.0+                 
-**  版本支持：       **
-3.0.0+                  
-**  示例:     **
+**平台支持:**
+Android2.2+    
+iOS6.0+    
+
+**版本支持：**
+3.0.0+
+
+**示例:**
 
 ```
 <!DOCTYPE HTML>
@@ -76,27 +103,33 @@ iOS6.0+
 </html>
 
 ```
-> ###   closeCircle  移除全圆轮盘菜单
+> ### closeCircle 移除全圆轮盘菜单
 
-`uexWheel.closeCircle() `
-**      说明：**
-移除全圆轮盘菜单    
-**      参数:**
-无   
-**      平台支持:**
-Android2.2+ 
-iOS6.0+ 
-**  版本支持：**
+`uexWheel.closeCircle()`
+**说明：**
+移除全圆轮盘菜单
+**参数:**
+```
+无
+```
+**平台支持:**
+Android2.2+    
+iOS6.0+
+
+**版本支持：**
 3.0.0+  
-**  示例:**
-              见openCircle方法示例   
-> ###   openSemicircle  创建半圆轮盘菜单
+
+**示例:**
+见openCircle方法示例
+
+> ### openSemicircle 创建半圆轮盘菜单
 
 `uexWheel.openSemicircle(x,y,w,h,jsonData)  `
-**  说明：**
-创建半圆轮盘菜单    
+**说明：**
+创建半圆轮盘菜单
 回调 [cbSelect](#cbSelect 点击按钮的监听方法 "点击按钮的监听方法")
-**      参数:**
+
+**参数:**
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |------|-----|--------|------- |
@@ -104,16 +137,47 @@ iOS6.0+
 |y|Number类型|必选|y坐标|
 |w|Number类型|必选|宽度|
 |h|Number类型|必选|高度|
-|jsonData|String类型|必选|按钮内容|
+|jsonData|String类型|必选|按钮内容,json格式如下:|
+
 ```
-      jsonData:JSON类型，格式为:'{"data":[{"image":"res://semicircle/plugin_uexwheel1_1.png","title":"短信"},{"image":"res://semicircle/plugin_uexwheel1_2.png","title":"列表"},{"image":"res://semicircle/plugin_uexwheel1_3.png","title":"拍照"},{"image":"res://semicircle/plugin_uexwheel1_4.png","title":"相册"},{"image":"res://semicircle/plugin_uexwheel1_5.png","title":"视频"},{"image":"res://semicircle/plugin_uexwheel1_3.png","title":"其他"}],"background":"res://semicircle/plugin_uexwheel1_bg.png"}';   
+{
+    "data": [
+        {
+            "image": "res://semicircle/plugin_uexwheel1_1.png",
+            "title": "短信"
+        },
+        {
+            "image": "res://semicircle/plugin_uexwheel1_2.png",
+            "title": "列表"
+        },
+        {
+            "image": "res://semicircle/plugin_uexwheel1_3.png",
+            "title": "拍照"
+        },
+        {
+            "image": "res://semicircle/plugin_uexwheel1_4.png",
+            "title": "相册"
+        },
+        {
+            "image": "res://semicircle/plugin_uexwheel1_5.png",
+            "title": "视频"
+        },
+        {
+            "image": "res://semicircle/plugin_uexwheel1_3.png",
+            "title": "其他"
+        }
+    ],
+    "background": "res://semicircle/plugin_uexwheel1_bg.png"
+} 
 ```
-**  平台支持:**
-Android2.2+ 
-iOS6.0+ 
-**  版本支持：**
-3.0.0+  
-**  示例:**
+**平台支持:**
+Android2.2+    
+iOS6.0+
+
+**版本支持：**
+3.0.0+
+
+**示例:**
 
 ```
 <!DOCTYPE HTML>
@@ -148,28 +212,33 @@ iOS6.0+
         </div>
     </body>
 </html>
-
 ```
-> ###   closeSemicircle  移除半圆轮盘菜单
+> ### closeSemicircle 移除半圆轮盘菜单
 
-`uexWheel.closeSemicircle() `
-**  说明：**
-移除半圆轮盘菜单    
-**      参数:**
-无   
-**  平台支持:**
-Android2.2+ 
+`uexWheel.closeSemicircle()`
+**说明：**
+移除半圆轮盘菜单
+
+**参数:**
+无
+
+**平台支持:**
+Android2.2+    
 iOS6.0+ 
-**  版本支持：**
-3.0.0+  
-**示例:**
-              见openSemicircle方法示例   
-> ###   openQuartercircle  创建四分之一圆轮盘菜单
 
-`uexWheel.openQuartercircle(x,y,w,h,jsonData)   `
-**  说明：**
-创建四分之一圆轮盘菜单 
+**版本支持：**
+3.0.0+  
+
+**示例:**
+              见openSemicircle方法示例  
+ 
+> ### openQuartercircle 创建四分之一圆轮盘菜单
+
+`uexWheel.openQuartercircle(x,y,w,h,jsonData)`
+**说明：**
+创建四分之一圆轮盘菜单
 回调 [cbSelect](#cbSelect 点击按钮的监听方法 "点击按钮的监听方法")
+
 **参数:**
 
 |参数名称|参数类型 | 是否必选|  说明 |
@@ -178,16 +247,41 @@ iOS6.0+
 |y|Number类型|必选|y坐标|
 |w|Number类型|必选|宽度|
 |h|Number类型|必选|高度|
-|jsonData|String类型|必选|按钮内容|
+|jsonData|String类型|必选|按钮内容,json格式如下：|
+
 ```
-      jsonData:JSON类型，格式为:      '{"data":[{"image":"res://quartercircle/plugin_uexwheel2_1.png","title":"视频"},{"image":"res://quartercircle/plugin_uexwheel2_2.png","title":"图片"},{"image":"res://quartercircle/plugin_uexwheel2_3.png","title":"拍照"}],"openImg":"res://quartercircle/plugin_uexwheel2_bt_plus.png","openTitle":"open","closeImg":"res://quartercircle/plugin_uexwheel2_bt_close.png","closeTitle":"close","rootBg":"res://quartercircle/plugin_wheel2_bg.png","subBg":"res://quartercircle/plugin_uexwheel2_bt_bg.png","textColor":"#cccccc"}';
+{
+    "data": [
+        {
+            "image": "res://quartercircle/plugin_uexwheel2_1.png",
+            "title": "视频"
+        },
+        {
+            "image": "res://quartercircle/plugin_uexwheel2_2.png",
+            "title": "图片"
+        },
+        {
+            "image": "res://quartercircle/plugin_uexwheel2_3.png",
+            "title": "拍照"
+        }
+    ],
+    "openImg": "res://quartercircle/plugin_uexwheel2_bt_plus.png",
+    "openTitle": "open",
+    "closeImg": "res://quartercircle/plugin_uexwheel2_bt_close.png",
+    "closeTitle": "close",
+    "rootBg": "res://quartercircle/plugin_wheel2_bg.png",
+    "subBg": "res://quartercircle/plugin_uexwheel2_bt_bg.png",
+    "textColor": "#cccccc"
+}
 ```
-**  平台支持:**
-Android2.2+ 
+**平台支持:**
+Android2.2+    
 iOS6.0+ 
+
 **版本支持：**
 3.0.0+  
-**      示例:**
+
+**示例:**
 
 ```
 <head>
@@ -222,54 +316,62 @@ iOS6.0+
 </html>
 
 ```
-> ###   closeQuartercircle  移除四分之一圆轮盘菜单
+> ### closeQuartercircle 移除四分之一圆轮盘菜单
 
-`uexWheel.closeQuartercircle()  `
-**  说明：**
+`uexWheel.closeQuartercircle()`
+**说明：**
 移除四分之一圆轮盘菜单 
-**      参数:**
-无   
-**  平台支持:**
-Android2.2+ 
+
+**参数:**
+无
+
+**平台支持:**
+Android2.2+    
 iOS6.0+ 
-**  版本支持：**
+
+**版本支持：**
 3.0.0+  
-**  示例:**
+
+**示例:**
               见openQuartercircle方法示例    
 
 
-##2.2、      回调方法
-> ###       cbSelect 点击按钮的监听方法  
+## 2.2、回调方法
+> ### cbSelect 点击按钮的监听方法
 
-`uexWheel.cbSelect(index1,index2)           `
-**  参数: **
+`uexWheel.cbSelect(index1,index2)`
+**参数:**
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |------|-----|--------|------- |
 |index1|Number类型|必选|索引|
 |index2|Number类型|必选|索引,仅在全圆轮盘菜单有效|
  
-**  版本支持：   **
-3.0.0+          
-##2.3、      监听方法
-> ###       onClick     全圆轮盘菜单中心圆被点击的监听方法   
+**版本支持：**
+3.0.0+
 
-`uexWheel.onClick(index)            `
-**  参数: **
+##2.3、监听方法
+
+> ### onClick 全圆轮盘菜单中心圆被点击的监听方法
+
+`uexWheel.onClick(index)`
+**参数:**
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |------|-----|--------|------- |
 |index|Number类型|必选|索引,为0。|
  
-**  版本支持：   **
-3.0.0+          
-#3、更新历史
+**版本支持：**
+3.0.0+
 
-API 版本：uexWheel-3.0.11(iOS) uexWheel-3.0.13（Android）
- 最近更新时间：2015-06-19
+# 3、更新历史
+
+API 版本：uexWheel-3.0.11(iOS) uexWheel-3.0.14（Android）
+ 最近更新时间：2015-09-22
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.14  |   | 修复四分之一圆盘在页面切换之后不能正常打开的问题   |
 | 3.0.13  |   | 修复图标概率重叠的问题   |
 | 3.0.12  |   | 修改全圆轮盘回调区分点击item和圆盘中心   |
 | 3.0.11  | 修复全圆轮盘菜单调用close方法无效的问题  | 修改全圆轮盘回调时机  |
