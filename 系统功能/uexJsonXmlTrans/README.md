@@ -22,6 +22,7 @@ JSON, XML转换工具
 将json字符串转为xml, 转换完成后执行回调函数 [cbTransFinished](#cbTransFinished 格式转换完成后的回调 "cbTransFinished")
 
 **参数:**
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | data | String | 是 | json格式字符串 或 res://, wgt://,wgts://, file:///sdcard/开头的文件路径 |
