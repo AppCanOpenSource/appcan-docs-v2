@@ -156,7 +156,7 @@ uexFileMgr.deleteFileByID(1);
 
 > ### isFileExistByPath 根据路径判断文件是否存在
 
-`uexFileMgr.isFileExistByPath(path)`
+`uexFileMgr.isFileExistByPath(id, path)`
 
  **说明:**
 根据路径判断文件是否存在,回调方法[cbIsFileExistByPath](#cbIsFileExistByPath 根据路径判断文件是否存在的回调方法 "cbIsFileExistByPath")
@@ -165,7 +165,8 @@ uexFileMgr.deleteFileByID(1);
  
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
-| path|String | 是 | 文件路径，路径协议详见CONSTANT中PathTypes |
+| id | Number | 是 | 文件的唯一标识符，与回调函数中的opId对应 |
+| path |String | 是 | 文件路径，路径协议详见CONSTANT中PathTypes |
 
 **平台支持:**
 Android2.2+
@@ -177,7 +178,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.isFileExistByPath("wgt://data/test.txt");
+uexFileMgr.isFileExistByPath(2,"wgt://data/test.txt");
 ```
 
 > ### isFileExistByID 根据id判断文件是否存在
