@@ -704,9 +704,9 @@ function shareText(){
 ```
 jsonData {
     thumbImg:,//(必选)缩略图地址Url（大小必须小于32k）
-    image:,//图片地址（路径协议见constant中的 path type）
-    scene:,//发送的目标场景 0-会话场景 1-朋友圈场景
-    title:,//图片标题(仅iOS)
+    image:,//(必选)图片地址（路径协议见constant中的 path type）
+    scene:,//(必选)发送的目标场景 0-会话场景 1-朋友圈场景
+    title://(必选)图片标题(仅iOS)
 }
 ```
 
@@ -734,7 +734,7 @@ alert(data);
 };}
 function sharePic(){
     var JsonData = '{"thumbImg":"res://icon.png","image":"res://Default.png","scene":1}';
-uexWeiXin.shareImageContent(JsonData);
+    uexWeiXin.shareImageContent(JsonData);
 }
 </script>
 </head>
@@ -757,7 +757,7 @@ uexWeiXin.shareImageContent(JsonData);
 
 **说明:**
 分享Link到微信
-回调 [cbShareLinkContent](#cbShareLinkContent 分享Link的回调方法 "分享Link的回调方法")   
+回调 [cbShareLinkContent](#cbShareLinkContent 分享Link的回调方法 "分享Link的回调方法")
 
 **参数:**
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -766,11 +766,10 @@ uexWeiXin.shareImageContent(JsonData);
 
 ```
 var json = {
-    thumbImg:
-    wedpageUrl:
-    scene:
-    title:
-    description:
+    thumbImg:,//(必选)缩略图地址Url（大小必须小于32k）
+    wedpageUrl:,//(必选)链接的地址
+    scene:,//(必选)发送的目标场景 0-会话场景 1-朋友圈场景
+    title://(必选)链接的标题
 }
 ```
 ![](http://newdocx.appcan.cn/docximg/174228b2015w0k14h.png)
@@ -797,8 +796,8 @@ uexWeiXin.cbShareLinkContent=function(data){
 //data是状态码
 alert(data);
 };}
-function sharePic(){
-var JsonData = '{"thumbImg":"res://icon.png","wedpageUrl":"http://www.appcan.cn","scene":1,"title":"你好,我是AppCan","description":"中国最大的移动中间键平台AppCan对微信分享的图片支持测试"}';
+function shareLinkContent(){
+var JsonData = '{"thumbImg":"res://icon.png","wedpageUrl":"http://www.appcan.cn","scene":1,"title":"你好,我是AppCan"}';
 uexWeiXin.shareLinkContent(JsonData);
 
 }
@@ -809,7 +808,7 @@ uexWeiXin.shareLinkContent(JsonData);
 <div class="conbor">
 <div class="consj">
 <span>分享Link </span>
-<input class="btn" type="button" value="分享Link" onclick="sharePic();">
+<input class="btn" type="button" value="分享Link" onclick="shareLinkContent();">
 </div>
 </div>
 </body>
