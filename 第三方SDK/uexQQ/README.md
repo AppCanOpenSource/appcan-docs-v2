@@ -259,9 +259,9 @@ iOS不支持
 **示例:**    
 
 ```
-    function shareAudioToQQ(){
-    var json = '{"title":"音乐分享标题","summary":"音乐分享消息摘要","targetUrl":"http://appcan.cn","imageUrl":"http://imgcache.qq.com/qzone/space_item/textarea/0/66768.gif","appName":"uexQQ", "audio_url":"http://pan.baidu.com/share/link?shareid=1055030794&uk=2337020227","cflag":"2"}';
-    uexQQ.shareAudioToQQ(“222222”, json);
+    function shareAppToQQ(){
+        var json = '{"title":"标题","summary":"摘要","imageUrl":"","appName":"uexQQ","cflag":"1"}';
+        uexQQ.shareAppToQQ(“222222”, json);
     }
 ```
 > ###shareImgTextToQZone 分享图文到QQ空间   
