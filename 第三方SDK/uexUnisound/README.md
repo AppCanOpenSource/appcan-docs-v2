@@ -91,7 +91,7 @@ param是一个字典结构生成的json字符串，其key值如下表所示
 |languague|识别语言|Number|1-普通话 2-英语 3-粤语|1|
 |engine|识别领域|Number|1-通用识别 2-地名识别 3-歌名识别 4-影视名识别 5-医药领域识别|1|
 |recognizationTimeout|语音识别超时时间|Number|正整数 单位为秒|30|
-|needUnderstander|语音识别结束后是否进行语义理解|Boolean|true/false|true|
+|needUnderstander|语音识别结束后是否进行语义理解|Boolean|true/false|true, 仅IOS支持|
 
 
 
@@ -372,14 +372,14 @@ uexUnisound.cancelSpeaking();
 
 ```
 
->### pauseSpeaking 暂停播放
+>### pauseSpeaking 暂停播放 
 
 
 `uexUnisound.pauseSpeaking()`
 
 **说明**
 
-暂停播放
+暂停播放(仅IOS支持)
 
 * 仅暂停语音播放线程，合成线程会继续进行
 * 回调[cbPauseSpeaking](#cbPauseSpeaking 暂停播放的回调方法)
@@ -415,7 +415,7 @@ uexUnisound.pauseSpeaking();
 
 **说明**
 
-恢复播放
+恢复播放 (仅IOS支持)
 
 * 回调[cbResumeSpeaking](#cbResumeSpeaking 恢复播放的回调方法)
 
@@ -452,7 +452,7 @@ uexUnisound.resumeSpeaking();
 
 **说明**
 
-暂停播放的回调方法
+暂停播放的回调方法(仅IOS支持)
 
 **参数**
 
@@ -489,7 +489,7 @@ window.uexOnload = function(type){
 
 **说明**
 
-恢复播放的回调方法
+恢复播放的回调方法(仅IOS支持)
 
 **参数**
 
@@ -530,7 +530,7 @@ window.uexOnload = function(type){
 
 **说明**
 
-语音识别开始的监听方法
+语音识别开始的监听方法 (仅IOS支持)
 
 * 录音初始化完成,识别启动时,回调此方法。
 * 由于录音初始化需要时间,如果录音没有初始化完成就开始说话,可能会导致语音前半部分被截断,从而影响识别效果,因此不能调用 start 后就开始说话,而是要等待录音初始化完成才提示用户开始说话。
