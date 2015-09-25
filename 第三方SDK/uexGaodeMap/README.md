@@ -2718,13 +2718,13 @@ Android 3.0.3+
 **用户需要将上面字段中的XXX替换为自己申请的对应平台的key，然后添加至config.xml中：**即可完成相应key的配置 
 
 # 5、更新历史
- API 版本:uexGaodeMap-3.0.5(iOS) uexGaodeMap-3.0.7（Android）    
+ API 版本:uexGaodeMap-3.0.6(iOS) uexGaodeMap-3.0.7（Android）    
  最近更新时间:2015-09-25
  
 |  历史发布版本 | iOS更新  | Android更新  |
 | ------------ | ------------ | ------------ |
 | 3.0.7  | AddCircleOverlay中 修改默认lineDash值为NO,当回调的json结构为String时，不再转义一次 |  |
-| 3.0.6  |  | open接口增加地图是否随网页滚动参数isScrollWithWeb |
+| 3.0.6  | open接口添加参数isScrollWithWeb | open接口增加地图是否随网页滚动参数isScrollWithWeb |
 | 3.0.5  | 地理编码和反地理编码的回调添加参数,方便用户区分 | 地理编码和反地理编码的回调添加参数,方便用户区分 |
 | 3.0.4  |添加自定义按钮相关功能 |  添加自定义按钮相关功能|
 | 3.0.3  |修复使用自定义气泡时自定义标注图标失效的问题 修复覆盖物设置透明色会失效的bug 修复getCurrentLocation不敏感的bug 修复clear接口可能会导致闪退的bug |  新增离线地图相关接口|

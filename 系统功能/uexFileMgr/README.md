@@ -1603,18 +1603,18 @@ uexFileMgr.cbSearch=function (info){
 ```
 
 # 3、更新历史
-API 版本：uexFileMgr-3.0.12(iOS) uexFileMgr-3.0.5（Android）
-最近更新时间：2015-09-10
+API 版本：uexFileMgr-3.0.12(iOS) uexFileMgr-3.0.7（Android）
+最近更新时间：2015-09-25
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
-| 3.0.12  |新增方法uexFileMgr.searcg 搜索文件|   |
+| 3.0.12  |新增方法uexFileMgr.search 搜索文件|   |
 | 3.0.11  |新增cbWriteFile回调方法，优化RC4加密|   |
 | 3.0.10  | 解决多选文件打开浏览器显示空白问题  |   |
 | 3.0.9  | 新增方法uexFileMgr.renameFile 重命名文件  |   |
 | 3.0.8  | 修复uexFileMgr.multiExplorer(path)中path参数无效的BUG  |    |
-| 3.0.7  |  修改创建时间接口的名称 |   |
-| 3.0.6  | 增加获取文件创建时间的新接口  |   |
+| 3.0.7  |  修改创建时间接口的名称 | 修改接口getFileRealPath,支持回调方法名称的传入  |
+| 3.0.6  | 增加获取文件创建时间的新接口  |  新增getFileListByPath方法获取指定目录中的文件列表 |
 | 3.0.5  | 修改8.0以上系统崩溃问题  | 新增cbWriteFile回调方法  |
 | 3.0.4 |  适配文件浏览器横屏 |   添加重命名接口|
 | 3.0.3  |修复文件单选浏览器，文件多时无法滑动到底的BUG； 修复单选和多选浏览器状态栏标题不一致问题   | 修复解析res://路径的getFileRealPath方法返回错误问题  |
