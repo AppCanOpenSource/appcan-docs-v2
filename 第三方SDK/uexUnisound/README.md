@@ -89,11 +89,6 @@ param是一个字典结构生成的json字符串，其key值如下表所示
 |backTime|用户停止说话自动停止录音的时间|Number|正整数 单位为毫秒|1000|
 |rate|录音采样率|Number|1-BANDWIDTH\_AUTO; 2-RATE\_8K; 3-RATE_16K; 详细说明见表末|3|
 |languague|识别语言|Number|1-普通话 2-英语 3-粤语|1|
-|engine|识别领域|Number|1-通用识别 2-地名识别 3-歌名识别 4-影视名识别 5-医药领域识别|1|
-|recognizationTimeout|语音识别超时时间|Number|正整数 单位为秒|30|
-|needUnderstander|语音识别结束后是否进行语义理解|Boolean|true/false|true, 仅IOS支持|
-
-
 
 
 
