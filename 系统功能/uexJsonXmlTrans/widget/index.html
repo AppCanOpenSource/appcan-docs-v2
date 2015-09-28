@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="target-densitydpi=device-dpi,width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/appcan.js"></script>
+	<script type="text/javascript">
+        window.uexOnload = function(type){
+            uexJsonXmlTrans.cbTransFinished = function(info){
+                alert(info);
+            }
+
+        }
+
+
+    
+    function json2xml(type){
+        var info;
+        if(type == 1){
+            json = {
+                "key1":"value1",
+                "key2":{
+                    "hehe":"讨厌"
+                },
+                "key3":3,
+                "key4":false,
+                "key5":["1","2","3"]
+            }
+            info = JSON.stringify(json);
+        }
+        if(type == 2){
+            info="res://example.json"
+        }
+        uexJsonXmlTrans.json2xml(info);
+        
+    }
+    function xml2json(type){
+        var info;
+        if(type == 1){
+            info='<key3>3</key3><key1>value1</key1><key4>0</key4><key2><hehe>讨厌</hehe></key2><key5>1</key5><key5>2</key5><key5>3</key5>'
+        }
+        if(type == 2){
+            info="res://example.xml"
+        }
+        uexJsonXmlTrans.xml2json(info);
+        
+    }
+
+
+	</script>
+</head>
+
+<body>
+    <div class="tit">uexJsonXmlTrans</div>
+    <div class="conbor">
+        <div class="consj">
+            <span>init</span>
+            <div id="result">result</div>
+            <input class='btn' type='button' value='解析json字符串' onclick='json2xml(1)'/>
+            <input class='btn' type='button' value='解析json文件' onclick='json2xml(2)'>
+            <input class='btn' type='button' value='解析xml字符串' onclick='xml2json(1)'/>
+            <input class='btn' type='button' value='解析xml文件' onclick='xml2json(2)'>
+
+                
+                
+                                        
+        </div>
+    </div>
+</body>
+</html>
