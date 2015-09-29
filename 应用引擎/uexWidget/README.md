@@ -175,7 +175,7 @@ uexWidget.loadApp(appInfo);
 |------|-----|--------|------- |
 |mainInfo|String|是|action|
 |addInfo|String|否|category或data，json格式如下：|
-
+```
 {
     "category": [
         "android.intent.category.WID",
@@ -186,7 +186,7 @@ uexWidget.loadApp(appInfo);
         "scheme": "sip"
     }
 }
-
+```
 各字段含义如下:
 
 |参数|是否必须|说明|
