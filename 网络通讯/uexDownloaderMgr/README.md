@@ -124,7 +124,7 @@ uexDownloaderMgr.cancelDownload("http://wallpaper.pocketdigi.com/upload/1/bigIma
 `uexDownloaderMgr.closeDownloader(id)`
 
 **说明:**
-取消指定下载地址的下载任务
+关闭下载对象
 
 **参数:**
 
@@ -307,11 +307,15 @@ uexDownloaderMgr.onStatus = function(opCode,fileSize,percent,status){
 
 # 3、更新历史
 
-API 版本：uexDownloaderMgr-3.0.5(iOS) uexDownloaderMgr-3.0.7（Android）
-最近更新时间：2015-08-21
+API 版本：uexDownloaderMgr-3.0.5(iOS) uexDownloaderMgr-3.0.11（Android）
+最近更新时间：2015-10-08
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.11  |   | 修复调用cancelDownload之后，即使不清除已下载的临时文件，下次下载时不能断点续传的问题  |
+| 3.0.10  |   | 增加新的 header以及plugin里面的子应用的appId和appkey都按照主应用为准  |
+| 3.0.9  |   | 增加appVerify校验头  |
+| 3.0.8  |   | https下载时可以支持预置证书；增大下载缓冲区；支持中文url;增强稳定性  |
 | 3.0.7  |   | 修复不支持HTTPS问题  |
 | 3.0.6  |   | 新增setHeaders接口  |
 | 3.0.5  | 修改了请求头的验证 | 引擎更新后，修复取消下载提示不准确的问题  |
