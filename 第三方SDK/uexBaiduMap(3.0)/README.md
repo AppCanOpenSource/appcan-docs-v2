@@ -2403,16 +2403,17 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 # 3、更新历史
  
 
-**API 版本:uexBaiduMap-3.1.11(iOS) uexBaiduMap-3.1.23(Android)**
+**API 版本:uexBaiduMap-3.1.11(iOS) uexBaiduMap-3.1.24(Android)**
 
-**最近更新时间:2015-08-31**
+**最近更新时间:2015-10-09**
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ----- | ----- | ----- |
-| 3.0.23| |修复地理编码接口当地址错误时程序崩溃的问题|
-| 3.0.22| |修复加入百度地图插件后 uexLocation.openLocation()中的onchange事件不能 使用问题|
-| 3.0.21| |规避百度地图SDK的BitmapDescriptorFactory中fromView 方法重复调用crash问题|
-| 3.0.20| |修复点击路径规划中的起终点标注 时，应用崩溃的问题|
+| 3.1.24| |修改百度地图中引用的jar包，解除与百度导航插件之间的打包冲突问题|
+| 3.1.23| |修复地理编码接口当地址错误时程序崩溃的问题|
+| 3.1.22| |修复加入百度地图插件后 uexLocation.openLocation()中的onchange事件不能 使用问题|
+| 3.1.21| |规避百度地图SDK的BitmapDescriptorFactory中fromView 方法重复调用crash问题|
+| 3.1.20| |修复点击路径规划中的起终点标注 时，应用崩溃的问题|
 | 3.0.19| |解决百度地图上箭头不转动的问题|
 | 3.0.18| |增加onMapStatusChangeListener监听 方法监听地图状态改变，以及添加标注时增加 气泡属性|
 | 3.0.17| |修复打开百度地图闪黑屏问题|
