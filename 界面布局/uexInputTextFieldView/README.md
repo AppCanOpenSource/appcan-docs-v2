@@ -92,6 +92,31 @@ iOS 3.0.0+
 uexInputTextFieldView.close()
 ```
 
+> ### setInputFocused 输入框自动获取焦点
+
+`uexInputTextFieldView.setInputFocused()`
+
+**说明:**
+输入框自动获取焦点
+
+**参数**
+```
+无
+```
+
+**平台支持**
+Android 2.2+
+iOS 6.1+
+
+**版本支持**
+Android 3.0.9+
+iOS 3.0.4+
+
+**示例**
+```
+uexInputTextFieldView.setInputFocused();
+```
+
 ## 2.2、监听方法
 
 > ### onCommit 点击评论按钮时的监听方法
@@ -121,11 +146,12 @@ uexInputTextFieldView.onCommit = function(data){
 ```
 
 # 3、更新历史
-API 版本：uexInputTextFieldView-3.0.3(iOS) uexInputTextFieldView-3.0.8(Android)
-最近更新时间：2015-08-21
+API 版本：uexInputTextFieldView-3.0.3(iOS) uexInputTextFieldView-3.0.9(Android)
+最近更新时间：2015-10-10
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
+| 3.0.9 |  | 增加输入框自动获取焦点接口|
 | 3.0.8 |  | 修改EditText和webview中的输入框抢焦点的问题|
 | 3.0.7 |  | 修改open接口，可设置发送按钮颜色和按钮字体的颜色。|
 | 3.0.6 |  | 修改发送按钮为默认显示|
