@@ -19,6 +19,16 @@ init()
 * 所有的回调都会传给执行init()的页面，请务必不要关闭此页面；
 * 建议在root页面执行init()；
 
+### 初始化回调
+
+```
+cnInit(param);
+var param={
+	resultCode://0-BLE启动成功，1-BLE启动失败
+}
+```
+
+
 ### 扫描蓝牙设备
 扫描到设备后通过onLeScan回调结果
 
