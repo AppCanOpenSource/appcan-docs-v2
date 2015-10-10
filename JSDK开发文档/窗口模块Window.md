@@ -211,8 +211,8 @@ appcan.window.evaluatePopoverScript({
        0: 是向下拖动
        1: 是向上拖动
     startPullCall:开始滑动时触发回调
-    downEndCall:当弹动类型设置为下边界弹动时，如果页面到了下边界则会触发该回调
-    upEndCall:当弹动类型设置为上边界弹动时，如果页面到了上边界则会触发该回调
+    downEndCall:上拉或者下拉超过边界执行回调
+    upEndCall:上拉或者下拉，超过边界之后，恢复最初状态执行回调
     color`:如果超过了该边界显示的背景颜色
     imgSettings:如果超过了该边界，并且想要设置显示的内容包括图片文字则设置该参数
 ````

@@ -1603,11 +1603,15 @@ uexFileMgr.cbSearch=function (info){
 ```
 
 # 3、更新历史
-API 版本：uexFileMgr-3.0.12(iOS) uexFileMgr-3.0.7（Android）
-最近更新时间：2015-09-25
+API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.7（Android）
+最近更新时间：2015-10-10
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.16  |getFileListByPath不再返回其子目录下的文件路径|   |
+| 3.0.15  |修复pptx和xlsx没有图标的问题|   |
+| 3.0.14  |getFileRealPath可以设定回调方法|   |
+| 3.0.13  |新增getFileListByPath|   |
 | 3.0.12  |新增方法uexFileMgr.search 搜索文件|   |
 | 3.0.11  |新增cbWriteFile回调方法，优化RC4加密|   |
 | 3.0.10  | 解决多选文件打开浏览器显示空白问题  |   |
