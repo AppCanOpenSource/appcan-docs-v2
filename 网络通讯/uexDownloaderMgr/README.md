@@ -307,8 +307,8 @@ uexDownloaderMgr.onStatus = function(opCode,fileSize,percent,status){
 
 # 3、更新历史
 
-API 版本：uexDownloaderMgr-3.0.5(iOS) uexDownloaderMgr-3.0.11（Android）
-最近更新时间：2015-10-08
+API 版本：uexDownloaderMgr-3.0.7(iOS) uexDownloaderMgr-3.0.11（Android）
+最近更新时间：2015-10-10
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
@@ -316,8 +316,8 @@ API 版本：uexDownloaderMgr-3.0.5(iOS) uexDownloaderMgr-3.0.11（Android）
 | 3.0.10  |   | 增加新的 header以及plugin里面的子应用的appId和appkey都按照主应用为准  |
 | 3.0.9  |   | 增加appVerify校验头  |
 | 3.0.8  |   | https下载时可以支持预置证书；增大下载缓冲区；支持中文url;增强稳定性  |
-| 3.0.7  |   | 修复不支持HTTPS问题  |
-| 3.0.6  |   | 新增setHeaders接口  |
+| 3.0.7  | xcode7修正  | 修复不支持HTTPS问题  |
+| 3.0.6  | 兼容打包脚本  | 新增setHeaders接口  |
 | 3.0.5  | 修改了请求头的验证 | 引擎更新后，修复取消下载提示不准确的问题  |
 | 3.0.4 |   | 修复下载速度慢的问题，修复取消下载提示不准确问题  |
 | 3.0.3  |支持https   | 新增接口cancelDownload  |
