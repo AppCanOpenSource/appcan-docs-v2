@@ -2,7 +2,7 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 文件下载插件
 ## 1.1、说明
-文件下载管理接口API，该对象主要封装了下载数据的接口
+文件下载管理接口API，该对象主要封装了下载数据的接口，支持多个文件下载，断点续传下载，下载文件大小无限制。
  
 ## 1.2、UI展示
 ![](http://newdocx.appcan.cn/docximg/133313p2015r6s16g.png)

@@ -464,7 +464,7 @@ uexWindow.showSlibing(1)
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
-| windName | String | 是 | 窗口名称，默认为当前窗口 |
+| windName | String | 是 | 窗口名称，默认空为当前窗口（可以是主窗口、root窗口、浮动窗口） |
 | type | Number | 是 | 窗口的类型，uex.cWindowTypeNormal，uex.cWindowTypeTop 或uex.cWindowTypeBottom，详见CONSTANT中WindowTypes |
 | js | String | 是 | js脚本内容 |
 
@@ -492,7 +492,7 @@ uexWindow.evaluateScript("", 0, "alert('执行去吧！！');");
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
-| windName | String | 是 | 窗口名称，默认为当前窗口 |
+| windName | String | 是 | 窗口名称，默认空为当前窗口（只能为主窗口、root窗口） |
 | popName | String | 是 | 浮动窗口名称 |
 | js | String | 是 | js脚本内容 |
 

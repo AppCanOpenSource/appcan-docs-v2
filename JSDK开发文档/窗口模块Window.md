@@ -213,7 +213,7 @@ appcan.window.evaluatePopoverScript({
     startPullCall:开始滑动时触发回调
     downEndCall:上拉或者下拉超过边界执行回调
     upEndCall:上拉或者下拉，超过边界之后，恢复最初状态执行回调
-    color`:如果超过了该边界显示的背景颜色
+    color:如果超过了该边界显示的背景颜色
     imgSettings:如果超过了该边界，并且想要设置显示的内容包括图片文字则设置该参数
 ````
 关于imgSettings的设定的实例:
@@ -526,7 +526,7 @@ win.moveAnim({
           1: html 数据
           2: html 和 url 混合数据
     url:弹出框要加载的页面的地址
-    data:弹出框要价值的数据内容
+    data:弹出框要加载的数据内容
     left:弹出框距离左边的距离
     top:弹出框距离上边的距离
     width:弹出框的宽度
@@ -1108,7 +1108,7 @@ win.publish('2','hello')
 
    把指定的浮动窗口设置到最下层
 	
-    `name`:要设置的浮动窗口名称
+    name:要设置的浮动窗口名称
 参数还可以以对象的形式传参：
 ````
 {
@@ -1150,7 +1150,8 @@ win.setWindowFrame(100,0,300,function(){})
 ````
 >### appcan.window.stateChange(callback)
 
-    窗口前后台状态变化，callback(state)回调方法，
+    窗口前后台状态变化，
+	callback(state)回调方法，
     state：（Number)状态值 ，0：回到前台；1：压入后台
 
 >### appcan.window.onResume
@@ -1163,8 +1164,14 @@ win.setWindowFrame(100,0,300,function(){})
 
 >### appcan.window.on('resume',callback)
 
+````
+appcan.window.on('resume',callback)
+````
   窗口回到前台时执行回调函数
 
 >### appcan.window.on('pause',callback)
 
+````
+appcan.window.on('pause',callback)
+````
   窗口回到后台时执行回调函数
