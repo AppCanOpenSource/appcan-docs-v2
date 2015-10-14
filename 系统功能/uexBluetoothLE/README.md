@@ -10,6 +10,7 @@ iOS 后台蓝牙功能须知
 * 如果要在后台进行音频操作，还需要设置后台音乐权限;
 * 在后台扫描蓝牙设备时，serviceUUIDs参数必传，不能无限制扫描；
 * 后台获取到数据如要通知前台，请用LocalNotification；
+
 **注：由于本插件的特殊性，暂时没法提供方法的示例，整体示例请参考开源源码中的示例**
 
 
@@ -654,7 +655,6 @@ iOS 3.0.0+
 		characteristicUUID:,//此descriptor所属的characteristic的UUID
 		UUID:,//string,此descriptor的UUID 
 		value:,//string,此descriptor的值
-		permissions:,//(仅Android)Number,此descriptor的权限说明
 		needDecode://是否需要base64解码  true/false，为true时，用户需要将value进行base64解码
 	}
 ```
@@ -667,7 +667,7 @@ iOS 3.0.0+
 		serviceUUID:,//string，此Characteristic所属的service的UUID
 		UUID:,//string,此Characteristic的UUID 
 		value:,//string,此Characteristic的值，base64编码,用户获取到value之后，需要先进行base64解码
-		permissions:,//int,此Characteristic的权限说明
+		permissions:,//(仅iOS)Number,此Characteristic的权限说明
 		writeType;,//(仅Android)Number，此Characteristic的写入方式
 		descriptors://list<uexBLEDescriptor> uexBLEDescriptor结构的数组，描述了此Characteristic下所有的Descriptor
 	}
@@ -677,10 +677,7 @@ iOS 3.0.0+
 
 ## 3.3 permissions权限说明
 
-### 3.3.1 Android权限说明
-    待补充
-
-### 3.3.2 iOS权限说明
+### 3.3.1 iOS权限说明
 
 |flag|desription|
 |---|---|
