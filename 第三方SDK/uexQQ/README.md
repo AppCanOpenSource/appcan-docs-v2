@@ -11,12 +11,15 @@ QQ登录及分享插件
 温馨提示：
 
 (1)、 Android插件通过config.xml配置：把"tencent222222"替换成"tencent+appid"
+
     ```
     <config desc="uexQQ" type="KEY">
     	<param name="$UEXQQ_APPID$" platform="Android" value="tencent222222"/>
     </config>
     ```
+    
     具体详细步骤请点击参考 :开发指导->Android QQ插件接入指引
+    
 (2)、iOS插件uexQQ如果用到login接口和分享回调，需要通过config.xml配置urlScheme，
 urlScheme和您在QQ开发者申请的appid相关。
 * QQ分享功能需要用到的urlScheme形如 tencent+appid
