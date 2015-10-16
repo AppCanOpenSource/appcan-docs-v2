@@ -2463,6 +2463,38 @@ uexWindow.getSlidingWindowState();
 ```
 
 
+> ### setIsSupportSlideCallback 设置网页是否支持滑动的相关监听方法
+  
+`uexWindow.setIsSupportSlideCallback(param)`
+
+**说明:**
+因为网页在超过一屏的时候滑动会频繁回调，频繁回调会造成一定情况下的网页卡顿，因此增加该接口，默认屏蔽网页的滑动监听回调，若需要回调，则需要调用该接口。注意：若设置为支持滑动监听，则4.4以下系统手机会出偶现横竖屏切换之后滑动监听不生效的问题。滑动监听包括[onSlipedUpward](#onSlipedUpward 上滑的监听方法，内容超过一屏时有效)，[onSlipedDownward](#onSlipedDownward 下滑的监听方法，内容超过一屏时有效)，[onSlipedUpEdge](#onSlipedUpEdge 滑到顶部的监听方法，内容超过一屏时有效)，[onSlipedDownEdge](#onSlipedDownEdge 滑到底部的监听方法，内容超过一屏时有效)
+
+**参数:**
+```
+var param = {
+    isSupport://(必选)true:支持；false:不支持。默认为false。
+}
+```
+
+**平台支持：**
+   Android2.2+
+   iOS6.0+
+
+**版本支持：**
+Android 2015_10_16_01+
+
+**示例：**
+
+```
+var param = {
+    isSupport:false
+};
+uexWindow.setIsSupportSlideCallback(JSON.stringify(param));
+```
+
+
+
 ## 2.2 回调方法
 
 > ### cbConfirm 弹出confirm对话框的回调方法
