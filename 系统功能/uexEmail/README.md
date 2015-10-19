@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 系统发送邮件插件
@@ -53,10 +53,11 @@ iOS6.0+
     uexEmail.open(email, subject, content, attachmentPath);
 ```
 # 3、更新历史
-API 版本：uexEmail-3.0.1(iOS) uexEmail-3.0.0（安卓）
- 最近更新时间：2015-06-19
+API 版本：uexEmail-3.0.2(iOS) uexEmail-3.0.0（安卓）
+ 最近更新时间：2015-10-19
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.2  | 修复设置多个附件时,不能正确读取协议路径文件的bug  | |
 | 3.0.1  | 使用新版Xcode重新编译,支持arm64  | |
 | 3.0.0  | 邮件功能插件  | 邮件功能插件|

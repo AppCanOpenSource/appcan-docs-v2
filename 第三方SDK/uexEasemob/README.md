@@ -1273,12 +1273,12 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 
 #4、更新历史
-API 版本：uexEasemob-3.0.13(iOS) uexEasemob-3.0.14（Android）
-最近更新时间：2015-08-31
+API 版本：uexEasemob-3.0.14(iOS) uexEasemob-3.0.14（Android）
+最近更新时间：2015-10-19
 
   历史发布版本 | iOS更新 | 安卓更新
   ------------ | ------------ | ------------ 
-  3.0.14 | |修复CMD消息json不能解析的问题
+  3.0.14 | cbLogin 返回信息key修改为"msg"|修复CMD消息json不能解析的问题
   3.0.13 | 修复发送位置经度为0的bug|修复重新登陆后消息记录remoteUrl为空的问题|
   3.0.12 | 新增API:onGroupCreated | 发送附件支持wgt,wgts协议
   3.0.11 | 新增API:getRecentChatters，onMessageSent |添加创建群回调onGroupCreated  
