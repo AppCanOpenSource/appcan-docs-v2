@@ -100,15 +100,15 @@
 
 |flag|info.plist里对应的字符串|解释|备注|
 |---|---|---|---|
-1|`<string>audio</string>`|后台音乐播放|
-2|`<string>location</string>`|后台定位
-4|`<string>voip</string>`|后台VoIP服务
-8|`<string>newsstand-content</string>`|后台新闻更新
-16|`<string>external-accessory</string>`|后台与iOS配件进行交互
-32|`<string>bluetooth-central</string>`|后台与蓝牙设备进行交互|此时iPhone作为central
-64|`<string>bluetooth-peripheral</string>`|后台通过蓝牙发送广播|此时iPhone作为peripheral
-128|`<string>fetch</string>`|后台下载内容|仅iOS 7.0+
-256|`<string>remote-notification</string>`|通过点击推送消息后台下载内容|仅iOS 7.0+
+|1|`<string>audio</string>`|后台音乐播放| |
+|2|`<string>location</string>`|后台定位||
+|4|`<string>voip</string>`|后台VoIP服务||
+|8|`<string>newsstand-content</string>`|后台新闻更新||
+|16|`<string>external-accessory</string>`|后台与iOS配件进行交互||
+|32|`<string>bluetooth-central</string>`|后台与蓝牙设备进行交互|此时iPhone作为central|
+|64|`<string>bluetooth-peripheral</string>`|后台通过蓝牙发送广播|此时iPhone作为peripheral|
+|128|`<string>fetch</string>`|后台下载内容|仅iOS 7.0+|
+|256|`<string>remote-notification</string>`|通过点击推送消息后台下载内容|仅iOS 7.0+|
 
 * 要配置多个权限时，将这些权限所对应的flag值相加后再传入
 * **用户需慎重配置后台权限，不当的权限设置会导致APP上架审核失败**
