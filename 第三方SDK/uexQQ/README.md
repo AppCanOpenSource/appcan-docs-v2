@@ -326,9 +326,9 @@ iOS6.0+
 | appId| Number类型| 必选 | 操作ID，此函数中不起作用，可忽略。 |
 | dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型 |
 | data|String类型 | 必选 | 返回的数据|
- ````
+
+````
  json格式数据如下:
-      
       {"ret":"0","data":"{"expires_in":"","openid":"","access_token":""}"}“
       ret”为“0”,登录成功，data数据为用户相关数据；否则登录失败，登录失败时，data为错误码。
 ````
@@ -374,7 +374,7 @@ iOS6.0+
 | 3.0.9 | 解决分享多张图片到QQ空间闪退的bug| |
 | 3.0.8 | 废弃分享到QQ好友中的cFlag参数| |
 | 3.0.7 | uexQQ.cbLogin回调结构修正| |
-| 3.0.6 | 解决分享多张图片到QQ空间闪退的bug| |
+| 3.0.6 | 解决分享多张图片到QQ空间闪退的bug| 支持config.xml配置 |
 | 3.0.5 | 增加检查QQ客户端是否已安装的方法| |
 | 3.0.4 |支持IDE | 修复只能登录一次问题 |
 | 3.0.3 | 支持IDE | 新增isQQInstalled检查QQ客户端是否已安装的方法 |
