@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+	<link rel="stylesheet" href="css/ui-res.css">
+	<style>
+		input{
+			color: black;
+			padding: 1px 6px;
+			margin-left:6px;
+		}
+		input[type="text"]{
+			padding: .2em .4em;
+			margin:.4em .6em;
+			font-size:1em;
+		}
+		input[type="button"]{
+			padding: .6em .8em;
+			margin:.4em .6em;
+			font-size:1.2em;
+		}
+	</style>
+    <script src="js/zy_control.js">
+    </script>
+    <script src="js/zy_click.js">
+    </script>
+    <script type="text/javascript">
+    window.uexOnload = function() {
+            
+        uexImage.onPickerClosed=function(info){
+                alert(info);
+        }
+        uexImage.onBrowserClosed=function(info){
+            alert(info);
+        }
+        uexImage.onCropperClosed=function(info){
+            alert(info);
+        }
+        uexImage.cbSaveToPhotoAlbum=function(info){
+            alert(info);
+        }
+        
+            
+    }
+    
+    
+    
+    function openPicker(){
+        var data={
+            min:2,
+            max:3,
+            title:"ttttt",
+            quality:0.8,
+            //usePng:true,
+            detailedInfo:true
+        }
+        var json=JSON.stringify(data);
+
+        uexImage.openPicker(json);
+    }
+    
+    function openBrowser(){
+        var data ={
+            displayActionButton:true,
+            displayNavArrows:true,
+            enableGrid:true,
+            //startOnGrid:true,
+            startIndex:2,
+            data:["res://photo1.jpg",
+                  {
+                  src:"res://photo2.jpg",
+                  thumb:"res://photo2t.jpg",
+                  },
+                  {
+                  src:"res://photo3.jpg",
+                  thumb:"res://photo3t.jpg",
+                  desc:"22222222222222"
+                  },
+                  {
+                  src:"http://it-eproducts.com/images/3-1347760443.jpg",
+                  thumb:"res://photo4t.jpg",
+                  desc:"22222222222222"
+                  }]
+        }
+        var json=JSON.stringify(data);
+        
+        uexImage.openBrowser(json);
+    }
+    function openCropper(){
+        var data={
+            //src:"res://photo5.jpg",
+            mode:2
+        }
+        var json=JSON.stringify(data);
+        uexImage.openCropper(json);
+    }
+    
+    function saveToPhotoAlbum(){
+        var data={
+            localPath:"res://photo4.jpg",
+            extraInfo:"wwwwww"
+        }
+        var json=JSON.stringify(data);
+        alert("xx");
+        uexImage.saveToPhotoAlbum(json);
+    }
+    
+		</script>
+</head>
+<body class="um-vp " ontouchstart>
+	<div id="page_0" class="up ub ub-ver" tabindex="0">
+	    <!--header开始-->
+	    <div id="header" class="uh t-wh ub" style="background: #27A73F;">
+	        <h1 class="ut ub-f1 ulev0 ut-s tx-c" tabindex="0">uexImage</h1>
+	    </div>
+	    <!--header结束--><!--content开始-->
+	    <div id="content" class="ub-f1 tx-l t-bla" style="">
+	    <div class="conbor">
+			<div class="consj">
+				<input type="button" value="打开选择器" onclick="openPicker();"/>
+                <input type="button" value="打开浏览器" onclick="openBrowser();"/>
+                <input type="button" value="打开裁剪器" onclick="openCropper();"/>
+                <input type="button" value="储存图片到相册" onclick="saveToPhotoAlbum();"/>
+                <input type="button" value="清除缓存的图片文件" onclick="uexImage.clearOutputImages();"/>
+	        </div>
+	    </div>
+	</div>
+</body>
+<script>
+
+</script>
+</html>
