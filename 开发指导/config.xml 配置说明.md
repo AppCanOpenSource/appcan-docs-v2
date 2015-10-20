@@ -135,42 +135,32 @@
 ```
 <config desc="whiteList" type="AUTHORITY">
     <permission platform="iOS" info="urlSchemeWhiteList">
-        <!--如果您有用到uexWeiXin请添加如下urlSchemes至白名单中,本行不要复制-->
-        <string>wechat</string>
-        <string>weixin</string>
-        <!--如果您有用到uexSina请添加如下urlSchemes至白名单中,本行不要复制-->
-        <String>sinaweibohd</String>
-        <String>sinaweibo</String>
-        <String>sinaweibosso</String>
-        <String>weibosdk</String>
-        <String>weibosdk2.5</String>
-        <!-- 如果您有用到uexQQ请添加如下urlSchemes至白名单中,本行不要复制-->
-        <String>mqqapi</String>
-        <String>mqq</String>
-        <String>mqqopensdkssologin</String>
-        <String>mqqconnect</String>
-        <String>mqqopensdkdataline</String>
-        <String>mqqopensdkgrouptribeshare</String>
-        <String>mqqopensdkfriend</String>
-        <String>mqqopensdkapi</String>
-        <String>mqqopensdkapiv2</String>
-        <String>mqqopensdkapiv3</String>
-        <String>mqzoneopensdk</String>
-        <String>wtloginmqq</String>
-        <String>wtloginmqq2</String>
-        <String>mqqwpa</String>
-        <String>mqzone</String>
-        <String>mqzonev2</String>
-        <String>mqzoneshare</String>
-        <String>wtloginqzone</String>
-        <String>mqzonewx</String>
-        <String>mqzoneopensdkapiv2</String>
-        <String>mqzoneopensdkapi19</String>
-        <String>mqzoneopensdkapi</String>
-        <String>mqzoneopensdk</String>
-        <!--如果您有用到uexAliPay请添加如下urlSchemes至白名单中,本行不要复制-->
-        <String>alipay</String>
-        <String>alipayshare</String>
-    </permission>
+       <!--如果您有用到uexWeiXin请添加如下urlSchemes至白名单中,本行不要复制-->
+       <string>wechat</string>
+       <string>weixin</string>
+       <!--如果您有用到uexSina请添加如下urlSchemes至白名单中,本行不要复制-->
+       <String>sinaweibohd</String>
+       <String>sinaweibo</String>
+       <String>sinaweibosso</String>
+       <String>sinaweibohdsso</String>
+       <String>weibosdk</String>
+       <String>weibosdk2.5</String>
+       <!-- 如果您有用到uexQQ请添加如下urlSchemes至白名单中,本行不要复制-->
+       <String>mqzoneopensdk<String> 
+		<String>mqzoneopensdkapi<String>
+		<String>mqzoneopensdkapi19<String>
+		<String>mqzoneopensdkapiV2<String>
+		<String>mqqOpensdkSSoLogin<String>
+		<String>mqqopensdkapiV2<String>
+		<String>mqqopensdkapiV3<String>
+		<String>wtloginmqq2<String>
+		<String>mqqapi<String>
+		<String>mqqwpa<String>
+		<String>mqzone<String>
+		<String>mqq<String>
+		<!--如果您有用到uexAliPay请添加如下urlSchemes至白名单中,本行不要复制-->
+		<String>alipay</String>
+		<String>alipayshare</String>
+	</permission>
 </config>
 ```
