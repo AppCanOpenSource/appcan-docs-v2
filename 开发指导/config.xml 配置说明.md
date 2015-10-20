@@ -139,38 +139,38 @@
         <string>wechat</string>
         <string>weixin</string>
         <!--如果您有用到uexSina请添加如下urlSchemes至白名单中,本行不要复制-->
-        <String>Sinaweibohd</String>
-        <String>Sinaweibo</String>
-        <String>Sinaweibosso</String>
-        <String>Weibosdk</String>
-        <String>Weibosdk2.5</String>
+        <String>sinaweibohd</String>
+        <String>sinaweibo</String>
+        <String>sinaweibosso</String>
+        <String>weibosdk</String>
+        <String>weibosdk2.5</String>
         <!-- 如果您有用到uexQQ请添加如下urlSchemes至白名单中,本行不要复制-->
-        <String>Mqqapi</String>
-        <String>Mqq</String>
-        <String>Mqqopensdkssologin</String>
-        <String>Mqqconnect</String>
-        <String>Mqqopensdkdataline</String>
-        <String>Mqqopensdkgrouptribeshare</String>
-        <String>Mqqopensdkfriend</String>
-        <String>Mqqopensdkapi</String>
-        <String>Mqqopensdkapiv2</String>
-        <String>Mqqopensdkapiv3</String>
-        <String>Mqzoneopensdk</String>
-        <String>Wtloginmqq</String>
-        <String>Wtloginmqq2</String>
-        <String>Mqqwpa</String>
-        <String>Mqzone</String>
-        <String>Mqzonev2</String>
-        <String>Mqzoneshare</String>
-        <String>Wtloginqzone</String>
-        <String>Mqzonewx</String>
-        <String>Mqzoneopensdkapiv2</String>
-        <String>Mqzoneopensdkapi19</String>
-        <String>Mqzoneopensdkapi</String>
-        <String>Mqzoneopensdk</String>
+        <String>mqqapi</String>
+        <String>mqq</String>
+        <String>mqqopensdkssologin</String>
+        <String>mqqconnect</String>
+        <String>mqqopensdkdataline</String>
+        <String>mqqopensdkgrouptribeshare</String>
+        <String>mqqopensdkfriend</String>
+        <String>mqqopensdkapi</String>
+        <String>mqqopensdkapiv2</String>
+        <String>mqqopensdkapiv3</String>
+        <String>mqzoneopensdk</String>
+        <String>wtloginmqq</String>
+        <String>wtloginmqq2</String>
+        <String>mqqwpa</String>
+        <String>mqzone</String>
+        <String>mqzonev2</String>
+        <String>mqzoneshare</String>
+        <String>wtloginqzone</String>
+        <String>mqzonewx</String>
+        <String>mqzoneopensdkapiv2</String>
+        <String>mqzoneopensdkapi19</String>
+        <String>mqzoneopensdkapi</String>
+        <String>mqzoneopensdk</String>
         <!--如果您有用到uexAliPay请添加如下urlSchemes至白名单中,本行不要复制-->
-        <String>Alipay</String>
-        <String>Alipayshare</String>
+        <String>alipay</String>
+        <String>alipayshare</String>
     </permission>
 </config>
 ```
