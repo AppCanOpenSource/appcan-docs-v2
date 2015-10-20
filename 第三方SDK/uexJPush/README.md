@@ -18,10 +18,12 @@
 #2、API概览
 ##2.1、方法
 
->### init  初始化(已废弃，插件现在自动初始化)
+>### <del>   init  初始化 </del>(已废弃，插件现在自动初始化)
 
 
 `uexJPush.init()`
+
+
 
 **参数**
 
@@ -439,6 +441,44 @@ iOS 3.0.4+
 uexJPush.setBadgeNumber(0);
 
 ```
+
+
+>### disableLocalNotificationAlertView  禁止前台本地通知提示框
+
+
+`uexJPush.disableLocalNotificationAlertView(flag)`
+
+**说明**
+
+和Android系统不同，在iOS系统中，当APP处于前台时，收到本地通知后，系统不会在屏幕顶部弹出气泡显示通知内容。
+于是极光SDK自己设置了一个本地通知提示框，在APP在前台收到本地通知后弹出，显示通知内容。
+
+通过调用此接口，可以禁止或者重新启动此本地通知提示框。
+
+
+**参数**
+
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ------------ | ------------ | ------------ | ------------ |
+|flag|Number|是|1-禁止  其他-允许|
+
+**平台支持**
+   
+iOS 6.0+    
+
+**版本支持**
+ 
+iOS 3.0.5+    
+
+**示例**
+
+```
+
+uexJPush.disableLocalNotificationAlertView(1);
+
+```
+ 
  
 ##2.3、回调方法
  ***
@@ -675,10 +715,17 @@ window.uexOnload=function(type){
 ```
 var json={
 	content:,//对应 Portal 推送通知界面上的"通知内容”字段。
-	extras:,//对应 Portal 推送消息界面上的"可选设置”里的附加字段。	
-	notificationId:,//(仅Android) 消息Id，用于清除通知  
+	extras:,//对应 Portal 推送消息界面上的"可选设置”里的附加字段。
+	notificationId:,//(仅Android以及iOS本地通知) 消息Id，用于清除通知
+	isAPNs:,//(仅iOS)本通知是否由APNs服务发出 true/false  
 };
 ```
+
+* isAPNs 
+	* iOS 3.0.5添加此参数 用以区分是APNs推送(true)还是本地推送(true)
+	* Android无此参数，因为Android推送永远不会由APNs服务发出
+* iOS 3.0.5+的版本才能捕获本地通知
+
 **平台支持**
 
 Android 2.2+    
@@ -718,7 +765,9 @@ var param={
 };
 ```
 
-* iOS仅点击APNs推送打开应用时，才会触发此监听
+* iOS仅点击APNs推送或者本地推送打开应用时，才会触发此监听
+* 由于iOS APP退出后缓存可能会被清除，所以本地通知的extras可能获取不到
+* iOS 3.0.5+的版本才能捕获本地通知
 
 
 **平台支持**
@@ -910,13 +959,13 @@ $UEXJPUSH_APS_ENVIRONMENT$ -->推送证书类型   0-开发者证书(developemen
 
 #4、更新历史
 
-API 版本：uexJPush-3.0.4(iOS) uexJPush-3.0.6（Android）
- 最近更新时间：2015-09-08
+API 版本：uexJPush-3.0.5(iOS) uexJPush-3.0.6（Android）
+ 最近更新时间：2015-10-20
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
 | 3.0.6  |   | 修复重新登陆后消息记录remoteUrl为空的问题|
-| 3.0.5  |   | 支持声音和震动；支持离线消息|
+| 3.0.5  | 新增接口disableLocalNotificationAlertView  | 支持声音和震动；支持离线消息|
 | 3.0.4  | 新增接口setBadgeNumber  | getGroup添加groupName,groupDescription字段；getChatterInfo返回新加好友的聊天记录|
 | 3.0.3  | 修改推送的extras为字典格式    | 修复4.4以下版本点击通知闪退的问题  |
 | 3.0.2  |  添加config.xml配置支持 | 修复4.修复onReceiveNotificationOpen,调整初始化时机|
