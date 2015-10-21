@@ -2493,6 +2493,48 @@ var param = {
 uexWindow.setIsSupportSlideCallback(JSON.stringify(param));
 ```
 
+> ### disturbLongPressGesture 阻碍当前网页长按手势
+  
+`uexWindow.disturbLongPressGesture(flag)`
+
+**说明:**
+
+* 解决iOS 9下长按屏幕会出现放大镜的问题
+
+
+**参数:**
+
+| 参数名称 | 参数类型  | 是否必选  |  说明 |
+| -------- | --------- | --------- | ----- |
+|flag|Number|是|取值 0或者1或者2 ，详细说明见下|
+
+* flag == 0 取消阻碍长按手势
+	* 在已设置阻碍长按手势的情况下，该flag会取消阻碍长按手势
+* flag == 1 正常阻碍长按手势
+	* 设置此flag后,会阻碍网页的长按事件，不会出现长按选择框(复制/剪切/粘贴等操作)
+	* 非iPhone6s 、iPhone 6s Plus 机型，设置此flag后已经不会出现放大镜
+	* 由于iPhone6s、iPhone 6s Plus 有3D Touch功能，而此功能额外提供了一个3D Touch longPress的事件,此事件也会产生放大镜。因此这两款手机上**用力长按屏幕**时，仍然会产生放大镜。
+* flag == 2 严格阻碍长按手势
+	* 设置此flag后，可以阻碍3D Touch longPress事件
+	* **同时也会阻碍网页的onclick事件，但ontouchend事件不受影响**
+	* 建议用户将网页内的所有onclick事件替换成ontouchend事件后，再调用此flag完美解决长按屏幕会出现放大镜的问题
+
+**平台支持：**
+
+iOS9.0+
+
+**版本支持：**
+
+iOS 2015_10_21+
+
+
+**示例：**
+
+```
+uexWindow.disturbLongPressGesture(1);
+```
+
+
 
 
 ## 2.2 回调方法
