@@ -2295,7 +2295,7 @@ uexWeiXin.cbGetLoginUnionID = function (data) {
 
 #3、更新历史
 
-API 版本：uexWeiXin-3.0.17(iOS) uexWeiXin-3.1.31（Android）
+API 版本：uexWeiXin-3.0.16(iOS) uexWeiXin-3.1.31（Android）
 最近更新时间：2015-09-06
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
@@ -2315,7 +2315,7 @@ API 版本：uexWeiXin-3.0.17(iOS) uexWeiXin-3.1.31（Android）
 | 3.0.19  |  |  修复分享图片不支持wgt路径协议的问题 |
 | 3.0.18  |  | 修复分享完成回调时奔溃的问题  |
 | 3.0.17  |   | 修复分享完成回调时网页未恢复的问题  |
-| 3.0.16  |   |  修改AndroidManifest文件中微信相关activity注册信息 |
+| 3.0.16  | 微信分享纯图片添加可选参数title |  修改AndroidManifest文件中微信相关activity注册信息 |
 | 3.0.15  | uexWeiXin.cbStartPay 回调结构修正| 更新插件中引擎jar包  |
 | 3.0.14  | 新增接口getPrepayId和startPay及相应回调，以 支持V3 V4支付  | 修复支付完成回调时网页未恢复的问题  |
 | 3.0.13  |  增加微信授权登录的五个接口以及相对应的回 调方法 | 新增接口generatePrepayID和sendPay  |
