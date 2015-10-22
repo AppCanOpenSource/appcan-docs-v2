@@ -1730,7 +1730,7 @@ uexWeiXin.cbGetWeiXinLoginUnionID = function (opCode,dataType,data) {
 ```
 > ### cbIsWXAppInstalled 检查微信是否已安装的回调方法
 
-`uexWeixin.cbIsWXAppInstalled(opId,dataTpye,data)`
+`uexWeiXin.cbIsWXAppInstalled(opId,dataTpye,data)`
 
 **参数:**
 
@@ -1753,7 +1753,7 @@ uexWeiXin.cbIsWXAppInstalled = function (opCode,dataType,data) {
 
 > ### cbGetWXAppInstalUrl 获取微信的itunes安装地址的回调方法
 
-`uexWeixin.cbGetWXAppInstalUrl(opId,dataTpye,data)`
+`uexWeiXin.cbGetWXAppInstalUrl(opId,dataTpye,data)`
 
 **参数:**
 
@@ -1797,7 +1797,7 @@ uexWeiXin.cbIsWXAppSupportApi = function (opCode,dataType,data) {
 
 > ### cbGetApiVersion 获取SDK的版本号的回调方法
 
-`uexWeixin.cbGetApiVersion(opId,dataType,data)`
+`uexWeiXin.cbGetApiVersion(opId,dataType,data)`
 
 **参数:**
 
@@ -1819,7 +1819,7 @@ uexWeiXin.cbGetApiVersion = function (opCode,dataType,data) {
 
 > ### cbSendTextContent 分享文本的回调方法(旧接口不推荐)
 
-`uexWeixin.cbSendTextContent(opId,dataTpye,data)`
+`uexWeiXin.cbSendTextContent(opId,dataTpye,data)`
 
 **参数:**
 
@@ -1843,7 +1843,7 @@ uexWeiXin.cbSendTextContent = function (opCode,dataType,data) {
 
 > ### cbSendImageContent 分享图片的回调方法(旧接口不推荐)
 
-`uexWeixin.cbSendImageContent(opId,dataTpye,data)`
+`uexWeiXin.cbSendImageContent(opId,dataTpye,data)`
 
 **参数:**
 
@@ -1865,7 +1865,7 @@ uexWeiXin.cbSendImageContent = function (opCode,dataType,data) {
 
 > ### cbShareTextContent 分享文本的回调方法
 
-`uexWeixin.cbShareTextContent(data) `
+`uexWeiXin.cbShareTextContent(data) `
 
 **参数:**
 
@@ -1885,7 +1885,7 @@ uexWeiXin.cbShareTextContent = function (opCode,dataType,data) {
 
 > ### cbShareImageContent 分享图片的回调方法
 
-`uexWeixin.cbShareImageContent(data)`
+`uexWeiXin.cbShareImageContent(data)`
 
 **参数:**
 
