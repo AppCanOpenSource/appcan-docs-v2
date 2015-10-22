@@ -1905,7 +1905,7 @@ uexWeiXin.cbShareImageContent = function (opCode,dataType,data) {
 
 > ### cbShareLinkContent 分享Link的回调方法
 
-`uexWeixin.cbShareLinkContent(data) `
+`uexWeiXin.cbShareLinkContent(data) `
 
 **参数:**
 
