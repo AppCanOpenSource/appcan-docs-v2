@@ -176,11 +176,12 @@ alert(data);
 
 
 # 3、更新历史
-API 版本：uexCalendarView-3.0.0(iOS) uuexCalendarView-3.0.1(Android)
-最近更新时间：2015-7-30
+API 版本：uexCalendarView-3.0.0(iOS) uuexCalendarView-3.0.2(Android)
+最近更新时间：2015-10-23
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
+| 3.0.2 |   | 国际化|
 | 3.0.1 |   | 修复日历界面弹动的问题|
 | 3.0.0 | 日历插件 | 日历插件|
 

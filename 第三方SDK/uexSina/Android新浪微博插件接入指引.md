@@ -40,8 +40,10 @@ APPCAN大众版打包时，在"云端打包"项中可以自定义包名，如下
   注册成功并登陆之后选择“移动应用”，如下：
 ![](http://newdocx.appcan.cn/docximg/143658d2014q11g27x.png)
 进入如下界面：
+
 ![](http://newdocx.appcan.cn/docximg/143706d2014e11v27p.png)
 点击“创建应用”，填写对应信息，在应用基本信息栏中填入获取的包名和签名，如下：
+
 ![](http://newdocx.appcan.cn/docximg/143714l2014w11m27e.png)
 信息填完之后还需要完成身份认证，然后再提交审核。审核通过之后可以在应用详情界面获得AppKey和AppSecret。
  

@@ -49,6 +49,7 @@
 
 ![](http://newdocx.appcan.cn/docximg/135319y2014r11s27n.png) 
 提交审核。审核通过之后可以在应用详情界面获得AppID和AppSecret，如下：
+
 ![](http://newdocx.appcan.cn/docximg/135330f2014u11i27q.png) 
 
 # 3. 插件接口调用

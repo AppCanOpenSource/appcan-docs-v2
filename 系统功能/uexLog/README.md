@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
  #1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 log插件
 ##1.1、 说明
@@ -62,11 +62,11 @@ iOS6.0+
                     
 ```
 #3、更新历史
-API 版本：uexLog-3.0.1(iOS) uexLog-3.0.0（Android）
+API 版本：uexLog-3.0.1(iOS) uexLog-3.0.1（Android）
  最近更新时间：2015-06-19
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
-| 3.0.1  | 使用新版Xcode重新编译,支持arm64  | |
+| 3.0.1  | 使用新版Xcode重新编译,支持arm64  | 国际化 |
 | 3.0.0  | Log功能插件  | Log功能插件|
  

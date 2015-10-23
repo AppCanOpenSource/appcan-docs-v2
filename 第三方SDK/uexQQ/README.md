@@ -36,6 +36,7 @@ urlScheme和您在QQ开发者申请的appid相关。
 
 ## 1.2  UI展示
  ![](http://newdocx.appcan.cn/docximg/162019s2015p6u16v.png)
+
  ![](http://newdocx.appcan.cn/docximg/163002w2015z6l16r.png)
 ## 1.3 开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=316_index) 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
@@ -126,9 +127,7 @@ iOS6.0+
 | targetUrl | 是 | 点击消息跳转URL |
 | imageUrl | 否 | 图片地址，支持网络图片和本地图片 |
 | appName | 否 | 应用名称，显示在分享完成时的返回按钮，如下图所示 |
-| cflag | 否 |(此参数仅Android)是否弹出分享到空间对话框。不传时，不弹出对话框,可以选择分享到QQ好友或QQ空间； 值为"1",弹出对话框;值为"2",不弹出对话框，只能分享到QQ好友 |
-
-* cflag参数仅Android支持，对于iOS系统，分享功能总是不弹出对话框，进入QQ后再选择分享到QQ好友或QQ空间。
+| cflag | 否 |是否弹出分享到空间对话框。不传时，不弹出对话框,可以选择分享到QQ好友或QQ空间； 值为"1",弹出对话框;值为"2",不弹出对话框，只能分享到QQ好友 |
 
 **平台支持:**    
 Android2.2+                 
