@@ -23,7 +23,7 @@
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
-| hotCity | String | 是 |json 格式的字符串数组，如下 |
+| jsonstr | String | 是 |json 格式的字符串数组，如下 |
 
 ```
  {  
@@ -32,9 +32,9 @@
     "w": //宽(宽度需要跟圆点数量相适应，太短会显示不完整)
     "h": //高
     "style": {
-        "styleId": //loading的样式，取值为0或1
+        "styleId": //loading的样式，取值为0或1，0-大小渐变样式；1-颜色渐变样式。
         "pointNum": //圆点的数量
-        "pointColor": [
+        "pointColor": [//颜色数组，数组个数为1或者等于圆点的数量
             "#ffffff" //圆点的颜色
         ]
     }
@@ -94,12 +94,13 @@ uexLoadingView.close();
 ```
 
 # 3、更新历史
-API 版本：uexLoadingView-3.0.0(iOS) uexLoadingView-3.0.0(Android)  
-最近更新时间：2015-07-15
+API 版本：uexLoadingView-3.0.3(iOS) uexLoadingView-3.0.4(Android)  
+最近更新时间：2015-10-23
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
-| 3.0.2 | uexLoadingView插件,修改open接口 | 修改open接口|
+| 3.0.4 |  | 去掉插件中的ActivityGroup,配合引擎升级|
+| 3.0.3 | uexLoadingView插件,修改open接口 | 修改open接口|
 | 3.0.2 |  修改配置文件 | 修复第二次打开界面空指针问题|
 | 3.0.1 | 适配iOS5的版本 | clean函数中调用close方法|
 | 3.0.0 | uexLoadingView插件 | uexLoadingView插件|
