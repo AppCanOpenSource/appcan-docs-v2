@@ -421,10 +421,11 @@ window.uexOnload=function(type){
 # 3、更新历史
  
 
-`API 版本:uexImage-3.0.0(iOS) uexImage-3.0.0(Android)`
+`API 版本:uexImage-3.0.0(iOS) uexImage-3.0.1(Android)`
 
-`最近更新时间:2015-10-18`
+`最近更新时间:2015-10-23`
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ----- | ----- | ----- |
+| 3.0.1 |  | 去掉插件中的ActivityGroup,配合引擎升级 |
 | 3.0.0 | uexImage 发布 | uexImage 发布 |

@@ -520,3 +520,15 @@ SDK内置百度TTS语音播报功能，需要对应用进行授权验证才能�
 
 如果需要使用语音播报，需要按照如下指引申请TTS白名单注册：
 http://developer.baidu.com/map/index.php?title=android-navsdk/guide/voice
+
+# 4、更新历史
+
+`API 版本:uexBaiduNavi-3.0.0(iOS) uexBaiduNavi-3.0.2(Android)`
+
+`最近更新时间:2015-10-23`
+
+| 历史发布版本 | iOS更新 | 安卓更新 |
+| ----- | ----- | ----- |
+| 3.0.2 |  | 修复终点有偏差的问题 |
+| 3.0.1 |  | 修复仅有起点、终点经纬度坐标时路径规划失败问题 |
+| 3.0.0 | 百度导航插件 | 百度导航插件 |
