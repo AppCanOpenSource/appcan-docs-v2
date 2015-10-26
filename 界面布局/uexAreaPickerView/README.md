@@ -109,6 +109,7 @@ API 版本:uexAreaPickerView-3.0.X(iOS) uexAreaPickerView-3.0.3(Android)
 
 | 历史发布版本 | iOS更新 | Android更新 |
 | ------------ | ------------ | ------------ |
+| 3.0.4 |修复clean时的崩溃问题| |
 | 3.0.3 |onConfirmClick回调值中间添加空格(" ")，方便用户拆分| 返回数据添加空格便于分割|
 | 3.0.2 |修复了选择器会被错误关闭的bug | 修复第二次打开界面空指针问题|
 | 3.0.1 |修复open不能正常运作的bug | clean函数中调用close方法|
