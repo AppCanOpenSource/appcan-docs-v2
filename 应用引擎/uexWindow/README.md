@@ -2533,7 +2533,34 @@ iOS 2015_10_21+
 ```
 uexWindow.disturbLongPressGesture(1);
 ```
-
+ 
+ 
+> ### setAutorotateEnable 获取侧滑窗口显示情况
+ 
+`uexWindow.setAutorotateEnable()`
+ 
+**说明:**
+是否跟随设备自动旋转，默认是跟随
+ 
+**参数:**
+```
+| 参数名称 | 参数类型  | 是否必选  |  说明 |
+| -------- | --------- | --------- | ----- |
+| enable | Number | 是 | 是否跟随，0：跟随；1：不跟随|
+```
+ 
+**平台支持：**
+Android2.2+
+iOS6.0+
+ 
+**版本支持：**
+3.0.0+
+ 
+**示例：**
+ 
+```
+uexWindow.setAutorotateEnable(1);
+```
 
 
 
