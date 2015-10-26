@@ -759,7 +759,7 @@ win.confirm({
     content:提示框中显示的内容
     defaultValue:(String类型) 必选 输入框默认文字
     buttons:提示框显示的按钮，多个按钮可以为数组形式
-    callback(err,data,dataType,optId):当点击了其中一个按钮后的回调， 第一个参数是Error对象如果为空则表示没有错误，否则表示操作出错了，data表示返回的操作结果{num:'按钮的索引值',val:'输入框的值'},dataType操作结果的数据类型，optId该操作id
+    callback(err,data,dataType,optId):当点击了其中一个按钮后的回调， 第一个参数是Error对象如果为空则表示没有错误，否则表示操作出错了，data表示返回的操作结果{num:'按钮的索引值',value:'输入框的值'},dataType操作结果的数据类型，optId该操作id
 ````
 参数还可以以对象的形式传参：
 ```
