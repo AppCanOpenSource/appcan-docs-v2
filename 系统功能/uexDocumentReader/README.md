@@ -45,10 +45,11 @@ uexDocumentReader.openDocumentReader("wgt://Doc Document.doc");
 
 # 3、更新历史
 
-API 版本：uexDocumentReader-3.0.1(iOS) uexDocumentReader-3.0.1（Android）
+API 版本：uexDocumentReader-3.0.1(iOS) uexDocumentReader-3.0.2（Android）
 最近更新时间：2015-10-23
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.2  |  | 修改打开不存在文件时崩溃的问题 |
 | 3.0.1  | 使用新版Xcode重新编译,支持arm64  | 国际化 |
 | 3.0.0  | 阅读器功能插件  | 阅读器功能插件|
