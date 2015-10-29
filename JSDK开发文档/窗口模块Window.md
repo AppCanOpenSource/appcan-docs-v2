@@ -835,10 +835,10 @@ win.popoverElement({
 
 >### appcan.window.resizePopoverByEle(id,left,top,name)
 
-   设置指定的弹出窗口回复到指定窗口的大小，并设置弹出窗的位置 
+   设置指定的弹出窗口恢复到指定窗口的大小，并设置弹出窗的位置 
 ````
     id:指定的元素，根据该元素设置弹出窗口的大小
-    left:弹出窗口距离做边界的距离
+    left:弹出窗口距离左边界的距离
     top:弹出窗口距离上边界的距离
     name:要设置的弹出窗口的名称，如果id没有传值的话使用这个值
 ````
@@ -898,7 +898,7 @@ win.popoverElement({
        64: 等待popOver加载完毕后显示
      128: 支持手势
      256: 标记open的window上一个window不隐藏
-     512: 标记open的浮动窗口用友打开wabapp
+     512: 标记open的浮动窗口用于打开wabapp
     indexSelected:默认显示的索引项，默认显示第一项
     extraInfo:扩展参数，json格式如下： {"extraInfo":{"opaque":"true","bgColor":"#011","delayTime":"250"}}
 ````
