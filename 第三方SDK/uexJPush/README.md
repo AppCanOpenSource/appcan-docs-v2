@@ -887,9 +887,9 @@ window.uexOnload=function(type){
  
  
 ##3.3、 Android插件配置说明
-**如果不使用config.xml配制方法，那么本插件需要下载插件包配置`AndroidManifest.xml`文件后作为自定义插件上传才能正常使用。**
+**如果不使用config.xml配制方法，那么本插件需要下载插件包配置`AndroidManifest.xml`文件后作为自定义插件上传才能正常使用。（只针对未升级打包服务的企业用户）**
 
-插件需要在`AndroidManifest.xml`中查找替换所有的`$UEXJPUSH_PACKAGE$`改为自己的包名。
+插件需要在`AndroidManifest.xml`中查找替换所有的`$UEXJPUSH_PACKAGE$`改为自己的包名（一共应该是五处）。
 
 并将`$UEXJPUSH_APPKEY$`替换为自己在极光推送申请的appkey
 
