@@ -132,7 +132,7 @@ window.uexOnload=function(type){
 # 3、更新历史
  
 
-`API 版本:uexUmeng-3.0.0(iOS) uexUmeng-3.0.1(Android)`
+`API 版本:uexUmeng-3.0.0(iOS) uexUmeng-3.0.0(Android)`
 
 `最近更新时间:2015-10-23`
 
