@@ -168,7 +168,7 @@ uex.cWindowSrcTypeUrlAndData=2
 
 > uex.cWindowFlagWebApp=512//标记被open的浮动窗口将用于打开WebApp。此浮动窗口将不进行默认字体的设置，缩放比例的设置等，WebApp的排版适配交由系统处理。注意：此flag仅用于open浮动窗口。
 
-> uex.cWindowFlagSlidingClose=1024  使用此flag打开的窗口，可以使用手势由左向右滑动来关闭窗口。仅在iOS系统下有效。注意：第一次使用此flag之后,后续使用open方法(无论是否传入此flag)打开窗口,都可以使用手势滑动来关闭窗口。
+> uex.cWindowFlagSlidingClose=1024  使用此flag打开的窗口，可以使用手势由左向右滑动来关闭窗口。注意：第一次使用此flag之后,后续使用open方法(无论是否传入此flag)打开窗口,都可以使用手势滑动来关闭窗口。
 
 ### Window AnimiID
 
