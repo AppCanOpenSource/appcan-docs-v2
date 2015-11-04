@@ -956,9 +956,52 @@ uexWidget.onSuspend = function(){
   
   **示例:**
   
- ```
+```
 uexWidget.onResume = function(){
 	alert("程序恢复");
+}
+
+```
+  
+> ### onLoadByShortcutClickEvent 程序被点击3DTouch快捷方式调起的监听方法
+
+  
+  
+`  uexWidget.onLoadByShortcutClickEvent(data)`
+
+**说明:**
+
+当APP在支持3D Touch的iOS设备上以点击3D Touch Shortcut的方式唤醒或者打开时，会在APP的**root页面**收到此监听 
+
+**参数:**
+ 
+data是json格式的字符串，详细内容如下
+
+```
+var data = {
+	type:,//(必选,String) shortcut预设的type
+	status:,//（必选，Number) APP被唤醒的方式  0-APP被打开 1-APP从后台恢复
+	info:,//(可选,Dictionary) shortcut预设的数据字典
+	
+```
+
+ * 关于3D Touch shortcut 的具体参数解释，可以参考插件uex3DTouch的API文档
+ 
+ **平台支持:**
+ 
+
+  
+  iOS 9.0+
+  
+**版本支持:**
+
+  iOS 3.2.0 20151104+
+  
+  **示例:**
+  
+ ```
+uexWidget.onLoadByShortcutClickEvent = function(data){
+	alert("data");
 }
   ```
   
