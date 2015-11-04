@@ -971,7 +971,9 @@ uexWidget.onResume = function(){
 
 **说明:**
 
-当APP在支持3D Touch的iOS设备上以点击3D Touch Shortcut的方式唤醒或者打开时，会在APP的**root页面**收到此监听 
+* 当APP在支持3D Touch的iOS设备上，通过用力长按主屏幕上的app图标，可以弹出一个菜单，点击菜单中的Shortcuts可以打开应用。
+* 当APP以这种方式被打开或者被从后台唤醒时，会在**root页面**收到此监听。
+* 监听会回调被点击的shortcut的具体信息，开发者可以通过这些信息来快速定位到app的相关功能模块。
 
 **参数:**
  
@@ -979,7 +981,7 @@ data是json格式的字符串，详细内容如下
 
 ```
 var data = {
-	type:,//(必选,String) shortcut预设的type
+	type:,//(必选,String) shortcut预设的type(唯一标识符）
 	status:,//（必选，Number) APP被唤醒的方式  0-APP被打开 1-APP从后台恢复
 	info:,//(可选,Dictionary) shortcut预设的数据字典
 	
