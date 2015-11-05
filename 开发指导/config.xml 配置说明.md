@@ -135,32 +135,32 @@
 ```
 <config desc="whiteList" type="AUTHORITY">
     <permission platform="iOS" info="urlSchemeWhiteList">
-       <!--如果您有用到uexWeiXin请添加如下urlSchemes至白名单中,本行不要复制-->
-       <string>wechat</string>
-       <string>weixin</string>
-       <!--如果您有用到uexSina请添加如下urlSchemes至白名单中,本行不要复制-->
-       <String>sinaweibohd</String>
-       <String>sinaweibo</String>
-       <String>sinaweibosso</String>
-       <String>sinaweibohdsso</String>
-       <String>weibosdk</String>
-       <String>weibosdk2.5</String>
-       <!-- 如果您有用到uexQQ请添加如下urlSchemes至白名单中,本行不要复制-->
-       <String>mqzoneopensdk<String> 
-		<String>mqzoneopensdkapi<String>
-		<String>mqzoneopensdkapi19<String>
-		<String>mqzoneopensdkapiV2<String>
-		<String>mqqOpensdkSSoLogin<String>
-		<String>mqqopensdkapiV2<String>
-		<String>mqqopensdkapiV3<String>
-		<String>wtloginmqq2<String>
-		<String>mqqapi<String>
-		<String>mqqwpa<String>
-		<String>mqzone<String>
-		<String>mqq<String>
+		<!--如果您有用到uexWeiXin请添加如下urlSchemes至白名单中,本行不要复制-->
+		<string>wechat</string>
+		<string>weixin</string>
+		<!--如果您有用到uexSina请添加如下urlSchemes至白名单中,本行不要复制-->
+		<string>sinaweibohd</string>
+		<string>sinaweibo</string>
+		<string>sinaweibosso</string>
+		<string>sinaweibohdsso</string>
+		<string>weibosdk</string>
+		<string>weibosdk2.5</string>
+		<!-- 如果您有用到uexQQ请添加如下urlSchemes至白名单中,本行不要复制-->
+		<string>mqzoneopensdk</string> 
+		<string>mqzoneopensdkapi</string>
+		<string>mqzoneopensdkapi19</string>
+		<string>mqzoneopensdkapiV2</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqopensdkapiV3</string>
+		<string>wtloginmqq2</string>
+		<string>mqqapi</string>
+		<string>mqqwpa</string>
+		<string>mqzone</string>
+		<string>mqq</string>
 		<!--如果您有用到uexAliPay请添加如下urlSchemes至白名单中,本行不要复制-->
-		<String>alipay</String>
-		<String>alipayshare</String>
+		<string>alipay</string>
+		<string>alipayshare</string>
 	</permission>
 </config>
 ```
