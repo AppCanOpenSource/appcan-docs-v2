@@ -26,11 +26,12 @@
 
 * 请先阅读[术语表-shortcut](#shortcut)以了解什么是动态shortcut
 * 可以通过此方法来设置APP的动态shortcut
-
+* 每次调此API，将会清空之前设置的动态shortcut
+* 相关方法[onLoadByShortcutClickEvent 程序被点击3DTouch Shortcut调起的监听方法](#onLoadByShortcutClickEvent 程序被点击3DTouch Shortcut调起的监听方法)
 
 **参数**
 
-itemArray=list<shortcutItem> 是由shortcutItem结构组成数组转换而成的json字符串
+itemArray=list\<shortcutItem\> 是由shortcutItem结构组成数组转换而成的json字符串
 
 shortcutItem 结构如下所示
 
@@ -93,6 +94,54 @@ var data=[
 uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 
 ```
+
+##2.2 监听方法
+
+
+> ### onLoadByShortcutClickEvent 程序被点击3DTouch Shortcut调起的监听方法
+
+  
+  
+`  uex3DTouch.onLoadByShortcutClickEvent(data)`
+
+**说明:**
+
+* 本监听直接回调给**ROOT页面**
+
+**参数:**
+ 
+data是json格式的字符串，详细内容如下
+
+```
+var data = {
+	type:,//(必选,String) shortcut的type(唯一标识符）
+	status:,//（必选，Number) APP被唤醒的方式  0-APP被打开 1-APP从后台恢复
+	info:,//(可选,Dictionary) shortcut预设的数据字典
+}
+	
+```
+
+ 
+ 
+ **平台支持:**
+ 
+
+  
+  iOS 9.0+
+  
+**版本支持:**
+
+  iOS 3.2.0 20151104+
+  
+  **示例:**
+  
+```
+uex3DTouch.onLoadByShortcutClickEvent = function(data){
+	alert("data");
+}
+
+```
+
 
 #3、术语表
 
@@ -160,7 +209,19 @@ uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 | UIApplicationShortcutIconTypeAudio |声音|仅iOS 9.1+支持|
 | UIApplicationShortcutIconTypeUpdate|升级|仅iOS 9.1+支持|
 
-#4、附录
+
+#4、更新历史
+
+API 版本：uex3DTouch-3.0.0(iOS) 
+
+最近更新时间：2015-11-05
+
+|  历史发布版本 | iOS更新  | 安卓更新  |
+|------------|------------|------------|
+| 3.0.0  | 3DTouch 功能插件  |  |
+
+
+#5、附录
 
 ###如何自定义shortcut图标(自定义插件)
 
@@ -179,39 +240,41 @@ uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 ### 如何设置静态shortcut(自定义插件)
 
 * **开发者需要自定义插件，编辑插件目录下的uex3DTouch.plist文件，完成静态shortcut的设置**
-* 在`<key>UIApplicationShortcutItems</key>`对应的`<array></array>`标签内，添加静态shortcut对应的字典结构
-* 每一个字典结构对应一个静态shortcut，靠前的静态shortcut会排在菜单前列
-* 具体的shortcut字典结构，可参考如下例子
+* 在`<key>UIApplicationShortcutItems</key>`对应的`<array></array>`标签内，添加静态shortcut对应的字典结构ShortcutDict
+* 每一个ShortcutDict对应一个静态shortcut，靠前的静态shortcut会排在菜单前列
+* 具体的ShortcutDict结构，可参考如下例子
 
 ```
 <dict>
-		<!--必填，设置shortcut的title-->	
+		<!--必填，设置shortcut的title 值为任意字符串-->	
 		<key>UIApplicationShortcutItemTitle</key>   
 		<string>page2</string>
 		
-		<!--必填，设置shortcut的type-->
+		<!--必填，设置shortcut的type 值为任意字符串-->
 		<key>UIApplicationShortcutItemType</key>
 		<string>shortcut2</string>
 		
 		<!-- 以下皆为可选参数，可以不写-->
 		
-		<!--设置shortcut的subtitle-->
+		<!--设置shortcut的subtitle 值为任意字符串-->
 		<key>UIApplicationShortcutItemSubtitle</key>
 		<string>subtitle2</string>
 		
-		<!--设置shortcut的iconType-->
+		<!--设置shortcut的iconType 值为shortcutIconType关键字-->
 		<key>UIApplicationShortcutItemIconType</key>
 		<string>UIApplicationShortcutIconTypeLove</string>
 		
-		<!--设置shortcut的iconFile，设置此参数时，iconType无效-->
+		<!--设置shortcut的iconFile 值为图标文件名 设置此参数时，iconType无效-->
 		<key>UIApplicationShortcutItemIconFile</key>
 		<string>a.png</string>
 		
-		<!--设置shortcut的info-->
+		<!--设置shortcut的info 值为任意字符串键值对-->
 		<key>UIApplicationShortcutItemUserInfo</key>
 		<dict>
 			<key>key1</key>
 			<string>value1</string>
+			<key>key2</key>
+			<string>value2</string>
 		</dict>
 
 </dict>
@@ -221,10 +284,10 @@ uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 	* `<!--   -->`内为注释，实际使用时不用写
 	* `<key>UIApplicationShortcutItemXXX</key>`为系统规定的key值，不可修改
 	* `<key>UIApplicationShortcutItemUserInfo</key>`对应的dict内，为自定义info字典，key值可任意命名
-	* 所有的`<string></string>`请按要求设置
-* 再给几个栗子以供参考
+	* 所有的`<string></string>`请按注释要求设置
+* 再给几个栗子以供参考⬇️⬇️⬇️
 
-**仅有一个搜索标题，最简单的dict**
+**仅有一个搜索标题，最简单的ShortcutDict**
 
 ```
 <dict>
@@ -235,7 +298,7 @@ uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 </dict>
 ```
 
-**使用系统图标，并拥有子标题的dict**
+**使用系统图标，并拥有子标题的ShortcutDict**
 
 ```
 <dict>
@@ -250,7 +313,7 @@ uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 </dict>
 ```
 
-**使用自定义图标，并包含额外信息的dict**
+**使用自定义图标，并包含额外信息的ShortcutDict**
 
 ```
 <dict>
