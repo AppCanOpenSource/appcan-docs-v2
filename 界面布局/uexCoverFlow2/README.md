@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 3D图片轮播
 ## 1.1、说明
@@ -116,11 +116,14 @@ window.uexOnload = function(){
 }
 ```
 # 3、更新历史
-API 版本：uexCoverFlow2-3.0.2(iOS) uexCoverFlow2-3.0.3（Android）
-最近更新时间：2015-06-19
+API 版本：uexCoverFlow2-3.0.2(iOS) uexCoverFlow2-3.0.6（Android）
+最近更新时间：2015-11-06
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.6  |   | 去掉插件中的ActivityGroup,配合引擎升级  |
+| 3.0.5  |   | 修复open接口传入小数时异常的问题  |
+| 3.0.4  |   | 1.修复图片小于4张一直显示默认图片的问题；2.修复开启硬件加速后，图片歪的问题。  |
 | 3.0.3  |   | 修复图片倒影问题  |
 | 3.0.2  |  使用新版Xcode重新编译,支持arm64 | 修复图片显示被截断的问题  |
 | 3.0.1  | 去掉图片底部的标题栏| 修改网络图片不显示，去掉白色边框和倒影|

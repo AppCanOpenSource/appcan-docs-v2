@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 腾讯分享插件
@@ -189,11 +189,12 @@ var cInt = 2;
 3.0.0+      
             
 #3、更新历史
-API 版本：uexTent-3.0.4(iOS) uexTent-3.0.9（Android）
-最近更新时间：2015-06-19
+API 版本：uexTent-3.0.4(iOS) uexTent-3.0.10（Android）
+最近更新时间：2015-11-06
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.10 |  |去掉插件中的ActivityGroup,配合引擎升级  |
 | 3.0.9  |     |修复发送带有url的内容时，url被截断的问题  |
 | 3.0.8  |   | 已经授权时，注册接口提示已授权  |
 | 3.0.7  |   | 修改uexTent插件中cbShare回调方法返回值：成功为0，失败为1  |

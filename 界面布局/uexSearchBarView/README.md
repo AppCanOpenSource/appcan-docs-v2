@@ -195,10 +195,11 @@ iOS 3.0.0+
     }
 ```
 # 3、更新历史
-API 版本：uexSearchBarView-3.0.0(iOS) uexSearchBarView-3.0.0(Android)  
+API 版本：uexSearchBarView-3.0.0(iOS) uexSearchBarView-3.0.1(Android)  
 
-最近更新时间：2015-08-11
+最近更新时间：2015-11-06
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
+| 3.0.1 | | 去掉插件中的ActivityGroup,配合引擎升级|
 | 3.0.0 | 搜索框 | 搜索框|

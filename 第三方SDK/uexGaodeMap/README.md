@@ -2718,11 +2718,12 @@ Android 3.0.3+
 **用户需要将上面字段中的XXX替换为自己申请的对应平台的key，然后添加至config.xml中：**即可完成相应key的配置 
 
 # 5、更新历史
- API 版本:uexGaodeMap-3.0.7(iOS) uexGaodeMap-3.0.9（Android）    
- 最近更新时间:2015-10-16
+ API 版本:uexGaodeMap-3.0.7(iOS) uexGaodeMap-3.0.10（Android）    
+ 最近更新时间:2015-11-06
  
 |  历史发布版本 | iOS更新  | Android更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.10  | |去掉插件中的ActivityGroup,配合引擎升级|
 | 3.0.9  | |添加相同id的圆形覆盖物时，改为替换原来的|
 |3.0.8| | 解决高德地图打开时闪一下的问题 |
 | 3.0.7  | AddCircleOverlay中 修改默认lineDash值为NO,当回调的json结构为String时，不再转义一次 |  |

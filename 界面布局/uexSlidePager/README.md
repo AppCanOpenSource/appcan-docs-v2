@@ -1,4 +1,4 @@
-﻿
+
 [TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
  滑动切换插件
@@ -173,11 +173,12 @@ uexSlidePager.onChangeColor = function(data）{
 
 
 # 3、更新历史
- API 版本：uexSlidePager-3.0.11(iOS) uexSlidePager-3.0.14（Android）
- 最近更新时间：2015-06-19
+ API 版本：uexSlidePager-3.0.11(iOS) uexSlidePager-3.0.15（Android）
+ 最近更新时间：2015-11-06
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.15  |   | 去掉插件中的ActivityGroup,配合引擎升级   |
 | 3.0.14  |   | 修改jar文件   |
 | 3.0.13  |   | 修改解密路径   |
 | 3.0.12  |   |  修改用新引擎打包闪退问题  |

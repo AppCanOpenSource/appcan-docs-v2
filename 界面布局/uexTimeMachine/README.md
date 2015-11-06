@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
  
 #1、 简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
  
@@ -151,18 +151,33 @@ iOS6.0+
 |dataType|Number类型|必选|参数类型详见CONSTANT中Callback方法数据类型 |
 |data|String类型|必选|返回uex.cSuccess或者uex.cFailed，详见CONSTANT中Callbackint类型数据 |
  
-**          版本支持:   **
-3.0.0+          
-## 2.3、监听方法
-> ###       onItemSelected　点击item的监听方法  
+**版本支持:**
+3.0.0+    
 
-`uexTimeMachine.onItemSelected(opId,index)          `
-**      参数:**   
+## 2.3、监听方法
+> ### onItemSelected　点击item的监听方法
+
+`uexTimeMachine.onItemSelected(opId,index)`
+**参数:**
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |------|-----|--------|------- |
 |opId|Number类型|必选|旋转动画的唯一标识符 |
 |index|Number类型|必选|被选中item的索引值 |
  
-**          版本支持:   **
-3.0.0+          
+**版本支持:**
+3.0.0+    
+
+# 3、更新历史
+API 版本：uexTimeMachine-3.0.2(iOS) uexTimeMachine-3.0.6（Android）
+最近更新时间：2015-11-06
+
+|  历史发布版本 | iOS更新  | 安卓更新  |
+| ------------ | ------------ | ------------ |
+| 3.0.6  |   | 去掉插件中的ActivityGroup,配合引擎升级  |
+| 3.0.5  |   | 修复open接口传入小数时异常的问题  |
+| 3.0.4  |   | 去掉插件中的ActivityGroup,配合引擎升级  |
+| 3.0.3  |   | 修复没有旋转效果问题  |
+| 3.0.2  |  解决uexTimeMachine插件设置页数只为2张以及打开多次无法全部关闭的bug | 修改图片显示不全的问题（后面的图片，右侧有一部分没显示出来） |
+| 3.0.1  | 统一回调方法名，统一回调参数| 修改进入子应用时图片不显示的问题|
+| 3.0.0  | 旋转木马动画功能插件  | 旋转木马动画功能插件|

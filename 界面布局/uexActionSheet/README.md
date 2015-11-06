@@ -140,8 +140,8 @@ iOS6.0+
     }
 ```
 # 3、更新历史
-API 版本：uexActionSheet-3.0.6(iOS) uexActionSheet-3.0.2（Android）
- 最近更新时间：2015-08-25
+API 版本：uexActionSheet-3.0.6(iOS) uexActionSheet-3.0.3（Android）
+ 最近更新时间：2015-11-06
  
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
@@ -149,7 +149,7 @@ API 版本：uexActionSheet-3.0.6(iOS) uexActionSheet-3.0.2（Android）
 | 3.0.6  | 修正textNColor不能正常识别的bug |    | 
 | 3.0.5  | 增加颜色边框 |    | 
 | 3.0.4 | 修复ActionSheet框和底部间存在间隙 |   |
-| 3.0.3  |  解决uexActionSheet"取消"按钮字体正常与高亮颜色无法设置问题 |   |
+| 3.0.3  |  解决uexActionSheet"取消"按钮字体正常与高亮颜色无法设置问题 | 去掉插件中的ActivityGroup,配合引擎升级 |
 | 3.0.2  |  解决字体颜色,高亮颜色无法设置的问题| 修复背景图片太大时，列表太高的问题  |
 | 3.0.1  | 修复uexActionSheet打不开问题| 修改设置的字体高亮颜色不生效的问题|
 | 3.0.0  | ActionSheet插件  | ActionSheet插件|

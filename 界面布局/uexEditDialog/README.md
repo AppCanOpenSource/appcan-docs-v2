@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 
 自定义编辑框插件
@@ -178,10 +178,10 @@ alert(num);
 };
 ```
 # 3、更新历史
-API 版本：uexEditDialog-3.0.1(iOS) uexEditDialog-3.0.0（Android）
-最近更新时间：2015-06-19
+API 版本：uexEditDialog-3.0.1(iOS) uexEditDialog-3.0.1（Android）
+最近更新时间：2015-11-06
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
-| 3.0.1  | 使用新版Xcode重新编译,支持arm64| |
+| 3.0.1  | 使用新版Xcode重新编译,支持arm64|去掉插件中的ActivityGroup,配合引擎升级 |
 | 3.0.0  | 自定义编辑框功能插件  | 自定义编辑框功能插件|

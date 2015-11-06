@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 PDF阅读器插件
 ## 1.1、说明 
@@ -54,12 +54,13 @@ iOS6.0+
 uexPDFReader.close();
 ```
 # 3、更新历史
-API 版本：uexPDFReader-3.0.2(iOS) uexPDFReader-3.0.1（Android）
-最近更新时间：2015-06-19
+API 版本：uexPDFReader-3.0.2(iOS) uexPDFReader-3.0.3（Android）
+最近更新时间：2015-11-06
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
-| 3.0.2  |  解决在iOS8以上的版本中奔溃问题 |   |
+| 3.0.3  |  | 去掉插件中的ActivityGroup,配合引擎升级 |
+| 3.0.2  |  解决在iOS8以上的版本中奔溃问题 | 修复打包冲突的问题 |
 | 3.0.1  | 使用新版Xcode重新编译,支持arm64  | 修复路径不存在时崩溃问题|
 | 3.0.0  | PDF阅读器功能插件  | PDF阅读器功能插件|
  

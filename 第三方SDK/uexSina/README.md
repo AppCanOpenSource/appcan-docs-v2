@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 新浪分享插件
@@ -185,11 +185,12 @@ iOS6.0+
 3.0.0+  
 
 # 3、更新历史
-API 版本：uexSina-3.0.5(iOS) uexSina-3.0.6（Android）
-最近更新时间：2015-06-19
+API 版本：uexSina-3.0.5(iOS) uexSina-3.0.8（Android）
+最近更新时间：2015-11-06
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.8  |   | 去掉插件中的ActivityGroup,配合引擎升级  |
 | 3.0.7  |   | 新增login登陆接口接口  |
 | 3.0.6  |   | 修改uexSina插件中的代码错误  |
 | 3.0.5  | 注册回调方法名统一修改为uexSina.cbRegisterApp| 修改uexSina插件中registerCallBack和cbShare回调方法返回值：成功为0，失败为1  |
