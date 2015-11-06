@@ -1614,7 +1614,7 @@ API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.9（Android）
 | 3.0.13  |新增getFileListByPath|   |
 | 3.0.12  |新增方法uexFileMgr.search 搜索文件|   |
 | 3.0.11  |新增cbWriteFile回调方法，优化RC4加密|   |
-| 3.0.10  | 解决多选文件打开浏览器显示空白问题  |   |
+| 3.0.10  | 解决多选文件打开浏览器显示空白问题  |  新增文件搜索接口 |
 | 3.0.9  | 新增方法uexFileMgr.renameFile 重命名文件  | 修复闪退的bug  |
 | 3.0.8  | 修复uexFileMgr.multiExplorer(path)中path参数无效的BUG  |  国际化  |
 | 3.0.7  |  修改创建时间接口的名称 | 修改接口getFileRealPath,支持回调方法名称的传入  |
