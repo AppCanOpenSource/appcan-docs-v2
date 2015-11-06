@@ -2,7 +2,7 @@
 
 #config.xml 配置说明
 
-`last update:2015-10-14`
+`last update:2015-11-05`
 
 >## 简介
 
