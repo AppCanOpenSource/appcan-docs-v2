@@ -176,8 +176,8 @@ var param={
 	service:,//String,必选 keyChain item关键字
 	key:,//String,必选  keyChain item关键字
 	value:,//String,可选 keyChain item内保存的数据 仅当isSuccess为true时有此值
-	errorCode:，//Number 可选 错误代码 仅当isSuccess为false时有此值
-	errorString:，//String 可选 错误描述 仅当isSuccess为false时有此值
+	errorCode:，//Number 可选 系统错误代码 仅当isSuccess为false时可能有此值
+	errorInfo:，//String 可选 系统错误描述 仅当isSuccess为false时可能有此值
 }
 ```
 **平台支持:**
@@ -214,8 +214,8 @@ var param={
 	service:,//String,必选 keyChain item关键字
 	key:,//String,必选  keyChain item关键字
 	value:,//String,可选 keyChain item内保存的数据 仅当isSuccess为true时有此值
-	errorCode:，//Number 可选 错误代码 仅当isSuccess为false时有此值
-	errorString:，//String 可选 错误描述 仅当isSuccess为false时有此值
+	errorCode:，//Number 可选 系统错误代码 仅当isSuccess为false时可能有此值
+	errorInfo:，//String 可选 系统错误描述 仅当isSuccess为false时可能有此值
 }
 ```
 
@@ -253,8 +253,8 @@ var param={
 	isSuccess:,//Boolean,必选  移除item是否成功
 	service:,//String,必选 keyChain item关键字
 	key:,//String,必选  keyChain item关键字
-	errorCode:，//Number 可选 错误代码 仅当isSuccess为false时有此值
-	errorString:，//String 可选 错误描述 仅当isSuccess为false时有此值
+	errorCode:，//Number 可选 系统错误代码 仅当isSuccess为false时可能有此值
+	errorInfo:，//String 可选 系统错误描述 仅当isSuccess为false时可能有此值
 }
 ```
 
@@ -303,8 +303,10 @@ Window.uexOnload=function(){
 
 # 4、更新历史
 API 版本：uexKeyChain-3.0.0(iOS)
-最近更新时间：2015-11-06
+最近更新时间：2015-11-09
 
 |  历史发布版本 | iOS更新  |
 |------------|------------|
 | 3.0.0  | 系统钥匙串插件  |
+
+
