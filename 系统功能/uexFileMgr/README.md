@@ -1606,8 +1606,8 @@ uexFileMgr.cbSearch=function (info){
 ```
 
 # 3、更新历史
-API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.9（Android）
-最近更新时间：2015-10-23
+API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.10（Android）
+最近更新时间：2015-11-06
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
