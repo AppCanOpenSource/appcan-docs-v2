@@ -387,7 +387,7 @@ uexWindow.setWindowFrame(200,200,1000)
 | dataType | (String | 是 | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入； 2：既有url方式，又有html内容方式|
 | url | Number | 是 | 窗口路径 |
 | data | String | 是 | 数据，可为空 |
-| w | Number | 是 | 窗口宽度，支持百分数，默认为屏幕宽度 |
+| w | Number | 是 | 该参数无效，实际宽度为屏幕宽度，请传"" |
 | h | Number | 是 | 窗口高度，支持百分数，默认为屏幕高度 |
 
 **平台支持：**
