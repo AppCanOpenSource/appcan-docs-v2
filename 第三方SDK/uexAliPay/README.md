@@ -1,14 +1,30 @@
-﻿
+
 [TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 支付宝插件
 
 ##   1.1.说明
 支付功能，封装了支付宝快捷支付。
+
+
+**iOS 9 以后，为了预防APP通过非正常渠道获取用户的某些隐私信息，Apple启用了URLScheme白名单机制。**
+	
+* **为了正常使用插件的所有功能还需要配置URLScheme白名单**([什么是URLScheme白名单](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=29503&extra=))
+* 配置白名单方法请参考[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置urlScheme白名单)
+* uexAliPay需要进白名单添加的URLScheme如下
+
+```
+<string>alipay</string>
+<string>alipayshare</string>
+```
+
+
+
 ##   1.2.UI展示
  
  ![](http://newdocx.appcan.cn/docximg/180420r2015s6i16p.png)
- ##  1.3.公告
+ 
+##  1.3.公告
 旧版uexPay 已经下架了，官方不再维护，如需使用，请[跳转](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=25876 "跳转")到详细官方通告
 ##  1.4.开源源码
 插件测试用例与源码下载：[点击](http://plugin.appcan.cn/details.html?id=279_index) 插件中心至插件详情页 （插件测试用例与插件源码已经提供）

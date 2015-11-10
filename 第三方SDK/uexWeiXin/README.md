@@ -14,7 +14,7 @@
 * iOS微信插件在使用在微信支付或分享过程中，App用过uexWeiXin插件打开微信客户端进行支付，支付过程完成后，微信客户端通过应用自定义的UrlScheme返回到本App,并传回支付结果时，需要配置UrlScheme值
  
 
-通过config.xml配置插件的方法，iOS微信插件可直接在官网公共插件里直接勾选使用，示例配置代码如下： 
+**通过config.xml配置插件的方法，iOS微信插件可直接在官网公共插件里直接勾选使用**，示例配置代码如下： 
 
 ```
 <config desc="uexWeiXin" type="URLSCHEME">
@@ -23,6 +23,17 @@
 ```
  其中'wxf14d58cec986585b'改成您自己申请到的微信appId
 
+
+iOS 9 以后，为了预防APP通过非正常渠道获取用户的某些隐私信息，Apple启用了URLScheme白名单机制。
+	
+* **为了正常使用插件的所有功能还需要配置URLScheme白名单**([什么是URLScheme白名单](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=29503&extra=))
+* 配置白名单方法请参考[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置urlScheme白名单)
+* uexWeiXin需要进白名单添加的URLScheme如下
+
+```
+<string>wechat</string>
+<string>weixin</string>
+```
 
 ## 1.2 UI展示
 ![](http://newdocx.appcan.cn/docximg/162019s2015p6u16v.png)

@@ -12,6 +12,7 @@ QQ登录及分享插件
 
 (1)、 Android插件通过config.xml配置：把"tencent222222"替换成"tencent+appid"
 
+
     ```
     <config desc="uexQQ" type="KEY">
     	<param name="$UEXQQ_APPID$" platform="Android" value="tencent222222"/>
@@ -22,17 +23,40 @@ QQ登录及分享插件
     
 (2)、iOS插件uexQQ如果用到login接口和分享回调，需要通过config.xml配置urlScheme，
 urlScheme和您在QQ开发者申请的appid相关。
+
 * QQ分享功能需要用到的urlScheme形如 tencent+appid
 * QQAPI需要用到的urlScheme形如QQ+appid_x16
 	* appid_x16 为8位字符串，是appid的16进制表示，不足的在前面填0补至8位
 	* 比如appid是`222222`，其16进制表示为`3640E` 前面补足0,得到8位的appid_x16为`0003640E`
 
 以appid=222222为例，相应的配置代码就如下所示
+
 ````
 <config desc="uexQQ" type="URLSCHEME">
 <urlScheme name="uexQQ" schemes="['QQ0003640E','tencent222222']"/>
 </config>
 ````
+
+(3)**iOS 9 以后，为了预防APP通过非正常渠道获取用户的某些隐私信息，Apple启用了URLScheme白名单机制。**
+	
+* **为了正常使用插件的所有功能还需要配置URLScheme白名单**([什么是URLScheme白名单](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=29503&extra=))
+* 配置白名单方法请参考[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置urlScheme白名单)
+* uexQQ需要进白名单添加的URLScheme如下
+
+```
+<string>mqzoneopensdk</string> 
+<string>mqzoneopensdkapi</string>
+<string>mqzoneopensdkapi19</string>
+<string>mqzoneopensdkapiV2</string>
+<string>mqqOpensdkSSoLogin</string>
+<string>mqqopensdkapiV2</string>
+<string>mqqopensdkapiV3</string>
+<string>wtloginmqq2</string>
+<string>mqqapi</string>
+<string>mqqwpa</string>
+<string>mqzone</string>
+<string>mqq</string>
+```
 
 ## 1.2  UI展示
  ![](http://newdocx.appcan.cn/docximg/162019s2015p6u16v.png)

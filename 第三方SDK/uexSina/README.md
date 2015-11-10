@@ -6,6 +6,24 @@
 ## 1.1 说明
 调用新浪分享文字，图片。
 
+**iOS 9 以后，为了预防APP通过非正常渠道获取用户的某些隐私信息，Apple启用了URLScheme白名单机制。**
+	
+* **为了正常使用插件的所有功能还需要配置URLScheme白名单**([什么是URLScheme白名单](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=29503&extra=))
+* 配置白名单方法请参考[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置urlScheme白名单)
+* uexSina需要进白名单添加的URLScheme如下
+
+```
+<string>sinaweibohd</string>
+<string>sinaweibo</string>
+<string>sinaweibosso</string>
+<string>sinaweibohdsso</string>
+<string>weibosdk</string>
+<string>weibosdk2.5</string>
+```
+
+
+
+
 ## 1.2 UI展示
  ![](http://newdocx.appcan.cn/docximg/164911i2015y6i16c.png)
  
