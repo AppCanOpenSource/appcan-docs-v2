@@ -5,7 +5,7 @@
 ## 1.1、说明
 文件路径包括：wgt://...，res://...，wgts://...，box://...，file://...，http://...。
 其中：wgt://...对应widget的沙盒根路径，可读可写；
-	res://...对应widget目录下的wgtRes路径，只可读不可写。
+    res://...对应widget目录下的wgtRes路径，只可读不可写。
 关于文件路径的使用，可调用uexFileMgr.getFileRealPath接口获得文件真实路径作为参考
 
 ## 1.2、UI展示
@@ -42,8 +42,8 @@ iOS6.0+
 ** 示例:**
 
 ```
-	var path = "wgt://data/test.txt";
-	uexFileMgr.createFile('1', path);
+    var path = "wgt://data/test.txt";
+    uexFileMgr.createFile('1', path);
 ```
 
 > ### createDir 创建文件夹
@@ -512,6 +512,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | path| String| 是 | 文件路径，路径协议详见CONSTANT中PathTypes |
+| cbName| String| 否 | 指定的回调函数名，使用此方法回调，只回调给前端一个参数realPath |
 
 **平台支持:**
 Android2.2+
@@ -762,8 +763,8 @@ uexFileMgr.getFileCreateTime('33','wgt://test.txt');
 
 ```
 var param = {
-	oldFilePath:,//必选 String 重命名前的文件路径
-	newFilePath:,//必选 String 重命名后的文件路径
+    oldFilePath:,//必选 String 重命名前的文件路径
+    newFilePath:,//必选 String 重命名后的文件路径
 }
 ```
 
@@ -783,8 +784,8 @@ Androd 3.0.4+
 
 ```
 var data = {
-	oldFilePath:"wgt://1.txt",
-	newFilePath:"wgt://2.txt"
+    oldFilePath:"wgt://1.txt",
+    newFilePath:"wgt://2.txt"
 }
 
 uexFileMgr.renameFile(JSON.stringify(data));
@@ -811,11 +812,11 @@ uexFileMgr.renameFile(JSON.stringify(data));
 
 ```
 var param = {
-	path:,//必选,String,目标文件夹路径
-	option:,//可选 Number  搜索设置 见下 不传默认为0
-	keywords:[]//可选 要搜索的文件名关键字 不传时搜索所有
-	suffixes:[]//可选 要搜索的文件后缀名 不传时搜索所有
-	}
+    path:,//必选,String,目标文件夹路径
+    option:,//可选 Number  搜索设置 见下 不传默认为0
+    keywords:[]//可选 要搜索的文件名关键字 不传时搜索所有
+    suffixes:[]//可选 要搜索的文件后缀名 不传时搜索所有
+    }
 ```
 
 |option|说明|
@@ -829,24 +830,23 @@ var param = {
 
 **平台支持:**
 
-Android2.2+
+
 iOS6.0+
 
 **版本支持:**
 
 iOS 3.0.12+
-Android 3.0.10+
 
 
 **示例:**
 
 ```
 var data={
-	path:"res://",
-	option:5,
-	keywords:["name1","name2","name3"],
-	suffixes:["txt","xml"]
-	}
+    path:"res://",
+    option:5,
+    keywords:["name1","name2","name3"],
+    suffixes:["txt","xml"]
+    }
 
 uexFileMgr.search(JSON.stringify(data));
 ```
@@ -1529,7 +1529,7 @@ uexFileMgr.cbGetFileCreateTime = function(opId,dataType,data){
 
 ```
 var param = {
-	result:,//String,必选 重命名结果  "0" 失败  "1" 成功 
+    result:,//String,必选 重命名结果  "0" 失败  "1" 成功 
 }
 
 ```
@@ -1550,7 +1550,7 @@ Androd 3.0.4+
 
 ```
 uexFileMgr.cbRenameFile=function (info){
-	alert(info);
+    alert(info);
 }
 ```
 
@@ -1572,42 +1572,40 @@ uexFileMgr.cbRenameFile=function (info){
 
 ```
 var param = {
-	isSuccess:,//true false
-	result:[],//文件路径数组
+    isSuccess:,//true false
+    result:[],//文件路径数组
 }
 
 ```
 * 文件名规则
-	* 如果是文件，传完整文件名,比如:"1.txt" 
-	* 如果是文件夹，则以"/"结尾,比如:"dir/"
+    * 如果是文件，传完整文件名,比如:"1.txt" 
+    * 如果是文件夹，则以"/"结尾,比如:"dir/"
 
 * 文件路径规则
-	* 如果在目标文件夹下 传"文件名"  比如"1.txt"
-	* 如果在其子文件夹下 传"/子文件夹1/子文件夹2/.../文件名"  比如:"dir/1.txt" "dir/dir2/"
+    * 如果在目标文件夹下 传"文件名"  比如"1.txt"
+    * 如果在其子文件夹下 传"/子文件夹1/子文件夹2/.../文件名"  比如:"dir/1.txt" "dir/dir2/"
 
 
 **平台支持:**
 
-Android2.2+
 iOS6.0+
 
 **版本支持:**
 
 iOS 3.0.12+
-Android 3.0.10+
 
 
 **示例:**
 
 ```
 uexFileMgr.cbSearch=function (info){
-	alert(info);
+    alert(info);
 }
 ```
 
 # 3、更新历史
-API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.10（Android）
-最近更新时间：2015-11-06
+API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.11（Android）
+最近更新时间：2015-10-23
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
@@ -1616,8 +1614,8 @@ API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.10（Android）
 | 3.0.14  |getFileRealPath可以设定回调方法|   |
 | 3.0.13  |新增getFileListByPath|   |
 | 3.0.12  |新增方法uexFileMgr.search 搜索文件|   |
-| 3.0.11  |新增cbWriteFile回调方法，优化RC4加密|   |
-| 3.0.10  | 解决多选文件打开浏览器显示空白问题  |  新增文件搜索接口 |
+| 3.0.11  |新增cbWriteFile回调方法，优化RC4加密| 修改getFileRealPath指定回调名时，只回调一个参数（与ios统一）。  |
+| 3.0.10  | 解决多选文件打开浏览器显示空白问题  |   |
 | 3.0.9  | 新增方法uexFileMgr.renameFile 重命名文件  | 修复闪退的bug  |
 | 3.0.8  | 修复uexFileMgr.multiExplorer(path)中path参数无效的BUG  |  国际化  |
 | 3.0.7  |  修改创建时间接口的名称 | 修改接口getFileRealPath,支持回调方法名称的传入  |
