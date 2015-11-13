@@ -666,7 +666,7 @@ iOS 3.0.0+
 ```
  	var idarr = ["151"];
     var data = JSON.stringify(idarr);
-    uexGaodeMap.removeOverlay(data);
+    uexGaodeMap.removeOverlays(data);
 ```
 
 > ### addArcOverlay  添加弧形覆盖物
