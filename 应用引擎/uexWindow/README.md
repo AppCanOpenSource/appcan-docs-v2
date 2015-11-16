@@ -209,6 +209,24 @@ Android2.2+
 **版本支持：**
 3.0.0+
 
+> ### hideSoftKeyboard 关闭软键盘
+
+`uexWindow. hideSoftKeyboard `
+
+**说明:**
+关闭Android设备软键盘
+
+**参数:**
+无
+
+**平台支持：**
+Android2.2+
+
+**版本支持：**
+3.1.0+
+
+
+
 > ### alert 弹出alert对话框
 
 `uexWindow.alert(title,message,buttonLable)`
