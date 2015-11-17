@@ -278,6 +278,7 @@ Eclipse中选中src文件夹->右键->Export->Java->JAR file.
 #### 2.1.3.插件包目录结构命名规范
 
   插件文件的命名可任意，但在AppCan中有统一的命名规范，为了保持一致扩展插件的开发也要符合命名规范。
+
 **2.1.3.1.plugin.xml中类及方法的命名**
 
   plugin.xml文件位于res目录下的xml目录中，是配置自定义native Plugin调用对象的xml文件，如果需要自定义对象和开发原生插件，必须在此文件中配置自定义js对象名和java类的包名类名。下面以AppcanPluginDemo3.0 插件为例：
@@ -448,6 +449,7 @@ public class ViewDataVO implements Serializable{
 #### 2.2.3.在窗口上添加原生布局
 
 由于从2015年11月13日之后的引擎版本做了比较大的升级，去掉了引擎中的ActivityGroup机制，于是在窗口上添加原生布局的方案不能再使用ActivityGroup来管理。而是使用自定义View的形式或者fragment机制。
+
 **2.2.3.1.自定义View方式**
 
 一般的原生布局都可以通过该种方式实现。定义一个类继承自线性，相对或其他布局。在其中可直接添加控件，或者引用其他布局文件，并做些交互。具体使用方式可参见插件源码中的`test_addView`方法。
