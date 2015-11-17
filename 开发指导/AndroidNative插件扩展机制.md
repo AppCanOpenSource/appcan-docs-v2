@@ -12,6 +12,7 @@
 ### 1.1.JDK安装验证
 
   安装完成之后，可以在检查JDK是否安装成功。打开cmd窗口，输入java –version 查看JDK的版本信息。出现类似下面的画面表示安装成功了：
+
 ![](http://newdocx.appcan.cn/docximg/160544v2014z8p26y.png)
 
 ### 1.2.Android SDK安装验证
@@ -28,6 +29,7 @@
 **2.1.1.1.插件开发基础工程搭建**
 
   将AppcanPluginDemo3.0 导入eclipse,此工程为插件开发基础工程,工程内res及assets文件夹含有插件开发的必要文件,开发者不要随意删除。
+
 ![](http://i.imgur.com/z5lk9G9.png)
 
 **2.1.1.2.插件入口类编写**
@@ -142,10 +144,15 @@
 #### 2.1.2.生成插件包
 
 插件是以.zip压缩包文件的形式存在的，组成结构如下：
+
 ![](http://i.imgur.com/87WIssi.png)
+
 **其中zip中的根目录文件夹的名称必须和插件名称保持一致，并且和插件包中的info.xml文件中的uexName的属性值一致**，否则上传官网时会提示插件目录结构错误。本例中都为`uexDemo`如下图：
+
 ![](http://i.imgur.com/Tp7pZ1k.png)
+
   插件包中共包含的文件如下图所示：
+
 ![](http://i.imgur.com/9ORgFou.png)
 
 下面详细介绍每一部分的生成方法。
@@ -214,10 +221,12 @@
 
   **该文件夹为必须文件夹**，该文件夹有两部分jar文件组成：
 > 一是插件源码中的`src`文件夹导出的jar文件，即命名为plugin_+插件名称.jar的文件。
+
 > 二是插件中新增的第三方jar文件。注意此处是新增的jar文件，插件源码中libs下原有的jar文件均不属于第三方jar文件。插件包中的jar文件夹应不包含这些jar文件。如本例中就没有第三方jar文件。
 
 将src文件夹导出为jar文件流程如下：
 Eclipse中选中src文件夹->右键->Export->Java->JAR file.
+
 ![](http://i.imgur.com/LHIL7Mn.png)
 
 ![](http://i.imgur.com/RCglffp.png)
@@ -227,13 +236,17 @@ Eclipse中选中src文件夹->右键->Export->Java->JAR file.
 注意确认整个src文件夹都选中了。
 
 **2.1.2.5.so文件夹**
+
 该文件夹中存放插件中**新增**的.so文件，不包含插件源码中原有的.so文件。**注意该目录下只能直接存放.so类型文件，不能再嵌套任何文件夹**。且只能包含插件源码中libs目录下armeabi文件夹中新增的.so文件。
 
 **2.1.2.6.res文件夹**
+
 该文件夹中存放插件中**新增**的资源文件，不包含Demo中原有的资源文件。注意存放的时候需要保持文件的相对路径。
 这里的新增包含两个部分：
 >一是新增的整个文件，比如本例中的`plugin_uex_demo_test_view.xml`文件，是插件中新增的布局资源文件。
->二是新增的字符串或者颜色值。即在原有的文件基础上添加字段。如本例中的`plugin_uex_demo_test_view.xml`文件中用到的`android:textColor="@color/plugin_uexDemo_textColor"`，就需要在colors.xml中添加字段:`<color name="plugin_uexDemo_textColor">#FF00ff00</color>`。那么插件包的res文件夹中就需包含`colors.xml`文件，并且其中只能包含本插件新增的内容，其余删掉。如下：
+
+>二是新增的字符串或者颜色值。即在原有的文件基础上添加字段。如本例中的`plugin_uex_demo_test_view.xml`文件中用到的`android:textColor="@color/plugin_uexDemo_textColor"`，就需要在colors.xml中添加字段:`<color name="plugin_uexDemo_textColor">#000000</color>`。那么插件包的res文件夹中就需包含`colors.xml`文件，并且其中只能包含本插件新增的内容，其余删掉。如下：
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
@@ -245,16 +258,20 @@ Eclipse中选中src文件夹->右键->Export->Java->JAR file.
 资源文件的相对位置需要保持，如在插件源码里面，colors.xml的目录结构为res/values/colors.xml。那么在插件包uexDemo文件夹中colors.xml文件需要建立同样的目录结构。具体参考Demo中的uexDemo插件包示例。
 
 **2.1.2.7.dex文件夹**
+
 **该文件夹在IDE打包时必须，在线打包非必须**。该文件夹是根据jar文件夹生成的。
 运行命令行至sdk目录下，可以通过Eclipse中的Window->Preferences->Android中查看“SDK Location”。如下图:
+
 ![](http://i.imgur.com/BeHPAHV.png)
 
 运行命令行至sdk目录下。并找到该目录下的build-tools文件夹，其中有对应的android版本，如android-4.4，命令行运行至该目录下之后将上步骤中的jar文件夹下的所有.jar文件(本例中是`plugin_uexDemo.jar`)拷贝到该目录下，执行命令`dx --dex --output=输出文件名.jar 要转换的文件名.jar`(本例中为`dx --dex --output=plugin_uexDemo_dex.jar plugin_uexDemo.jar`)。其中`dx --dex --output=`为固定的命令头部分，后面紧跟着输出文件名，一般命名为:plugin_插件名称_dex.jar。再后面跟着要转换的所有jar文件，如有多个用空格分隔。
+
 ![](http://i.imgur.com/vp2MgsE.png)
 
 ![](http://i.imgur.com/Hz5EBsg.png)
 
 执行命令之后在android-4.4目录下会生成plugin_uexDemo_dex.jar文件，将生成的该文件放入插件包的dex文件夹下即可。
+
 ![](http://i.imgur.com/XLk1URT.png)
 
 
@@ -306,7 +323,8 @@ Eclipse中选中src文件夹->右键->Export->Java->JAR file.
 编写插件代码时，应当有至少一个入口类，提供给前端使用，此类须继承plugin的基础类EUExBase类，然后实现或重写相关函数，并添加自定义的接口方法与plugin.xml中的method对应。开发插件中可能遇到的常见问题，请查看下文中的插件开发中常见问题部分。
 
 #### 2.2.1.参数传递
-  定义插件中的方法时参数必须为字符串类型的数组，如下：
+
+定义插件中的方法时参数必须为字符串类型的数组，如下：
 ```
     public void test_startActivityForResult(String[] parm) {
         Intent intent = new Intent();
@@ -322,6 +340,7 @@ Eclipse中选中src文件夹->右键->Export->Java->JAR file.
 其中参数形式必须为`String[] parm`(即使不需要接收参数，方法也必须带字符串数组的参数),`parm`字符串数组的长度即为定义的接口参数的个数。如Demo中`test_addView`接口需要传递四个参数，开发者有两种方式定义参数样式。
 
 **2.2.1.1.传统方式**
+
 接口方法代码如下：
 ```
     public void test_addView(String[] parm) {
@@ -339,6 +358,7 @@ Eclipse中选中src文件夹->右键->Export->Java->JAR file.
 这种方式传递参数理论上是可以的，但并非是最优的方案。对于插件的扩展性来说存在缺陷。因此建议开发者在定义接口方法时采用json数据格式传递。如下：
 
 **2.2.1.2.json数据格式方式**
+
 接口方法代码如下：
 ```
     public void test_addView(String[] parm) {
@@ -429,9 +449,11 @@ public class ViewDataVO implements Serializable{
 
 由于从2015年11月13日之后的引擎版本做了比较大的升级，去掉了引擎中的ActivityGroup机制，于是在窗口上添加原生布局的方案不能再使用ActivityGroup来管理。而是使用自定义View的形式或者fragment机制。
 **2.2.3.1.自定义View方式**
+
 一般的原生布局都可以通过该种方式实现。定义一个类继承自线性，相对或其他布局。在其中可直接添加控件，或者引用其他布局文件，并做些交互。具体使用方式可参见插件源码中的`test_addView`方法。
 
 **2.2.3.2.fragment方式**
+
 建议开发者在添加一些简单的view的时候使用第一种自定义View方式，但是如果要添加一些比较复杂的布局，或者必须在activity的生命周期中做一些特殊处理的，可用fragment方式，fragment中有activity中相对应的生命周期。具体使用方式可参见源码中的`test_addFragment`方法。
 
 这里需要留意的是，引擎中封装了两种方法添加原生布局，一种是添加到当前窗口，另一种添加到webview上。二者的区别是，前者位置固定，不跟随网页的滚动而滚动，后者跟随网页的滚动而滚动。示例Demo中关于这两种方式的使用方法，开发者可自行选择。
@@ -439,6 +461,7 @@ public class ViewDataVO implements Serializable{
 **需特别注意，原来自定义插件时添加了原生布局并且用的是ActivityGroup结合LocalActivityManager机制方式的已经不能和最新引擎打包使用，需要开发者及时做出更改。**
 
 #### 2.2.4.拦截Application和Activity的生命周期
+
 引擎中封装了一些可拦截的生命周期方法，如下：
 ````
     public static void onApplicationCreate(Context context)
