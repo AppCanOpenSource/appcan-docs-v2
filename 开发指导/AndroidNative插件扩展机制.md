@@ -7,7 +7,7 @@
 
   整个安装过程较为简单，下面主要验证JDK和Android SDK是否安装成功的问题。
 
-  [AppCan Android插件资源环境下载](http://download.appcan.cn/appcan_sdk/Android.rar)
+  [AppCan Android插件资源环境下载](https://github.com/AppCanOpenSource/appcan-plugin-demo-android)
 
 ### 1.1.JDK安装验证
 
