@@ -427,7 +427,7 @@ window.uexOnload=function(type){
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ----- | ----- | ----- |
-| 3.0.3 | 删去资源包中多余的info.plist| 修复图片压缩质量错误问题 |
+| 3.0.3 | 删去资源包中多余的info.plist| |
 | 3.0.2 | 修复armv7环境会编译失败的bug | 修复图片压缩质量错误问题 |
 | 3.0.1 |修复openCropper没有国际化的问题  | 去掉插件中的ActivityGroup,配合引擎升级 |
 | 3.0.0 | uexImage 发布 | uexImage 发布 |
