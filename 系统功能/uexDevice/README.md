@@ -267,35 +267,6 @@ Android3.0.1+
     uexDevice.setScreenBrightness(0.5);//设置屏幕亮度
 ```
 
-> ### setAudioCategory 设置声音是听筒模式或者扩音器模式
-
-`uexDevice.setAudioCategory(category)`
-
-**说明:**
-
-调整屏幕亮度
-
-**参数:**
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| category | Number | 是 | 1为听筒模式；0为扩音器模式 |
-
-**平台支持:**
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-iOS3.0.4+
-Android3.0.1+
-
-
-**示例:**
-
-```
-    uexDevice.setAudioCategory(0);//设置声音是扩音器模式
-```
-
 > ### openWiFiInterface 打开WIFI设置页
 
 `uexDevice.openWiFiInterface()`
