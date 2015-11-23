@@ -761,13 +761,13 @@ var param={
 	content:,//对应 Portal 推送通知界面上的"通知内容”字段。
 	extras:,//对应 Portal 推送消息界面上的"可选设置”里的附加字段。
 	notificationId:,//(仅Android)消息Id，可以用于清除通知
-
+	isAPNs:,//(仅iOS)本通知是否由APNs服务发出 true/false 
 };
 ```
 
 * iOS仅点击APNs推送或者本地推送打开应用时，才会触发此监听
 * 由于iOS APP退出后缓存可能会被清除，所以本地通知的extras可能获取不到
-* iOS 3.0.5+的版本才能捕获本地通知
+* iOS 3.0.5+的版本才能捕获本地通知,才会有isAPNs这个参数
 
 
 **平台支持**
