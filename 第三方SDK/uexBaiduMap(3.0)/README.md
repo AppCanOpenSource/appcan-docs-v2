@@ -2403,7 +2403,7 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 # 3、更新历史
  
 
-**API 版本:uexBaiduMap-3.1.13(iOS) uexBaiduMap-3.2.27(Android)**
+**API 版本:uexBaiduMap-3.1.15(iOS) uexBaiduMap-3.2.27(Android)**
 
 **最近更新时间:2015-11-24**
 
@@ -2421,9 +2421,9 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 | 3.0.18| |增加onMapStatusChangeListener监听 方法监听地图状态改变，以及添加标注时增加 气泡属性|
 | 3.0.17| |修复打开百度地图闪黑屏问题|
 | 3.0.16| |增加onMarkerClickListener和 onMarker BubbleClickListener接口|
-| 3.0.15| |增加onZoomLevelChangeListener地 图缩放级别改变时，获取缩放级别和中心点的 监听|
-| 3.0.14| |增加zoomControlsEnabled显示或隐藏缩 放控件|
-| 3.0.13| 修改插件，使其支持config配置APIKey |增加hideMap(隐藏地图)和showMap(显示 地图) 的接口|
+| 3.0.15| 修改插件，使其支持config配置APIKey |增加onZoomLevelChangeListener地 图缩放级别改变时，获取缩放级别和中心点的 监听|
+| 3.0.14| 删去info.plist|增加zoomControlsEnabled显示或隐藏缩 放控件|
+| 3.0.13| 国际化|增加hideMap(隐藏地图)和showMap(显示 地图) 的接口|
 | 3.1.12| 修复onMapLongClickListener回调结果异常的bug|修改添加相同url标注，标注不显示的问题|
 | 3.1.11 | 修改uexBaiduMap.plist文件NSLocation WhenInUseUsageDescription字段对应value 的类型为字符串 | 修改cbOpen和onSearchRoutePlan的JS回 调方式 |
 | 3.1.10 | 新增onMarkerClickListener和onMarker BubbleClickListener监听方法 | 增加加载地图完成的cbOpen回调和线路规划搜 索结果返回时的监听onSearchRoutePlan |
