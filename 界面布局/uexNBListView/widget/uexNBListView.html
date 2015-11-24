@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/custom.js"></script>
+    <script type="text/javascript">
+    window.uexOnload = function() {
+
+        uexNBListView.onScrollPictureClick = function(data){
+            alert("onItemClick:data = " + data);
+        }
+
+        uexNBListView.onListViewItemClick = function(data){
+            alert("onListViewItemClick:data = " + data);
+        }
+
+        uexNBListView.onItemClick = function(itemIndex) {
+            alert(itemIndex);
+        }
+
+        uexNBListView.onCustomItemClick = function(data){
+            alert("onCustomItemClick->" + data);
+        }
+        uexNBListView.onCustomPullRefreshHeader = function(data){
+            alert("onCustomPullRefreshHeader->" + data);
+        }
+        uexNBListView.onCustomPullRefreshFooter = function(data){
+            alert("onCustomPullRefreshFooter->" + data);
+        }
+        uexNBListView.onLeftClick = function(data){
+            alert("onLeftClick->" + data);
+        }
+        uexNBListView.onRightClick = function(data){
+            alert("onRightClick->" + data);
+        }
+        uexNBListView.onClick = function(data){
+            var info = JSON.parse(data);
+            if(info.id == "login"){
+                alert("点击了登录！");
+            }else if(info.id = "register"){
+                alert("点击了注册！");
+            }else{
+                alert("onClick->" + data);
+            }
+        }
+    }
+
+    function setCustomItems(){
+        var id = document.getElementById("listViewId").value;
+        if(id == 1){
+            var params = {
+                listViewId:id,
+                dataList:[//列表数据
+                    {
+                        center:{
+                            type:1,
+                            elementData:[
+                                {
+                                    elementType:"text",
+                                    id:"txt1",
+                                    text:"change1-1"
+                                },
+                                {
+                                    elementType:"text",
+                                    id:"txt2",
+                                    text:"change1"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        center:{
+                            type:1,
+                            elementData:[
+                                {
+                                    elementType:"text",
+                                    id:"txt1",
+                                    text:"change1-2"
+                                },
+                                {
+                                    elementType:"text",
+                                    id:"txt2",
+                                    text:"change2"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            };
+            var data = JSON.stringify(params);
+            uexNBListView.setCustomItems(data);
+        }else{
+            alert("请根据listViewId为2的列表重新传数据！");
+        }
+    }
+
+    function closeCustom(){
+        var id = document.getElementById("listViewId").value;
+        var params = [id];
+        var data = JSON.stringify(params);
+        uexNBListView.closeCustom(data);
+    }
+
+    function insertCustomItem(){
+        var index = document.getElementById("index").value;
+        var id = document.getElementById("listViewId").value;
+        if(id == 1){
+            var params = {
+                listViewId:id,
+                index:index,
+                data:{
+                    center:{
+                        type:1,
+                        elementData:[
+                            {
+                                elementType:"text",
+                                id:"txt1",
+                                text:"insert1-1"
+                            },
+                            {
+                                elementType:"text",
+                                id:"txt2",
+                                text:"change1"
+                            }
+                        ]
+                    }
+                }
+            };
+            var data = JSON.stringify(params);
+            uexNBListView.insertCustomItem(data);
+        }else{
+            alert("请根据listViewId为2的列表重新传数据！");
+        }
+    }
+
+    function updateCustomItem(){
+        var id = document.getElementById("listViewId").value;
+        var index = document.getElementById("index").value;
+        if(id == 1){
+            var params = {
+                listViewId:id,
+                index:index,
+                data:{
+                    center:{
+                        type:1,
+                        elementData:[
+                            {
+                                elementType:"text",
+                                id:"txt1",
+                                text:"update1-1"
+                            },
+                            {
+                                elementType:"text",
+                                id:"txt2",
+                                text:"update1"
+                            }
+                        ]
+                    }
+                }
+            };
+            var data = JSON.stringify(params);
+            uexNBListView.updateCustomItem(data);
+        }else{
+            alert("请根据listViewId为2的列表重新传数据！");
+        }
+    }
+    function deleteCustomItem(){
+        var id = document.getElementById("listViewId").value;
+        var index = document.getElementById("index").value;
+        if(id == 1){
+            var params = {
+                listViewId:id,
+                indexs:[index]
+            };
+            var data = JSON.stringify(params);
+            uexNBListView.deleteCustomItem(data);
+        }else{
+            alert("请根据listViewId为2的列表重新传数据！");
+        }
+    }
+
+    function showCustom(){
+        var id = document.getElementById("listViewId").value;
+        var params = {
+            listViewId:id
+        }
+        uexNBListView.showCustom(JSON.stringify(params));
+    }
+
+    function hideCustom(){
+        var id = document.getElementById("listViewId").value;
+        var params = {
+            listViewId:id
+        }
+        uexNBListView.hideCustom(JSON.stringify(params));
+    }
+
+</script>
+</head>
+
+<body>
+<div id = "operation">
+    列表Id:<input class="textbox" type="text" value="1" id = "listViewId">
+    index:<input class="textbox" type="text" value="0" id = "index">
+    <input class='btn' type='button' value='open1' onclick='openCustom1()'>
+    <input class='btn' type='button' value='open2' onclick='openCustom2()'>
+    <input class='btn' type='button' value='close' onclick='closeCustom()'>
+    <input class='btn' type='button' value='hide' onclick='hideCustom()'>
+    <input class='btn' type='button' value='show' onclick='showCustom()'>
+    <input class='btn' type='button' value='setItems' onclick='setCustomItems()'>
+    <input class='btn' type='button' value='insert' onclick='insertCustomItem()'>
+    <input class='btn' type='button' value='delete' onclick='deleteCustomItem()'>
+    <input class='btn' type='button' value='update' onclick='updateCustomItem()'>
+</div>
+</body>
+</html>

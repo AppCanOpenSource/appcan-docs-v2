@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script type="text/javascript">
+    function openCustom(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexNBListView.openCustom(data);
+    }
+
+    function setCustomItems(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexNBListView.setCustomItems(data);
+    }
+
+    function closeCustom(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexNBListView.closeCustom(data);
+    }
+
+    function insertCustomItem(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexNBListView.insertCustomItem(data);
+    }
+
+    function deleteCustomItem(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexNBListView.deleteCustomItem(data);
+    }
+
+    function updateCustomItem(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexNBListView.updateCustomItem(data);
+    }
+
+    function hideCustom(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexNBListView.hideCustom(data);
+    }
+
+    function showCustom(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexNBListView.showCustom(data);
+    }
+
+
+        window.uexOnload = function(type){
+            if(type == 0){
+            uexNBListView.onScrollPictureClick = onScrollPictureClick;
+            uexNBListView.onItemClick = onItemClick;
+            uexNBListView.onCustomItemClick = onCustomItemClick;
+            uexNBListView.onCustomPullRefreshHeader = onCustomPullRefreshHeader;
+            uexNBListView.onCustomPullRefreshFooter = onCustomPullRefreshFooter;
+            uexNBListView.onLeftClick = onLeftClick;
+            uexNBListView.onRightClick = onRightClick;
+            uexNBListView.onClick = onClick;
+
+            }
+        }
+    function onScrollPictureClick(info){
+        alert(info);
+    }
+
+    function onItemClick(info){
+        alert(info);
+    }
+
+    function onCustomItemClick(info){
+        alert(info);
+    }
+
+    function onCustomPullRefreshHeader(info){
+        alert(info);
+    }
+
+    function onCustomPullRefreshFooter(info){
+        alert(info);
+    }
+
+    function onLeftClick(info){
+        alert(info);
+    }
+
+    function onRightClick(info){
+        alert(info);
+    }
+
+    function onClick(info){
+        alert(info);
+    }
+
+
+    </script>
+</head>
+
+<body>
+<div class="tit">uexNBListView</div>
+<div class="conbor">
+    <div class="consj">
+            <input class='btn' type='button' value='openCustom' onclick='openCustom()'>
+
+            <input class='btn' type='button' value='setCustomItems' onclick='setCustomItems()'>
+
+            <input class='btn' type='button' value='closeCustom' onclick='closeCustom()'>
+
+            <input class='btn' type='button' value='insertCustomItem' onclick='insertCustomItem()'>
+
+            <input class='btn' type='button' value='deleteCustomItem' onclick='deleteCustomItem()'>
+
+            <input class='btn' type='button' value='updateCustomItem' onclick='updateCustomItem()'>
+
+            <input class='btn' type='button' value='hideCustom' onclick='hideCustom()'>
+
+            <input class='btn' type='button' value='showCustom' onclick='showCustom()'>
+
+
+    </div>
+</div>
+</body>
+</html>
