@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 列表插件
 ## 1.1、说明
@@ -396,7 +396,7 @@ iOS6.0+
  
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
-| type | Number | 是 | 侧滑类型值，取值范围参考[SwipeType](#4、附录) |
+| type | Number | 是 | 侧滑类型值，取值范围参考[SwipeType](#SwipeType) |
 
 **平台支持:**
 Android2.2+
@@ -659,7 +659,8 @@ API 版本：uexListView-3.0.6(iOS) uexListView-3.0.7（Android）
 | 3.0.0  | Listview下拉列表，封装Listview扩展功能  | Listview下拉列表，封装Listview扩展功能|
 
 # 4、附录
-** swipetype**
+
+### SwipeType
 
 |  type | 说明  |
 | --- | ----- |
