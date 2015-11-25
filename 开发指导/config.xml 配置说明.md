@@ -2,7 +2,7 @@
 
 #config.xml 配置说明
 
-`last update:2015-11-05`
+`last update:2015-11-25`
 
 >## 简介
 
@@ -34,8 +34,8 @@
 
 ```
 <config desc="uexBaiduMap" type="KEY">
-	<param platform="iOS"  name="$uexBaiduMap_ApiKey$" value="qwerty"/>
-	<param platform="Android"  name="$uexBaiduMap_ApiKey$" value="123456"/>
+	<param platform="iOS"  name="$uexBaiduMap_APIKey$" value="qwerty"/>
+	<param platform="Android"  name="$uexBaiduMap_APIKey$" value="123456"/>
 </config>
 ```
 ####另一个例子
