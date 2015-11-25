@@ -432,8 +432,8 @@ window.uexOnload = function(){
 
 
 # 3、更新历史
-API 版本：uexChatKeyboard-3.0.15(iOS) uexChatKeyboard-3.0.10(Android)
-最近更新时间：2015-11-06
+API 版本：uexChatKeyboard-3.0.15(iOS) uexChatKeyboard-3.0.11(Android)
+最近更新时间：2015-11-23
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
@@ -441,7 +441,7 @@ API 版本：uexChatKeyboard-3.0.15(iOS) uexChatKeyboard-3.0.10(Android)
 | 3.0.14 | 修复插入表情时默认插入到最后的问题,修复在iPhone6 Plus上的显示问题 | |
 | 3.0.13 | 修复finishWidget时的崩溃问题,修复长按输入框显示放大镜时可以看见表情按钮的问题 | |
 | 3.0.12 | 修复关闭输入法后窗口显示不正常的bug | |
-| 3.0.11 | 修复一个在iOS9下可能导致APP崩溃的bug | |
+| 3.0.11 | 修复一个在iOS9下可能导致APP崩溃的bug | 去掉LocalActivityManager|
 | 3.0.10 | open接口新增参数inputMode默认输入方式 | open接口新增参数inputMode默认输入方式|
 | 3.0.9 | 修复直接输入表情时输入框变形问题.修复联系点击录音按钮录音提示无法关闭问题 | 修改EditText和webview中的输入框抢焦点问题|
 | 3.0.8 | 修复输入内容过多时的显示问题 | 添加收回键盘接口;添加键盘状态的回调接口;部分代码的逻辑优化;添加onCommitJson回调,解决输入特殊字符的问题;|

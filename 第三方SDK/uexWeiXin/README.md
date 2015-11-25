@@ -934,7 +934,8 @@ var json ={
 	prepayid:,//(必选)微信返回的支付交易会话ID,从gettextareapayId接口的回调方法中获取
 	package:,//(必选)暂填写固定值Sign=WXPay
 	noncestr:,//(必选)随机字符串
-	timestamp:,//(必选)时间戳sign://(必选)签名} 
+	timestamp:,//(必选)时间戳
+	sign://(必选)签名} 
 	}
 ```
 

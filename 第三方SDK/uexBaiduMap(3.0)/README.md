@@ -4,13 +4,13 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 提供百度地图的相关相关功能。用户可以使用该插件在网页上嵌入一张地图，并实现对地图的基本操作， 例如放大缩小，移动，点击，隐藏，显示。另外还提供了定位功能，搜索功能，路线规划功能，地理编码功能 。
 ## 1.1、说明
-说明:安卓&iOS插件需要在线自定义上传打包使用。IDE插件因为涉及到百度方面的ID与Key暂时无法使用。
+　　安卓&iOS插件已支持**config.xml文件**配置AK。IDE插件因为涉及到百度方面的ID与Key暂时无法使用。
 具体使用点击查看:[附录](http://newdocx.appcan.cn/newdocx/docx?type=1384_975 "百度地图插件接入指引")-->百度地图插件接入指引
 ## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/153918c2015z6c16q.png)
 ## 1.3、公告
-安卓百度定位sdk升级，配合安卓打包服务升级，插件已经跟新至最新版本，已经公测通过，请使用最新版本
-> 旧版uexBaiduMap 插件已经下架了，官方不再维护，如需使用，请[跳转](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=25876 "跳转")到详细官方通告
+安卓百度定位sdk升级，配合安卓打包服务升级，插件已经跟新至最新版本，已经公测通过，请使用最新版本（已支持config.xml文件配置AK）
+> 旧版uexBaiduMap 插件已经下架，官方不再维护，如需使用，请[跳转](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=25876 "跳转")到详细官方通告
 
 ## 1.4、当前自定义插件版本下载:
 [点击](http://plugin.appcan.cn/details.html?id=281_index)插件中心至插件详情页(插件测试用例与插件源码已经提供)
@@ -2402,7 +2402,7 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 ```
 # 3、更新历史
  
-
+ 
 **API 版本:uexBaiduMap-3.1.15(iOS) uexBaiduMap-3.2.27(Android)**
 
 **最近更新时间:2015-11-24**
@@ -2436,4 +2436,3 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 |3.1.3 | 修复公交路线搜索失败的问题 | 修改地理编码和反地理编码JSON回调方法名称 |
 | 3.1.2 | 修复cbPoiSearchResult接口回调信息不完整问题 | 添加标注支持网络图片的功能 |
 | 3.1.1 | 与安卓统一回调接口的参数 | 增加清除公交线路和清除线路规划接口 |
-
