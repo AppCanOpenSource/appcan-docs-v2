@@ -20,10 +20,14 @@
 <string>weibosdk</string>
 <string>weibosdk2.5</string>
 ```
+* iOS App用过uexSina插件打开新浪客户端进行授权、分享过程完成后，新浪客户端通过应用自定义的UrlScheme返回到本App,并传回授权、分享结果时，需要配置UrlScheme值。通过config.xml配置插件的方法如下
 
-
-
-
+```
+<config desc="uexSina" type="URLSCHEME">
+    <urlScheme name="uexSina" schemes="['wb407216840']"/>
+</config>
+```
+其中’wb407216840’改成您自己申请到的微信appId
 ## 1.2 UI展示
  ![](http://newdocx.appcan.cn/docximg/164911i2015y6i16c.png)
  
@@ -92,7 +96,7 @@ iOS6.0+
 
 **版本支持:**
 Android 3.0.9+ 
-
+iOS 3.0.6+
 **示例:**
 见sendImageContent方法示例 
 
@@ -113,6 +117,7 @@ iOS6.0+
 
 **版本支持:**  
 Android 3.0.9+ 
+iOS 3.0.6+
 
 **示例:**
 见sendImageContent方法示例 
@@ -135,6 +140,7 @@ iOS6.0+
 
 **版本支持:**  
 Android 3.0.9+ 
+iOS 3.0.6+
 
 **示例:**
 见sendImageContent方法示例 
@@ -290,6 +296,7 @@ iOS6.0+
 
 **版本支持**
 Android 3.0.9+  
+iOS 3.0.6+
 
 > ### cbGetUserInfo 获取用户信息的回调方法
 
@@ -305,6 +312,7 @@ Android 3.0.9+
 
 **版本支持**
 Android 3.0.9+  
+iOS 3.0.6+
 
 
 > ### cbLogout 用户退出的回调方法
@@ -321,6 +329,7 @@ Android 3.0.9+
 
 **版本支持**
 Android 3.0.9+  
+iOS 3.0.6+
 
 
 
@@ -348,7 +357,7 @@ API 版本：uexSina-3.0.5(iOS) uexSina-3.0.9（Android）
 | 3.0.9  |   |添加login, getUserInfo, logout接口|
 | 3.0.8  |   | 去掉插件中的ActivityGroup,配合引擎升级  |
 | 3.0.7  |   | 新增login登陆接口接口  |
-| 3.0.6  |   | 修改uexSina插件中的代码错误  |
+| 3.0.6  | 替换SinaSDK3.1.1，重写授权登陆相关接口；新增login、logout、getUserInfo接口  | 修改uexSina插件中的代码错误  |
 | 3.0.5  | 注册回调方法名统一修改为uexSina.cbRegisterApp| 修改uexSina插件中registerCallBack和cbShare回调方法返回值：成功为0，失败为1  |
 | 3.0.4 | 增加新浪授权登录  | 修复分享图片时路径解析错误问题  |
 | 3.0.3  |  取消用户新浪微博对appcan的自动关注| 修复适配3.0新引擎的问题  |
