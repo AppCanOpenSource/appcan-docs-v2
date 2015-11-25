@@ -7,7 +7,7 @@
 调用新浪分享文字，图片。
 
 **iOS 9 以后，为了预防APP通过非正常渠道获取用户的某些隐私信息，Apple启用了URLScheme白名单机制。**
-	
+    
 * **为了正常使用插件的所有功能还需要配置URLScheme白名单**([什么是URLScheme白名单](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=29503&extra=))
 * 配置白名单方法请参考[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置urlScheme白名单)
 * uexSina需要进白名单添加的URLScheme如下
@@ -66,6 +66,75 @@ iOS6.0+
 
 **版本支持:**
 3.0.0+  
+
+**示例:**
+见sendImageContent方法示例 
+
+> ### login 登录
+
+`uexSina.login(appKey,registerUrl); `
+
+**说明：**
+用户登录, 支持SSO登录。如果手机上端有微博客户端，会直接调用客户端进行登录授权。如果没有，则开启网页让用户登录授权。
+
+回调[cbLogin](#cbLogin 用户登录回调方法 "用户登录回调方法")
+
+**参数：**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| appKey| String类型| 必选 | 通过开放平台注册的appKey，appKey申请点击跳转   |
+| registerURL|String类型 | 必选 | 通过开放平台注册的registerURL |
+
+**平台支持:**
+Android2.2+  
+iOS6.0+ 
+
+**版本支持:**
+Android 3.0.9+ 
+
+**示例:**
+见sendImageContent方法示例 
+
+> ### getUserInfo 获取用户基本信息
+
+`uexSina.getUserInfo(); `
+
+**说明：**
+返回该用户的新浪微博相关信息，如用户名，姓别，所在地等。
+回调[cbGetUserInfo](#cbGetUserInfo 获取用户信息的回调方法 "获取用户信息的回调方法")
+
+**参数：**
+无
+
+**平台支持:**  
+Android2.2+  
+iOS6.0+ 
+
+**版本支持:**  
+Android 3.0.9+ 
+
+**示例:**
+见sendImageContent方法示例 
+
+
+> ### logout 退出
+
+`uexSina.logout(); `
+
+**说明：**
+注销该新浪微博帐号
+回调[cbLogout](#cbLogout 用户退出的回调方法 "用户退出的回调方法")
+
+**参数：**
+无
+
+**平台支持:**
+Android2.2+  
+iOS6.0+ 
+
+**版本支持:**  
+Android 3.0.9+ 
 
 **示例:**
 见sendImageContent方法示例 
@@ -131,6 +200,15 @@ iOS6.0+
                    uexSina.cbRegisterApp = function(opCode, dataType, data){
                         alert(data);
                     }
+                   uexSina.cbLogin = function(opCode,dataType,data) {
+                        document.getElementById("selectItem").innerHTML = data;
+                   }
+                  uexSina.cbGetUserInfo = function(opCode, dataType, data) {
+                         alert(data);
+                   }
+                  uexSina.cbLogout = function(opCode, dataType, data){
+                        alert(data);
+                  }
                 }
             function shareText(){
                 var txt = "这是来自appcan平台对新浪微博分享支持测试";
@@ -146,6 +224,14 @@ iOS6.0+
                 var appSecret = "2f5acd0e39889f9965c86c743afdda04";
                 var registerUrl = "http://mp.ceair.com/";
                 uexSina.registerApp(appKey,appSecret,registerUrl);
+            }
+            function login() {
+                var appKey = "4072168403";
+                var registerUrl = "http://www.dotlink.com";
+                uexSina.login(appKey,registerUrl);
+            }
+            function getUserInfo() {
+                uexSina.getUserInfo();
             }
             </script>
             </head>
@@ -164,7 +250,10 @@ iOS6.0+
 
 ();">
                             <div class="tcxx" id="showPicStatus">
-</div>
+</div><br>
+            <input class="btn" type="button" value="获取用户信息" onclick="getUserInfo();">
+            <br>
+            <input class="btn" type="button" value="登出" onclick="uexSina.logout();">
 </div>
 </div>
     </body>
@@ -182,10 +271,58 @@ iOS6.0+
 | ------------ | ------------ | ------------ | ------------ |
 | opId| Number类型| 必选 | 操作ID，此函数中不起作用，可忽略。  |
 | dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
-| data|Number类型 | 必选 | 分享结果，0-成功，1-失败。  |
+| data|Number类型 | 必选 | 注册结果，0-成功，1-失败。  |
   
 **版本支持**
 3.0.0+  
+
+> ### cbLogin 用户登录回调方法
+
+`uexSina.cbLogin(opCode,dataType,data)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| opId| Number类型| 必选 | 操作ID，此函数中不起作用，可忽略。  |
+| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| data|String类型 | 必选 | 登录后返回的用户相关信息，包括uid, access_token |
+
+**版本支持**
+Android 3.0.9+  
+
+> ### cbGetUserInfo 获取用户信息的回调方法
+
+`uexSina.cbGetUserInfo(opCode,dataType,data)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| opId| Number类型| 必选 | 操作ID，此函数中不起作用，可忽略。  |
+| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| data|String类型 | 必选 | 用户的信息，返回一个json String  |
+
+**版本支持**
+Android 3.0.9+  
+
+
+> ### cbLogout 用户退出的回调方法
+
+`uexSina.cbLogout(opCode,dataType,data)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| opId| Number类型| 必选 | 操作ID，此函数中不起作用，可忽略。  |
+| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| data|Number类型 | 必选 | 分享结果，0-成功，1-失败。  |
+
+**版本支持**
+Android 3.0.9+  
+
+
 
 > ### cbShare 分享后的回调方法
 
@@ -203,11 +340,12 @@ iOS6.0+
 3.0.0+  
 
 # 3、更新历史
-API 版本：uexSina-3.0.5(iOS) uexSina-3.0.8（Android）
-最近更新时间：2015-11-06
+API 版本：uexSina-3.0.5(iOS) uexSina-3.0.9（Android）
+最近更新时间：2015-11-24
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.9  |   |添加login, getUserInfo, logout接口|
 | 3.0.8  |   | 去掉插件中的ActivityGroup,配合引擎升级  |
 | 3.0.7  |   | 新增login登陆接口接口  |
 | 3.0.6  |   | 修改uexSina插件中的代码错误  |
