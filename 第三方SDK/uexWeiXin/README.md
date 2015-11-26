@@ -1552,6 +1552,63 @@ iOS 3.0.17+
     uexWeiXin.getLoginUnionID(data);
 ```
 
+> ### setCallbackWindowName 设置接收回调方法的窗口名称
+
+`uexWeiXin.setCallbackWindowName(json)`
+
+**说明:**
+该方法用于设置接收分享、登陆和支付相关回调方法的窗口名称。是修复程序偶尔收不到回调的补充方法。具体用法见示例。
+
+**参数:**
+
+```
+var json = {
+    windowName:
+}
+```
+各字段含义如下：
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| windowName | String | 是 | 窗口名称，此处窗口为主窗口名称，若在起始页，则窗口名称为"root" |
+
+**支持平台:**
+Android 2.2+  
+
+**版本支持:**
+Android 3.1.32+  
+
+**示例:**
+*示例1：*
+
+设置起始页(root页面)为接收回调的窗口:
+
+```
+    var params = {
+        windowName:"root"
+    };
+    uexWeiXin.setCallbackWindowName(JSON.stringify(params));
+```
+
+*示例2：*
+
+设置其他通过uexWindow.open接口打开的主窗口为接收回调的窗口:
+open调用方法:
+
+```
+    uexWindow.open('share', '0', "share.html", '2', '', '', 4);
+    //其中第一个参数(share)即为share.html窗口的窗口名称。
+```
+
+则在share.html中的uexOnload方法中要添加如下代码:
+
+```
+    var params = {
+        windowName:"share"
+    };
+    uexWeiXin.setCallbackWindowName(JSON.stringify(params));
+```
+
 ## 2.2 回调方法
 > ### cbRegisterApp 用户授权的回调方法
 
@@ -2307,11 +2364,12 @@ uexWeiXin.cbGetLoginUnionID = function (data) {
 
 #3、更新历史
 
-API 版本：uexWeiXin-3.0.16(iOS) uexWeiXin-3.1.31（Android）
-最近更新时间：2015-09-06
+API 版本：uexWeiXin-3.0.16(iOS) uexWeiXin-3.1.32（Android）
+最近更新时间：2015-11-26
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.1.32  |   | 新增setCallbackWindowName接口，解决偶尔收不到回调的问题。 |
 | 3.1.31  |   | 更新微信登陆相关接口 |
 | 3.0.30  |   | 修复微信支付返回时偶尔没有回调的问题|
 | 3.0.29  |   | 微信支付sdk升级  |
