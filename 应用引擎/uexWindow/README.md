@@ -29,7 +29,7 @@ AppCan平台中，维护了一个窗口堆栈，每个窗口以唯一的窗口�
 
 > ### open 打开窗口
 
-`uexWindow.open(windName,dataType,data,animID,w,h,flag,animDuration,extraInfo)`
+`uexWindow.open(windName,dataType,data,animID,w,h,flag,animDuration,extras)`
 
 **说明:**
 打开一个新窗口，如果窗口名字相同，则会覆盖相同窗口名字的页面内容。
@@ -42,20 +42,39 @@ AppCan平台中，维护了一个窗口堆栈，每个窗口以唯一的窗口�
 | windName | String | 是 | 窗口名字，可为空，不能为"root"，若已经打开过该名字的窗口，则直接跳转至该窗口。 |
 | dataType | Number | 是 | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入 |
 | data | String | 是 | url或html数据，支持“wgtroot://” 协议头，此协议头用于某些将项目部署在服务器上 的appcan应用，在应用执行过程中加载本地网页用。当dataType为0时，url支持相对路径、 绝对路径。其中，当url以“wgtroot://” 协议开头时，支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件。  例如：当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页，如果在xxx.html页面中open一个窗口时，传入的data为“wgtroot://index.html", 那么本次open执行时，引擎将会到本应用沙箱目录的widget路径下去寻找此页面， 例如Android上找到的路径会是：file:///android_assert/widget/index.html 当dataType为1时，把相应html的内容传进去（不建议） |
-| animID | Number | 是 | 动画ID，详见CONSTANT中WindowAnimiID |
+| animationID | Number | 是 | 动画ID，详见术语表-[WindowAnimationId 窗口动画Id](# WindowAnimationId 窗口动画Id) |
 | w | Number | 是 | 窗口宽度，请传0 |
 | h | Number | 是 | 窗口高度，请传0 |
 | flag | Number | 是 | 窗口标记，详见CONSTANT中WindowFlags |
 | animDuration | Number | 否 | 动画持续时长，单位为毫秒，默认为260毫秒 |
-| extraInfo | Number | 否 | 扩展参数，设置值时，animDuration参数必传，json格式如下：       {"extraInfo":{"opaque":"true","bgColor":"#011"}} 各字段含义如下:参数是否必须说明extraInfo必选extraInfo参数opaque可选是否透明true/false 默认为falsebgColor可选背景色，支持图片和颜色，格式为 #fff、#ffffff、rgba(r,g,b,a)等，图片路径支持 res:// wgt:// 等AppCan协议路径 |
+| extras | String | 否 | 扩展参数，设置值时，animDuration参数必传，json格式见下|
+
+```
+var extras = {
+	extraInfo:{//网页配置
+		opaque:,//Boolean 可选 页面是否透明，默认false
+		bgColor,//String 可选 支持图片和颜色，格式为 #fff、#ffffff、rgba(r,g,b,a)等，图片路径支持 res:// wgt:// 等AppCan协议路径
+		}
+	},
+	animationInfo:{//动画配置,仅iOS且animationID选择bounce类的动画时有效
+		bounciness:,//Number,可选，模拟弹性大小系数，传0-1之间的double值，越大表示弹性越快
+		speed:,//Number,可选,模拟震荡速度系数，传0-1之间的double值，越大表示速度越快
+	}
+	
+		 
+```
+
 
 
 **平台支持：**
+
 Android2.2+
 iOS6.0+
 
 **版本支持：**
+
 3.0.0+
+
 **示例:**
 
 ```
@@ -3170,3 +3189,53 @@ iOS6.0+
 
 **版本支持：**
 3.0.0+
+
+
+#3 术语表
+
+>### WindowAnimationId 窗口动画Id
+
+
+> **基础动画**
+
+* uex.cWindowAnimationNone=0	// 无动画
+* uex.cWindowAnimationLeftToRight=1//由左往右推入
+* uex.cWindowAnimationRightToLeft=2//由右往左推入
+* uex.cWindowAnimationUpToDown=3//由上往下推入
+* uex.cWindowAnimationDownToUp=4//由下往上推入
+* uex.cWindowAnimationFadeOutFadeIn=5//淡入淡出
+* uex.cWindowAnimationLeftFlip=6//左翻页（android暂不支持）
+* uex.cWindowAnimationRigthFlip=7//右翻页（android暂不支持）
+* uex.cWindowAnimationRipple=8//水波纹（android暂不支持）
+* uex.cWindowAnimationLeftToRightMoveIn=9//由左往右切入
+* uex.cWindowAnimationRightToLeftMoveIn=10//由右往左切入
+* uex.cWindowAnimationTopToBottomMoveIn=11//由上往下切入
+* uex.cWindowAnimationBottomToTopMoveIn=12//由下往上切入
+
+> **以下为close专用，与9，10，11，12对应：**
+
+* uex.cWindowAnimationLeftToRightReveal=13//由左往右切出，与10对应
+* uex.cWindowAnimationRightToLeftReveal=14//由右往左切出，与9对应
+* uex.cWindowAnimationTopToBottomReveal=15//由上往下切出，与12对应
+* uex.cWindowAnimationBottomToTotextareaveal=16//由下往上切出，与11对应
+
+
+> **Circle Zoom 效果 (仅iOS)**
+
+* uex.cWindowAnimationCircleZoomAtCenter =101
+	* 打开页面时，以页面中心为圆心，页面按圆形轮廓展开
+	* 关闭页面时，以页面中心为圆心，页面按圆形轮廓收缩
+* uex.cWindowAnimationCircleZoomAtLeftTop =102 //同上，但是圆心位于页面左上角
+* uex.cWindowAnimationCircleZoomAtRightTop =103 //同上，但是圆心位于页面右上角
+* uex.cWindowAnimationCircleZoomAtLeftBottom =104 //同上，但是圆心位于页面左下角
+* uex.cWindowAnimationCircleZoomAtRightBottom =105 //同上，但是圆心位于页面右下角
+
+
+> **Bounce效果(仅iOS)**
+
+* uex.cWindowAnimationBounceFromLeft = 106
+	* 页面从左侧弹入
+	* 使用此动画时，传入的动画时间animDutarion无效，需通过配置extras里的bounciness和speed来控制动画时间
+* uex.cWindowAnimationBounceFromTop = 107//同上，但页面从顶端弹入
+* uex.cWindowAnimationBounceFromRight = 108//同上，但页面从右侧端弹入
+* uex.cWindowAnimationBounceFromBottom = 109//同上，但页面从底端弹入
