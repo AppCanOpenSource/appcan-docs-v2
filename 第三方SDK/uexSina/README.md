@@ -20,6 +20,7 @@
 <string>weibosdk</string>
 <string>weibosdk2.5</string>
 ```
+
 * iOS App用过uexSina插件打开新浪客户端进行授权、分享过程完成后，新浪客户端通过应用自定义的UrlScheme返回到本App,并传回授权、分享结果时，需要配置UrlScheme值。通过config.xml配置插件的方法如下
 
 ```
@@ -27,7 +28,8 @@
     <urlScheme name="uexSina" schemes="['wb407216840']"/>
 </config>
 ```
-其中’wb407216840’改成您自己申请到的微信appId
+其中’wb407216840’的‘407216840’改成您自己申请到的新浪appId
+
 ## 1.2 UI展示
  ![](http://newdocx.appcan.cn/docximg/164911i2015y6i16c.png)
  
