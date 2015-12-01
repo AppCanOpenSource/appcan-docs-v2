@@ -553,7 +553,7 @@ uexWidget.setPushState(0);
 
 ```
   uexWidget.getPushState()
- ```
+```
   
 > ### isAppInstalled 是否安装某第三方应用
 
@@ -592,6 +592,35 @@ uexWidget.setPushState(0);
     var data1 = JSON.stringify(param1);
     uexWidget.isAppInstalled(data1);
   ````
+  
+
+  > ### closeLoading 关闭loading图
+  
+ ` uexWidget.closeLoading()`
+ 
+**说明:**
+
+  关闭启动图。用于应用启动期间需要做页面跳转等逻辑。需要在config.xml 添加配置 `<removeloading>true<removeloading>`。添加之后引擎不会关闭启动图，由前端调用此接口关闭。超时（时间为3秒）之后引擎才会关闭启动图。
+  
+  
+**参数:**
+
+  无
+  
+**平台支持:**
+
+  Android2.2+
+  
+**版本支持:**
+
+  3.2.0+
+  
+**示例:**
+
+```
+  uexWidget.closeLoading()
+ ```
+  
   
 ## 2.2 回调方法
   
