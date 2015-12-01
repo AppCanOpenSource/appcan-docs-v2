@@ -2660,6 +2660,7 @@ uexWindow.setHardwareEnable(1);
 开启或关闭当前popover的硬件加速，用于解决网页闪屏的问题，打开popover后调用。如果需要打开popover时就是关闭状态，请参考uexWindow.openPopover
 
 **参数:**
+
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
 | flag | Number | 是 | 是否开启，0：关闭；1：开启|
