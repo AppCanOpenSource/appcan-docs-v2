@@ -24,9 +24,11 @@
 `uexNBListView.openCustom(params);`
 
 **说明:**
+
 打开自定义布局列表
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -131,10 +133,12 @@ var params ={
 | visible | Number | 否 | 是否可见，0-可见并占位；1-不可见但占位；2-不可见不占位 |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
@@ -274,15 +278,18 @@ iOS3.0.0+
 关闭自定义布局列表
 
 **参数:**
+
 ```
 var params = []//唯一标识符数组
 ```
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
@@ -299,9 +306,11 @@ iOS3.0.0+
 `uexNBListView.setCustomItems(params);`
 
 **说明:**
+
 设置列表数据，也可以刷新列表数据。原列表数据会被清空。
 
 **参数:**
+
 ```
 var params =[
     listViewId:,
@@ -396,6 +405,7 @@ iOS3.0.0+
 根据索引插入数据，若索引大于或等于当前列表长度，则直接插入到列表末尾。
 
 **参数:**
+
 ```
 var params ={
     listViewId:,

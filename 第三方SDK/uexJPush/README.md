@@ -315,16 +315,18 @@ uexJPush.getConnectionState();
 >### addLocalNotification  添加一个本地通知
 
 
-`uexJPush.addLocalNotification(json)`
+`uexJPush.addLocalNotification(data)`
 
 **参数**
 
+data是json字符串
+
 ```
-var json={
+var data={
 	builderId:,//long 设置本地通知样式(仅Android有效)
 	title:,//本地通知的title
 	content:,//设置本地通知的content
-	extras:,//额外的数据信息extras为json字符串
+	extras:,//额外的数据信息extras为json
 	notificationId:,//int 设置本地通知的ID
 	broadCastTime:,//long 设置本地通知延迟触发时间，毫秒为单位，如设置10000为延迟10秒添加通知
 };
@@ -765,8 +767,10 @@ var param={
 };
 ```
 
-* iOS仅点击APNs推送或者本地推送打开应用时，才会触发此监听
-* 由于iOS APP退出后缓存可能会被清除，所以本地通知的extras可能获取不到
+* <del>iOS仅点击APNs推送或者本地推送打开应用时，才会触发此监听</del>
+	*  iOS 3.0.7之后的版本已经可以正常获取到全部点击事件
+* <del>由于iOS APP退出后缓存可能会被清除，所以本地通知的extras可能获取不到</del>
+	* iOS 3.0.7之后的版本已经可以正常获取到extras
 * iOS 3.0.5+的版本才能捕获本地通知,才会有isAPNs这个参数
 
 
@@ -960,11 +964,12 @@ $UEXJPUSH_APS_ENVIRONMENT$ -->推送证书类型   0-开发者证书(developemen
 #4、更新历史
 
 API 版本：uexJPush-3.0.5(iOS) uexJPush-3.0.6（Android）
- 最近更新时间：2015-10-20
+ 最近更新时间：2015-12-1
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
-| 3.0.6  |   | 修复重新登陆后消息记录remoteUrl为空的问题|
+| 3.0.7  |现在应用在后台时，点击推送，会正确的触发onReceiveNotificationOpen | |
+| 3.0.6  |修复root页面回调失效的bug   | 修复重新登陆后消息记录remoteUrl为空的问题|
 | 3.0.5  | 新增接口disableLocalNotificationAlertView  | 支持声音和震动；支持离线消息|
 | 3.0.4  | 新增接口setBadgeNumber  | getGroup添加groupName,groupDescription字段；getChatterInfo返回新加好友的聊天记录|
 | 3.0.3  | 修改推送的extras为字典格式    | 修复4.4以下版本点击通知闪退的问题  |
