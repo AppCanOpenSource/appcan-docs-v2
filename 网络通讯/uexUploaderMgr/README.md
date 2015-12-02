@@ -201,12 +201,17 @@ window.uexOnload = function(){
 ```
 
 # 3、更新历史
-API 版本：uexUploaderMgr-3.0.7(iOS) uexUploaderMgr-3.0.4（Android）
-最近更新时间：2015-08-21
+API 版本：uexUploaderMgr-3.0.13(iOS) uexUploaderMgr-3.0.4（Android）
+最近更新时间：2015-12-01
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
-
+| 3.0.13  | 修改了上传进度条达不到100%  |   |
+| 3.0.12  | 修改clean方法,setAppVerify新增加appId的信息  |   |
+| 3.0.11  | 验证的请求头的中的appid与key不匹配  |   |
+| 3.0.10  | 判断当前的验证的请求头的属于的应用  |   |
+| 3.0.9  | 当调用setHeader接口时，设置的请求头会为空  |   |
+| 3.0.8  | 修改验证appkey的方法  |   |
 | 3.0.7  | 修改了请求头的验证  |   |
 | 3.0.6  | 支持https  |   |
 | 3.0.5  | 统一uexUploaderMgr插件Android和iOS的请求超时时间  |   |
