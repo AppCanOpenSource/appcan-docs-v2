@@ -240,11 +240,12 @@ uexInputTextFieldView.onCommitJson = onCommitJson;
  
 
 # 3、更新历史
-API 版本：uexInputTextFieldView-3.0.4(iOS) uexInputTextFieldView-3.0.10(Android)
-最近更新时间：2015-11-27
+API 版本：uexInputTextFieldView-3.0.4(iOS) uexInputTextFieldView-3.2.11(Android)
+最近更新时间：2015-12-03
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
+| 3.2.11 |  | 修复关闭输入框时,键盘未自动收起的问题|
 | 3.0.10 |  | 去掉插件中的ActivityGroup,配合引擎升级|
 | 3.0.9 |  | 增加输入框自动获取焦点接口|
 | 3.0.8 |  | 修改EditText和webview中的输入框抢焦点的问题|

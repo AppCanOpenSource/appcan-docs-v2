@@ -307,11 +307,12 @@ uexDownloaderMgr.onStatus = function(opCode,fileSize,percent,status){
 
 # 3、更新历史
 
-API 版本：uexDownloaderMgr-3.0.11(iOS) uexDownloaderMgr-3.0.11（Android）
-最近更新时间：2015-11-20
+API 版本：uexDownloaderMgr-3.0.12(iOS) uexDownloaderMgr-3.0.11（Android）
+最近更新时间：2015-12-01
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.12  | 修改了下载时进度条不动的BUG  |    |
 | 3.0.11  | 修改请求的变量  | 修复调用cancelDownload之后，即使不清除已下载的临时文件，下次下载时不能断点续传的问题  |
 | 3.0.10  | 修改clean方法  | 增加新的 header以及plugin里面的子应用的appId和appkey都按照主应用为准  |
 | 3.0.9  | 验证的请求头的中的appid与key不匹配  | 增加appVerify校验头  |

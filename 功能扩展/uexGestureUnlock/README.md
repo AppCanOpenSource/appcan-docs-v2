@@ -98,7 +98,7 @@ uexGestureUnlock.resetGestureCode();
 |key|value 类型|说明|默认值|备注|
 |---|---|---|---|---|
 |minimumCodeLength|Number|设置密码时的最短长度|4|至少为1|
-|maximubAllowTrialTimes|Number|验证密码时的最多尝试次数|5|设置为0时表示没有上限，|
+|maximumAllowTrialTimes|Number|验证密码时的最多尝试次数|5|设置为0时表示没有上限，|
 |errorRemainInterval|Number|错误状态的保留时间|1.0||
 |successRemainInterval|Number|操作成功后的保留时间|0.2|操作成功后，经过此时间之后才会关闭插件UI|
 |backgroundColor|String|手势解锁界面的背景色|"#F1F1F1"|支持 3位6位8位的HEXcolor/ RBG / RBGA |
@@ -109,7 +109,7 @@ uexGestureUnlock.resetGestureCode();
 |codeLengthErrorPrompt|String|密码长度低于最短长度的错误提示文字|"请至少连续绘制%d个点"|%d会被替换成当前的最短密码长度|
 |codeCheckPrompt|String|确认手势手势密码，要求再次绘制的提示文字|"请再次绘制手势密码"||
 |checkErrorPrompt|String|再次绘制的图案不一致的提示文字|"与首次绘制不一致，请再次绘制"||
-|creationBeginPrompt|String|设置手势密码成功的提示文字|"手势密码设置成功"||
+|creationSucceedPrompt|String|设置手势密码成功的提示文字|"手势密码设置成功"||
 |verificationBeginPrompt|String|验证手势前的提示文字|"请验证手势密码"||
 |verificationErrorPrompt|String|验证手势密码失败的提示文字|"验证错误!您还可以尝试%d次"|%d会被替换成当前剩余次数|
 |verificationSucceedPrompt|String|验证手势密码成功的提示文字|"验证通过"||
