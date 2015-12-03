@@ -53,7 +53,7 @@ Path Types
  | wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ | 
  | file:///sdcard/ | /storage/emulated/0/ | 无 | 
  
-
+##1.5、Android 插件配置
 
  
 
@@ -69,7 +69,7 @@ param为json字符串
 ```
   var param{
   
-	appKey:,//区别app的标识（仅iOS）     
+	appKey:,//区别app的标识   
 	apnsCertName:,//iOS中推送证书名称（仅iOS）
 	isAutoLoginEnabled:,//可选参数 是否开启自动登录功能 1-开启 2-关闭
      
@@ -77,8 +77,7 @@ param为json字符串
 };
 ```
 
-	注：Android中 初始化需要在AndroidManifest.xml中配置；
-	   自动登录功能Android SDK 默认开启，iOS SDK默认关闭。
+	注：自动登录功能Android SDK 默认开启，iOS SDK默认关闭。
 	
 >### login(param)   登录
 
@@ -1273,8 +1272,8 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 
 #4、更新历史
-API 版本：uexEasemob-3.0.14(iOS) uexEasemob-3.0.14（Android）
-最近更新时间：2015-10-19
+API 版本：uexEasemob-3.0.14(iOS) uexEasemob-3.0.17（Android）
+最近更新时间：2015-12-3
 
   历史发布版本 | iOS更新 | 安卓更新
   ------------ | ------------ | ------------ 
@@ -1295,6 +1294,9 @@ API 版本：uexEasemob-3.0.14(iOS) uexEasemob-3.0.14（Android）
   3.0.0 | 环信(Easemob)插件 for iOS | 环信插件 
 
 ## 文档更新
+**2015-12-3**
+
+- Android支持接口配置appKey，无需自定义插件
 
 **2015-8-18**
 
