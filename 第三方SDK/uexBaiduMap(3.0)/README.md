@@ -2403,12 +2403,13 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 # 3、更新历史
  
  
-**API 版本:uexBaiduMap-3.1.15(iOS) uexBaiduMap-3.2.27(Android)**
+**API 版本:uexBaiduMap-3.1.15(iOS) uexBaiduMap-3.2.28(Android)**
 
-**最近更新时间:2015-11-24**
+**最近更新时间:2015-12-03**
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ----- | ----- | ----- |
+| 3.2.28| |修复open接口传入的中心点不生效的问题|
 | 3.2.27| |修改插件，使其支持config配置APIKey|
 | 3.1.26| |去掉插件中的ActivityGroup,配合引擎升级|
 | 3.1.25| |国际化|
