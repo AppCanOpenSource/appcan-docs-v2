@@ -88,12 +88,37 @@ uexGestureUnlock.resetGestureCode();
 **说明**
 
 * 配置插件的相关属性
-
-**参数**
-
-* param为key-value结构的json字符串
 * 每次调用此接口，均会覆盖之前的配置
 * 所有的key均是可选参数，不传时会设置为默认值
+
+**参数**
+```
+var params = {
+    minimumCodeLength:,
+    maximumAllowTrialTimes:,
+    errorRemainInterval:,
+    successRemainInterval:,
+    backgroundColor:,
+    normalThemeColor:,
+    selectedThemeColor:,
+    errorThemeColor:,
+    creationBeginPrompt:,
+    codeLengthErrorPrompt:,
+    codeCheckPrompt:,
+    checkErrorPrompt:,
+    creationSucceedPrompt:,
+    verificationBeginPrompt:,
+    verificationErrorPrompt:,
+    verificationSucceedPrompt:,
+    cancelVerificationButtonTitle:,
+    cancelCreationButtonTitle:,
+    restartCreationButtonTitle:,
+    backgroundImage:,
+    iconImage:
+}
+```
+
+各字段含义如下：
 
 |key|value 类型|说明|默认值|备注|
 |---|---|---|---|---|
@@ -118,8 +143,6 @@ uexGestureUnlock.resetGestureCode();
 |restartCreationButtonTitle|String|重新设置手势密码的按钮文字|"重新设置手势密码"||
 |backgroundImage|String|背景图的文件路径|无|图片不存在时不会显示，只支持file:// wgt:// res://|
 |iconImage|String|头像的文件路径|无|同上|
-
-
 
 **平台支持**
 
@@ -178,7 +201,7 @@ uexGestureUnlock.verify();
 
 > ###create 设置手势密码
 
-`uexGestureUnlock.create(flag);`
+`uexGestureUnlock.create(params);`
 
 **说明**
 
@@ -189,10 +212,16 @@ uexGestureUnlock.verify();
 * 验证过程结束会有回调[cbCreate 设置手势密码的回调方法](#cbCreate 设置手势密码的回调方法)
 
 **参数**
+```
+var params = {
+    isNeedVerifyBeforeCreate:
+}
+```
+各字段含义如下：
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
-| flag | Number | 否，不传默认为0 | flag传非0时，会强制跳过验证手势密码的步骤 |
+| isNeedVerifyBeforeCreate | Boolean | 否 | 创建密码之前是否需要验证已经设置的手势密码，默认为true。当为false时，会强制跳过验证手势密码的步骤直接设置新密码 |
 
 **平台支持**
 
@@ -207,8 +236,12 @@ iOS 3.0.0+
 **示例**
 
 ```
-uexGestureUnlock.create(0);
+        var data={
+            isNeedVerifyBeforeCreate:false
+        }
+        uexGestureUnlock.create(JSON.stringify(data));
 ```
+
 > ###cancel 终止手势密码验证/设置过程
 
 `uexGestureUnlock.cancel();`
