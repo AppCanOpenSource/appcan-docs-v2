@@ -29,8 +29,8 @@
             backgroundImage:"res://bgImage.jpg",
             iconImage:"res://icon.png",
             normalThemeColor:"#F1F1F1",
-            selectedThemeColor:"rgb(33,233,164)",
-            errorThemeColor:"rgba(253,196,215,0.6)",
+            selectedThemeColor:"#00ff00",
+            errorThemeColor:"#ff0000",
             cancelVerificationButtonTitle:"切换其他账号",
             minimumCodeLength:5
         }
@@ -40,7 +40,12 @@
         setTimeout("uexGestureUnlock.cancel();",5000);
     }
 
-
+    function createGesture(){
+        var data={
+            isNeedVerifyBeforeCreate:true
+        }
+        uexGestureUnlock.create(JSON.stringify(data));
+    }
     </script>
 </head>
 
@@ -54,7 +59,7 @@
             
             <br>
             <input class="btn" type="button" value="verify" onclick="uexGestureUnlock.verify();"/>
-            <input class="btn" type="button" value="create" onclick="uexGestureUnlock.create(0);">
+            <input class="btn" type="button" value="create" onclick="createGesture()">
             <br>
             <input class="btn" type="button" value="点击此按钮后5s,执行cancel" onclick="cancel()">
             
