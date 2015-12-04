@@ -408,7 +408,7 @@ var param={
 
 ```
 window.uexOnload=function(type){
-	uexImage.onEventOccur=function(info){
+	uexGestureUnlock.onEventOccur=function(info){
 		alert(info);
 	}
 }
@@ -449,10 +449,10 @@ window.uexOnload=function(type){
 # 4、更新历史
  
 
-`API 版本:iOS:uexGestureUnlock-3.0.0 Android:开发中`
+`API 版本:uexGestureUnlock-3.0.0(iOS) uexGestureUnlock-3.0.0（Android）`
 
-`最近更新时间:2015-11-24`
+`最近更新时间:2015-12-04`
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ----- | ----- | ----- |
-| 3.0.0 | uexGestureUnlock 发布 |  |
+| 3.0.0 | uexGestureUnlock 发布 | uexGestureUnlock 发布 |
