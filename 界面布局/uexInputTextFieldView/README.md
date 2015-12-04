@@ -240,8 +240,8 @@ uexInputTextFieldView.onCommitJson = onCommitJson;
  
 
 # 3、更新历史
-API 版本：uexInputTextFieldView-3.0.4(iOS) uexInputTextFieldView-3.0.10(Android)
-最近更新时间：2015-11-27
+API 版本：uexInputTextFieldView-3.0.5(iOS) uexInputTextFieldView-3.0.10(Android)
+最近更新时间：2015-12-04
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
@@ -250,7 +250,7 @@ API 版本：uexInputTextFieldView-3.0.4(iOS) uexInputTextFieldView-3.0.10(Andro
 | 3.0.8 |  | 修改EditText和webview中的输入框抢焦点的问题|
 | 3.0.7 |  | 修改open接口，可设置发送按钮颜色和按钮字体的颜色。|
 | 3.0.6 |  | 修改发送按钮为默认显示|
-| 3.0.5 |  | 修复点击输入框再点击物理返回键，直接退出插件问题|
+| 3.0.5 | 修改键盘弹出时页面弹动，修改键盘收回时遮挡评论 | 修复点击输入框再点击物理返回键，直接退出插件问题|
 | 3.0.4 | 点击空白处收回键盘，添加setInputFocused接口，添加changeWebViewFrame接口，修改输入单引号收不到信息 | 修改open接口|
 | 3.0.3 | open接口参数改为json类型，添加placehold参数，可以设置输入框里默认显示的文字 | 修复插件关闭时系统键盘还显示问题|
 | 3.0.2 | 动画优化 | 修复第二次打开界面空指针问题|
