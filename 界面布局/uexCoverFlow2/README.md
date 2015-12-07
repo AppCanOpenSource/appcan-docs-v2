@@ -48,7 +48,7 @@ uexCoverFlow2.setJsonData(jsonStr, "res://Default.png");
 ```
 > ### open 打开视图
 
-`uexCoverFlow2.open(id,x,y,width,height)`
+`uexCoverFlow2.open(id,x,y,width,height,addToWebView)`
 **说明：**
 打开视图
 **参数:**
@@ -60,6 +60,7 @@ uexCoverFlow2.setJsonData(jsonStr, "res://Default.png");
 | y  | Number类型  |必选   | y坐标  |
 | width  | Number类型  |必选   | 宽  |
 | height  | Number类型  |必选   | 高  |
+| addToWebView  | Number类型  |可选   | 是否添加到webview跟随webview滚动.0正常打开,不跟随.1为添加到webview,跟随滚动  |
  
 **平台支持:**
 Android2.2+
@@ -68,7 +69,7 @@ iOS6.0+
 3.0.0+
 **示例:**
 ```
-uexCoverFlow2.open("510", "20", "200", "240", "250");
+uexCoverFlow2.open("510", "20", "200", "240", "250","0");
 ```
 > ### close 关闭视图
 
@@ -116,15 +117,16 @@ window.uexOnload = function(){
 }
 ```
 # 3、更新历史
-API 版本：uexCoverFlow2-3.0.2(iOS) uexCoverFlow2-3.0.6（Android）
-最近更新时间：2015-11-06
+API 版本：uexCoverFlow2-3.0.3(iOS) uexCoverFlow2-3.0.7（Android）
+最近更新时间：2015-12-07
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.7  |   | open接口添加跟随webview滚动参数,部分逻辑优化  |
 | 3.0.6  |   | 去掉插件中的ActivityGroup,配合引擎升级  |
 | 3.0.5  |   | 修复open接口传入小数时异常的问题  |
 | 3.0.4  |   | 1.修复图片小于4张一直显示默认图片的问题；2.修复开启硬件加速后，图片歪的问题。  |
-| 3.0.3  |   | 修复图片倒影问题  |
+| 3.0.3  |  修改View可以跟随网页滑动 | 修复图片倒影问题  |
 | 3.0.2  |  使用新版Xcode重新编译,支持arm64 | 修复图片显示被截断的问题  |
 | 3.0.1  | 去掉图片底部的标题栏| 修改网络图片不显示，去掉白色边框和倒影|
 | 3.0.0  | 旋转木马功能插件  | 旋转木马功能插件|
