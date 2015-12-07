@@ -169,7 +169,7 @@ iOS6.0+
 3.0.0+    
 
 # 3、更新历史
-API 版本：uexTimeMachine-3.0.2(iOS) uexTimeMachine-3.0.4（Android）
+API 版本：uexTimeMachine-3.0.2(iOS) uexTimeMachine-3.0.5（Android）
 最近更新时间：2015-12-07
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
