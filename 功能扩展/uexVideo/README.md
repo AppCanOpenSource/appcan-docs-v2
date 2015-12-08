@@ -2,7 +2,7 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 视频播放插件
 ## 1.1、说明
- 封装视频播放和录制相关操作
+  封装视频播放和录制相关操作，支持本地路径和网络地址。Android 平台上支持的的视频文件格式有：MP4、3gp；IOS 平台上支持的视频文件格式有：MOV，MP4，M4V。
 ## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/152402p2015k6n7f.jpg)
  ![](http://newdocx.appcan.cn/docximg/151401g2015e6r7v.jpg)

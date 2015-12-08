@@ -117,11 +117,12 @@ iOS6.0+
         </appcan></appcan></appcan></appcan>
 ```
 #3、更新历史
- API 版本：uexLocalNotification-3.0.3(iOS) uexLocalNotification-3.0.6（Android）
- 最近更新时间：2015-06-19
+ API 版本：uexLocalNotification-3.0.3(iOS) uexLocalNotification-3.0.7（Android）
+ 最近更新时间：2015-12-07
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.7 |   | 修复部分机型闪退的问题  |
 | 3.0.6 |   | 修复应用在后台被杀后无法通知的问题  |
 | 3.0.5  |   | 解决查看通知后通知不关闭的问题， 解决不能删除本地通知的问题  |
 | 3.0.4 |   | 解决铃声不响问题  |
