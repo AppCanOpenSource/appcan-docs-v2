@@ -1,4 +1,4 @@
-﻿
+
 
 　对appcan私有的异步请求进行封装（即官方的uexXmlHttpMgr插件，打包时需要使用的到这个插件）并增加offline参数实现请求数据离线缓存功能
 
@@ -14,7 +14,7 @@
     options.certificate({password:'',path:'default'})
        　 password:数字证书密码。当使用appcan默认证书时，此参数为空(或””)
        　 path:路径，支持 file://,res://,wgt://等协议路径，详见CONSTANT中PathTypes。 当传入‘default’时，本次请求将取appcan默认数字证书。
-    options.url:要请求的地址 注：get方式请求中携带中文参数，需要对参数进行encode编码，具体函数：encodeuricomponent
+    options.url:要请求的地址 注：get方式请求中携带中文参数，需要对参数进行encode编码，具体函数：encodeURIComponent
     options.data:要请求的URL的参数,如果要上传文件则data数据中必须传一个对象包含一个path的key 例如：data:{file:{path:'a.jpeg'}}上传a.jpeg图片
     options.contentType:默认: false 要传给服务端的数据内容的'content-Type'通过header,如果设置其他content将会直接把data发送出去
     options.dataType:服务端的响应类型，包括json, jsonp, script, xml, html, text中的一种
@@ -189,7 +189,7 @@ appcan.ajax({
  options:发起ajax的请求的参数，这个必须是一个对象
  options.type:请求的类型，包括GET、POST等
  options.appVerify:是否在请求头中加入appVerify字段 true、false
- options.url:要请求的地址 注：get方式请求中携带中文参数，需要对参数进行encode编码，具体函数：encodeuricomponent
+ options.url:要请求的地址 注：get方式请求中携带中文参数，需要对参数进行encode编码，具体函数：encodeURIComponent
  options.data:要请求的URL的参数,如果要上传文件则data数据中必须传一个对象包含一个path的key 例如：data:{file:{path:'a.jpeg'}}上传a.jpeg图片
  options.contentType:默认: false 要传给服务端的数据内容的'content-Type'通过header,如果设置其他content将会直接把data发送出去
  options.dataType:服务端的响应类型，包括json, jsonp, script, xml, html, text中的一种
