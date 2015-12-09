@@ -35,7 +35,7 @@ iOS 6.0+
 **示例:**
 
 ```
-uexUploaderMgr.createUploader(1, "http://te.3g2win.com/pidginimg/upload.php"");
+uexUploaderMgr.createUploader(1, "http://te.3g2win.com/pidginimg/upload.php");
 ```
 
 > ### closeUploader 关闭上传对象
