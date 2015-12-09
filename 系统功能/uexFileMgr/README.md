@@ -1215,7 +1215,7 @@ iOS6.0+
 
 **示例:**
 ```
-        uexFileMgr.cbWriteFile(opCode,dataType,data) {
+        uexFileMgr.cbWriteFile = function(opCode,dataType,data) {
             alert(data);
         }
 ```
