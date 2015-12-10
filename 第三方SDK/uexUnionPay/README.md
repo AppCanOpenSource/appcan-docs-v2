@@ -62,7 +62,7 @@ iOS 3.0.0+
 
 `uexUnionPay.cbStartPay(data)`
 
-** 参数:**
+**参数:**
 ```
 var data = {
     payResult:
@@ -78,10 +78,10 @@ var data = {
 Android2.2+
 iOS6.0+
 
-** 版本支持:**
+**版本支持:**
 3.0.0+
 
-**  示例:**
+**示例:**
 ```
     uexUnionPay.cbStartPay = function(data){
         alert(data);
@@ -97,6 +97,7 @@ iOS6.0+
 | 3.0.0  | UnionPay银联支付插件  | UnionPay银联支付插件|
  
 # 4、附录
+
 ### PayResult
 | value | 说明 |
 | ---- | ---- |
