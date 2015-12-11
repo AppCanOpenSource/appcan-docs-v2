@@ -1186,7 +1186,7 @@ action | 具体命令
 >###位置消息
 key | 说明         
 -------- | ------ 
-longitute | 经度
+longitude | 经度
 latitude | 纬度
 address | 地理位置信息
 
