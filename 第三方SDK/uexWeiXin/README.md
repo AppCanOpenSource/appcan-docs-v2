@@ -780,7 +780,8 @@ var json = {
     thumbImg:,//(必选)缩略图地址Url（大小必须小于32k）
     wedpageUrl:,//(必选)链接的地址
     scene:,//(必选)发送的目标场景 0-会话场景 1-朋友圈场景
-    title://(必选)链接的标题
+    title:,//(必选)链接的标题
+    description://(必选)描述
 }
 ```
 ![](http://newdocx.appcan.cn/docximg/174228b2015w0k14h.png)
@@ -808,7 +809,7 @@ uexWeiXin.cbShareLinkContent=function(data){
 alert(data);
 };}
 function shareLinkContent(){
-var JsonData = '{"thumbImg":"res://icon.png","wedpageUrl":"http://www.appcan.cn","scene":1,"title":"你好,我是AppCan"}';
+var JsonData = '{"thumbImg":"res://icon.png","wedpageUrl":"http://www.appcan.cn","scene":1,"title":"你好,我是AppCan","description":"你好,我是AppCan描述"}';
 uexWeiXin.shareLinkContent(JsonData);
 
 }
