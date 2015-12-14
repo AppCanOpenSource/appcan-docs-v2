@@ -323,7 +323,7 @@ iOS6.0+
             }
         ]
     };
-    uexListView.insertItemAt(JSON.stringify(params));
+    uexListView.appendItems(JSON.stringify(params));
 ```
 > ### reloadItems 刷新数据
 

@@ -600,7 +600,7 @@ uexWidget.setPushState(0);
  
 **说明:**
 
-  关闭启动图。用于应用启动期间需要做页面跳转等逻辑。需要在config.xml 添加配置 `<removeloading>true<removeloading>`。添加之后引擎不会关闭启动图，由前端调用此接口关闭。超时（时间为3秒）之后引擎才会关闭启动图。
+  关闭启动图。用于应用启动期间需要做页面跳转等逻辑。需要在config.xml 添加配置 `<removeloading>true</removeloading>`。添加之后引擎不会关闭启动图，由前端调用此接口关闭。超时（时间为3秒）之后引擎才会关闭启动图。
   
   
 **参数:**

@@ -326,6 +326,44 @@ iOS6.0+
 ```
 uexAudio.closeSoundPool()；
 ```
+> ### setPlayMode 设置播放模式
+
+`uexAudio.setPlayMode(jsonStr)`
+
+**说明:**
+设置声音播放模式
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| jsonStr | String | 是 | 设置声音播放模式 |
+
+```
+var params = {
+    playMode:'0'
+    }
+```
+各字段含义如下：
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| playMode | String | 是 | 播放模式：0为正常扩音器模式;1为听筒模式; |
+
+**平台支持:**
+Android2.2+
+
+**版本支持:**
+  Android 3.0.6+
+  
+**示例:**
+```
+var param = {
+ playMode:'1'
+};
+param = JSON.stringify(param);
+uexAudio.setPlayMode(param)；
+```
 ## 2.2、回调方法
 > ### cbRecord  打开录音界面的回调方法
 
@@ -415,8 +453,8 @@ window.uexOnload = function(){
 ```
 # 3、更新历史
 
-API 版本：uexAudio-3.0.10(iOS) uexAudio-3.0.5（Android）
-最近更新时间：2015-06-19
+API 版本：uexAudio-3.0.10(iOS) uexAudio-3.0.6（Android）
+最近更新时间：2015-12-07
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
@@ -425,7 +463,7 @@ API 版本：uexAudio-3.0.10(iOS) uexAudio-3.0.5（Android）
 | 3.0.9  | 更新lame库 |   |
 | 3.0.8  | 修复在iOS8.2/8.3下可能会引起程序崩溃的bug |    |
 | 3.0.7  | 使用音频界面录制音频支持mp3格式 |   |
-| 3.0.6  | 修复第二次录制MP3时录制CAF的BUG |   |
+| 3.0.6  | 修复第二次录制MP3时录制CAF的BUG | 添加听筒模式接口,修复小米手机音量设置无效的问题  |
 | 3.0.5  | 修复播放网络音频没有回调的问题 |修复uexAudio.record方法不支 持录音文件存储为.mp3格式的问题   |
 | 3.0.4 | 修复播放网络音频无法循环播放的问题 | 修复多次点击播放音效不能关闭的问题  |
 | 3.0.3  | uexAudio更新libopencore-amrnb.a, libopencore-amrwb.a,libmp3lame.a,支持arm64 | 修复录音文件名不正确  |

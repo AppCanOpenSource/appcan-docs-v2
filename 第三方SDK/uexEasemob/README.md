@@ -53,9 +53,6 @@ Path Types
  | wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ | 
  | file:///sdcard/ | /storage/emulated/0/ | 无 | 
  
-##1.5、Android 插件配置
-
- 
 
 
 #2、API概述		
@@ -68,12 +65,9 @@ param为json字符串
 
 ```
   var param{
-  
 	appKey:,//区别app的标识   
 	apnsCertName:,//iOS中推送证书名称（仅iOS）
 	isAutoLoginEnabled:,//可选参数 是否开启自动登录功能 1-开启 2-关闭
-     
-	
 };
 ```
 
@@ -1192,7 +1186,7 @@ action | 具体命令
 >###位置消息
 key | 说明         
 -------- | ------ 
-longitute | 经度
+longitude | 经度
 latitude | 纬度
 address | 地理位置信息
 
@@ -1272,11 +1266,14 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 
 #4、更新历史
-API 版本：uexEasemob-3.0.14(iOS) uexEasemob-3.0.17（Android）
+API 版本：uexEasemob-3.0.15(iOS) uexEasemob-3.0.17（Android）
 最近更新时间：2015-12-3
 
   历史发布版本 | iOS更新 | 安卓更新
-  ------------ | ------------ | ------------ 
+  ------------ | ------------ | ------------
+  3.0.17 | |支持initEasemob配置key
+  3.0.16| |修复退出再登陆，聊天记录只有一条的问题  
+  3.0.15 |SDK版本更新至V2.2.0r1 修复iOS和Android之间互发消息时ext属性丢失的bug |去掉特殊字符
   3.0.14 | cbLogin 返回信息key修改为"msg"|修复CMD消息json不能解析的问题
   3.0.13 | 修复发送位置经度为0的bug|修复重新登陆后消息记录remoteUrl为空的问题|
   3.0.12 | 新增API:onGroupCreated | 发送附件支持wgt,wgts协议
