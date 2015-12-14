@@ -1,77 +1,116 @@
-﻿[TOC]
+[TOC]
 
-#1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 系统联系人插件
-##1.1、说明
+
+## 1.1、说明
 打开，添加，删除，查找，修改联系人等功能。
-##1.2、UI展示
+
+## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/152401g2015a6l7b.jpg)
-##1.3、开源源码
+
+## 1.3、开源源码
 插件测试用例与源码下载：[点击](http://plugin.appcan.cn/details.html?id=161_index) 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
-#2、API概览
- ##2.1、方法
-> ### open　打开联系人界面
+
+# 2、API概览
+
+## 2.1、方法
+
+> ### open 打开联系人界面
+
 `uexContact.open()`
+
 **说明:**
-打开联系人应用，将选中的联系人的姓名，电话，邮件通过cbOpen回调，每次只能选择一个联系人。回调方法[cbOpen](#cbOpen　打开联系人界面的回调方法)
+打开联系人应用，将选中的联系人的姓名，电话，邮件通过cbOpen回调，每次只能选择一个联系人。回调方法[cbOpen](#cbOpen 打开联系人界面的回调方法)
+
 **参数:**
 无
+
 **平台支持:**
-Android2.2+
+Android2.2+    
 iOS6.0+
+
 **版本支持:**
 3.0.0+
+
 **示例:**
 
 ```
 uexContact.open();
 ```
-> ### multiOpen　　打开联系人选择界面
+
+> ### multiOpen 打开联系人选择界面
 
 `uexContact.multiOpen()`
+
 **说明:**
-打开联系人选择界面，该界面中的数据是当前设备上所有联系人的信息，支持多选。回调方法[cbMultiOpen](#cbMultiOpen　打开联系人选择界面的回调方法)
+打开联系人选择界面，该界面中的数据是当前设备上所有联系人的信息，支持多选。回调方法[cbMultiOpen](#cbMultiOpen 打开联系人选择界面的回调方法)
+
 **参数:**
   无
+
 **平台支持:**
-Android2.2+
+Android2.2+    
 iOS6.0+
-** 版本支持:**
+
+**版本支持:**
 3.0.0+
-** 示例:**
+
+**示例:**
 
 ```
 uexContact.multiOpen();
 ```
-> ### addItem　添加联系人
 
-`uexContact.addItem(name,num,email)`
-** 说明:**
+> ### addItem 添加联系人
 
+`uexContact.addItem(name,num,email,option)`
+
+**说明:**
 添加联系人
-**  参数:**
+
+**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | name | String | 是 |  名称 |
 | num| Number | 是 | 电话号码 |
 | email | String | 是 | 邮件 |
+| option | String | 否 | 添加联系人配置,json格式字符串，如下： |
+
+```
+var option = {
+    isNeedAlertDialog:
+}
+```
+各字段含义如下：
+
+|  字段名称 | 类型  | 是否必选  |  说明 |
+| ------- | ------- | -------- | ------ |
+| isNeedAlertDialog | Boolean | 否 | 添加过程中是否需要弹出“确认添加”提示框，默认为true，弹出提示框 |
 
 **平台支持:**
-Android2.2+
+Android2.2+    
 iOS6.0+
+
 **版本支持:**
 3.0.0+
-**示例:**
 
+**示例:**
 ```
-uexContact.addItem("张三","13436827900","widgetone@3g2win.com");
+var option = {
+    isNeedAlertDialog:false
+}
+uexContact.addItem("张三","13436827900","widgetone@3g2win.com",JSON.stringify(option));
 ```
-> ### deleteItem　删除联系人
+
+> ### deleteItem 删除联系人
 
 `uexContact.deleteItem(name)`
+
 **说明:**
-删除联系人 回调方法[cbDeleteItem](#cbDeleteItem　删除联系人的回调方法)
+删除联系人 回调方法[cbDeleteItem](#cbDeleteItem 删除联系人的回调方法)
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -79,42 +118,64 @@ uexContact.addItem("张三","13436827900","widgetone@3g2win.com");
 | name | String | 是 |  名称 |
 
 **平台支持:**
-Android2.2+
+Android2.2+    
 iOS6.0+
+
 **版本支持:**
 3.0.0+
+
 **示例:**
-
 ```
-uexContact.deleteItem(“张三“);
+uexContact.deleteItem("张三");
 ```
-> ### searchItem　查询联系人
 
-`uexContact.searchItem(nameKey)`
+> ### searchItem 查询联系人
+
+`uexContact.searchItem(nameKey, option)`
+
 **说明:**
-查询联系人 回调方法[cbSearchItem](#cbSearchItem　查询联系人的回调方法)
- ** 参数:**
+查询联系人 回调方法[cbSearchItem](#cbSearchItem 查询联系人的回调方法)
+
+**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
-| nameKey | String | 是 |  名称 |
+| nameKey | String | 是 |  名称，传空字符串时，查询通讯录中所有联系人|
+| option | String | 否 | 搜索配置,json格式字符串，如下： |
+
+```
+var option = {
+    resultNum:
+}
+```
+各字段含义如下：
+
+|  字段名称 | 类型  | 是否必选  |  说明 |
+| ------- | ------- | -------- | ------ |
+| resultNum | Number | 否 | 一次最多返回的结果条数，默认为50条，-1表示一次返回所有结果 |
 
 **平台支持:**
-Android2.2+
+Android2.2+    
 iOS6.0+
+
 **版本支持:**
 3.0.0+
-**示例:**
 
+**示例:**
 ```
-uexContact.searchItem(“张三“);
+var option = {
+    resultNum:-1//-1表示一次返回所有结果
+}
+uexContact.searchItem("张三", JSON.stringify(option));
 ```
-> ### modifyItem　修改联系人
+
+> ### modifyItem 修改联系人
 
 `uexContact.modifyItem(name,num,email)`
-**说明:**
 
-修改联系人 回调方法[cbModifyItem](#cbModifyItem　修改联系人的回调方法)
+**说明:**
+修改联系人 回调方法[cbModifyItem](#cbModifyItem 修改联系人的回调方法)
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -124,20 +185,24 @@ uexContact.searchItem(“张三“);
 | email | String | 是 | 邮件 |
 
 **平台支持:**
-Android2.2+
+Android2.2+    
 iOS6.0+
+
 **版本支持:**
   3.0.0+
-**示例:**
 
+**示例:**
 ```
 uexContact.modifyItem("张三","13436827900","widgetone@3g2win.com");
 ```
-> ### addItemWithVCard　添加联系人
+
+> ### addItemWithVCard 添加联系人
 
 `uexContact.addItemWithVCard(data,type)`
+
 **说明:**
-添加联系人 回调方法[cbAddItem](#cbAddItem　添加联系人的回调方法)
+添加联系人 回调方法[cbAddItem](#cbAddItem 添加联系人的回调方法)
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -146,20 +211,23 @@ uexContact.modifyItem("张三","13436827900","widgetone@3g2win.com");
 | type| Number | 是 | 是否显示提示框，1-不显示，其余情况显示。 |
 
 **平台支持:**
-Android2.2+
+Android2.2+    
 iOS6.0+
+
 **版本支持:**
 3.0.0+
-**示例:**
 
+**示例:**
 ```
 uexContact.addItemWithVCard(`BEGIN:VCARD\nVERSION:3.0\nN:韩;超\nTEL:22334752\nEMAIL:zhuliang@ceair.com
 \nADR:;;绥宁路628号;;上海;200335\nORG:中国东方航空股有限公司\nTITLE:项目经理\nURL:mp.ceair.com\nNOTE:名\347\211\214二维码\nEND:VCARD`);
 ```
-##2.2   回调方法
-> ### cbOpen　打开联系人界面的回调方法
+## 2.2、回调方法
+
+> ### cbOpen 打开联系人界面的回调方法
 
 `uexContact.cbOpen(opId,dataType,data)`
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -170,8 +238,8 @@ uexContact.addItemWithVCard(`BEGIN:VCARD\nVERSION:3.0\nN:韩;超\nTEL:22334752\n
 
 **版本支持:**
 3.0.0+
-**示例:**
 
+**示例:**
 ```
 window.uexOnload = function(){
     uexContact.cbOpen = function(opCode, dataType, data) {
@@ -180,9 +248,11 @@ window.uexOnload = function(){
    }
 }
 ```
-> ### cbMultiOpen　打开联系人选择界面的回调方法
+
+> ### cbMultiOpen 打开联系人选择界面的回调方法
 
 `uexContact.cbMultiOpen(opId,dataType,data)`
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -193,6 +263,7 @@ window.uexOnload = function(){
 
 **版本支持:**
 3.0.0+
+
 **示例:**
 ```
 window.uexOnload = function(){
@@ -202,9 +273,10 @@ window.uexOnload = function(){
 }
 ```
 
-> ### cbAddItem　添加联系人的回调方法
+> ### cbAddItem 添加联系人的回调方法
 
 `uexContact.cbAddItem(opId,dataType,data)`
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -215,6 +287,7 @@ window.uexOnload = function(){
 
 **版本支持:**
 3.0.0+
+
 **示例:**
 ```
 window.uexOnload = function(){
@@ -224,9 +297,10 @@ window.uexOnload = function(){
 }
 ```
 
-> ### cbDeleteItem　删除联系人的回调方法
+> ### cbDeleteItem 删除联系人的回调方法
 
 `uexContact.cbDeleteItem(opId,dataType,data)`
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -237,6 +311,7 @@ window.uexOnload = function(){
 
 **版本支持:**
 3.0.0+
+
 **示例:**
 ```
 window.uexOnload = function(){
@@ -246,9 +321,10 @@ window.uexOnload = function(){
 }
 ```
 
-> ### cbSearchItem　查询联系人的回调方法
+> ### cbSearchItem 查询联系人的回调方法
 
 `uexContact.cbSearchItem(opId,dataType,data)`
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -259,6 +335,7 @@ window.uexOnload = function(){
  
 **版本支持:**
 3.0.0+
+
 **示例:**
 ```
 window.uexOnload = function(){
@@ -268,9 +345,10 @@ window.uexOnload = function(){
 }
 ```
 
-> ### cbModifyItem　修改联系人的回调方法
+> ### cbModifyItem 修改联系人的回调方法
 
 `uexContact.cbModifyItem(opId,dataType,data)`
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -281,6 +359,7 @@ window.uexOnload = function(){
 
 **版本支持:**
 3.0.0+
+
 **示例:**
 ```
 window.uexOnload = function(){
@@ -290,9 +369,9 @@ window.uexOnload = function(){
 }
 ```
 
-#3、更新历史
-API 版本：uexContact-3.0.6(iOS) uexContact-3.0.0（Android）
-最近更新时间：2015-06-19
+# 3、更新历史
+API 版本：uexContact-3.0.6(iOS) uexContact-3.0.1（Android）
+最近更新时间：2015-12-14
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
@@ -301,5 +380,5 @@ API 版本：uexContact-3.0.6(iOS) uexContact-3.0.0（Android）
 | 3.0.4 | 修改打开联系人，多选信息电话号码不全的BUG  |   |
 | 3.0.3  | 增加可以查询和，修改多个号码的联系人接口  |   |
 | 3.0.2  |  修改增加联系人接口，一个联系人可以添加多个电话号码 |   |
-| 3.0.1  | 修复uexContact在iOS8以上版本无法返回联系人信息的bug  | |
+| 3.0.1  | 修复uexContact在iOS8以上版本无法返回联系人信息的bug  | 1:searchItem接口增加返回信息条数配置;2:addItem接口增加是否弹出提示框配置 |
 | 3.0.0  | 联系人功能插件  | 联系人功能插件|
