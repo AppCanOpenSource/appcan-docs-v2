@@ -495,51 +495,23 @@ iOS 3.0.0+
 
 ## AppKEY 申请
 
-可以参考[百度地图的AppKEY申请指引](http://newdocx.appcan.cn/newdocx/docx?type=1384_975)
+可以参考[高德地图的AppKEY申请指引](http://lbs.amap.com/api/android-navi-sdk/summary/)
 	
-## TTS语音平台授权
-SDK内置百度TTS语音播报功能，需要对应用进行授权验证才能够使用，因此需要主动注册应用相关信息。
-
-可以在[导航TTS平台](http://app.navi.baidu.com/ttsregister/appinfo)中进行注册申请
-
-
 ## iOS 插件配置指引
-
-* iOS 直接传入AppKEY即可在**前台**正常使用导航功能
-* 如果您的应用需要用到**后台导航**，需要在[config.xml中添加以下**后台权限**](http://newdocx.appcan.cn/newdocx/docx?type=1492_1291#Authority)
-	* 后台音乐播放   
-	* 后台定位
-* 如果您没有用到其他后台权限，那么可以参考如下配置
-
-```
-<config desc="bgConfig" type="AUTHORITY">
-<permission platform="iOS" info="backGroundMode" flag="3"/>
-</config>
-```
 
 
 ## Android插件配置指引
-将如下所示的value对应的值换成自己在百度上申请的秘钥即可。
+将如下所示的value对应的值换成自己在高德上申请的秘钥即可。
 ```
-<config desc="uexGaodeNavi" type="KEY">
-   <param name="$uexGaodeNavi_ApiKey$" platform="Android" value="BMZtlp2EMfWQgMG8nOqu6KzG"/>
-</config>
+    <config desc="uexGaodeNavi" type="KEY">
+        <param name="$uexGaodeNavi_appKey$" platform="Android" value="209883bc35ae7d04176febb72a856afe"/>
+    </config>
 ```
-
-附：[百度私钥申请地址](http://developer.baidu.com/map/index.php?title=android-navsdk/guide/key)
-[安全码生成流程](http://newdocx.appcan.cn/newdocx/docx?type=1384_975)
-
-如果需要使用语音播报，需要按照如下指引申请TTS白名单注册：
-http://developer.baidu.com/map/index.php?title=android-navsdk/guide/voice
-
 # 4、更新历史
 
 `API 版本:uexGaodeNavi-3.0.0(iOS) uexGaodeNavi-3.0.2(Android)`
 
-`最近更新时间:2015-10-23`
+`最近更新时间:2015-12-16`
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
-| ----- | ----- | ----- |
-| 3.0.2 |  | 修复终点有偏差的问题 |
-| 3.0.1 |  | 修复仅有起点、终点经纬度坐标时路径规划失败问题 |
-| 3.0.0 | 百度导航插件 | 百度导航插件 |
+| 3.0.0 |  | 高德导航插件 |
