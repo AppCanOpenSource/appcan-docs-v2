@@ -926,7 +926,7 @@ param为json字符串
 
 ```
 var param = {
-	group://EMGroup 对象json格式  
+	//EMGroup 对象json格式  
 };
 ```
 

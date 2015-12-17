@@ -432,11 +432,14 @@ window.uexOnload = function(){
 
 
 # 3、更新历史
-API 版本：uexChatKeyboard-3.0.17(iOS) uexChatKeyboard-3.0.11(Android)
-最近更新时间：2015-11-27
+API 版本：uexChatKeyboard-3.0.20(iOS) uexChatKeyboard-3.0.11(Android)
+最近更新时间：2015-12-17
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
+| 3.0.20 | 修改键盘弹出时页面弹动 | |
+| 3.0.19 | 修复确定按钮背景图异常的bug | |
+| 3.0.18 | 修复自定义功能按钮和表情按钮重新打开会弹出键盘的bug | |
 | 3.0.17 | 修改收回键盘遮挡数据 | |
 | 3.0.16 | 修改点击发送不收回键盘 | |
 | 3.0.15 | 修复messageShareView可能会遮住文字的bug | |
