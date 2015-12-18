@@ -2604,6 +2604,7 @@ uexWindow.disturbLongPressGesture(1);
 `uexWindow.setAutorotateEnable()`
  
 **说明:**
+
 是否跟随设备自动旋转，默认是跟随
  
 **参数:**
@@ -2614,10 +2615,12 @@ uexWindow.disturbLongPressGesture(1);
 
  
 **平台支持：**
-Android2.2+
+
+Android2.2+  
 iOS6.0+
  
 **版本支持：**
+
 3.0.0+
  
 **示例：**
@@ -2641,9 +2644,11 @@ uexWindow.setAutorotateEnable(1);
 
  
 **平台支持：**
+
 Android4.0+
  
 **版本支持：**
+
 3.2.0+
  
 **示例：**
@@ -2678,8 +2683,17 @@ Android4.0+
 ```
 uexWindow.setPopHardwareEnable(‘content’,1);
 ```
-
-
+> ### reload 重载当前页面
+`uexWindow.reload();`
+**说明**
+无
+     **参数**
+无
+**平台支持**Android 2.2+  iOS 5.1.1+**版本支持**3.1.0+**示例**
+```uexWindow.reload();```> ### reloadWidgetByAppId 根据appId重载widget`uexWindow.reloadWidgetByAppId(appId);`
+**说明**在子widget更新完成时调用可加载更新的html、js、css**参数**
+appId：子widget对应的appId**平台支持**Android 2.2+iOS 5.1.1+**版本支持**
+3.1.0+**示例**`uexWindow.reloadWidgetByAppId(sdk2015);`
 
 ## 2.2 回调方法
 
