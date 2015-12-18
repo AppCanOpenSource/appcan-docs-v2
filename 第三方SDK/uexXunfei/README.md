@@ -510,6 +510,30 @@ iOS 3.0.0+
        }
 ```
 
+**语音识别结果说明**  
+
+|JSON字段|英文全称|类型|说明|
+|------|--------|---|----|
+sn|sentence|number|第几句
+ls|last sentence |bool|是否最后一句
+bg|begin    |number|开始
+ed|end|number|结束
+ws|words|array|词
+cw|chinese word|array|中文分词
+w|word|String|单字
+sc|score|number|分数
+
+语音识别示例：  
+
+```
+{"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"今天","sc":0}]},{"bg":0,"cw":{"w":"的","sc":0}]},{"bg":0,"cw":[{"w":"天气","sc":0}]},{"bg":0,"cw":[{"w":"怎么样","sc":0}]},{"bg":0,"cw":[{"w":"。","sc":0}]}]}  
+```
+多候选示例：  
+
+```
+{"sn":1,"ls":false,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"我想听","sc":0}]},{"bg":0,"cw":[{"w":"拉德斯基进行曲","sc":0},{"w":"拉得斯进行曲","sc":0}]}]}    
+```
+
 
 #3、 附录
 
