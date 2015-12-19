@@ -42,7 +42,7 @@
 
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-11.png)
 
-  10、推送环境（选取环境，配置iOS生产证书或开发证书，只支持iOS平台（说明：http://newdocx.appcan.cn/newdocx/docx?type=1285_1278））。
+  10、推送环境（选取环境，配置iOS生产证书或开发证书，只支持iOS平台[说明](http://newdocx.appcan.cn/newdocx/docx?type=1285_1278)）。
 
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-12.png)
 
