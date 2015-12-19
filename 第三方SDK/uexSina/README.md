@@ -55,7 +55,7 @@ Path Types
 `uexSina.registerApp(appKey,appSecret,registerURL) `
 
 **说明:**
-用户授权    
+用户授权，用户授权后可以进行调用分享等接口，如果手机上端有微博客户端，会直接调用客户端进行授权。如果没有，则开启网页让用户授权。
 回调 [cbRegisterApp](#cbregisterapp 用户授权的回调方法 "用户授权的回调方法")
 
 **参数:**
