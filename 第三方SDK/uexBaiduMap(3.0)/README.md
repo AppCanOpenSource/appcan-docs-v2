@@ -12,7 +12,7 @@
 安卓百度定位sdk升级，配合安卓打包服务升级，插件已经跟新至最新版本，已经公测通过，请使用最新版本（已支持config.xml文件配置AK）
 > 旧版uexBaiduMap 插件已经下架，官方不再维护，如需使用，请[跳转](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=25876 "跳转")到详细官方通告
 
-## 1.4、当前自定义插件版本下载:
+## 1.4、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=281_index)插件中心至插件详情页(插件测试用例与插件源码已经提供)
 
 

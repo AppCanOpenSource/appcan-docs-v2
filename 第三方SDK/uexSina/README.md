@@ -28,7 +28,7 @@
     <urlScheme name="uexSina" schemes="['wb407216840']"/>
 </config>
 ```
-其中’wb407216840’的‘407216840’改成您自己申请到的新浪appId
+其中’wb407216840’的‘407216840’改成您自己申请到的新浪appkey，`需要是wb+appkey的形式`
 
 ## 1.2 UI展示
  ![](http://newdocx.appcan.cn/docximg/164911i2015y6i16c.png)
