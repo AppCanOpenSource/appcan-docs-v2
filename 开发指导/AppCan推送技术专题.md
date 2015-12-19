@@ -84,7 +84,8 @@
 ```
     //注册推送通知栏点击事件
     uexWidget.setPushNotifyCallback("inCallbackFunction");
-    //注册的回调方法：点击应用开启状态收到推送点击信息的回调；应用关闭状态此回调不会进入，因此要在启动app时主动调用该方法
+    //注册的回调方法：点击应用开启状态收到推送点击信息的回调；
+    //应用关闭状态此回调不会进入，因此要在启动app时主动调用该方法
     function inCallbackFunction(){
         uexWidget.cbGetPushInfo=function(opId,dataType,data){
             alert(data);//此处根据参数编写代码逻辑
@@ -92,7 +93,8 @@
         //获取推送信息（参数键值对，调用此方法将上报推送消息）
         uexWidget.getPushInfo();
     }
-    //绑定推送用户（使用该方法将用户及设备绑定到推送服务器，只有调用该方法后，推送消息时才能将此用户和设备放入接收推送消息的对12.象组中）
+    //绑定推送用户（使用该方法将用户及设备绑定到推送服务器，只有调用该方法后，
+    //推送消息时才能将此用户和设备放入接收推送消息的对象组中）
     uexWidget.setPushInfo(UID,Uname);
 ```
 
