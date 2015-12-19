@@ -3,15 +3,19 @@
 # 推送应用开发与配置
 
   1、首先在[官网](http://dashboard.appcan.cn/app/)创建完成新的应用。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-1.png)
 
   2、打开IDE并且同步刚才创建的推送应用。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-2.png)
 
   3、在IDE中开发平台推送功能所需的代码
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-3.png)
 
   4、在IDE中把刚才开发的代码通过内置的SVN工具提交至appcan官网。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-4.png)
 
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-5.png)
@@ -19,37 +23,48 @@
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-6.png)
 
   5、回到appcan官网应用管理界面，点击信息推送按钮。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-7.png)
 
   6、进入信息推送主界面，并选择要推送的操作系统平台。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-8.png)
 
   7、填写标题（注意：默认为当前应用名称，请不要轻易更改（iOS平台不支持标题的修改），会严重影响用户对应用的辨识度）。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-9.png)
 
   8、填写推送内容（注意：填写要推送的内容信息。移动端点击推送来的信息，默认打开应用进入首页。您还可以使用自定义参数设置键值对（key-value），根据不同的键值对实现自定义需求。当您在前台配置好键值对后，将会转成json格式跟随消息下发到APP，开发者可以在APP本地通过uexWidget.getpushinfo()获取）。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-10.png)	
 
   9、角标数字（即显示在应用icon上的未读信息条数，只支持iOS平台，可自定义调整，参数为1-99）。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-11.png)
 
   10、推送环境（选取环境，配置iOS生产证书或开发证书，只支持iOS平台（说明：http://newdocx.appcan.cn/newdocx/docx?type=1285_1278））。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-12.png)
 
   11、推送时间（支持立即推送或定时推送，定时发送需选取未来某一时间，只支持推送1次）。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-13.png)
 
   12、离线消息（支持保存用户因网络故障问题不能收到的推送消息，待网络正常后可收到服务器临时缓存的消息，保存最大时长为99个小时）。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-14.png)
 
   13、用户范围（支持所有用户推送（群推）和单点用户推送（单推）。开发者需通过uexWidget.setpushinfo() 绑定用户，获取用户信息）。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-15.png)
 
   14、推送确认（点击“推送”按钮，完成当前信息推送）。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-16.png)
 
 # 推送平台统计与推送历史消息记录
   1、点击“推送统计”，选取Android或iOS操作系统将会统计推送信息在某一时间段的推送数、到达数、打开数。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-17.png)
 
 - **推送数**：即推送至终端的消息数，如一条信息推送给50个用户，则推送数显示为50。
@@ -57,6 +72,7 @@
 - **打开数**：即终端用户点击信息内容打开当前应用数。
   
   2、点击“推送历史”，将会展示当前应用信息推送的历史记录。
+
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/img/1-18.png)
 - 在“已发送”状态下，可“重发”当前信息，单条记录可删除。
 - 定时推送，在未到达设定时间前为“待发送”状态，可“取消”当前推送，单条记录可删除。
