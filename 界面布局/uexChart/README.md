@@ -257,7 +257,7 @@ var json = {
               lineWidth://（可选）辅助线宽度
         }
     ],
-    xData:[],//（必选）横坐标数组，包含所有横坐标的值
+    xData:[],//(可选)横坐标数组，包含所有横坐标的值 (详见下方说明）
     lines:[//(必选) 曲线数组
         {
             lineName:,//(必选) 曲线名称
@@ -269,14 +269,28 @@ var json = {
             cubicIntensity:,//(可选)圆滑程度，取值0.05~1 值越大曲线越弯曲，不传时曲线为折线
             data:[//(必选) 数据数组
                 {
-                    xValue:,//(必选) 横坐标值，必须是xData中包含的值
+                    xValue:,//(必选) 横坐标值(必须是xData中包含的值，详见下方说明)
                     yValue://(必选) 纵坐标值
                 }
             ]
         }
     ]
+    option={
+		initZoomX:,//Number，可选, X方向缩放系数。initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
+		initZoomY:,//Number，可选, Y方向缩放系数。initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
+		initPositionX:,//Number, 可选，X方向初始位置，单位:px。initPositionX为非负实数，默认为0
+		initPositionY:,//Number, 可选，Y方向初始位置，单位:px。initPositionY为非负实数，默认为0
+		isSupportDrag:,//Boolean,可选，是否支持滑动手势
+		isSupportZoomX:,//Boolean，可选，是否响应X方向上的缩放手势
+		isSupportZoomY:,//Boolean，可选，是否响应Y方向上的缩放手势
+	}
 }
 ```
+
+* xData里的元素是在x轴上显示的文字，支持Number和String。
+* 当xData不传时，插件内部会新建一个数组，并将**每一个出现过的**xValue**顺次**添加至此数组中，并将此数组当做xData使用。
+* 传入xData时，插件不会再往其中添加新元素。此时，若数据的xValue没有出现在xData中，那么这个数据将被忽略。
+
 
 **平台支持:**
 
@@ -519,21 +533,37 @@ var json = {
             lineWidth:,//（可选）辅助线宽度
         }
     ],
-    xData:[],//（必选）横坐标数组，包含所有横坐标的值
+    xData:[],//（可选）横坐标数组，包含所有横坐标的值，详情见下
     bars:[//直方数组
         {
             barName:,//(必选) 直方名称
             barColor:,//(必选) 直方颜色
             data:[//(必选) 数据数组
                 {
-                    xValue:,//(必选) 横坐标值
+                    xValue:,//(必选) 横坐标值，(必须是xData中包含的值，详见下方说明)
                     yValue://(必选) 纵坐标值
                 }
             ]
         }
-    ]
+    ],
+    option={
+		initZoomX:,//Number，可选, X方向缩放系数。initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
+		initZoomY:,//Number，可选, Y方向缩放系数。initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
+		initPositionX:,//Number, 可选，X方向初始位置，单位:px。initPositionX为非负实数，默认为0
+		initPositionY:,//Number, 可选，Y方向初始位置，单位:px。initPositionY为非负实数，默认为0
+		isSupportDrag:,//Boolean,可选，是否支持滑动手势
+		isSupportZoomX:,//Boolean，可选，是否响应X方向上的缩放手势
+		isSupportZoomY:,//Boolean，可选，是否响应Y方向上的缩放手势
+	}
 }
 ```
+
+
+* xData里的元素是在x轴上显示的文字，支持Number和String。
+* 当xData不传时，插件内部会新建一个数组，并将**每一个出现过的**xValue**顺次**添加至此数组中，并将此数组当做xData使用。
+* 传入xData时，插件不会再往其中添加新元素。此时，若数据的xValue没有出现在xData中，那么这个数据将被忽略。
+
+
 
 **平台支持:**
 
@@ -709,9 +739,13 @@ iOS 3.0.0+
 
 ```
 var json = {
-    value://被点击的元素对应的值
+    value:,//Number,被点击的元素对应的y值
+    dataSetIndex:,//Number,被点击的元素所在的数据数组序号
+    xIndex:,//Number,被点击的元素对应的x轴序号
 }
 ```
+
+* dataSetIndex和xIndex iOS 3.0.3+才支持
 
 **平台支持:**
 
@@ -733,12 +767,14 @@ iOS 3.0.0+
 ```
 
 # 3、更新历史
-API 版本:uexChart-3.0.0(iOS) uexChart-3.0.1(Android)
-最近更新时间:2015-07-01
+API 版本:uexChart-3.0.3(iOS) uexChart-3.0.1(Android)
+最近更新时间:2015-12-21
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
-| 3.0.1 |  | 替换ActivityGroup |
+| 3.0.3 | openBarChart和openLineChart新增option参数;| |
+| 3.0.2 | 使用Swift2.1编译，支持IDE本地打包 |  |
+| 3.0.1 | 使用Swift2.0的库，支持Xcode7| 替换ActivityGroup |
 | 3.0.0 | 几何图表插件 | 几何图表插件 |
 
 
