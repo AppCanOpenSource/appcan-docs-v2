@@ -2,13 +2,13 @@
 
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 
-图片插件
+友盟插件
 
 ## 1.1、说明
-封装了友盟插件的相关功能，事件的发送
+封装了友盟sdk的相关功能，事件的发送
 
 ## 1.2、开源源码
-[点击]()至插件详情页（插件测试用例与插件包已经提供）
+[点击](http://plugin.appcan.cn/details.html?id=286_index)至插件详情页（插件测试用例与插件包已经提供）
 
 ***
 
