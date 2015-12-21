@@ -43,7 +43,10 @@
 `uexGaodeMap.open(json)`
 
 **说明:**
-打开地图。注意Android端isScrollWithWeb参数为true时，需要结合新引擎才能生效，引擎版本需在20150915及以上版本。否则地图只显示白板。
+
+打开地图。
+
+注意Android端isScrollWithWeb参数为true时，需要结合新引擎才能生效，引擎版本需在20150915及以上版本。否则地图只显示白板。
 
 **参数:**
 
@@ -56,8 +59,12 @@ var json = {
     isScrollWithWeb:,//(可选) 地图是否跟随网页滚动，默认为false
     longitude:,//(可选) 中心点经度
     latitude://(可选) 中心点纬度
+    APIKey:,//(可选，仅iOS,仅IDE本地打包)设置高德的APIKey
 }
 ```
+
+
+
 
 **平台支持:**
 
@@ -2702,6 +2709,7 @@ Android 3.0.3+
 
 #### Android
 示例配置代码如下：
+
 ```
     <config desc="uexGaode" type="KEY" > 
         <param platform="Android" name="$uexGaodeMap_APIKey$" value="XXX"/>
@@ -2709,6 +2717,7 @@ Android 3.0.3+
 ```
 
 或者Android和iOS合并写为：
+
 ```
     <config desc="uexGaode" type="KEY" > 
         <param platform="iOS" name="$uexGaodeMap_APIKey$"  value="XXX"/>
@@ -2718,14 +2727,14 @@ Android 3.0.3+
 **用户需要将上面字段中的XXX替换为自己申请的对应平台的key，然后添加至config.xml中：**即可完成相应key的配置 
 
 # 5、更新历史
- API 版本:uexGaodeMap-3.0.7(iOS) uexGaodeMap-3.0.10（Android）    
- 最近更新时间:2015-11-06
+ API 版本:uexGaodeMap-3.0.9(iOS) uexGaodeMap-3.0.10（Android）    
+ 最近更新时间:2015-12-16
  
 |  历史发布版本 | iOS更新  | Android更新  |
 | ------------ | ------------ | ------------ |
 | 3.0.10  | |去掉插件中的ActivityGroup,配合引擎升级|
-| 3.0.9  | |添加相同id的圆形覆盖物时，改为替换原来的|
-|3.0.8| | 解决高德地图打开时闪一下的问题 |
+| 3.0.9  |添加IDE支持;可以通过接口设置APIKey;解决和高德导航冲突的问题 |添加相同id的圆形覆盖物时，改为替换原来的|
+|3.0.8| 修正一个可能会导致APP崩溃的bug| 解决高德地图打开时闪一下的问题 |
 | 3.0.7  | AddCircleOverlay中 修改默认lineDash值为NO,当回调的json结构为String时，不再转义一次 |  |
 | 3.0.6  | open接口添加参数isScrollWithWeb | open接口增加地图是否随网页滚动参数isScrollWithWeb |
 | 3.0.5  | 地理编码和反地理编码的回调添加参数,方便用户区分 | 地理编码和反地理编码的回调添加参数,方便用户区分 |

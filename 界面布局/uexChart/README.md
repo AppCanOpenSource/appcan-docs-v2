@@ -519,6 +519,7 @@ var json = {
             lineWidth:,//（可选）辅助线宽度
         }
     ],
+    xData:[],//（必选）横坐标数组，包含所有横坐标的值
     bars:[//直方数组
         {
             barName:,//(必选) 直方名称
@@ -561,6 +562,7 @@ iOS 3.0.0+
         valueTextColor:"#000000",
         valueTextSize:15,
         duration:1800,
+        xData:["2001","2002","2003","2004","2005","2006"],
         bars:[
             {
                 barName:"bar1",
@@ -605,6 +607,7 @@ iOS 3.0.0+
         duration:1800,
         isScrollWithWeb:true,
         borderColor:"#ccc",
+        xData:["2001","2002","2003","2004","2005","2006"],
         bars:[
             {
                 barName:"bar1",
