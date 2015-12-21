@@ -2,9 +2,9 @@
 
 开发者在使用APPCAN平台提供的新浪微博插件时，需要配置相关的包名，AppKey和签名。具体步骤如下（以大众版打包为例）：
 
-# 1. 获取apk相关的包名和签名
+# 1. 准备工作
  
-##   1.1包名
+##   1.1获取apk包名
 
 ###  1.1.1 APPCAN平台默认包名
 
@@ -21,13 +21,17 @@ APPCAN大众版打包时，在"云端打包"项中可以自定义包名，如下
 
   例如包名为org.zywx.wbpalmstar.widgetone.uexsina，若该处不填，则为默认包名。
 
-##  1.2签名
+##  1.2获取apk签名
 
 ###  1.2.1 APPCAN平台默认签名
 
 “云端打包”中“选择证书”一项选择APPCAN证书，打包出来的apk的签名即为默认签名，默认为：d382d671c6672cba4b87980992cd9d77
 ###   1.2.2 自定义签名  
 在APPCAN 大众版打包时，在“证书管理”项中可以上传应用打包所需的自定义签名文件，并在"云端打包"时，“选择证书”一项选择自定义证书。该证书打出来的包签名应该在生成此证书时可以得到。
+
+##  1.3获取iphone应用Bundle ID
+如果你的苹果应用使用的是苹果证书，上传的是299$企业证书还是99$发布证书，Bundle ID即是AppCan官网上传证书时自动获取的App IDs；
+如果你的苹果应用使用的是AppCan默认的越狱证书，没有上传任何证书。Bundle ID即是`com.zywx.appcan1111111`，111111是对应的应用id（AppCan创建应用时给你分配的那个应用ID）。
 
 #  2. 通过包名和签名申请接入AppKey
 
@@ -52,7 +56,19 @@ APPCAN大众版打包时，在"云端打包"项中可以自定义包名，如下
  在使用uexSina插件时，调用uexSina.registerApp(appKey,appSecret,registerUrl)，传入申请的AppKey和AppSecret，registerUrl默认为"`https://api.weibo.com/oauth2/default.html`"， 即可注册成功。之后可调用分享的相关接口。
 #  4. 常见问题
 
-##   4.1 registerApp接口调用之后打开的页面显示异常
+##   4.1 授权出错
+
+- Q:21338 sso package or sign error
+- A:平台设置和项目设置的Bundle id不一致导致的，必须保证字符完全匹配。
+
+- Q:iOSWeiboSDK授权后为什么没有返回应用？
+- A:检查配置,config.xml里设置的Scheme是否正确，需要是wb+appkey的形式，详见文档
+
+- Q:弹出授权窗口后瞬间消失
+- A:可能bundle id不一致导致
+ 
+
+##   4.2 registerApp接口调用之后打开的页面显示异常
 
   如下：
 ![](http://newdocx.appcan.cn/docximg/143724q2014l11e27f.png)

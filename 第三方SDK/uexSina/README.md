@@ -28,7 +28,7 @@
     <urlScheme name="uexSina" schemes="['wb407216840']"/>
 </config>
 ```
-其中’wb407216840’的‘407216840’改成您自己申请到的新浪appId
+其中’wb407216840’的‘407216840’改成您自己申请到的新浪appkey，`需要是wb+appkey的形式`
 
 ## 1.2 UI展示
  ![](http://newdocx.appcan.cn/docximg/164911i2015y6i16c.png)
@@ -55,7 +55,7 @@ Path Types
 `uexSina.registerApp(appKey,appSecret,registerURL) `
 
 **说明:**
-用户授权    
+用户授权，用户授权后可以进行调用分享等接口，如果手机上端有微博客户端，会直接调用客户端进行授权。如果没有，则开启网页让用户授权。
 回调 [cbRegisterApp](#cbregisterapp 用户授权的回调方法 "用户授权的回调方法")
 
 **参数:**

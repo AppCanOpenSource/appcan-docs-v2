@@ -11,7 +11,7 @@
  * 插件需要用到证书/包名，因此IDE打包下部分功能无法正常使用，**调试使用本插件时，请使用在线打包**。
  * 本插件为单例插件，用户可以在任意界面调用插件的接口，但回调始终传回给root页面。
  
-##1.2、 当前自定义插件版本下载：
+##1.2、 开源源码
 [点击](http://plugin.appcan.cn/details.html?id=432_index)插件中心至插件详情页（插件测试用例与插件包已经提供）
 
  
@@ -315,18 +315,16 @@ uexJPush.getConnectionState();
 >### addLocalNotification  添加一个本地通知
 
 
-`uexJPush.addLocalNotification(data)`
+`uexJPush.addLocalNotification(json)`
 
 **参数**
 
-data是json字符串
-
 ```
-var data={
+var json={
 	builderId:,//long 设置本地通知样式(仅Android有效)
 	title:,//本地通知的title
 	content:,//设置本地通知的content
-	extras:,//额外的数据信息extras为json
+	extras:,//额外的数据信息extras为json字符串
 	notificationId:,//int 设置本地通知的ID
 	broadCastTime:,//long 设置本地通知延迟触发时间，毫秒为单位，如设置10000为延迟10秒添加通知
 };

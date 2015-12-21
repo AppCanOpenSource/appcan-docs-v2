@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script type="text/javascript">
+    function init(){
+        var params = {
+            appID:"56710b9c"
+        };
+        var data = JSON.stringify(params);
+        uexXunfei.init(data);
+    }
+
+    function initSpeaker(){
+        var params = {
+
+        };
+        var data = JSON.stringify(params);
+        uexXunfei.initSpeaker(data);
+    }
+
+    function startSpeaking(){
+        var params = {
+            text:"this is wuhan university of science and technology,college english test band four!"
+        };
+        var data = JSON.stringify(params);
+        uexXunfei.startSpeaking(data);
+    }
+
+    function initRecognizer(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexXunfei.initRecognizer(data);
+    }
+
+    function startListening(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexXunfei.startListening(data);
+    }
+
+
+        window.uexOnload = function(type){
+            if(type == 0){
+            uexXunfei.cbInit = cbInit;
+            uexXunfei.cbInitSpeaker = cbInitSpeaker;
+            uexXunfei.onSpeakComplete = onSpeakComplete;
+            uexXunfei.onSpeakBegin = onSpeakBegin;
+            uexXunfei.onSpeakPaused = onSpeakPaused;
+            uexXunfei.onSpeakResumed = onSpeakResumed;
+            uexXunfei.cbInitRecognizer = cbInitRecognizer;
+            uexXunfei.onRecognizeError = onRecognizeError;
+            uexXunfei.onVolumeChanged = onVolumeChanged;
+            uexXunfei.onBeginOfSpeech = onBeginOfSpeech;
+            uexXunfei.onEndOfSpeech = onEndOfSpeech;
+            uexXunfei.onRecognizeResult = onRecognizeResult;
+            }
+        }
+        function cbInit(info){
+           alert('cbInit: '+info);
+       }
+
+       function cbInitSpeaker(info){
+           alert('cbInitSpeaker: '+info);
+       }
+
+       function onSpeakComplete(info){
+           alert('onSpeakComplete: '+info);
+       }
+
+       function onSpeakBegin(info){
+           alert('onSpeakBegin: '+info);
+       }
+
+       function onSpeakPaused(info){
+           alert('onSpeakPaused: '+info);
+       }
+
+       function onSpeakResumed(info){
+           alert('onSpeakResumed: '+info);
+       }
+
+       function cbInitRecognizer(info){
+           alert('cbInitRecognizer: '+info);
+       }
+
+       function onRecognizeError(info){
+           alert('onRecognizeError: '+info);
+       }
+
+       function onVolumeChanged(info){
+           alert('onVolumeChanged: '+info);
+       }
+
+       function onBeginOfSpeech(info){
+           alert('onBeginOfSpeech: '+info);
+       }
+
+       function onEndOfSpeech(info){
+           alert('onEndOfSpeech: '+info);
+       }
+       
+       function onRecognizeResult(info){
+           alert('onRecognizeResult: '+info);
+       }
+
+    </script>
+</head>
+
+<body>
+<div class="tit">uexXunfei</div>
+<div class="conbor">
+    <div class="consj">
+        <input class='btn' type='button' value='init' onclick='init()'>
+
+        <input class='btn' type='button' value='initSpeaker' onclick='initSpeaker()'>
+
+        <input class='btn' type='button' value='startSpeaking' onclick='startSpeaking()'>
+
+        <input class='btn' type='button' value='initRecognizer' onclick='initRecognizer()'>
+
+        <input class='btn' type='button' value='startListening' onclick='startListening()'>
+
+
+    </div>
+</div>
+</body>
+</html>
