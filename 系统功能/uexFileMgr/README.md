@@ -1653,7 +1653,7 @@ uexFileMgr.cbSearch=function (info){
 | data| Json | 是 | 文件列表数据，如下： |
 
 ```
-var param = [
+var data = [
     {
         fileName:,
         fileType:,
