@@ -12,9 +12,9 @@
 
 ## 1.3、插件截图
 
-![screenshot1](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/uexGestureUnlock/screenshots/screenshot1.jpg "screenshot1")
-![screenshot2](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/uexGestureUnlock/screenshots/screenshot2.jpg "screenshot2")
-![screenshot3](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/uexGestureUnlock/screenshots/screenshot3.jpg "screenshot3")
+![screenshot1](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/uexGestureUnlock/screenshots/screenshot1.jpg "screenshot1")
+![screenshot2](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/uexGestureUnlock/screenshots/screenshot2.jpg "screenshot2")
+![screenshot3](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/uexGestureUnlock/screenshots/screenshot3.jpg "screenshot3")
 
 ***
 
