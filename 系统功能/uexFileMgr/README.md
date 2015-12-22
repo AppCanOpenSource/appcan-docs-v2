@@ -791,9 +791,7 @@ var data = {
 uexFileMgr.renameFile(JSON.stringify(data));
 ```
 
-
-
->### search 搜索文件
+> ### search 搜索文件
 
 `uexFileMgr.search(param)`
 
@@ -851,6 +849,39 @@ var data={
 
 uexFileMgr.search(JSON.stringify(data));
 ```
+
+> ### getFileListByPath 获取某路径下的所有文件
+
+`uexFileMgr.getFileListByPath(path)`
+
+**说明:**
+
+获取某路径下的所有文件
+
+回调方法[cbGetFileListByPath](#cbGetFileListByPath 获取某路径下的所有文件的回调方法)
+
+**参数:**
+ 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| path | String| 是 | 文件夹路径,支持wgt://, wgts://, file://协议路径 |
+
+**平台支持:**
+Android2.2+    
+iOS6.0+
+
+**版本支持:**
+iOS 3.0.13+    
+Android 3.0.6+
+
+
+**示例:**
+
+```
+var path = "wgt://"
+uexFileMgr.getFileListByPath(path);
+```
+
 
 
 ## 2.2、回调方法
@@ -1512,7 +1543,7 @@ uexFileMgr.cbGetFileCreateTime = function(opId,dataType,data){
 
 
 
->### cbRenameFile 重命名文件的回调方法
+> ### cbRenameFile 重命名文件的回调方法
 
 `uexFileMgr.cbRenameFile(param)`
 
@@ -1555,7 +1586,7 @@ uexFileMgr.cbRenameFile=function (info){
 }
 ```
 
->### cbSearch 搜索文件的回调方法
+> ### cbSearch 搜索文件的回调方法
 
 `uexFileMgr.cbSearch(param)`
 
@@ -1602,6 +1633,55 @@ Android 3.0.10+
 
 ```
 uexFileMgr.cbSearch=function (info){
+	alert(info);
+}
+```
+
+> ### cbGetFileListByPath 获取某路径下的所有文件的回调方法
+
+`uexFileMgr.cbGetFileListByPath(opId, dataType, data)`
+
+**说明:**
+获取某路径下的所有文件的回调方法
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| opId| Number| 是 | 操作Id |
+| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| data| Json | 是 | 文件列表数据，如下： |
+
+```
+var param = [
+    {
+        fileName:,
+        fileType:,
+        filePath:
+    }
+]
+```
+各字段含义如下：
+
+|  字段名称 | 类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| fileName| String| 是 | 文件名称 |
+| fileType| Number| 是 | 类型，0-表示文件，1-表示文件夹 |
+| filePath| String| 是 | 当前文件路径 |
+
+**平台支持:**
+Android2.2+    
+iOS6.0+
+
+**版本支持:**
+iOS 3.0.13+    
+Android 3.0.6+
+
+
+**示例:**
+
+```
+uexFileMgr.cbGetFileListByPath=function (opId, dataType, info){
 	alert(info);
 }
 ```
