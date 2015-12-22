@@ -274,15 +274,15 @@ var json = {
                 }
             ]
         }
-    ]
-    option={
+    ],
+    option:{
 		initZoomX:,//Number，可选, X方向缩放系数。initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
 		initZoomY:,//Number，可选, Y方向缩放系数。initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
 		initPositionX:,//Number, 可选，X方向初始位置，单位:px。initPositionX为非负实数，默认为0
 		initPositionY:,//Number, 可选，Y方向初始位置，单位:px。initPositionY为非负实数，默认为0
 		isSupportDrag:,//Boolean,可选，是否支持滑动手势
 		isSupportZoomX:,//Boolean，可选，是否响应X方向上的缩放手势
-		isSupportZoomY:,//Boolean，可选，是否响应Y方向上的缩放手势
+		isSupportZoomY://Boolean，可选，是否响应Y方向上的缩放手势
 	}
 }
 ```
@@ -533,7 +533,6 @@ var json = {
             lineWidth:,//（可选）辅助线宽度
         }
     ],
-    xData:[],//（可选）横坐标数组，包含所有横坐标的值，详情见下
     bars:[//直方数组
         {
             barName:,//(必选) 直方名称
@@ -546,23 +545,17 @@ var json = {
             ]
         }
     ],
-    option={
+    option:{
 		initZoomX:,//Number，可选, X方向缩放系数。initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
 		initZoomY:,//Number，可选, Y方向缩放系数。initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
 		initPositionX:,//Number, 可选，X方向初始位置，单位:px。initPositionX为非负实数，默认为0
 		initPositionY:,//Number, 可选，Y方向初始位置，单位:px。initPositionY为非负实数，默认为0
 		isSupportDrag:,//Boolean,可选，是否支持滑动手势
 		isSupportZoomX:,//Boolean，可选，是否响应X方向上的缩放手势
-		isSupportZoomY:,//Boolean，可选，是否响应Y方向上的缩放手势
+		isSupportZoomY://Boolean，可选，是否响应Y方向上的缩放手势
 	}
 }
 ```
-
-
-* xData里的元素是在x轴上显示的文字，支持Number和String。
-* 当xData不传时，插件内部会新建一个数组，并将**每一个出现过的**xValue**顺次**添加至此数组中，并将此数组当做xData使用。
-* 传入xData时，插件不会再往其中添加新元素。此时，若数据的xValue没有出现在xData中，那么这个数据将被忽略。
-
 
 
 **平台支持:**
@@ -592,7 +585,6 @@ iOS 3.0.0+
         valueTextColor:"#000000",
         valueTextSize:15,
         duration:1800,
-        xData:["2001","2002","2003","2004","2005","2006"],
         bars:[
             {
                 barName:"bar1",
@@ -741,7 +733,7 @@ iOS 3.0.0+
 var json = {
     value:,//Number,被点击的元素对应的y值
     dataSetIndex:,//Number,被点击的元素所在的数据数组序号
-    xIndex:,//Number,被点击的元素对应的x轴序号
+    xIndex://Number,被点击的元素对应的x轴序号
 }
 ```
 
@@ -767,13 +759,13 @@ iOS 3.0.0+
 ```
 
 # 3、更新历史
-API 版本:uexChart-3.0.3(iOS) uexChart-3.0.1(Android)
+API 版本:uexChart-3.0.3(iOS) uexChart-3.0.2(Android)
 最近更新时间:2015-12-21
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ------------ | ------------ | ------------ |
 | 3.0.3 | openBarChart和openLineChart新增option参数;| |
-| 3.0.2 | 使用Swift2.1编译，支持IDE本地打包 |  |
+| 3.0.2 | 使用Swift2.1编译，支持IDE本地打包 | openBarChart和openLineChart新增option参数 |
 | 3.0.1 | 使用Swift2.0的库，支持Xcode7| 替换ActivityGroup |
 | 3.0.0 | 几何图表插件 | 几何图表插件 |
 
