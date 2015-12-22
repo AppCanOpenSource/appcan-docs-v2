@@ -7,6 +7,22 @@
 ## 1.1、说明
 封装了友盟sdk的相关功能，事件的发送
 
+**config.xml配置插件的方法**，示例配置代码如下： 
+
+```
+<config desc="uexUmeng" type="KEY">
+	<param platform="iOS" name="$uexUmeng_APPKey$" value="562df76b67e58e0592003544"/>  
+	<param platform="iOS" name="$uexUmeng_channel$" value="uex_umeng_plugin_channel"/> 
+</config>
+
+<config desc="uexUmeng" type="KEY">
+	<param platform="Android" name="$uexUmeng_APPKey$" value="562df76b67e58e0592003544"/>  
+	<param platform="Android" name="$uexUmeng_channel$" value="uex_umeng_plugin_channel"/> 
+</config>
+```
+
+其中`562df76b67e58e0592003544`改成您自己申请到的友盟应用AppKey，`uex_umeng_plugin_channel`为应用推广渠道
+
 ## 1.2、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=286_index)至插件详情页（插件测试用例与插件包已经提供）
 
