@@ -10,7 +10,7 @@ UnionPay银联支付插件
  ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/1.png) ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/2.png) ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/3.png) ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/4.png)
 
 ## 1.3、开源源码
-插件测试用例与源码下载：[点击]() 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
+插件测试用例与源码下载：[点击](http://plugin.appcan.cn/details.html?id=536_index) 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
 
 # 2、API概览
 
