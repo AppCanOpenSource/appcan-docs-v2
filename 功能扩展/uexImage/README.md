@@ -234,6 +234,7 @@ uexImage.saveToPhotoAlbum(json);
 
 * 清除由本插件的openPicker、openCropper接口所生成的图片文件
 * 若您的APP有多个widget，则只会清除由当前widget所生成的图片文件
+* 相关 [cbClearOutputImages](#cbClearOutputImages 清除由本插件导出的所有图片文件的回调方法)清除由本插件导出的所有图片文件的回调方法
 
 **参数**
 
@@ -290,6 +291,42 @@ iOS 3.0.0+
 ```
 window.uexOnload=function(type){
 	uexImage.cbSaveToPhotoAlbum=function(info){
+		alert(info);
+	}
+}
+```
+
+>### cbClearOutputImages 清除由本插件导出的所有图片文件的回调方法
+
+`uexImage.cbClearOutputImages(param);`
+
+**说明**
+
+* 清除由本插件导出的所有图片文件后会调用此方法
+
+**参数** 
+
+param为json字符串，包含的参数如下
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 | 
+| --- | --- | --- | --- | --- |
+| status | String | 是 | 成功返回“ok”|
+
+**平台支持**
+
+Android 2.2+ 
+iOS 7.0+ 
+
+**版本支持**
+
+Android 3.0.0+ 
+iOS 3.0.0+ 
+
+**示例**
+
+```
+window.uexOnload=function(type){
+	uexImage.cbClearOutputImages=function(info){
 		alert(info);
 	}
 }
@@ -421,13 +458,13 @@ window.uexOnload=function(type){
 # 3、更新历史
  
 
-`API 版本:uexImage-3.0.3(iOS) uexImage-3.0.2(Android)`
+API 版本:uexImage-3.0.3(iOS) uexImage-3.0.3(Android)
 
-`最近更新时间:2015-11-16`
+最近更新时间:2015-12-26
 
 | 历史发布版本 | iOS更新 | 安卓更新 |
 | ----- | ----- | ----- |
-| 3.0.3 | 删去资源包中多余的info.plist| |
+| 3.0.3 | 删去资源包中多余的info.plist | 修复在某些机型上图片裁剪失败的问题 |
 | 3.0.2 | 修复armv7环境会编译失败的bug | 修复图片压缩质量错误问题 |
-| 3.0.1 |修复openCropper没有国际化的问题  | 去掉插件中的ActivityGroup,配合引擎升级 |
+| 3.0.1 | 修复openCropper没有国际化的问题 | 去掉插件中的ActivityGroup,配合引擎升级 |
 | 3.0.0 | uexImage 发布 | uexImage 发布 |
