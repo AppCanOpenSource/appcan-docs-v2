@@ -99,7 +99,7 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexUnionPay-(null)`
+API版本:`uexUnionPay-3.0.0`
 
 最近更新时间:`2015-12-10`
 
@@ -109,7 +109,7 @@ API版本:`uexUnionPay-(null)`
 
 ### Android
 
-API版本:`uexUnionPay-(null)`
+API版本:`uexUnionPay-3.0.0`
 
 最近更新时间:`2015-12-10`
 

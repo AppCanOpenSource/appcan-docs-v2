@@ -50,17 +50,20 @@ var param{
 ```
 
 **平台支持:**
+
   
 Android2.2+                  
 iOS6.0+    
              
 
 **版本支持:**
+
        
 3.0.0+    
               
 
 **示例:**
+
      
 
 ```
@@ -95,17 +98,20 @@ var param{
 ```
 
 **平台支持:**
+
   
 Android2.2+                  
 iOS6.0+    
              
 
 **版本支持:**
+
        
 3.0.0+    
               
 
 **示例:**
+
      
 
 ```
@@ -139,17 +145,20 @@ var param{
 ```
 
 **平台支持:**
+
   
 Android2.2+                  
 iOS6.0+    
              
 
 **版本支持:**
+
     
 3.0.0+    
               
 
 **示例:**
+
      
 ```
 var params = {
@@ -173,6 +182,7 @@ uexTestinCrash.leaveBreadcrumb(data);
 无
 
 **平台支持:**
+
   
 Android2.2+                  
 iOS6.0+    
@@ -184,6 +194,7 @@ iOS6.0+
               
 
 **示例:**
+
      
 ```
 uexTestinCrash.test();
@@ -204,7 +215,7 @@ API版本:`uexTestinCrash-3.0.1`
 
 ### Android
 
-API版本:`uexTestinCrash-3.0.1`
+API版本:`uexTestinCrash-3.0.0`
 
 最近更新时间:`2015-12-26`
 

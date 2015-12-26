@@ -281,6 +281,7 @@ uexGestureUnlock.cancel();
 检测是否已设置手势密码的回调方法
 
 **参数**
+
  
 
 param为json字符串
@@ -300,6 +301,7 @@ var param = {
 验证手势密码的回调方法
 
 **参数**
+
  
 
 param为json字符串
@@ -343,6 +345,7 @@ window.uexOnload=function(type){
 * 设置手势密码的回调方法
 
 **参数**
+
  
 
 param为json字符串
@@ -456,7 +459,7 @@ API版本:`uexGestureUnlock-3.0.2`
 
 ### Android
 
-API版本:`uexGestureUnlock-(null)`
+API版本:`uexGestureUnlock-3.0.0`
 
 最近更新时间:`2015-12-04`
 

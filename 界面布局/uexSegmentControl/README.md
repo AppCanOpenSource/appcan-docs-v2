@@ -16,6 +16,7 @@
 `uexSegmentControl.open(json)`
 
 **说明:**
+
     
 打开分段选择器  
 
@@ -83,10 +84,12 @@ iOS 3.0.0+
   
 
 **说明:**
+
     
 关闭分段选择器  
 
 **参数:**
+
   
 
 无
@@ -115,6 +118,7 @@ iOS 3.0.0+
   
 
 **说明:**
+
   
 设置当前选中项  
 
@@ -127,12 +131,14 @@ var json = {
 ```
 
 **平台支持:**
+
   
 Android 2.2+
 
 iOS 6.0+
 
 **版本支持:**
+
   
 
 Android 3.0.0+  
@@ -156,6 +162,7 @@ iOS 3.0.0+
 `uexSegmentControl.onItemClick(json);`  
 
 **参数:**
+
   
 
 ```
@@ -167,6 +174,7 @@ var json = {
   
 
 **平台支持:**
+
   
 Android 2.2+  
 iOS 6.0+
@@ -198,6 +206,7 @@ var json = {
 ```
 
 **平台支持:**
+
   
 
 Android 2.2+  
@@ -209,6 +218,7 @@ Android 3.0.0+
 iOS 3.0.0+
 
 **示例:**
+
   
 
 ```
@@ -233,7 +243,7 @@ API版本:`uexSegmentControl-3.0.2`
 
 ### Android
 
-API版本:`uexSegmentControl-(null)`
+API版本:`uexSegmentControl-3.0.0`
 
 最近更新时间:`2015-08-11`
 

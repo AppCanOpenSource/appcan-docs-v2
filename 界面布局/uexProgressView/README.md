@@ -286,7 +286,7 @@ iOS 3.0.0+
 
 ### iOS
 
-API版本:`uexProgressView-(null)`
+API版本:`uexProgressView-3.0.0`
 
 最近更新时间:`2015-11-06`
 

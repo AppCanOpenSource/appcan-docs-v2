@@ -899,7 +899,7 @@ window.uexOnload = function(type){
 
 ### iOS
 
-API版本:`uexUnisound-(null)`
+API版本:`uexUnisound-3.0.0`
 
 最近更新时间:`2015-09-18`
 
@@ -909,7 +909,7 @@ API版本:`uexUnisound-(null)`
 
 ### Android
 
-API版本:`uexUnisound-(null)`
+API版本:`uexUnisound-3.0.0`
 
 最近更新时间:`2015-09-18`
 

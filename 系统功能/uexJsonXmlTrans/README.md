@@ -112,7 +112,7 @@ API版本:`uexJsonXmlTrans-3.0.1`
 
 ### Android
 
-API版本:`uexJsonXmlTrans-(null)`
+API版本:`uexJsonXmlTrans-3.0.0`
 
 最近更新时间:`2015-09-25`
 

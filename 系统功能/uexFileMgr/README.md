@@ -179,6 +179,7 @@ uexFileMgr.deleteFileByID(1);
 `uexFileMgr.isFileExistByPath(id, path)`
 
  
+
 **说明:**
 
 根据路径判断文件是否存在,回调方法[cbIsFileExistByPath](#cbIsFileExistByPath 根据路径判断文件是否存在的回调方法 "cbIsFileExistByPath")
@@ -330,6 +331,7 @@ uexFileMgr.explorer("/sdcard/widgetone");
 `uexFileMgr.multiExplorer(path)`
 
  
+
 **说明:**
 
 文件管理器,支持选择多个文件,回调方法[cbMultiExplorer](#cbMultiExplorer 文件管理器(多选)的回调方法 "cbMultiExplorer")
@@ -1081,6 +1083,7 @@ iOS6.0+
 `uexFileMgr.cbCreateDir(opId,dataType,data)`
 
  
+
 **参数:**
 
  
@@ -2042,3 +2045,4 @@ API版本:`uexFileMgr-3.0.12`
 | KB | 1KB = 1024B |
 | MB | 1MB = 1024KB |
 | GB | 1GB = 1024MB |
+

@@ -19,7 +19,7 @@
 
 ### iOS
 
-API版本:`uexMultiDownloader-(null)`
+API版本:`uexMultiDownloader-3.0.0`
 
 最近更新时间:`2015-12-26`
 
@@ -29,7 +29,7 @@ API版本:`uexMultiDownloader-(null)`
 
 ### Android
 
-API版本:`uexMultiDownloader-(null)`
+API版本:`uexMultiDownloader-3.0.0`
 
 最近更新时间:`2015-12-26`
 

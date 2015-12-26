@@ -276,7 +276,7 @@ iOS 3.0.0+
 
 ### iOS
 
-API版本:`uexTabBarWithPopMenu-(null)`
+API版本:`uexTabBarWithPopMenu-3.0.0`
 
 最近更新时间:`2015-08-11`
 
@@ -286,7 +286,7 @@ API版本:`uexTabBarWithPopMenu-(null)`
 
 ### Android
 
-API版本:`uexTabBarWithPopMenu-(null)`
+API版本:`uexTabBarWithPopMenu-3.0.0`
 
 最近更新时间:`2015-08-11`
 

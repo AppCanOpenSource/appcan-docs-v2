@@ -73,6 +73,7 @@ Path Types
  
 
 **平台支持:**
+
   
 Android2.2+                  
 iOS6.0+    
@@ -82,6 +83,7 @@ iOS6.0+
               
 
 **示例:**
+
      
 
 ```
@@ -93,12 +95,14 @@ uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 `uexWeiXin.weiXinLogin(scope,state)`
 
 **说明:**
+
  
 必须先向微信客户端注册本应用才可以进行改操作
 回调 [weiXinLogin](#cbweixinlogin 微信登录授权的回调方法 "微信登录授权的回调方法 ")        
      
 
 **参数:**
+
  
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -108,17 +112,20 @@ uexWeiXin.registerApp('wxd930ea5d5a258f4f');
           
 
 **平台支持:**
+
    
 Android2.2+         
 iOS6.0+      
    
 
 **版本支持:**
+
    
 3.0.0+     
      
 
 **示例:**
+
  
 
 ```
@@ -860,6 +867,7 @@ var json = {
  
 
 **平台支持:**
+
  
 Android2.2+  
 iOS6.0+

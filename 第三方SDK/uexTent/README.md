@@ -31,10 +31,12 @@ Path Types
 `uexTent.registerApp(appKey,appSecret,registerUrl)`
 
 **说明:**
+
  
 请先到腾讯微博开放平台注册 回调 [cbRegisterApp](#cbregisterapp 注册应用的回调方法 "注册应用的回调方法")
 
 **参数:**
+
  
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -45,17 +47,20 @@ Path Types
  
 
 **平台支持:**
+
  
 Android2.2+                 
 iOS6.0+    
              
 
 **版本支持:**
+
  
 3.0.0+ 
                  
 
 **示例:**
+
  
 见sendImageContent方法示例 
                 
@@ -64,11 +69,13 @@ iOS6.0+
 `uexTent.sendTextContent(txt)`
 
 **说明:**
+
  
 分享文本到腾讯微博                   
 回调 [cbShare](#cbShare 分享后的回调方法 "分享后的回调方法")
 
 **参数:**
+
  
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -77,17 +84,20 @@ iOS6.0+
  
 
 **平台支持:**
+
  
 Android2.2+                 
 iOS6.0+
            
 
 **版本支持:**
+
  
 3.0.0+  
                 
 
 **示例:**
+
  
 见sendImageContent方法示例                 
 > ### sendImageContent 分享图片到腾讯微博   
@@ -95,12 +105,14 @@ iOS6.0+
 `uexTent.sendImageContent(imagePath,txt))`
 
 **说明:**
+
  
 
 分享图片到腾讯微博
 回调 [cbShare](#cbshare 分享后的回调方法 "分享后的回调方法")
 
 **参数:**
+
  
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -110,17 +122,20 @@ iOS6.0+
  
 
 **平台支持:**
+
  
 Android2.2+         
 iOS6.0+    
      
 
 **版本支持:**
+
  
 3.0.0+    
       
 
 **示例:**
+
  
 
 ```
@@ -188,6 +203,7 @@ var cInt = 2;
 `uexTent.cbRegisterApp(opId,dataType,data)`   
 
 **参数:**
+
  
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -198,6 +214,7 @@ var cInt = 2;
  
 
 **版本支持:**
+
  
 3.0.0+                  
 > ### cbShare 分享后的回调方法   
@@ -205,6 +222,7 @@ var cInt = 2;
 `uexTent.cbShare(opId,dataType,data);`
 
 **参数:**
+
  
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -215,6 +233,7 @@ var cInt = 2;
  
 
 **版本支持:**
+
  
 3.0.0+      
             

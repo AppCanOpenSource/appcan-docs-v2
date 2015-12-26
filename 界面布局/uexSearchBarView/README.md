@@ -17,10 +17,12 @@
 `uexSearchBarView.open(json)`  
 
 **说明:**
+
   
 打开搜索框
 
 **参数:**
+
   
 
 ```
@@ -43,11 +45,13 @@ var json = {
 ```
 
 **平台支持:**
+
   
 Android 2.2+  
 iOS 6.0+
 
 **版本支持:**
+
   
 Android 3.0.0+  
 iOS 3.0.0+
@@ -87,21 +91,25 @@ uexSearchBarView.close()
 ```
 
 **说明:**
+
   
 关闭搜索框  
 
 **参数:**
+
   
 
 无
 
 **平台支持:**
+
   
 
 Android 2.2+  
 iOS 6.0+  
 
 **版本支持:**
+
   
 
 Android 3.0.0+  
@@ -121,10 +129,12 @@ uexSearchBarView.clearHistory()
 ```  
 
 **说明:**
+
   
 清空搜索历史  
 
 **参数:**
+
   
 
 无
@@ -136,6 +146,7 @@ Android 2.2+
 iOS 6.0+
 
 **版本支持:**
+
   
 
 Android 3.0.0+  
@@ -153,6 +164,7 @@ iOS 3.0.0+
 `uexSearchBarView.onItemClick(json);`
 
 **参数:**
+
   
 
 ```

@@ -141,7 +141,7 @@ API版本:`uexButton-3.0.5`
 
 ### Android
 
-API版本:`uexButton-(null)`
+API版本:`uexButton-3.0.0`
 
 最近更新时间:`2015-06-19`
 

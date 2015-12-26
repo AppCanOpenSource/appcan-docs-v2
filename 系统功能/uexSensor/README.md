@@ -217,7 +217,7 @@ API版本:`uexSensor-3.0.4`
 
 ### Android
 
-API版本:`uexSensor-(null)`
+API版本:`uexSensor-3.0.0`
 
 最近更新时间:`2015-06-19`
 

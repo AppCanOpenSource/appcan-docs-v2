@@ -369,7 +369,7 @@ API版本:`uexDataBaseMgr-3.0.4`
 
 ### Android
 
-API版本:`uexDataBaseMgr-(null)`
+API版本:`uexDataBaseMgr-3.0.0`
 
 最近更新时间:`2015-06-19`
 

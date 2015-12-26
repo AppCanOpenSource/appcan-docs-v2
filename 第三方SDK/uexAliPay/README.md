@@ -148,6 +148,7 @@ iOS6.0+
 ![](http://newdocx.appcan.cn/docximg/182534h2015q2t11e.png)
 
 **版本支持:**
+
                             
 3.0.0+          
 # 3、更新历史

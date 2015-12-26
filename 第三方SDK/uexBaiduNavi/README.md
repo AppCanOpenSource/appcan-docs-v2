@@ -457,7 +457,7 @@ http://developer.baidu.com/map/index.php?title=android-navsdk/guide/voice
 
 ### iOS
 
-API版本:`uexBaiduNavi-(null)`
+API版本:`uexBaiduNavi-3.0.0`
 
 最近更新时间:`2015-10-23`
 

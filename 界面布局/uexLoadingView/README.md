@@ -43,11 +43,13 @@
 ```
 
 **平台支持:**
+
   
 Android 2.2+  
 iOS 6.0+
 
 **版本支持:**
+
   
 Android 3.0.0+  
 iOS 3.0.0+
@@ -84,11 +86,13 @@ uexLoadingView.open(jsonstr);
 无
 
 **平台支持:**
+
   
 Android 2.2+  
 iOS 6.0+
 
 **版本支持:**
+
   
 Android 3.0.0+  
 iOS 3.0.0+

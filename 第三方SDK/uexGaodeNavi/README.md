@@ -457,7 +457,7 @@ iOS 3.0.0+
 
 ### Android
 
-API版本:`uexGaodeNavi-(null)`
+API版本:`uexGaodeNavi-3.0.0`
 
 最近更新时间:`2015-12-16`
 

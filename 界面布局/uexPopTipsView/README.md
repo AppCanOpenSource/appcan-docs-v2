@@ -41,11 +41,13 @@ var json = {
 ```
 
 **平台支持:**
+
   
 Android 2.2+  
 iOS 6.0+
 
 **版本支持:**
+
   
 Android 3.0.0+  
 iOS 3.0.0+
@@ -92,11 +94,13 @@ uexPopTipsView.open(data1);
 无
 
 **平台支持:**
+
    
 Android 2.2+  
 iOS 6.0+
 
 **版本支持:**
+
   
 
 Android 3.0.0+  
@@ -128,16 +132,19 @@ var json = {
 ```
 
 **平台支持:**
+
   
 Android 2.2+
 iOS 6.0+
 
 **版本支持:**
+
   
 Android 3.0.0+  
 iOS 3.0.0+
 
 **示例:**
+
   
 ```
 uexPopTipsView.onItemSelected = function(data){

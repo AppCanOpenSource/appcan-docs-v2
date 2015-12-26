@@ -32,11 +32,13 @@
 | h | String | 是 | 高度|
 
 **平台支持:**
+
   
 Android2.2+  
 iOS6.0+
 
 **版本支持:**
+
   
 3.0.0+
 
@@ -65,11 +67,13 @@ uexCityListView.open("0","600","720","1230");
 ```
 
 **平台支持:**
+
   
 Android2.2+
 iOS6.0+
 
 **版本支持:**
+
   
 3.0.0+
 
@@ -98,11 +102,13 @@ var hotCity = '{"hotCity":["北京","重庆","成都","广州","厦门","杭州"
 ```
 
 **平台支持:**
+
   
 Android2.2+
 iOS6.0+
 
 **版本支持:**
+
   
 3.0.0+
 
@@ -139,11 +145,13 @@ allCity: {
 ```
 
 **平台支持:**
+
   
 Android2.2+
 iOS6.0+
 
 **版本支持:**
+
   
 3.0.0+
 
@@ -193,11 +201,13 @@ var params ='
 ```
 
 **平台支持:**
+
   
 Android2.2+
 iOS6.0+
 
 **版本支持:**
+
   
 3.0.0+
 
@@ -246,11 +256,13 @@ uexCityListView.setViewStyle(params);
 无
 
 **平台支持:**
+
   
 Android2.2+
 iOS6.0+
 
 **版本支持:**
+
   
 3.0.0+
 
@@ -277,11 +289,13 @@ uexCityListView.close();
 | city | String | 是 | 用户点击的城市 |
 
 **平台支持:**
+
   
 Android2.2+  
 iOS6.0+  
 
 **版本支持:**
+
   
 3.0.0+
 
@@ -297,7 +311,7 @@ uexCityListView.onItemClick = function(result){
 
 ### iOS
 
-API版本:`uexCityListView-(null)`
+API版本:`uexCityListView-3.0.0`
 
 最近更新时间:`2015-11-06`
 
