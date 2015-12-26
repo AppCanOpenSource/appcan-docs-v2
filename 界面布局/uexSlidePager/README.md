@@ -17,12 +17,11 @@ uexSlidePager滑动切换页面的相关功能...... 通过创建滑动页面，
 
 > ### openSlidePager 创建滑动页面
 
-`uexSlidePager.openSlidePager(topMargin,contents,icons,colors)`
+`uexSlidePager.openSlidePager(topMargin, contents, icons, colors, option)`
 
 **说明:**
 创建滑动页面  
 **参数:**
-
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |------|-----|--------|------- |
@@ -30,9 +29,19 @@ uexSlidePager滑动切换页面的相关功能...... 通过创建滑动页面，
 |contents | Array | 是 | 内容页数组 |
 |icons| Array | 是 |图标数组 |
 |colors | Array| 是 | 颜色数组 |
+|option | Json| 否 | 参数配置项，json格式如下： |
 
+```
+var option = {
+    isShowIcon:
+}
+```
 
+各字段含义如下：
 
+|  字段名称 | 类型  | 是否必选  |  说明 |
+| ------- | ------- | -------- | ------ |
+| isShowIcon | Boolean | 否 | 是否显示页面底部图标，默认为true，若为false，则icons参数无效 |
 
 **平台支持:**
 Android 2.2+
@@ -48,7 +57,10 @@ var topMargin = 0;
 var contents = ["res://pages/page1.html","res://pages/page2.html","res://pages/page3.html","res://pages/page4.html","res://pages/page5.html","res://pages/page6.html","res://pages/page7.html","res://pages/page8.html","res://pages/page9.html"];
 var icons = ["res://img/icon1.png","res://img/icon2.png","res://img/icon3.png","res://img/icon4.png","res://img/icon5.png","res://img/icon6.png","res://img/icon7.png","res://img/icon8.png","res://img/icon9.png"];
 var colors = ["#D0D0D0","#4A4AFF","#82D900","#B87070","#B9B973","#95CACA","#FFD306","#EA7500","#FF8F59"];
-uexSlidePager.openSlidePager(topMargin, contents, icons, colors);         
+var option = {
+    isShowIcon:true
+}
+uexSlidePager.openSlidePager(topMargin, contents, icons, colors, JSON.stringify(option));
 
 ```
 > ### closeSlidePager移除滑动页面
@@ -173,11 +185,12 @@ uexSlidePager.onChangeColor = function(data）{
 
 
 # 3、更新历史
- API 版本：uexSlidePager-3.0.11(iOS) uexSlidePager-3.0.15（Android）
- 最近更新时间：2015-11-06
+ API 版本：uexSlidePager-3.0.11(iOS) uexSlidePager-3.0.16（Android）
+ 最近更新时间：2015-12-21
  
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
+| 3.0.16  |   | 打开接口新增配置是否显示底部图标参数 |
 | 3.0.15  |   | 去掉插件中的ActivityGroup,配合引擎升级   |
 | 3.0.14  |   | 修改jar文件   |
 | 3.0.13  |   | 修改解密路径   |
