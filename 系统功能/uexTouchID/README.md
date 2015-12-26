@@ -81,7 +81,6 @@ uexTouchID.cbVerify=function(status,reason){
  当前API 版本：uexTouchID-3.0.0(iOS) 
  最近更新时间：2015-10-21
  
- 
-|  历史发布版本 | iOS更新  |
-| ------------ | ------------ |
-| 3.0.0  | TouchID功能插件  |
+|  历史发布版本 | iOS更新  | Android更新|
+| ------------ | ------------ | --------|
+| 3.0.0  | TouchID功能插件  |  |
