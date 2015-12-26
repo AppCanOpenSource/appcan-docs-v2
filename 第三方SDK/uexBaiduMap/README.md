@@ -2,19 +2,18 @@
 [TOC]
 
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
-提供百度地图的相关相关功能。用户可以使用该插件在网页上嵌入一张地图，并实现对地图的基本操作， 例如放大缩小，移动，点击，隐藏，显示。另外还提供了定位功能，搜索功能，路线规划功能，地理编码功能 。
+提供百度地图的相关相关功能。用户可以使用该插件在网页上嵌入一张地图,并实现对地图的基本操作, 例如放大缩小,移动,点击,隐藏,显示。另外还提供了定位功能,搜索功能,路线规划功能,地理编码功能 。
 ## 1.1、说明
 　　安卓&iOS插件已支持**config.xml文件**配置AK。IDE插件因为涉及到百度方面的ID与Key暂时无法使用。
 具体使用点击查看:[附录](http://newdocx.appcan.cn/newdocx/docx?type=1384_975 "百度地图插件接入指引")-->百度地图插件接入指引
 ## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/153918c2015z6c16q.png)
 ## 1.3、公告
-安卓百度定位sdk升级，配合安卓打包服务升级，插件已经跟新至最新版本，已经公测通过，请使用最新版本（已支持config.xml文件配置AK）
-> 旧版uexBaiduMap 插件已经下架，官方不再维护，如需使用，请[跳转](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=25876 "跳转")到详细官方通告
+安卓百度定位sdk升级,配合安卓打包服务升级,插件已经跟新至最新版本,已经公测通过,请使用最新版本(已支持config.xml文件配置AK)
+> 旧版uexBaiduMap 插件已经下架,官方不再维护,如需使用,请[跳转](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=25876 "跳转")到详细官方通告
 
 ## 1.4、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=281_index)插件中心至插件详情页(插件测试用例与插件源码已经提供)
-
 
 # 2、API概览
 ## 2.1、方法
@@ -148,7 +147,7 @@ uexBaiduMap.showMap();
 **参数**
 
 ```
-type:(Number类型) 必选地图的类型(1-标准地图，2-卫星地图)
+type:(Number类型) 必选地图的类型(1-标准地图,2-卫星地图)
 ```
 
 **平台支持**
@@ -178,7 +177,7 @@ uexBaiduMap.setMapType(1);
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| type | Number | 是 | 0-关闭，1-开启 |
+| type | Number | 是 | 0-关闭,1-开启 |
 
 **平台支持**
 
@@ -209,7 +208,6 @@ uexBaiduMap.setTrafficEnabled(1);
 | ----- | ----- | ----- | ----- |
 | longitude | Number | 是 | 中心点经度 |
 |latitude|Number|是|中心点纬度|
-
 
 **平台支持**
 
@@ -320,7 +318,7 @@ uexBaiduMap.zoomOut();
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| angle| Number | 是 | 旋转地图的角度，旋转角范围:-180~180,单位:度，逆时针旋转 |
+| angle| Number | 是 | 旋转地图的角度,旋转角范围:-180~180,单位:度,逆时针旋转 |
 
 **平台支持**
 
@@ -348,8 +346,7 @@ uexBaiduMap.rotate(90);
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| angle| Number | 是 | 俯视地图的角度，俯角范围:-45~0,单位:度 |
-
+| angle| Number | 是 | 俯视地图的角度,俯角范围:-45~0,单位:度 |
 
 **平台支持**
 
@@ -378,8 +375,7 @@ uexBaiduMap.overlook(-30);
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| type| Number | 是 | 0-关闭，1-开启 |
-
+| type| Number | 是 | 0-关闭,1-开启 |
 
 **平台支持**
 
@@ -408,7 +404,7 @@ uexBaiduMap.setZoomEnable(1);
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| type| Number | 是 | 0-关闭，1-开启 |
+| type| Number | 是 | 0-关闭,1-开启 |
 
 **平台支持**
 
@@ -437,7 +433,7 @@ uexBaiduMap.setRotateEnable(1);
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| type| Number | 是 | 0-关闭，1-开启 |
+| type| Number | 是 | 0-关闭,1-开启 |
 
 **平台支持**
 
@@ -466,7 +462,7 @@ uexBaiduMap.setCompassEnable(1);
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| type| Number | 是 | 0-关闭，1-开启 |
+| type| Number | 是 | 0-关闭,1-开启 |
 
 **平台支持**
 
@@ -494,7 +490,7 @@ uexBaiduMap.setScrollEnable(1);
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| type| Number | 是 | 0-关闭，1-开启 |
+| type| Number | 是 | 0-关闭,1-开启 |
 
 **平台支持**
 
@@ -527,10 +523,10 @@ var json=[
 		id:,//(必选)唯一标识符 
 		longitude:,//(必选)经度 
 		latitude:,//(必选)纬度 
-		icon:,//(可选)标注图标路径,支持类型:”res://”“http://” 
+		icon:,//(可选)标注图标路径,支持类型:"res://""http://" 
 		bubble:{//(可选)自定义弹出气泡 
 			 title:,//(必选)自定义弹出气泡标题
-			 bgImage://(可选)自定义弹出气泡背景图片，格式:res://btn.png 
+			 bgImage://(可选)自定义弹出气泡背景图片,格式:res://btn.png 
 			} 
 		}
 	] 
@@ -543,10 +539,10 @@ var json=[
 | id | String | 是 | 唯一标识符 |
 | longitude | Number | 是 | 经度 |
 | latitude | Number | 是 | 纬度 |
-| icon | String | 否 | 标注图标路径,支持类型:”res://”“http://” |
+| icon | String | 否 | 标注图标路径,支持类型:"res://""http://" |
 | bubble | String | 否 | 自定义弹出气泡 |
 | title | String | 是 | 自定义弹出气泡标题 |
-| bgImage | String | 否 | 自定义弹出气泡背景图片，格式:res://btn.png |
+| bgImage | String | 否 | 自定义弹出气泡背景图片,格式:res://btn.png |
 
 **平台支持**
 
@@ -608,9 +604,7 @@ uexBaiduMap.openPieChart(dataStr);
 | 参数 | 参数类型 | 是否必选 | 说明 |
 |-----|-----|-----|-----|
 | makerId | String | 是 | 唯一标识符 |
-| makerInfo | String | 是 | 标注信息，json格式|
-
-
+| makerInfo | String | 是 | 标注信息,json格式|
 
 ```
 var makerInfo={
@@ -648,7 +642,7 @@ var makerInfo =
 		
 	};
 var jsonStr=JSON.stringify(makerInfo);
-var makerId = ‘10001’;
+var makerId = '10001';
 uexBaiduMap. setMarkerOverlay (makerId, jsonStr);
  
 ```
@@ -659,10 +653,9 @@ uexBaiduMap. setMarkerOverlay (makerId, jsonStr);
 
 **说明**
 
-显示指定ID的标注气泡，地图上仅有一个标注气泡显示，其他标注气泡将被隐。
+显示指定ID的标注气泡,地图上仅有一个标注气泡显示,其他标注气泡将被隐。
 
 **参数**
-
 
 | 参数 | 参数类型 | 是否必选 | 说明 |
 |-----|-----|-----|-----|
@@ -680,7 +673,7 @@ iOS6.0+
 **示例**
 
 ```
-var makerId = ‘10001’;
+var makerId = '10001';
 uexBaiduMap. showBubble (makerId);
 ```
 > ### hideBubble 隐藏标注气泡 
@@ -736,8 +729,8 @@ var dotInfo={
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
-| fillColor | String | 是 | 圆点颜色，支持格式:”#000”,”#000000” |
-| radius | Number | 是 | 圆点半径，单位:像素 |
+| fillColor | String | 是 | 圆点颜色,支持格式:"#000","#000000" |
+| radius | Number | 是 | 圆点半径,单位:像素 |
 | longitude | Number | 是 | 圆点经度 |
 | latitude | Number | 是 | 圆点纬度 |
 
@@ -798,8 +791,8 @@ var polylineInfo={
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
-| fillColor | String | 是 | 折线颜色,支持格式:”#000”，”#000000” |
-| lineWidth | Number | 是 | 折线线宽，单位:像素 |
+| fillColor | String | 是 | 折线颜色,支持格式:"#000","#000000" |
+| lineWidth | Number | 是 | 折线线宽,单位:像素 |
 | property | Array | 是 |连接点经纬度集合 |
 | longitude | Number | 是 | 连接点经度 |
 | latitude | Number | 是 | 连接点纬度 |
@@ -872,7 +865,7 @@ var arcInfo={
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
-| strokeColor | String | 是 | 颜色,支持格式:”#000”,”#000000” |
+| strokeColor | String | 是 | 颜色,支持格式:"#000","#000000" |
 | lineWidth | Number | 是 | 线宽 |
 | startLongitude | Number | 是 | 起点经度 |
 | startLatitude | Number | 是 | 起点纬度 |
@@ -936,8 +929,8 @@ var circleInfo={
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
 | radius | Number | 是 | 半径,单位:米 |
-| fillColor | String | 是 | 填充颜色,支持格式:“#000”,“#000000” |
-| strokeColor | String | 是 | 边框颜色,支持格式:“#000”,“#000000” |
+| fillColor | String | 是 | 填充颜色,支持格式:"#000","#000000" |
+| strokeColor | String | 是 | 边框颜色,支持格式:"#000","#000000" |
 | lineWidth | Number | 是 | 边框宽度 |
 | longitude | Number | 是 | 圆心经度 |
 | latitude | Number | 是 | 圆心纬度 |
@@ -998,8 +991,8 @@ var polygonInfo={
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
-| fillColor | String | 是 | 填充颜色,支持格式:“#000”,“#000000” |
-| strokeColor | String | 是 | 边框颜色,支持格式:“#000”,“#000000” |
+| fillColor | String | 是 | 填充颜色,支持格式:"#000","#000000" |
+| strokeColor | String | 是 | 边框颜色,支持格式:"#000","#000000" |
 | lineWidth | Number | 是 | 边框宽度 |
 | property | Array | 是 | 连接点经纬度数组 |
 | longitude | Number | 是 | 连接点经度 |
@@ -1079,13 +1072,13 @@ var groundInfo={
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
-| imageUrl | String | 是 | 图片路径,支持格式:”http://”,“res://” |
+| imageUrl | String | 是 | 图片路径,支持格式:"http://","res://" |
 | transparency | Number | 是 | 透明度,范围:[0.0f,1.0f] |
-| property | Array | 是 | 地理位置数组，长度为2 |
+| property | Array | 是 | 地理位置数组,长度为2 |
 | longitude | Number | 是 | 经度 |
 | latitude | Number | 是 | 纬度 |
-| imageWidth | Number | 是(property数组长度为1时)否(property数组长度为2时) | 图片宽度，单位:米 |
-| imageHeight | Number | 否 | 图片高度，单位:米 |
+| imageWidth | Number | 是(property数组长度为1时)否(property数组长度为2时) | 图片宽度,单位:米 |
+| imageHeight | Number | 否 | 图片高度,单位:米 |
 
 **平台支持**
 
@@ -1149,9 +1142,9 @@ var textInfo = {
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
-| bgColor | String | 是 | 文字背景,支持格式:“#000”,“#000000” |
+| bgColor | String | 是 | 文字背景,支持格式:"#000","#000000" |
 | fontSize | Number | 是 | 字体大小 |
-| fontColor | String | 是 | 字体颜色,支持格式:“#000”,“#000000” |
+| fontColor | String | 是 | 字体颜色,支持格式:"#000","#000000" |
 | text | String | 是 | 文字内容 |
 | longitude | Number | 是 | 经度 |
 | latitude | Number | 是 | 纬度 |
@@ -1192,7 +1185,7 @@ uexBaiduMap.addTextOverlay(jsonStr);
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| ids | String | 是 | 唯一标识符数组，json结构字符串 |
+| ids | String | 是 | 唯一标识符数组,json结构字符串 |
 
 **平台支持**
 
@@ -1238,7 +1231,6 @@ iOS6.0+
 ```
  uexBaiduMap.removeMakersOverlay("150");
 ```
-
 
 > ### poiSearchInCity 城市内检索 
 
@@ -1316,7 +1308,7 @@ var json={
 |-----|-----|-----|
 | longitude | 是 | 经度 |
 | latitude | 是 | 纬度 |
-| radius | 是 | 半径值，单位米 |
+| radius | 是 | 半径值,单位米 |
 | searchKey | 是 | 关键字 |
 | pageNum | 是 | 结果页索引 |
 
@@ -1454,7 +1446,6 @@ var jsonStr=JSON.stringify(data);
 uexBaiduMap.busLineSearch(jsonStr);
 ```
 
-
 > ### removeBusLine 清除公交线路
 
 `uexBaiduMap.removeBusLine();`
@@ -1488,7 +1479,7 @@ uexBaiduMap.removeBusLine();
 
 **说明**
 
-显示公交线路中当前站点的上一个站点，起始站点无效 
+显示公交线路中当前站点的上一个站点,起始站点无效 
 
 **参数**
 
@@ -1515,7 +1506,7 @@ uexBaiduMap.preBusLineNode();
 
 **说明**
 
-显示公交线路中当前站点的下一个站点，终点站点无效 
+显示公交线路中当前站点的下一个站点,终点站点无效 
 
 **参数**
 
@@ -1542,7 +1533,7 @@ uexBaiduMap.nextBusLineNode();
 
 **说明**
 
-根据起点和终点信息搜索并显示路线，信息可以用city和name结合模糊描述，也可以用longitude和latitude结合精确描述，在start和end里面可以出现任意一种结合方式。
+根据起点和终点信息搜索并显示路线,信息可以用city和name结合模糊描述,也可以用longitude和latitude结合精确描述,在start和end里面可以出现任意一种结合方式。
 
 **参数**
 
@@ -1571,11 +1562,11 @@ var json={
 |-----|-----|-----|
 | id | 是 | 唯一标识符 |
 | type | 是 | 路线类型:0-驾车；1-公交；2-步行 |
-| start | 是 | 起点信息，JSON格式 |
-| end | 是 | 终点信息，JSON格式 |
-| city | 否 | 城市，必须与name合用 |
+| start | 是 | 起点信息,JSON格式 |
+| end | 是 | 终点信息,JSON格式 |
+| city | 否 | 城市,必须与name合用 |
 | name | 否 | 地址 |
-| longitude | 否 | 经度，必须与latitude合用 |
+| longitude | 否 | 经度,必须与latitude合用 |
 | latitude | 否 | 纬度 |
 
 **平台支持**
@@ -1614,7 +1605,7 @@ uexBaiduMap.searchRoutePlan(jsonStr);
 
 **说明**
 
-显示线路规划中当前节点的上一个节点，起始节点无效 
+显示线路规划中当前节点的上一个节点,起始节点无效 
 
 **参数**
 
@@ -1670,7 +1661,7 @@ iOS6.0+
 
 **说明**
 
- 显示线路规划中当前节点的下一个节点，终点节点无效 
+ 显示线路规划中当前节点的下一个节点,终点节点无效 
 
 **参数**
 
@@ -1784,7 +1775,7 @@ uexBaiduMap.reverseGeocode(jsonStr);
 
 **说明**
 
-获取当前的位置信息，仅定位一次 
+获取当前的位置信息,仅定位一次 
 回调 [cbCurrentLocation](#cbCurrentLocation 获取到当前位置的回调方法 "获取到当前位置的回调方法")
 
 **参数**
@@ -1872,7 +1863,7 @@ iOS6.0+
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| type | Number | 是 | 显示或隐藏用户位置(0-隐藏，1-显示)|
+| type | Number | 是 | 显示或隐藏用户位置(0-隐藏,1-显示)|
 
 **平台支持**
 
@@ -1901,7 +1892,7 @@ iOS6.0+
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| mode | Number | 是 |跟踪模式(0--普通定位模式，1--跟随模式，2--罗盘模式|
+| mode | Number | 是 |跟踪模式(0--普通定位模式,1--跟随模式,2--罗盘模式|
 
 **平台支持**
 
@@ -1930,7 +1921,7 @@ iOS6.0+
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| mode | Number | 是 |控件状态(0—隐藏，1—显示)|
+| mode | Number | 是 |控件状态(0—隐藏,1—显示)|
 
 **平台支持**
 
@@ -1955,7 +1946,7 @@ uexBaiduMap.zoomControlsEnabled(0)
 **参数**
 
 ```
-data:(String类型) 必选 经纬度，该字符串为JSON格式
+data:(String类型) 必选 经纬度,该字符串为JSON格式
 var data={
 	longitude:,
 	latitude:
@@ -2005,27 +1996,27 @@ var data={
 
 ```
 var json = {
-	center: { // 地图中心点改变时返回值，回调改变后的中心点坐标
+	center: { // 地图中心点改变时返回值,回调改变后的中心点坐标
 		longitude:, //经度
 		latitude:  //纬度
 	},
-	zoom:{ // 地图缩放级别改变时返回值，回调改变前后的缩放级别
+	zoom:{ // 地图缩放级别改变时返回值,回调改变前后的缩放级别
 		oldZoom:, // 地图状态改变前的缩放级别
 		newZoom: // 地图状态改变后的缩放级别
 	}
-	overlook: {//地图倾斜度改变时返回值，回调改变前后的倾斜度
+	overlook: {//地图倾斜度改变时返回值,回调改变前后的倾斜度
 		oldOverlook:, // 地图状态改变前的倾斜度
 		newOverlook: // 地图状态改变后的倾斜度
 	},
-	northeast: {//地图东北角坐标改变时返回值，回调改变后的东北角坐标值
+	northeast: {//地图东北角坐标改变时返回值,回调改变后的东北角坐标值
 		longitude:, // 经度
 		latitude: // 纬度
 	},
-	southwest: {//地图西南角坐标改变时返回值，回调改变后的西南角坐标值
+	southwest: {//地图西南角坐标改变时返回值,回调改变后的西南角坐标值
 		longitude:, // 经度
 		latitude: // 纬度
 	},
-	rotate: {//地图旋转角度改变时返回值，回调改变前后的旋转角度
+	rotate: {//地图旋转角度改变时返回值,回调改变前后的旋转角度
 		oldRotate:, // 地图状态改变前的旋转角度
 		newRotate: // 地图状态改变后的旋转角度
 	}
@@ -2090,7 +2081,7 @@ uexBaiduMap.onMarkerBubbleClickListener = function(data){
 }
 ```
 
-> ### onSDKReceiverError 初始化地图时，key非法、网络错误时的监听方法
+> ### onSDKReceiverError 初始化地图时,key非法、网络错误时的监听方法
 
 `uexBaiduMap.onSDKReceiverError(data)`
 
@@ -2161,7 +2152,7 @@ uexBaiduMap.onReceiveLocation = function(data){
 
 3.0.0+ 
 
-> ### onZoomLevelChangeListener 缩放级别改变时，获取缩放级别和中心点的监听方法 
+> ### onZoomLevelChangeListener 缩放级别改变时,获取缩放级别和中心点的监听方法 
 
 `uexBaiduMap.onZoomLevelChangeListener(level,latitude,longitude)`
 
@@ -2226,18 +2217,19 @@ var data={
 3.0.0+
 
 **示例**
+
 ```
 uexBaiduMap.cbCurrentLocation = function(data){
 	alert(data);
 }
 ```
 
-
 > ### cbGeoCodeResult 地理编码返回结果的回调方法
 
 `uexBaiduMap.cbGeoCodeResult(data)`
 
 **参数**
+
 ```
 data:(String类型) 必选 经纬度该字符串为JSON格式。
 var data={
@@ -2264,7 +2256,6 @@ uexBaiduMap.cbGeoCodeResult = function(data){
 	alert(data);
 }
 ```
-
 
 > ### cbReverseGeoCodeResult 反地理编码返回结果的回调方法
 
@@ -2333,7 +2324,7 @@ var data={
 | city | 是 | 城市 |
 | phoneNum | 是 | 电话 |
 | postCode | 是 | 邮编 |
-| poiType | 是 | 类型(POI类型，0:普通点1:公交站2:公交线路3:地铁站4:地铁线路) |
+| poiType | 是 | 类型(POI类型,0:普通点1:公交站2:公交线路3:地铁站4:地铁线路) |
 | totalPoiNum | 是 | 总结果数 |
 | totalPageNum | 是 | 总页数 |
 | currentPageNum | 是 | 当前页 |
@@ -2401,40 +2392,32 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 
 ```
 # 3、更新历史
- 
- 
-**API 版本:uexBaiduMap-3.1.15(iOS) uexBaiduMap-3.2.28(Android)**
 
-**最近更新时间:2015-12-03**
+### iOS
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ----- | ----- | ----- |
-| 3.2.29| |修复了持续定位时cbCurrentLocation回调不生效的问题|
-| 3.2.28| |修复open接口传入的中心点不生效的问题|
-| 3.2.27| |修改插件，使其支持config配置APIKey|
-| 3.1.26| |去掉插件中的ActivityGroup,配合引擎升级|
-| 3.1.25| |国际化|
-| 3.1.24| |修改百度地图中引用的jar包，解除与百度导航插件之间的打包冲突问题|
-| 3.1.23| |修复地理编码接口当地址错误时程序崩溃的问题|
-| 3.1.22| |修复加入百度地图插件后 uexLocation.openLocation()中的onchange事件不能 使用问题|
-| 3.1.21| |规避百度地图SDK的BitmapDescriptorFactory中fromView 方法重复调用crash问题|
-| 3.1.20| |修复点击路径规划中的起终点标注 时，应用崩溃的问题|
-| 3.0.19| |解决百度地图上箭头不转动的问题|
-| 3.0.18| |增加onMapStatusChangeListener监听 方法监听地图状态改变，以及添加标注时增加 气泡属性|
-| 3.0.17| |修复打开百度地图闪黑屏问题|
-| 3.0.16| |增加onMarkerClickListener和 onMarker BubbleClickListener接口|
-| 3.0.15| 修改插件，使其支持config配置APIKey |增加onZoomLevelChangeListener地 图缩放级别改变时，获取缩放级别和中心点的 监听|
-| 3.0.14| 删去info.plist|增加zoomControlsEnabled显示或隐藏缩 放控件|
-| 3.0.13| 国际化|增加hideMap(隐藏地图)和showMap(显示 地图) 的接口|
-| 3.1.12| 修复onMapLongClickListener回调结果异常的bug|修改添加相同url标注，标注不显示的问题|
-| 3.1.11 | 修改uexBaiduMap.plist文件NSLocation WhenInUseUsageDescription字段对应value 的类型为字符串 | 修改cbOpen和onSearchRoutePlan的JS回 调方式 |
-| 3.1.10 | 新增onMarkerClickListener和onMarker BubbleClickListener监听方法 | 增加加载地图完成的cbOpen回调和线路规划搜 索结果返回时的监听onSearchRoutePlan |
-| 3.1.9 | 增加onZoomLevelChangeListener地图缩放 级别 改变时,获取缩放级别和中心点的监听 | 移动插件包中的定位jar包和so文件至引擎中 |
-| 3.1.8 |增加隐藏地图hideMap和显示地图showMap的接 口 | 修改在百度地图窗口打开新窗口报错问题 |
-| 3.1.7 | 修复onMapClickListener和onMapDoubleClick Listener的回调错误, 添加cbOpen方法，添加onSearchRoutePlan方法 | 修改获取当前位置时返回结果错误问题|
-| 3.1.6 | 修复手势问题 | 增加setUserTrackingMode接口 |
-| 3.1.5 | 修复新SDK定位失败问题 | 修改点击显示线路和添加标注按钮无反应问题 |
-| 3.1.4 | 更新百度地图iOS_SDK_2.6.0 | 修改点击标注空指针异常问题 |
-|3.1.3 | 修复公交路线搜索失败的问题 | 修改地理编码和反地理编码JSON回调方法名称 |
-| 3.1.2 | 修复cbPoiSearchResult接口回调信息不完整问题 | 添加标注支持网络图片的功能 |
-| 3.1.1 | 与安卓统一回调接口的参数 | 增加清除公交线路和清除线路规划接口 |
+API版本:`uexBaiduMap-3.0.15`
+
+最近更新时间:`2015-12-03`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.15 | 修改插件,使其支持config配置APIKey |
+| 3.0.14 | 删去info.plist |
+| 3.0.13 | 国际化 |
+| 3.1.12 | 修复onMapLongClickListener回调结果异常的bug |
+| 3.1.11 | 修改uexBaiduMap.plist文件NSLocation WhenInUseUsageDescription字段对应value 的类型为字符串 |
+| 3.1.10 | 新增onMarkerClickListener和onMarker BubbleClickListener监听方法 |
+| 3.1.9 | 增加onZoomLevelChangeListener地图缩放 级别 改变时,获取缩放级别和中心点的监听 |
+| 3.1.8 | 增加隐藏地图hideMap和显示地图showMap的接 口 |
+| 3.1.7 | 修复onMapClickListener和onMapDoubleClick Listener的回调错误, 添加cbOpen方法,添加onSearchRoutePlan方法 |
+| 3.1.6 | 修复手势问题 |
+| 3.1.5 | 修复新SDK定位失败问题 |
+| 3.1.4 | 更新百度地图iOS_SDK_2.6.0 |
+| 3.1.3 | 修复公交路线搜索失败的问题 |
+| 3.1.2 | 修复cbPoiSearchResult接口回调信息不完整问题 |
+| 3.1.1 | 与安卓统一回调接口的参数 |
+
+### Android
+
+**uexBaiduMap目前不支持Android**
+
