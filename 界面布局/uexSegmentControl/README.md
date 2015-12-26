@@ -5,7 +5,7 @@
 ## 1.2、UI展示
 
 ## 1.3、开源源码
-插件测试用例与源码下载：[点击]( ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载:[点击]( ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
@@ -15,17 +15,18 @@
 
 `uexSegmentControl.open(json)`
 
-**说明:**    
+**说明:**
+    
 打开分段选择器  
 
-**参数：**
+**参数:**
 
 ```
 var json = {
-    left:,//(可选) 左间距，默认0
-    top:,//(可选) 上间距，默认0
-    width:,//(可选) 宽度，默认屏幕宽度
-    height:,//(可选) 高度，默认屏幕高度
+    left:,//(可选) 左间距,默认0
+    top:,//(可选) 上间距,默认0
+    width:,//(可选) 宽度,默认屏幕宽度
+    height:,//(可选) 高度,默认屏幕高度
     dataInfo:{//(必选) 数据
         allData:[],//(必选) 所有选择项的集合
         showData:[],//(必选) 导航条上显示的选择项的集合
@@ -33,17 +34,20 @@ var json = {
     }
 }
 ```
-**平台支持：**
+
+**平台支持:**
 
 Android 2.2+  
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
+
   
 Android 3.0.0+  
 iOS 3.0.0+
   
-**示例：**
+
+**示例:**
 
 ```
     var width = window.screen.width;
@@ -66,38 +70,40 @@ iOS 3.0.0+
     var data1 = JSON.stringify(param1);
     uexSegmentControl.open(data1);
 ```
-运行效果：
-默认打开状态：
+运行效果:
+默认打开状态:
 ![](http://i.imgur.com/ryLSVMU.png)
 
-点击按钮进入选择编辑状态：
+点击按钮进入选择编辑状态:
 ![](http://i.imgur.com/BrIlwtC.png)
-
 
 > ### close 关闭分段选择器
 
 `uexSegmentControl.close()`  
   
-**说明:**    
+
+**说明:**
+    
 关闭分段选择器  
 
-**参数：**  
+**参数:**
+  
 
 无
 
-**平台支持：**
+**平台支持:**
 
 Android 2.2+  
 
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
 
 Android 3.0.0+
 
 iOS 3.0.0+
 
-**示例：**
+**示例:**
 
 ```
     uexSegmentControl.close()
@@ -107,27 +113,33 @@ iOS 3.0.0+
 
 `uexSegmentControl.setCurrentItem(json)`
   
-**说明:**  
+
+**说明:**
+  
 设置当前选中项  
 
-**参数：**
+**参数:**
 
 ```
 var json = {
     index://(必选) 索引
 }
 ```
-**平台支持：**  
+
+**平台支持:**
+  
 Android 2.2+
 
 iOS 6.0+
 
-**版本支持：**  
+**版本支持:**
+  
 
 Android 3.0.0+  
 iOS 3.0.0+
   
-**示例：**
+
+**示例:**
 
 ```
     var param1 = {
@@ -143,7 +155,8 @@ iOS 3.0.0+
 
 `uexSegmentControl.onItemClick(json);`  
 
-**参数：**  
+**参数:**
+  
 
 ```
 var json = {
@@ -152,16 +165,18 @@ var json = {
 }
 ```
   
-**平台支持：**  
+
+**平台支持:**
+  
 Android 2.2+  
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
 
 Android 3.0.0+  
 iOS 3.0.0+
 
-**示例：**
+**示例:**
 
 ```
     uexSegmentControl.onItemClick = function(data){
@@ -173,24 +188,28 @@ iOS 3.0.0+
   
 `uexSegmentControl.onDataChange(json);`  
 
-**参数：**
+**参数:**
+
   
 ```
 var json = {
     shows://(必选) 当前显示在导航条上的选择项集合
 }
 ```
-**平台支持：**  
+
+**平台支持:**
+  
 
 Android 2.2+  
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
 
 Android 3.0.0+  
 iOS 3.0.0+
 
-**示例：**  
+**示例:**
+  
 
 ```
     uexSegmentControl.onDataChange = function(data){
@@ -199,10 +218,25 @@ iOS 3.0.0+
 ```
 
 # 3、更新历史
-API 版本：uexSegmentControl-3.0.0(iOS) uexSegmentControl-3.0.0(Android)  
-最近更新时间：2015-08-11
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.0 | 分段选择器插件 | 分段选择器插件|
+### iOS
 
+API版本:`uexSegmentControl-3.0.2`
+
+最近更新时间:`2015-12-26`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.2 | 按要求修改结构布局 |
+| 3.0.1 | 修改资源图片不显示问题,适配iOS5以上的版本 |
+| 3.0.0 | 分段选择器插件 |
+
+### Android
+
+API版本:`uexSegmentControl-(null)`
+
+最近更新时间:`2015-08-11`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | 分段选择器插件 |

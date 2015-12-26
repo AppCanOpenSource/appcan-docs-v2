@@ -2,7 +2,7 @@
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 弧形菜单
 ## 1.1、说明
-提供弧形菜单基本功能，包括打开、关闭菜单，设置菜单的样式。
+提供弧形菜单基本功能,包括打开、关闭菜单,设置菜单的样式。
 ## 1.2、UI展示
 ![](http://i.imgur.com/KlIr0ps.png)
 
@@ -19,28 +19,29 @@
 
 `uexPathArcMenu.open(json)`
 
-**参数：**
+**参数:**
 
 ```
 var json = {
-    bgColor:,//(可选) 背景颜色，默认半透明
-    position:,//(可选) 菜单显示位置，0-中间；1-左边。默认0
+    bgColor:,//(可选) 背景颜色,默认半透明
+    position:,//(可选) 菜单显示位置,0-中间；1-左边。默认0
     icon:,//(必选) 菜单的控制开关图标
-    data:[]//(必选) 菜单图片数组，数组个数为5个
+    data:[]//(必选) 菜单图片数组,数组个数为5个
 }
 ```
 
-**平台支持：**  
+**平台支持:**
+  
 Android 2.2+  
 iOS 6.0+  
 
-
-**版本支持：**  
+**版本支持:**
+  
 
 Android 3.0.0+  
 iOS 3.0.0+
 
-**示例：**
+**示例:**
 
 ```
 var param1 = {
@@ -63,21 +64,21 @@ uexPathArcMenu.open(data1);
 
 `uexPathArcMenu.close()`
 
-**参数：**
+**参数:**
+
 无
 
-
-**平台支持：**  
+**平台支持:**
+  
 Android 2.2+  
 iOS 6.0+
 
-
-**版本支持：**  
+**版本支持:**
+  
 Android 3.0.0+  
 iOS 3.0.0+
 
-
-**示例：**
+**示例:**
 
 ```
 uexPathArcMenu.close();
@@ -87,24 +88,25 @@ uexPathArcMenu.close();
 
 `uexPathArcMenu.setStyle(json)`
 
-**参数：**
+**参数:**
+
 ```
 var json = {
-    position://(必选) 菜单显示位置，0-中间；1-左边。
+    position://(必选) 菜单显示位置,0-中间；1-左边。
 }
 ```
 
-**平台支持：**  
+**平台支持:**
+  
 Android 2.2+  
 iOS 6.0+
 
-
-**版本支持：**  
+**版本支持:**
+  
 Android 3.0.0+  
 iOS 3.0.0+
 
-
-**示例：**
+**示例:**
 
 ```
 var param1 = {
@@ -120,23 +122,26 @@ uexPathArcMenu.setStyle(data1);
 
 `uexPathArcMenu.onItemClick(json);`
 
-**参数：**
+**参数:**
+
 ```
 var json = {
     index://被点击的元素的索引
 }
 ```
 
-**平台支持：**  
+**平台支持:**
+  
 Android 2.2+  
 iOS 6.0+
 
-
-**版本支持：**  
+**版本支持:**
+  
 Android 3.0.0+  
 iOS 3.0.0+
 
-**示例：**
+**示例:**
+
 ```
 uexPathArcMenu.onItemClick = function(data){
     var index = JSON.parse(data).index;
@@ -144,12 +149,24 @@ uexPathArcMenu.onItemClick = function(data){
 }
 ```
 
-
-
 # 3、更新历史
-API 版本：uexPathArcMenu-3.0.0(iOS) uexPathArcMenu-3.0.0(Android)  
-最近更新时间：2015-08-11
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.0 | uexPathArcMenu插件 | uexPathArcMenu插件|
+### iOS
+
+API版本:`uexPathArcMenu-(null)`
+
+最近更新时间:`2015-08-11`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | uexPathArcMenu插件 |
+
+### Android
+
+API版本:`uexPathArcMenu-(null)`
+
+最近更新时间:`2015-08-11`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | uexPathArcMenu插件 |

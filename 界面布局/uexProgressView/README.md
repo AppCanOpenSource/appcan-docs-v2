@@ -6,7 +6,7 @@
 ## 1.2、UI展示
 ![](http://i.imgur.com/u3jwCGP.gif)
 ## 1.3、开源源码
-插件测试用例与源码下载：[点击]() 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
+插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
@@ -16,44 +16,43 @@
 
 `uexProgressView.open(json)`
 
-**说明：**
+**说明:**
 
 打开进度条
 
-**参数：**
+**参数:**
 
 ```
 var json = {
     id:,//(必选) 唯一标识符
-    left:,//(可选) 左间距，默认0
-    top:,//(可选) 上间距，默认0
-    width:,//(可选) 宽度，默认屏幕宽度
-    height:,//(可选) 高度，默认屏幕高度
-    type:,//(必选) 进度条类型，1-细长形进度条；2-宽长形进度条；3-圆形填充进度条；4-圆形边框进度条
-    progress:,//(可选) 设置初始进度值，取值范围：[0,...,100]，默认为0
-    isScrollWithWeb:,//(可选) 是否跟随网页滚动，默认为false
+    left:,//(可选) 左间距,默认0
+    top:,//(可选) 上间距,默认0
+    width:,//(可选) 宽度,默认屏幕宽度
+    height:,//(可选) 高度,默认屏幕高度
+    type:,//(必选) 进度条类型,1-细长形进度条；2-宽长形进度条；3-圆形填充进度条；4-圆形边框进度条
+    progress:,//(可选) 设置初始进度值,取值范围:[0,...,100],默认为0
+    isScrollWithWeb:,//(可选) 是否跟随网页滚动,默认为false
     normalColor:,//(可选) 进度条正常颜色
     progressColor:,//(可选) 进度条高亮颜色
     isShowText:,//(可选) 是否显示进度文字
     textSize:,//(可选) 进度文字字体大小
     textColor:,//(可选) 进度文字字体颜色
-    borderColor:,//(可选) 进度条边框颜色，type为2,3,4有效
-    bgColor://(可选) 进度条背景颜色，默认透明
+    borderColor:,//(可选) 进度条边框颜色,type为2,3,4有效
+    bgColor://(可选) 进度条背景颜色,默认透明
 }
 ```
 
-**平台支持：**
+**平台支持:**
 
 Android 2.2+  
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
 
 Android 3.0.0+  
 iOS 3.0.0+
 
-
-**示例：**
+**示例:**
 
 示例1
 
@@ -77,7 +76,7 @@ iOS 3.0.0+
     var data1 = JSON.stringify(param1);
     uexProgressView.open(data1);
 ```
-运行效果：
+运行效果:
 ![](http://i.imgur.com/vIwZddy.png)
 
 示例2
@@ -103,7 +102,7 @@ iOS 3.0.0+
     var data1 = JSON.stringify(param1);
     uexProgressView.open(data1);
 ```
-运行效果：
+运行效果:
 ![](http://i.imgur.com/VW0PAK6.png)
 
 示例3
@@ -129,7 +128,7 @@ iOS 3.0.0+
     var data1 = JSON.stringify(param1);
     uexProgressView.open(data1);
 ```
-运行效果：
+运行效果:
 ![](http://i.imgur.com/rUi9vRj.png)
 
 示例4
@@ -153,36 +152,37 @@ iOS 3.0.0+
     var data1 = JSON.stringify(param1);
     uexProgressView.open(data1);
 ```
-运行效果：
+运行效果:
 ![](http://i.imgur.com/hQ82Cq4.png)
 
 > ### setProgress 设置进度值
 
 `uexProgressView.setProgress(json)`
 
-**说明：**
+**说明:**
 
 设置进度值
 
-**参数：**
+**参数:**
 
 ```
 var json = {
     id:,//(必选) 唯一标识符
-    progress://(可选) 设置初始进度值，取值范围：[0,...,100]，默认为0
+    progress://(可选) 设置初始进度值,取值范围:[0,...,100],默认为0
 }
 ```
-**平台支持：**
+
+**平台支持:**
 
 Android 2.2+  
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
 
 Android 3.0.0+  
 iOS 3.0.0+
 
-**示例：**
+**示例:**
 
 ```
     var i = 0;
@@ -209,7 +209,7 @@ iOS 3.0.0+
     }
 ```
 
-运行效果：
+运行效果:
 
 ![](http://i.imgur.com/u3jwCGP.gif)
 
@@ -217,27 +217,27 @@ iOS 3.0.0+
 
 `uexProgressView.close(json)`
 
-**说明：**
+**说明:**
 
 关闭进度条
 
-**参数：**
+**参数:**
 
 ```
-var json = []//(可选) 进度条唯一标识符数组，不传时关闭所有进度条
+var json = []//(可选) 进度条唯一标识符数组,不传时关闭所有进度条
 ```
 
-**平台支持：**
+**平台支持:**
 
 Android 2.2+  
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
 
 Android 3.0.0+  
 iOS 3.0.0+
 
-**示例：**
+**示例:**
 
 ```
 示例1
@@ -249,33 +249,33 @@ iOS 3.0.0+
     uexProgressView.close();//关闭所有进度条
 ```
 
-
 ## 2.2、监听方法
 
 > ### onComplete 进度达到100%的监听方法
 
 `uexProgressView.onComplete(json);`
 
-**参数：**
+**参数:**
 
 ```
 var json = {
     id://完成的进度条唯一标识符
 }
 ```
-**平台支持：**
+
+**平台支持:**
 
 Android 2.2+
 
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
 
 Android 3.0.0+
 
 iOS 3.0.0+
 
-**示例：**
+**示例:**
 
 ```
     uexProgressView.onComplete = function(data){
@@ -283,10 +283,24 @@ iOS 3.0.0+
     }
 ```
 # 3、更新历史
-API 版本：uexProgressView-3.0.0(iOS) uexProgressView-3.0.1(Android)
-最近更新时间：2015-11-06
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.1 |  | 去掉插件中的ActivityGroup,配合引擎升级|
-| 3.0.0 | 进度条控件 | 进度条控件|
+### iOS
+
+API版本:`uexProgressView-(null)`
+
+最近更新时间:`2015-11-06`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | 进度条控件 |
+
+### Android
+
+API版本:`uexProgressView-3.0.1`
+
+最近更新时间:`2015-11-06`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.1 | 去掉插件中的ActivityGroup,配合引擎升级 |
+| 3.0.0 | 进度条控件 |

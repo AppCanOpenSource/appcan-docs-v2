@@ -7,7 +7,7 @@
 ![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexTabBarWithPopMenu/img/1.jpg)
 
 ## 1.3、开源源码
-插件测试用例与源码下载：[点击](xxxx ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载:[点击](xxxx ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
@@ -18,14 +18,16 @@
 `uexTabBarWithPopMenu.open(json)`
 
 **说明:**
+
 打开菜单
 
-**参数：**
+**参数:**
+
 ```
 var json = {
     left:,//(必选) 菜单左间距
     top:,//(必选) 菜单上间距
-    width:,//(必选) 菜单宽度，-1：屏幕宽度
+    width:,//(必选) 菜单宽度,-1:屏幕宽度
     height:,//(必选) 菜单高度
     tab:{//(必选) 底部tab菜单数据
         textSize:,//(必选) 字体大小
@@ -57,17 +59,17 @@ var json = {
 }
 ```
 
-**平台支持：**
+**平台支持:**
+
 Android 2.2+
 iOS 6.0+
 
+**版本支持:**
 
-**版本支持：**
 Android 3.0.0+
 iOS 3.0.0+
 
-
-**示例：**
+**示例:**
 
 ```
     var param1 = {
@@ -147,22 +149,26 @@ iOS 3.0.0+
 `uexTabBarWithPopMenu.close()`
 
 **说明:**
+
 关闭菜单
 
-**参数：**
+**参数:**
+
 ```
 无
 ```
 
-**平台支持：**
+**平台支持:**
+
 Android 2.2+    
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
+
 Android 3.0.0+    
 iOS 3.0.0+
 
-**示例：**
+**示例:**
 
 ```
     uexTabBarWithPopMenu.close()
@@ -170,30 +176,32 @@ iOS 3.0.0+
 
 > ### setItemChecked 设置tab选中项
 
-
 `uexTabBarWithPopMenu.setItemChecked(json)`
 
 **说明:**
+
 打开菜单
 
-**参数：**
+**参数:**
+
 ```
 var json = {
     index://(必选) tab菜单项索引
 }
 ```
 
-**平台支持：**
+**平台支持:**
+
 Android 2.2+
 iOS 6.0+
 
+**版本支持:**
 
-**版本支持：**
 Android 3.0.0+
 iOS 3.0.0+
 
+**示例:**
 
-**示例：**
 ```
     var param1 = {
         index:1
@@ -208,22 +216,26 @@ iOS 3.0.0+
 
 `uexTabBarWithPopMenu.onTabItemClick(json);`
 
-**参数：**
+**参数:**
+
 ```
 var json = {
     index://(必选) 索引
 }
 ```
 
-**平台支持：**
+**平台支持:**
+
 Android 2.2+
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
+
 Android 3.0.0+
 iOS 3.0.0+
 
-**示例：**
+**示例:**
+
 ```
     uexTabBarWithPopMenu.onTabItemClick = function(data){
         alert(data);
@@ -234,22 +246,26 @@ iOS 3.0.0+
 
 `uexTabBarWithPopMenu.onPopMenuItemClick(json);`
 
-**参数：**
+**参数:**
+
 ```
 var json = {
     index://(必选) 索引
 }
 ```
 
-**平台支持：**
+**平台支持:**
+
 Android 2.2+
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
+
 Android 3.0.0+
 iOS 3.0.0+
 
-**示例：**
+**示例:**
+
 ```
     uexTabBarWithPopMenu.onPopMenuItemClick = function(data){
         alert(data);
@@ -257,10 +273,23 @@ iOS 3.0.0+
 ```
 
 # 3、更新历史
-API 版本：uexTabBarWithPopMenu-3.0.0(iOS) uexTabBarWithPopMenu-3.0.0(Android)
-最近更新时间：2015-08-11
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.0 | 插件 | 插件开发uexTabBarWithPopMenu|
+### iOS
 
+API版本:`uexTabBarWithPopMenu-(null)`
+
+最近更新时间:`2015-08-11`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | 插件 |
+
+### Android
+
+API版本:`uexTabBarWithPopMenu-(null)`
+
+最近更新时间:`2015-08-11`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | 插件开发uexTabBarWithPopMenu |
