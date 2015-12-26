@@ -2404,18 +2404,18 @@ API版本:`uexBaiduMap-3.0.15`
 | 3.0.15 | 修改插件,使其支持config配置APIKey |
 | 3.0.14 | 删去info.plist |
 | 3.0.13 | 国际化 |
-| 3.1.12 | 修复onMapLongClickListener回调结果异常的bug |
-| 3.1.11 | 修改uexBaiduMap.plist文件NSLocation WhenInUseUsageDescription字段对应value 的类型为字符串 |
-| 3.1.10 | 新增onMarkerClickListener和onMarker BubbleClickListener监听方法 |
-| 3.1.9 | 增加onZoomLevelChangeListener地图缩放 级别 改变时,获取缩放级别和中心点的监听 |
-| 3.1.8 | 增加隐藏地图hideMap和显示地图showMap的接 口 |
-| 3.1.7 | 修复onMapClickListener和onMapDoubleClick Listener的回调错误, 添加cbOpen方法,添加onSearchRoutePlan方法 |
-| 3.1.6 | 修复手势问题 |
-| 3.1.5 | 修复新SDK定位失败问题 |
-| 3.1.4 | 更新百度地图iOS_SDK_2.6.0 |
-| 3.1.3 | 修复公交路线搜索失败的问题 |
-| 3.1.2 | 修复cbPoiSearchResult接口回调信息不完整问题 |
-| 3.1.1 | 与安卓统一回调接口的参数 |
+| 3.0.12 | 修复onMapLongClickListener回调结果异常的bug |
+| 3.0.11 | 修改uexBaiduMap.plist文件NSLocation WhenInUseUsageDescription字段对应value 的类型为字符串 |
+| 3.0.10 | 新增onMarkerClickListener和onMarker BubbleClickListener监听方法 |
+| 3.0.9 | 增加onZoomLevelChangeListener地图缩放 级别 改变时,获取缩放级别和中心点的监听 |
+| 3.0.8 | 增加隐藏地图hideMap和显示地图showMap的接 口 |
+| 3.0.7 | 修复onMapClickListener和onMapDoubleClick Listener的回调错误, 添加cbOpen方法,添加onSearchRoutePlan方法 |
+| 3.0.6 | 修复手势问题 |
+| 3.0.5 | 修复新SDK定位失败问题 |
+| 3.0.4 | 更新百度地图iOS_SDK_2.6.0 |
+| 3.0.3 | 修复公交路线搜索失败的问题 |
+| 3.0.2 | 修复cbPoiSearchResult接口回调信息不完整问题 |
+| 3.0.1 | 与安卓统一回调接口的参数 |
 
 ### Android
 
@@ -2429,29 +2429,29 @@ API版本:`uexBaiduMap-3.2.29`
 | 3.2.28 | 修复open接口传入的中心点不生效的问题 |
 | 3.2.27 | 修改插件,使其支持config配置APIKey |
 | 3.2.26 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.2.25 | 国际化 |
-| 3.2.24 | 修改百度地图中引用的jar包,解除与百度导航插件之间的打包冲突问题 |
-| 3.2.23 | 修复地理编码接口当地址错误时程序崩溃的问题 |
-| 3.2.22 | 修复加入百度地图插件后uexLocation.openLocation()中的onchange事件不能使用问题 |
-| 3.2.21 | 规避百度地图SDK的BitmapDescriptorFactory中fromView方法重复调用crash问题 |
-| 3.2.20 | 修复点击路径规划中的起终点标注时,应用崩溃的问题 |
-| 3.2.19 | 解决百度地图上箭头不转动的问题 |
-| 3.2.18 | 增加onMapStatusChangeListener监听方法监听地图状态改变,以及添加标注时增加气泡属性 |
-| 3.2.17 | 修复打开百度地图闪黑屏问题 |
-| 3.2.16 | 增加onMarkerClickListener和onMarkerBubbleClickListener接口 |
-| 3.2.15 | 增加onZoomLevelChangeListener地图缩放级别改变时,获取缩放级别和中心点的监听 |
-| 3.2.14 | 增加zoomControlsEnabled显示或隐藏缩放控件 |
-| 3.2.13 | 增加hideMap(隐藏地图)和showMap(显示地图)的接口 |
-| 3.2.12 | 修改添加相同url标注,标注不显示的问题 |
-| 3.2.11 | 修改cbOpen和onSearchRoutePlan的JS回调方式 |
-| 3.2.10 | 增加加载地图完成的cbOpen回调和线路规划搜索结果返回时的监听onSearchRoutePlan |
-| 3.2.9 | 移动插件包中的定位jar包和so文件至引擎中 |
-| 3.2.8 | 修改在百度地图窗口打开新窗口报错问题 |
-| 3.2.7 | 修改获取当前位置时返回结果错误问题 |
-| 3.2.6 | 增加setUserTrackingMode接口 |
-| 3.2.5 | 修改点击显示线路和添加标注按钮无反应问题 |
-| 3.2.4 | 修改点击标注空指针异常问题 |
-| 3.2.3 | 修改地理编码和反地理编码JSON回调方法名称 |
-| 3.2.2 | 添加标注支持网络图片的功能 |
-| 3.2.1 | 增加清除公交线路和清除线路规划接口 |
-| 3.2.0 | 百度地图插件,封装最新的百度地图API |
+| 3.1.25 | 国际化 |
+| 3.1.24 | 修改百度地图中引用的jar包,解除与百度导航插件之间的打包冲突问题 |
+| 3.1.23 | 修复地理编码接口当地址错误时程序崩溃的问题 |
+| 3.1.22 | 修复加入百度地图插件后uexLocation.openLocation()中的onchange事件不能使用问题 |
+| 3.1.21 | 规避百度地图SDK的BitmapDescriptorFactory中fromView方法重复调用crash问题 |
+| 3.1.20 | 修复点击路径规划中的起终点标注时,应用崩溃的问题 |
+| 3.1.19 | 解决百度地图上箭头不转动的问题 |
+| 3.1.18 | 增加onMapStatusChangeListener监听方法监听地图状态改变,以及添加标注时增加气泡属性 |
+| 3.0.17 | 修复打开百度地图闪黑屏问题 |
+| 3.0.16 | 增加onMarkerClickListener和onMarkerBubbleClickListener接口 |
+| 3.0.15 | 增加onZoomLevelChangeListener地图缩放级别改变时,获取缩放级别和中心点的监听 |
+| 3.0.14 | 增加zoomControlsEnabled显示或隐藏缩放控件 |
+| 3.0.13 | 增加hideMap(隐藏地图)和showMap(显示地图)的接口 |
+| 3.0.12 | 修改添加相同url标注,标注不显示的问题 |
+| 3.0.11 | 修改cbOpen和onSearchRoutePlan的JS回调方式 |
+| 3.0.10 | 增加加载地图完成的cbOpen回调和线路规划搜索结果返回时的监听onSearchRoutePlan |
+| 3.0.9 | 移动插件包中的定位jar包和so文件至引擎中 |
+| 3.0.8 | 修改在百度地图窗口打开新窗口报错问题 |
+| 3.0.7 | 修改获取当前位置时返回结果错误问题 |
+| 3.0.6 | 增加setUserTrackingMode接口 |
+| 3.0.5 | 修改点击显示线路和添加标注按钮无反应问题 |
+| 3.0.4 | 修改点击标注空指针异常问题 |
+| 3.0.3 | 修改地理编码和反地理编码JSON回调方法名称 |
+| 3.0.2 | 添加标注支持网络图片的功能 |
+| 3.0.1 | 增加清除公交线路和清除线路规划接口 |
+| 3.0.0 | 百度地图插件,封装最新的百度地图API |
