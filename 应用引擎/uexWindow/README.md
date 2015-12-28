@@ -2695,27 +2695,6 @@ uexWindow.setPopHardwareEnable(‘content’,1);
 appId：子widget对应的appId**平台支持**Android 2.2+iOS 5.1.1+**版本支持**
 3.1.0+**示例**`uexWindow.reloadWidgetByAppId(sdk2015);`
 
-> ### topBounceViewRefresh 自动下拉刷新
-
-`uexWindow.topBounceViewRefresh()`
-
-**说明:**
-下拉刷新初始化完成后，调用接口可达到自动下拉刷新效果，调用一次仅刷新一次。
-
-**参数:**
-无
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.0.0+
-
-**示例**
-
-`uexWindow.topBounceViewRefresh();`
-
 ## 2.2 回调方法
 
 > ### cbConfirm 弹出confirm对话框的回调方法

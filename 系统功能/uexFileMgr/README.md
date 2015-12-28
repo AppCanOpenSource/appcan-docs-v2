@@ -904,7 +904,9 @@ var data = {
 uexFileMgr.renameFile(JSON.stringify(data));
 ```
 
-> ### search 搜索文件
+
+
+>### search 搜索文件
 
 `uexFileMgr.search(param)`
 
@@ -961,6 +963,8 @@ var data={
 uexFileMgr.search(JSON.stringify(data));
 ```
 
+<<<<<<< HEAD
+=======
 > ### getFileListByPath 获取某路径下的所有文件
 
 `uexFileMgr.getFileListByPath(path)`
@@ -1041,6 +1045,7 @@ Android 3.0.12+
     var data = JSON.stringify(params);
     uexFileMgr.getFileSizeByPath(data);
 ```
+>>>>>>> AppCanOpenSource/master
 
 ## 2.2、回调方法
 
@@ -1789,7 +1794,13 @@ uexFileMgr.cbGetFileCreateTime = function(opId,dataType,data){
 };
 ```
 
+<<<<<<< HEAD
+
+
+>### cbRenameFile 重命名文件的回调方法
+=======
 > ### cbRenameFile 重命名文件的回调方法
+>>>>>>> AppCanOpenSource/master
 
 `uexFileMgr.cbRenameFile(param)`
 
@@ -1829,7 +1840,7 @@ uexFileMgr.cbRenameFile=function (info){
 }
 ```
 
-> ### cbSearch 搜索文件的回调方法
+>### cbSearch 搜索文件的回调方法
 
 `uexFileMgr.cbSearch(param)`
 
@@ -1877,6 +1888,31 @@ uexFileMgr.cbSearch=function (info){
 }
 ```
 
+<<<<<<< HEAD
+# 3、更新历史
+API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.11（Android）
+最近更新时间：2015-11-06
+
+|  历史发布版本 | iOS更新  | 安卓更新  |
+| ------------ | ------------ | ------------ |
+| 3.0.16  |getFileListByPath不再返回其子目录下的文件路径|   |
+| 3.0.15  |修复pptx和xlsx没有图标的问题|   |
+| 3.0.14  |getFileRealPath可以设定回调方法|   |
+| 3.0.13  |新增getFileListByPath|   |
+| 3.0.12  |新增方法uexFileMgr.search 搜索文件|   |
+| 3.0.11  |新增cbWriteFile回调方法，优化RC4加密| 修改getFileRealPath指定回调名时，只回调一个参数（与ios统一）。  |
+| 3.0.10  | 解决多选文件打开浏览器显示空白问题  |  新增文件搜索接口 |
+| 3.0.9  | 新增方法uexFileMgr.renameFile 重命名文件  | 修复闪退的bug  |
+| 3.0.8  | 修复uexFileMgr.multiExplorer(path)中path参数无效的BUG  |  国际化  |
+| 3.0.7  |  修改创建时间接口的名称 | 修改接口getFileRealPath,支持回调方法名称的传入  |
+| 3.0.6  | 增加获取文件创建时间的新接口  |  新增getFileListByPath方法获取指定目录中的文件列表 |
+| 3.0.5  | 修改8.0以上系统崩溃问题  | 新增cbWriteFile回调方法  |
+| 3.0.4 |  适配文件浏览器横屏 |   添加重命名接口|
+| 3.0.3  |修复文件单选浏览器，文件多时无法滑动到底的BUG； 修复单选和多选浏览器状态栏标题不一致问题   | 修复解析res://路径的getFileRealPath方法返回错误问题  |
+| 3.0.2  | 修复uexFileMgr.seekFile方法指定位置后 uexFileMgr.readNext方法还是从头读取的BUG  | 修复res://协议下获取真实路径不正确的问题  |
+| 3.0.1  | 修复选择本地照片崩溃的bug  | 新增获取文件或文件夹的创建时间|
+| 3.0.0  |   | 文件管理功能插件|
+=======
 > ### cbGetFileListByPath 获取某路径下的所有文件的回调方法
 
 `uexFileMgr.cbGetFileListByPath(opId, dataType, data)`
@@ -2046,3 +2082,4 @@ API版本:`uexFileMgr-3.0.12`
 | MB | 1MB = 1024KB |
 | GB | 1GB = 1024MB |
 
+>>>>>>> AppCanOpenSource/master

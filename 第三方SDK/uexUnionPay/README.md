@@ -10,7 +10,11 @@ UnionPay银联支付插件
  ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/1.png) ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/2.png) ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/3.png) ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/4.png)
 
 ## 1.3、开源源码
+<<<<<<< HEAD
+插件测试用例与源码下载：[点击]() 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
+=======
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=536_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+>>>>>>> AppCanOpenSource/master
 
 # 2、API概览
 
@@ -130,9 +134,15 @@ API版本:`uexUnionPay-3.0.0`
 
 ### 银联测试环境
 
+<<<<<<< HEAD
+ **因为没有权限入网银联，于是当前官方插件只支持银联测试环境测试**
+ 
+ 在测试银联支付的过程中，只需要交易流水号即可。交易流水号可通过测试地址[获取测试交易流水号](http://101.231.204.84:8091/sim/getacptn)。打开该网址可发现一串数字，该串数字即为测试用的交易流水号。将该交易流水号传入支付接口即可进行支付。
+=======
  **因为没有权限入网银联,于是当前官方插件只支持银联测试环境测试**
  
  在测试银联支付的过程中,只需要交易流水号即可。交易流水号可通过测试地址[获取测试交易流水号](http://101.231.204.84:8091/sim/getacptn)。打开该网址可发现一串数字,该串数字即为测试用的交易流水号。将该交易流水号传入支付接口即可进行支付。
+>>>>>>> AppCanOpenSource/master
  
 ```
     var params = {
@@ -143,7 +153,11 @@ API版本:`uexUnionPay-3.0.0`
     uexUnionPay.startPay(data);
 ```
 
+<<<<<<< HEAD
+调用之后弹出的支付界面可使用以下模拟银行卡支付：(**注该测试环境只支持以下银行卡信息支付**)
+=======
 调用之后弹出的支付界面可使用以下模拟银行卡支付:(**注该测试环境只支持以下银行卡信息支付**)
+>>>>>>> AppCanOpenSource/master
 
 ```
 平安银行借记卡:6216 2610 0000 0000 018
@@ -156,8 +170,13 @@ API版本:`uexUnionPay-3.0.0`
 
 ### 银联正式环境
 
+<<<<<<< HEAD
+**需要开发者入网银联商户平台，且需要自己开发商户后台，交易流水号即是从商户后台获取的。**
+调用方法如下：
+=======
 **需要开发者入网银联商户平台,且需要自己开发商户后台,交易流水号即是从商户后台获取的。**
 调用方法如下:
+>>>>>>> AppCanOpenSource/master
 
 ```
     var params = {
@@ -168,5 +187,9 @@ API版本:`uexUnionPay-3.0.0`
     uexUnionPay.startPay(data);
 ```
 
+<<<<<<< HEAD
+弹出的支付界面可用任意有效的银行卡支付。
+=======
 弹出的支付界面可用任意有效的银行卡支付。
 
+>>>>>>> AppCanOpenSource/master
