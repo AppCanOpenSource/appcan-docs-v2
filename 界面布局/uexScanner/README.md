@@ -1,4 +1,4 @@
-
+﻿
 [TOC]
 
 # 1、简介
@@ -75,7 +75,7 @@ uexScanner.setJsonData(jsonData);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
-| opId| Number| 是 | 操作ID，open失败时为1，正常时为0,失败时一般是用户禁止了APP摄像头权限 |
+| opId| Number| 是 | 操作ID，在此函数中不起作用，可忽略 |
 | dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
 | data|Number | 是 | 返回uex.cSuccess或uex.cFailed，详见CONTANT中CallbackInt类型数据 |
 
@@ -83,10 +83,10 @@ uexScanner.setJsonData(jsonData);
 Android2.2+
 iOS6.0+
 
-**版本支持**
+** 版本支持:**
 3.0.0+
 
-**示例**
+** 示例:**
 ```
 function ScannerSuccessCallBack(opCode, dataType, data) {
     alert(data);
@@ -97,12 +97,11 @@ window.uexOnload = function(){
 ```
 
 # 3、更新历史
-API 版本：uexScanner-3.1.3(iOS) uexScanner-3.0.13（Android）
-最近更新时间：2015-12-22
+API 版本：uexScanner-3.1.3(iOS) uexScanner-3.0.12（Android）
+最近更新时间：2015-06-19
 
-|  历史发布版本 | iOS更新  | Android更新  |
+|  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
-| 3.0.13  |   | 拍照权限被禁止情况处理  |
 | 3.0.12  |   | 去掉读取联系人权限  |
 | 3.0.11  |   | 添加扫描本地二维码图片功能  |
 | 3.0.10  |   | 二维码优化  |

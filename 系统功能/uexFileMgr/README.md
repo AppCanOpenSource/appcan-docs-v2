@@ -791,7 +791,9 @@ var data = {
 uexFileMgr.renameFile(JSON.stringify(data));
 ```
 
-> ### search 搜索文件
+
+
+>### search 搜索文件
 
 `uexFileMgr.search(param)`
 
@@ -850,81 +852,6 @@ var data={
 uexFileMgr.search(JSON.stringify(data));
 ```
 
-> ### getFileListByPath 获取某路径下的所有文件
-
-`uexFileMgr.getFileListByPath(path)`
-
-**说明:**
-
-获取某路径下的所有文件
-
-回调方法[cbGetFileListByPath](#cbGetFileListByPath 获取某路径下的所有文件的回调方法)
-
-**参数:**
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| path | String| 是 | 文件夹路径,支持wgt://, wgts://, file://协议路径 |
-
-**平台支持:**
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-iOS 3.0.13+    
-Android 3.0.6+
-
-
-**示例:**
-
-```
-var path = "wgt://"
-uexFileMgr.getFileListByPath(path);
-```
-
-> ### getFileSizeByPath 通过路径获取文件大小
-
-`uexFileMgr.getFileSizeByPath(params)`
-
-**说明:**
-通过路径获取文件或文件夹大小，回调方法[cbGetFileSizeByPath](#cbGetFileSizeByPath 通过路径获取文件大小的回调方法)
-
-**参数:**
-```
-var params = {
-    id:,
-    path:,
-    unit:
-}
-```
-各字段含义如下：
-
-|  字段名称 | 类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| id | String| 是 | 唯一标识符，与回调方法中id对应 |
-| path | String| 是 | 文件或文件夹路径，支持wgt://, wgts://, file://协议路径 |
-| unit | String| 否 | 文件大小单位，默认为"B"，取值范围参考[unit](#GetFileSizeUnit) |
-
-**平台支持:**
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-iOS 3.0.17+    
-Android 3.0.12+
-
-
-**示例:**
-
-```
-    var params = {
-        id:1,
-        path:"wgt://",
-        unit:"KB"
-    }
-    var data = JSON.stringify(params);
-    uexFileMgr.getFileSizeByPath(data);
-```
 
 ## 2.2、回调方法
 
@@ -1585,7 +1512,7 @@ uexFileMgr.cbGetFileCreateTime = function(opId,dataType,data){
 
 
 
-> ### cbRenameFile 重命名文件的回调方法
+>### cbRenameFile 重命名文件的回调方法
 
 `uexFileMgr.cbRenameFile(param)`
 
@@ -1628,7 +1555,7 @@ uexFileMgr.cbRenameFile=function (info){
 }
 ```
 
-> ### cbSearch 搜索文件的回调方法
+>### cbSearch 搜索文件的回调方法
 
 `uexFileMgr.cbSearch(param)`
 
@@ -1679,101 +1606,9 @@ uexFileMgr.cbSearch=function (info){
 }
 ```
 
-> ### cbGetFileListByPath 获取某路径下的所有文件的回调方法
-
-`uexFileMgr.cbGetFileListByPath(opId, dataType, data)`
-
-**说明:**
-获取某路径下的所有文件的回调方法
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| opId| Number| 是 | 操作Id |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data| Json | 是 | 文件列表数据，如下： |
-
-```
-var data = [
-    {
-        fileName:,
-        fileType:,
-        filePath:
-    }
-]
-```
-各字段含义如下：
-
-|  字段名称 | 类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| fileName| String| 是 | 文件名称 |
-| fileType| Number| 是 | 类型，0-表示文件，1-表示文件夹 |
-| filePath| String| 是 | 当前文件路径 |
-
-**平台支持:**
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-iOS 3.0.13+    
-Android 3.0.6+
-
-
-**示例:**
-
-```
-uexFileMgr.cbGetFileListByPath=function (opId, dataType, info){
-	alert(info);
-}
-```
-
-
-> ### cbGetFileSizeByPath 通过路径获取文件大小的回调方法
-
-`uexFileMgr.cbGetFileSizeByPath(params)`
-
-**说明:**
-通过路径获取文件大小的回调方法
-
-**参数:**
-```
-var params = {
-    errorCode:,
-    id:,
-    data:,
-    unit:
-}
-```
-各字段含义如下：
-
-|  字段名称 | 类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| errorCode| Number| 是 | 状态码，0表示获取成功，非0表示失败，详情参考[errorCode](#GetFileSizeErrorCode) |
-| id| String| 否 | 唯一标识符，errorCode不等于-1时，必选 |
-| data| String| 否 | 文件大小数据，errorCode为0时返回 |
-| unit| String| 否 | 文件大小单位，errorCode为0时返回，详情参考[unit](#GetFileSizeUnit) |
-
-**平台支持:**
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-iOS 3.0.17+    
-Android 3.0.12+
-
-
-**示例:**
-
-```
-uexFileMgr.cbGetFileSizeByPath=function(info){
-	alert(info);
-}
-```
-
 # 3、更新历史
-API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.12（Android）
-最近更新时间：2015-12-23
+API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.11（Android）
+最近更新时间：2015-11-06
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
@@ -1781,7 +1616,7 @@ API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.12（Android）
 | 3.0.15  |修复pptx和xlsx没有图标的问题|   |
 | 3.0.14  |getFileRealPath可以设定回调方法|   |
 | 3.0.13  |新增getFileListByPath|   |
-| 3.0.12  |新增方法uexFileMgr.search 搜索文件| 新增通过路径获取文件大小方法 |
+| 3.0.12  |新增方法uexFileMgr.search 搜索文件|   |
 | 3.0.11  |新增cbWriteFile回调方法，优化RC4加密| 修改getFileRealPath指定回调名时，只回调一个参数（与ios统一）。  |
 | 3.0.10  | 解决多选文件打开浏览器显示空白问题  |  新增文件搜索接口 |
 | 3.0.9  | 新增方法uexFileMgr.renameFile 重命名文件  | 修复闪退的bug  |
@@ -1793,24 +1628,4 @@ API 版本：uexFileMgr-3.0.16(iOS) uexFileMgr-3.0.12（Android）
 | 3.0.3  |修复文件单选浏览器，文件多时无法滑动到底的BUG； 修复单选和多选浏览器状态栏标题不一致问题   | 修复解析res://路径的getFileRealPath方法返回错误问题  |
 | 3.0.2  | 修复uexFileMgr.seekFile方法指定位置后 uexFileMgr.readNext方法还是从头读取的BUG  | 修复res://协议下获取真实路径不正确的问题  |
 | 3.0.1  | 修复选择本地照片崩溃的bug  | 新增获取文件或文件夹的创建时间|
-| 3.0.0  | 文件管理功能插件 | 文件管理功能插件|
-
-# 4、附录
-
-### GetFileSizeErrorCode
-
-|  errorCode | 说明 |
-| ---------- | -------- |
-| 0 | 获取成功|
-| -1 | 无参数错误 |
-| -2 | 当前路径文件或文件夹不存在 |
-| -3 | 未知错误 |
-
-### GetFileSizeUnit
-
-| value | 说明 |
-| ---------- | -------- |
-| B | 字节|
-| KB | 1KB = 1024B |
-| MB | 1MB = 1024KB |
-| GB | 1GB = 1024MB |
+| 3.0.0  |   | 文件管理功能插件|
