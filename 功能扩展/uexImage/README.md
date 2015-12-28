@@ -229,6 +229,7 @@ uexImage.saveToPhotoAlbum(json);
 
 * 清除由本插件的openPicker、openCropper接口所生成的图片文件
 * 若您的APP有多个widget,则只会清除由当前widget所生成的图片文件
+* 相关 [cbClearOutputImages](#cbClearOutputImages 清除由本插件导出的所有图片文件的回调方法)清除由本插件导出的所有图片文件的回调方法
 
 **参数**
 
@@ -277,6 +278,42 @@ iOS 3.0.4+
 
 ```
 uexImage.setIpadPopEnable(0);
+```
+
+>### cbClearOutputImages 清除由本插件导出的所有图片文件的回调方法
+
+`uexImage.cbClearOutputImages(param);`
+
+**说明**
+
+* 清除由本插件导出的所有图片文件后会调用此方法
+
+**参数** 
+
+param为json字符串，包含的参数如下
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 | 
+| --- | --- | --- | --- | --- |
+| status | String | 是 | 成功返回“ok”|
+
+**平台支持**
+
+Android 2.2+ 
+iOS 7.0+ 
+
+**版本支持**
+
+Android 3.0.0+ 
+iOS 3.0.0+ 
+
+**示例**
+
+```
+window.uexOnload=function(type){
+	uexImage.cbClearOutputImages=function(info){
+		alert(info);
+	}
+}
 ```
 
 ##2.2、 回调方法
