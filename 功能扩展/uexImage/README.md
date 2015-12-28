@@ -250,22 +250,20 @@ iOS 3.0.0+
 uexImage.clearOutputImages();
 ```
 
-
 >### setIpadPopEnable 设置iPad是否启用pop窗口
 
 `uexImage.setIpadPopEnable(flag);`
 
 **说明**
 
-* 插件在iPad上默认用pop窗口展示插件页面，
-* 通过调用此接口，可以选择是否禁用pop窗口，改用全屏展示插件页面。
-
+* 插件在iPad上默认用pop窗口展示插件页面,
+* 通过调用此接口,可以选择是否禁用pop窗口,改用全屏展示插件页面。
 
 **参数**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 | 
 | ----- | ----- | ----- | ----- | ----- |
-| flag | Number | 是 | 为0时表示禁用pop窗口，非0时表示启用pop窗口|
+| flag | Number | 是 | 为0时表示禁用pop窗口,非0时表示启用pop窗口|
 
 **平台支持**
 
@@ -280,7 +278,6 @@ iOS 3.0.4+
 ```
 uexImage.setIpadPopEnable(0);
 ```
-
 
 ##2.2、 回调方法
 
