@@ -91,6 +91,58 @@ iOS 3.0.0+
 
 ```
 
+>### calculateDriveRoute  开始驾车路径规划
+
+`uexGaodeNavi.calculateDriveRoute(param)`
+
+**说明**
+
+通过输入起点与终点,可以发起路径规划。
+
+回调 [cbCalculateRoute](#cbCalculateRoute 开始路径规划的回调方法) 开始路径规划的回调方法
+
+**参数**
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|param|String|是|param是json字符串,详情见下|
+
+```
+var param={
+		startPoint;//(可选,Array)[latitude,longitude]起点 经纬度坐标 ,不传时以当前位置为起点
+		startPoints;//(可选，由[latitude,longitude]组成的数组) 
+		endPoint;//(与endPoints必传一个,Array)[latitude,longitude]终点 经纬度坐标
+		endPoints;//（与endPoint必传一个，由[latitude,longitude]组成的数组）终点
+		wayPoints;//（可选，由[latitude,longitude]组成的数组）途径地点
+		driveMode://(可选，Number，默认为0)0.速度优先 1.花费最少 2.距离最短 3.不走高速 4.时间最短且躲避拥堵 5.不走收费道路且躲避拥堵
+}
+
+```
+
+**平台支持**
+
+Android 4.0+    
+iOS 6.0+    
+
+**版本支持**
+
+Android 3.2.0+    
+iOS 3.0.0+    
+
+**示例**
+
+```
+ var data={
+		startPoint:[39.925846, 116.432765],
+		wayPoints:[[39.925846, 116.432345],[39.925846, 116.432789]],
+		endPoint:[39.925041, 116.437901]
+ }
+ var data = JSON.stringify(params);
+ uexGaodeNavi.calculateDriveRoute(data);
+
+```
+
+
 >### startNavi  开始导航
 
 `uexGaodeNavi.startNavi(param)`
