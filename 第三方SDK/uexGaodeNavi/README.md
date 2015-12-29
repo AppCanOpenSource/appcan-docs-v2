@@ -28,6 +28,25 @@
 
 回调 [cbInit](#cbInit 初始化完成的回调方法)
 
+**参数**
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|param|String|是|param是json字符串,详情见下|
+
+```
+var param={
+	appKey;//(可选,String,仅iOS)高德的appKey
+}
+
+```
+
+* iOS 在线打包支持`通过init传入AppKey`或者`通过config.xml配置appKey`
+* iOS IDE打包只支持`通过init传入AppKey`
+* Android 在线打包只支持`通过config.xml配置appKey`
+* Android 不支持IDE打包使用
+
+
 **平台支持**
 
 Android 4.0+    
