@@ -1546,20 +1546,18 @@ iOS6.0+
 
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
-| title | String | 是 | 标题 |
+| title | String | 是 | 标题,传空字符串时没有标题，如''
 | msg | String | 是 | 内容 |
 | canCancel | Number | 否 | 是否可以取消，即点击屏幕上除对话框以外的任何地方，或者点击返回键，对话框是否消失。 0-可以取消，1-不能取消。设置为1时，该对话框只能在通过调 用destroyProgressDialog取消，否则会一直显示。默认可以取消 |
 
-**平台支持：**
-Android2.2+
-
-**版本支持：**
-3.0.0+
-
-**示例：**
+**平台支持：**  
+Android 4.0+  
+**版本支持：**  
+3.0.0+  
+**示例：**  
 
 ```
-uexWindow.createProgressDialog('提示','正在加载...',0);
+uexWindow.createProgressDialog('','正在加载,请稍候...',0);
 ```
 
 > ### destroyProgressDialog 销毁全局对话框
