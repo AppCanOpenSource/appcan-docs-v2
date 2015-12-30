@@ -46,7 +46,6 @@ var param={
 * Android 在线打包只支持`通过config.xml配置appKey`
 * Android 不支持IDE打包使用
 
-
 **平台支持**
 
 Android 4.0+    
@@ -129,14 +128,18 @@ iOS 3.0.0+
 ```
 var param={
 		startPoint;//(可选,Array)[latitude,longitude]起点 经纬度坐标 ,不传时以当前位置为起点
-		startPoints;//(可选，由[latitude,longitude]组成的数组) 
+		startPoints;//(可选,由[latitude,longitude]组成的数组) 
 		endPoint;//(与endPoints必传一个,Array)[latitude,longitude]终点 经纬度坐标
-		endPoints;//（与endPoint必传一个，由[latitude,longitude]组成的数组）终点
-		wayPoints;//（可选，由[latitude,longitude]组成的数组）途径地点
-		driveMode://(可选，Number，默认为0)0.速度优先 1.花费最少 2.距离最短 3.不走高速 4.时间最短且躲避拥堵 5.不走收费道路且躲避拥堵
+		endPoints;//(与endPoint必传一个,由[latitude,longitude]组成的数组)终点
+		wayPoints;//(可选,由[latitude,longitude]组成的数组)途径地点
+		driveMode://(可选,Number,默认为0)0.速度优先 1.花费最少 2.距离最短 3.不走高速 4.时间最短且躲避拥堵 5.不走收费道路且躲避拥堵
 }
 
 ```
+
+* 起点列表的尾点为实际导航起点,其他坐标点为辅助信息,带有方向性,可有效避免算路到马路的另一侧。
+* 终点列表的尾点为实际导航终点,其他坐标点为辅助信息,带有方向性,可有效避免算路到马路的另一侧。
+* 支持最多3个途经点的路径规划
 
 **平台支持**
 
@@ -160,7 +163,6 @@ iOS 3.0.0+
  uexGaodeNavi.calculateDriveRoute(data);
 
 ```
-
 
 >### startNavi  开始导航
 
@@ -212,6 +214,8 @@ iOS 3.0.0+
 **说明**
 
 停止导航,同时关闭导航界面
+
+* 不会触发[onNaviCancel 导航取消的回调](#onNaviCancel)
 
 **参数**
 
@@ -361,7 +365,6 @@ uexGaodeNavi.onArriveDestination =function(){
 
 ```
 var param={
-		type;//Number 播报类型,包含导航播报、前方路况播报和整体路况播报
 		text;//播报文字
 }
 
@@ -385,13 +388,15 @@ uexGaodeNavi.onGetNavigationText =function(param){
 }
 ```
 
->### onReCalculateRouteForTrafficJam 驾车导航时,如果前方遇到拥堵时需要重新计算路径的回调
+>### onReCalculateRouteForTrafficJam 驾车导航时,如果前方遇到拥堵时重新计算路径的回调
 
 `uexGaodeNavi. onReCalculateRouteForTrafficJam()`
 
 **说明**
 
-驾车导航时,如果前方遇到拥堵时需要重新计算路径的回调
+驾车导航时,如果前方遇到拥堵时会重新计算路径,同时触发此回调函数
+
+* iOS不支持此回调
 
 **参数**
 
@@ -399,13 +404,12 @@ uexGaodeNavi.onGetNavigationText =function(param){
 
 **平台支持**
 
- 
-iOS 6.0+    
+Android 4.0+    
 
 **版本支持**
 
-  
-iOS 3.0.0+    
+Android 3.2.0+    
+ 
 
 **示例**
 
@@ -415,13 +419,13 @@ iOS 3.0.0+
 }
 ```
 
->### onReCalculateRouteForYaw 步行或驾车导航时,出现偏航后需要重新计算路径的回调函数
+>### onReCalculateRouteForYaw 步行或驾车导航时,出现偏航后重新计算路径的回调函数
 
 `uexGaodeNavi.onReCalculateRouteForYaw()`
 
 **说明**
 
-步行或驾车导航时,出现偏航后需要重新计算路径的回调函数
+步行或驾车导航时,出现偏航后会重新计算路径,同时触发此回调函数
 
 **参数**
 
@@ -429,13 +433,13 @@ iOS 3.0.0+
 
 **平台支持**
 
- 
+Android 4.0+    
 iOS 6.0+    
 
 **版本支持**
 
-  
-iOS 3.0.0+    
+Android 3.2.0+    
+iOS 3.0.0+     
 
 **示例**
 
@@ -459,12 +463,12 @@ iOS 3.0.0+
 
 **平台支持**
 
- 
+Android 4.0+    
 iOS 6.0+    
 
 **版本支持**
 
-  
+Android 3.2.0+    
 iOS 3.0.0+    
 
 **示例**
@@ -483,18 +487,21 @@ iOS 3.0.0+
 
 导航取消的回调
 
+* 点击导航页面内的取消按钮时会触发此方法
+* 调用接口[stopNavi 停止导航](#stopNavi)取消导航时**不会**触发此方法
+
 **参数**
 
 无
 
 **平台支持**
 
- 
+Android 4.0+    
 iOS 6.0+    
 
 **版本支持**
 
-  
+Android 3.2.0+    
 iOS 3.0.0+    
 
 **示例**
@@ -512,19 +519,36 @@ iOS 3.0.0+
 可以参考[高德地图的AppKEY申请指引](http://lbs.amap.com/api/android-navi-sdk/summary/)
 	
 ## iOS 插件配置指引
+在线打包时,可以在config.xml里配置key,也可以在init方法中直接传入key
+IDE打包只支持init方法传入key
+
+config.xml配置方法:将如下所示的value对应的值换成自己在高德上申请的秘钥即可。
+
+```
+<config desc="uexGaodeNavi" type="KEY">
+    <param name="$uexGaodeNavi_appKey$" platform="iOS" value="209883bc35ae7d04176febb72a856afe"/>
+</config>
+```
 
 ## Android插件配置指引
 将如下所示的value对应的值换成自己在高德上申请的秘钥即可。
+
 ```
-    <config desc="uexGaodeNavi" type="KEY">
-        <param name="$uexGaodeNavi_appKey$" platform="Android" value="209883bc35ae7d04176febb72a856afe"/>
-    </config>
+<config desc="uexGaodeNavi" type="KEY">
+    <param name="$uexGaodeNavi_appKey$" platform="Android" value="209883bc35ae7d04176febb72a856afe"/>
+</config>
 ```
 # 4、更新历史
 
 ### iOS
 
-**uexGaodeNavi目前不支持iOS**
+API版本:`uexGaodeNavi-3.0.0`
+
+最近更新时间:`2015-12-30`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | uexGaodeNavi for iOS |
 
 ### Android
 

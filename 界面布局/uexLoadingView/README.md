@@ -78,13 +78,14 @@ uexLoadingView.open(jsonstr);
 `uexLoadingView.openCircleLoading(jsonstr)`
 
 **说明:**
+
 打开带有圆形加载动画的loading view. 同是会显示遮罩层。
 
 **参数**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| jsonstr | String | 是 |json 格式的字符串数组，如下 |
+| ----- | ----- | ----- | ----- |
+| jsonstr | String | 是 |json 格式的字符串数组,如下 |
 
 ```
  {  
@@ -95,17 +96,18 @@ uexLoadingView.open(jsonstr);
 }
 ```
 
-**平台支持：**  
+**平台支持:**
+  
 Android 2.2+  
 iOS 6.0+
 
-
-**版本支持：**  
+**版本支持:**
+  
 Android 3.0.5+  
 iOS 3.0.0+
 
+**示例:**
 
-**示例：**
 ```
 var jsonstr = '{
     "x": 200, 
@@ -115,7 +117,6 @@ var jsonstr = '{
 }';
 uexLoadingView.openCircleLoading(jsonstr);
 ```
-
 
 > ### close 关闭Loading
 
