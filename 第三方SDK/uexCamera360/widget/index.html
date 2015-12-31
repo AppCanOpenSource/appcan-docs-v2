@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script type="text/javascript">
+    function pick(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexCamera360.pick(data);
+    }
+
+    function edit(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexCamera360.edit(data);
+    }
+
+
+    window.uexOnload = function(type){
+        if(type == 0){
+            uexCamera360.cbPick = cbPick;
+            uexCamera360.cbEdit = cbEdit;
+
+        }
+    }
+    function cbPick(info){
+        alert('cbPick: '+info);
+    }
+
+    function cbEdit(info){
+        alert('cbEdit: '+info);
+    }
+
+
+    </script>
+</head>
+
+<body>
+<div class="tit">uexCamera360</div>
+<div class="conbor">
+    <div class="consj">
+            <input class='btn' type='button' value='pick' onclick='pick()'>
+
+            <input class='btn' type='button' value='edit' onclick='edit()'>
+
+
+    </div>
+</div>
+</body>
+</html>
