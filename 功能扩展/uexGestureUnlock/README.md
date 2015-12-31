@@ -282,13 +282,31 @@ uexGestureUnlock.cancel();
 
 **参数**
 
- 
-
 param为json字符串
 
 ```
 var param = {
-	result:,//Boolean,必选,是否已设置手势密码 true/false
+	result://Boolean,必选,是否已设置手势密码 true/false
+}
+```
+
+**平台支持**
+
+Android 2.2+ 
+iOS 7.0+ 
+
+**版本支持**
+
+Android 3.0.0+ 
+iOS 3.0.0+ 
+
+**示例**
+
+```
+window.uexOnload=function(type){
+	uexGestureUnlock.cbIsGestureCodeSet=function(info){
+		alert(info);
+	}
 }
 ```
 
