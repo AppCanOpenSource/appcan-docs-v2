@@ -148,6 +148,80 @@ iOS 3.0.0+
     }
 ```
 
+>### stopSpeaking 停止语音合成
+
+`uexXunfei.stopSpeaking()`
+
+**参数**
+
+无
+
+**平台支持**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例**
+
+```
+uexXunfei.stopSpeaking();    
+```
+
+>### pauseSpeaking 暂停语音合成
+
+`uexXunfei.pauseSpeaking()`
+
+**参数**
+
+无
+
+**平台支持**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例**
+
+```
+uexXunfei.pauseSpeaking();    
+```
+
+>### resumeSpeaking 继续语音合成
+
+`uexXunfei.resumeSpeaking()`
+
+**参数**
+
+无
+
+**平台支持**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例**
+
+```
+uexXunfei.resumeSpeaking();    
+```
+
+
+
 >### initRecognizer 初始化语音识别
 
 `uexXunfei.initRecognizer()`
@@ -226,6 +300,54 @@ iOS 3.0.0+
         var data = JSON.stringify(params);
         uexXunfei.startListening(data);
     }
+```
+
+>### stopListening 停止语音识别
+
+`uexXunfei.stopListening()`
+
+**参数**
+
+无
+
+**平台支持**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例**
+
+```
+uexXunfei.stopListening();    
+```
+
+>### cancelListening 取消语音识别
+
+`uexXunfei.cancelListening()`
+
+**参数**
+
+无
+
+**平台支持**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例**
+
+```
+uexXunfei.cancelListening();    
 ```
 
 ## 2.2、 回调方法
