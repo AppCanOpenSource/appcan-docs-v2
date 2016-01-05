@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 
 # Camera360接入指引文档
 
@@ -40,16 +40,22 @@
 
 
 ## config配置
+
 ### Android
+
 `config.xml`文件的根标签下增加如下配置：
+
 ```
     <config desc="uexCamera360" type="KEY" > 
         <param platform="Android" name="$uexCamera360_APIKey$" value="您的Android应用APIKey"/>
     </config>
 ```
+
 其中“您的Android应用APIKey”即是前面获取到Android应用的APIKey值。
 ### iOS
+
 `config.xml`文件的根标签下增加如下配置：
+
 ```
     <config desc="uexCamera360" type="KEY" > 
         <param platform="iOS" name="$uexCamera360_APIKey$" value="您的iOS应用APIKey"/>
@@ -58,6 +64,7 @@
 其中“您的iOS应用APIKey”即是前面获取到iOS应用的APIKey值。
 
 或者两者可合并写为:
+
 ```
     <config desc="uexCamera360" type="KEY" > 
         <param platform="iOS" name="$uexCamera360_APIKey$" value="您的iOS应用APIKey"/>

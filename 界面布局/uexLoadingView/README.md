@@ -82,14 +82,17 @@ uexLoadingView.open(jsonstr);
 打开带有圆形加载动画的loading view. 同是会显示遮罩层。
 
 **参数**
+
 无
 
 **平台支持:**
+
   
 Android 2.2+  
 iOS 6.0+
 
 **版本支持:**
+
   
 Android 3.0.5+  
 iOS 3.0.0+
@@ -134,12 +137,13 @@ uexLoadingView.close();
 
 ### iOS
 
-API版本:`uexLoadingView-3.0.3`
+API版本:`uexLoadingView-3.0.4`
 
-最近更新时间:`2015-11-06`
+最近更新时间:`2016-1-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.4 | 新增openCircleLoading接口 |
 | 3.0.3 | uexLoadingView插件,修改open接口 |
 | 3.0.2 | 修改配置文件 |
 | 3.0.1 | 适配iOS5的版本 |
