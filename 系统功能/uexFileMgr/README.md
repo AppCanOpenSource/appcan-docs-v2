@@ -28,7 +28,6 @@
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 唯一标识符 |
@@ -59,7 +58,6 @@ iOS6.0+
   创建文件夹,回调方法[cbCreateDir](#cbCreateDir 创建文件夹的回调方法 "cbCreateDir")
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -92,7 +90,6 @@ uexFileMgr.createDir('20', path);
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 唯一标识符 |
@@ -124,7 +121,6 @@ uexFileMgr.openFile(1,"res://reader.txt",1);
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | path|String | 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
@@ -154,7 +150,6 @@ uexFileMgr.deleteFileByPath("wgt://data/test.txt");
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
@@ -178,14 +173,11 @@ uexFileMgr.deleteFileByID(1);
 
 `uexFileMgr.isFileExistByPath(id, path)`
 
-
-
 **说明:**
 
 根据路径判断文件是否存在,回调方法[cbIsFileExistByPath](#cbIsFileExistByPath 根据路径判断文件是否存在的回调方法 "cbIsFileExistByPath")
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -217,7 +209,6 @@ uexFileMgr.isFileExistByPath(2,"wgt://data/test.txt");
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
@@ -246,7 +237,6 @@ uexFileMgr.isFileExistByID('2');
 根据路径获取文件类型,回调方法[cbGetFileTypeByPath](#cbGetFileTypeByPath 根据路径获取文件类型的回调方法 "cbGetFileTypeByPath")
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -277,7 +267,6 @@ uexFileMgr.getFileTypeByPath("wgt://data/test.txt");
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
@@ -306,7 +295,6 @@ uexFileMgr.getFileTypeByID('4');
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | path|String | 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
@@ -330,14 +318,11 @@ uexFileMgr.explorer("/sdcard/widgetone");
 
 `uexFileMgr.multiExplorer(path)`
 
-
-
 **说明:**
 
 文件管理器,支持选择多个文件,回调方法[cbMultiExplorer](#cbMultiExplorer 文件管理器(多选)的回调方法 "cbMultiExplorer")
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -367,7 +352,6 @@ uexFileMgr.multiExplorer("/sdcard/widgetone");
 定位到文件某一位置
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -400,7 +384,6 @@ uexFileMgr.seekFile('1', '1');
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
@@ -431,7 +414,6 @@ uexFileMgr.seekBeginOfFile('1');
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
@@ -461,7 +443,6 @@ uexFileMgr.seekEndOfFile('1');
 写文件,回调方法[cbWriteFile](#cbWriteFile 写文件的回调方法 "cbWriteFile")　　
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -495,7 +476,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
@@ -512,7 +492,6 @@ iOS6.0+
 
 **示例:**
 
-
 ```
     uexFileMgr.openFile('1', "wgt://test.txt", '1');
     uexFileMgr.readFile('1', -1);
@@ -527,7 +506,6 @@ iOS6.0+
 获取文件大小,回调方法[cbGetFileSize](#cbGetFileSize 获取文件大小的回调方法 "cbGetFileSize")
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -559,7 +537,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
@@ -588,7 +565,6 @@ iOS6.0+
 获取文件实际路径,回调方法[cbGetFileRealPath](#cbGetFileRealPath 获取文件实际路径的回调方法 "cbGetFileRealPath")
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -620,7 +596,6 @@ uexFileMgr.getFileRealPath("wgt://data/test.txt", "cbName");
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
@@ -648,7 +623,6 @@ uexFileMgr.closeFile(1);
 获取文件偏移值, 回调方法[cbGetReaderOffset](#cbGetReaderOffset 获取文件偏移值的回调方法 "cbGetReaderOffset")
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -678,7 +652,6 @@ iOS6.0+
 读百分比对应位置的字符,回调方法[cbReadPercent](#cbReadPercent 读百分比对应位置的字符的回调方法 "cbReadPercent")
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -711,7 +684,6 @@ uexFileMgr.readPercent('1','20','3');
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
@@ -742,7 +714,6 @@ uexFileMgr.readNext('1', '20');
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
@@ -772,7 +743,6 @@ uexFileMgr.readtextarea('1','20');
 使用密码打开文件,回调方法[cbOpenSecure](#cbOpenSecure 使用密码打开文件的回调方法 "cbOpenSecure")
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -806,7 +776,6 @@ uexFileMgr.openSecure('100', "wgt://secure.txt", '1', '123456');
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
@@ -837,7 +806,6 @@ uexFileMgr.createSecure('100', "wgt://data/test.txt", '123456');
 获取文件或文件夹的创建时间, 回调方法[cbGetFileCreateTime](#cbGetFileCreateTime 使用获取文件或文件夹创建时间的回调方法 "cbGetFileCreateTime")
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -870,7 +838,6 @@ uexFileMgr.getFileCreateTime('33','wgt://test.txt');
 回调方法[cbRenameFile](#cbRenameFile 重命名文件的回调方法)
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -915,7 +882,6 @@ uexFileMgr.renameFile(JSON.stringify(data));
 回调方法[cbSearch](#cbSearch 搜索文件的回调方法)
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -972,7 +938,6 @@ uexFileMgr.search(JSON.stringify(data));
 回调方法[cbGetFileListByPath](#cbGetFileListByPath 获取某路径下的所有文件的回调方法)
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -1054,7 +1019,6 @@ Android 3.0.12+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opID | String| 是 | 复制文件任务id |
@@ -1087,7 +1051,6 @@ uexFileMgr.copyFile('109',s,o);
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
@@ -1119,10 +1082,7 @@ iOS6.0+
 
 `uexFileMgr.cbCreateDir(opId,dataType,data)`
 
-
-
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -1156,7 +1116,6 @@ iOS6.0+
 `uexFileMgr.cbOpenFile(opId,dataType,data)`
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -1257,7 +1216,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
@@ -1292,7 +1250,6 @@ iOS6.0+
 `uexFileMgr.cbIsFileExistByID(opId,dataType,data)`
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -1329,7 +1286,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
@@ -1364,7 +1320,6 @@ iOS6.0+
  `uexFileMgr.cbGetFileTypeByID(opId,dataType,data)`
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -1401,7 +1356,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
@@ -1430,7 +1384,6 @@ iOS6.0+
 `uexFileMgr.cbMultiExplorer(opId,dataType,data)`
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -1468,7 +1421,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opCode| Number| 是 | 唯一标识符 |
@@ -1496,7 +1448,6 @@ iOS6.0+
 `uexFileMgr.cbReadFile(opId,dataType,data)`
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -1526,7 +1477,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
@@ -1554,7 +1504,6 @@ iOS6.0+
 `uexFileMgr.cbGetFilePath(opId,dataType,data)`
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -1585,7 +1534,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
@@ -1615,7 +1563,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
@@ -1643,7 +1590,6 @@ iOS6.0+
 `uexFileMgr.cbReadPercent(opId,dataType,data)`
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -1674,7 +1620,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
@@ -1704,7 +1649,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
@@ -1733,7 +1677,6 @@ iOS6.0+
 `uexFileMgr.cbOpenSecure(opId,dataType,data)`
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -1768,7 +1711,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
@@ -1802,7 +1744,6 @@ iOS6.0+
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
@@ -1835,7 +1776,6 @@ uexFileMgr.cbGetFileCreateTime = function(opId,dataType,data){
 重命名文件的回调方法
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -1875,7 +1815,6 @@ uexFileMgr.cbRenameFile=function (info){
 搜索文件的回调方法
 
 **参数:**
-
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -2020,13 +1959,11 @@ uexFileMgr.cbGetFileSizeByPath=function(info){
 
 **参数:**
 
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opCode | String | 是 | 复制文件任务id |
 | dataType | String | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
 | data | String | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
-
 
 **平台支持:**
 
@@ -2051,12 +1988,13 @@ Androd 3.0.13+
 
 ### iOS
 
-API版本:`uexFileMgr-3.0.21`
+API版本:`uexFileMgr-3.0.22`
 
 最近更新时间:`2016-1-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.22 | 新增copyFile接口 |
 | 3.0.21 | 新增getFileSizeByPath接口 |
 | 3.0.20 | 修改能够直接返回到应用程序界面,而不能通过该页面返回到附件的父目录下 |
 | 3.0.19 | 添加IDE支持 |
@@ -2121,3 +2059,4 @@ API版本:`uexFileMgr-3.0.13`
 | KB | 1KB = 1024B |
 | MB | 1MB = 1024KB |
 | GB | 1GB = 1024MB |
+
