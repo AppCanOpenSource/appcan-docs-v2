@@ -1023,7 +1023,7 @@ Android 3.0.12+
 | ----- | ----- | ----- | ----- |
 | opID | String| 是 | 复制文件任务id |
 | srcFilePath | String| 是 | 源文件路径,支持wgt://, wgts://, res://协议路径 |
-| objPath | String| 是 | 文件夹路径,支持wgt://, wgts://, res://协议路径 |
+| objPath | String| 是 | 目标文件夹路径,支持wgt://, wgts://, res://协议路径 |
 
 **平台支持:**
 
@@ -1032,7 +1032,7 @@ iOS6.0+
 
 **版本支持:**
 
-iOS 3.0.+  
+iOS 3.0.22+  
 Android 3.0.13+
 
 **示例:**
@@ -1962,8 +1962,8 @@ uexFileMgr.cbGetFileSizeByPath=function(info){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opCode | String | 是 | 复制文件任务id |
-| dataType | String | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data | String | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
+| dataType | Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
 
 **平台支持:**
 
@@ -1972,7 +1972,7 @@ iOS6.0+
 
 **版本支持:**
 
-iOS 3.0.+
+iOS 3.0.22+
 Androd 3.0.13+
 
 **示例:**
