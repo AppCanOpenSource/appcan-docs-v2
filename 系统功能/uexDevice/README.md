@@ -310,6 +310,90 @@ Android3.0.1+
     uexDevice.openWiFiInterface();//打开WIFI设置页面
 ```
 
+> ### isFunctionEnable 判断某功能是否开启
+
+`uexDevice.isFunctionEnable(params)`
+
+**说明:**
+
+判断某功能是否开启，回调方法[cbIsFunctionEnable](#cbIsFunctionEnable 判断某功能是否开启的回调方法)
+
+**参数:**
+
+```
+var params = {
+    setting:
+}
+```
+
+各字段含义如下：
+
+| 字段名称 | 类型 | 是否必选 | 说明 |
+| ------ | ------ | ------ | ------ |
+| setting | String | 是 | 功能名称，详情请参考[功能](#Settings) |
+
+**平台支持:**
+
+Android2.2+
+iOS8.0+
+
+**版本支持:**
+
+iOS3.0.5+
+Android3.0.3+
+
+**示例:**
+
+```
+        var params = {
+            setting:"GPS"//位置服务功能
+        };
+        var data = JSON.stringify(params);
+        uexDevice.isFunctionEnable(data);
+```
+
+> ### openSetting 打开设置界面
+
+`uexDevice.openSetting(params)`
+
+**说明:**
+
+打开设置界面，回调方法[cbOpenSetting](#cbOpenSetting 打开设置界面的回调方法)
+
+**参数:**
+
+```
+var params = {
+    setting:
+}
+```
+
+各字段含义如下：
+
+| 字段名称 | 类型 | 是否必选 | 说明 |
+| ------ | ------ | ------ | ------ |
+| setting | String | 否 | 功能名称，详情请参考[功能](#Settings)，不传时打开设置入口界面 |
+
+**平台支持:**
+
+Android2.2+
+iOS8.0+
+
+**版本支持:**
+
+iOS3.0.5+
+Android3.0.3+
+
+**示例:**
+
+```
+        var params = {
+            setting:"GPS"//位置服务功能
+        };
+        var data = JSON.stringify(params);
+        uexDevice.openSetting(data);
+```
+
 ## 2.2、回调方法
 
 > ### cbGetInfo 获取设备信息的回调方法
@@ -432,6 +516,81 @@ Android3.0.1+
     };
 ```
 
+> ### cbIsFunctionEnable 判断某功能是否开启的回调方法
+
+`uexDevice.cbIsFunctionEnable(data)`
+
+**参数:**
+```
+var data = {
+    setting:,
+    isEnable:
+}
+```
+各字段含义如下：
+
+|  字段参数名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| setting | String | 是 | 与isFunctionEnable中的setting字段对应 |
+| isEnable | boolean | 是 | 是否开启 |
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+**版本支持:**
+
+iOS3.0.4+
+Android3.0.3+
+
+**示例:**
+
+```
+    uexDevice.cbIsFunctionEnable = function(data){
+        var data = JSON.parse(data);
+        alert(data.isEnable);
+    };
+```
+
+
+> ### cbOpenSetting 打开设置界面的回调方法
+
+`uexDevice.cbOpenSetting(data)`
+
+**参数:**
+```
+var data = {
+    setting:,
+    errorCode:
+}
+```
+各字段含义如下：
+
+|  字段参数名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| setting | String | 是 | 与openSetting中的setting字段对应 |
+| errorCode | int | 是 | 状态码，0-打开设置成功，1-打开设置失败 |
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+**版本支持:**
+
+iOS3.0.4+
+Android3.0.3+
+
+**示例:**
+
+```
+    uexDevice.cbOpenSetting = function(data){
+        var data = JSON.parse(data);
+        alert(data.errorCode);
+    };
+```
+
 ## 2.3、监听方法
 
 > ### onOrientationChange 屏幕旋转的监听方法
@@ -491,12 +650,22 @@ API版本:`uexDevice-3.0.5`
 
 ### Android
 
-API版本:`uexDevice-3.0.2`
+API版本:`uexDevice-3.0.3`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-01-06`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.2 | .添加截图,听筒和扩音器切换, 设置/获取音量等接口 |
+| 3.0.3 | 添加判断功能是否开启，以及打开设置界面接口 |
+| 3.0.2 | 添加截图,听筒和扩音器切换, 设置/获取音量等接口 |
 | 3.0.1 | 新增屏幕截图、调节屏幕亮度、调节系统音量、屏幕常亮控制、跳转WIFI界面相关接口 |
 | 3.0.0 | 设备能力功能插件 |
+
+# 4、附录
+
+### Settings
+| value | 说明 |
+| ----- | ----- |
+| GPS | GPS功能 |
+| BLUETOOTH | 蓝牙功能 |
+| NETWORK | 移动数据功能 |
