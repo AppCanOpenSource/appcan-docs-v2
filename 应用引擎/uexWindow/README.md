@@ -2727,6 +2727,116 @@ iOS6.0+
 
 `uexWindow.topBounceViewRefresh();`
 
+> ### createPluginViewContainer 创建插件容器
+
+`uexWindow.createPluginViewContainer(jsonStr);`
+
+**说明:**
+创建插件容器，供插件将页面填充进去
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| jsonStr | json| 是 | 创建的插件容器的信息 |
+
+```
+var jsonStr  = {
+            id:,//容器id
+            x: ,//容器位置x坐标
+            y: ,//容器位置y坐标
+            w: ,//容器位置w宽度
+            h: //容器位置h高度
+        };	 
+```
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.1.0+
+
+**示例:**
+```
+var params = {
+            "id":"998",
+            "x": 100,
+            "y": 1064,
+            "w":1200,
+            "h":1600 
+        };
+        uexWindow.createPluginViewContainer(JSON.stringify(params));
+```
+
+> ### closePluginViewContainer 关闭插件容器
+
+`uexWindow.closePluginViewContainer(jsonStr);`
+
+**说明:**
+关闭插件容器
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| jsonStr | json| 是 | 关闭的插件容器的信息 |
+
+```
+var jsonStr = {
+            id : //容器id
+        };	 
+```
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.1.0+
+
+**示例:**
+```
+var params = {
+            "id":"998"
+        };
+        uexWindow.closePluginViewContainer(JSON.stringify(params));
+```
+
+> ### setPageInContainer 设置插件容器当前要显示的页面
+
+`uexWindow.setPageInContainer(jsonStr);`
+
+**说明:**
+设置插件容器当前要显示的页面
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| jsonStr | json| 是 | 设置当前展示容器的信息 |
+
+```
+var jsonStr = {
+            id : ,//容器id
+            index ://要显示页面index
+        };	 
+```
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.1.0+
+
+**示例:**
+```
+var params = {
+            id :"998"
+            index : 1
+        };
+        uexWindow.setPageInContainer(JSON.stringify(params));
+```
+
+
 ## 2.2 回调方法
 
 > ### cbConfirm 弹出confirm对话框的回调方法
@@ -3289,6 +3399,93 @@ iOS6.0+
 **版本支持：**
 3.0.0+
 
+
+
+
+> ### cbCreatePluginViewContainer 容器创建成功的回调方法
+  
+`uexWindow.cbCreatePluginViewContainer (opId,dataType,data)`
+
+**参数:**
+
+| 参数名称 | 参数类型  | 是否必选  |  说明 |
+| -------- | --------- | --------- | ----- |
+| opId | Number | 是 |创建成功的容器id|
+| dataType | Number | 是 |参数类型详见CONSTANT中Callback方法数据类型|
+| data | String| 是 |返回的数据，success 创建成功|
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.1.0+
+
+**示例：**
+
+```
+window.uexOnload = function(type){
+       uexWindow.cbCreatePluginViewContainer = function(opId, dataType, data){
+			alert("cbCreatePluginViewContainer: " + data );
+	}
+}
+```
+> ### cbClosePluginViewContainer 容器关闭成功的回调方法
+  
+`uexWindow.cbClosePluginViewContainer(opId,dataType,data)`
+
+**参数:**
+
+| 参数名称 | 参数类型  | 是否必选  |  说明 |
+| -------- | --------- | --------- | ----- |
+| opId | Number | 是 |被关闭的容器id|
+| dataType | Number | 是 |参数类型详见CONSTANT中Callback方法数据类型|
+| data | String| 是 |返回的数据，success 容器关闭成功|
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.1.0+
+
+**示例：**
+
+```
+window.uexOnload = function(type){
+       uexWindow.cbClosePluginViewContainer = function(opId, dataType, data){
+			alert("cbClosePluginViewContainer: " + data );
+	}
+}
+```
+> ### onPluginContainerPageChange容器页面切换回调
+  
+`uexWindow.onPluginContainerPageChange(opId,dataType,data)`
+
+**参数:**
+
+| 参数名称 | 参数类型  | 是否必选  |  说明 |
+| -------- | --------- | --------- | ----- |
+| opId | Number | 是 |页面切换的容器id|
+| dataType | Number | 是 |参数类型详见CONSTANT中Callback方法数据类型|
+| data | Number | 是 |容器当前显示页面的index|
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.1.0+
+
+**示例：**
+
+```
+window.uexOnload = function(type){
+       uexWindow.onPluginContainerPageChange= function(opId, dataType, data){
+			alert("onPluginContainerPageChange: " + data );
+	}
+}
+```
 
 #3 术语表
 
