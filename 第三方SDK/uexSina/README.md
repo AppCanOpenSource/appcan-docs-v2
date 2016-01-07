@@ -412,6 +412,7 @@ API版本:`uexSina-3.0.10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.11 | 修复了分享图片不能读取wgts://格式的文件问题 |
 | 3.0.10 | cbRegisterApp回调openId和token |
 | 3.0.9 | 添加login, getUserInfo, logout接口 |
 | 3.0.8 | 去掉插件中的ActivityGroup,配合引擎升级 |
