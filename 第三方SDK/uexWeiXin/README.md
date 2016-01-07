@@ -2570,12 +2570,13 @@ uexWeiXin.cbGetLoginUnionID = function (data) {
 
 ### iOS
 
-API版本:`uexWeiXin-3.0.18`
+API版本:`uexWeiXin-3.0.19`
 
-最近更新时间:`2015-12-30`
+最近更新时间:`2016-1-7`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.19 | 修复getWeiXinLoginAccessToken失败的bug |
 | 3.0.18 | 修改回调方式,支持setCallbackWindowName接口;部分支持IDE |
 | 3.0.17 | 新增一版微信登陆相关接口 |
 | 3.0.16 | 微信分享纯图片添加可选参数title |

@@ -406,7 +406,7 @@ API版本:`uexSina-3.0.6`
 
 ### Android
 
-API版本:`uexSina-3.0.10`
+API版本:`uexSina-3.0.11`
 
 最近更新时间:`2015-12-26`
 
