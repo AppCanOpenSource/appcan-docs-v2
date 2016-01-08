@@ -2634,7 +2634,7 @@ Android 3.0.3+
 ## 4.1、通过config.xml配置插件的方法
 
 * 将配置代码添加到`config.xml`中即可完成插件配置,无需进行自定义插件相关步骤
-* 详见[打包服务器公测](http://newdocx.appcan.cn/newdocx/docx?type=1472_1291)
+* 详见[打包服务器公测](http://newdocx.appcan.cn/newdocx/docx?type=1669_1291)
 * 该公测已完成,现在也支持正式版大众打包服务器
 
 #### iOS
