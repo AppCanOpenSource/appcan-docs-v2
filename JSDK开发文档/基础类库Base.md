@@ -121,7 +121,7 @@ var res = appcan.isFunction(foo); //如果res为true则foo是函数，否则foo�
 
 ````
 //判断foo是否是一个朴素的对象
-var res = appcan.isPlainObject(foo); //如果foo是一个存纯粹的对象，不是window，不是Aarry，是单纯Object对象
+var res = appcan.isPlainObject(foo); //如果foo是一个存纯粹的对象，不是window，不是Array，是单纯Object对象
 ````
 >### appcan.ready(funCall)
 
@@ -156,7 +156,7 @@ Foo.prototype = {
         //do something
     }
 };
-//定义一个子类集成Foo
+//parent ---> Foo
 var ChildFoo = appcan.inherit(parent,{
     init:function(){//要添加给子类的方法
         //do something

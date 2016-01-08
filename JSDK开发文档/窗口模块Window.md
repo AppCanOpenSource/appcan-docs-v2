@@ -172,7 +172,7 @@ appcan.window.evaluateScript({
 ````
 >###appcan.window.evaluatePopoverScript(name,popName,scriptContent)
 
-   在指定的弹出窗内执行响应的脚本
+   在指定的弹出窗内执行相应的脚本
 ````
     name:要执行脚本的窗口名称
     popName:要执行的弹出窗口的名称
@@ -247,7 +247,7 @@ appcan.window.evaluatePopoverScript({
 **例如：**
 
 ````
-  //给页面天加一个简单的弹动效果
+  //给页面添加一个简单的弹动效果
     appcan.window.setBounce({
         bounceType:'1',
         color:'#F00',
@@ -298,7 +298,7 @@ win.disableBounce();
         1: 颜色弹动效果
         2: 设置图片弹动
     color:设置弹动结果的背景颜色
-    flag:是否显示内容,1:显示内容，0:不现实内容
+    flag:是否显示内容,1:显示内容，0:不显示内容
     callback(status,type):当设置成功后，如果滑动超过了弹动的边界，则会触发该回调，status: 当type=0时，值0为向下拉，1为超越边界，2为向上返回到最初状态；当type=1时，0为向上拉，1为超越边界，2为向下返回到最初状态。 type跟传入的参数type一致
 ````
 **参数还可以以对象的形式传参：**
@@ -797,7 +797,7 @@ win.bringPopoverToFront('demo');
 ````
     id:指定元素的Id
     url:要加载到弹出窗口中的地址
-    left:距离做边界的距离
+    left:距离左边界的距离
     top:距离上边界的距离
     name:弹出窗口的名称，如果id没有指定的话用name，否则用id
     extraInfo:扩展参数，json格式如下： {"extraInfo":{"opaque":"true","bgColor":"#011","delayTime":"250"}}
