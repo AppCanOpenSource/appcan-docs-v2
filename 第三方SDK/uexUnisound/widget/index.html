@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="target-densitydpi=device-dpi,width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+        window.uexOnload = function(type){
+            //onRecognizerStart
+            uexUnisound.onRecognizerStart=function(data){
+                document.getElementById('TestCallBack1').innerHTML="onRecognizerStart";
+                document.getElementById('TestData1').innerHTML=data;
+            };
+            //onSpeechStart
+            uexUnisound.onSpeechStart=function(data){
+                document.getElementById('TestCallBack1').innerHTML="onSpeechStart";
+                document.getElementById('TestData1').innerHTML=data;
+            };
+            //onReceiveRecognizerResult
+            var result="";
+            uexUnisound.onReceiveRecognizerResult=function(info){
+                data=JSON.parse(info);
+                result=result+data.result;
+                document.getElementById('TestCallBack1').innerHTML="onReceiveRecognizerResult";
+                document.getElementById('TestData1').innerHTML=data.result;
+                if(data.isLast){
+                    alert(result);
+                }
+            };
+            //onEnd
+            uexUnisound.onEnd=function(data){
+                document.getElementById('TestCallBack1').innerHTML="onEnd";
+                document.getElementById('TestData1').innerHTML=data;
+            };
+            //onVADTimeout
+            uexUnisound.onVADTimeout=function(data){
+                document.getElementById('TestCallBack1').innerHTML="onVADTimeout";
+                document.getElementById('TestData1').innerHTML=data;
+            };
+            //onUpdateVolume
+            uexUnisound.onUpdateVolume=function(data){
+                document.getElementById('TestCallBacks').innerHTML="onUpdateVolume";
+                document.getElementById('TestDatas').innerHTML=data;
+            };
+            //onReceiveUnderstanderResult
+            uexUnisound.onReceiveUnderstanderResult=function(data){
+                document.getElementById('TestCallBack2').innerHTML="onReceiveUnderstanderResult";
+                document.getElementById('TestData2').innerHTML=data;
+            };
+
+            //	onSpeakingFinish
+            uexUnisound.onSpeakingFinish=function(data){
+                document.getElementById('TestCallBack3').innerHTML="onSpeakingFinish";
+                document.getElementById('TestData3').innerHTML=data;
+            };
+            //	onSpeakingStart
+            uexUnisound.onSpeakingStart=function(data){
+                document.getElementById('TestCallBack3').innerHTML="onSpeakingStart";
+                document.getElementById('TestData3').innerHTML=data;
+            };
+            //	onSpeakingCancel
+            uexUnisound.onSpeakingCancel=function(data){
+                document.getElementById('TestCallBack3').innerHTML="onSpeakingCancel";
+                document.getElementById('TestData3').innerHTML=data;
+            };
+            //cbPauseSpeaking
+            uexUnisound.cbPauseSpeaking=function(data){
+                document.getElementById('TestCallBack3').innerHTML="cbPauseSpeaking";
+                document.getElementById('TestData3').innerHTML=data;
+            };
+            //cbResumeSpeaking
+            uexUnisound.cbResumeSpeaking=function(data){
+                document.getElementById('TestCallBack3').innerHTML="cbResumeSpeaking";
+                document.getElementById('TestData3').innerHTML=data;
+            };
+            //	onSpeakingErrorOccurr
+            uexUnisound.onSpeakingErrorOccurr=function(data){
+                document.getElementById('TestCallBack3').innerHTML="onSpeakingErrorOccur";
+                document.getElementById('TestData3').innerHTML=data;
+            };
+
+
+        }
+
+
+    
+    function init(){
+        var data = {
+            appKey:"fjxvybmv65mh6qdcj5chwi6vaetsvvwuj7ey5gyh",
+            secret:"1c22d036487da0bd69c791788e5870e6"
+        }
+        uexUnisound.init(JSON.stringify(data));
+    }
+
+    function updateRecognizerSettings(){
+        var data = {
+            frontTime:2500,
+            backTime:1500,
+            rate:2,
+            language:2,
+            engine:3,
+            recognizationTimeout:20
+            //needUnderstander:false
+        }
+
+
+        uexUnisound.updateRecognizerSettings(JSON.stringify(data));
+    }
+
+    //[2.3]	start
+    function start(){
+        result="";
+        uexUnisound.start();
+    }
+    //[2.4]	stopUnderstander
+    function stop(){
+        uexUnisound.stop();
+    }
+    //[2.5]	cancel
+    function cancel(){
+        uexUnisound.cancel();
+    }
+
+    //[3.1]	textUnderstander
+    function runTextUnderstand(){
+        uexUnisound.runTextUnderstand('{"text":"我爱你"}');
+    }
+    //[4.1]	speaking
+    function speaking(){
+        uexUnisound.speaking('{"text":"喂喂喂"}');
+    }
+    //[4.3]	cancelSpeaking
+    function cancelSpeaking(){
+        uexUnisound.cancelSpeaking();
+    }
+    //[4.4]	pauseSpeaking
+    function pauseSpeaking(){
+        uexUnisound.pauseSpeaking();
+    }
+    //[4.6]	resumeSpeaking
+    function resumeSpeaking(){
+        uexUnisound.resumeSpeaking();
+    }
+    /*
+    function recognizeFile(){
+        var data = {
+            filePath:"res://1.wav"
+        }
+        uexUnisound.recognizeFile(JSON.stringify(data));
+    }
+     */
+
+	</script>
+</head>
+
+<body>
+    <div class="tit">uexUnisound</div>
+    <div class="conbor">
+        <div class="consj">
+            <span>init</span>
+            <input class='btn' type='button' value='调用接口' onclick='init()'>
+            <span>[setUserData</span>
+            <input class='btn' type='button' value='调用接口' onclick='setUserData()'>
+                
+
+            <span>updateRecognizerSettings</span>
+            <input class='btn' type='button' value='调用接口' onclick='updateRecognizerSettings()'/>
+            <span>start</span>
+            <input class='btn' type='button' value='调用接口' onclick='start()'>
+            <span>cancel</span>
+            <input class='btn' type='button' value='调用接口' onclick='cancel()'>
+                
+            <div>====回调区域</div>
+            <div id='TestCallBack1'>原本内容</div>
+            <div id='TestData1'>原本内容</div>
+            <div id='TestCallBacks'>原本内容</div>
+            <div id='TestDatas'>原本内容</div>
+            <div>===============</div>
+            
+            
+
+            <span>textUnderstander</span>
+            <input class='btn' type='button' value='调用接口' onclick='runTextUnderstand()'/>
+            <span>recognizeFile</span>
+            <input class='btn' type='button' value='调用接口' onclick='recognizeFile()'/>
+            
+            <div>====回调区域</div>
+            <div id='TestCallBack2'>原本内容</div>
+            <div id='TestData2'>原本内容</div>
+            <div>===============</div>
+            
+            
+
+            <span>speaking()</span>
+            <input class='btn' type='button' value='调用接口' onclick='speaking()'>
+            <span>cancelSpeaking</span>
+            <input class='btn' type='button' value='调用接口' onclick='cancelSpeaking()'>
+            <span> pauseSpeaking</span>
+            <input class='btn' type='button' value='调用接口' onclick='pauseSpeaking()'>
+            <span> resumeSpeaking</span>
+            <input class='btn' type='button' value='调用接口' onclick='resumeSpeaking()'>
+            
+            <div>====回调区域</div>
+            <div id='TestCallBack3'>原本内容</div>
+            <div id='TestData3'>原本内容</div>
+            <div>===============</div>
+            
+         
+                                        
+                                        
+        </div>
+    </div>
+</body>
+</html>

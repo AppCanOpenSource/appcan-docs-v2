@@ -7,7 +7,7 @@
 ````
     opts.maxtask:同时下载的最大任务数
     opts.success(path,session):下载成功后的回调 path:文件的路径，session：当前下载文件相关信息
-    opts.dom：如果设置的是图片成功后设置src，否则设置background-image,如果不传不做任何操作
+    opts.dom：如果设置的dom元素为img标签，设置其对应的src,否则设置dom的background-image,如果不设置opts.dom不做任何操作
     opts.progress(data,session)：文件下载进度 data:文件下载进度，session：当前下载文件相关信息
     opts.fail(session):文件下载失败的回调，session：当前下载文件相关信息
 ````
@@ -38,7 +38,7 @@ var option = {
             }
         },
         success: function(path, session){
-            alert("path:"+path+", \nsession:"+JSON.stringify(session));
+            alert("path:"+path+", \\nsession:"+JSON.stringify(session));
             alert("Download Success");
         },
         fail: function(session){

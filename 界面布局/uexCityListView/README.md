@@ -19,22 +19,27 @@
 `uexCityListView.open(x,y,w,h)`
 
 **说明:**
-打开城市选择器，当用户在城市选择器上选择城市之后，会触发回调方法[onItemClick](#onitemclick 点击城市之后的回调 "onItemClick")
+
+打开城市选择器,当用户在城市选择器上选择城市之后,会触发回调方法[onItemClick](#onitemclick 点击城市之后的回调 "onItemClick")
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
+| ----- | ----- | ----- | ----- |
 | x | String | 是 | x坐标 |
 | y | String | 是 | y坐标 |
 | w | String | 是 | 宽度|
 | h | String | 是 | 高度|
 
-**平台支持：**  
+**平台支持:**
+
+  
 Android2.2+  
 iOS6.0+
 
-**版本支持：**  
+**版本支持:**
+
+  
 3.0.0+
 
 **示例:**
@@ -48,23 +53,28 @@ uexCityListView.open("0","600","720","1230");
 `uexCityListView.setLocalCity(json);`
 
 **说明:**
+
 设置当前定位城市
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
+| ----- | ----- | ----- | ----- |
 | localCity | String | 是 |json 格式字符串 |
 
 ```
  var localCity = '{"localCity":"北京"}';
 ```
 
-**平台支持：**  
+**平台支持:**
+
+  
 Android2.2+
 iOS6.0+
 
-**版本支持：**  
+**版本支持:**
+
+  
 3.0.0+
 
 **示例:**
@@ -74,28 +84,32 @@ var localCity = '{"localCity":"北京"}';
 uexCityListView.setLocalCity(localCity);
 ```
 
-
 > ### setHotCity 设置热门城市
 
 `uexCityListView.setLocalCity(json);`
 
 **说明:**
+
 设置热门城市
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| hotCity | String | 是 |json 格式的字符串数组，如下 |
+| ----- | ----- | ----- | ----- |
+| hotCity | String | 是 |json 格式的字符串数组,如下 |
 ```
 var hotCity = '{"hotCity":["北京","重庆","成都","广州","厦门","杭州","上海","武汉","深圳"]}';
 ```
 
-**平台支持：**  
+**平台支持:**
+
+  
 Android2.2+
 iOS6.0+
 
-**版本支持：**  
+**版本支持:**
+
+  
 3.0.0+
 
 **示例:**
@@ -110,12 +124,13 @@ uexCityListView.setHotCity(hotCity);
 `uexCityListView.setAllCity(jsonPath)`
 
 **说明:**
-导入文件，设置所有的城市
+
+导入文件,设置所有的城市
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
+| ----- | ----- | ----- | ----- |
 | jsonPath | String | 是 |存放所有城市数据的文件路径, 文件内容是json格式。文件的内容如下 |
 
 `city.json`
@@ -129,11 +144,15 @@ allCity: {
 }
 ```
 
-**平台支持：**  
+**平台支持:**
+
+  
 Android2.2+
 iOS6.0+
 
-**版本支持：**  
+**版本支持:**
+
+  
 3.0.0+
 
 **示例:**
@@ -147,6 +166,7 @@ uexCityListView.setAllCity("res://city.json");
 `uexCityListView.setViewStyle(json);`
 
 **说明:**
+
 设置城市选择视图的样式
 
 **参数:**
@@ -180,11 +200,15 @@ var params ='
 ';
 ```
 
-**平台支持：**  
+**平台支持:**
+
+  
 Android2.2+
 iOS6.0+
 
-**版本支持：**  
+**版本支持:**
+
+  
 3.0.0+
 
 **示例:**
@@ -219,22 +243,27 @@ var params = '
 uexCityListView.setViewStyle(params);
 ```
 
-
 > ### close 关闭城市选择视图
 
 `uexCityListView.close();`
 
 **说明:**
+
 关闭城市选择视图
 
 **参数:**
+
 无
 
-**平台支持：**  
+**平台支持:**
+
+  
 Android2.2+
 iOS6.0+
 
-**版本支持：**  
+**版本支持:**
+
+  
 3.0.0+
 
 **示例:**
@@ -250,19 +279,24 @@ uexCityListView.close();
 `uexCityListView.onItemClick(city);`
 
 **说明:**
-用户点击的城市列表中的某一个item后，回调这个函数
+
+用户点击的城市列表中的某一个item后,回调这个函数
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
+| ----- | ----- | ----- | ----- |
 | city | String | 是 | 用户点击的城市 |
 
-**平台支持：**  
+**平台支持:**
+
+  
 Android2.2+  
 iOS6.0+  
 
-**版本支持：**  
+**版本支持:**
+
+  
 3.0.0+
 
 **示例:**
@@ -274,9 +308,24 @@ uexCityListView.onItemClick = function(result){
 ```
 
 # 3、更新历史
-API 版本：uexCityListView-3.0.0(iOS) uexCityListView-3.0.0(Android)  
-最近更新时间：2015-08-11
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.0 | uexCityListView插件 | uexCityListView插件|
+### iOS
+
+API版本:`uexCityListView-3.0.0`
+
+最近更新时间:`2015-11-06`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | uexCityListView插件 |
+
+### Android
+
+API版本:`uexCityListView-3.0.1`
+
+最近更新时间:`2015-11-06`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.1 | 去掉插件中的ActivityGroup,配合引擎升级 |
+| 3.0.0 | uexCityListView插件 |

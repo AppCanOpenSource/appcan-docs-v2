@@ -71,7 +71,7 @@ var keys = locStorage.keys();
 **例如:**
 
 ````
-  //获取保存在localStorage中所有的key
+  //获取保存在localStorage中'k'的值，如果只有一个参数就是获取对应key的值，如果有两个参数就是为对应的key设置值
 var value = appcan.locStorage.val('k');//返回值是数组，包含所有的key
 //另外一种使用方式
 var locSotrage = appcan.require('locStorage');

@@ -6,7 +6,8 @@
 #1、高德地图开放平台创建应用
 申请成为开发者,访问[http://lbs.amap.com/](http://lbs.amap.com/) 。 
 ![](http://i.imgur.com/9nuT5v4.jpg) 
-注册成功之后，点击成为开发者，如下： 
+注册成功之后，点击成为开发者，如下：
+
 ![](http://i.imgur.com/wZnTMBR.jpg) 
 填写完整具体的信息
 
@@ -18,8 +19,10 @@
 
 选择免费申请密钥
 ![](http://i.imgur.com/Nv8VSlu.jpg) 
+（图1）
+
 ![](http://i.imgur.com/CGIdwNy.jpg) 
- 
+ （图2）
 
 填写相应信息，若不知道安全码或者package，请点击图中的红色框框链接查看获取方法，也可参考[签名信息获取工具使用文档](http://newdocx.appcan.cn/newdocx/docx?type=1299_1291 ) 
 

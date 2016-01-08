@@ -1,4 +1,4 @@
-﻿[TOC]
+[TOC]
 # 1、简介
 管理当前应用
 
@@ -22,9 +22,6 @@
 |funName| String| 是 |方法名，子widget结束时将String型的任意字符回调给该方法，可为空。 注意：只在主窗口中有效，浮动窗口中无效|
 |info | String| 是 |  传给子widget的信息 |
 |animDuration| String| 否 |动画持续时长，单位为毫秒，默认200毫秒|
-
-
-
 
 **平台支持:**
 Android 2.2+
@@ -105,14 +102,12 @@ uexWidget.startWidget('12345','1','widgetDidFinish','open a widget',300)
 
 ```
   uexWidget.removeWidget(“12345”);
-
-
 ```
+
 > ### checkUpdate 检查更新
 
-  
-  
 `  uexWidget.checkUpdate()`
+
 **说明:**
   检查当前widget是否有更新。
 **参数:**
@@ -128,9 +123,7 @@ uexWidget.startWidget('12345','1','widgetDidFinish','open a widget',300)
 uexWidget.checkUpdate();
 ```
 > ### loadApp 启动第三方应用（iOS）
- 
-  
-  
+
  ` uexWidget.loadApp(appInfo)`
  
 **说明:**
@@ -158,26 +151,43 @@ uexWidget.loadApp(appInfo);
 
 ```
 > ### startApp 启动第三方应用（Android）
- 
-  
-  
- ` uexWidget.startApp(startMode,mainInfo,addInfo,optInfo)`
+
+`uexWidget.startApp(startMode,mainInfo,addInfo,optInfo)`
 **说明:**
   根据相关信息启动一个第三方应用。
 **参数:**
 
+|参数名称|参数类型 | 是否必选|  说明 |
+|------|-----|--------|------- |
+|startMode|String|是|启动方式，0表示通过包名和类名启动，1表示通过Action启动。|
+|optInfo|String|否|附加参数，键值对，{key:value}格式多个用英文","隔开，如："{'key1':'value1'},{'key2':'value1'}"。|
 
-	startMode:(String类型)必选  启动方式，0表示通过包名和类名启动，1表示通过Action启动。
-	startMode为0
-	mainInfo:(String类型)必选  包名
-	addInfo:(String类型)可选  类名，为空时启动应用入口类
-	startMode为1
-	mainInfo:(String类型)必选  action
-	addInfo:(String类型)可选  category或data，json格式如下：
-	{"category":["android.intent.category.WID","android.intent.category.WID1"],"data":{"mimeType":"image/png","scheme":"sip"}}
+**startMode为0**
 
+|参数名称|参数类型 | 是否必选|  说明 |
+|------|-----|--------|------- |
+|mainInfo|String|是|包名|
+|addInfo|String|否|类名，为空时启动应用入口类|
+
+**startMode为1**
+
+|参数名称|参数类型 | 是否必选|  说明 |
+|------|-----|--------|------- |
+|mainInfo|String|是|action|
+|addInfo|String|否|category或data，json格式如下：|
+```
+{
+    "category": [
+        "android.intent.category.WID",
+        "android.intent.category.WID1"
+    ],
+    "data": {
+        "mimeType": "image/png",
+        "scheme": "sip"
+    }
+}
+```
 各字段含义如下:
-
 
 |参数|是否必须|说明|
 |-----|-----|-----|
@@ -186,11 +196,22 @@ uexWidget.loadApp(appInfo);
 |mineType|否|mineType属性|
 |scheme|否|scheme属性|
 
-    optInfo:(String类型)可选  附加参数，键值对，{key:value}格式多个用英文","隔开，如："{'key1':'value1'},{'key2':'value1'}"
+**注意事项：**
+如果通过包名类名启动AppCan应用，而且需要监听onLoadByOtherApp回调方法，则addInfo为必选。调用方法如下：
+若包名为com.appcan.develop(开发者在使用时只需要更换包名即可),则调用代码如下：
+```
+var packageName = "com.appcan.develop";
+var className = "org.zywx.wbpalmstar.engine.EBrowserActivity";
+var optInfo = "{'key1':'value1'},{'key2':'value1'}";
+uexWidget.startApp(0,packageName,className,optInfo);
+```
+
 **平台支持:**
   Android2.2+
+
 **版本支持:**
   3.0.0+
+
 **示例:**
   1.要启动的AndroidManifest.xml文件如下：
 
@@ -532,7 +553,7 @@ uexWidget.setPushState(0);
 
 ```
   uexWidget.getPushState()
- ```
+```
   
 > ### isAppInstalled 是否安装某第三方应用
 
@@ -570,6 +591,60 @@ uexWidget.setPushState(0);
     };
     var data1 = JSON.stringify(param1);
     uexWidget.isAppInstalled(data1);
+  ````
+  
+
+> ### closeLoading 关闭loading图
+  
+ ` uexWidget.closeLoading()`
+ 
+**说明:**
+
+  关闭启动图。用于应用启动期间需要做页面跳转等逻辑。需要在config.xml 添加配置 `<removeloading>true</removeloading>`。添加之后引擎不会关闭启动图，由前端调用此接口关闭。超时（时间为3秒）之后引擎才会关闭启动图。
+  
+  
+**参数:**
+
+  无
+  
+**平台支持:**
+
+  Android2.2+
+  
+**版本支持:**
+
+  3.2.0+
+  
+**示例:**
+
+```
+  uexWidget.closeLoading()
+ ```
+ 
+> ### moveToBack 运行到后台,不退出程序
+
+ ` uexWidget.moveToBack()`
+ 
+**说明:**
+
+  程序将会在后台运行，不退出。只支持Android。
+  
+**参数:**
+
+无
+  
+**平台支持:**
+
+Android2.2+  
+  
+**版本支持:**
+
+3.2.2+  
+  
+**示例:**
+
+  ````
+    uexWidget.moveToBack();
   ````
   
 ## 2.2 回调方法
@@ -935,9 +1010,12 @@ uexWidget.onSuspend = function(){
   
   **示例:**
   
- ```
+```
 uexWidget.onResume = function(){
 	alert("程序恢复");
 }
-  ```
+
+```
+  
+
   

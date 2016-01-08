@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    
+    <script type="text/javascript">
+        function openWin(name){
+            uexWindow.open(name, '0', name+".html", '2', '', '', 0);
+        }
+        window.uexOnload = function(type){
+            uexWindow.onWindowAppear=function(){
+
+            }
+            uex3DTouch.onLoadByShortcutClickEvent=function(info){
+
+                document.getElementById('shortcut').innerHTML=info;
+                var data=JSON.parse(info);
+                var type=data.type;
+                if(type == "static1"){
+                    openWin('page1');
+                }
+                if(type == "static2"){
+                    openWin('page2');
+                }
+                if(type == "dynamic1"){
+                    openWin('page3')
+                }
+            }
+
+        }
+    
+    function setShortcuts1(){
+        var data=[
+        {
+                  type:"dynamic1",
+                  title:"动态shortcut1",
+                  subtitle:"subtitle1",
+                  iconType:"UIApplicationShortcutIconTypeMail",
+                  info:{
+                    key1:"value1",
+                    key2:"value2"
+                  }
+        
+        }
+        ];
+        uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
+    }
+    function setShortcuts2(){
+        var data=[
+                  {
+                  type:"dynamic1",
+                  title:"动态shortcut1",
+                  subtitle:"subtitle1",
+                  iconType:"UIApplicationShortcutIconTypeMail",
+                  info:{
+                    key1:"value1",
+                    key2:"value2"
+                    }
+                  
+                  },
+                  {
+                  type:"dynamic2",
+                  title:"动态shortcut2",
+                  subtitle:"subtitle2",
+                  iconFile:"b.png",
+                  info:{
+                  key3:"value3",
+                  key4:"value4"
+                    }
+                  
+                  }
+                  ];
+         
+         uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
+    }
+  
+    </script>
+</head>
+
+<body>
+    <div class="tit">3D Touch Test</div>
+    <div class="conbor">
+        <div class="consj">
+            <div id="shortcut">***</div>
+            <input class="btn" type="button" value="setShortcuts1" onclick="setShortcuts1();">
+            <input class="btn" type="button" value="setShortcuts2" onclick="setShortcuts2();">
+            <br>
+            <input class="btn" type="button" value="page1" onclick="openWin('page1');">
+            <input class="btn" type="button" value="page2" onclick="openWin('page2');">
+            <input class="btn" type="button" value="page3" onclick="openWin('page3');">
+        </div>
+    </div>
+</body>
+</html>

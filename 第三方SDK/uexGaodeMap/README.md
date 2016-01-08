@@ -4,19 +4,19 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
  高德地图插件
 ## 1.1、说明
- 封装高德地图相关功能，包括放大缩小、移动和旋转等基本操作；标注；圆形、矩形和多边形覆盖物；定位、搜索、地理编码、离线地图等功能。
+ 封装高德地图相关功能,包括放大缩小、移动和旋转等基本操作；标注；圆形、矩形和多边形覆盖物；定位、搜索、地理编码、离线地图等功能。
 > **`注意:`**
-　　申请的插件appkey需要通过config.xml文件配置自定义参数的方法，可直接在官网公共插件里直接勾选使用，详见[附录](#4、附录 "附录")。IDE插件因为涉及到高德地图方面的ID与Key暂时无法正常使用。具体操作见『[手册](http://newdocx.appcan.cn/newdocx/docx?type=1050_975 "手册")』
+　　申请的插件appkey需要通过config.xml文件配置自定义参数的方法,可直接在官网公共插件里直接勾选使用,详见[附录](#4、附录 "附录")。IDE插件因为涉及到高德地图方面的ID与Key暂时无法正常使用。具体操作见『[手册](http://newdocx.appcan.cn/newdocx/docx?type=1050_975 "手册")』
 
 ## 1.2、开源源码
-自定义插件下载:[点击此处](http://plugin.appcan.cn/details.html?id=428_index) （插件测试用例与插件包已经提供）
+自定义插件下载:[点击此处](http://plugin.appcan.cn/details.html?id=428_index) (插件测试用例与插件包已经提供)
 ## 1.3、 UI展示
  
 ## 1.4、术语表
 ### 1.4.1 Download Status
 
 | 状态码 | 描述 | 英文描述 |
-| ----- | ---- | ------- |
+| ----- | ----- | ----- |
 |-1 | 下载失败 | ERROR |
 | 0 | 正在下载 | LOADING |
 | 1 | 正在解压 | UNZIP |
@@ -29,12 +29,11 @@
 ### 1.4.2 cbDownload Status
 
 | errorCode | 描述 | errorStr |
-| ----- | --------- | ------- |
+| ----- | ----- | ----- |
 |0 | 加入列表成功 | "" |
-| -1 | 下载失败 | "城市或省名称错误！" |
-| -2 | 下载失败 | "已经存在列表中！" |
-| -3 | 下载失败 | "已经下载完成，请到已下载列表查看！" | 
-
+| -1 | 下载失败 | "城市或省名称错误!" |
+| -2 | 下载失败 | "已经存在列表中!" |
+| -3 | 下载失败 | "已经下载完成,请到已下载列表查看!" | 
 
 # 2、API概述 
 ## 2.1、方法:
@@ -42,16 +41,24 @@
 
 `uexGaodeMap.open(json)`
 
+**说明:**
+
+打开地图。
+
+注意Android端isScrollWithWeb参数为true时,需要结合新引擎才能生效,引擎版本需在20150915及以上版本。否则地图只显示白板。
+
 **参数:**
 
 ```
 var json = {
-    left:,//(可选) 左间距，默认0
-    top:,//(可选) 上间距，默认0
+    left:,//(可选) 左间距,默认0
+    top:,//(可选) 上间距,默认0
     width:,//(可选) 地图宽度
     height:,//(可选) 地图高度
+    isScrollWithWeb:,//(可选) 地图是否跟随网页滚动,默认为false
     longitude:,//(可选) 中心点经度
     latitude://(可选) 中心点纬度
+    APIKey:,//(可选,仅iOS,仅IDE本地打包)设置高德的APIKey
 }
 ```
 
@@ -73,6 +80,7 @@ iOS 3.0.0+
         top:0,
         width:800,
         height:800,
+        isScrollWithWeb:true,
         longitude:114.402815,
         latitude:30.475798
     };
@@ -81,7 +89,6 @@ iOS 3.0.0+
 ```
 
 > ###  close  关闭地图
-
 
 `uexGaodeMap.close()`
 
@@ -114,7 +121,7 @@ iOS 3.0.0+
 
 ```
 var json = {
-    type://（必选）地图类型，1-标准地图，2-卫星地图，3-夜景地图
+    type://(必选)地图类型,1-标准地图,2-卫星地图,3-夜景地图
 }
 ```
 
@@ -146,7 +153,7 @@ uexGaodeMap.setMapType(data);
 
 ```
 var json = {
-    type://（必选） 0-关闭，1-开启
+    type://(必选) 0-关闭,1-开启
 }
 ```
 
@@ -178,8 +185,8 @@ iOS 3.0.0+
 
 ```
 var json = {
-    longitude:,//（必选）中心点经度
-    latitude://（必选）中心点纬度
+    longitude:,//(必选)中心点经度
+    latitude://(必选)中心点纬度
 }
 ```
 
@@ -212,7 +219,7 @@ iOS 3.0.0+
 
 ```
 var json = {
-    level://(必选)级别，范围(3,20)
+    level://(必选)级别,范围(3,20)
 }
 ```
 
@@ -292,7 +299,7 @@ uexGaodeMap.zoomOut();
 
 ````
 var json = {
-    angle://（必选）旋转角度，正北方向到地图方向逆时针旋转的角度，范围(0,360)。
+    angle://(必选)旋转角度,正北方向到地图方向逆时针旋转的角度,范围(0,360)。
 }
 ````
 
@@ -324,7 +331,7 @@ iOS 3.0.0+
 
 ```
 var json = {
-    angle://(必选)地图倾斜度，范围(0,45)。
+    angle://(必选)地图倾斜度,范围(0,45)。
 }
 ```
 
@@ -356,7 +363,7 @@ iOS 3.0.0+
 
 ```
 var json = {
-    type://（必选） 0-关闭，1-开启
+    type://(必选) 0-关闭,1-开启
 }
 ```
 
@@ -382,14 +389,13 @@ iOS 3.0.0+
 
 > ###setRotateEnable 开启或关闭手势旋转及手势倾斜
 
-
 `uexGaodeMap.setRotateEnable(json)`
 
 **参数:**
 
 ```
 var json = {
-    type://（必选） 0-关闭，1-开启
+    type://(必选) 0-关闭,1-开启
 }
 ```
 
@@ -415,14 +421,13 @@ iOS 3.0.0+
 
 > ### setCompassEnable  开启或关闭指南针
 
-
 `uexGaodeMap.setCompassEnable(json)`
 
 **参数:**
 
 ```
 var json = {
-    type://（必选） 0-关闭，1-开启
+    type://(必选) 0-关闭,1-开启
 }
 ```
 
@@ -454,7 +459,7 @@ iOS 3.0.0+
 
 ```
 var json = {
-    type://（必选） 0-关闭，1-开启
+    type://(必选) 0-关闭,1-开启
 }
 ```
 
@@ -643,7 +648,7 @@ iOS 3.0.0+
 **参数:**
 
 ```
-var json = []////(可选)覆盖物唯一标识符数组，不传时移除所有覆盖物。
+var json = []////(可选)覆盖物唯一标识符数组,不传时移除所有覆盖物。
 ```
 
 **平台支持:**
@@ -661,7 +666,7 @@ iOS 3.0.0+
 ```
  	var idarr = ["151"];
     var data = JSON.stringify(idarr);
-    uexGaodeMap.removeOverlay(data);
+    uexGaodeMap.removeOverlays(data);
 ```
 
 > ### addArcOverlay  添加弧形覆盖物
@@ -768,7 +773,6 @@ iOS 3.0.0+
 
 > ### addPolygonOverlay  添加多边形覆盖物
 
-
 `uexGaodeMap.addPolygonOverlay(json)`
 
 **参数:**
@@ -839,8 +843,8 @@ iOS 3.0.0+
 var json = {
     id:,//(必选) 唯一标识符
     imageUrl:,//(必选) 图片地址
-    transparency:,//(可选) 图片透明度（仅Android支持该参数）
-    property:[//(必选) 数据，数组长度为2，第一个元素表示西南角的经纬度，第二个表示东北角的经纬度；
+    transparency:,//(可选) 图片透明度(仅Android支持该参数)
+    property:[//(必选) 数据,数组长度为2,第一个元素表示西南角的经纬度,第二个表示东北角的经纬度；
         {
             longitude:,//(必选) 顶点经度
             latitude://(必选) 顶点纬度
@@ -889,7 +893,7 @@ iOS 3.0.0+
 **参数:**
 
 ```
-var json = []//(可选)标注唯一标识符数组，不传时移除所有标注。
+var json = []//(可选)标注唯一标识符数组,不传时移除所有标注。
 ```
 
 **平台支持:**
@@ -920,10 +924,10 @@ iOS 3.0.0+
 ```
 var json = {
     searchKey:,//(可选) 搜索关键字
-    poiTypeSet:,//(可选) Poi兴趣点，searchKey和poiTypeSet必须至少包含其中的一个
-    city:,//(可选) 城市，不传时表示全国范围内（iOS无效，默认全国范围内搜索）
-    pageNum:,//(可选) 搜索结果页索引，默认为0
-    searchBound://(可选) 区域搜索，city和searchBound必须至少包含其中的一个。以下的三个类别有且只有一种。
+    poiTypeSet:,//(可选) Poi兴趣点,searchKey和poiTypeSet必须至少包含其中的一个
+    city:,//(可选) 城市,不传时表示全国范围内(iOS无效,默认全国范围内搜索)
+    pageNum:,//(可选) 搜索结果页索引,默认为0
+    searchBound://(可选) 区域搜索,city和searchBound必须至少包含其中的一个。以下的三个类别有且只有一种。
     {
         type:"circle",//(必选) 圆形区域搜索
         dataInfo:{
@@ -932,7 +936,7 @@ var json = {
                 latitude://(必选) 纬度
             },
             radius:,//(必选) 半径
-            isDistanceSort://(可选) 是否按距离由小到大排序，默认true
+            isDistanceSort://(可选) 是否按距离由小到大排序,默认true
         }
     }
     {
@@ -1049,7 +1053,7 @@ iOS 3.0.0+
     uexGaodeMap.poiSearch(data);
 ```
 
-> ### geocode  地理编码，通过地址获得经纬度信息
+> ### geocode  地理编码,通过地址获得经纬度信息
 
 回调 [cbGeocode](#cbGeocode 地理编码的回调方法 "地理编码的回调方法")
 `uexGaodeMap.geocode(json)`
@@ -1058,7 +1062,7 @@ iOS 3.0.0+
 
 ```
 var json = {
-    city:,//(必选) 城市，不传时表示全国范围内
+    city:,//(必选) 城市,不传时表示全国范围内
     address://(必选) 具体地址
 }
 ```
@@ -1084,7 +1088,7 @@ iOS 3.0.0+
     uexGaodeMap.geocode(data);
 ```
 
-> ### reverseGeocode  反地理编码，将经纬度转换为地址信息
+> ### reverseGeocode  反地理编码,将经纬度转换为地址信息
 
 回调 [cbReverseGeocode](#cbReverseGeocode 反地理编码的回调方法 "反地理编码的回调方法")
 `uexGaodeMap.reverseGeocode(json)`
@@ -1148,15 +1152,14 @@ iOS 3.0.0+
 
 > ### startLocation  开始连续定位
 
-
 `uexGaodeMap.startLocation(json)`
 
 **参数:**
 
 ```
-var json = {（仅Android支持参数）
-    minTime:,//(可选) 位置变化通知时间，单位:毫秒， 默认2000
-    minDistance://(可选) 位置变化通知距离，单位:米，默认10
+var json = {(仅Android支持参数)
+    minTime:,//(可选) 位置变化通知时间,单位:毫秒, 默认2000
+    minDistance://(可选) 位置变化通知距离,单位:米,默认10
 }
 ```
 
@@ -1209,14 +1212,13 @@ iOS 3.0.0+
 
 > ### setMyLocationEnable  显示或隐藏我的位置
 
-
 `uexGaodeMap.setMyLocationEnable(json)`
 
 **参数:**
 
 ```
 var json = {
-    type://（必选） 0-隐藏，1-显示
+    type://(必选) 0-隐藏,1-显示
 }
 ```
 
@@ -1248,9 +1250,9 @@ iOS 3.0.0+
 
 ```
 var json = {
-    type://(必选) 模式，1-只在第一次定位移动到地图中心点；
+    type://(必选) 模式,1-只在第一次定位移动到地图中心点；
                        2-定位、移动到地图中心点并跟随；
-                       3-定位、移动到地图中心点，跟踪并根据方向旋转地图。
+                       3-定位、移动到地图中心点,跟踪并根据方向旋转地图。
 }
 ```
 
@@ -1275,14 +1277,13 @@ iOS 3.0.0+
 ```
 > ### setScaleVisible  设置地图是否显示比例尺
 
-
 `uexGaodeMap.setScaleVisible(json)`
 
 **参数:**
 
 ```
 var json = {
-    visible://(必选) 是否显示，true-显示；false-隐藏。
+    visible://(必选) 是否显示,true-显示；false-隐藏。
 }
 ```
 
@@ -1307,8 +1308,7 @@ iOS 3.0.1+
 ```
 > ### setMyLocationButtonVisible设 置是否显示回到我的位置按钮
 
-
-  设置是否显示回到我的位置按钮，注意回到我的位置按钮点击生效的前提条件是开启定位。
+  设置是否显示回到我的位置按钮,注意回到我的位置按钮点击生效的前提条件是开启定位。
 
 `uexGaodeMap.setMyLocationButtonVisible(json)`
 
@@ -1316,7 +1316,7 @@ iOS 3.0.1+
 
 ```
 var json = {
-    visible://(必选) 是否显示，true-显示；false-隐藏。
+    visible://(必选) 是否显示,true-显示；false-隐藏。
 }
 ```
 
@@ -1341,14 +1341,13 @@ Android 3.0.2+
 ```
 > ### setZoomVisible  设置是否显示放大缩小按钮
 
-
 `uexGaodeMap.setZoomVisible(json)`
 
 **参数:**
 
 ````
 var json = {
-    visible://(必选) 是否显示，true-显示；false-隐藏。
+    visible://(必选) 是否显示,true-显示；false-隐藏。
 }
 ````
 
@@ -1370,7 +1369,6 @@ Android 3.0.2+
     uexGaodeMap.setZoomVisible(data);
 ```
 > ### clear  清除地图上所有的标注和覆盖物
-
 
 `uexGaodeMap.clear()`
 
@@ -1396,15 +1394,11 @@ iOS 3.0.1+
     uexGaodeMap.clear();
 ```
 
-
 > ### setCustomButton 设置自定义按钮
-
 
 `uexGaodeMap.setCustomButton(json)`
 
-
 **参数:**
-
 
 ```
 var json = {
@@ -1420,16 +1414,12 @@ var json = {
 }
 ```
 
+**说明:**
 
-
-**说明：**
-
-* 设置自定义按钮是全局的，设置之后在各个页面均可以直接调用[showCustomButtons](showCustomButtons 显示自定义按钮)
-* 每次地图重新open时，不会显示任何按钮，需要用户手动调用[showCustomButtons](showCustomButtons 显示自定义按钮)
+* 设置自定义按钮是全局的,设置之后在各个页面均可以直接调用[showCustomButtons](showCustomButtons 显示自定义按钮)
+* 每次地图重新open时,不会显示任何按钮,需要用户手动调用[showCustomButtons](showCustomButtons 显示自定义按钮)
 * x,y,width,height都是参考以地图左上角为原点的坐标系 单位为px 
 * 成功调用该API会触发 [cbSetCustomButton](cbSetCustomButton 设置自定义按钮的回调方法)回调
-
-
 
 **平台支持:**
 
@@ -1460,27 +1450,19 @@ uexGaodeMap.setCustomButton(jsonStr);
 
 > ### deleteCustomButton 删除自定义按钮
 
-
 `uexGaodeMap.deleteCustomButton(id)`
 
-
 **参数:**
-
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | id | String | 是 | 需要删除的按钮的唯一标识符 |
 
-
-
-
-**说明：**
+**说明:**
 
 * 删除自定义按钮是全局的
-* 如果被删除的按钮已经被显示，会先隐藏按钮再删除,但此次隐藏操作不触发[cbHideCustomButtons](cbHideCustomButtons 隐藏自定义按钮的回调方法)回调
+* 如果被删除的按钮已经被显示,会先隐藏按钮再删除,但此次隐藏操作不触发[cbHideCustomButtons](cbHideCustomButtons 隐藏自定义按钮的回调方法)回调
 * 成功调用该API会触发[cbDeleteCustomButton](cbDeleteCustomButton 删除自定义按钮的回调方法)
-
-
 
 **平台支持:**
 
@@ -1500,21 +1482,15 @@ uexGaodeMap.deleteCustomButton("11");
 
 > ### showCustomButtons 显示自定义按钮
 
-
 `uexGaodeMap.showCustomButtons(ids)`
-
 
 **参数:**
 
-
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| ids | String | 是 | json字符串，内容是由需显示按钮的唯一标识符构成的数组 |
+| ids | String | 是 | json字符串,内容是由需显示按钮的唯一标识符构成的数组 |
 
-
-
-
-**说明：**
+**说明:**
 
 * 点击被显示的按钮会触发监听[onCustomButtonClick](onCustomButtonClick 自定义按钮被点击的监听)
 
@@ -1538,23 +1514,17 @@ uexGaodeMap.showCustomButtons(jsonStr);
 
 > ### hideCustomButtons 隐藏自定义按钮
 
-
 `uexGaodeMap.hideCustomButtons(ids)`
-
 
 **参数:**
 
-
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| ids | String | 否 | json字符串，内容是由需显示按钮的唯一标识符构成的数组 |
+| ids | String | 否 | json字符串,内容是由需显示按钮的唯一标识符构成的数组 |
 
+**说明:**
 
-
-
-**说明：**
-
-* ids不传时，会尝试隐藏所有自定义按钮
+* ids不传时,会尝试隐藏所有自定义按钮
 
 **平台支持:**
 
@@ -1577,7 +1547,6 @@ uexGaodeMap.hideCustomButtons(jsonStr);
 ## 2.2 回调方法:
 
 > ### cbGetCurrentLocation 获取当前位置的回调方法
-
 
 `uexGaodeMap.cbGetCurrentLocation(json);`
 
@@ -1644,7 +1613,6 @@ iOS 3.0.0+
 
 > ### cbReverseGeocode 反地理编码的回调方法
 
-
 `uexGaodeMap.cbReverseGeocode(json);`
 
 **参数:**
@@ -1675,10 +1643,7 @@ iOS 3.0.0+
     }
 ```
 
-
-
 > ### cbPoiSearch 兴趣点搜索的回调方法
-
 
 `uexGaodeMap.cbPoiSearch(json);`
 
@@ -1686,7 +1651,7 @@ iOS 3.0.0+
 
 ```
 var json = {
-    errorCode: 0， //错误码，0-成功，非0-失败
+    errorCode: 0, //错误码,0-成功,非0-失败
     data: [//搜索结果集合
         {
             address:,//地址详情
@@ -1729,9 +1694,7 @@ iOS 3.0.0+
     }
 ```
 
-
 > ### cbSetCustomButton 设置自定义按钮的回调方法
-
 
 `uexGaodeMap.cbSetCustomButton(json);`
 
@@ -1746,7 +1709,7 @@ var json = {
 
 **说明:**
 
-* id已存在时，会返回false
+* id已存在时,会返回false
 
 **平台支持:**
 
@@ -1766,9 +1729,7 @@ uexGaodeMap.cbSetCustomButton = function(json) {
 }
 ```
 
-
 > ### cbDeleteCustomButton 删除自定义按钮的回调方法
-
 
 `uexGaodeMap.cbDeleteCustomButton(json);`
 
@@ -1783,7 +1744,7 @@ var json = {
 
 **说明:**
 
-* id不存在时，会返回false
+* id不存在时,会返回false
 
 **平台支持:**
 
@@ -1804,7 +1765,6 @@ uexGaodeMap.cbDeleteCustomButton = function(json) {
 ```
 
 > ### cbShowCustomButtons 显示自定义按钮的回调方法
-
 
 `uexGaodeMap.cbShowCustomButtons(json);`
 
@@ -1842,7 +1802,6 @@ uexGaodeMap.cbShowCustomButtons = function(json) {
 
 > ### cbHideCustomButtons 隐藏自定义按钮的回调方法
 
-
 `uexGaodeMap.cbHideCustomButtons(json);`
 
 **参数:**
@@ -1877,10 +1836,8 @@ uexGaodeMap.cbHideCustomButtons = function(json) {
 }
 ```
 
-
 ## 2.3、 监听方法:
 > ### onMapLoadedListener 地图加载完成的监听方法
-
 
 `uexGaodeMap.onMapLoadedListener();`
 
@@ -1940,7 +1897,6 @@ iOS 3.0.0+
 
 > ### onMarkerBubbleClickListener 点击气泡的监听方法
 
-
 `uexGaodeMap.onMarkerBubbleClickListener(json);`
 
 **参数:**
@@ -1968,7 +1924,6 @@ Android 3.0.0+
 ```
 
 > ### onReceiveLocation 位置变化的监听方法
-
 
 `uexGaodeMap.onReceiveLocation(json);`
 
@@ -2002,7 +1957,6 @@ iOS 3.0.0+
 
 > ### onMapClickListener 点击地图的监听方法
 
-
 `uexGaodeMap.onMapClickListener(json);`
 
 **参数:**
@@ -2033,7 +1987,6 @@ iOS 3.0.3+
 ```
 
 > ### onMapLongClickListener 长按地图的监听方法
-
 
 `uexGaodeMap.onMapLongClickListener(json);`
 
@@ -2066,7 +2019,6 @@ iOS 3.0.2+
 
 > ### onCustomButtonClick 自定义按钮被点击的监听方法
 
-
 `uexGaodeMap.onCustomButtonClick(id);`
 
 **参数:**
@@ -2077,8 +2029,8 @@ iOS 3.0.2+
 
 **说明:**
 
-* 总是回调给调用showCustomButtons显示此按钮的页面（例如，用户在A页面调用显示按钮α，在B页面调用显示按钮β，那么α的回调给A，β的回调给B）
-* 如果该页面已经被销毁，则回调不触发
+* 总是回调给调用showCustomButtons显示此按钮的页面(例如,用户在A页面调用显示按钮α,在B页面调用显示按钮β,那么α的回调给A,β的回调给B)
+* 如果该页面已经被销毁,则回调不触发
 
 **平台支持:**
 
@@ -2098,14 +2050,13 @@ uexGaodeMap.onCustomButtonClick = function(id) {
 }
 ```
 
-
 # 3 离线地图
 ## 3.1 方法
 ### download 开始下载
 
 **说明:**
 
-  开始下载，当前如果有正在下载的任务，添加到正在下载列表中。
+  开始下载,当前如果有正在下载的任务,添加到正在下载列表中。
 
 `uexGaodeMap.download(json)`
 
@@ -2113,7 +2064,7 @@ uexGaodeMap.onCustomButtonClick = function(id) {
 
 ```
 var json = [//数组
-    {//city或province必须传一个，都传时只有city有效
+    {//city或province必须传一个,都传时只有city有效
         city:,//(可选) 城市名称
         province://(可选) 省或直辖市名称
     }
@@ -2153,8 +2104,8 @@ iOS 3.0.2+
 ```
 var json = {
     name:,//(必选) 省或城市名称
-    errorCode:,//(必选) 状态码，0-加入列表成功，非0-失败。
-    errorStr://(可选) 错误描述，errorCode非0时，该值有效。
+    errorCode:,//(必选) 状态码,0-加入列表成功,非0-失败。
+    errorStr://(可选) 错误描述,errorCode非0时,该值有效。
 }
 ```
 注:errorCode及errorStr详情参见附录[cbDownload Status](#1.4.2 cbDownload Status)
@@ -2190,7 +2141,7 @@ iOS 3.0.2+
 var json = {
     name:,//(必选) 省或城市名称
     completeCode:,//(必选) 进度百分比。
-    status://(可选) 下载状态，具体请参考附录onDownload Status。
+    status://(可选) 下载状态,具体请参考附录onDownload Status。
 }
 ```
 注:status下载状态参见附录[Download Status](#1.4.1 Download Status)
@@ -2218,14 +2169,14 @@ iOS 3.0.2+
         }
         if(data.status == 4){
             uexWindow.closeToast();
-            alert(data.name + " 离线地图下载成功！");
+            alert(data.name + " 离线地图下载成功!");
         }
         if(data.status == 3){
             uexWindow.toast(0,5,data.name + " 暂停下载...",2000);
         }
         if(data.status == -1){
             uexWindow.closeToast();
-            alert(data.name + " 下载失败！");
+            alert(data.name + " 下载失败!");
         }
     }
 ```
@@ -2307,7 +2258,9 @@ iOS 6.0+
 
 Android 3.0.3+    
 iOS 3.0.2+    
- **示例:**
+ 
+
+**示例:**
 
 ```
     uexGaodeMap.getAvailableCityList();
@@ -2323,7 +2276,7 @@ iOS 3.0.2+
 var json = [
     {
         city:,//(必选) 城市名称
-        size:,//(必选) 包大小，单位字节
+        size:,//(必选) 包大小,单位字节
         completeCode:,//(必选) 进度百分比
     }
 ]
@@ -2386,13 +2339,13 @@ var json = [
         cityList:[//(必选) 省包含的城市列表
             {
                 city:,//(必选) 城市名称
-                size:,//(必选) 包大小，单位字节
+                size:,//(必选) 包大小,单位字节
                 completeCode:,//(必选) 进度百分比
                 status://(可选) 下载状态
             }
         ],
         province:,//(必选) 省或直辖市名称
-        size:,//(必选) 包大小，单位字节
+        size:,//(必选) 包大小,单位字节
         completeCode:,//(必选) 进度百分比
 
     }
@@ -2455,8 +2408,8 @@ iOS 3.0.2+
 var json = [
     {
         name:,//(必选) 省或城市名称
-        type:,//(必选) 类型，1-城市，2-省
-        size:,//(必选) 包大小，单位字节
+        type:,//(必选) 类型,1-城市,2-省
+        size:,//(必选) 包大小,单位字节
         completeCode:,//(必选) 进度百分比
 
     }
@@ -2519,8 +2472,8 @@ iOS 3.0.2+
 var json = [
     {
         name:,//(必选) 省或城市名称
-        type:,//(必选) 类型，1-城市，2-省
-        size:,//(必选) 包大小，单位字节
+        type:,//(必选) 类型,1-城市,2-省
+        size:,//(必选) 包大小,单位字节
         completeCode:,//(必选) 进度百分比
     }
 ]
@@ -2552,7 +2505,7 @@ iOS 3.0.2+
 **参数:**
 
 ```
-var json = {//city或province必须传一个，都传时只有city有效
+var json = {//city或province必须传一个,都传时只有city有效
     city:,//(可选) 城市名称
     province://(可选) 省或直辖市名称
 }
@@ -2590,7 +2543,7 @@ iOS 3.0.2+
 ```
 var json = {
     name:,//(必选) 省或城市名称
-    result://(可选) 是否有更新，0-有更新，1-没有更新
+    result://(可选) 是否有更新,0-有更新,1-没有更新
 }
 ```
 
@@ -2626,8 +2579,8 @@ var json = []//(可选,仅Android) 省或城市名称数组
 注:
 
 * json不传时会清除所有数据；
-* 受iOS SDK所限制，iOS仅支持删除所有数据
-* iOS系统下若有传入参数json，则插件不会作任何处理
+* 受iOS SDK所限制,iOS仅支持删除所有数据
+* iOS系统下若有传入参数json,则插件不会作任何处理
 
 **平台支持:**
 
@@ -2657,8 +2610,8 @@ iOS 3.0.2+
 ```
 var json = {
     name:,//(必选) 省或城市名称
-    errorCode:,//(必选) 状态码，0-删除成功，非0-失败。
-    errorStr://(可选) 错误描述，errorCode非0时，该值有效。
+    errorCode:,//(必选) 状态码,0-删除成功,非0-失败。
+    errorStr://(可选) 错误描述,errorCode非0时,该值有效。
 }
 ```
 
@@ -2680,47 +2633,77 @@ Android 3.0.3+
 # 4、附录
 ## 4.1、通过config.xml配置插件的方法
 
-* 将配置代码添加到`config.xml`中即可完成插件配置，无需进行自定义插件相关步骤
+* 将配置代码添加到`config.xml`中即可完成插件配置,无需进行自定义插件相关步骤
 * 详见[打包服务器公测](http://newdocx.appcan.cn/newdocx/docx?type=1472_1291)
-* 该公测已完成，现在也支持正式版大众打包服务器
-
-
+* 该公测已完成,现在也支持正式版大众打包服务器
 
 #### iOS
-示例配置代码如下：
+示例配置代码如下:
 
 ```
-    <config desc=“uexGaode“ type=“KEY“ > 
-        <param platform=“iOS“ name=“$uexGaodeMap_APIKey$“  value=“XXX“/>
+    <config desc="uexGaode" type="KEY" > 
+        <param platform="iOS" name="$uexGaodeMap_APIKey$"  value="XXX"/>
     </config>
 ```
 
 #### Android
-示例配置代码如下：
+示例配置代码如下:
+
 ```
-    <config desc=“uexGaode“ type=“KEY“ > 
+    <config desc="uexGaode" type="KEY" > 
         <param platform="Android" name="$uexGaodeMap_APIKey$" value="XXX"/>
     </config>
 ```
 
-或者Android和iOS合并写为：
+或者Android和iOS合并写为:
+
 ```
-    <config desc=“uexGaode“ type=“KEY“ > 
-        <param platform=“iOS“ name=“$uexGaodeMap_APIKey$“  value=“XXX“/>
+    <config desc="uexGaode" type="KEY" > 
+        <param platform="iOS" name="$uexGaodeMap_APIKey$"  value="XXX"/>
         <param platform="Android" name="$uexGaodeMap_APIKey$" value="XXX"/>
     </config>
 ```
-**用户需要将上面字段中的XXX替换为自己申请的对应平台的key，然后添加至config.xml中：**即可完成相应key的配置 
+**用户需要将上面字段中的XXX替换为自己申请的对应平台的key,然后添加至config.xml中:**即可完成相应key的配置 
 
 # 5、更新历史
- API 版本:uexGaodeMap-3.0.5(iOS) uexGaodeMap-3.0.5（Android）    
- 最近更新时间:2015-08-28
- 
-|  历史发布版本 | iOS更新  | Android更新  |
-| ------------ | ------------ | ------------ |
-| 3.0.5  | 地理编码和反地理编码的回调添加参数,方便用户区分 | 地理编码和反地理编码的回调添加参数,方便用户区分 |
-| 3.0.4  |添加自定义按钮相关功能 |  添加自定义按钮相关功能|
-| 3.0.3  |修复使用自定义气泡时自定义标注图标失效的问题 修复覆盖物设置透明色会失效的bug 修复getCurrentLocation不敏感的bug 修复clear接口可能会导致闪退的bug |  新增离线地图相关接口|
-| 3.0.2  | 新增离线地图相关接口  | 新增显示地图比例尺方法， 新增批量删除标注或覆盖物的方法  |
-| 3.0.1  |新增clear 接口清除地图上所有标注和覆盖物 |  插件包添加dex文件夹|
-| 3.0.0  | 高德地图(uexGaodeMap)插件 for iOS  | 高德地图插件|
+
+### iOS
+
+API版本:`uexGaodeMap-3.0.9`
+
+最近更新时间:`2015-12-16`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.9 | 添加IDE支持;可以通过接口设置APIKey;解决和高德导航冲突的问题 |
+| 3.0.8 | 修正一个可能会导致APP崩溃的bug |
+| 3.0.7 | AddCircleOverlay中 修改默认lineDash值为NO,当回调的json结构为String时,不再转义一次 |
+| 3.0.6 | open接口添加参数isScrollWithWeb |
+| 3.0.5 | 地理编码和反地理编码的回调添加参数,方便用户区分 |
+| 3.0.4 | 添加自定义按钮相关功能 |
+| 3.0.3 | 修复使用自定义气泡时自定义标注图标失效的问题 修复覆盖物设置透明色会失效的bug 修复getCurrentLocation不敏感的bug 修复clear接口可能会导致闪退的bug |
+| 3.0.2 | 新增离线地图相关接口 |
+| 3.0.1 | 新增clear 接口清除地图上所有标注和覆盖物 |
+| 3.0.0 | 高德地图(uexGaodeMap)插件 for iOS |
+
+### Android
+
+API版本:`uexGaodeMap-3.0.12`
+
+最近更新时间:`2015-12-26`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.12 | 修复闪退的问题 |
+| 3.0.11 | 修复闪退的问题 |
+| 3.0.10 | 去掉插件中的ActivityGroup,配合引擎升级 |
+| 3.0.9 | 添加相同id的圆形覆盖物时,改为替换原来的 |
+| 3.0.8 | 解决高德地图打开时闪一下的问题 |
+| 3.0.7 | 解决打开地图黑屏的问题 |
+| 3.0.6 | open接口增加地图是否随网页滚动参数isScrollWithWeb |
+| 3.0.5 | 地理编码和反地理编码的回调添加参数,方便用户区分 |
+| 3.0.4 | 添加自定义按钮相关功能 |
+| 3.0.3 | 新增离线地图相关接口 |
+| 3.0.2 | 新增显示地图比例尺方法, 新增批量删除标注或覆盖物的方法 |
+| 3.0.1 | 插件包添加dex文件夹 |
+| 3.0.0 | 高德地图插件 |

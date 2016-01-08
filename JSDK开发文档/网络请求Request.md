@@ -1,4 +1,4 @@
-﻿
+
 
 　对appcan私有的异步请求进行封装（即官方的uexXmlHttpMgr插件，打包时需要使用的到这个插件）并增加offline参数实现请求数据离线缓存功能
 
@@ -11,7 +11,10 @@
     options:发起ajax的请求的参数，这个必须是一个对象
     options.type:请求的类型，包括GET、POST等
     options.appVerify:是否在请求头中加入appVerify字段 true、false
-    options.url:要请求的地址 注：get方式请求中携带中文参数，需要对参数进行encode编码，具体函数：encodeuricomponent
+    options.certificate({password:'',path:'default'})
+       　 password:数字证书密码。当使用appcan默认证书时，此参数为空(或””)
+       　 path:路径，支持 file://,res://,wgt://等协议路径，详见CONSTANT中PathTypes。 当传入‘default’时，本次请求将取appcan默认数字证书。
+    options.url:要请求的地址 注：get方式请求中携带中文参数，需要对参数进行encode编码，具体函数：encodeURIComponent
     options.data:要请求的URL的参数,如果要上传文件则data数据中必须传一个对象包含一个path的key 例如：data:{file:{path:'a.jpeg'}}上传a.jpeg图片
     options.contentType:默认: false 要传给服务端的数据内容的'content-Type'通过header,如果设置其他content将会直接把data发送出去
     options.dataType:服务端的响应类型，包括json, jsonp, script, xml, html, text中的一种
@@ -20,37 +23,28 @@
     options.xhrFields:要重载的请求对象的字段
     options.beforeSend(xhr, settings):请求发送之前的回调,返回false取消请求发送
     options.success(data, status,,requestCode,response, xhr):请求发送成功后的回调
-````
-说明：
-````
-  requestCode: 服务器响应状态码,成功为200，失败为404,-1等；
-  reponse: JSON格式字符串：
-{
-"responseHeaders": “”,//请求头
-"responseStatusCode": “”,//状态码
-"responseStatusMessage": “”,//状态码的信息
-"responseError": “”//错误信息
-}
-````
-````
-  options.error(xhr, errorType, error,msg):请求如果出现错误后的回调;msg: 错误详细信息，服务器返回的result信息
-  options.complete(xhr, status):请求完成后的回调，不管是否出错
-  options.progress(progress, xhr):上传的进度，只有包含上传文件的时候才会执行该回调
-  options.certificate:添加证书信息 {password:'',path:''}其中password是证书的密码，path是证书的地址
-  options.cache:是否缓存请求
-  options.offline:是否直接调用离线数据，包括true,false,undefined
-````
-**offline参数说明：**
-````
-  true: 直接调用缓存数据，如果缓存数据不存在，执行ajax请求并离线缓存返回数据；
-  false: 直接请求ajax数据，并把请求到的数据离线缓存；
-  undefined: 直接请求ajax数据，不缓存请求到的数据；
-````
-````
+       　 requestCode: 服务器响应状态码,成功为200，失败为404,-1等；
+        　reponse: JSON格式字符串：
+        {
+            "responseHeaders": “”,//请求头
+            "responseStatusCode": “”,//状态码
+            "responseStatusMessage": “”,//状态码的信息
+            "responseError": “”//错误信息
+        }
+    options.error(xhr, errorType, error,msg):请求如果出现错误后的回调;msg: 错误详细信息，服务器返回的result信息
+    options.complete(xhr, status):请求完成后的回调，不管是否出错
+    options.progress(progress, xhr):上传的进度，只有包含上传文件的时候才会执行该回调
+    options.certificate:添加证书信息 {password:'',path:''}其中password是证书的密码，path是证书的地址
+    options.cache:是否缓存请求
+    options.offline:是否直接调用离线数据，包括true,false,undefined
+　　　**offline参数说明：**
+ 　　　　 true: 直接调用缓存数据，如果缓存数据不存在，执行ajax请求并离线缓存返回数据；
+ 　　　　 false: 直接请求ajax数据，并把请求到的数据离线缓存；
+  　　　　undefined: 直接请求ajax数据，不缓存请求到的数据；
   options.offlineDataPath:自定义离线数据文件存储目录
   options.expires:离线缓存过期时间，支持类型：
-    1.number类型（单位：毫秒），缓存过期时长，
-    2.W3c IOS 8601 DateTime格式,详见http://www.w3.org/TR/NOTE-datetime ，缓存过期时间点
+    　1.number类型（单位：毫秒），缓存过期时长，
+    　2.W3c IOS 8601 DateTime格式,详见http://www.w3.org/TR/NOTE-datetime ，缓存过期时间点
  options.crypto:true/false 离线缓存时是否加密
  options.password: "string" 离线缓存加密密码
  ````
@@ -195,7 +189,7 @@ appcan.ajax({
  options:发起ajax的请求的参数，这个必须是一个对象
  options.type:请求的类型，包括GET、POST等
  options.appVerify:是否在请求头中加入appVerify字段 true、false
- options.url:要请求的地址 注：get方式请求中携带中文参数，需要对参数进行encode编码，具体函数：encodeuricomponent
+ options.url:要请求的地址 注：get方式请求中携带中文参数，需要对参数进行encode编码，具体函数：encodeURIComponent
  options.data:要请求的URL的参数,如果要上传文件则data数据中必须传一个对象包含一个path的key 例如：data:{file:{path:'a.jpeg'}}上传a.jpeg图片
  options.contentType:默认: false 要传给服务端的数据内容的'content-Type'通过header,如果设置其他content将会直接把data发送出去
  options.dataType:服务端的响应类型，包括json, jsonp, script, xml, html, text中的一种
@@ -203,39 +197,30 @@ appcan.ajax({
  options.headers:要设置的请求头
  options.xhrFields:要重载的请求对象的字段
  options.beforeSend(xhr, settings):请求发送之前的回调,返回false取消请求发送
- options.success(data, status,requestCode,response, xhr):请求发送成功后的回调
-````
-**requestCode、reponse说明：**
-
-````
-  requestCode: 服务器响应状态码,成功为200，失败为404,-1等；
-  reponse: JSON格式字符串：
-{
-"responseHeaders": “”,//请求头
-"responseStatusCode": “”,//状态码
-"responseStatusMessage": “”,//状态码的信息
-"responseError": “”//错误信息
-}
-````
-````
+ options.success(data, status,requestCode,response, xhr):请求发送成功后的回调　
+　　**requestCode、reponse说明：**　
+　　　  requestCode: 服务器响应状态码,成功为200，失败为404,-1等；
+　　　  reponse: JSON格式字符串：
+　　　{
+　　　　"responseHeaders": “”,//请求头
+　　　　"responseStatusCode": “”,//状态码
+　　　　"responseStatusMessage": “”,//状态码的信息
+　　　　"responseError": “”//错误信息
+　　　}
  options.error(xhr, errorType, error,msg):请求如果出现错误后的回调;msg: 错误详细信息，服务器返回的result信息
  options.complete(xhr, status):请求完成后的回调，不管是否出错
  options.progress(progress, xhr):上传的进度，只有包含上传文件的时候才会执行该回调
  options.certificate:添加证书信息 {password:'',path:''}其中password是证书的密码，path是证书的地址
  options.cache:是否缓存请求
  options.offline:是否直接调用离线数据，包括true,false,undefined
-````
-**offline参数说明：**
->   true: 直接调用缓存数据，如果缓存数据不存在，执行ajax请求并离线缓存返回数据；
-  false: 直接请求ajax数据，并把请求到的数据离线缓存；
-  undefined: 直接请求ajax数据，不缓存请求到的数据；
-  
-````  
+　　**offline参数说明：**
+　　  true: 直接调用缓存数据，如果缓存数据不存在，执行ajax请求并离线缓存返回数据；
+  　　false: 直接请求ajax数据，并把请求到的数据离线缓存；
+  　　undefined: 直接请求ajax数据，不缓存请求到的数据； 
   options.offlineDataPath:自定义离线数据文件存储目录
   options.expires:离线缓存过期时间，支持类型：
-    1.number类型（单位：毫秒），缓存过期时长，
-    2.W3c IOS 8601 DateTime格式,详见http://www.w3.org/TR/NOTE-datetime ，缓存过期时间点
-	
+    　1.number类型（单位：毫秒），缓存过期时长，
+    　2.W3c IOS 8601 DateTime格式,详见http://www.w3.org/TR/NOTE-datetime ，缓存过期时间点
  options.crypto:true/false 离线缓存时是否加密
  options.password: "string" 离线缓存加密密码
  ````

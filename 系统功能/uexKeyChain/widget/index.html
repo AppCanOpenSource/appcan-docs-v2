@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    
+    <script type="text/javascript">
+        function openWin(name){
+            uexWindow.open(name, '0', name+".html", '2', '', '', 1024);
+        }
+        window.uexOnload = function(type){
+            uexKeyChain.cbSetItem = function(info){
+                alert(info);
+            }
+            uexKeyChain.cbGetItem = function(info){
+                alert(info);
+            }
+            uexKeyChain.cbRemoveItem = function(info){
+                alert(info);
+            }
+            uex3DTouch.onLoadByShortcutClickEvent=function(info){
+
+                document.getElementById('shortcut').innerHTML=info;
+                var data=JSON.parse(info);
+                var type=data.type;
+                if(type == "static1"){
+                    openWin('page1');
+                }
+                if(type == "static2"){
+                    openWin('page2');
+                }
+                if(type == "dynamic1"){
+                    openWin('page3')
+                }
+            }
+
+        }
+    
+    setItem = function(type){
+        var data;
+        switch(type){
+            case 1 :{
+                data={
+                    service:"AppCan",
+                    key:"password",
+                    value:"123456",
+                    accessibility:4,//注释掉TouchIDProtected那一行 ，此设置才会生效
+                    iCloudSync:true,//注释掉TouchIDProtected那一行 ，此设置才会生效
+                    //TouchIDProtected:true,
+                    TouchIDPrompt:"您需要通过验证指纹以获得AppCan数据"
+                };
+                break;
+            }
+            case 2 :{
+                data={
+                    service:"AppCan",
+                    key:"password",
+                    value:"654321",
+                    accessibility:4,//注释掉TouchIDProtected那一行 ，此设置才会生效
+                    iCloudSync:true,//注释掉TouchIDProtected那一行 ，此设置才会生效
+                    //TouchIDProtected:true,
+                    TouchIDPrompt:"您需要通过验证指纹以获得AppCan数据"
+                };
+                break;
+            }
+            case 3 :{
+                data={
+                    service:"AppCan",
+                    key:"password",
+                    value:"321456",
+                    accessibility:4,//注释掉TouchIDProtected那一行 ，此设置才会生效
+                    iCloudSync:true,//注释掉TouchIDProtected那一行 ，此设置才会生效
+                    TouchIDProtected:true,
+                    TouchIDPrompt:"您需要通过验证指纹以获得AppCan数据"
+                };
+                break;
+            }
+        }
+        uexKeyChain.setItem(JSON.stringify(data));
+       
+    }
+    
+    getItem = function(){
+        var data={
+            service:"AppCan",
+            key:"password",
+            TouchIDPrompt:"您需要通过验证指纹以获得AppCan数据"
+        };
+        uexKeyChain.getItem(JSON.stringify(data));
+    }
+    removeItem = function(){
+        var data={
+            service:"AppCan",
+            key:"password"
+        };
+        uexKeyChain.removeItem(JSON.stringify(data));
+    }
+
+    </script>
+</head>
+
+<body>
+    <div class="tit">KeyChain Test</div>
+    <div class="conbor">
+        <div class="consj">
+            <div id="shortcut">***</div>
+             <input class="btn" type="button" value="setItem123456" onclick="setItem(1);"/><br>
+             <input class="btn" type="button" value="setItem654321" onclick="setItem(2);"/><br>
+             <input class="btn" type="button" value="setItem321456WithTouchID" onclick="setItem(3);"/><br>
+             <input class="btn" type="button" value="getItem" onclick="getItem();"/><br>
+             <input class="btn" type="button" value="removeItem" onclick="removeItem();"/><br>
+        </div>
+    </div>
+</body>
+</html>
