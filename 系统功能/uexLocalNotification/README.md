@@ -107,9 +107,7 @@ iOS6.0+
             
             onclick="uexLocalNotification.removeAll()">
             </div>
-            <input class="btn" type="button" value="返回" onclick="uexWindow.back
-            
-            ();">
+            <input class="btn" type="button" value="返回" onclick="uexWindow.back();">
             </div>
             </body>
             </html>
