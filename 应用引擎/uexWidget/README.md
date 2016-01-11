@@ -594,7 +594,7 @@ uexWidget.setPushState(0);
   ````
   
 
-  > ### closeLoading 关闭loading图
+> ### closeLoading 关闭loading图
   
  ` uexWidget.closeLoading()`
  
@@ -620,7 +620,32 @@ uexWidget.setPushState(0);
 ```
   uexWidget.closeLoading()
  ```
+ 
+> ### moveToBack 运行到后台,不退出程序
+
+ ` uexWidget.moveToBack()`
+ 
+**说明:**
+
+  程序将会在后台运行，不退出。只支持Android。
   
+**参数:**
+
+无
+  
+**平台支持:**
+
+Android2.2+  
+  
+**版本支持:**
+
+3.2.2+  
+  
+**示例:**
+
+  ````
+    uexWidget.moveToBack();
+  ````
   
 ## 2.2 回调方法
   

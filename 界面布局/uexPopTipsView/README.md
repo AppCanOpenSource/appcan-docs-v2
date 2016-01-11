@@ -22,33 +22,37 @@
 `uexPopTipsView.open(json)`
 
 **说明**
-打开气泡菜单, 当气泡菜单打开后，点击菜单上的item，会触发回调函数[onItemSelected](#onitemselected 元素被点击的监听方法 "onItemSelected")
 
-**参数：**
+打开气泡菜单, 当气泡菜单打开后,点击菜单上的item,会触发回调函数[onItemSelected](#onitemselected 元素被点击的监听方法 "onItemSelected")
+
+**参数:**
+
 ```
 var json = {
     centerX:,//(必选) 气泡菜单箭头点的x坐标
     centerY:,//(必选) 气泡菜单箭头点的y坐标
-    bgColor:,//(可选) 气泡菜单背景色，默认“#90000000”
-    textNColor:,//(可选) 字体正常颜色，默认“#ffffff”
-    textHColor:,//(可选) 字体高亮颜色，默认“#0000C6”
-    textSize:,//(可选) 字体大小，单位px，默认15
-    dividerColor:,//(可选) 分割线颜色，默认“#636363”
+    bgColor:,//(可选) 气泡菜单背景色,默认"#90000000"
+    textNColor:,//(可选) 字体正常颜色,默认"#ffffff"
+    textHColor:,//(可选) 字体高亮颜色,默认"#0000C6"
+    textSize:,//(可选) 字体大小,单位px,默认15
+    dividerColor:,//(可选) 分割线颜色,默认"#636363"
     labels:[]//(必选) //选项数组
 }
 ```
 
-**平台支持：**  
+**平台支持:**
+
+  
 Android 2.2+  
 iOS 6.0+
 
+**版本支持:**
 
-**版本支持：**  
+  
 Android 3.0.0+  
 iOS 3.0.0+
 
-
-**示例：**
+**示例:**
 
 示例1:
 ```
@@ -82,23 +86,28 @@ uexPopTipsView.open(data1);
 `uexPopTipsView.close()`
 
 **说明**
+
 关闭气泡菜单
 
-**参数：**
+**参数:**
+
 无
 
-**平台支持：**   
+**平台支持:**
+
+   
 Android 2.2+  
 iOS 6.0+
 
+**版本支持:**
 
-**版本支持：**  
+  
 
 Android 3.0.0+  
 iOS 3.0.0+
 
+**示例:**
 
-**示例：**
 ```
 uexPopTipsView.close();
 ```
@@ -110,9 +119,11 @@ uexPopTipsView.close();
 `uexPopTipsView.onItemSelected(json);`
 
 **说明**
+
 元素被点击的监听方法
 
-**参数：**
+**参数:**
+
 ```
 var json = {
     index://被点击的元素的索引
@@ -120,15 +131,21 @@ var json = {
 
 ```
 
-**平台支持：**  
+**平台支持:**
+
+  
 Android 2.2+
 iOS 6.0+
 
-**版本支持：**  
+**版本支持:**
+
+  
 Android 3.0.0+  
 iOS 3.0.0+
 
-**示例：**  
+**示例:**
+
+  
 ```
 uexPopTipsView.onItemSelected = function(data){
     var index = JSON.parse(data).index;
@@ -136,13 +153,27 @@ uexPopTipsView.onItemSelected = function(data){
 }
 ```
 
-
-
 # 3、更新历史
-API 版本：uexPopTipsView-3.0.0(iOS) uexPopTipsView-3.0.1(Android)  
-最近更新时间：2015-11-06
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.1 |  | 去掉插件中的ActivityGroup,配合引擎升级|
-| 3.0.0 | uexPopTipsView插件 | uexPopTipsView插件|
+### iOS
+
+API版本:`uexPopTipsView-3.0.2`
+
+最近更新时间:`2015-12-26`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.2 | 按要求,修改UI,改进功能 |
+| 3.0.1 | 适配iOS5的版本 |
+| 3.0.0 | uexPopTipsView插件 |
+
+### Android
+
+API版本:`uexPopTipsView-3.0.1`
+
+最近更新时间:`2015-11-06`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.1 | 去掉插件中的ActivityGroup,配合引擎升级 |
+| 3.0.0 | uexPopTipsView插件 |

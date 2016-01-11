@@ -6,13 +6,12 @@
 云知声插件
 
 ##1.1、 说明
-封装了云知声的相关功能:通过调用插件的相关接口，您可以轻松进行语音识别、语义识别以及语音合成等相关功能。
+封装了云知声的相关功能:通过调用插件的相关接口,您可以轻松进行语音识别、语义识别以及语音合成等相关功能。
 
-* 对于个人开发者使用语音服务，需要经过云知声的授权，请到"http://dev.hivoice.cn" 注册成为云知声的开发者，并创建应用，在"我的应用"中获取 AppKey 和 Secret。使用该应用授权码可以帮助开发者监控语音识别服务的使用情况。
-
+* 对于个人开发者使用语音服务,需要经过云知声的授权,请到"http://dev.hivoice.cn" 注册成为云知声的开发者,并创建应用,在"我的应用"中获取 AppKey 和 Secret。使用该应用授权码可以帮助开发者监控语音识别服务的使用情况。
 
 ##1.2、 当前版本插件下载
-[点击]()至插件详情页（插件测试用例与插件包已经提供）
+[点击]()至插件详情页(插件测试用例与插件包已经提供)
 
 ***
 
@@ -21,7 +20,6 @@
 ##2.1、 方法
 
 >### init  初始化
-
 
 `uexUnisound.init(param)`
 
@@ -33,7 +31,7 @@
 
 | 参数名称|参数类型|是否必选|说明 |
 | -----|-----|-----|----- |
-|param|String|是|param是json字符串，详情见下|
+|param|String|是|param是json字符串,详情见下|
 
 ```
 var param = {
@@ -42,8 +40,6 @@ var param = {
 	}
 
 ```
-
-
 
 **平台支持**
 
@@ -66,9 +62,7 @@ uexUnisound.init(JSON.stringify(data));
 
 ```
 
-
 >### updateRecognizerSettings  更新语音识别设置
-
 
 `uexUnisound.updateRecognizerSettings(param)`
 
@@ -78,26 +72,19 @@ uexUnisound.init(JSON.stringify(data));
 
 **参数**
 
-param是一个字典结构生成的json字符串，其key值如下表所示
-
-
-
+param是一个字典结构生成的json字符串,其key值如下表所示
 
 |参数名称|参数解释|参数类型|取值范围|默认值|
-|---|---|---|---|---|
+|-----|-----|-----|-----|-----|
 |frontTime|用户不说话的超时时间|Number|正整数 单位为毫秒|3000|
 |backTime|用户停止说话自动停止录音的时间|Number|正整数 单位为毫秒|1000|
 |rate|录音采样率|Number|1-BANDWIDTH\_AUTO; 2-RATE\_8K; 3-RATE_16K; 详细说明见表末|3|
 |languague|识别语言|Number|1-普通话 2-英语 3-粤语|1|
 
-
-
 * 以上都是可选参数
 * 采样率意味着录音的质量
 	* 对网络带宽要求 RATE\_16K≈2KB/秒,RATE\_8K≈1KB/秒。
 	* 当设置成 BANDWIDTH_AUTO 时自动根据当前的网络环境切换到最佳的采样频率。
-
-
 
 **平台支持**
 
@@ -108,7 +95,6 @@ iOS 6.0+
 
 Android 3.0.0+    
 iOS 3.0.0+   
-
 
 **示例**
 
@@ -127,8 +113,6 @@ uexUnisound.updateRecognizerSettings();
 
 ```
 
-
-
 >### start  开始语音识别
 
 `uexUnisound.start()`
@@ -137,18 +121,14 @@ uexUnisound.updateRecognizerSettings();
 
 开始语音识别
 
-
 * 启动录音和识别,收到 [onRecognizerStart](#onRecognizerStart 语音识别开始的监听方法) 回调代表启动成功,**此时用户才可以说话**。
-* 识别成功后，会通过 [onReceiveRecognizerResult](#onReceiveRecognizerResult 收到语音识别结果的监听方法) 方法回调取到的**语音识别**结果,会通过[onReceiveUnderstanderResult](#onReceiveUnderstanderResult 收到语义理解结果的监听方法) 方法回调取到的**语义解析**结果
+* 识别成功后,会通过 [onReceiveRecognizerResult](#onReceiveRecognizerResult 收到语音识别结果的监听方法) 方法回调取到的**语音识别**结果,会通过[onReceiveUnderstanderResult](#onReceiveUnderstanderResult 收到语义理解结果的监听方法) 方法回调取到的**语义解析**结果
 * 如过程中出现了错误,会通过 [onEnd](#onEnd 语音识别任务结束的监听方法) 方法回调错误信息
-* 任务流程：开始语音识别->启动成功->开始录音->回调语音识别结果->录音结束->进行语义识别->回调语义识别结果->结束任务
-
+* 任务流程:开始语音识别->启动成功->开始录音->回调语音识别结果->录音结束->进行语义识别->回调语义识别结果->结束任务
 
 **参数**
 
 无
-
-
 
 **平台支持**
 
@@ -168,7 +148,6 @@ uexUnisound.start();
 
 ```
 
-
 >### stop  停止语音识别
 
 `uexUnisound.stop()`
@@ -177,14 +156,11 @@ uexUnisound.start();
 
 停止语音识别
 
-* 本方法调用后,停止录音并等待语音理解结束，结束后会收到onEnd回调
-
+* 本方法调用后,停止录音并等待语音理解结束,结束后会收到onEnd回调
 
 **参数**
 
 无
-
-
 
 **平台支持**
 
@@ -204,7 +180,6 @@ uexUnisound.stop();
 
 ```
 
-
 >### cancel  取消语音识别
 
 `uexUnisound.cancel()`
@@ -218,8 +193,6 @@ uexUnisound.stop();
 **参数**
 
 无
-
-
 
 **平台支持**
 
@@ -239,12 +212,7 @@ uexUnisound.cancel();
 
 ```
 
-
-
-
-
 >### runTextUnderstand 进行文本语义理解
-
 
 `uexUnisound.runTextUnderstand(param)`
 
@@ -256,15 +224,13 @@ uexUnisound.cancel();
 
 | 参数名称|参数类型|是否必选|说明 |
 | -----|-----|-----|----- |
-|param|String|是|param是json字符串，详情见下|
+|param|String|是|param是json字符串,详情见下|
 
 ```
 var param = {
 	text:,//需要语义理解的文本
 }
 ```
-
-
 
 **平台支持**
 
@@ -288,7 +254,6 @@ uexUnisound.runTextUnderstand(JSON.stringify(data));
 
 >### speaking 进行语音合成
 
-
 `uexUnisound.speaking(param)`
 
 **说明**
@@ -299,19 +264,18 @@ uexUnisound.runTextUnderstand(JSON.stringify(data));
 
 * [onSpeakingFinish](#onSpeakingFinish 语音合成结束的监听方法)语音合成结束的监听方法
 * [onSpeakingErrorOccurr](#onSpeakingErrorOccurr 语音合成过程出错的监听方法)语音合成过程出错的监听方法
+
 **参数**
 
 | 参数名称|参数类型|是否必选|说明 |
 | -----|-----|-----|----- |
-|param|String|是|param是json字符串，详情见下|
+|param|String|是|param是json字符串,详情见下|
 
 ```
 var param = {
 	text:,//需要语音合成的文本
 }
 ```
-
-
 
 **平台支持**
 
@@ -335,7 +299,6 @@ uexUnisound.speaking(JSON.stringify(data));
 
 >### cancelSpeaking 取消语音合成
 
-
 `uexUnisound.cancelSpeaking()`
 
 **说明**
@@ -343,11 +306,9 @@ uexUnisound.speaking(JSON.stringify(data));
 * 取消语音合成,调用该方法之后语音合成和播放都会取消
 * 全部取消后会触发[onSpeakingCancel](#onSpeakingCancel 语音合成被取消的监听方法)语音合成被取消的监听方法
 
-
 **参数**
 
 无
-
 
 **平台支持**
 
@@ -369,21 +330,18 @@ uexUnisound.cancelSpeaking();
 
 >### pauseSpeaking 暂停播放 
 
-
 `uexUnisound.pauseSpeaking()`
 
 **说明**
 
 暂停播放(仅IOS支持)
 
-* 仅暂停语音播放线程，合成线程会继续进行
+* 仅暂停语音播放线程,合成线程会继续进行
 * 回调[cbPauseSpeaking](#cbPauseSpeaking 暂停播放的回调方法)
-
 
 **参数**
 
 无
-
 
 **平台支持**
 
@@ -405,7 +363,6 @@ uexUnisound.pauseSpeaking();
 
 >### resumeSpeaking 恢复播放
 
-
 `uexUnisound.resumeSpeaking()`
 
 **说明**
@@ -414,11 +371,9 @@ uexUnisound.pauseSpeaking();
 
 * 回调[cbResumeSpeaking](#cbResumeSpeaking 恢复播放的回调方法)
 
-
 **参数**
 
 无
-
 
 **平台支持**
 
@@ -442,7 +397,6 @@ uexUnisound.resumeSpeaking();
 
 >### cbPauseSpeaking 暂停播放的回调方法
 
-
 `uexUnisound.cbPauseSpeaking()`
 
 **说明**
@@ -452,7 +406,6 @@ uexUnisound.resumeSpeaking();
 **参数**
 
 无
-
 
 **平台支持**
 
@@ -473,12 +426,9 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
 
-
 >### cbResumeSpeaking 恢复播放的回调方法
-
 
 `uexUnisound.cbResumeSpeaking()`
 
@@ -489,7 +439,6 @@ window.uexOnload = function(type){
 **参数**
 
 无
-
 
 **平台支持**
 
@@ -510,16 +459,11 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
-
 
 ##2.3、 监听方法
 
-
 >### onRecognizerStart 语音识别开始的监听方法
-
-
 
 `uexUnisound.onRecognizerStart()`
 
@@ -533,7 +477,6 @@ window.uexOnload = function(type){
 **参数**
 
 无
-
 
 **平台支持**
 
@@ -554,12 +497,9 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
 
 >### onSpeechStart 检测到开始说话的监听方法
-
-
 
 `uexUnisound.onSpeechStart()`
 
@@ -572,7 +512,6 @@ window.uexOnload = function(type){
 **参数**
 
 无
-
 
 **平台支持**
 
@@ -593,12 +532,9 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
 
 >### onReceiveRecognizerResult 收到语音识别结果的监听方法
-
-
 
 `uexUnisound.onReceiveRecognizerResult(param)`
 
@@ -615,7 +551,7 @@ window.uexOnload = function(type){
 
 | 参数名称|参数类型|是否必选|说明 |
 | -----|-----|-----|----- |
-|param|String|是|param是json字符串，详情见下|
+|param|String|是|param是json字符串,详情见下|
 
 ```
 var param = {
@@ -623,7 +559,6 @@ var param = {
 	isLast:,//Boolean 必选 是不是最后一次返回文字  true/false
 }
 ```
-
 
 **平台支持**
 
@@ -644,28 +579,21 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
 
-
 >### onEnd 语音识别任务结束的监听方法
-
-
 
 `uexUnisound.onEnd(param)`
 
 **说明**
 
-
-
 * onEnd 回调时,表示本次语音识别过程结束。
-
 
 **参数**
 
 | 参数名称|参数类型|是否必选|说明 |
 | -----|-----|-----|----- |
-|param|String|是|param是json字符串，详情见下|
+|param|String|是|param是json字符串,详情见下|
 
 ```
 var param = {
@@ -674,8 +602,8 @@ var param = {
 ```
 
 |result|说明|
-|---|---|
-|0|语音理解成功，正常结束任务|
+|-----|-----|
+|0|语音理解成功,正常结束任务|
 | -10001|服务器通讯错误|
 |-10002|服务器连接失败|
 |-20001|服务器验证错误|
@@ -703,21 +631,15 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
 >### onVADTimeout 录音超时的监听方法
-
-
 
 `uexUnisound.onVADTimeout()`
 
 **说明**
 
-
-
 * 录音过程中,如果用户间隔一段时间没有说话,会回调此方法。
 * 用户可以在此方法中调用 stop 方法停止录音,等待识别结果。
-
 
 **参数**
 
@@ -742,36 +664,29 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
 
 >### onUpdateVolume 录音过程中音量大小的监听方法
-
-
 
 `uexUnisound.onUpdateVolume(param)`
 
 **说明**
 
-
-
 * 录音过程中会不断的回调此方法,实时返回音量大小(0 到 100)。
 * 值越大表示音量越大。
 * 用户可以根据 volume 的大小来实现音量变化的动画效果
-
 
 **参数**
 
 | 参数名称|参数类型|是否必选|说明 |
 | -----|-----|-----|----- |
-|param|String|是|param是json字符串，详情见下|
+|param|String|是|param是json字符串,详情见下|
 
 ```
 var param = {
 	volume;//Number 必选 录音时的音量大小 0~100
 	}
 ```
-
 
 **平台支持**
 
@@ -789,15 +704,13 @@ iOS 3.0.0+
 window.uexOnload = function(type){
 	uexUnisound.onUpdateVolume = function(info){
 		//alert(info);
-		//不建议alert调试此方法，会中断录音
+		//不建议alert调试此方法,会中断录音
 	}
 }
-
 
 ```
 
 >### onReceiveUnderstanderResult 收到语义理解结果的监听方法
-
 
 `uexUnisound.onReceiveUnderstanderResult(param)`
 
@@ -809,18 +722,17 @@ window.uexOnload = function(type){
 
 | 参数名称|参数类型|是否必选|说明 |
 | -----|-----|-----|----- |
-|param|String|是|param是json字符串，详情见下|
+|param|String|是|param是json字符串,详情见下|
 
 ```
 var param = {
-	stringResult:,//String 必选 请求返回的结果，json字符串
+	stringResult:,//String 必选 请求返回的结果,json字符串
 	responseText:,//String 必选 json中的text项
 }
 ```
 
 * stringResult中包含更多更详细的信息
 * 一般使用,只需取responseText的值即可
-
 
 **平台支持**
 
@@ -841,21 +753,15 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
 
 >### onSpeakingStart 语音合成开始的监听方法
-
-
 
 `uexUnisound.onSpeakingStart()`
 
 **说明**
 
-
-
 语音合成开始的监听方法
-
 
 **参数**
 
@@ -880,23 +786,15 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
 
-
-
 >### onSpeakingFinish 语音合成结束的监听方法
-
-
 
 `uexUnisound.onSpeakingFinish()`
 
 **说明**
 
-
-
 语音合成结束的监听方法
-
 
 **参数**
 
@@ -921,21 +819,15 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
 
 >### onSpeakingCancel 语音合成被取消的监听方法
-
-
 
 `uexUnisound.onSpeakingCancel()`
 
 **说明**
 
-
-
 语音合成被取消的监听方法
-
 
 **参数**
 
@@ -960,28 +852,21 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
 
-
 >### onSpeakingErrorOccur 语音合成过程出错的监听方法
-
-
 
 `uexUnisound.onSpeakingErrorOccur(param)`
 
 **说明**
 
-
-
-语音合成过程出错时，会回调此方法
-
+语音合成过程出错时,会回调此方法
 
 **参数**
 
 | 参数名称|参数类型|是否必选|说明 |
 | -----|-----|-----|----- |
-|param|String|是|param是json字符串，详情见下|
+|param|String|是|param是json字符串,详情见下|
 
 ```
 var param = {
@@ -1008,14 +893,26 @@ window.uexOnload = function(type){
 	}
 }
 
-
 ```
 
-
 # 3、更新历史
-API 版本：uexUnisound-3.0.0(iOS) uexUnisound-3.0.0（Android）
-最近更新时间：2015-09-18
 
-|  历史发布版本 | iOS更新  | 安卓更新  |
-| ------------ | ------------ | ------------ 
-| 3.0.0  |  云知声插件 | 云知声插件|
+### iOS
+
+API版本:`uexUnisound-3.0.0`
+
+最近更新时间:`2015-09-18`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | 云知声插件 |
+
+### Android
+
+API版本:`uexUnisound-3.0.0`
+
+最近更新时间:`2015-09-18`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | 云知声插件 |
