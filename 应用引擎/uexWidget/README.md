@@ -646,6 +646,31 @@ Android2.2+
   ````
     uexWidget.moveToBack();
   ````
+
+> ### reloadWidgetByAppId 根据appId重载widget
+
+`uexWindow.reloadWidgetByAppId(appId);`
+
+**说明**
+
+在子widget更新完成时调用可加载更新的html、js、css
+
+**参数**
+
+appId：子widget对应的appId
+
+**平台支持**
+
+Android 2.2+
+iOS 5.1.1+
+
+**版本支持**
+
+3.1.0+
+
+**示例**
+
+`uexWindow.reloadWidgetByAppId(sdk2015);`
   
 ## 2.2 回调方法
   
