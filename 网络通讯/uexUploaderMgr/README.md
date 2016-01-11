@@ -242,13 +242,14 @@ API版本:`uexUploaderMgr-3.0.14`
 
 ### Android
 
-API版本:`uexUploaderMgr-3.0.7`
+API版本:`uexUploaderMgr-3.0.8`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-1-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.7 | :增加新的 header以及plugin里面的子应用的appId和appkey都按照主应用为准 |
+| 3.0.8 | 修正plugin文件错误,导致uexFileMgr的plugin方法被覆盖的问题 |
+| 3.0.7 | 增加新的 header以及plugin里面的子应用的appId和appkey都按照主应用为准 |
 | 3.0.6 | 增加appVerify校验头 |
 | 3.0.5 | 修复个别图片压缩导致的上传失败问题 |
 | 3.0.4 | 修复不支持HTTPS问题 |
