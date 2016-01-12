@@ -70,7 +70,7 @@ var params = {
 uexMobSMS.sendCode(JSON.stringify(params));
 ```
 
-> ### ~~commitCode 提交短信验证码~~		
+> ###commitCode 提交短信验证码	
 
 `uexMobSMS.commitCode(params)`	
 
