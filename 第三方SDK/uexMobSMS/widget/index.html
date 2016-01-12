@@ -17,21 +17,35 @@
                 }
             
             
-            function sendButton(){
-                
+            function initButton(){
                 var params = {
-                    "phoneNum": "12345678900",
-                    "countryCode": "86"
+                    "uexMobSMS_APPKey": "e5c90ea53640",
+                    "uexMobSMS_APPSecret": "d2ec92c2e5de325c52fc53bdb63374fc"
+                };
+                uexMobSMS.init(JSON.stringify(params));
+                
+            }
+            function sendButton(){
+
+                var  phoneNum = document.getElementById("phoneNum").value;
+
+                var  countryCode= document.getElementById("countryCode").value;
+                var params = {
+                    "phoneNum": phoneNum,
+                    "countryCode": countryCode
                 };
                 uexMobSMS.sendCode(JSON.stringify(params));
                 
             }
             
             function commitButton(){
+                var  phoneNum = document.getElementById("phoneNum").value;
+                var  countryCode = document.getElementById("countryCode").value;
+                var  validCode= document.getElementById("validCode").value;
                 var params = {
-                    "phoneNum": "12345678900",
-                    "countryCode": "86",
-                    "validCode"  : "9097"
+                    "phoneNum": phoneNum,
+                    "countryCode": countryCode,
+                    "validCode" : validCode
                 };
                 uexMobSMS.commitCode(JSON.stringify(params));
             }
@@ -43,8 +57,15 @@
         <div class="conbor">
             <div class="consj">
                 <br><br><br><br><br><br><br>
+                <input class="btn" type="button" value="初始化"
+                    onclick="initButton();"/>
+                 <input id="phoneNum" class="btn" type="text" value="" placeholder = "请输入测试电话号码"/>
+                 <input id="countryCode" class="btn" type="text" value="" placeholder = "请输入国家区域编码"/>
                 <input class="btn" type="button" value="发送验证码" onclick="sendButton();"/>
+                <input id="validCode" class="btn" type="text" value=""
+                    placeholder = "请输入收到的验证码"/>
                 <input class="btn" type="button" value="提交验证码" onclick="commitButton();"/>
+                
             </div>
         </div>
     </body>
