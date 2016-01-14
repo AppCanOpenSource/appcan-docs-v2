@@ -752,12 +752,13 @@ iOS 3.0.0+
 
 ### iOS
 
-API版本:`uexChart-3.0.3`
+API版本:`uexChart-3.0.4`
 
-最近更新时间:`2015-12-21`
+最近更新时间:`2016-1-13`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.4 | 改用embedFrameworks方式调用,提高编译速度 |
 | 3.0.3 | openBarChart和openLineChart新增option参数; |
 | 3.0.2 | 使用Swift2.1编译,支持IDE本地打包 |
 | 3.0.1 | 使用Swift2.0的库,支持Xcode7 |
