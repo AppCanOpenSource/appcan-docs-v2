@@ -17,7 +17,7 @@
 
 **说明:**
 
-后台播放,iOS支持MP3、WAV、CAF格式,Android支持MP3、WAV、AMR、MIDI格式。
+后台播放,iOS支持MP3、WAV、CAF、AMR格式,Android支持MP3、WAV、AMR、MIDI格式。
 
 **参数:**
 
