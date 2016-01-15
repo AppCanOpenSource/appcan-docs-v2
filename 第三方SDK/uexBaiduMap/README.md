@@ -587,7 +587,7 @@ var data = [
 		}
  ];
 var dataStr = JSON.stringify(data);
-uexBaiduMap.openPieChart(dataStr);
+uexBaiduMap.addMarkersOverlay(dataStr);
  
  
 ```
