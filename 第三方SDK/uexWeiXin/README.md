@@ -577,7 +577,7 @@ window.uexOnload = function(){
 </html>
 ```
 
-> ### sendTextContent 分享文本(旧接口不推荐)
+> ### sendTextContent 分享文本(`旧接口不推荐，改用新接口`)
 
 `uexWeiXin.sendTextContent(sence,txt)`
 
@@ -639,7 +639,7 @@ uexWeiXin.sendTextContent(sence,txt);
 
 ```
 
-> ### sendImageContent 分享图片到微信(旧接口不推荐)
+> ### sendImageContent 分享图片到微信(`旧接口不推荐，改用新接口`)
 
 `uexWeiXin.sendImageContent(sence,thumbImgPath,imgPath,webpageURL,title,description)`
 
@@ -1062,7 +1062,7 @@ var data1 = JSON.stringify(param1);
 uexWeiXin.startPay(data1);
 
 ```
-> ### getAccessToken 获取支付token`<旧版接口,新版插件不支持>`使用新接口
+> ### getAccessToken 获取支付token`<旧版接口,新版插件不支持，使用新接口>` 
 
 `uexWeiXin.getAccessToken(AppID,AppSecret)`
 
@@ -1091,7 +1091,7 @@ iOS6.0+
 
 见gotoPay方法示例  
 
-> ### getAccessTokenLocal 获取本地支付token`<旧版接口,新版插件不支持>`使用新接口
+> ### getAccessTokenLocal 获取本地支付token`<旧版接口,新版插件不支持，使用新接口>` 
 
 `uexWeiXin.getAccessTokenLocal()`
 
@@ -1118,7 +1118,7 @@ iOS6.0+
 
 见gotoPay方法示例  
 
-> ### generateAdvanceOrder 生成预支付订单`<旧版接口,新版插件不支持>`使用新接口
+> ### generateAdvanceOrder 生成预支付订单`<旧版接口,新版插件不支持，使用新接口>` 
 
 `uexWeiXin.generateAdvanceOrder(token,postJson) `
 
@@ -1188,7 +1188,7 @@ iOS6.0+
 **示例:**
 
 见gotoPay方法示例  
-> ### generatePrepayID 生成预支付订单`<旧版接口,新版插件不支持>`使用新接口
+> ### generatePrepayID 生成预支付订单`<旧版接口,新版插件不支持，使用新接口>` 
 
 ` uexWeiXin.generatePrepayID(token,app_key,packageValue)`
 
@@ -1227,7 +1227,7 @@ iOS6.0+
 
 见sendPay方法示例
 
-> ### gotoPay 支付`<旧版接口,新版插件不支持>`使用新接口
+> ### gotoPay 支付`<旧版接口,新版插件不支持，使用新接口>` 
 
 `uexWeiXin.gotoPay(partnerID,textareapayID,package,nonceStr,timeStamp,sign)`
 
@@ -1339,7 +1339,7 @@ uexWeiXin.cbGetAccessTokenLocal = function(opCode,dataType,data) {
 
 ```
 
-> ### sendPay 支付`<旧版接口,新版插件不支持>`使用新接口
+> ### sendPay `<旧版接口,新版插件不支持，使用新接口>` 
 
 `uexWeiXin.sendPay(partnerID,textareapayID,app_key,packageValue)`
 
@@ -2241,7 +2241,7 @@ uexWeiXin.cbStartPay = function(data){
 }
 ```
 
-> ### cbGetAccessToken 获取支付token的回调方法`<旧版接口,新版插件不支持>`使用新接口
+> ### cbGetAccessToken 获取支付token的回调方法`<旧版接口,新版插件不支持，使用新接口>` 
 
 `uexWeiXin.cbGetAccessToken(opId,dataType,data)`
 
@@ -2266,7 +2266,7 @@ uexWeiXin.cbGetAccessToken = function(data){
 }
 ```
 
-> ### cbGetAccessTokenLocal 获取本地支付token的回调方法`<旧版接口,新版插件不支持>`使用新接口
+> ### cbGetAccessTokenLocal 获取本地支付token的回调方法`<旧版接口,新版插件不支持，使用新接口>` 
 
 `uexWeiXin.cbGetAccessTokenLocal(opId,dataType,data)`
 
@@ -2290,7 +2290,7 @@ uexWeiXin.cbGetAccessTokenLocal = function (opCode,dataType,data) {
 }
 ```
 
-> ### cbGenerateAdvanceOrder 生成预支付订单的回调方法`<旧版接口,新版插件不支持>`使用新接口
+> ### cbGenerateAdvanceOrder 生成预支付订单的回调方法`<旧版接口,新版插件不支持，使用新接口>` 
 
 `uexWeiXin.cbGenerateAdvanceOrder(opId,dataType,data)`
 
@@ -2314,7 +2314,7 @@ alert(data);
 }
 ```
 
-> ### cbGotoPay 支付回调方法`<旧版接口,新版插件不支持>`使用新接口
+> ### cbGotoPay 支付回调方法`<旧版接口,新版插件不支持，使用新接口>` 
 
 `uexWeiXin.cbGotoPay(opId,dataType,data)`
 
