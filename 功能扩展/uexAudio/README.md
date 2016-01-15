@@ -376,7 +376,7 @@ uexAudio.openSoundPool()；
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| soundID | String | 是 | 唯一标识符 |
+| soundID | Number | 是 | 唯一标识符 |
 | path | String | 是 | 音效文件路径,路径协议详见CONSTANT中PathTypes |
 
 **平台支持:**
@@ -391,7 +391,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexAudio.addSound("2","res://1.mp3")
+uexAudio.addSound(2,"res://1.mp3")
 ```
 > ### playFromSoundPool 播放音效
 
@@ -405,7 +405,7 @@ uexAudio.addSound("2","res://1.mp3")
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id | String | 是 | 唯一标识符 |
+| id | Number | 是 | 唯一标识符 |
 
 **平台支持:**
 
@@ -419,7 +419,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexAudio.playFromSoundPool("2")
+uexAudio.playFromSoundPool(2)
 ```
 > ### stopFromSoundPool 停止音效
 
@@ -433,7 +433,7 @@ uexAudio.playFromSoundPool("2")
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id | String | 是 | 唯一标识符 |
+| id | Number | 是 | 唯一标识符 |
 
 **平台支持:**
 
@@ -447,7 +447,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexAudio.stopFromSoundPool("2")
+uexAudio.stopFromSoundPool(2)
 ```
 > ### closeSoundPool 关闭音效池
 
