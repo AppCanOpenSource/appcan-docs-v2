@@ -441,7 +441,6 @@ alert(data);
 
 **平台支持:**
 
-Android2.2+  
 iOS6.0+  
 
 **版本支持:**
@@ -493,7 +492,6 @@ alert(data);
 **平台支持:**
 
 iOS6.0+ 
-Android2.2+
 
 **版本支持:**
 
@@ -544,7 +542,6 @@ alert(data);
 **平台支持:**
 
 iOS6.0+ 
-Android2.2+ 
 
 **版本支持:**
 
@@ -570,7 +567,7 @@ window.uexOnload = function(){
 <div class="conbor">
 <div class="consj">
 <span>打开微信 </span>
-<input class="btn" type="button" value="打开微信" onclick="uexWeiXin.openWeiXin();">
+<input class="btn" type="button" value="打开微信" onclick="uexWeiXin.openWXApp();">
 </div>
 </div>
 </body>
