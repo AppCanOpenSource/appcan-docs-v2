@@ -158,7 +158,7 @@ param为json字符串,包含的参数如下
 | src | String | 否 | 图片路径 支持wgt:// wgts:// file:// res://| 无|
 | quality | Number | 否 | JPG压缩质量 取值范围 0-1 越大表示质量越好|0.5|
 | usePng| Boolean | 否| 用png格式导出图片 ,此参数为true时,quality参数无效 | false |
-| mode | Number | 否 | 1- 正方型裁剪 2- 圆形裁剪(仅iOS支持圆形裁剪) | 1 |
+| mode | Number | 否 | 1- 正方型裁剪 2- 圆形裁剪(仅iOS支持圆形裁剪) 3- 自定义长宽比(仅Android) | 1 |
 
 **平台支持**
 
