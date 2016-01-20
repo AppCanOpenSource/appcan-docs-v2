@@ -574,7 +574,7 @@ window.uexOnload = function(){
 </html>
 ```
 
-> ### sendTextContent 分享文本(`旧接口不推荐，改用新接口`)
+> ### sendTextContent 分享文本(`旧接口不推荐,改用新接口`)
 
 `uexWeiXin.sendTextContent(sence,txt)`
 
@@ -636,7 +636,7 @@ uexWeiXin.sendTextContent(sence,txt);
 
 ```
 
-> ### sendImageContent 分享图片到微信(`旧接口不推荐，改用新接口`)
+> ### sendImageContent 分享图片到微信(`旧接口不推荐,改用新接口`)
 
 `uexWeiXin.sendImageContent(sence,thumbImgPath,imgPath,webpageURL,title,description)`
 
@@ -950,25 +950,25 @@ iOS6.0+
 
 ```
 var json = {
-    appid:,//(必选) 微信分配的公众账号ID（企业号corpid即为此appId） 
+    appid:,//(必选) 微信分配的公众账号ID(企业号corpid即为此appId) 
     mch_id:,//(必选) 微信支付分配的商户号
-    device_info:,//(可选) 终端设备号(门店号或收银设备ID)，注意：PC网页或公众号内支付请传"WEB"
-    nonce_str:,//(必选) 随机字符串，不长于32位。随机字符串，不长于32位。
+    device_info:,//(可选) 终端设备号(门店号或收银设备ID),注意:PC网页或公众号内支付请传"WEB"
+    nonce_str:,//(必选) 随机字符串,不长于32位。随机字符串,不长于32位。
     body:,//(必选) 商品或支付单简要描述
     detail:,//(可选) 商品名称明细列表
-    attach:,//(可选) 附加数据，在查询API和支付通知中原样返回，该字段主要用于商户携带订单的自定义数据
-    out_trade_no://(必选) 商户系统内部的订单号，32个字符内、可包含字母
-    fee_type:,//(可选) 符合ISO 4217标准的三位字母代码，默认人民币:CNY
-    total_fee:,//(必选) 订单总金额，只能为整数，单位为分
+    attach:,//(可选) 附加数据,在查询API和支付通知中原样返回,该字段主要用于商户携带订单的自定义数据
+    out_trade_no://(必选) 商户系统内部的订单号,32个字符内、可包含字母
+    fee_type:,//(可选) 符合ISO 4217标准的三位字母代码,默认人民币:CNY
+    total_fee:,//(必选) 订单总金额,只能为整数,单位为分
     spbill_create_ip:,//(必选) 用户端ip
-    time_start:,//(可选) 订单生成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。
-    time_expire:,//(可选) 订单失效时间，格式为yyyyMMddHHmmss，如2009年12月27日9点10分10秒表示为20091227091010。注意：最短失效时间间隔必须大于5分钟
-    goods_tag:,//(可选) 商品标记，代金券或立减优惠功能的参数
-    notify_url:,//(必选) 接收微信支付异步通知回调地址，通知url必须为直接可访问的url，不能携带参数。
-    trade_type:,//(必选) 交易类型，此处为固定值"APP"
-    product_id:,//(可选) 此id为二维码中包含的商品ID，商户自行定义。
+    time_start:,//(可选) 订单生成时间,格式为yyyyMMddHHmmss,如2009年12月25日9点10分10秒表示为20091225091010。
+    time_expire:,//(可选) 订单失效时间,格式为yyyyMMddHHmmss,如2009年12月27日9点10分10秒表示为20091227091010。注意:最短失效时间间隔必须大于5分钟
+    goods_tag:,//(可选) 商品标记,代金券或立减优惠功能的参数
+    notify_url:,//(必选) 接收微信支付异步通知回调地址,通知url必须为直接可访问的url,不能携带参数。
+    trade_type:,//(必选) 交易类型,此处为固定值"APP"
+    product_id:,//(可选) 此id为二维码中包含的商品ID,商户自行定义。
     openid:,//(可选) 用户在商户appid下的唯一标识。
-    sign://(必选) 签名，详见签名生成算法
+    sign://(必选) 签名,详见签名生成算法
 ```
 
 **平台支持:**
@@ -1059,7 +1059,7 @@ var data1 = JSON.stringify(param1);
 uexWeiXin.startPay(data1);
 
 ```
-> ### getAccessToken 获取支付token`<旧版接口,新版插件不支持，使用新接口>` 
+> ### getAccessToken 获取支付token`<旧版接口,新版插件不支持,使用新接口>` 
 
 `uexWeiXin.getAccessToken(AppID,AppSecret)`
 
@@ -1088,7 +1088,7 @@ iOS6.0+
 
 见gotoPay方法示例  
 
-> ### getAccessTokenLocal 获取本地支付token`<旧版接口,新版插件不支持，使用新接口>` 
+> ### getAccessTokenLocal 获取本地支付token`<旧版接口,新版插件不支持,使用新接口>` 
 
 `uexWeiXin.getAccessTokenLocal()`
 
@@ -1115,7 +1115,7 @@ iOS6.0+
 
 见gotoPay方法示例  
 
-> ### generateAdvanceOrder 生成预支付订单`<旧版接口,新版插件不支持，使用新接口>` 
+> ### generateAdvanceOrder 生成预支付订单`<旧版接口,新版插件不支持,使用新接口>` 
 
 `uexWeiXin.generateAdvanceOrder(token,postJson) `
 
@@ -1185,7 +1185,7 @@ iOS6.0+
 **示例:**
 
 见gotoPay方法示例  
-> ### generatePrepayID 生成预支付订单`<旧版接口,新版插件不支持，使用新接口>` 
+> ### generatePrepayID 生成预支付订单`<旧版接口,新版插件不支持,使用新接口>` 
 
 ` uexWeiXin.generatePrepayID(token,app_key,packageValue)`
 
@@ -1224,7 +1224,7 @@ iOS6.0+
 
 见sendPay方法示例
 
-> ### gotoPay 支付`<旧版接口,新版插件不支持，使用新接口>` 
+> ### gotoPay 支付`<旧版接口,新版插件不支持,使用新接口>` 
 
 `uexWeiXin.gotoPay(partnerID,textareapayID,package,nonceStr,timeStamp,sign)`
 
@@ -1336,7 +1336,7 @@ uexWeiXin.cbGetAccessTokenLocal = function(opCode,dataType,data) {
 
 ```
 
-> ### sendPay `<旧版接口,新版插件不支持，使用新接口>` 
+> ### sendPay `<旧版接口,新版插件不支持,使用新接口>` 
 
 `uexWeiXin.sendPay(partnerID,textareapayID,app_key,packageValue)`
 
@@ -1709,6 +1709,7 @@ var json = {
 **支持平台:**
 Android 2.2+  
 iOS 6.0+
+
 **版本支持:**
 
 Android 3.1.32+  
@@ -2238,7 +2239,7 @@ uexWeiXin.cbStartPay = function(data){
 }
 ```
 
-> ### cbGetAccessToken 获取支付token的回调方法`<旧版接口,新版插件不支持，使用新接口>` 
+> ### cbGetAccessToken 获取支付token的回调方法`<旧版接口,新版插件不支持,使用新接口>` 
 
 `uexWeiXin.cbGetAccessToken(opId,dataType,data)`
 
@@ -2263,7 +2264,7 @@ uexWeiXin.cbGetAccessToken = function(data){
 }
 ```
 
-> ### cbGetAccessTokenLocal 获取本地支付token的回调方法`<旧版接口,新版插件不支持，使用新接口>` 
+> ### cbGetAccessTokenLocal 获取本地支付token的回调方法`<旧版接口,新版插件不支持,使用新接口>` 
 
 `uexWeiXin.cbGetAccessTokenLocal(opId,dataType,data)`
 
@@ -2287,7 +2288,7 @@ uexWeiXin.cbGetAccessTokenLocal = function (opCode,dataType,data) {
 }
 ```
 
-> ### cbGenerateAdvanceOrder 生成预支付订单的回调方法`<旧版接口,新版插件不支持，使用新接口>` 
+> ### cbGenerateAdvanceOrder 生成预支付订单的回调方法`<旧版接口,新版插件不支持,使用新接口>` 
 
 `uexWeiXin.cbGenerateAdvanceOrder(opId,dataType,data)`
 
@@ -2311,7 +2312,7 @@ alert(data);
 }
 ```
 
-> ### cbGotoPay 支付回调方法`<旧版接口,新版插件不支持，使用新接口>` 
+> ### cbGotoPay 支付回调方法`<旧版接口,新版插件不支持,使用新接口>` 
 
 `uexWeiXin.cbGotoPay(opId,dataType,data)`
 

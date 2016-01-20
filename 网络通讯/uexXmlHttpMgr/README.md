@@ -401,12 +401,13 @@ API版本:`uexXmlHttpMgr-3.0.15`
 
 ### Android
 
-API版本:`uexXmlHttpMgr-3.0.20`
+API版本:`uexXmlHttpMgr-3.0.21`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-1-20`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.21 | 修改请求对象唯一标识符按String类型处理。 |
 | 3.0.20 | 增加新的 header以及plugin里面的子应用的appId和appkey都按照主应用为准 |
 | 3.0.19 | 增加clearCookie接口,用于删除cookie信息 |
 | 3.0.18 | 修复Https无证书时OutOfMemoryError问题 |

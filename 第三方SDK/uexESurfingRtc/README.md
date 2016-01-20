@@ -395,12 +395,13 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexESurfingRtc-3.0.8`
+API版本:`uexESurfingRtc-3.0.9`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-1-20`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.9 | 单例模式,回调返回root窗口 |
 | 3.0.8 | 修改onGlobalStatus与cbCallStatus |
 | 3.0.7 | 修改login接口参数与Android不一致问题,增加后台长连接通知与网络切换检测 |
 | 3.0.6 | 增加设置appid和appkey回调 |
@@ -413,12 +414,13 @@ API版本:`uexESurfingRtc-3.0.8`
 
 ### Android
 
-API版本:`uexESurfingRtc-3.1.4`
+API版本:`uexESurfingRtc-3.1.5`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-1-20`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.1.5 | 升级RTC sdk_2.6。 |
 | 3.1.4 | 升级RTC sdk_2.5。 |
 | 3.1.3 | 添加设置appKey和appId的回调。 |
 | 3.1.2 | 升级RTC sdk。 |
