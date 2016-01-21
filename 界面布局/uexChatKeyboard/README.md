@@ -509,12 +509,13 @@ API版本:`uexChatKeyboard-3.0.23`
 
 ### Android
 
-API版本:`uexChatKeyboard-3.0.11`
+API版本:`uexChatKeyboard-3.0.12`
 
-最近更新时间:`2015-12-17`
+最近更新时间:`2016-1-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.12 | 修正键盘弹出效果,修正声音相关回调问题,修正关闭崩溃错误,添加自定义参数,部分代码优化 |
 | 3.0.11 | 去掉LocalActivityManager |
 | 3.0.10 | open接口新增参数inputMode默认输入方式 |
 | 3.0.9 | 修改EditText和webview中的输入框抢焦点问题 |
