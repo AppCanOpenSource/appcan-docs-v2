@@ -30,6 +30,11 @@ var viewInfo={
     "dragOutsideImg": ,//(可选)按下录音按钮后滑动到录音范围之外时提示控件的背景
     "textColor": ,//(可选)录音时间文字颜色
     "textSize": ,//(可选)录音时间文字大小
+    "sendBtnbgColorUp": ,//(可选)发送按钮正常时控件的背景
+    "sendBtnbgColorDown": ,//(可选)发送按钮按下时控件的背景
+    "sendBtnText": ,//(可选)发送按钮展示文字
+    "sendBtnTextSize": ,//(可选)发送按钮文字大小
+    "sendBtnTextColor": ,//(可选)发送按钮文字颜色
     "inputMode"://(可选) 输入框默认输入方式,0-文字输入；1-语音输入。默认为0。
 }
 ```
@@ -105,6 +110,11 @@ var jsonstr =
     "dragOutsideImg": "res://2.png",
     "textColor": "#FFF",
     "textSize": "15.5",
+    "sendBtnbgColorUp": "#45C01A",
+    "sendBtnbgColorDown": "#298409",
+    "sendBtnText": "发送",
+    "sendBtnTextSize": "15.5",
+    "sendBtnTextColor": "#FFF",
     "inputMode":1
 }';
 uexChatKeyboard.open(jsonstr);
