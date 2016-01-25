@@ -722,6 +722,7 @@ iOS 3.0.0+
 
 ```
 var json = {
+    id:,//Number,图表id，用来区分不同的图表
     value:,//Number,被点击的元素对应的y值
     dataSetIndex:,//Number,被点击的元素所在的数据数组序号
     xIndex://Number,被点击的元素对应的x轴序号
@@ -766,12 +767,13 @@ API版本:`uexChart-3.0.4`
 
 ### Android
 
-API版本:`uexChart-3.0.2`
+API版本:`uexChart-3.0.3`
 
-最近更新时间:`2015-12-21`
+最近更新时间:`2016-01-25`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.3 | 在图表中元素被点击的监听方法onValueSelected中增加了图表id字段，用来区分图表 |
 | 3.0.2 | openBarChart和openLineChart新增option参数 |
 | 3.0.1 | 替换ActivityGroup |
 | 3.0.0 | 几何图表插件 |
