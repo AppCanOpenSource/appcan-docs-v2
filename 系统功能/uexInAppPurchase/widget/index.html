@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport"
+        content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+            <title>uexButton</title>
+            <script type="text/javascript">
+                window.uexOnload = function() {
+                    uexInAppPurchase.cbRequestState = function(state){
+                        alert(state);
+                    }
+                    uexInAppPurchase.cbProductListInfo = function(info){
+                        alert(info);
+                    }
+                    uexInAppPurchase.cbPurchaseState = function(state){
+                        alert(state);
+                    }
+                    uexInAppPurchase.cbSettingState = function(state){
+                        alert(state);
+                    }
+                    uexInAppPurchase.cbTransactionState = function(state){
+                        alert(state);
+                    }
+                    uexInAppPurchase.cbVerifyState = function(state){
+                        alert(state);
+                    }
+                    uexInAppPurchase.cbVerifyInfo = function(info){
+                        alert(info);
+                    }
+                    uexInAppPurchase.cbRestoreState = function(state){
+                        alert(state);
+                    }
+                }
+            
+            function getProductsButton(){
+                var params = {
+                    "productIDs": ["EnergyBottle","GoldenGlobe","ProtectiveGloves"]
+                    
+                };
+                uexInAppPurchase.getProductList(JSON.stringify(params));
+            }
+
+            function purchaseButton(){
+                
+                var params = {
+                    "productID": "EnergyBottle",
+                    "appStoreVerifyURL": true
+                };
+                uexInAppPurchase.purchase(JSON.stringify(params));
+                
+            }
+            
+            function restoreButton(){
+               
+                uexInAppPurchase.restorePurchase();
+            }
+            </script>
+            </head>
+    
+    <body>
+        <div class="tit" id = "tit">InAppPurchase</div>
+        <div class="conbor">
+            <div class="consj">
+                <br><br><br><br><br><br><br>
+                <input class="btn" type="button" value="得到产品列表" onclick="getProductsButton();"/>
+                <input class="btn" type="button" value="购买产品" onclick="purchaseButton();"/>
+                <input class="btn" type="button" value="恢复购买" onclick="restoreButton();"/>
+            </div>
+        </div>
+    </body>
+</html>
