@@ -60,11 +60,7 @@
 	*  插件开发者需保证name全局唯一，以避免冲突
 ***
 ##type="URLSCHEME" urlScheme管理（仅iOS）
-**什么是URLSchemes？**
->Url Scheme：可以通过Url Scheme从一个应用打开另一个应用，并实现应用间的数据传递。
-`第三方应用插件客户端：`可以查看对应插件API文档说明部分查询Url Scheme配置
-    比如在微信支付过程中，App用过uexWeiXin插件打开微信客户端进行支付，支付过程完成后，微信客户端通过应用自定义的UrlScheme返回到本App,并传回支付结果
-`如果是另一个应用：`此属性可以通过AppCan平台生成的ipa包里的Info.plist文件中找到；或者可以自定义配置urlscheme值
+
 
 **例子**
 
@@ -79,7 +75,7 @@
 * 数组用双引号(")和中括号([])包含 
 * 每个urlscheme用单引号(')包含 多个urlscheme之间用逗号(,)隔开
 * 以上所有标点均是半角英文符号
-以上述配置为例，假设应用A中有进行此UrlScheme配置，在另一个应用B中，通过引擎的JS方法`uexWidget.loadApp('scheme1:');`即可打开应用A（注意不要漏掉冒号!）
+
 ***
 ##type="AUTHORITY" 权限设置
 * 目前支持如下权限设置
