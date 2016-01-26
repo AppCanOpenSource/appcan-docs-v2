@@ -376,7 +376,7 @@ uexAudio.openSoundPool()；
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| soundID | String | 是 | 唯一标识符 |
+| soundID | Number | 是 | 唯一标识符 |
 | path | String | 是 | 音效文件路径,路径协议详见CONSTANT中PathTypes |
 
 **平台支持:**
@@ -391,7 +391,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexAudio.addSound("2","res://1.mp3")
+uexAudio.addSound(2,"res://1.mp3")
 ```
 > ### playFromSoundPool 播放音效
 
@@ -405,7 +405,7 @@ uexAudio.addSound("2","res://1.mp3")
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id | String | 是 | 唯一标识符 |
+| id | Number | 是 | 唯一标识符 |
 
 **平台支持:**
 
@@ -419,7 +419,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexAudio.playFromSoundPool("2")
+uexAudio.playFromSoundPool(2)
 ```
 > ### stopFromSoundPool 停止音效
 
@@ -433,7 +433,7 @@ uexAudio.playFromSoundPool("2")
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id | String | 是 | 唯一标识符 |
+| id | Number | 是 | 唯一标识符 |
 
 **平台支持:**
 
@@ -447,7 +447,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexAudio.stopFromSoundPool("2")
+uexAudio.stopFromSoundPool(2)
 ```
 > ### closeSoundPool 关闭音效池
 
@@ -625,12 +625,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexAudio-3.0.12`
+API版本:`uexAudio-3.0.13`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-1-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.13 | 修改amr格式文件路径不存在时播放崩溃 |
 | 3.0.12 | 改用bundle调用图片资源;添加IDE支持 |
 | 3.0.11 | 支持后台播放音频,需配置相关权限 |
 | 3.0.10 | 提高了进行MP3录音的音质,修复了本地录 音生成的MP3文件用http网络播放不能正常使用的bug |

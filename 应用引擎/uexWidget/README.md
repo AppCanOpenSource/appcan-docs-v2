@@ -838,7 +838,7 @@ var data={
 
   ````
 uexWidget.cbGetPushInfo=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
 > ### cbGetPushState 获取推送状态的回调方法

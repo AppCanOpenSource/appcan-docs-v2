@@ -153,6 +153,45 @@ var data={
 uexKeyChain.removeItem(JSON.stringify(data));
 ```
 
+>### getDeviceUniqueIdentifier 生成设备唯一标识
+
+`uexKeyChain.getDeviceUniqueIdentifier()`
+
+**说明**
+
+* 设备首次调用此接口时,会生成一个随机32位字符串并用插件内置的key和service以权限kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly储存在keyChain中,并返回此字符串；
+* 之后调用此接口,会直接根据key和service取回此字符串并返回
+* **用户卸载APP再重装,此字符串不会变更!**
+
+**参数**
+
+无
+
+**返回值**
+
+返回值是一个32位字符串
+
+* 在3.3+引擎上,此方法将是一个同步方法,可以直接返回唯一标识
+* 在任意3.0+引擎上,亦可通过回调[cbGetDeviceUniqueIdentifier](#cbGetDeviceUniqueIdentifier)获得唯一标识
+
+**平台支持:**
+
+iOS 6.0+
+
+**版本支持:**
+
+3.0.2+
+
+**示例**
+
+```
+//仅3.3+引擎环境下,此方法有返回值,可以直接获取唯一标识
+//其他引擎环境下,请用异步回调cbGetDeviceUniqueIdentifier接收返回值
+var uid = uexKeyChain.getDeviceUniqueIdentifier();
+alert(uid);
+
+```
+
 ## 2.2、回调方法
 
 >### cbSetItem 设置一个keyChain item的回调方法
@@ -265,6 +304,34 @@ Window.uexOnload=function(){
 }
 ```
 
+>### cbGetDeviceUniqueIdentifier 生成设备唯一标识的回调方法
+
+`uexKeychain.cbGetDeviceUniqueIdentifier(param)`
+
+**说明**
+
+异步返回由接口getDeviceUniqueIdentifier获得的唯一标识
+
+**参数**
+
+param为json字符串,包含内容如下
+
+```
+var param={
+	uid:,//String,必选  获得的唯一标识 
+}
+```
+
+**示例**
+
+```
+Window.uexOnload=function(){
+	uexKeyChain.cbGetDeviceUniqueIdentifier = function(info){
+		alert(info);
+	}
+}
+```
+
 #3、术语表
 
 >### KeyChain 说明
@@ -300,12 +367,13 @@ Window.uexOnload=function(){
 
 ### iOS
 
-API版本:`uexKeyChain-3.0.1`
+API版本:`uexKeyChain-3.0.2`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-1-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.2 | 添加接口getDeviceUniqueIdentifier |
 | 3.0.1 | 添加IDE支持 |
 | 3.0.0 | 系统钥匙串插件 |
 

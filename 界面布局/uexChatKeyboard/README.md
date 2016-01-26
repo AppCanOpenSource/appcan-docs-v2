@@ -30,6 +30,11 @@ var viewInfo={
     "dragOutsideImg": ,//(可选)按下录音按钮后滑动到录音范围之外时提示控件的背景
     "textColor": ,//(可选)录音时间文字颜色
     "textSize": ,//(可选)录音时间文字大小
+    "sendBtnbgColorUp": ,//(可选)发送按钮正常时控件的背景
+    "sendBtnbgColorDown": ,//(可选)发送按钮按下时控件的背景
+    "sendBtnText": ,//(可选)发送按钮展示文字
+    "sendBtnTextSize": ,//(可选)发送按钮文字大小
+    "sendBtnTextColor": ,//(可选)发送按钮文字颜色
     "inputMode"://(可选) 输入框默认输入方式,0-文字输入；1-语音输入。默认为0。
 }
 ```
@@ -105,6 +110,11 @@ var jsonstr =
     "dragOutsideImg": "res://2.png",
     "textColor": "#FFF",
     "textSize": "15.5",
+    "sendBtnbgColorUp": "#45C01A",
+    "sendBtnbgColorDown": "#298409",
+    "sendBtnText": "发送",
+    "sendBtnTextSize": "15.5",
+    "sendBtnTextColor": "#FFF",
     "inputMode":1
 }';
 uexChatKeyboard.open(jsonstr);
@@ -466,12 +476,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexChatKeyboard-3.0.22`
+API版本:`uexChatKeyboard-3.0.23`
 
-最近更新时间:`2016-1-5`
+最近更新时间:`2016-1-20`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.23 | 修改发送消息遮挡、修改录音从0开始 |
 | 3.0.22 | 修改回调对象引用类型 |
 | 3.0.21 | 添加IDE支持 |
 | 3.0.20 | 修改键盘弹出时页面弹动 |
@@ -498,12 +509,13 @@ API版本:`uexChatKeyboard-3.0.22`
 
 ### Android
 
-API版本:`uexChatKeyboard-3.0.11`
+API版本:`uexChatKeyboard-3.0.12`
 
-最近更新时间:`2015-12-17`
+最近更新时间:`2016-1-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.12 | 修正键盘弹出效果,修正声音相关回调问题,修正关闭崩溃错误,添加自定义参数,部分代码优化 |
 | 3.0.11 | 去掉LocalActivityManager |
 | 3.0.10 | open接口新增参数inputMode默认输入方式 |
 | 3.0.9 | 修改EditText和webview中的输入框抢焦点问题 |

@@ -151,7 +151,7 @@ API版本:`uexLoadingView-3.0.4`
 
 ### Android
 
-API版本:`uexLoadingView-3.0.5`
+API版本:`uexLoadingView-3.0.6`
 
 最近更新时间:`2015-12-26`
 

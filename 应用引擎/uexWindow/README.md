@@ -2669,14 +2669,34 @@ Android4.0+
 ```
 uexWindow.setPopHardwareEnable(‘content’,1);
 ```
-> ### reload 重载当前页面
-`uexWindow.reload();`
-**说明**
-无
-     **参数**
-无
-**平台支持**Android 2.2+  iOS 5.1.1+**版本支持**3.1.0+**示例**
-```uexWindow.reload();```
+
+> ### reload 重载当前页面
+
+`uexWindow.reload();`
+
+**说明**
+
+无
+     
+**参数**
+
+无
+
+**平台支持**
+
+Android 2.2+  
+iOS 5.1.1+
+
+**版本支持**
+
+3.1.0+
+
+**示例**
+
+```
+uexWindow.reload();
+
+```
 
 > ### topBounceViewRefresh 自动下拉刷新
 
@@ -2807,6 +2827,45 @@ var params = {
         };
         uexWindow.setPageInContainer(JSON.stringify(params));
 ```
+> ### hideStatusBar 隐藏状态栏
+ 
+`uexWindow.hideStatusBar()`
+ 
+**说明:**
+隐藏状态栏
+ 
+**参数:**
+无
+ 
+**平台支持：**
+iOS7.0+
+ 
+**版本支持：**
+3.0.0+
+ 
+**示例**
+ 
+`uexWindow.hideStatusBar();`
+ 
+> ### showStatusBar 显示状态栏
+ 
+`uexWindow.showStatusBar()`
+ 
+**说明:**
+显示状态栏
+ 
+**参数:**
+无
+ 
+**平台支持：**
+iOS7.0+
+ 
+**版本支持：**
+3.0.0+
+ 
+**示例**
+ 
+`uexWindow.showStatusBar();`
 
 
 ## 2.2 回调方法
