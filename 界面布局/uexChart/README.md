@@ -771,6 +771,7 @@ API版本:`uexChart-3.0.3`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.4 | 修复了获取id与iOS不符的问题 |
 | 3.0.3 | 在图表中元素被点击的监听方法onValueSelected中增加了图表id字段，用来区分图表 |
 | 3.0.2 | openBarChart和openLineChart新增option参数 |
 | 3.0.1 | 替换ActivityGroup |
