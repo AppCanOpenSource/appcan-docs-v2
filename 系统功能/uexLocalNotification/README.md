@@ -19,7 +19,7 @@
 
 > ### 			add		注册通知		
 
-`uexLocalNotification.add(id,time,mode,message,buttonTitle,ringPath,cycle,notifyCount)`
+`uexLocalNotification.add(id,time,mode,message,buttonTitle,ringPath,cycle,notifyCount,extras)`
 **	说明:		**
 注册通知					
 ** 			参数:		**
@@ -34,6 +34,7 @@
 | ringPath|String类型 | 是 | 当前使用系统默认铃声,声音提示必须传"default"或者"system"。 |
 | cycle|String类型 | 是 | 循环周期,值:[daily,weekly,monthly,yearly]。 |
 | notifyCount|Number类型 | 是 | 应用图标上显示的通知数,仅iOS有效。 |
+| extras | String | 否 | 额外的数据信息,extras为json字符串 |
  
 ** 			平台支持:		**
 Android2.2+					
@@ -84,10 +85,21 @@ iOS6.0+
         <title>本地通知功能</title>
         <script type="text/javascript">
         function addNotification() {
-        var d = new Date();
-        d = d.getTime() + 60*1000;
-        uexLocalNotification.add("non1", d, 1, "message body", "ok", "default", "weekly", "5");
-        }
+		alert("已经设置闹钟，4秒钟后将会提醒！");
+		var d = new Date();
+    d = d.getTime() + 4*1000;
+		//non1-id, weekly, d, ""-ring Url 
+		//non1
+	  uexLocalNotification.add("alarm_6", d, 1, "message body", "ok", "", "daily", "5",'{"extras1":"extras1","extras2":"extras2"}');
+	}
+	
+	function onActiveCallBack(notificationID,extras) {
+		alert("onActive:"+notificationID+"\nextras:"+extras);
+	}
+	window.uexOnload = function(){
+		uexLocalNotification.onActive = onActiveCallBack;
+		uexLocalNotification.cbGetData = cbGetData;
+	}
         </script>
         </head>
         <body>
@@ -114,16 +126,37 @@ iOS6.0+
             
         </appcan></appcan></appcan></appcan>
 ```
+## 2.2、监听方法
+> ### onActive		用户点击了通知监听		
+
+`uexLocalNotification.onActive(notificationID,extras)`
+**	说明:		**
+注册通知					
+** 			参数:		**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| notificationID | String类型| 是 |  通知的唯一标示符,取值范围[alarm_1,…,alarm_10]。 |
+| extras | String | 否 | 额外的数据信息,extras为json字符串 |
+ 
+** 			平台支持:		**
+Android2.2+					
+iOS6.0+					
+** 			版本支持:		**
+3.0.0+					
+**		示例:		**
+见removeAll示例
 #3、更新历史
 
 ### iOS
 
-API版本:`uexLocalNotification-3.0.6`
+API版本:`uexLocalNotification-3.0.7`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-1-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.7 | 添加用户点击了通知的监听方法 |
 | 3.0.6 | 添加IDE支持 |
 | 3.0.5 | 删除info.plist |
 | 3.0.4 | 添加国际化支持 |
