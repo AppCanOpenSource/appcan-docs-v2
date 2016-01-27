@@ -2419,7 +2419,7 @@ API版本:`uexBaiduMap-3.0.15`
 
 ### Android
 
-API版本:`uexBaiduMap-3.2.29`
+API版本:`uexBaiduMap-3.2.30`
 
 最近更新时间:`2015-12-26`
 

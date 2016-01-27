@@ -395,12 +395,13 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexESurfingRtc-3.0.10`
+API版本:`uexESurfingRtc-3.0.11`
 
-最近更新时间:`2016-1-21`
+最近更新时间:`2016-1-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.11 | 新增文本消息接口,修改call和acceptCall的calltype |
 | 3.0.10 | 单例类加入后缀,防止冲突 |
 | 3.0.9 | 单例模式,回调返回root窗口 |
 | 3.0.8 | 修改onGlobalStatus与cbCallStatus |
