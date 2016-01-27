@@ -69,6 +69,67 @@ iOS6.0+
 ```
 uexVideo.record();
 ```
+
+> ### createPlay 打开视频播放界面
+
+`uexVideo.createPlay(x,y,w,h,path)`
+
+**说明:**
+
+打开视频播放界面，可定义窗口大小以及位置
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| x | Number | 是 | 视频播放窗口x坐标 |
+| y | Number | 是 | 视频播放窗口y坐标 |
+| w | Number | 是 | 视频播放窗口宽度 |
+| h | Number | 是 | 视频播放窗口高度 |
+| path | String | 是 | 视频文件路径,路径协议详见CONSTANT中PathTypes |
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+**版本支持:**
+
+3.0.0+
+
+**示例:**
+
+```
+uexVideo.createPlay(50,50,500,1225,"res://1.mp4")
+```
+
+> ### removePlay 关闭视频播放界面
+
+`uexVideo.removePlay()`
+
+**说明:**
+
+关闭由createPlay接口打开的视频播放界面
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+**版本支持:**
+
+3.0.0+
+
+**示例:**
+
+```
+uexVideo.removePlay()
+```
 ## 2.2、回调方法
 > ### cbRecord 录制完成的回调方法
   
