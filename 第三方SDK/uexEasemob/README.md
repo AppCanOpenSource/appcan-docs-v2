@@ -1243,12 +1243,13 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 ### iOS
 
-API版本:`uexEasemob-3.0.17`
+API版本:`uexEasemob-3.0.18`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-1-28`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.18 | 修复透传消息也会提示用户的问题 |
 | 3.0.17 | 修复getMessageHistory接口传入startMsgId但pagesize为0时取不到所有messages的问题 |
 | 3.0.16 | 修复cbGetGroup回调结构和Android不一致的问题 |
 | 3.0.15 | SDK版本更新至V2.2.0r1 修复iOS和Android之间互发消息时ext属性丢失的bug |
@@ -1270,12 +1271,13 @@ API版本:`uexEasemob-3.0.17`
 
 ### Android
 
-API版本:`uexEasemob-3.0.19`
+API版本:`uexEasemob-3.0.20`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-1-28`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.20 | 修复setNotifyBySoundAndVibrate无效的问题 |
 | 3.0.19 | 纠正拼写错误 |
 | 3.0.18 | 修改cbGetMessageHistory与文档不一致的问题 |
 | 3.0.17 | 支持initEasemob配置key |
