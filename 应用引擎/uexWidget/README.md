@@ -129,10 +129,11 @@ uexWidget.checkUpdate();
 **说明:**
 
   根据相关信息启动一个第三方应用 。
+  假设应用A中有进行此[UrlScheme配置](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#type=”URLSCHEME” urlScheme管理（仅iOS） "UrlScheme配置")，在另一个应用B中，通过引擎的JS方法`uexWidget.loadApp('scheme1:');`即可打开应用A（注意不要漏掉冒号!）
   
 **参数:**
 
-  appInfo:(String类型) 必选  第三方应用的[URLSchemes](# "此属性可以通过AppCan平台生成的ipa包里的Info.plist文件中找到")。
+    appInfo:(String类型) 必选  第三方应用的[URLSchemes](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#type=”URLSCHEME” urlScheme管理（仅iOS） "此属性可以通过AppCan平台生成的ipa包里的Info.plist文件中找到") 
   
 **平台支持:**
 
@@ -702,7 +703,7 @@ iOS 5.1.1+
 
   ````
 uexWidget.cbStartWidget=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
 > ### cbRemoveWidget 删除widget完成时的回调方法
@@ -731,7 +732,7 @@ uexWidget.cbStartWidget=function(opId,dataType,data){
 
   ````
 uexWidget.cbRemoveWidget=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
 > ### cbCheckUpdate 检查更新完成时的回调方法
@@ -765,7 +766,7 @@ var data={
 
   ````
 uexWidget.cbCheckUpdate=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
 > ### cbGetOpenerInfo 获取widget相关信息的回调方法
@@ -796,7 +797,7 @@ uexWidget.cbCheckUpdate=function(opId,dataType,data){
 
   ````
 uexWidget.cbGetOpenerInfo=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
   
@@ -868,7 +869,7 @@ uexWidget.cbGetPushInfo=function(opId,dataType,data){
 
   ````
 uexWidget.cbGetPushState=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
 **版本支持:**
