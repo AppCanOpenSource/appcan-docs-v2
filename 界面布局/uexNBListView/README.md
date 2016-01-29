@@ -116,6 +116,7 @@ iOS3.0.0+
 
 **示例:**
 layout_item1布局代码：
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "1" layoutType = "${type1}">
@@ -159,6 +160,7 @@ layout_item1布局代码：
 ```
 
 layout_item2布局代码：
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "2">
@@ -189,6 +191,7 @@ layout_item2布局代码：
 ```
 
 layout_left布局代码：
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "left">
@@ -198,7 +201,9 @@ layout_left布局代码：
     </linearlayout>
 </root>
 ```
+
 layout_right布局代码：
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "right">
@@ -210,6 +215,7 @@ layout_right布局代码：
 ```
 
 setItems接口数据传入方式:
+
 ```
     var params = {
         listViewId:0,
@@ -462,6 +468,7 @@ iOS3.0.0+
 根据索引更新数据。[cbUpdate](#cbUpdate 更新数据的回调方法)
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -517,6 +524,7 @@ iOS3.0.0+
 根据唯一标识符和索引删除数据。回调方法[cbDelete](#cbDelete 删除数据的回调方法)
 
 **参数:**
+
 ```
 var params ={
     listViewId:,//(必选) 唯一标识符
@@ -558,6 +566,7 @@ iOS3.0.0+
 根据唯一标识符显示自定义列表。
 
 **参数:**
+
 ```
 var params ={
     listViewId://(必选) 唯一标识符
@@ -590,6 +599,7 @@ iOS3.0.0+
 根据唯一标识符隐藏自定义列表。
 
 **参数:**
+
 ```
 var params ={
     listViewId://(必选) 唯一标识符
@@ -656,6 +666,7 @@ iOS3.0.0+
 `uexNBListView.cbSetItems(params);`
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -681,9 +692,9 @@ iOS3.0.0+
 **示例:**
 
 ```
-        uexNBListView.cbSetItems = function(data){
-            alert("cbSetItems->" + data);
-        }
+uexNBListView.cbSetItems = function(data){
+	alert("cbSetItems->" + data);
+}
 ```
 
 > ### cbOpen 打开自定义布局列表的回调方法
@@ -691,6 +702,7 @@ iOS3.0.0+
 `uexNBListView.cbOpen(params);`
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -716,9 +728,9 @@ iOS3.0.0+
 **示例:**
 
 ```
-        uexNBListView.cbOpen = function(data){
-            alert("cbOpen->" + data);
-        }
+uexNBListView.cbOpen = function(data){
+ 	alert("cbOpen->" + data);
+}
 ```
 
 > ### cbUpdate 更新数据的回调方法
@@ -761,6 +773,7 @@ iOS3.0.0+
 `uexNBListView.cbInsert(params);`
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -786,9 +799,9 @@ iOS3.0.0+
 **示例:**
 
 ```
-        uexNBListView.cbInsert = function(data){
-            alert("cbInsert->" + data);
-        }
+uexNBListView.cbInsert = function(data){
+	alert("cbInsert->" + data);
+}
 ```
 
 > ### cbDelete 删除数据的回调方法
@@ -796,6 +809,7 @@ iOS3.0.0+
 `uexNBListView.cbDelete(params);`
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -821,9 +835,9 @@ iOS3.0.0+
 **示例:**
 
 ```
-        uexNBListView.cbDelete = function(data){
-            alert("cbDelete->" + data);
-        }
+uexNBListView.cbDelete = function(data){
+	alert("cbDelete->" + data);
+}
 ```
 
 ## 2.3、监听方法
@@ -833,6 +847,7 @@ iOS3.0.0+
 `uexNBListView.onPullRefreshHeader(params);`
 
 **参数:**
+
 ```
 var params ={
     status:
@@ -857,9 +872,9 @@ iOS3.0.0+
 **示例:**
 
 ```
-        uexNBListView.onPullRefreshHeader = function(data){
-            //alert("onPullRefreshHeader->" + data);
-        }
+uexNBListView.onPullRefreshHeader = function(data){
+	//alert("onPullRefreshHeader->" + data);
+}
 ```
 
 > ### onPullRefreshFooter 上拉刷新的监听方法
@@ -867,6 +882,7 @@ iOS3.0.0+
 `uexNBListView.onPullRefreshFooter(params);`
 
 **参数:**
+
 ```
 var params ={
     status:
@@ -890,9 +906,9 @@ iOS3.0.0+
 **示例:**
 
 ```
-        uexNBListView.onPullRefreshFooter = function(data){
-            //alert("onPullRefreshFooter->" + data);
-        }
+uexNBListView.onPullRefreshFooter = function(data){
+	//alert("onPullRefreshFooter->" + data);
+}
 ```
 
 > ### XXX 自定义布局内的元素被点击的监听方法
@@ -903,6 +919,7 @@ iOS3.0.0+
 XXX表示名称开发者可自定义。给在布局中的元素设置onClick属性值，在该元素被点击时该监听方法被触发。
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -930,6 +947,7 @@ iOS3.0.0+
 **示例:**
 
 在布局文件中设置元素及其onClick属性，如下:
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "left">
@@ -941,9 +959,9 @@ iOS3.0.0+
 
 则需要在调用open的网页的uexOnload方法中添加如下注册:
 ```
-        uexNBListView.onLeftClick = function(data){
-            alert("onLeftClick->" + data);
-        };
+uexNBListView.onLeftClick = function(data){
+	alert("onLeftClick->" + data);
+};
 ```
 其中onLeftClick方法在id为txt的元素被点击时触发。
 
@@ -1009,6 +1027,7 @@ API 版本：uexNBListView-3.0.0(iOS) uexNBListView-3.0.0(Android)
 ### 数据载入方式
 ListView在使用过程中，需要优先调用initLayout初始化布局方法，布局在定义时需要指定哪些数据在列表中是动态的，然后在setItems，insert或者update接口时对应的传入相应的数据。举例如下：
 布局文件:
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "2" layoutType = "${type}">
@@ -1020,8 +1039,11 @@ ListView在使用过程中，需要优先调用initLayout初始化布局方法�
     </linearlayout>
 </root>
 ```
-其中定义了两个控件元素，一个text显示标题，一个button显示操作按钮。其中跟根布局linearlayout的背景颜色和text的文本内容需要动态变化，则定义id为content的linearlayout的background属性为:${自定义变量名}，这里的“自定义变量名”为backgroundColor。同理定义id为text的text属性为${title}。
+
+其中定义了两个控件元素，一个text显示标题，一个button显示操作按钮。
+其中跟根布局linearlayout的背景颜色和text的文本内容需要动态变化，则定义id为content的linearlayout的background属性为:${自定义变量名}，这里的“自定义变量名”为backgroundColor。同理定义id为text的text属性为${title}。
 则在设置数据的时候，传入如下代码:
+
 ```
         var params = {
             listViewId:0,
