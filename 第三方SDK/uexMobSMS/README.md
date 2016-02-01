@@ -148,7 +148,51 @@ iOS6.0+
 **版本支持:**
 
 3.0.0+	
+## 2.2、回调方法
+> ### cbSendClick  获取验证码的回调方法，对sendCode执行回调
 
+` uexMobSMS.cbSendClick(state)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| state | String | 是 | 获取验证码的状态描述 |
+
+
+**版本支持:**
+
+3.0.0+
+
+**示例:**
+
+```
+uexMobSMS.cbSendClick = function(state){
+           alert(state);
+     }
+```
+> ### cbCommitClick  提交验证码的回调方法，对commitCode执行回调
+
+` uexMobSMS.cbCommitClick(state)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| state | String | 是 | 提交验证码的状态描述，验证失败打印错误信息|
+
+
+**版本支持:**
+
+3.0.0+
+
+**示例:**
+
+```
+uexMobSMS.cbCommitClick = function(state){
+          alert(state);
+    }
+```
 # 3、更新历史
 
 ### iOS
