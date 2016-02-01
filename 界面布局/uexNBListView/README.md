@@ -287,7 +287,11 @@ var params ={
     swipeMode:,
     offsetLeft:,
     offsetRight:,
-    refreshMode:
+    refreshMode:,
+    refreshTimeout:,
+    openType:,
+    containerID:,
+    containerIndex:
 }
 ```
 
@@ -304,6 +308,10 @@ var params ={
 | offsetLeft | Number | 否 | 向左滑动时右侧布局显示的宽度，swipeMode支持左滑时必选。**建议和右侧布局的宽度一致**。 |
 | offsetRight | Number | 否 | 向右滑动时左侧布局显示的宽度，swipeMode支持右滑时必选。**建议和左侧布局的宽度一致**。 |
 | refreshMode | Number | 否 | 刷新模式，参考[RefreshMode](#RefreshMode)，默认0 |
+| refreshTimeout | Number | 否 | 刷新超时时间，单位毫秒。在refreshMode非等于0有效，默认为3000 |
+| openType | Number | 否 | 打开方式，参考[OpenType](#OpenType) |
+| containerID | Number | 否 | 只在openType为2时有效且必选，并且该容器已经通过uexWindow中的createPluginViewContainer方法创建成功。 |
+| containerIndex | Number | 否 | 只在openType为2时有效且必选。指定该列表视图在容器中的索引 |
 
 **平台支持:**
 
@@ -622,6 +630,37 @@ iOS3.0.0+
         };
         var data = JSON.stringify(params);
         uexNBListView.hide(data);
+```
+
+> ### setRefreshStatusCompleted 设置刷新完成状态
+
+`uexNBListView.setRefreshStatusCompleted(params);`
+
+**说明:**
+在用户执行上拉或者下拉操作后可通过该方法设置刷新完成状态。若当前用户没有执行上拉或下拉操作，则调用该方法无效。
+
+**参数:**
+```
+var params = {
+    listViewId://(必选) 唯一标识符
+}
+```
+
+**平台支持:**
+Android2.2+    
+iOS6.0+
+
+**版本支持:**
+Android3.0.0+    
+iOS3.0.0+
+
+**示例:**
+```
+        var params = {
+            listViewId:0
+        };
+        var data = JSON.stringify(params);
+        uexNBListView.setRefreshStatusCompleted(data);
 ```
 
 ## 2.2、回调方法
@@ -998,8 +1037,16 @@ API 版本：uexNBListView-3.0.0(iOS) uexNBListView-3.0.0(Android)
 | value | 说明  |
 | --- | ----- |
 | 0 | 开始刷新 |
-| 1 | 刷新中 |
-| 2 | 刷新完成 |
+| 1 | 刷新完成 |
+| 2 | 刷新超时 |
+
+### OpenType
+
+| value | 说明  |
+| --- | ----- |
+| 0 | 可以跟随网页滚动 |
+| 1 | 不随网页滚动 |
+| 2 | 列表添加到容器中，可实现容器中视图的左右滑动切换功能 |
 
 ### ErrorCode
 
