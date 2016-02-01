@@ -1,140 +1,387 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <style>
+            .icon1_act {
+                height: 2.5em;
+                width: 1.5em;
+                background-image: url('photo/index_act.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .icon2_act {
+                height: 2.5em;
+                width: 1.5em;
+                background-image: url('photo/video_act.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .icon3_act {
+                height: 2.5em;
+                width: 1.5em;
+                background-image: url('photo/topic_act.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .icon4_act {
+                height: 2.5em;
+                width: 1.5em;
+                background-image: url('photo/me_act.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .icon1 {
+                height: 2.5em;
+                width: 1.5em;
+                background-image: url('photo/index.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .icon2 {
+                height: 2.5em;
+                width: 1.5em;
+                background-image: url('photo/video.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .icon3 {
+                height: 2.5em;
+                width: 1.5em;
+                background-image: url('photo/topic.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .icon4 {
+                height: 2.5em;
+                width: 1.5em;
+                background-image: url('photo/me.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .tabview{
+                width:100%;
+                height:1.3em;
+                font-size:1.3em;
+                background-color:#D33D3E;
+            }
+            .colorWhite{
+                color:white;
+                font-size:1.2em;
+            }
+            .colorRed{
+                color:#D33D3E;
+                font-size:1.2em;
+            }
+            .btn {
+                padding: .2em 0.9em;
+                min-height: 1.5em;
+                text-align: center;
+            }
+            .btn1 {
+                padding: .2em 0.9em;
+                min-height: 1.5em;
+                text-align: center;
+            }
+            .btn2 {
+                padding: .2em 0.9em;
+                min-height: 1.5em;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body id = "body" class="um-vp" ontouchstart>
+        <div id="page_0" class="up ub ub-ver" tabindex="0">
+            <!--header开始-->
+            <div id="header1" >
+                <div class="ub ub-ac ub-pc" style="background:#D33D3E;color:#F8C7CB">
+                    <div id="top10" class="btn ub-f1 ub ub-ac ub-pe colorWhite" style="margin-right: 1em">热点</div>
+                    <div id="top11" class="btn ub-f1 ub ub-ac" style="margin-left: 1em">推荐</div>
+                </div>
+            </div>
+            <div id="header2" hidden="hidden">
+                <div  class="ub ub-ac ub-pc">
+                    <div id="top20" class="btn1 ub-f1 ub ub-ac ub-pe colorRed" style="margin-right: 1em">推荐</div>
+                    <div id="top21" class="btn1 ub-f1 ub ub-ac" style="margin-left: 1em">最新</div>
+                </div>
+            </div>
+            <div id="header3" hidden="hidden">
+                <div  class="ub ub-ac ub-pc">
+                    <div id="top30" class="btn2 ub-f1 ub ub-ac ub-pe colorRed" style="margin-right: 1em">推荐</div>
+                    <div id="top31" class="btn2 ub-f1 ub ub-ac" style="margin-left: 1em">关注</div>
+                </div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l" style="background:#dddddd">
+            </div>
+            <!--content结束-->
+            <div id = "footer" class="ub ub-ac ub-pc">
+                <div id="1" class="bc-bg ub ub-ac ub-pc icon1_act ub-f1"></div>
+                <div id="2" class="bc-bg ub ub-ac ub-pc icon2 ub-f1"></div>
+                <div id="3" class="bc-bg ub ub-ac ub-pc icon3 ub-f1"></div>
+                <div id="4" class="bc-bg ub ub-ac ub-pc icon4 ub-f1"></div>
+            </div>
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/openContainer.js"></script>
+        <script src="js/openListview.js"></script>
+        <script src="js/tools.js"></script>
+    </body>
+    <script>
+        var preId = 1;
+        var afterId = 1;
+        var topafter1="top10";
+        var topafter2="top20";
+        var topafter3="top30";
+        var isOpen1 = false;
+        var isOpen2 = false;
+        var isOpen3 = false;
+        appcan.ready(function() {
+            var top = $("#header1").offset().height;
+            var bottom = $("#footer").offset().height;
+            var availHeight = $("#body").offset().height;
+            var height = availHeight-top-bottom;
+            openContainer1(1, top, height);
+            uexWindow.cbCreatePluginViewContainer = function(opId, dataType, data) {
+                if(opId == 1){
+                    isOpen1 = true;
+                    openIndexListView(1, 0, height);
+                }else if(opId == 2){
+                    isOpen2 = true;
+                    openIndexListView(2, 0, height);
+                }else if(opId == 3){
+                    isOpen3 = true;
+                    openIndexListView(3, 0, height);
+                }
+            };
+            uexWindow.onPluginContainerPageChange= function(opId, dataType, data){
+                if(opId == 1){
+                    changeIndexTab(data);
+                }else if(opId == 2){
+                    changeVideoTab(data);
+                }else if(opId == 3){
+                    changeTopicTab(data);
+                }
+            };
+            uexNBListView.onItemClick = function(data){
+                alert("onItemClick:" + data);
+            };
+            uexNBListView.onDeleteClick = function(data){
+                if(confirm("确定要删除该条新闻？")){
+                    var data = JSON.parse(data);
+                    deleteData(data.listViewId, data.index);
+                }
+            };
+            uexNBListView.onPullRefreshHeader = function(data){
+                var data = JSON.parse(data);
+                if(data.status == 0){
+                    uexWindow.toast(0,8,"开始刷新...",1000);
+                    setTimeout("setCompleted('" + data.listViewId + "')","2000");
+                }
+                if(data.status == 1){
+                    uexWindow.toast(0,8,"刷新完成...",1000);
+                    addDataToStart(data.listViewId);
+                }
+                if(data.status == 2){
+                    uexWindow.toast(0,8,"刷新超时...",1000);
+                }
+            };
+            uexNBListView.onPullRefreshFooter = function(data){
+                var data = JSON.parse(data);
+                if(data.status == 2){
+                    addDataToEnd(data.listViewId);
+                }
+            }
+            uexWindow.cbHidePluginViewContainer = function(opId, type, data){
+                //alert("cbHidePluginViewContainer:" + data);
+            }
 
-    <script type="text/javascript">
-    function openCustom(){
-        var params = {
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.openCustom(data);
-    }
+            uexWindow.cbShowPluginViewContainer = function(opId, type, data){
+                //alert("cbShowPluginViewContainer:" + data);
+            }
 
-    function setCustomItems(){
-        var params = {
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.setCustomItems(data);
-    }
+            uexNBListView.onForwardClick = function(data){
+                alert("onForwardClick:" + data);
+            }
 
-    function closeCustom(){
-        var params = {
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.closeCustom(data);
-    }
+            uexNBListView.onFavoriteClick = function(data){
+                var info = JSON.parse(data);
+                updateFavoriteVideoListView(info.listViewId, info.index, 1);
+                uexWindow.toast(0,8,"点赞成功",1000);
+            }
+            uexNBListView.onDislikeClick = function(data){
+                var info = JSON.parse(data);
+                updateDislikeVideoListView(info.listViewId, info.index, 1);
+                uexWindow.toast(0,8,"已踩",1000);
+            }
+            uexNBListView.onCommentClick = function(data){
+                var info = JSON.parse(data);
+                updateCommentVideoListView(info.listViewId, info.index, 1);
+                uexWindow.toast(0,8,"评论成功",1000);
+            }
+            uexNBListView.onDeleteAttentionClick = function(data){
+                //var info = JSON.parse(data);
+                //updateCommentVideoListView(info.listViewId, info.index, 1);
+                //uexWindow.toast(0,8,"评论成功",1000);
+            }
+            uexNBListView.onDeleteAttentionClick = function(data){
+                //var info = JSON.parse(data);
+                //updateCommentVideoListView(info.listViewId, info.index, 1);
+                //uexWindow.toast(0,8,"评论成功",1000);
+            }
 
-    function insertCustomItem(){
-        var params = {
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.insertCustomItem(data);
-    }
+        });
 
-    function deleteCustomItem(){
-        var params = {
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.deleteCustomItem(data);
-    }
+        function setCompleted(listViewId){
+            var params = {
+                listViewId:listViewId
+            }
+            var data = JSON.stringify(params);
+            uexNBListView.setRefreshStatusCompleted(data);
+        }
 
-    function updateCustomItem(){
-        var params = {
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.updateCustomItem(data);
-    }
+        function changeIndexTab(index){
+            var currentId = "top1" + index;
+            $("#" + topafter1).removeClass("colorWhite");
+            $("#" + currentId).addClass("colorWhite");
+            topafter1 = currentId;
+        }
 
-    function hideCustom(){
-        var params = {
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.hideCustom(data);
-    }
+        function changeVideoTab(index){
+            var currentId = "top2" + index;
+            $("#" + topafter2).removeClass("colorRed");
+            $("#" + currentId).addClass("colorRed");
+            topafter2 = currentId;
+        }
 
-    function showCustom(){
-        var params = {
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.showCustom(data);
-    }
+        function changeTopicTab(index){
+            var currentId = "top3" + index;
+            $("#" + topafter3).removeClass("colorRed");
+            $("#" + currentId).addClass("colorRed");
+            topafter3 = currentId;
+        }
 
+        appcan.button(".bc-bg", "", function() {
+            changecolor(preId, this.id);
+            preId = this.id;
+        })
 
-        window.uexOnload = function(type){
-            if(type == 0){
-            uexNBListView.onScrollPictureClick = onScrollPictureClick;
-            uexNBListView.onItemClick = onItemClick;
-            uexNBListView.onCustomItemClick = onCustomItemClick;
-            uexNBListView.onCustomPullRefreshHeader = onCustomPullRefreshHeader;
-            uexNBListView.onCustomPullRefreshFooter = onCustomPullRefreshFooter;
-            uexNBListView.onLeftClick = onLeftClick;
-            uexNBListView.onRightClick = onRightClick;
-            uexNBListView.onClick = onClick;
-
+        function changecolor(pre, after) {
+            var bottom = $("#footer").offset().height;
+            var availHeight = $("#body").offset().height;
+            var height = availHeight-bottom;
+            $("#" + pre).removeClass("icon" + pre + "_act").addClass("icon" + pre);
+            $("#" + after).removeClass("icon" + after).addClass("icon" + after + "_act");
+            if(pre == 4){
+                $("#header" + after).show();
+                hideMe();
+            }else{
+                $("#header" + pre).hide();
+                hideContainer(pre);
+            }
+            if(after == 4){
+                $("#header" + pre).hide();
+                showMe(height);
+            }else{
+                $("#header" + after).show();
+                handleShowContainer(after);
             }
         }
-    function onScrollPictureClick(info){
-        alert(info);
-    }
 
-    function onItemClick(info){
-        alert(info);
-    }
+        function handleShowContainer(id){
+            var bottom = $("#footer").offset().height;
+            var availHeight = $("#body").offset().height;
+            if(id == 1){
+                if(isOpen1){
+                    showContainer(1);
+                }else{
+                    var top = $("#header1").offset().height;
+                    var height = availHeight-top-bottom;
+                    openContainer1(1, top, height);
+                }
+            }else if(id == 2){
+                if(isOpen2){
+                    showContainer(2);
+                }else{
+                    var top = $("#header2").offset().height;
+                    var height = availHeight-top-bottom;
+                    openContainer1(2, top, height);
+                }
+            }else if(id == 3){
+                if(isOpen3){
+                    showContainer(3);
+                }else{
+                    var top = $("#header3").offset().height;
+                    var height = availHeight-top-bottom;
+                    openContainer1(3, top, height);
+                }
+            }
+        }
 
-    function onCustomItemClick(info){
-        alert(info);
-    }
+        function hideContainer(opId){
+            var params = {
+                id:opId
+            }
+            uexWindow.hidePluginViewContainer(JSON.stringify(params));
+        }
 
-    function onCustomPullRefreshHeader(info){
-        alert(info);
-    }
+        function showContainer(opId){
+            var params = {
+                id:opId
+            }
+            uexWindow.showPluginViewContainer(JSON.stringify(params));
+        }
+        appcan.button(".btn", "btn-act", function() {
+            $("#" + topafter1).removeClass("colorWhite");
+            $("#" + this.id).addClass("colorWhite");
+            topafter1 = this.id;
+            var index = getIndexFromId(topafter1);
+            var params = {
+                 id : 1,
+                 index : index
+            };
+            uexWindow.setPageInContainer(JSON.stringify(params));
+        })
 
-    function onCustomPullRefreshFooter(info){
-        alert(info);
-    }
+        appcan.button(".btn1", "btn-act", function() {
+            $("#" + topafter2).removeClass("colorRed");
+            $("#" + this.id).addClass("colorRed");
+            topafter2 = this.id;
+            var index = getIndexFromId(topafter2);
+            var params = {
+                 id : 2,
+                 index : index
+            };
+            uexWindow.setPageInContainer(JSON.stringify(params));
+        })
 
-    function onLeftClick(info){
-        alert(info);
-    }
-
-    function onRightClick(info){
-        alert(info);
-    }
-
-    function onClick(info){
-        alert(info);
-    }
-
-
+        appcan.button(".btn2", "btn-act", function() {
+            $("#" + topafter3).removeClass("colorRed");
+            $("#" + this.id).addClass("colorRed");
+            topafter3 = this.id;
+            var index = getIndexFromId(topafter3);
+            var params = {
+                 id : 3,
+                 index : index
+            };
+            uexWindow.setPageInContainer(JSON.stringify(params));
+        })
     </script>
-</head>
-
-<body>
-<div class="tit">uexNBListView</div>
-<div class="conbor">
-    <div class="consj">
-            <input class='btn' type='button' value='openCustom' onclick='openCustom()'>
-
-            <input class='btn' type='button' value='setCustomItems' onclick='setCustomItems()'>
-
-            <input class='btn' type='button' value='closeCustom' onclick='closeCustom()'>
-
-            <input class='btn' type='button' value='insertCustomItem' onclick='insertCustomItem()'>
-
-            <input class='btn' type='button' value='deleteCustomItem' onclick='deleteCustomItem()'>
-
-            <input class='btn' type='button' value='updateCustomItem' onclick='updateCustomItem()'>
-
-            <input class='btn' type='button' value='hideCustom' onclick='hideCustom()'>
-
-            <input class='btn' type='button' value='showCustom' onclick='showCustom()'>
-
-
-    </div>
-</div>
-</body>
 </html>

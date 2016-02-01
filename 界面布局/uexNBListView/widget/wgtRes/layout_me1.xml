@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root layoutId = "me1">
+    <linearlayout width="-1" height="150" padding="50 0 20 0"
+                  background="#ffffff">
+        <linearlayout width="-1" height="-1" orientation="horizontal" gravity="centerY"
+                      weight = "1">
+            <linearlayout weight = "1" width="-2" height="-2" orientation="horizontal"
+                          gravity="bottom">
+                <text id = "title" width = "-2" height = "-2" text="${title}"
+                      textSize = "20" textColor = "#000000"/>
+                <text id = "summary" width = "-2" height = "-2" text="${summary}" margin = "30 0"
+                      textSize = "16" textColor = "#cccccc" visible = "${summary-visible}"/>
+            </linearlayout>
+            <img width = "-2" height = "-2" src = "res://img/angle_right.png"
+                 margin="15 0"/>
+        </linearlayout>
+        <text width = "-1" height = "2" background = "#cccccc"/>
+    </linearlayout>
+</root>
