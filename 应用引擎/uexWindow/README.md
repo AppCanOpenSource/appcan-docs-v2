@@ -2867,6 +2867,53 @@ iOS7.0+
  
 `uexWindow.showStatusBar();`
 
+> ### share 调用系统分享
+ 
+`uexWindow.share(jsonStr)`
+ 
+**说明:**  
+调用系统的分享框
+ 
+**参数:**  
+
+```
+var params  = {
+    type:,//Number类型，可选，为0时直接分享到微信朋友圈。
+    text:,//String类型，可选，文本内容
+    title:,//String类型，可选，标题
+    subject:,//String类型，可选，子标题
+    imgPath:,//String类型，可选，单张图片的路径，支持file和wgt协议，图片需要先存到本地
+    imgPaths:,//Array类型，可选，多张图片路径时传此参数
+    packageName:,//String类型，可选，包名。仅Android，可与className搭配直接分享到某个应用。type传0时不需要传此项。
+    className://String类型，可选，类名。仅Android，可与packageName搭配直接分享到某个应用。type传0时不需要传此项。
+};
+```
+
+**平台支持：**
+iOS7.0+
+Android 2.3+
+ 
+**版本支持：**
+3.0.0+
+3.2.3+
+ 
+**示例**
+
+直接分享多张图片到微信朋友圈:  
+
+```
+    function share() {
+       var imgs=new Array("/sdcard/DCIM/123.jpg","/sdcard/DCIM/119.jpg","/sdcard/DCIM/504.jpg");
+       var params  = {
+            type:0,
+            text:"分享到朋友圈的文字内容",
+            imgPaths:imgs
+        };
+
+        var paramStr = JSON.stringify(params);
+        uexWindow.share(paramStr);
+    }
+```  
 
 ## 2.2 回调方法
 
@@ -2889,9 +2936,9 @@ iOS6.0+
 **版本支持：**
 3.0.0+
 
-**示例：**
+**示例：**  
 
-```
+```  
 function cbConfirm(opId, dataType, data){
         alert('选择了' + data);
 }
