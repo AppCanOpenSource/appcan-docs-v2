@@ -159,7 +159,7 @@ uexCamera.changeFlashMode(flashMode);
 
 **说明:**
 
-通过此方法改变自定义相机View的摄像头位置,0代表前置，1代表后置。
+通过此方法改变自定义相机View的摄像头位置,0代表后置，1代表前置。
 
 **参数:**
 
@@ -302,7 +302,7 @@ window.uexOnload = function(){
 
   opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
   dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(Number类型) 必选  返回一个int型，摄像头位置，0表示前置，1表示后置，-1表示更改失败;
+  data:(Number类型) 必选  返回一个int型，摄像头位置，0表示后置，1表示前置，-1表示更改失败;
 
 **版本支持:**
 
