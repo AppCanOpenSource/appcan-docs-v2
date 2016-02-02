@@ -2750,7 +2750,7 @@ iOS6.0+
 
 **示例:**
 ```
-var params = {
+        var params = {
             "id":"998",
             "x": 100,
             "y": 1064,
@@ -2773,7 +2773,7 @@ var params = {
 | jsonStr | json| 是 | 关闭的插件容器的信息 |
 
 ```
-var jsonStr = {
+        var jsonStr = {
             id : //容器id
         };	 
 ```
@@ -2787,10 +2787,77 @@ iOS6.0+
 
 **示例:**
 ```
-var params = {
+        var params = {
             "id":"998"
         };
         uexWindow.closePluginViewContainer(JSON.stringify(params));
+```
+
+
+> ### showPluginViewContainer 显示插件容器
+
+`uexWindow.showPluginViewContainer(jsonStr);`
+
+**说明:**
+显示隐藏的插件容器
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| jsonStr | json| 是 | 显示的插件容器的信息 |
+
+```
+        var jsonStr = {
+            id : //容器id
+        };	 
+```
+
+**平台支持：**
+Android2.2+
+
+**版本支持：**
+3.1.0+
+
+**示例:**
+```
+        var params = {
+            "id":"998"
+        };
+        uexWindow.showPluginViewContainer(JSON.stringify(params));
+```
+
+
+> ### hidePluginViewContainer 隐藏插件容器
+
+`uexWindow.hidePluginViewContainer(jsonStr);`
+
+**说明:**
+隐藏插件容器
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| jsonStr | json| 是 | 隐藏的插件容器的信息 |
+
+```
+        var jsonStr = {
+            id : //容器id
+        };	 
+```
+
+**平台支持：**
+Android2.2+
+
+**版本支持：**
+3.1.0+
+
+**示例:**
+```
+        var params = {
+            "id":"998"
+        };
+        uexWindow.hidePluginViewContainer(JSON.stringify(params));
 ```
 
 > ### setPageInContainer 设置插件容器当前要显示的页面
