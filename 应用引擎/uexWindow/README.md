@@ -2943,45 +2943,65 @@ iOS7.0+
  
 **参数:**  
 
-```
-var params  = {
-    type:,//Number类型，可选，为0时直接分享到微信朋友圈。
-    text:,//String类型，可选，文本内容
-    title:,//String类型，可选，标题
-    subject:,//String类型，可选，子标题
-    imgPath:,//String类型，可选，单张图片的路径，支持file和wgt协议，图片需要先存到本地
-    imgPaths:,//Array类型，可选，多张图片路径时传此参数
-    packageName:,//String类型，可选，包名。仅Android，可与className搭配直接分享到某个应用。type传0时不需要传此项。
-    className://String类型，可选，类名。仅Android，可与packageName搭配直接分享到某个应用。type传0时不需要传此项。
-};
-```
+jsonStr是JSON字符串，容许的字段如下表所示**(以下均为可选参数)**
+
+
+|Key|Value类型|适用系统|说明|
+|-----|-----|-----|-----|
+|type|Number|Android|0-直接分享至微信朋友圈|
+|title|String|Android|标题|
+|subject|String|Android|子标题|
+|text|String|Android iOS|文本内容|
+|imgPath|String|Android iOS|单张图片的路径，支持file和wgt协议，图片需要先存到本地|
+|imgPaths|Array|Android iOS|多张图片路径，由imgPath构成的数组|
+|packageName|String|Android|包名。可与className搭配直接分享到某个应用。type传0时不需要传此项|
+|className|String|Android|可与packageName搭配直接分享到某个应用。type传0时不需要传此项|
+
+* iOS系统下，应用分享列表中只包含可以被分享的应用，不支持分享传入的内容的应用不会出现。
+* Android系统下，应用分享列表中会包含所有带分享功能的应用。
+* 由于系统差异，完成某些复杂的分享操作时(比如分享多张图片至微信)，此接口可能需要写2套代码。
 
 **平台支持：**
-iOS7.0+
+
+iOS6.0+
+注：6.0+的系统就可以调起此接口分享内容到系统应用，但在8.0之后才允许分享至第三方应用。
+
 Android 2.3+
  
 **版本支持：**
-3.0.0+
-3.2.3+
+
+iOS 3.2.0+
+
+Android 3.2.3+
  
 **示例**
 
-直接分享多张图片到微信朋友圈:  
+ 
+Android直接分享多张图片到微信朋友圈: 
 
 ```
-    function share() {
-       var imgs=new Array("/sdcard/DCIM/123.jpg","/sdcard/DCIM/119.jpg","/sdcard/DCIM/504.jpg");
-       var params  = {
-            type:0,
-            text:"分享到朋友圈的文字内容",
-            imgPaths:imgs
-        };
-
-        var paramStr = JSON.stringify(params);
-        uexWindow.share(paramStr);
-    }
+function share() {
+ 	var imgs = ["/sdcard/DCIM/123.jpg","/sdcard/DCIM/119.jpg","/sdcard/DCIM/504.jpg"];
+ 	var params  = {
+ 		type:0,
+ 		text:"分享到朋友圈的文字内容",
+ 		imgPaths:imgs
+ 		};
+ 	var paramStr = JSON.stringify(params);
+ 	uexWindow.share(paramStr);
+}
 ```  
 
+iOS 分享多张图片至微信
+
+```
+function share(){
+ 	var param = {
+ 	imgPaths:["res://photo1t.jpg","res://photo2t.jpg"]
+ 	}
+ 	uexWindow.share(JSON.stringify(param));
+}
+```
 ## 2.2 回调方法
 
 > ### cbConfirm 弹出confirm对话框的回调方法

@@ -313,7 +313,7 @@ var params ={
 | refreshMode | Number | 否 | 刷新模式,参考[RefreshMode](#RefreshMode),默认0 |
 | refreshTimeout | Number | 否 | 刷新超时时间,单位毫秒。在refreshMode非等于0有效,默认为3000 |
 | openType | Number | 否 | 打开方式,参考[OpenType](#OpenType) |
-| containerID | Number | 否 | 只在openType为2时有效且必选,并且该容器已经通过uexWindow中的createPluginViewContainer方法创建成功。 |
+| containerID | String | 否 | 只在openType为2时有效且必选,并且该容器已经通过uexWindow中的createPluginViewContainer方法创建成功。 |
 | containerIndex | Number | 否 | 只在openType为2时有效且必选。指定该列表视图在容器中的索引 |
 
 **平台支持:**
@@ -546,7 +546,7 @@ uexNBListView.update(data);
 ```
 var params ={
     listViewId:,//(必选) 唯一标识符
-    indexs:[]//(必选) 索引数组
+    indexes:[]//(必选) 索引数组
 }
 ```
 各字段含义如下:
@@ -554,7 +554,7 @@ var params ={
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| indexs | Array | 是 | 索引数组 |
+| indexes | Array | 是 | 索引数组 |
 
 **平台支持:**
 
@@ -571,7 +571,7 @@ iOS3.0.0+
 ```
 var params = {
 	listViewId:0,
-	indexs:[0,1]
+	indexes:[0,1]
 };
 var data = JSON.stringify(params);
 uexNBListView.delete(data);
