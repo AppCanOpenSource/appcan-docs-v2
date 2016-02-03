@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root layoutId = "video-item1">
+    <linearlayout width = "-1" height = "-2">
+        <relativelayout id = "content" width = "-1" height = "500" padding = "10">
+            <img id = "picPath" width = "-1" height = "-1" scale = "0.5" src = "${picPath}"
+                 scaleType = "centerCrop" float = "top"/>
+            <text id = "title" width = "-1" height = "-2" text="${title}" textSize = "20"
+                  textColor = "#ffffff" float = "top"/>
+            <text id = "time" width = "-2" height = "-2" text="${time}" textSize = "20"
+                  background = "#99000000" margin = "10"
+                  textColor = "#ffffff" float = "right|bottom"/>
+            <img id = "play" width = "-2" height = "-2" float = "center" src = "res://img/play.png"/>
+        </relativelayout>
+        <relativelayout width = "-1" height = "-2"  margin = "0 25">
+            <linearlayout id = "favorite" width="-2" height="-2" float = "left|centerY"
+                          margin="20 0" gravity = "centerY" onClick = "onFavoriteClick"
+                          orientation = "horizontal">
+                <img id="goodPic" width = "50" height = "50" src = "res://img/up.png"
+                     margin="5 0"/>
+                <text id = "good" width = "-2" height = "-2" text="${favorable}" textSize = "13"
+                      textColor = "#999999"/>
+            </linearlayout>
+
+            <linearlayout id = "dislike" width="-2" height="-2" relation = "rightOf,favorite"
+                          margin="20 0" gravity = "centerY" onClick = "onDislikeClick"
+                          orientation = "horizontal">
+                <img id = "badPic" width = "50" height = "50" src = "res://img/down.png"
+                     margin="5 0"/>
+                <text id = "bad" width = "-2" height = "-2" text="${dislike}" textSize = "13"
+                      textColor = "#999999" />
+            </linearlayout>
+
+            <linearlayout id = "comment" width="-2" height="-2" relation = "rightOf,dislike"
+                          margin="20 0" gravity = "centerY" onClick = "onCommentClick"
+                          orientation = "horizontal">
+                <img id = "commentPic" width = "50" height = "50" src = "res://img/comment.png"
+                     margin="5 0"/>
+                <text id = "commentNum" width = "-2" height = "-2" text="${comment}" textSize = "13"
+                      textColor = "#999999" />
+            </linearlayout>
+            <img id = "delete" width = "50" height = "50" src = "res://img/forward.png"
+                 float = "right|centerY" onClick = "onForwardClick" margin="0 0 30 0"/>
+        </relativelayout>
+    </linearlayout>
+</root>

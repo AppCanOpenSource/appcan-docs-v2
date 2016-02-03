@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root layoutId = "index-item4">
+    <!--该布局为有一个大标题和一张大图样式布局-->
+    <linearlayout id = "content" width = "-1" height = "-2" background = "#ffffff"
+                  onClick = "onItemClick" padding= "10 20 10 20">
+        <text id = "title" width = "-1" height = "-2" text="${title}" textSize = "20"
+                textColor = "#000000"/>
+        <linearlayout  orientation = "horizontal" width = "-1" height = "-2"
+            visible = "${isHasPic}">
+            <img id = "newsPic1" width="-2" height="-2" src="${picPath1}" />
+            <img id = "newsPic2" width="-2" height="-2" src="${picPath2}" />
+            <img id = "newsPic3" width="-2" height="-2" src="${picPath3}" />
+        </linearlayout>
+        <relativelayout width = "-1" height = "-2" gravity = "centerY">
+            <img id = "mark" width = "75" height = "75" src = "${markImg}" visible ="${markVisible}"
+                float = "left|centerY"/>
+            <text id = "sourceType" width = "-2" height = "-2" text="${source}" textSize = "13"
+                  textColor = "#999999" relation = "rightOf,mark" margin = "10 0 0 0"
+                  float = "centerY"/>
+            <text id = "comment" width = "-2" height = "-2" text="${comment}" textSize = "13"
+                  textColor = "#999999" relation = "rightOf,sourceType"  margin = "10 0 0 0"
+                  float = "centerY"/>
+            <text id = "time" width = "-2" height = "-2" text="${time}" textSize = "13"
+                  textColor = "#999999" relation = "rightOf,comment"  margin = "10 0 0 0"
+                  float = "centerY"/>
+            <img id = "delete" width = "75" height = "75" src = "res://img/del.png"
+                 float = "right|centerY" onClick = "onDeleteClick"/>
+        </relativelayout>
+    </linearlayout>
+</root>
