@@ -629,7 +629,7 @@ uexWidget.setPushState(0);
 
 ```
   uexWidget.closeLoading()
- ```
+```
  
 > ### moveToBack 运行到后台,不退出程序
 
@@ -681,7 +681,39 @@ iOS 5.1.1+
 **示例**
 
 `uexWindow.reloadWidgetByAppId(sdk2015);`
+
+
+> ### setKeyboardMode 设置键盘模式
+
+`uexWidget.setKeyboardMode(json)`
   
+**参数:**
+
+````
+   var json = {
+    mode://(必选) Number类型 0:压缩模式 1：平移模式
+ } 
+````
+  
+**平台支持:**
+
+  Android2.2+  
+  
+**版本支持:**
+
+  3.2.0+
+  
+**示例:**
+
+````
+var json = {
+    mode:0
+};
+var data1 = JSON.stringify(json);
+uexWidget.setKeyboardMode(data1);
+````
+  
+
 ## 2.2 回调方法
   
 > ### cbStartWidget 加载widget完成时的回调方法
