@@ -477,12 +477,14 @@ window.uexOnload=function(type){
 
 ### iOS
 
-API版本:`uexImage-3.0.6`
+API版本:`uexImage-3.0.8`
 
-最近更新时间:`2016-1-20`
+最近更新时间:`2016-2-16`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.8 | openPicker接口打开相册时,默认滑动至最底端,以显示最新拍摄的照片 |
+| 3.0.7 | 修复7.x系统上一个导致卡死的bug;修复iPhone包在iPad上运行时的崩溃bug |
 | 3.0.6 | 修复pick图片方向不正确的bug |
 | 3.0.5 | 添加IDE支持 |
 | 3.0.4 | 新增接口setIpadPopEnable |

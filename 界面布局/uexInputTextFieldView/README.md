@@ -268,12 +268,13 @@ uexInputTextFieldView.onCommitJson = onCommitJson;
 
 ### iOS
 
-API版本:`uexInputTextFieldView-3.0.7`
+API版本:`uexInputTextFieldView-3.0.8`
 
-最近更新时间:`2016-1-20`
+最近更新时间:`2016-2-16`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.8 | 修改发送按钮自定义 |
 | 3.0.7 | 修复键盘弹出收回时显示头像图标页 |
 | 3.0.6 | 添加IDE支持 |
 | 3.0.5 | 修改键盘弹出时页面弹动,修改键盘收回时遮挡评论 |

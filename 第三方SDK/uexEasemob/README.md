@@ -689,6 +689,18 @@ var param = {
 	reason:,
 };
 ```
+>###onInvitationAccpted(param)//群聊邀请被同意
+
+param为json字符串
+
+```
+var param = {
+	groupId:,
+	inviter:,
+	reason:,
+};
+```
+
 
 >###onUserRemoved(param)//当前用户被管理员移除出群聊
 

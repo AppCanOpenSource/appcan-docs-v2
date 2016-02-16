@@ -2864,9 +2864,11 @@ Android2.2+
 
 `uexWindow.setPageInContainer(jsonStr);`
 
-**说明:**
+**说明**
+
 设置插件容器当前要显示的页面
-**参数:**
+
+**参数**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
@@ -3002,6 +3004,49 @@ function share(){
  	uexWindow.share(JSON.stringify(param));
 }
 ```
+
+> ### setSwipeCloseEnable 设置当前页面是否支持手势侧滑关闭
+  
+`uexWindow.setSwipeCloseEnable(jsonStr)`
+
+**说明:**
+
+禁止或者重新允许当前页面是否支持手势侧滑关闭
+注意:仅对支持手势侧滑关闭的window有效!
+
+
+**参数:**
+
+jsonStr是JSON字符串，具体格式如下
+
+
+```
+var jsonStr = {
+	enable: ,//Number,必选。传0表示禁止手势侧滑关闭，传1表示允许手势侧滑关闭
+};	 
+```
+
+**示例:**
+
+```
+ var params  = {
+ 		enable:0,
+ 		};
+ var paramStr = JSON.stringify(params);
+ uexWindow.setSwipeCloseEnable(paramStr);
+
+```  
+
+**平台支持：**
+
+Android 2.2+
+iOS 6.0+
+
+**版本支持：**
+
+3.2.0+
+
+
 ## 2.2 回调方法
 
 > ### cbConfirm 弹出confirm对话框的回调方法
