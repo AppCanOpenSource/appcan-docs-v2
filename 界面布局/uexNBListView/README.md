@@ -1054,7 +1054,7 @@ uexNBListView.onLeftClick = function(data){
 
 ### Android
 
-API版本:`uexNBListView-(null)`
+API版本:`uexNBListView-3.0.0`
 
 最近更新时间:`2015-11-24`
 

@@ -163,5 +163,10 @@ API版本:`uexMobSMS-3.0.0`
 
 ### Android
 
-**uexMobSMS目前不支持Android**
+API版本:`uexMobSMS-3.0.0`
 
+最近更新时间:`2016-2-16`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | uexMobSMS插件出新 |
