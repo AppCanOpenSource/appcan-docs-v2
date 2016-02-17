@@ -51,6 +51,7 @@ var params = {
 **支持平台:**
 				
 iOS6.0+	
+Android 2.2+ 
 
 **版本支持:**
 
@@ -93,6 +94,7 @@ var params = {
 **支持平台:**
 				
 iOS6.0+	
+Android 2.2+ 
 
 **版本支持:**
 
@@ -144,6 +146,7 @@ uexMobSMS.commitCode(JSON.stringify(params));
 **支持平台:**
 				
 iOS6.0+	
+Android 2.2+ 
 
 **版本支持:**
 
