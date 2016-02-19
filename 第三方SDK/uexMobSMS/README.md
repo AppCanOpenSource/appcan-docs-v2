@@ -51,6 +51,7 @@ var params = {
 **支持平台:**
 				
 iOS6.0+	
+Android 2.2+ 
 
 **版本支持:**
 
@@ -93,6 +94,7 @@ var params = {
 **支持平台:**
 				
 iOS6.0+	
+Android 2.2+ 
 
 **版本支持:**
 
@@ -144,11 +146,56 @@ uexMobSMS.commitCode(JSON.stringify(params));
 **支持平台:**
 				
 iOS6.0+	
+Android 2.2+ 
 
 **版本支持:**
 
 3.0.0+	
+## 2.2、回调方法
+> ### cbSendClick  获取验证码的回调方法，对sendCode执行回调
 
+` uexMobSMS.cbSendClick(state)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| state | String | 是 | 获取验证码的状态描述 |
+
+
+**版本支持:**
+
+3.0.0+
+
+**示例:**
+
+```
+uexMobSMS.cbSendClick = function(state){
+           alert(state);
+     }
+```
+> ### cbCommitClick  提交验证码的回调方法，对commitCode执行回调
+
+` uexMobSMS.cbCommitClick(state)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| state | String | 是 | 提交验证码的状态描述，验证失败打印错误信息|
+
+
+**版本支持:**
+
+3.0.0+
+
+**示例:**
+
+```
+uexMobSMS.cbCommitClick = function(state){
+          alert(state);
+    }
+```
 # 3、更新历史
 
 ### iOS
@@ -163,5 +210,10 @@ API版本:`uexMobSMS-3.0.0`
 
 ### Android
 
-**uexMobSMS目前不支持Android**
+API版本:`uexMobSMS-3.0.0`
 
+最近更新时间:`2016-2-16`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | uexMobSMS插件出新 |

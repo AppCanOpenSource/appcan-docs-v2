@@ -153,7 +153,7 @@ uexWidget.loadApp(appInfo);
 ```
 > ### startApp 启动第三方应用（Android）
 
-`uexWidget.startApp(startMode,mainInfo,addInfo,optInfo)`
+`uexWidget.startApp(startMode,mainInfo,addInfo,optInfo,extra)`
 **说明:**
   根据相关信息启动一个第三方应用。
 **参数:**
@@ -169,6 +169,7 @@ uexWidget.loadApp(appInfo);
 |------|-----|--------|------- |
 |mainInfo|String|是|包名|
 |addInfo|String|否|类名，为空时启动应用入口类|
+|extra|String|否|json格式如下：'{data:"http://www.baidu.com"}'
 
 **startMode为1**
 
@@ -359,6 +360,14 @@ function startAppA(mode){
     <input class="btn" type="button" value="通过Action启动4" onclick=startAppA(4)>  
 </body>
 </html>
+```
+3.指定用QQ浏览器打开链接：
+  
+```
+var optInfo = "{'key1':'value1'},{'key2':'value1'}";
+var extra='{data:"http://www.appcan.cn/"}';
+uexWidget.startApp(0, "com.tencent.mtt","com.tencent.mtt.MainActivity",optInfo,extra);
+
 ```
 
 > ### getOpenerInfo 获取widget的相关信息
@@ -620,7 +629,7 @@ uexWidget.setPushState(0);
 
 ```
   uexWidget.closeLoading()
- ```
+```
  
 > ### moveToBack 运行到后台,不退出程序
 
@@ -672,7 +681,39 @@ iOS 5.1.1+
 **示例**
 
 `uexWindow.reloadWidgetByAppId(sdk2015);`
+
+
+> ### setKeyboardMode 设置键盘模式
+
+`uexWidget.setKeyboardMode(json)`
   
+**参数:**
+
+````
+   var json = {
+    mode://(必选) Number类型 0:压缩模式 1：平移模式
+ } 
+````
+  
+**平台支持:**
+
+  Android2.2+  
+  
+**版本支持:**
+
+  3.2.0+
+  
+**示例:**
+
+````
+var json = {
+    mode:0
+};
+var data1 = JSON.stringify(json);
+uexWidget.setKeyboardMode(data1);
+````
+  
+
 ## 2.2 回调方法
   
 > ### cbStartWidget 加载widget完成时的回调方法

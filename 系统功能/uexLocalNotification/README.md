@@ -25,8 +25,8 @@
 
 注册通知	
 				
-**参数:**
 
+**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -41,41 +41,50 @@
 | extras | String | 否 | 额外的数据信息,extras为json字符串 |
  
  
+
 **平台支持:**
 
 Android2.2+					
 iOS6.0+		
 			
+
 **版本支持:**
 
 3.0.0+		
 			
+
 **示例:**
+
 见removeAll示例		
 			
 > ###remove	移除通知	
 
 `uexLocalNotification.remove(id)`	
 		
+
 **说明:**
 
 移除指定唯一标示符的通知	
 		
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number类型| 是 |  通知的唯一标示符,取值范围[alarm_1,…,alarm_10]。 |
  
+
 **平台支持:**
 
 Android2.2+			
 iOS6.0+	
 		
+
 **版本支持:**
 
 3.0.0+	
 		
+
 **示例:**
 
 见removeAll示例	
@@ -83,14 +92,22 @@ iOS6.0+
 > ### removeAll 移除所有通知
 
 `uexLocalNotification.removeAll()`	
+
 **说明:**
+
 移除所有通知	
+
 **参数:**
+
 无	
+
 **平台支持:**
+
 Android2.2+	
 iOS6.0+	
+
 **版本支持:**
+
 3.0.0+	
 
 **示例:**
@@ -148,10 +165,12 @@ iOS6.0+
 
 > ### onActive		用户点击了通知监听		
 `uexLocalNotification.onActive(notificationID,extras)`
+
 **说明:**
 
 注册通知	
 				
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -159,15 +178,20 @@ iOS6.0+
 | notificationID | String类型| 是 |  通知的唯一标示符,取值范围[alarm_1,…,alarm_10]。 |
 | extras | String | 否 | 额外的数据信息,extras为json字符串 |
  
+
 **平台支持:**
+
 					
 iOS6.0+		
 			
+
 **版本支持:**
 
 iOS 3.0.7+			
 		
+
 **示例:**
+
 见removeAll示例
 #3、更新历史
 

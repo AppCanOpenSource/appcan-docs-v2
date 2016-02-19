@@ -1,0 +1,37 @@
+1、打开日志md文件
+
+2、复制
+<div class="panel" style="box-shadow: none;border-bottom: 1px solid #e2e2e2;"><div class="panel-heading pd31" role="tab" id="heading34"><h4 class="panel-title">	<img id="log34" class="zy-new" data-src"images/caretRight.png" src="images/caretRight.png" ></img><a onclick="changeS(&quot;log34&quot;,this)" data-toggle="collapse" data-parent="#accordion" href="#collapse34" aria-expanded="false" aria-controls="collapse34">  请输入上一期更新时间：2016年01月23日</a></h4></div><div id="collapse34" class=" collapse" role="tabpanel" aria-labelledby="heading21"><div class="panel-body">**`温馨提示`：**每期插件具体更新，请<a href="http://newdocx.appcan.cn/newdocx/docx?type=1377_975" target="_blank" title="点击查看"><font color=blue>查看</font></a>对应的API。
+**`最新公测`：**请<a href="http://newdocx.appcan.cn/newdocx/docx?type=1492_1291" target="_blank" title="点击查看"><font color=blue>查看</font></a>公测列表
+
+**iOS引擎： **
+版本号：无
+更新内容：无
+　　  
+**iOS插件： **
+1. 插件名称及版本号：uexAudio-3.0.13
+    更新内容： uexAudio插件有更新，修改amr格式文件路径不存在时播放崩溃
+　　　　　    uexAudio修复播放AMR音频完成时没有回调的问题　　　　
+2. 插件名称及版本号：uexFileMgr-3.0.22
+    更新内容：新增copyFile接口　
+
+
+**Android引擎：** 
+版本号： aandroid_Engine_3.2_160129_01
+更新内容：startApp添加参数
+　　
+**Android插件：**
+1. 插件名称及版本号：uexAudio-3.0.7
+    更新内容：解决了录音时用户禁止其权限的问题
+</div></div></div>
+
+3、负责上步代码到md文件里第一个</div></div></div>后面
+
+4、填内容
+（1）凡是div标签里带"heading34" "log34""#collapse34"字样的，需要更新数字，累加计数即可比如34更新累加为35
+（2）请输入上一期更新时间：2016年01月23日
+（3）在</div></div></div>之前的空白处输入更新日志，规范书写为：见复制的代码
+   
+注：懂前端语言人员。书写要按照第2步的复制的模板代码 注意换行空格==
+
+　

@@ -268,12 +268,13 @@ uexInputTextFieldView.onCommitJson = onCommitJson;
 
 ### iOS
 
-API版本:`uexInputTextFieldView-3.0.7`
+API版本:`uexInputTextFieldView-3.0.8`
 
-最近更新时间:`2016-1-20`
+最近更新时间:`2016-2-16`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.8 | 修改发送按钮自定义 |
 | 3.0.7 | 修复键盘弹出收回时显示头像图标页 |
 | 3.0.6 | 添加IDE支持 |
 | 3.0.5 | 修改键盘弹出时页面弹动,修改键盘收回时遮挡评论 |
@@ -285,12 +286,13 @@ API版本:`uexInputTextFieldView-3.0.7`
 
 ### Android
 
-API版本:`uexInputTextFieldView-3.2.11`
+API版本:`uexInputTextFieldView-3.2.12`
 
-最近更新时间:`2015-12-03`
+最近更新时间:`2016-2-1`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.2.12 | 修改兼容性问题,添加新的接口和回调,调整优化代码逻辑,解决键盘遮蔽问题 |
 | 3.2.11 | 修复关闭输入框时,键盘未自动收起的问题 |
 | 3.0.10 | 去掉插件中的ActivityGroup,配合引擎升级 |
 | 3.0.9 | 增加输入框自动获取焦点接口 |

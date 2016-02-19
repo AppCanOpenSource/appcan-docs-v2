@@ -177,12 +177,13 @@ alert(data);
 
 ### iOS
 
-API版本:`uexCalendarView-3.0.3`
+API版本:`uexCalendarView-3.0.4`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-2-16`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.4 | 修复uexCalendarView切换月份时执行click事件的bug |
 | 3.0.3 | 添加IDE支持 |
 | 3.0.2 | 删除info.plist |
 | 3.0.1 | 添加国际化支持 |
