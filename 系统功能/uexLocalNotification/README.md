@@ -71,7 +71,7 @@ iOS6.0+
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number类型| 是 |  通知的唯一标示符,取值范围[alarm_1,…,alarm_10]。 |
+| id| String类型| 是 |  通知的唯一标示符,取值范围[alarm_1,…,alarm_10]。 |
  
 
 **平台支持:**
@@ -116,7 +116,7 @@ iOS6.0+
 <!DOCTYPE HTML>
     <html>
     <head>
-    <meta http-equiv="Content-Type" content="text/html; <appcan>char<appcan>set=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>本地通知功能</title>
         <script type="text/javascript">
@@ -139,27 +139,21 @@ iOS6.0+
         </head>
         <body>
         <div class="tit">本地通知功能</div>
-        <div class="conb<appcan>or<appcan>">
+        <div class="conbor">
             <div class="consj">
             <span>1.添加本地通知</span>
-            <input class="btn" type="button" value="添加本地通知"
-            
-            onclick="addNotification()">
+            <input class="btn" type="button" value="添加本地通知" onclick="addNotification()">
             <span>2.删除指定本地通知:</span>
-            <input class="btn" type="button" value="删除指定本地通知"
-            
-            onclick="uexLocalNotification.remove(`non1`)">
+            <input class="btn" type="button" value="删除指定本地通知" onclick="uexLocalNotification.remove(`alarm_6`)">
             <span>3.删除全部本地通知</span>
-            <input class="btn" type="button" value="删除全部本地通知"
-            
-            onclick="uexLocalNotification.removeAll()">
+            <input class="btn" type="button" value="删除全部本地通知" onclick="uexLocalNotification.removeAll()">
             </div>
             <input class="btn" type="button" value="返回" onclick="uexWindow.back();">
             </div>
             </body>
             </html>
             
-        </appcan></appcan></appcan></appcan>
+        
 ```
 ## 2.2、监听方法
 
