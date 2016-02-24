@@ -1435,8 +1435,8 @@ uexWindow.setSlidingWindowEnabled(1);
 
 `uexWindow.setMultilPopoverFlippingEnbaled(enable)`
 
-**说明:**
-设置控件是否响应滑动事件
+**说明:**  
+设置控件是否响应滑动事件,**该接口需要在Multipopover的子页面中调用**
 
 **参数:**
 

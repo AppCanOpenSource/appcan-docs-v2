@@ -313,11 +313,13 @@ var param = {
 	soundEnable:,// 0-关闭,1-开启。默认为1 开启声音提醒
 	vibrateEnable:,// 0-关闭,1-开启。默认为1 开启震动提醒
 	userSpeaker:,// 0-关闭,1-开启。默认为1 开启扬声器播放(仅Android可用)
-	showNotificationInBackgroud:// 0-关闭,1-开启。默认为1。设置后台接收新消息时是否通过通知栏提示 (仅Android可用)
+	showNotificationInBackgroud:// 0-关闭,1-开启。默认为1。设置后台接收新消息时是否通过通知栏提示(iOS不完全支持,详见下方说明*)
 	acceptInvitationAlways:,// 0-关闭,1-开启。默认添加好友时为1,是不需要验证的,改成需要验证为0(仅Android可用)
 	deliveryNotification:,// 0-关闭 1-开启  默认为1 开启消息送达通知	(仅iOS可用)
 };
 ```
+
+* 受iOS后台机制所限,当应用在后台持续一段时间后,环信服务器与App的连接将会断开,此时showNotificationInBackgroud参数无效,需要走APNs通道才能收到新消息以及弹出提示通知。
 
 >###getMessageById(param) 根据id获取消息记录 
 
@@ -700,7 +702,6 @@ var param = {
 	reason:,
 };
 ```
-
 
 >###onUserRemoved(param)//当前用户被管理员移除出群聊
 
@@ -1255,12 +1256,13 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 ### iOS
 
-API版本:`uexEasemob-3.0.18`
+API版本:`uexEasemob-3.0.19`
 
-最近更新时间:`2016-1-28`
+最近更新时间:`2016-2-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.19 | 修复onMessageSent中群组信息错误的问题;setNotifyBySoundAndVibrate支持后台通知 |
 | 3.0.18 | 修复透传消息也会提示用户的问题 |
 | 3.0.17 | 修复getMessageHistory接口传入startMsgId但pagesize为0时取不到所有messages的问题 |
 | 3.0.16 | 修复cbGetGroup回调结构和Android不一致的问题 |

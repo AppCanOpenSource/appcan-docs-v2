@@ -7,8 +7,7 @@
 
 ## 1.3、公告 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fnew.gif)]() 
 
-
-iOS开发的收入有三种来源：出售应用、内购和广告。国内用户通常很少直接购买应用，因此对于开发者而言（特别是个人开发者），内购和广告收入就成了主要的收入来源。内购营销模式，通常软件本身是不收费的，但是要获得某些特权就必须购买一些道具，需要通过内购的方式来实现，而内购的过程是由苹果官方统一来管理的.
+iOS开发的收入有三种来源:出售应用、内购和广告。国内用户通常很少直接购买应用,因此对于开发者而言(特别是个人开发者),内购和广告收入就成了主要的收入来源。内购营销模式,通常软件本身是不收费的,但是要获得某些特权就必须购买一些道具,需要通过内购的方式来实现,而内购的过程是由苹果官方统一来管理的.
     
 ## 1.4、开源源码
 插件测试用例与源码下载:[点击](https://github.com/ios-plugin/uexInAppPurchase) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
@@ -27,9 +26,10 @@ uexInAppPurchase.getProductList(params);
 
 **说明:**
 
-该方法从苹果服务器返回有效产品信息，包括产品描述信息、参考名称、价格、产品ID，通过回调实现.
+该方法从苹果服务器返回有效产品信息,包括产品描述信息、参考名称、价格、产品ID,通过回调实现.
 
                
+
 **参数:**
 
  ```
@@ -55,7 +55,6 @@ var params = {
 uexInAppPurchase.getProductList(JSON.stringify(params));
 ```
 
-
 > ### purchase 购买单一产品
 
 uexInAppPurchase.purchase(params);
@@ -66,16 +65,17 @@ uexInAppPurchase.purchase(params);
 
 **说明:**
 
-该产品应该为从服务器返回的某一产品，该产品可以是消耗品或非消耗品以及其它类型，开发人员应对非消耗品进行逻辑处理，非消耗品无需再次购买。购买后要创建请求到苹果官网进行购买验证。
+该产品应该为从服务器返回的某一产品,该产品可以是消耗品或非消耗品以及其它类型,开发人员应对非消耗品进行逻辑处理,非消耗品无需再次购买。购买后要创建请求到苹果官网进行购买验证。
 
                 
+
 **参数:**
 
  ```
 var params = {
     var params = {
-       productID: ，//必选,从服务器返回的某一产品ID
-       appStoreVerifyURL: ，//必选，布尔类型，true为实际购买验证；false为沙盒测试。
+       productID: ,//必选,从服务器返回的某一产品ID
+       appStoreVerifyURL: ,//必选,布尔类型,true为实际购买验证；false为沙盒测试。
      };
 }
  ```
@@ -98,25 +98,22 @@ var params = {
 uexInAppPurchase.purchase(JSON.stringify(params));
 ```
 
-
-
 > ###restorePurchase 恢复购买方法
 
 `uexInAppPurchase.restorePurchase();`	
 
 **说明:**
 
-恢复所有非消耗品，对于非消耗品，用户在完成购买后如果使用其他机器登录或者卸载重新安装应用后通常希望这些非消耗品能够恢复。
+恢复所有非消耗品,对于非消耗品,用户在完成购买后如果使用其他机器登录或者卸载重新安装应用后通常希望这些非消耗品能够恢复。
 		
 
-
 **参数:**
-
 
 无
  
 
  
+
 **示例:**
 
 ```
@@ -128,10 +125,10 @@ uexInAppPurchase.restorePurchase();
 iOS6.0+	
 
 **版本支持:**
+
 3.0.0+	
 
 ## 2.2、回调方法
-
 
 > ### cbGetProductList 获取产品列表信息的回调方法
 
@@ -139,13 +136,13 @@ iOS6.0+
 
 **说明:**
 
- 该方法返回从苹果服务器获取的有效产品信息，对getProductList方法进行回调
+ 该方法返回从苹果服务器获取的有效产品信息,对getProductList方法进行回调
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| info | String | 是 | 产品信息的格式为:[{"productIdentifier":"EnergyBottle","localizedTitle":"能量瓶","price":“6”,"localizedDescription":“补充能量，吃完能迅速恢复体力”},{"productIdentifier":"GoldenGlobe","localizedTitle":"金球","price":“6”,"localizedDescription":“快速合成装备，提高装备防御力”},{"productIdentifier":“ProtectiveGloves”,"localizedTitle":“强力手套”,"price":“6”,"localizedDescription":“提高5点攻击力”}] | 
+| info | String | 是 | 产品信息的格式为:[{"productIdentifier":"EnergyBottle","localizedTitle":"能量瓶","price":"6","localizedDescription":"补充能量,吃完能迅速恢复体力"},{"productIdentifier":"GoldenGlobe","localizedTitle":"金球","price":"6","localizedDescription":"快速合成装备,提高装备防御力"},{"productIdentifier":"ProtectiveGloves","localizedTitle":"强力手套","price":"6","localizedDescription":"提高5点攻击力"}] | 
 
  各字段含义如下:
 
@@ -155,7 +152,6 @@ iOS6.0+
 |localizedTitle|是|参考名称|
 |price|是|价格等级|
 |localizedDescription|是|产品描述信息|
-
 
 **版本支持:**
 
@@ -178,16 +174,13 @@ window.uexOnload = function(){
 
 **说明:**
 
- 该方法返回产品购买验证的相关信息，根据该信息进行相应的逻辑处理。如：读取产品标识 ，如果是消耗品则记录购买数量，非消耗品则记录是否购买过。
-
+ 该方法返回产品购买验证的相关信息,根据该信息进行相应的逻辑处理。如:读取产品标识 ,如果是消耗品则记录购买数量,非消耗品则记录是否购买过。
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | info| String | 是 | 产品购买验证的信息| 
-
-
 
 **版本支持:**
 
@@ -211,15 +204,13 @@ window.uexOnload = function(){
 
 **说明:**
 
- 当向苹果服务器发送请求获取有效产品信息时，对getProductList方法中发送请求的状态进行监听
+ 当向苹果服务器发送请求获取有效产品信息时,对getProductList方法中发送请求的状态进行监听
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| state | String | 是 | 产品请求的状态，如：请求完成 等| 
-
-
+| state | String | 是 | 产品请求的状态,如:请求完成 等| 
 
 **版本支持:**
 
@@ -241,15 +232,13 @@ window.uexOnload = function(){
 
 **说明:**
 
- 当进行购买动作时，要对购买的产品的有效性进行判断，即对purchase方法中产品信息的有效性进行监听
+ 当进行购买动作时,要对购买的产品的有效性进行判断,即对purchase方法中产品信息的有效性进行监听
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| state | String | 是 | 产品购买的状态，如："开始购买"或"没有可购买的商品" 等| 
-
-
+| state | String | 是 | 产品购买的状态,如:"开始购买"或"没有可购买的商品" 等| 
 
 **版本支持:**
 
@@ -271,15 +260,14 @@ window.uexOnload = function(){
 
 **说明:**
 
- 当购买的产品为有效产品时，会将有效产品加入支付队列就形成一次购买请求，若用户禁止内购，购买请求将会被终止。该方法是对用户内购权限设置状态的监听。
+ 当购买的产品为有效产品时,会将有效产品加入支付队列就形成一次购买请求,若用户禁止内购,购买请求将会被终止。该方法是对用户内购权限设置状态的监听。
  
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| state | String | 是 | 用户设置内购权限的状态，如："用户禁止应用内付费购买" 等| 
-
-
+| state | String | 是 | 用户设置内购权限的状态,如:"用户禁止应用内付费购买" 等| 
 
 **版本支持:**
 
@@ -302,13 +290,13 @@ window.uexOnload = function(){
 
 **说明:**
 
- 当购买的产品为有效产品时，会将有效产品加入支付队列就形成一次购买请求，并且用户允许内购时，将会进行交易。该方法是对用户交易状态的监听。
+ 当购买的产品为有效产品时,会将有效产品加入支付队列就形成一次购买请求,并且用户允许内购时,将会进行交易。该方法是对用户交易状态的监听。
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| state | String | 是 | 选择的日期,格式为:{"transactionState":"购买成功","productIdentifier":"EnergyBottle","quantity":"2","transactionDate":“”,"transactionIdentifier":“”} | 
+| state | String | 是 | 选择的日期,格式为:{"transactionState":"购买成功","productIdentifier":"EnergyBottle","quantity":"2","transactionDate":"","transactionIdentifier":""} | 
 
  各字段含义如下:
 
@@ -322,8 +310,6 @@ window.uexOnload = function(){
 |error|否|交易失败错误信息|
 |transactionDate|否|交易日期|
 |transactionIdentifier|否|交易标识符|
-
-
 
 **版本支持:**
 
@@ -345,15 +331,13 @@ window.uexOnload = function(){
 
 **说明:**
 
- 当交易成功时，会进行产品购买验证，该方法是对产品购买验证的状态进行监听。
+ 当交易成功时,会进行产品购买验证,该方法是对产品购买验证的状态进行监听。
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | state | String | 是 | 产品购买验证的状态| 
-
-
 
 **版本支持:**
 
@@ -376,16 +360,13 @@ window.uexOnload = function(){
 
 **说明:**
 
- 对于非消耗品，用户在完成购买后如果使用其他机器登录或者卸载重新安装应用后通常希望这些非消耗品能够恢复，该监听方法是对restorePurchase方法进行监听，返回恢复购买的状态。
+ 对于非消耗品,用户在完成购买后如果使用其他机器登录或者卸载重新安装应用后通常希望这些非消耗品能够恢复,该监听方法是对restorePurchase方法进行监听,返回恢复购买的状态。
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | state | String | 是 | 产品恢复购买的状态| 
-
-
-
 
 **版本支持:**
 
@@ -414,4 +395,7 @@ API版本:`uexInAppPurchase-3.0.0`
 | ----- | ----- |
 | 3.0.0 | 内部支付(IAP)插件 |
 
+### Android
+
+**uexInAppPurchase目前不支持Android**
 
