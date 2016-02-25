@@ -316,7 +316,8 @@ var params ={
 | openType | Number | 否 | 打开方式,参考[OpenType](#OpenType) |
 | containerID | String | 否 | 只在openType为2时有效且必选,并且该容器已经通过uexWindow中的createPluginViewContainer方法创建成功。 |
 | containerIndex | Number | 否 | 只在openType为2时有效且必选。指定该列表视图在容器中的索引 |
-| backgroundColor | String | 否 | listView的背景色，不传默认为透明 |
+| backgroundColor | String | 否 | listView的背景色,不传默认为透明 |
+
 **平台支持:**
 
 Android2.2+    
