@@ -110,7 +110,7 @@ frame.close('demo');
     id:指定的元素，根据该元素设置浮动窗口的大小
     left:浮动窗口距离左边界的距离
     top:浮动窗口距离上边界的距离
-    name:要设置的浮动窗口的名称，_**如果id没有传值的话使用这个值
+    name:要设置的浮动窗口的名称，如果id没有传值的话使用这个值
 参数还可以以对象的形式传参：
 ````
 {
@@ -226,7 +226,7 @@ frame.evaluateScript({
    打开多页面浮动窗口
 	
     popName:打开新窗口的名称
-    content:要传入的数据，一个json对象，或者json字符串，结构必须为````{'content':[{"inPageName":"p1", "inUrl":"xxx1.html","inData":""}]}```` 其中：inPageName:所包含的单页面窗口的名字，inUrl：url类型数据，inData：窗口的内容的二进制数据，可为空
+    content:要传入的数据，一个json对象，或者json字符串，结构必须为{'content':[{"inPageName":"p1", "inUrl":"xxx1.html","inData":""}]}其中：inPageName:所包含的单页面窗口的名字，inUrl：url类型数据，inData：窗口的内容的二进制数据，可为空
     dataType:窗口载入的数据的类型，0：url方式载入；1：html内容 方式载入；2：既有url方式，又有html内容方式
     left:距离左边界的距离
     top:距离上边界的距离
@@ -244,7 +244,7 @@ frame.evaluateScript({
         64: 等待popOver加载完毕后显示
       128: 支持手势
       256: 标记opn的window上一个window不隐藏
-      512: 标记open的浮动窗口用友打开wabapp
+      512: 标记open的浮动窗口用于打开wabapp
     indexSelected:默认显示的索引项，默认显示第一项
 参数还可以以对象的形式传参：
 ````
