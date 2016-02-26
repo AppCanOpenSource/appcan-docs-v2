@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script type="text/javascript">
+    function open(){
+        var params = {
+            id:"",
+            left:"",
+            top:"",
+            width:"",
+            height:"",
+            isScrollWithWebView:"",
+            defaultMode:""
+        };
+        var data = JSON.stringify(params);
+        uexSecurityKeyboard.open(data);
+    }
+
+    function close(){
+        var params = {
+            id:""
+        };
+        var data = JSON.stringify(params);
+        uexSecurityKeyboard.close(data);
+    }
+
+    function getContent(){
+        var params = {
+            id:""
+        };
+        var data = JSON.stringify(params);
+        uexSecurityKeyboard.getContent(data);
+    }
+
+
+        window.uexOnload = function(type){
+            if(type == 0){
+            uexSecurityKeyboard.cbOpen = cbOpen;
+            uexSecurityKeyboard.cbClose = cbClose;
+            uexSecurityKeyboard.cbGetContent = cbGetContent;
+
+            }
+        }
+    function cbOpen(info){
+        alert('cbOpen: '+info);
+    }
+
+    function cbClose(info){
+        alert('cbClose: '+info);
+    }
+
+    function cbGetContent(info){
+        alert('cbGetContent: '+info);
+    }
+
+
+    </script>
+</head>
+
+<body>
+<div class="tit">uexSecurityKeyboard</div>
+<div class="conbor">
+    <div class="consj">
+            <input class='btn' type='button' value='open' onclick='open()'>
+
+            <input class='btn' type='button' value='close' onclick='close()'>
+
+            <input class='btn' type='button' value='getContent' onclick='getContent()'>
+
+
+    </div>
+</div>
+</body>
+</html>

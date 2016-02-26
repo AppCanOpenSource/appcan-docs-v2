@@ -57,7 +57,8 @@ var params = {
     "lineImg": , //扫描时移动的光线,可选
     "pickBgImg": , //扫描区域边框图片, 可选
     "tipLabel": ,  //扫描区下部提示语,可选
-    "title": //扫描界面顶部标题 (仅iOS支持),可选
+    "title": ,//扫描界面顶部标题 (仅iOS支持),可选
+    "charset"//设置字符编码
 }
 ```
 
