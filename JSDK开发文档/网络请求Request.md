@@ -115,7 +115,7 @@ appcan.ajax({
 appcan.ajax({
 url:http://115.29.138.150:8086/test/get,
 type:"GET",
-data:{}, datatype:"json",
+data:{}, dataType:"json",
 timeout:30000,
 success:function(data, status, requestCode, response, xhr) {
     alert("status:" + status);
@@ -163,7 +163,7 @@ appcan.ajax({
         a : 'hello word',
         b : 'page'
     },
-    datatype : "json",
+    dataType : "json",
     timeout : 30000,
     offline : true,
     crypto : true,
@@ -286,7 +286,7 @@ appcan.request.ajax({
 appcan.request.ajax({
 url:http://115.29.138.150:8086/test/get,
 type:"GET",
-data:{}, datatype:"json",
+data:{}, dataType:"json",
 timeout:30000,
 success:function(data, status, requestCode, response, xhr) {
     alert("status:" + status);
@@ -389,7 +389,7 @@ appcan.ajax({
         a : 'hello word',
         b : 'page'
     },
-    datatype : "json",
+    dataType : "json",
     timeout : 30000,
     offline : true,
     crypto : true,
