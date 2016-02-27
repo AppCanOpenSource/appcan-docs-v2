@@ -154,7 +154,7 @@ file.openSecure('wgt://a.txt',1,'password',function(err,data,dataType,optId){
 
 ````
 //关闭一个指定的文件流
-appcna.file.close(optId)
+appcan.file.close(optId)
 //另外一种使用方式
 var file = appcan.require('file');
 file.close(optId)
