@@ -141,8 +141,8 @@ var lv1 = appcan.listview({
             }
         }
 ]);
-        lv1.on("switch:change",function(ele,obj){
-            lv1.updateItem(ele,"title","Switch:"+obj.switch.value);
+        lv1.on("switch:change",function(obj,data){
+            lv1.updateItem(obj,"title","Switch:"+data.switch.value);
         })````
    以组的形式展示的列表
    ````
