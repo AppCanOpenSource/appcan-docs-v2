@@ -1,12 +1,13 @@
 ﻿
 
-封装相关浮动窗口的基础操作
+再次封装相关浮动窗口的基础操作
 
 [TOC]
 
 >### appcan.frame.open(id,url,left,top,name,index,change,extraInfo)
 
-  打开一个浮动窗口，如果不存在则会先创建然后再打开，如果存在则直接打开,如会在页面中查找id的元素，把id元素的宽高指定为浮动窗口的宽高，把id元素的font-size设置为id元素的font-size
+  打开一个浮动窗口，如果不存在则会先创建然后再打开，如果存在则直接打开,就会在页面中查找id的元素，把id元素的宽高指定为浮动窗口的宽高，把id元素的font-size设置为id元素的font-size
+  再次封装[appcan.window.openPopover](http://newdocx.appcan.cn/newdocx/docx?type=1259_1254 "appcan.window.openPopover")常用参数（简化版）
 ```` 
     id:要打开浮动窗口的名称
     url:浮动窗口要加载的页面的地址,如果url是一个数组则打开多页面浮动窗口
