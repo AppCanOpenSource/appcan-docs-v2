@@ -24,7 +24,7 @@
     hasGroup:   true or false /*列表条目是否以分组的形式展示。*/ 
 
 **示例**
-	````
+   ````
 	var lv = appcan.listview({
       selector : "#listview",
       type : "thinLine",
@@ -40,7 +40,7 @@
 	  hasControl: false,
 	  hasGroup: false
   	});
-	````
+   ````
 
 >### 方法：set(data)
 
