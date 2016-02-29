@@ -249,7 +249,8 @@ var lv1 = appcan.listview({
 ]);
         lv1.on("switch:change",function(obj,data){
             lv1.updateItem(obj,"title","Switch:"+data.switch.value);
-        })````
+        })
+   ````
    以组的形式展示的列表
    ````
 var lv1 = appcan.listview({
@@ -282,6 +283,7 @@ var lv1 = appcan.listview({
 	                title : "苹果前雇员为乔帮主洗冤：个性强烈非恶意",
 	                icon : "../css/res/appcan_s.png"
 	            }]
-	        }]);````
+	        }]);
+   ````
 
 _注：更多Listview示例详见官网首页功能演示App:HiAppcan_
