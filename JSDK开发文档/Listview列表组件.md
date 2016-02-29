@@ -94,10 +94,24 @@
 
 **示例：**
    ````
+	var lvData =
+		[{
+	        title : "uexWheel",
+	        describe : '轮盘菜单 ',
+	        pagename : "uexWheel",
+	        pageurl:"UIapi/uexWheel.html"
+	    },{
+	        title : "uexWheel2",
+	        describe : '轮盘菜单2 ',
+	        pagename : "uexWheel2",
+	        pageurl:"UIapi/uexWheel2.html"
+    	}];
+	lv1.set(lvData);
     lv1.on("click",function(obj,data,subObj){
         console.log(obj);
         console.log(data);
         console.log(subObj);
+		appcan.window.open(data.pagename,data.pageurl,10);
     })
    ````
 
