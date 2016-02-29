@@ -25,8 +25,15 @@
       <option value=3>选项四</option>
   </select>
 </div>````
+
 **JS代码**
 ````
 appcan.select(".select",function(ele,value){
 console.log(value);
 });````
+
+**手动触发change事件参考JS代码** 
+````
+	$('.select select').val('2');
+    $('.select select').trigger('change');
+});
