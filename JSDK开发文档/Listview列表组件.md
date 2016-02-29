@@ -49,7 +49,7 @@
     data:JSON   对象数组，用于存储列表条目显示的文字图片等信息。 
 
 **示例** 
-	````	
+   ````	
 	lv.set([{
     	title : "中国红",
       	subTitle : '<div class="umh1 umw3 us" style="background-color:#DF3031"></div>',
@@ -66,7 +66,7 @@
       	title : "子夜灰",
       	subTitle : '<div class="umh1 umw3 us" style="background-color:#434343"></div>',
   	}]);
-	````
+   ````
 
 >### 方法：add(data,dir)
 
@@ -76,12 +76,12 @@
     dir: 0 or 1  用于设定数据是在列表前部添加还是后部添加。0为前部添加，1为后部添加。默认为0
 
 **示例**
-	````
+   ````
 	lv1.add([{
 		title : "金黄",
         subTitle : '<div class="umh1 umw3 us" style="background-color:#FFD700"></div>'}]
 	,1);
-	````
+   ````
 >### 事件：click
  
   列表条目备点击时调用此事件
@@ -93,13 +93,13 @@
     subObj 列表条目点击时的子元素DOM对象例如图片 
 
 **示例：**
-	````
+   ````
     lv1.on("click",function(obj,data,subObj){
         console.log(obj);
         console.log(data);
         console.log(subObj);
     })
-	````
+   ````
 
 >### 事件：checkbox:change
 
@@ -111,12 +111,12 @@
     Data  列表条目对应数据源对象，其中checked属性代表选择状态
 
 **示例：**
-	````
+   ````
 	lv1.on("checkbox:change",function(obj,data){
         console.log(obj);
         console.log(data);
     })
-	````
+   ````
 
 >### 事件：radio:change
 
@@ -128,12 +128,12 @@
     Data  列表条目对应数据源对象 其中checked属性代表选择状态
 
 **示例：**
-	````
+   ````
 	lv1.on("radio:change",function(obj,data){
         console.log(obj);
         console.log(data);
     })
-	````
+   ````
 
 >### 事件：switch:change
 
@@ -145,23 +145,24 @@
     Data  列表条目对应数据源对象 其中switch.value代表switch状态
 
 **示例：**  
-	````
+   ````
 	lv1.on("switch:change",function(obj,data){
         console.log(obj);
         console.log(data);
     })
-	````
+   ````
 >###范例
 
 **HTML5代码:**
-````
+   ````
 	<div id="listview" class="ubt sc-border sc-bg">
 	</div>
-````
+   ````
 
 **JS代码**
-   	set(data)中的JSON
-	````
+
+   	有icon:set(data)中的JSON
+   ````
 	var hasSmallIcon =
         [{
             title : "ISIS分支宣布将一法国人斩首。该组织声称如果法国不停止打击ISIS，将杀掉人质",
@@ -178,7 +179,7 @@
             }
         }];
 	lv1.set(hasSmallIcon);
-	````
+   ````
    单选列表
    ````
 var lv = appcan.listview({
@@ -207,7 +208,8 @@ var lv = appcan.listview({
   }, {
       title : "子夜灰",
       subTitle : '<div class="umh1 umw3 us" style="background-color:#434343"></div>',
-  }]);````
+  }]);
+   ````
    带switch控件列表
    ````
 var lv1 = appcan.listview({
