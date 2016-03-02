@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script  src="js/CCLog.js"></script>
+    <script data-main="js/main" src="js/require.js"></script>
+    <script type="text/javascript">
+
+
+
+
+var CCPayment;
+
+var kContactChangeRequestKey = "contactChangeRequest";
+var kAuthorizationRequestKey = "authorizationRequest";
+
+
+var getContactResponse = function(contact){
+    var data = {};
+    if (contact.addressInfo.ISOCounrtyCode == "CN") {
+        CCLog("在中国!");
+        data.isPostalAddressInvalid = false;
+        var methods = [];
+        methods.push(CCPayment.newShippingMethod("顺丰","SF","一天内送达",12));//数组的第一个元素是默认选项
+        methods.push(CCPayment.newShippingMethod("韵达","YD","总是会送到的...",5));
+        CCPayment.setShippingMethods(methods);
+        CCPayment.setShippingCost(12);
+        data.shippingMethods = CCPayment.getShippingMethods();
+        data.payment = CCPayment.getPayment();
+    }else{
+        CCLog("不在中国！")
+        data.isPostalAddressInvalid = true;
+    };
+    return data;
+    
+}
+
+var getAuthorizationResponse = function(data){
+    var isSuccess;
+    //80%概率成功,嗯...
+    if (Math.random() > 0.8) {
+        isSuccess = false;
+    }else{
+        isSuccess = true
+    };
+    CCLog("result:" +isSuccess);
+    return {
+        result:isSuccess
+    }
+}
+
+//模拟网络请求
+var sendFakeHttpRequest = function(requestType,data,callback){
+    //2000~5000的随机数 模拟网络耗时...
+    //设置大一点，方便观察commit前后的变化，实际使用时延时肯定不会这么大...
+    var timeCost = Math.random() * 3000 + 2000;
+
+    var response;
+    if (requestType == kContactChangeRequestKey) {
+        response = getContactResponse(data);
+    };
+    if (requestType == kAuthorizationRequestKey) {
+        response = getAuthorizationResponse(data);
+    };
+    setTimeout(function(){
+        callback(response);
+    },timeCost);
+
+}
+
+
+
+var startPay = function(){
+    CCLog("startPay!");
+    var param = CCPayment.getPayInfo();
+    var result = uexApplePay.startPay(JSON.stringify(param));
+    if(result != 0){
+        CCLog("调起startPay失败");
+    }
+        
+}
+
+var init = function(){
+    require(['CCPayment'], function(p) {
+        //初始化账单对象
+        CCLog("init payment");
+        p.setMerchantIdentifier("merchant.com.zywx.devTest");
+        p.setPayee("AppCan");
+        p.addItem("神秘的魔法物品",20);
+        p.addItem("可疑的电脑配件",30);
+        p.addItem("一串冰糖葫芦",10);
+        CCPayment = p;
+        //设置按钮
+        var data = {
+            x:100,
+            y:300,
+            width:180,
+            height:60,
+            id : "ApplePayButton",
+            type:0,
+            style:1
+        }
+        var suc = uexApplePay.addButton(JSON.stringify(data));
+        CCLog("add button : " +suc);
+    });
+
+}
+window.uexOnload = function(type){
+    CCLog("onload");
+
+    uexApplePay.onButtonClick = function(info){
+        var id = JSON.parse(info).id;
+        if (id == "ApplePayButton") {
+            startPay();
+        };
+    };
+
+    // add button 
+    var status = uexApplePay.canMakePayment();
+    switch(status){
+        case 0:{
+            CCLog("可以支付");
+            init();
+            break;
+        }
+        case 1:{
+            CCLog("该系统不支持支付");
+            break;
+        }
+        case 2:{
+            CCLog("该设备不支持支付");
+            break;
+        }
+        case 3:{
+            CCLog("该苹果账号不支持支付");
+            break;
+        }
+    };
+    
+    uexApplePay.onCommitError = function(info){
+         CCLog(info);
+    };
+
+
+    uexApplePay.onPaymentMethodChange = function(info){
+        CCLog("onPaymentMethodChange:" +info);
+        var paymentMethod = JSON.parse(info);
+        if (paymentMethod.type == 2) {
+            CCLog("使用信用卡");
+            CCPayment.useCreditCard();
+        };
+        if (paymentMethod.type == 1) {
+            CCLog("使用借记卡");
+            CCPayment.useDebitCard();
+        };
+        var data = {
+            payment:CCPayment.getPayment(),
+        }
+        uexApplePay.commitPaymentMethodChange(JSON.stringify(data));
+    };
+    
+    uexApplePay.onShippingContactChange = function(info){
+        CCLog("onShippingContactChange:"+info);
+        var contact = JSON.parse(info);
+        sendFakeHttpRequest(kContactChangeRequestKey,contact,function(response){
+            uexApplePay.commitShippingContactChange(JSON.stringify(response));
+        })
+    };
+
+    uexApplePay.onShippingMethodChange = function(info){
+        CCLog("onShippingMethodChange" + info);
+        var id = JSON.parse(info).identifier;
+        var shippingMethods = CCPayment.getShippingMethods();
+        for(var i=0;i<shippingMethods.length;i++){
+            var aMethod = shippingMethods[i];
+            if (aMethod.identifier == id) {
+                CCPayment.setShippingCost(aMethod.price);
+            };
+        }
+        var data = {};
+        data.payment = CCPayment.getPayment();
+        uexApplePay.commitShippingMethodChange(JSON.stringify(data));
+    };
+
+    uexApplePay.onPaymentAuthorized = function(info){
+        CCLog("onPaymentAuthorized" + info);
+        var token;
+        sendFakeHttpRequest(kAuthorizationRequestKey,token,function(response){
+            uexApplePay.commitAuthorizedResult(JSON.stringify(response));
+        });
+    };
+    uexApplePay.onPayFinish = function(){
+        CCLog("onPayFinish");
+    }
+}
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div class="tit">Apple Pay</div>
+        <div class="conbor">
+            <div class="consj">
+                <input class="btn" type="button" value="回到首页" onclick="uexWindow.close(-1)">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
