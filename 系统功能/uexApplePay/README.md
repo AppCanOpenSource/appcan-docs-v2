@@ -1142,6 +1142,42 @@ uexApplePay.onPaymentAuthorized = function(info){
 }
 ```
 
+> ### onCommitError ApplePay支付提交变化发生错误的监听方法
+
+`uexApplePay.onCommitError(params)`
+
+**说明:**
+
+* 在调用uexApplePay.commitShippingMethodChange、uexApplePay.commitShippingContactChange、uexApplePay.commitPaymentMethodChange、uexApplePay.commitAuthorizedResult这4个接口后,若提交失败,会触发此方法
+* 提交失败的原因多为必要参数缺失/参数格式错误/参数内容不合法引起
+
+**参数:**
+
+params是JSON字符串,结构如下
+
+```
+var param = {
+ 	type:,//触发这个监听的方法类型 0 - uexApplePay.commitAuthorizedResult,1 - uexApplePay.commitShippingMethodChange,2 - uexApplePay.commitPaymentMethodChange ,3 - uexApplePay.commitShippingContactChange,
+ }
+```
+
+**平台支持:**
+
+iOS 9.2+
+
+**版本支持:**
+
+iOS 3.2.0+
+
+**示例:**
+
+```
+uexApplePay.onCommitError = function(info){
+	alert(info);
+}
+
+```
+
 > ### onPayFinish ApplePay支付结束的监听方法
 
 `uexApplePay.onPayFinish(params)`
