@@ -1381,7 +1381,7 @@ ApplePay有如下原因会导致您的应用审核被拒
 
 开发者集成及使用此插件,需要到Apple开发者中心申请Merchant证书,并且在Config.xml中配置相关的MerchantIdentifier才能使用。以下是具体步骤。
 
-### 一、注册商用ID标示
+### 一、注册商用ID标识
 
 * 在[Apple开发者中心](https://developer.apple.com)登录后,选择"Certificates,Identifiers&Profiles"
 * 在Identifiers下,选择Merchant IDs
@@ -1390,22 +1390,41 @@ ApplePay有如下原因会导致您的应用审核被拒
 * 浏览下配置参数,点击"Register"
 * 点击"Done"
 
-### 二、为你的ID标示配置一个证书
-* 在Apple开发者中心,选择"Certificates,Identifiers&Profiles"
+### 二、为你的商用ID标识配置一个证书
+* 在[Apple开发者中心](https://developer.apple.com)登录后,选择"Certificates,Identifiers&Profiles"
 * 在Identifiers下,选择Merchant IDs
-* 选择列表中的ID标示,点击Edit
+* 选择列表中的商用ID标识,点击Edit
 * 点击"Create Certificate",按照指示获取或生成签名证书请求(CSR),点击"Continue"
 * 点击"Choose File",选择你的CSR,点击"Generate"
+* 关于CSR文件:
+	* 有的的支付渠道(比如中国银联)可能会要求上传指定的.CSR文件才能使用其支付功能。
+	* 但上传不适配的.CSR文件只影响最后支付的结果
+	* 由于从支付渠道申请.CSR文件可以需要一定的时间,因此可以先上传自己生成的.CSR文件进行插件与前端页面调试,待正式的.CSR文件申请成功之后再进行替换，并测试前后端交互。
 
-注意:
+**如果你需要为不同的支付项目配置不同的商用ID标识，步骤一、和二、会进行多次。**
 
-* 有的的支付渠道(比如中国银联)可能会要求上传指定的.CSR文件才能使用其支付功能。
-* 但上传不适配的.CSR文件只影响最后支付的结果
-* 由于从支付渠道申请.CSR文件可以需要一定的时间,因此可以先上传自己生成的.CSR文件进行插件调试,待正式的.CSR文件申请成功之后再进行替换
+### 三、在你的APP中使用商用ID标识
+* 在[Apple开发者中心](https://developer.apple.com)登录后,选择"Certificates,Identifiers&Profiles"
+* 在Identifiers下,选择App IDs
+* 选择你的App,点击Edit
+* 在新打开的页面中启用 Apple Pay
+* 点击 Apple Pay 选项栏中的Edit 并勾选你这个App需要使用的所有商用ID标识
+* 完成编辑
 
-### 三、在config.xml中配置merchantIdentifier
+**注意：每当你编辑了你的App ID，你都需要重新下载mobileprovision文件并用新的mobileprovision文件去打包，否则你的更改将不会生效**
 
-待更新
+### 四、在config.xml中配置商用ID标识
+
+* 在config.xml中添加如下配置
+
+```
+<config desc="uexApplePay" type="ENTITLEMENTS">
+	<entitlement type="merchant" value="merchantIdentifier1"/>
+	<entitlement type="merchant" value="merchantIdentifier2"/>
+</config>
+```
+
+* **其中`<entitlement>`节点数量取决于你的App中会用到的商用ID标识数量。你应该为每一个商用ID标识设置一个`<entitlement>`节点，并修改其中的`value`值为此商用ID标识的merchantIdentifier**。(type值不要更改!)
 
 # 6、更新历史
 
