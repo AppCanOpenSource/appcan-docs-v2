@@ -954,7 +954,7 @@ params是一个`PaymentMethod Object`转换而成的JSON字符串。
 `PaymentMethod Object`结构如下
 
 ```
-var params = {
+var paymentMethod = {
 	type:,
 	displayName:,
 	network:,
@@ -996,10 +996,10 @@ uexApplePay.onPaymentMethodChange = function(info){
 
 **参数:**
 
-params是一个`Contact Object`,结构如下
+params是一个`Contact Object`序列化得到的JSON字符串,`Contact Object`结构如下
 
 ```
-var params = {
+var contact = {
 	addressInfo:{//联系人地址
 		country:,//国家
 		ISOCounrtyCode:,//ISO国家编码
@@ -1051,7 +1051,7 @@ uexApplePay.onShippingContactChange = function(info){
 
 **参数:**
 
-params是一个`ShippingMethod Object`,字段介绍详见startPay接口中的`ShippingMethod Object`参数介绍
+params是一个`ShippingMethod Object`序列化得到的JSON字符串,字段介绍详见startPay接口中的`ShippingMethod Object`参数介绍
 
 ```
 var param = {
