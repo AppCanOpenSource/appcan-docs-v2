@@ -1188,7 +1188,13 @@ uexApplePay.onCommitError = function(info){
 
 **参数:**
 
-无
+params是JSON字符串,结构如下
+
+```
+var param = {
+ 	result:,//Number 必选 0-成功 1-失败 2-支付被取消
+ }
+```
 
 **平台支持:**
 
@@ -1201,8 +1207,8 @@ iOS 3.2.0+
 **示例:**
 
 ```
-uexApplePay.onPayFinish = function(){
-	alert("支付完成");
+uexApplePay.onPayFinish = function(info){
+	alert("onPayFinish:" + info );
 }
 
 ```

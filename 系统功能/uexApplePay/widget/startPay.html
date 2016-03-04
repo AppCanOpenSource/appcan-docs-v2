@@ -192,8 +192,8 @@ window.uexOnload = function(type){
             uexApplePay.commitAuthorizedResult(JSON.stringify(response));
         });
     };
-    uexApplePay.onPayFinish = function(){
-        CCLog("onPayFinish");
+    uexApplePay.onPayFinish = function(info){
+        CCLog("onPayFinish:" + info);
     }
 }
 
