@@ -1469,7 +1469,7 @@ uexWindow.setMultilPopoverFlippingEnbaled(1);
 
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
-| orientation | Number | 是 |1：竖屏，home键在屏幕下方；    2：横屏，home键在屏幕右边；4：竖屏，home键在屏幕上方；  8：横屏，home键在屏幕左边；3：既支持1又支持2；    15：随系统设置自动转屏。|
+| orientation | Number | 是 |1：竖屏，home键在屏幕下方；    2：横屏，home键在屏幕右边；4：竖屏，home键在屏幕上方；  8：横屏，home键在屏幕左边；   15：随系统设置自动转屏。|
 
 **平台支持：**
 Android2.2+
