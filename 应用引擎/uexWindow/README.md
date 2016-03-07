@@ -3046,6 +3046,54 @@ iOS 6.0+
 
 3.2.0+
 
+> ### getHeight 获取window的高度
+  
+`uexWindow.getHeight(jsonStr)`
+
+**参数:**  
+无
+
+**示例:**
+
+```
+ var height=uexWindow.getHeight();
+ console.log("height: "+height);
+ 
+```  
+
+**平台支持：**
+
+Android 2.2+  
+iOS 6.0+
+
+**版本支持：**
+
+3.2.0+
+
+> ### getWidth 获取window的宽度
+  
+`uexWindow.getWidth(jsonStr)`
+
+**参数:**  
+无
+
+**示例:**
+
+```
+ var width=uexWindow.getWidth();
+ console.log("width: "+ width);
+ 
+```  
+
+**平台支持：**
+
+Android 2.2+  
+iOS 6.0+
+
+**版本支持：**
+
+3.2.0+
+
 
 ## 2.2 回调方法
 
