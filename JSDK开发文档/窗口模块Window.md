@@ -518,7 +518,7 @@ win.moveAnim({
 ````
 >###appcan.window.openPopover(name,dataType,url,data,left,top,width,height,fontSize,type,bottomMargin,extraInfo)
 
-   打开一个弹出框，如果不存在则会先创建然后再打开，如果存在则直接打开 
+   打开一个浮动窗口/弹出框，如果不存在则会先创建然后再打开，如果存在则直接打开 
 ````
     name:要打开弹出窗的名称
     dataType:新窗口填充的数据类型

@@ -154,7 +154,7 @@ file.openSecure('wgt://a.txt',1,'password',function(err,data,dataType,optId){
 
 ````
 //关闭一个指定的文件流
-appcna.file.close(optId)
+appcan.file.close(optId)
 //另外一种使用方式
 var file = appcan.require('file');
 file.close(optId)
@@ -703,7 +703,7 @@ file.stat({
 
 >### appcan.file.deleteLocalFile(callback)
 
-  默认的话会提供一个wgt://data/locFile.txt文件来进行方便操作，如果执行删除会把该文件删掉
+ 删除appcan.file.writeLocalFile操作写入的文件wgt://data/locFile.txt
 ````
   callback(err,data,dataType,optId):删除文件完成后的回调，第一个参数是Error对象如果为空则表示 没有错误，否则表示操作出错了，data表示返回的操作结果,dataType操作结果的数据类型，optId该操作id 
 ````
@@ -744,7 +744,7 @@ file.deleteLocalFile(function(err,data,dataType,optId){
 });````
 >### appcan.file.writeLocalFile(content,callback)
 
-  重写wgt://data/locFile.txt中的内容
+  重写wgt://data/locFile.txt中的内容，如果不存在文件则创建并写入
 ````
   content:要重写的内容
   callback(err):写完成后的回调，err是错误对象，如果为空则表示没有错误，否则表示有错误发生

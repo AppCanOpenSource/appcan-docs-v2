@@ -192,12 +192,13 @@ uexSlidePager.onChangeColor = function(data){
 
 ### iOS
 
-API版本:`uexSlidePager-3.0.13`
+API版本:`uexSlidePager-3.0.14`
 
-最近更新时间:`2016-1-27`
+最近更新时间:`2016-3-2`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.14 | 修复屏幕黑屏问题 |
 | 3.0.13 | openSlidePager接口添加option参数 |
 | 3.0.12 | 添加IDE支持 |
 | 3.0.11 | 适配iPhone6和iPhone6 Plus |

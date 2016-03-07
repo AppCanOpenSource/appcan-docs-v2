@@ -76,10 +76,10 @@ uexCamera.openInternal();
 
 **参数:**
 
- x:(Number类型) 必选  照相机View起始位置x坐标，x为0时有效，取值范围[0,屏幕分辨率最大宽度]。
- y:(Number类型) 必选  照相机View起始位置y坐标，y为0时有效，取值范围[0,屏幕分辨率最大高度]。
- width:(Number类型) 必选  照相机View宽度，width为0时有效，取值范围[0,屏幕分辨率最大宽度]。
- heigth:(Number类型) 必选  照相机View高度，height为0时有效，取值范围[0,屏幕分辨率最大高度]。
+ x:(Number类型) 必选  照相机View起始位置x坐标,x为0时有效,取值范围[0,屏幕分辨率最大宽度]。
+ y:(Number类型) 必选  照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度]。
+ width:(Number类型) 必选  照相机View宽度,width为0时有效,取值范围[0,屏幕分辨率最大宽度]。
+ heigth:(Number类型) 必选  照相机View高度,height为0时有效,取值范围[0,屏幕分辨率最大高度]。
  location:(String类型) 必选  传入的地理位置。
  quality:(Number类型) 可选  图片压缩质量,comtextareass为0时有效,取值范围[0,100]。
 
@@ -131,11 +131,11 @@ uexCamera.removeViewCameraFromWindow();
 
 **说明:**
 
-通过此方法将改变自定义相机View的闪光灯模式,0代表自动，1代表打开闪光灯，2代表关闭闪光灯。
+通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。
 
 **参数:**
 
- flashMode:(Number类型) 必选  照相机View的闪光灯模式，x为0、1、2时有效，取值范围[0,2]。
+ flashMode:(Number类型) 必选  照相机View的闪光灯模式,x为0、1、2时有效,取值范围[0,2]。
 
 **平台支持:**
 
@@ -152,18 +152,17 @@ iOS6.0+
 uexCamera.changeFlashMode(flashMode);
 ```
 
-
 > ### changeCameraPosition 改变自定义相机View的摄像头位置
 
 `changeCameraPosition(cameraPosition)`
 
 **说明:**
 
-通过此方法改变自定义相机View的摄像头位置,0代表后置，1代表前置。
+通过此方法改变自定义相机View的摄像头位置,0代表后置,1代表前置。
 
 **参数:**
 
- cameraPosition:(Number类型) 必选  照相机View的摄像头位置，x为0、1时有效，取值范围[0,1]。
+ cameraPosition:(Number类型) 必选  照相机View的摄像头位置,x为0、1时有效,取值范围[0,1]。
 
 **平台支持:**
 
@@ -179,8 +178,6 @@ iOS6.0+
 ```
 uexCamera.changeCameraPosition(cameraPosition);
 ```
-
-
 
 ##2.2、回调方法
 > ### cbOpen　拍照的回调方法
@@ -238,7 +235,7 @@ window.uexOnload = function(){
 
   opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
   dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(String类型) 必选  JSON字符串，格式如下：
+  data:(String类型) 必选  JSON字符串,格式如下:
 ```
 data:
   {
@@ -252,7 +249,6 @@ data:
 |-----|-----|-----|
 | photoPath | 是 | 图片的保存路径 |
 | location | 是 | 传入的地理位置 |
-
 
 **版本支持:**
 
@@ -268,8 +264,7 @@ window.uexOnload = function(){
 }
 ```
 
-
-> ### cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式, 0表示自动，1表示开启，2表示关闭，-1表示更改失败。
+> ### cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式, 0表示自动,1表示开启,2表示关闭,-1表示更改失败。
 
 `uexCamera.cbChangeFlashMode(opId,dataType,data)`
 
@@ -277,7 +272,7 @@ window.uexOnload = function(){
 
   opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
   dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(Number类型) 必选  返回一个int型，闪光灯模式，0表示自动，1表示开启，2表示关闭，-1表示更改失败：
+  data:(Number类型) 必选  返回一个int型,闪光灯模式,0表示自动,1表示开启,2表示关闭,-1表示更改失败:
 
 **版本支持:**
 
@@ -293,7 +288,6 @@ window.uexOnload = function(){
 }
 ```
 
-
 > ### cbChangeCameraPosition　返回更改前后摄像头成功后当前摄像头的位置。
 
 `uexCamera.cbChangeCameraPosition(opId,dataType,data)`
@@ -302,7 +296,7 @@ window.uexOnload = function(){
 
   opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
   dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(Number类型) 必选  返回一个int型，摄像头位置，0表示后置，1表示前置，-1表示更改失败;
+  data:(Number类型) 必选  返回一个int型,摄像头位置,0表示后置,1表示前置,-1表示更改失败;
 
 **版本支持:**
 
@@ -318,18 +312,17 @@ window.uexOnload = function(){
 }
 ```
 
-
-
 #3、更新历史 
 
 ### iOS
 
-API版本:`uexCamera-3.0.2`
+API版本:`uexCamera-3.0.3`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-2-16`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.3 | 插件改为arc,添加openInternal自定义相机接口,添加openViewCamera自定义view模式相机 |
 | 3.0.2 | 添加IDE支持 |
 | 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
 | 3.0.0 | 照相机功能插件 |
@@ -342,9 +335,9 @@ API版本:`uexCamera-3.0.16`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.16 | 修复了在三星手机上照片旋转方向不一致的问题;修复了多次点击照相按钮，再点重拍照相按钮失效的问题 |
+| 3.0.16 | 修复了在三星手机上照片旋转方向不一致的问题;修复了多次点击照相按钮,再点重拍照相按钮失效的问题 |
 | 3.0.15 | 修复了少写mCamera.setPreviewCallback(null)导致崩溃的问题 |
-| 3.0.14 | 新增自定义View相机功能，可自行设置大小、位置，可传入地理位置，可调整闪光灯模式和前后置摄像头切换 |
+| 3.0.14 | 新增自定义View相机功能,可自行设置大小、位置,可传入地理位置,可调整闪光灯模式和前后置摄像头切换 |
 | 3.0.13 | 修复新引擎不能用的问题 |
 | 3.0.12 | 修改自定义相机crash问题 |
 | 3.0.11 | 修改低分辨率手机自定义相机拍照照片尺寸过小问题 |

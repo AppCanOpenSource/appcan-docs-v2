@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script src="js/CCLog.js"></script>
+<script type="text/javascript">
+
+
+
+var addButton = function(){
+    for (var i = 0; i < 9; i++) {
+        (function(idx){
+            var p = idx % 3;
+            var q = (idx - p) / 3;
+            var r = idx % 2;
+            var s = (idx - r) / 2 ;
+            var data = {
+                x : r * 200,
+                y : s * 70 + 200,
+                width : 180,
+                height : 60,
+                id : "button" + idx,
+                scrollWithWeb : (r == 0),
+                type:p,
+                style:q,
+            }
+            var suc = uexApplePay.addButton(JSON.stringify(data));
+            CCLog("add button " + idx +" : " +suc);
+        })(i);
+    };
+}
+    
+var removeButton = function(){
+        for (var i = 0; i < 9; i++) {
+        (function(idx){
+            var data = {
+                id : "button" + idx,
+            }
+            var suc = uexApplePay.removeButton(JSON.stringify(data));
+            CCLog("remove button " + idx +" : " +suc);
+        })(i);
+    };
+}
+
+window.uexOnload = function(type){
+    uexApplePay.onButtonClick = function(info){
+        CCLog(info);
+    }
+}
+</script>
+</head>
+
+<body>
+    <div class="tit">buttonTest</div>
+    <div class="conbor">
+        <div class="consj">
+            <input  type="button" value="回到首页" onclick="uexWindow.close(-1);">
+            <input  type="button" value="addButton" onclick="addButton();">
+            <input  type="button" value="removeButton" onclick="removeButton();">
+
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div>bottom</div>
+</body>
+</html>

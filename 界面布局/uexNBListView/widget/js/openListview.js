@@ -602,7 +602,7 @@ function hideMeListView(id){
 function deleteData(listViewId, index){
     var params = {
         listViewId:listViewId,
-        indexs:[index]
+        indexes:[index]
     }
     uexNBListView.delete(JSON.stringify(params));
 }
