@@ -55,6 +55,7 @@ uexCamera.open();
 **平台支持:**
 
 Android2.2+
+iOS6.0+
 
 **版本支持:**
 
