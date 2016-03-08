@@ -11,7 +11,7 @@
     options:发起ajax的请求的参数，这个必须是一个对象
     options.type:请求的类型，包括GET、POST等
     options.appVerify:是否在请求头中加入appVerify字段 true、false
-    options.certificate({password:'',path:'default'})
+    options.certificate({password:'',path:'default'})添加证书信息
        　 password:数字证书密码。当使用appcan默认证书时，此参数为空(或””)
        　 path:路径，支持 file://,res://,wgt://等协议路径，详见CONSTANT中PathTypes。 当传入‘default’时，本次请求将取appcan默认数字证书。
     options.url:要请求的地址 注：get方式请求中携带中文参数，需要对参数进行encode编码，具体函数：encodeURIComponent
@@ -34,7 +34,6 @@
     options.error(xhr, errorType, error,msg):请求如果出现错误后的回调;msg: 错误详细信息，服务器返回的result信息
     options.complete(xhr, status):请求完成后的回调，不管是否出错
     options.progress(progress, xhr):上传的进度，只有包含上传文件的时候才会执行该回调
-    options.certificate:添加证书信息 {password:'',path:''}其中password是证书的密码，path是证书的地址
     options.cache:是否缓存请求
     options.offline:是否直接调用离线数据，包括true,false,undefined
 　　　**offline参数说明：**
