@@ -508,7 +508,7 @@ window.uexOnload=function(type){
 }
 
 ```
->### cbSetTags 设置别名的回调方法
+>### cbSetTags 设置标签的回调方法
 
 `uexJPush.cbSetTags(json)`
 
@@ -962,12 +962,13 @@ API版本:`uexJPush-3.0.7`
 
 ### Android
 
-API版本:`uexJPush-3.0.8`
+API版本:`uexJPush-3.0.9`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-2-1`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.9 | 修复setTags返回格式不正确的问题 |
 | 3.0.8 | 修复通知不含extras时闪退的问题 |
 | 3.0.7 | 修复setTags和setAlias返回错误的问题 |
 | 3.0.6 | 修复重新登陆后消息记录remoteUrl为空的问题 |

@@ -278,8 +278,6 @@ var json = {
     option:{
 		initZoomX:,//Number,可选, X方向缩放系数。initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
 		initZoomY:,//Number,可选, Y方向缩放系数。initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
-		initPositionX:,//Number, 可选,X方向初始位置,单位:px。initPositionX为非负实数,默认为0
-		initPositionY:,//Number, 可选,Y方向初始位置,单位:px。initPositionY为非负实数,默认为0
 		isSupportDrag:,//Boolean,可选,是否支持滑动手势
 		isSupportZoomX:,//Boolean,可选,是否响应X方向上的缩放手势
 		isSupportZoomY://Boolean,可选,是否响应Y方向上的缩放手势
@@ -546,8 +544,6 @@ var json = {
     option:{
 		initZoomX:,//Number,可选, X方向缩放系数。initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
 		initZoomY:,//Number,可选, Y方向缩放系数。initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
-		initPositionX:,//Number, 可选,X方向初始位置,单位:px。initPositionX为非负实数,默认为0
-		initPositionY:,//Number, 可选,Y方向初始位置,单位:px。initPositionY为非负实数,默认为0
 		isSupportDrag:,//Boolean,可选,是否支持滑动手势
 		isSupportZoomX:,//Boolean,可选,是否响应X方向上的缩放手势
 		isSupportZoomY://Boolean,可选,是否响应Y方向上的缩放手势
@@ -722,6 +718,7 @@ iOS 3.0.0+
 
 ```
 var json = {
+    id:,//Number,图表id,用来区分不同的图表
     value:,//Number,被点击的元素对应的y值
     dataSetIndex:,//Number,被点击的元素所在的数据数组序号
     xIndex://Number,被点击的元素对应的x轴序号
@@ -752,12 +749,15 @@ iOS 3.0.0+
 
 ### iOS
 
-API版本:`uexChart-3.0.3`
+API版本:`uexChart-3.0.6`
 
-最近更新时间:`2015-12-21`
+最近更新时间:`2016-1-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.6 | 修改了每次只能获取最后一个图表id的BUG |
+| 3.0.5 | 在监听方法onValueSelected中增加了图表id字段,用来区分图表 |
+| 3.0.4 | 改用embedFrameworks方式调用,提高编译速度 |
 | 3.0.3 | openBarChart和openLineChart新增option参数; |
 | 3.0.2 | 使用Swift2.1编译,支持IDE本地打包 |
 | 3.0.1 | 使用Swift2.0的库,支持Xcode7 |
@@ -765,12 +765,14 @@ API版本:`uexChart-3.0.3`
 
 ### Android
 
-API版本:`uexChart-3.0.2`
+API版本:`uexChart-3.0.4`
 
-最近更新时间:`2015-12-21`
+最近更新时间:`2016-01-25`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.4 | 修复了获取id与iOS不符的问题 |
+| 3.0.3 | 在图表中元素被点击的监听方法onValueSelected中增加了图表id字段,用来区分图表 |
 | 3.0.2 | openBarChart和openLineChart新增option参数 |
 | 3.0.1 | 替换ActivityGroup |
 | 3.0.0 | 几何图表插件 |

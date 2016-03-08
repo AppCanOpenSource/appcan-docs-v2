@@ -57,7 +57,7 @@ iOS 3.0.0+
 var data={
 		baiduAPIKey:"cCfq6oSxA8SKsHB7FopAocyX"
 }
-uexBaiduNavi.initBaiduNavi(JSON.stringify(data));
+uexBaiduNavi.init(JSON.stringify(data));
 
 ```
 

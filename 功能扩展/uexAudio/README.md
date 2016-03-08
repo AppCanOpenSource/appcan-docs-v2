@@ -17,7 +17,7 @@
 
 **说明:**
 
-后台播放,iOS支持MP3、WAV、CAF格式,Android支持MP3、WAV、AMR、MIDI格式。
+后台播放,iOS支持MP3、WAV、CAF、AMR格式,Android支持MP3、WAV、AMR、MIDI格式。
 
 **参数:**
 
@@ -376,7 +376,7 @@ uexAudio.openSoundPool()；
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| soundID | String | 是 | 唯一标识符 |
+| soundID | Number | 是 | 唯一标识符 |
 | path | String | 是 | 音效文件路径,路径协议详见CONSTANT中PathTypes |
 
 **平台支持:**
@@ -391,7 +391,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexAudio.addSound("2","res://1.mp3")
+uexAudio.addSound(2,"res://1.mp3")
 ```
 > ### playFromSoundPool 播放音效
 
@@ -405,7 +405,7 @@ uexAudio.addSound("2","res://1.mp3")
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id | String | 是 | 唯一标识符 |
+| id | Number | 是 | 唯一标识符 |
 
 **平台支持:**
 
@@ -419,7 +419,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexAudio.playFromSoundPool("2")
+uexAudio.playFromSoundPool(2)
 ```
 > ### stopFromSoundPool 停止音效
 
@@ -433,7 +433,7 @@ uexAudio.playFromSoundPool("2")
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id | String | 是 | 唯一标识符 |
+| id | Number | 是 | 唯一标识符 |
 
 **平台支持:**
 
@@ -447,7 +447,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexAudio.stopFromSoundPool("2")
+uexAudio.stopFromSoundPool(2)
 ```
 > ### closeSoundPool 关闭音效池
 
@@ -625,12 +625,15 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexAudio-3.0.12`
+API版本:`uexAudio-3.0.15`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-3-2`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.15 | 添加setPlayMode()接口设置播放模式 |
+| 3.0.14 | 修改audio录的本地录音传到服务器上放不了bug |
+| 3.0.13 | 修改amr格式文件路径不存在时播放崩溃 |
 | 3.0.12 | 改用bundle调用图片资源;添加IDE支持 |
 | 3.0.11 | 支持后台播放音频,需配置相关权限 |
 | 3.0.10 | 提高了进行MP3录音的音质,修复了本地录 音生成的MP3文件用http网络播放不能正常使用的bug |
@@ -647,12 +650,13 @@ API版本:`uexAudio-3.0.12`
 
 ### Android
 
-API版本:`uexAudio-3.0.6`
+API版本:`uexAudio-3.0.7`
 
-最近更新时间:`2015-12-07`
+最近更新时间:`2016-1-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.7 | 解决了录音时用户禁止其权限的问题 |
 | 3.0.6 | 添加听筒模式接口,修复小米手机音量设置无效的问题 |
 | 3.0.5 | 修复uexAudio.record方法不支 持录音文件存储为.mp3格式的问题 |
 | 3.0.4 | 修复多次点击播放音效不能关闭的问题 |

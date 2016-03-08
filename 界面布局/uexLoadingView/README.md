@@ -151,12 +151,13 @@ API版本:`uexLoadingView-3.0.4`
 
 ### Android
 
-API版本:`uexLoadingView-3.0.5`
+API版本:`uexLoadingView-3.0.6`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.6 | 解决空指针报错问题 |
 | 3.0.5 | 添加圆形loading 动画效果 |
 | 3.0.4 | 去掉插件中的ActivityGroup,配合引擎升级 |
 | 3.0.3 | 修改open接口 |

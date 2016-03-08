@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script type="text/javascript">
+    function openKey(){
+        var params = {
+            id:"1",
+            x:0,
+            y:450,
+            width:800,
+            height:150,
+            keyboardType:0,
+            keyboardDescription:"正益移动安全输入"
+        };
+        var data = JSON.stringify(params);
+        uexSecurityKeyboard.open(data);
+    }
+
+    function openKey1(){
+        var params = {
+            id:"2",
+            x:0,
+            y:600,
+            width:800,
+            height:150,
+            keyboardType:1,
+            keyboardDescription:"正益移动安全输入"
+        };
+        var data = JSON.stringify(params);
+        uexSecurityKeyboard.open(data);
+    }
+    function getContent(){
+        var params = [1];
+        var data = JSON.stringify(params);
+        uexSecurityKeyboard.getContent();
+    }
+    function closeKey(){
+        var params = [1];
+        var data = JSON.stringify(params);
+        uexSecurityKeyboard.close();
+    }
+
+    window.uexOnload = function(type){
+        if(type == 0){
+            uexSecurityKeyboard.cbGetContent = cbGetContent;
+        }
+    }
+    function cbGetContent(info){
+        alert('cbGetContent: '+info);
+    }
+
+    </script>
+</head>
+
+<body>
+<div class="tit">uexSecurityKeyboard</div>
+<div class="conbor">
+    <div class="consj">
+        <input class='btn' type='button' value='open1' onclick='openKey()'>
+        <input class='btn' type='button' value='open2' onclick='openKey1()'>
+        <input class='btn' type='button' value='close' onclick='closeKey()'>
+        <input class='btn' type='button' value='get' onclick='getContent()'>
+    </div>
+</div>
+</body>
+</html>

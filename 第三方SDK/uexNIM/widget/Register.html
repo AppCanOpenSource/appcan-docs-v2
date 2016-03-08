@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+    <link rel="stylesheet" href="css/ui-res.css">
+    <style>
+        input{
+            color: black;
+            padding: 1px 6px;
+            margin-left:6px;
+        }
+        input[type="text"]{
+            padding: .2em .4em;
+            margin:.4em .6em;
+            font-size:1em;
+        }
+        input[type="button"]{
+            padding: .6em .8em;
+            margin:.4em .6em;
+            font-size:1.2em;
+        }
+    </style>
+    <script src="js/zy_control.js">
+    </script>
+    <script src="js/main.js">
+    </script>
+    <script type="text/javascript">
+        window.uexOnload = function(type){
+            
+        }
+    
+    
+
+    
+    function registerApp(){
+        var appKey = document.getElementById("initEasemobappKey").value;
+        var apnsCertName = document.getElementById("initEasemobapnsCertName").value;
+        var param={
+            appKey:appKey,//区别app的标识
+            apnsCertName:apnsCertName,//iOS中推送证书名称(仅iOS)
+        };
+        uexNIM.registerApp(JSON.stringify(param));
+    }
+    function registerUser(){
+        var param = {
+            username:document.getElementById("registerUserusername").value,//用户名
+            nickname:document.getElementById("registerUsernickname").value,//昵称
+            password:document.getElementById("registerUserpassword").value,//密码
+        };
+        uexNIM.registerUser(JSON.stringify(param));
+    }
+    function login(){
+        var param = {
+            username:document.getElementById("loginusername").value,//用户名
+            password:document.getElementById("loginpassword").value,//密码
+        };
+        uexNIM.login(JSON.stringify(param));
+    }
+    function autoLogin(){
+        var param = {
+            username:document.getElementById("loginusername").value,//用户名
+            password:document.getElementById("loginpassword").value,//密码
+        };
+        uexNIM.autoLogin(JSON.stringify(param));
+    }
+    function logout(){
+        uexNIM.logout();
+    }
+       </script>
+</head>
+<body class="um-vp " ontouchstart>
+    <div id="page_0" class="up ub ub-ver" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh t-wh ub" style="background: #27A73F;">
+                <div class="umw4 ub ub-ac ub-pc" ontouchstart="zy_touch()" onclick="closeWin()">
+                    <div ontouchstart="zy_touch('btn-act')" class="btn uba b-bla uinn5 c-blu c-m1 uc-a t-wh" style="background: -webkit-gradient(linear,0 0,0 100%,from(#FFCD00),color-stop(50%,#FFBC00),color-stop(50%,orange));border: 1px solid #FFA700;-webkit-border-radius: 8px;  text-align: center;color: #712000;  display: block; font-size: 1em; padding: 0.2em;">返回</div>
+                </div>
+                <h1 class="ut ub-f1 ulev0 ut-s tx-c" tabindex="0">Initialization</h1>
+                <div class="umw4" ontouchstart="zy_touch()" onclick="">
+                <!--插入按钮控件-->
+                </div>
+     </div>
+     <!--header结束--><!--content开始-->
+     <div id="content" class="ub-f1 tx-l t-bla" style="">
+            
+     <div class="conbor">
+        <div class="consj" id="topDiv">
+            <div id='globalPostArea'>全局广播显示区域</div><br><br>
+            <div> </div><div>======Initialization==========</div>
+            
+            
+            <div> </div><span>registerApp</span>
+            <div>appKey:</div><input class="textbox" type="text" id="initEasemobappKey" value="45c6af3c98409b18a84451215d0bdd6e">
+                <div>apnsCertName:</div><input class="textbox" type="text" id="initEasemobapnsCertName" value="ENTERPRISE">
+                        <input class='btn' type='button' value='调用接口' onclick='registerApp()'>
+                                            
+                            <div> </div><span>login</span>
+                            <div>username:</div><input class="textbox" type="text" id="loginusername" value="appcanuser1">
+                                <div>password:</div><input class="textbox" type="text" id="loginpassword" value="appcanuser1">
+                                    <input class='btn' type='button' value='Login调用接口' onclick='login()'>
+                                    <input class='btn' type='button' value='autoLogin调用接口' onclick='autoLogin()'>
+                                        
+                                        <div> </div><span>logout</span>
+                                        <input class='btn' type='button' value='调用接口' onclick='logout()'>
+                                            
+                                            <div> </div><span>registerUser</span>
+                                            <div>username:</div><input class="textbox" type="text" id="registerUserusername" value="appcanuser1">
+                                                <div>nickname:</div><input class="textbox" type="text" id="registerUsernickname" value="appcan">
+                                                <div>password:</div><input class="textbox" type="text" id="registerUserpassword" value="appcanuser1">
+                                                    <input class='btn' type='button' value='调用接口' onclick='registerUser()'>
+                                                     
+                                                                    <div>======回调记录==========</div>
+                                                                    <div id='TestCallBack'>原本内容</div>
+                                                                    <div id='TestData'>原本内容</div>
+                                                                    <div>======回调记录==========</div>
+      </div>
+        
+         
+    </div>
+    </div>
+</body>
+<script>
+
+</script>
+</html>

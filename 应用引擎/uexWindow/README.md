@@ -42,7 +42,7 @@ AppCan平台中，维护了一个窗口堆栈，每个窗口以唯一的窗口�
 | windName | String | 是 | 窗口名字，可为空，不能为"root"，若已经打开过该名字的窗口，则直接跳转至该窗口。 |
 | dataType | Number | 是 | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入 |
 | data | String | 是 | url或html数据，支持“wgtroot://” 协议头，此协议头用于某些将项目部署在服务器上 的appcan应用，在应用执行过程中加载本地网页用。当dataType为0时，url支持相对路径、 绝对路径。其中，当url以“wgtroot://” 协议开头时，支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件。  例如：当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页，如果在xxx.html页面中open一个窗口时，传入的data为“wgtroot://index.html", 那么本次open执行时，引擎将会到本应用沙箱目录的widget路径下去寻找此页面， 例如Android上找到的路径会是：file:///android_assert/widget/index.html 当dataType为1时，把相应html的内容传进去（不建议） |
-| animationID | Number | 是 | 动画ID，详见术语表-[WindowAnimationId 窗口动画Id](# WindowAnimationId 窗口动画Id) |
+| animationID | Number | 是 | 动画ID，详见术语表-[WindowAnimationId 窗口动画Id](http://newdocx.appcan.cn/newdocx/docx?type=978_975) |
 | w | Number | 是 | 窗口宽度，请传0 |
 | h | Number | 是 | 窗口高度，请传0 |
 | flag | Number | 是 | 窗口标记，详见CONSTANT中WindowFlags |
@@ -229,7 +229,7 @@ Android2.2+
 
 > ### hideSoftKeyboard 关闭软键盘
 
-`uexWindow. hideSoftKeyboard `
+`uexWindow.hideSoftKeyboard() `
 
 **说明:**
 关闭Android设备软键盘
@@ -1435,8 +1435,8 @@ uexWindow.setSlidingWindowEnabled(1);
 
 `uexWindow.setMultilPopoverFlippingEnbaled(enable)`
 
-**说明:**
-设置控件是否响应滑动事件
+**说明:**  
+设置控件是否响应滑动事件,**该接口需要在Multipopover的子页面中调用**
 
 **参数:**
 
@@ -2510,32 +2510,7 @@ uexWindow.setStatusBarTitleColor(0);
 uexWindow.getSlidingWindowState();
 ```
  
- > ### setAutorotateEnable 获取侧滑窗口显示情况
  
- `uexWindow.setAutorotateEnable()`
- 
- **说明:**
- 是否跟随设备自动旋转，默认是跟随
- 
- **参数:**
-
- | 参数名称 | 参数类型  | 是否必选  |  说明 |
- | -------- | --------- | --------- | ----- |
- | enable | Number | 是 | 是否跟随，0：跟随；1：不跟随|
- 
- 
- **平台支持：**
- Android2.2+
- iOS6.0+
- 
- **版本支持：**
- 3.0.0+
- 
- **示例：**
- 
- ```
- uexWindow.setAutorotateEnable(1);
- ```
 
 
 > ### setIsSupportSlideCallback 设置网页是否支持滑动的相关监听方法
@@ -2610,7 +2585,7 @@ uexWindow.disturbLongPressGesture(1);
 ```
  
  
-> ### setAutorotateEnable 获取侧滑窗口显示情况
+> ### setAutorotateEnable 设置窗口是否跟随设备自动旋转
  
 `uexWindow.setAutorotateEnable()`
  
@@ -2694,14 +2669,34 @@ Android4.0+
 ```
 uexWindow.setPopHardwareEnable(‘content’,1);
 ```
-> ### reload 重载当前页面
-`uexWindow.reload();`
-**说明**
-无
-     **参数**
-无
-**平台支持**Android 2.2+  iOS 5.1.1+**版本支持**3.1.0+**示例**
-```uexWindow.reload();```
+
+> ### reload 重载当前页面
+
+`uexWindow.reload();`
+
+**说明**
+
+无
+     
+**参数**
+
+无
+
+**平台支持**
+
+Android 2.2+  
+iOS 5.1.1+
+
+**版本支持**
+
+3.1.0+
+
+**示例**
+
+```
+uexWindow.reload();
+
+```
 
 > ### topBounceViewRefresh 自动下拉刷新
 
@@ -2755,7 +2750,7 @@ iOS6.0+
 
 **示例:**
 ```
-var params = {
+        var params = {
             "id":"998",
             "x": 100,
             "y": 1064,
@@ -2778,7 +2773,7 @@ var params = {
 | jsonStr | json| 是 | 关闭的插件容器的信息 |
 
 ```
-var jsonStr = {
+        var jsonStr = {
             id : //容器id
         };	 
 ```
@@ -2792,19 +2787,88 @@ iOS6.0+
 
 **示例:**
 ```
-var params = {
+        var params = {
             "id":"998"
         };
         uexWindow.closePluginViewContainer(JSON.stringify(params));
+```
+
+
+> ### showPluginViewContainer 显示插件容器
+
+`uexWindow.showPluginViewContainer(jsonStr);`
+
+**说明:**
+显示隐藏的插件容器
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| jsonStr | json| 是 | 显示的插件容器的信息 |
+
+```
+        var jsonStr = {
+            id : //容器id
+        };	 
+```
+
+**平台支持：**
+Android2.2+
+
+**版本支持：**
+3.1.0+
+
+**示例:**
+```
+        var params = {
+            "id":"998"
+        };
+        uexWindow.showPluginViewContainer(JSON.stringify(params));
+```
+
+
+> ### hidePluginViewContainer 隐藏插件容器
+
+`uexWindow.hidePluginViewContainer(jsonStr);`
+
+**说明:**
+隐藏插件容器
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| jsonStr | json| 是 | 隐藏的插件容器的信息 |
+
+```
+        var jsonStr = {
+            id : //容器id
+        };	 
+```
+
+**平台支持：**
+Android2.2+
+
+**版本支持：**
+3.1.0+
+
+**示例:**
+```
+        var params = {
+            "id":"998"
+        };
+        uexWindow.hidePluginViewContainer(JSON.stringify(params));
 ```
 
 > ### setPageInContainer 设置插件容器当前要显示的页面
 
 `uexWindow.setPageInContainer(jsonStr);`
 
-**说明:**
+**说明**
+
 设置插件容器当前要显示的页面
-**参数:**
+
+**参数**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
@@ -2832,6 +2896,203 @@ var params = {
         };
         uexWindow.setPageInContainer(JSON.stringify(params));
 ```
+> ### hideStatusBar 隐藏状态栏
+ 
+`uexWindow.hideStatusBar()`
+ 
+**说明:**
+隐藏状态栏
+ 
+**参数:**
+无
+ 
+**平台支持：**
+iOS7.0+
+ 
+**版本支持：**
+3.0.0+
+ 
+**示例**
+ 
+`uexWindow.hideStatusBar();`
+ 
+> ### showStatusBar 显示状态栏
+ 
+`uexWindow.showStatusBar()`
+ 
+**说明:**
+显示状态栏
+ 
+**参数:**
+无
+ 
+**平台支持：**
+iOS7.0+
+ 
+**版本支持：**
+3.0.0+
+ 
+**示例**
+ 
+`uexWindow.showStatusBar();`
+
+> ### share 调用系统分享
+ 
+`uexWindow.share(jsonStr)`
+ 
+**说明:**  
+调用系统的分享框
+ 
+**参数:**  
+
+jsonStr是JSON字符串，容许的字段如下表所示**(以下均为可选参数)**
+
+
+|Key|Value类型|适用系统|说明|
+|-----|-----|-----|-----|
+|type|Number|Android|0-直接分享至微信朋友圈|
+|title|String|Android|标题|
+|subject|String|Android|子标题|
+|text|String|Android iOS|文本内容|
+|imgPath|String|Android iOS|单张图片的路径，支持file和wgt协议，图片需要先存到本地|
+|imgPaths|Array|Android iOS|多张图片路径，由imgPath构成的数组|
+|packageName|String|Android|包名。可与className搭配直接分享到某个应用。type传0时不需要传此项|
+|className|String|Android|可与packageName搭配直接分享到某个应用。type传0时不需要传此项|
+
+* iOS系统下，应用分享列表中只包含可以被分享的应用，不支持分享传入的内容的应用不会出现。
+* Android系统下，应用分享列表中会包含所有带分享功能的应用。
+* 由于系统差异，完成某些复杂的分享操作时(比如分享多张图片至微信)，此接口可能需要写2套代码。
+
+**平台支持：**
+
+iOS6.0+
+注：6.0+的系统就可以调起此接口分享内容到系统应用，但在8.0之后才允许分享至第三方应用。
+
+Android 2.3+
+ 
+**版本支持：**
+
+iOS 3.2.0+
+
+Android 3.2.3+
+ 
+**示例**
+
+ 
+Android直接分享多张图片到微信朋友圈: 
+
+```
+function share() {
+ 	var imgs = ["/sdcard/DCIM/123.jpg","/sdcard/DCIM/119.jpg","/sdcard/DCIM/504.jpg"];
+ 	var params  = {
+ 		type:0,
+ 		text:"分享到朋友圈的文字内容",
+ 		imgPaths:imgs
+ 		};
+ 	var paramStr = JSON.stringify(params);
+ 	uexWindow.share(paramStr);
+}
+```  
+
+iOS 分享多张图片至微信
+
+```
+function share(){
+ 	var param = {
+ 	imgPaths:["res://photo1t.jpg","res://photo2t.jpg"]
+ 	}
+ 	uexWindow.share(JSON.stringify(param));
+}
+```
+
+> ### setSwipeCloseEnable 设置当前页面是否支持手势侧滑关闭
+  
+`uexWindow.setSwipeCloseEnable(jsonStr)`
+
+**说明:**
+
+禁止或者重新允许当前页面是否支持手势侧滑关闭
+注意:仅对支持手势侧滑关闭的window有效!
+
+
+**参数:**
+
+jsonStr是JSON字符串，具体格式如下
+
+
+```
+var jsonStr = {
+	enable: ,//Number,必选。传0表示禁止手势侧滑关闭，传1表示允许手势侧滑关闭
+};	 
+```
+
+**示例:**
+
+```
+ var params  = {
+ 		enable:0,
+ 		};
+ var paramStr = JSON.stringify(params);
+ uexWindow.setSwipeCloseEnable(paramStr);
+
+```  
+
+**平台支持：**
+
+Android 2.2+
+iOS 6.0+
+
+**版本支持：**
+
+3.2.0+
+
+> ### getHeight 获取window的高度
+  
+`uexWindow.getHeight(jsonStr)`
+
+**参数:**  
+无
+
+**示例:**
+
+```
+ var height=uexWindow.getHeight();
+ console.log("height: "+height);
+ 
+```  
+
+**平台支持：**
+
+Android 2.2+  
+iOS 6.0+
+
+**版本支持：**
+
+3.2.0+
+
+> ### getWidth 获取window的宽度
+  
+`uexWindow.getWidth(jsonStr)`
+
+**参数:**  
+无
+
+**示例:**
+
+```
+ var width=uexWindow.getWidth();
+ console.log("width: "+ width);
+ 
+```  
+
+**平台支持：**
+
+Android 2.2+  
+iOS 6.0+
+
+**版本支持：**
+
+3.2.0+
 
 
 ## 2.2 回调方法
@@ -2855,9 +3116,9 @@ iOS6.0+
 **版本支持：**
 3.0.0+
 
-**示例：**
+**示例：**  
 
-```
+```  
 function cbConfirm(opId, dataType, data){
         alert('选择了' + data);
 }

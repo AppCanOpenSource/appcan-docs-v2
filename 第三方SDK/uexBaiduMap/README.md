@@ -587,7 +587,7 @@ var data = [
 		}
  ];
 var dataStr = JSON.stringify(data);
-uexBaiduMap.openPieChart(dataStr);
+uexBaiduMap.addMarkersOverlay(dataStr);
  
  
 ```
@@ -2419,12 +2419,13 @@ API版本:`uexBaiduMap-3.0.15`
 
 ### Android
 
-API版本:`uexBaiduMap-3.2.29`
+API版本:`uexBaiduMap-3.2.30`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.2.30 | 修复了前端调用open方法时传入小数时抛出NumberFormatException的问题 |
 | 3.2.29 | 修复了持续定位时cbCurrentLocation回调不生效的问题 |
 | 3.2.28 | 修复open接口传入的中心点不生效的问题 |
 | 3.2.27 | 修改插件,使其支持config配置APIKey |

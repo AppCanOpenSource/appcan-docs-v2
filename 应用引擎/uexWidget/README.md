@@ -129,10 +129,11 @@ uexWidget.checkUpdate();
 **说明:**
 
   根据相关信息启动一个第三方应用 。
+  假设应用A中有进行此[UrlScheme配置](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#type=”URLSCHEME” urlScheme管理（仅iOS） "UrlScheme配置")，在另一个应用B中，通过引擎的JS方法`uexWidget.loadApp('scheme1:');`即可打开应用A（注意不要漏掉冒号!）
   
 **参数:**
 
-  appInfo:(String类型) 必选  第三方应用的[URLSchemes](# "此属性可以通过AppCan平台生成的ipa包里的Info.plist文件中找到")。
+    appInfo:(String类型) 必选  第三方应用的[URLSchemes](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#type=”URLSCHEME” urlScheme管理（仅iOS） "此属性可以通过AppCan平台生成的ipa包里的Info.plist文件中找到") 
   
 **平台支持:**
 
@@ -152,7 +153,7 @@ uexWidget.loadApp(appInfo);
 ```
 > ### startApp 启动第三方应用（Android）
 
-`uexWidget.startApp(startMode,mainInfo,addInfo,optInfo)`
+`uexWidget.startApp(startMode,mainInfo,addInfo,optInfo,extra)`
 **说明:**
   根据相关信息启动一个第三方应用。
 **参数:**
@@ -168,6 +169,7 @@ uexWidget.loadApp(appInfo);
 |------|-----|--------|------- |
 |mainInfo|String|是|包名|
 |addInfo|String|否|类名，为空时启动应用入口类|
+|extra|String|否|json格式如下：'{data:"http://www.baidu.com"}'
 
 **startMode为1**
 
@@ -358,6 +360,14 @@ function startAppA(mode){
     <input class="btn" type="button" value="通过Action启动4" onclick=startAppA(4)>  
 </body>
 </html>
+```
+3.指定用QQ浏览器打开链接：
+  
+```
+var optInfo = "{'key1':'value1'},{'key2':'value1'}";
+var extra='{data:"http://www.appcan.cn/"}';
+uexWidget.startApp(0, "com.tencent.mtt","com.tencent.mtt.MainActivity",optInfo,extra);
+
 ```
 
 > ### getOpenerInfo 获取widget的相关信息
@@ -619,7 +629,7 @@ uexWidget.setPushState(0);
 
 ```
   uexWidget.closeLoading()
- ```
+```
  
 > ### moveToBack 运行到后台,不退出程序
 
@@ -671,7 +681,39 @@ iOS 5.1.1+
 **示例**
 
 `uexWindow.reloadWidgetByAppId(sdk2015);`
+
+
+> ### setKeyboardMode 设置键盘模式
+
+`uexWidget.setKeyboardMode(json)`
   
+**参数:**
+
+````
+   var json = {
+    mode://(必选) Number类型 0:压缩模式 1：平移模式
+ } 
+````
+  
+**平台支持:**
+
+  Android2.2+  
+  
+**版本支持:**
+
+  3.2.0+
+  
+**示例:**
+
+````
+var json = {
+    mode:0
+};
+var data1 = JSON.stringify(json);
+uexWidget.setKeyboardMode(data1);
+````
+  
+
 ## 2.2 回调方法
   
 > ### cbStartWidget 加载widget完成时的回调方法
@@ -702,7 +744,7 @@ iOS 5.1.1+
 
   ````
 uexWidget.cbStartWidget=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
 > ### cbRemoveWidget 删除widget完成时的回调方法
@@ -731,7 +773,7 @@ uexWidget.cbStartWidget=function(opId,dataType,data){
 
   ````
 uexWidget.cbRemoveWidget=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
 > ### cbCheckUpdate 检查更新完成时的回调方法
@@ -765,7 +807,7 @@ var data={
 
   ````
 uexWidget.cbCheckUpdate=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
 > ### cbGetOpenerInfo 获取widget相关信息的回调方法
@@ -796,7 +838,7 @@ uexWidget.cbCheckUpdate=function(opId,dataType,data){
 
   ````
 uexWidget.cbGetOpenerInfo=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
   
@@ -838,7 +880,7 @@ var data={
 
   ````
 uexWidget.cbGetPushInfo=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
 > ### cbGetPushState 获取推送状态的回调方法
@@ -868,7 +910,7 @@ uexWidget.cbGetPushInfo=function(opId,dataType,data){
 
   ````
 uexWidget.cbGetPushState=function(opId,dataType,data){
-	alert('opid:'+opid+',dataType:'+dataType+',data:'+data);
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
 **版本支持:**
