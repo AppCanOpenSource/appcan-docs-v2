@@ -659,7 +659,7 @@ Android2.2+
 
 > ### reloadWidgetByAppId 根据appId重载widget
 
-`uexWindow.reloadWidgetByAppId(appId);`
+`uexWidget.reloadWidgetByAppId(appId);`
 
 **说明**
 
@@ -680,7 +680,7 @@ iOS 5.1.1+
 
 **示例**
 
-`uexWindow.reloadWidgetByAppId(sdk2015);`
+`uexWidget.reloadWidgetByAppId(sdk2015);`
 
 
 > ### setKeyboardMode 设置键盘模式

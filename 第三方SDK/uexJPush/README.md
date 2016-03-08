@@ -508,7 +508,7 @@ window.uexOnload=function(type){
 }
 
 ```
->### cbSetTags 设置别名的回调方法
+>### cbSetTags 设置标签的回调方法
 
 `uexJPush.cbSetTags(json)`
 

@@ -5,7 +5,7 @@
 
 ## 1.1、说明
 
-创建一个带安全键盘的输入框插件,提供纯数字键盘，数字、字母和符号可切换的键盘，同时输入框位置、键盘描述信息可以定制，具体见下面。
+创建一个带安全键盘的输入框插件,提供纯数字键盘,数字、字母和符号可切换的键盘,同时输入框位置、键盘描述信息可以定制,具体见下面。
 
 ## 1.2、UI展示
 
@@ -42,13 +42,13 @@
     }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 名称 | 类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | String | 是 | 唯一标识符,与监听方法中的id对应 |
-| keyboardType | Number | 否 | 键盘类型，参考[KeyboardType](#KeyboardType) ，默认为0|
-| keyboardDescription | String | 否 | 键盘描述信息，如UI展示中显示在键盘顶部的文字描述"正益移动安全输入" |
+| keyboardType | Number | 否 | 键盘类型,参考[KeyboardType](#KeyboardType) ,默认为0|
+| keyboardDescription | String | 否 | 键盘描述信息,如UI展示中显示在键盘顶部的文字描述"正益移动安全输入" |
 | x | Number | 是 | 输入框距屏幕左边缘的距离 |
 | y | Number | 是 | 输入框距屏幕顶部的距离 |
 | width | Number | 是 | 输入框的宽度 |
@@ -79,7 +79,6 @@ iOS 3.0.0+
     uexSecurityKeyboard.open(JSON.stringify(params));
 ```
 
-
 > ### close 销毁带安全键盘的输入框
 
 `uexSecurityKeyboard.close(params);`
@@ -91,7 +90,7 @@ iOS 3.0.0+
 **参数:**
 
 ```
-    var params = []//(可选) 输入框id数组，不传时，销毁全部输入框
+    var params = []//(可选) 输入框id数组,不传时,销毁全部输入框
 ```
 
 **平台支持:**
@@ -117,12 +116,12 @@ iOS 3.0.0+
 
 **说明:**
 
-获取输入框中的内容，回调方法[cbGetContent](#cbGetContent 获取输入框中的内容的回调方法)
+获取输入框中的内容,回调方法[cbGetContent](#cbGetContent 获取输入框中的内容的回调方法)
 
 **参数:**
 
 ```
-    var params = []//(可选) 输入框id数组，不传时，获取全部输入框中的内容
+    var params = []//(可选) 输入框id数组,不传时,获取全部输入框中的内容
 ```
 
 **平台支持:**
@@ -145,7 +144,6 @@ iOS 3.0.0+
     //获取所有输入框中的内容
     uexSecurityKeyboard.getContent();
 ```
-
 
 ## 2.2、回调方法
 
@@ -173,7 +171,7 @@ var param = [//输入框数据列表
 | 名称 | 类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | String | 是 | 唯一标识符,与open方法中的id对应 |
-| content | String | 否 | 输入的内容，仅当传入的id标识的输入框已打开的有效 |
+| content | String | 否 | 输入的内容,仅当传入的id标识的输入框已打开的有效 |
 
 **平台支持**
 
@@ -201,7 +199,7 @@ window.uexOnload=function(type){
 
 |value|描述|
 |-----|-----|
-| 0 | 纯数字键盘，不可切换 |
+| 0 | 纯数字键盘,不可切换 |
 | 1 | 数字、字母、符号可切换键盘 |
 | 2 | 系统默认键盘 |
 
@@ -226,4 +224,3 @@ API版本:`uexSecurityKeyboard-3.0.0`
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 | 3.0.0 | 带安全键盘的输入框插件 |
-

@@ -166,3 +166,26 @@
 	</permission>
 </config>
 ```
+
+##type="ENTITLEMENTS" 授权信息管理（仅iOS）
+
+
+
+###设置merchant商户信息
+
+如果你的App需要支持ApplePay功能 那么必须要配置merchant商户信息
+
+#### 例子
+
+```
+<config desc="xxx" type="ENTITLEMENTS">
+    <entitlement type="merchant" value="merchantIdentifier1"/>
+    <entitlement type="merchant" value="merchantIdentifier2"/>
+</config>
+```
+
+####说明
+
+*  type是必传参数，配置merchant商户信息时,传`"merchant"`;
+*  value是必传参数，传你配置的商户信息的merchantIdentifier;
+*  如果此App内需要同时用到多个商户信息，配置多个`<entitlement>`条目即可

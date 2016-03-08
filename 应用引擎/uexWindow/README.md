@@ -1469,7 +1469,7 @@ uexWindow.setMultilPopoverFlippingEnbaled(1);
 
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
-| orientation | Number | 是 |1：竖屏，home键在屏幕下方；    2：横屏，home键在屏幕右边；4：竖屏，home键在屏幕上方；  8：横屏，home键在屏幕左边；3：既支持1又支持2；    15：随系统设置自动转屏。|
+| orientation | Number | 是 |1：竖屏，home键在屏幕下方；    2：横屏，home键在屏幕右边；4：竖屏，home键在屏幕上方；  8：横屏，home键在屏幕左边；   15：随系统设置自动转屏。|
 
 **平台支持：**
 Android2.2+
@@ -3040,6 +3040,54 @@ var jsonStr = {
 **平台支持：**
 
 Android 2.2+
+iOS 6.0+
+
+**版本支持：**
+
+3.2.0+
+
+> ### getHeight 获取window的高度
+  
+`uexWindow.getHeight(jsonStr)`
+
+**参数:**  
+无
+
+**示例:**
+
+```
+ var height=uexWindow.getHeight();
+ console.log("height: "+height);
+ 
+```  
+
+**平台支持：**
+
+Android 2.2+  
+iOS 6.0+
+
+**版本支持：**
+
+3.2.0+
+
+> ### getWidth 获取window的宽度
+  
+`uexWindow.getWidth(jsonStr)`
+
+**参数:**  
+无
+
+**示例:**
+
+```
+ var width=uexWindow.getWidth();
+ console.log("width: "+ width);
+ 
+```  
+
+**平台支持：**
+
+Android 2.2+  
 iOS 6.0+
 
 **版本支持：**
