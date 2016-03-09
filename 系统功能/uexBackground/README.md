@@ -26,6 +26,7 @@ param 是JSON字符串
 ```
 var param = {
 	jsPath:,//String必选，js文件路径
+	jsResourcePaths:,//Array,可选, 由String构成的字符串，依赖的js文件路径 
 }
 ```
 **返回值**
@@ -80,6 +81,7 @@ var param = {
 
 * 设置成功之后，**会立即开始第一次回调**，而不是等过了timeInterval毫秒之后才开始第一次
 * callbackName不能为`"onLoad"`
+* 由于系统限制，实际使用时,回调触发间隔可能会有毫秒级的误差。
 
 **返回值**
 
@@ -95,7 +97,7 @@ Boolean 是否add成功
 
 **说明**
 
-取消一个定时器
+取消定时器
 
 **参数**
 
@@ -125,7 +127,7 @@ var param = []//Array,必选由id构成的数组，传[]代表取消所有timer
 无
 
 
-###XXX(param)
+###XXX(count)
 
 **说明**
 
@@ -135,11 +137,5 @@ var param = []//Array,必选由id构成的数组，传[]代表取消所有timer
 
 **参数**
 
-param 是JSON字符串
+Number类型，为当前已经执行的次数。从1开始计数。
 
-
-```
-var param = {
-	currentTimes://Number,当前已经执行的次数。从1开始计数。
-}
-```
