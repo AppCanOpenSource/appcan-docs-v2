@@ -1073,7 +1073,7 @@ iOS 3.2.0+
 **示例:**
 
 ```
-uexApplePay.onShippingContactChange = function(info){
+uexApplePay.onShippingMethodChange = function(info){
 	alert(info);
 }
 ```
