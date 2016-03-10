@@ -606,7 +606,7 @@ Android2.2+
 | type | Number | 是 | 0-没有进度条；1-有进度条 |
 | location | Number | 是 | 显示位置，详见CONSTANT中WindowToastLocation |
 | msg | Number | 是 | 消息 |
-| duration | Number | 是 | 显示时间，非正整数时，提示框一直存在，不会自动关闭 |
+| duration | Number | 是 | 显示时间，单位为毫秒，非正整数时，提示框一直存在，不会自动关闭 |
 
 **平台支持：**
 Android2.2+
