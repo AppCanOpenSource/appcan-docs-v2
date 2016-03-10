@@ -518,6 +518,41 @@ var param = {
 param = JSON.stringify(param);
 uexAudio.setPlayMode(param)；
 ```
+
+> ### setProximityState 设置听筒感应开关
+
+`uexAudio.setProximityState(params)`
+
+**说明:**
+
+设置是否开启听筒感应。
+开启听筒感应状态下，当监测到用户贴近听筒时自动使用听筒播放.
+***如果已经设置听筒模式，即使听筒感应开关开启，监测到离开听筒的动作也不会修改播放模式***
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| params | String | 是 | 设置听筒感应开关，1为开启，0为关闭 |
+
+**平台支持:**
+
+Android2.2+
+
+**版本支持:**
+
+  Android 3.0.8+
+
+
+**示例:**
+
+```
+//开启听筒感应
+uexAudio.open(url);
+uexAudio.setProximityState('1');
+uexAudio.play(0);
+```
+
 ## 2.2、回调方法
 > ### cbRecord  打开录音界面的回调方法
 
