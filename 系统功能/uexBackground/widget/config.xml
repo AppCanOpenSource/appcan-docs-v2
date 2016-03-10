@@ -14,4 +14,7 @@
   <bgcolor>#fefefe</bgcolor>  
   <widgetOne version="[widgetOneVersion]"/>  
   <orientation>15</orientation> 
+  <config desc="backgroundConfig" type="AUTHORITY">
+    <permission platform="iOS" info="backgroundMode" flag="2"/>
+</config>
 </widget>
