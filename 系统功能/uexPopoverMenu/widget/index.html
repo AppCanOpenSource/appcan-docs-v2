@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport"
+        content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+            <title>uexPopoverMenu</title>
+            <script type="text/javascript">
+                window.uexOnload = function() {
+                    uexPopoverMenu.cbItemSelected = function(selectRow){
+                        alert("select index "+selectRow);
+                    }
+                    
+                }
+                function clickButton(){
+                    var params = {
+                        "x": window.screen.width*0.00,
+                        "y": window.screen.height*0.0,
+                        "direction":3,
+                        "bgColor":'#FFC125',
+                        "dividerColor":'#191B1D',
+                        "textColor":'#FFFFFF',
+                        "textSize":window.screen.width*0.042,
+                        "data":[
+                              {
+                              "icon":'res://groupchat.png',
+                              "text":'Group Chat'
+                              },
+                              {
+                              "icon":'res://addcontacts.png',
+                              "text":'Add Contacts'
+                              },
+                              {
+                              "icon":'res://scanqrcode.png',
+                              "text":'Scan QR code'
+                              },
+                              {
+                              "icon":'res://feedback.png',
+                              "text":'Feedback'
+                              }
+                              ]
+                    };
+                    var params2 = {
+                        "x": window.screen.width*0.02,
+                        "y": window.screen.height*0.1,
+                        "direction":2,
+                        "bgColor":'#FFC125',
+                        "dividerColor":'#191B1D',
+                        "textColor":'#FFFFFF',
+                        "textSize":window.screen.width*0.042,
+                        "data":[
+                              {
+                              "text":'Group Chat'
+                              },
+                              {
+                              "text":'Add Contacts'
+                              },
+                              {
+                              "text":'Scan QR code'
+                              },
+                              {
+                              "text":'Feedback'
+                              }
+                              ]
+                    };
+                    uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
+                    //uexPopoverMenu.openPopoverMenu(JSON.stringify(params2));
+
+                }
+
+                </script>
+            </head>
+    
+    <body>
+        <div class="tit" id = "tit">uexPopoverMenu</div>
+        <div class="conbor">
+            <div class="consj">
+                <br><br><br><br><br><br><br>
+                <input class="btn" type="button" value="open" onclick="clickButton();"/>
+                
+                
+            </div>
+        </div>
+    </body>
+</html>
