@@ -132,7 +132,7 @@ uexCamera.removeViewCameraFromWindow();
 
 **说明:**
 
-通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。
+通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。如果设置changeCameraPosition为前置摄像头则闪光灯无效。
 
 **参数:**
 
@@ -317,12 +317,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexCamera-3.0.3`
+API版本:`uexCamera-3.0.4`
 
-最近更新时间:`2016-2-16`
+最近更新时间:`2016-3-09`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.4 | 修改openViewCamera不传照片质量崩溃bug,修改changeFlashMode闪光灯接口 |
 | 3.0.3 | 插件改为arc,添加openInternal自定义相机接口,添加openViewCamera自定义view模式相机 |
 | 3.0.2 | 添加IDE支持 |
 | 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
