@@ -1737,7 +1737,7 @@ index2.html
 `uexWindow.subscribeChannelNotification(channelId,functionName)`
 
 **说明:**
-窗口之间的通信，可以通过发布/订阅模式来实现。窗口调用此接口订阅频道监听，当在另一窗口调用publishChannelNotification时，对应此频道的回调方法将被调用，并传入相应的参数。
+窗口之间的通信，可以通过发布/订阅模式来实现。窗口调用此接口订阅频道监听，当在另一窗口调用publishChannelNotification或publishChannelNotificationForJson时，对应此频道的回调方法将被调用，并传入相应的参数。
 
 **参数:**
 
@@ -1900,6 +1900,35 @@ iOS6.0+
 **示例：**
 ```
 uexWindow.publishChannelNotification("1","channel 1 test just!");
+
+```
+> ### publishChannelNotificationForJson 发送全局Json类型消息
+
+
+
+`uexWindow.publishChannelNotificationForJson(channelId,content)`
+**说明:**
+发布消息通知，此频道的所有订阅者，将收到消息，回调函数将被调用，并传入相应的参数.
+
+**参数:**
+
+| 参数名称 | 参数类型  | 是否必选  |  说明 |
+| -------- | --------- | --------- | ----- |
+| channelId | Number | 是 | 频道唯一标识符 |
+| content | String | 是 | 发送Json类型的内容 |
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+**版本支持：**
+3.0.0+
+
+**示例：**
+```
+var json = ｛
+      key ：value
+｝
+uexWindow.publishChannelNotificationForJson("1",JSON.stringify(json));
 
 ```
 
