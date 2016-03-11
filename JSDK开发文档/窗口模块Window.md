@@ -1,4 +1,4 @@
-﻿
+
 
 
 appcan是多窗口的，该模块封装了关于窗口的基础操作
@@ -29,7 +29,7 @@ appcan是多窗口的，该模块封装了关于窗口的基础操作
           10: 由右向左切入
           11: 由上先下切入
           12: 由下向上切入
-          13: 由左向右切出
+          13: 由左向右切出 
           14: 由右向左切出
           15: 由上向下切出
           16: 由下向上切出
@@ -172,7 +172,7 @@ appcan.window.evaluateScript({
 ````
 >###appcan.window.evaluatePopoverScript(name,popName,scriptContent)
 
-   在指定的弹出窗内执行响应的脚本
+   在指定的弹出窗内执行相应的脚本
 ````
     name:要执行脚本的窗口名称
     popName:要执行的弹出窗口的名称
@@ -247,7 +247,7 @@ appcan.window.evaluatePopoverScript({
 **例如：**
 
 ````
-  //给页面天加一个简单的弹动效果
+  //给页面添加一个简单的弹动效果
     appcan.window.setBounce({
         bounceType:'1',
         color:'#F00',
@@ -298,7 +298,7 @@ win.disableBounce();
         1: 颜色弹动效果
         2: 设置图片弹动
     color:设置弹动结果的背景颜色
-    flag:是否显示内容,1:显示内容，0:不现实内容
+    flag:是否显示内容,1:显示内容，0:不显示内容
     callback(status,type):当设置成功后，如果滑动超过了弹动的边界，则会触发该回调，status: 当type=0时，值0为向下拉，1为超越边界，2为向上返回到最初状态；当type=1时，0为向上拉，1为超越边界，2为向下返回到最初状态。 type跟传入的参数type一致
 ````
 **参数还可以以对象的形式传参：**
@@ -518,7 +518,7 @@ win.moveAnim({
 ````
 >###appcan.window.openPopover(name,dataType,url,data,left,top,width,height,fontSize,type,bottomMargin,extraInfo)
 
-   打开一个弹出框，如果不存在则会先创建然后再打开，如果存在则直接打开 
+   打开一个浮动窗口/弹出框，如果不存在则会先创建然后再打开，如果存在则直接打开 
 ````
     name:要打开弹出窗的名称
     dataType:新窗口填充的数据类型
@@ -759,7 +759,7 @@ win.confirm({
     content:提示框中显示的内容
     defaultValue:(String类型) 必选 输入框默认文字
     buttons:提示框显示的按钮，多个按钮可以为数组形式
-    callback(err,data,dataType,optId):当点击了其中一个按钮后的回调， 第一个参数是Error对象如果为空则表示没有错误，否则表示操作出错了，data表示返回的操作结果{num:'按钮的索引值',val:'输入框的值'},dataType操作结果的数据类型，optId该操作id
+    callback(err,data,dataType,optId):当点击了其中一个按钮后的回调， 第一个参数是Error对象如果为空则表示没有错误，否则表示操作出错了，data表示返回的操作结果{num:'按钮的索引值',value:'输入框的值'},dataType操作结果的数据类型，optId该操作id
 ````
 参数还可以以对象的形式传参：
 ```
@@ -797,7 +797,7 @@ win.bringPopoverToFront('demo');
 ````
     id:指定元素的Id
     url:要加载到弹出窗口中的地址
-    left:距离做边界的距离
+    left:距离左边界的距离
     top:距离上边界的距离
     name:弹出窗口的名称，如果id没有指定的话用name，否则用id
     extraInfo:扩展参数，json格式如下： {"extraInfo":{"opaque":"true","bgColor":"#011","delayTime":"250"}}
@@ -835,10 +835,10 @@ win.popoverElement({
 
 >### appcan.window.resizePopoverByEle(id,left,top,name)
 
-   设置指定的弹出窗口回复到指定窗口的大小，并设置弹出窗的位置 
+   设置指定的弹出窗口恢复到指定窗口的大小，并设置弹出窗的位置 
 ````
     id:指定的元素，根据该元素设置弹出窗口的大小
-    left:弹出窗口距离做边界的距离
+    left:弹出窗口距离左边界的距离
     top:弹出窗口距离上边界的距离
     name:要设置的弹出窗口的名称，如果id没有传值的话使用这个值
 ````
@@ -898,7 +898,7 @@ win.popoverElement({
        64: 等待popOver加载完毕后显示
      128: 支持手势
      256: 标记open的window上一个window不隐藏
-     512: 标记open的浮动窗口用友打开wabapp
+     512: 标记open的浮动窗口用于打开wabapp
     indexSelected:默认显示的索引项，默认显示第一项
     extraInfo:扩展参数，json格式如下： {"extraInfo":{"opaque":"true","bgColor":"#011","delayTime":"250"}}
 ````
@@ -1175,3 +1175,640 @@ appcan.window.on('resume',callback)
 appcan.window.on('pause',callback)
 ````
   窗口回到后台时执行回调函数
+
+>### appcan.window.monitorKey(id,enable,callback)
+
+捕获android实体键
+
+**参数:**
+
+	id:要拦截的键值id,0-返回键，1-菜单键
+	enable:是否拦截,0-不拦截，1-拦截
+	callback(id):(Function)点击实体键时的回调函数
+		id:按键的值，0:返回键;1:菜单键
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+
+	appcan.window.monitorKey({
+		id:"0",
+		enable:"1",
+		callback:function(id){
+			alert("点击的按键："id);	
+		}
+	});
+
+>### appcan.window.actionSheet(title,cancelText,buttons,callback)
+
+弹出一个可选的菜单列表
+
+**参数:**
+
+    title： 菜单列表的标题
+    cancelText： 取消按钮上显示文字内容
+    buttons：(Array)显示在菜单列表上的文字集合
+    callback(err,data)：  菜单列表关闭的回调 
+		err:Error对象，如果没错则为空
+		data:选择的按钮的索引值
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+
+	appcan.window.actionSheet("title","cancel",[1,2,3],function(err,data){
+		alert(data)
+	});
+	或者
+	appcan.window.actionSheet({
+		title:"title",
+		cancelText:"cancel",
+		buttons:[1,2,3],
+		callback:function(err,data){
+			if(!err)alert(data)
+		}
+	});
+
+>### appcan.window.setSlidingWindow(leftSliding,rightSliding,animationId,bg)
+
+设置侧滑窗口
+
+**参数:**
+
+    leftSliding： 左侧滑窗口，如：{width:240,url:”uexWindow_left.html”}
+	rightSliding： 左侧滑窗口，如：{width:240,url:”uexWindow_right.html”}
+    animationId： 打开窗口动画类型
+    bg：侧滑窗口背景图片
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+
+    appcan.window.setSlidingWindow({
+        leftSliding : {
+            width : 240,
+            url : "slidingWindow/uexWindow_left.html"
+        },
+        rightSliding : {
+            width : 240,
+            url : "slidingWindow/uexWindow_left1.html"
+        },
+        animationId : '1', //仿QQ侧滑
+        bg : 'res://1_1.jpg' //仿QQ侧滑；注：res目录为js文件夹同级目录wgtRes
+    });
+   
+>### appcan.window.toggleSlidingWindow(mark,reload)
+
+打开或关闭侧滑窗口，注：打开侧滑窗口前，需先调用setSlidingWindow设置打开的侧滑窗口信息
+
+**参数:**
+
+    mark :必选, 左右侧窗口标识，0：左侧，1：右侧
+    reload :可选, 是否重新加载页面 ，1：重新加载
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+
+    appcan.window.toggleSlidingWindow({
+		mark:0,
+		reload:1
+	})
+
+	appcan.window.toggleSlidingWindow({
+		mark:1
+	})
+		
+>### appcan.window.setSlidingWindowEnabled(enable)
+
+设置侧滑窗口是否可用
+
+**参数:**
+
+    enable 侧滑窗口是否可用，0：不可用，1：可用
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+
+    appcan.window.setSlidingWindowEnabled(1);
+
+>### appcan.window.getSlidingWindowState(callback)
+
+获取侧滑窗口显示情况
+
+**参数:**
+
+    callback(data):回调函数
+		data:返回的显示情况，0：左侧菜单显示；1：主界面显示；2：右侧菜单显示
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+
+    appcan.window.getSlidingWindowState(function(data){
+		alert(data);
+	});
+
+>### appcan.window.getUrlQuery(callback)
+
+获取加载页面时传入的参数(注：目前只支持IOS)
+
+**参数:**
+
+    callback(data):回调函数
+		data:传入的参数数据内容
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+
+    appcan.window.getUrlQuery(function(data){
+		alert(data);
+		//如id=123，则为id=123
+	});
+
+>### appcan.window.setStatusBarTitleColor(type)
+
+设置状态条上字体的颜色(*注：只支持IOS系统*)
+
+**参数:**
+
+    type:状态条上字体的颜色，0为白色(iOS7以上为透明底,iOS7以下为黑底)， 1为黑色(iOS7以上为透明底,iOS7以下为白底)
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+
+    appcan.window.setStatusBarTitleColor(1);
+
+>### appcan.window.getState(callback)
+
+ 获取窗口是否处于前台
+
+**参数:**
+
+    callback(data):回调函数
+		data:返回的状态值，0：前台；1：后台；
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+
+**例子:**
+
+    appcan.window.getState(function(data){
+		if(data == 0){
+			alert("当前窗口处于前台")
+		}else if(data ==1){
+			alert("当前窗口处于后台");
+		}
+	});
+
+
+>### appcan.window.setWindowScrollbarVisible(enable)
+
+ 设置内容超过一屏滚动的时候滚动条的显示和隐藏
+     
+
+**参数:**
+
+    enable: 滚动条的显示和隐藏，0：隐藏，1：显示
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	//滚动时不显示滚动条
+    appcan.window.setWindowScrollbarVisible(0)；
+
+	//滚动时显示滚动条
+	appcan.window.setWindowScrollbarVisible(1)
+
+>### appcan.window.hiddenBounceView(type)
+
+ 隐藏弹动效果
+
+**参数:**
+
+    type: 隐藏的位置，0:顶端，1：底部
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	//顶端隐藏弹动效果
+    appcan.window.hiddenBounceView(0)；
+
+	//底部隐藏弹动效果
+	appcan.window.hiddenBounceView(1)
+
+>### appcan.window.showBounceView(type,color,flag)
+
+ 显示弹动效果
+
+**参数:**
+
+    type: 弹动的位置，0：顶端弹动；1：底部弹动
+	color： 弹动显示部位的颜色值，内容不超过一屏时底部弹动内容不显示
+	flag： 是否显示内容，1：显示；0：不显示
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	appcan.window.showBounceView({
+		type:0,
+		color:'#fff000',
+		flag:1
+	});
+
+>### appcan.window.insertAbove(name)
+
+ 将当前浮动窗口插入到指定浮动窗口之上
+
+**参数:**
+
+    name: 指定的浮动窗口的名称
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	//主窗口打开两个浮动窗口
+	appcan.window.openPopover({ 
+        name:"pop1",
+        url:"popFrame1.html",
+        top:200,
+        left:0,
+        height:200
+    });
+    appcan.window.openPopover({
+        name:"pop2",
+        url:"popFrame2.html",
+        top:300,
+        left:0,
+        height:200
+    });
+
+	//此时按打开先后pop2在上面
+	//pop1内执行以下代码则pop1浮动窗口插入到pop2浮动窗口上面
+	appcan.window.insertAbove("pop2");
+
+>### appcan.window.insertBelow(name)
+
+ 将当前浮动窗口插入到指定浮动窗口之下
+
+**参数:**
+
+    name: 指定的浮动窗口的名称
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	//主窗口打开两个浮动窗口
+	appcan.window.openPopover({ 
+        name:"pop1",
+        url:"popFrame1.html",
+        top:200,
+        left:0,
+        height:200
+    });
+    appcan.window.openPopover({
+        name:"pop2",
+        url:"popFrame2.html",
+        top:300,
+        left:0,
+        height:200
+    });
+
+	//此时按打开先后pop2在上面
+	//pop2内执行以下代码则pop2浮动窗口插入到pop1浮动窗口下面
+	appcan.window.insertBelow("pop1");
+
+>### appcan.window.insertPopoverAbovePopover(nameA,nameB)
+
+ 将指定浮动窗口插入到另一浮动窗口之上,只在主窗口中有效
+
+**参数:**
+
+    nameA： 指定浮动窗口A的名称
+    nameB： 指定浮动窗口B的名称
+
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	//主窗口打开两个浮动窗口
+	appcan.window.openPopover({ 
+        name:"pop1",
+        url:"popFrame1.html",
+        top:200,
+        left:0,
+        height:200
+    });
+    appcan.window.openPopover({
+        name:"pop2",
+        url:"popFrame2.html",
+        top:300,
+        left:0,
+        height:200
+    });
+
+	//此时按打开先后pop2在上面
+	//pop1插入到pop2上面
+	appcan.window.insertPopoverAbovePopover("pop1","pop2");
+	或者
+	appcan.window.insertPopoverAbovePopover({
+		nameA:"pop1",
+		nameB:"pop2"
+	});
+
+>### appcan.window.insertPopoverBelowPopover(nameA,nameB)
+
+ 将指定浮动窗口插入到另一浮动窗口之下,只在主窗口中有效
+
+**参数:**
+
+    nameA： 指定浮动窗口A的名称
+    nameB： 指定浮动窗口B的名称
+
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	//主窗口打开两个浮动窗口
+	appcan.window.openPopover({ 
+        name:"pop1",
+        url:"popFrame1.html",
+        top:200,
+        left:0,
+        height:200
+    });
+    appcan.window.openPopover({
+        name:"pop2",
+        url:"popFrame2.html",
+        top:300,
+        left:0,
+        height:200
+    });
+
+	//此时按打开先后pop2在上面
+	//pop1插入到pop2上面
+	appcan.window.insertPopoverBelowPopover("pop2","pop1");
+	或者
+	appcan.window.insertPopoverBelowPopover({
+		nameA:"pop2",
+		nameB:"pop1"
+	});
+
+>### appcan.window.insertWindowAboveWindow(nameA,nameB)
+
+ 将指定窗口A插入到另一窗口B之上，该接口仅对显示在屏幕上且不被隐藏的window起作用。（即open该window时，type传入的是256）
+
+**参数:**
+
+    nameA： 指定窗口A的名称
+    nameB： 指定窗口B的名称
+
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	appcan.window.insertWindowAboveWindow("window1","window2");
+	或者
+	appcan.window.insertWindowAboveWindow({
+		nameA:"window1",
+		nameB:"window2"
+	});
+
+>### appcan.window.insertWindowBelowWindow(nameA,nameB)
+
+ 将指定窗口A插入到另一窗口B之下，该接口仅对显示在屏幕上且不被隐藏的window起作用。（即open该window时，type传入的是256）
+
+**参数:**
+
+    nameA： 指定窗口A的名称
+    nameB： 指定窗口B的名称
+
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	//window1插入到window2下面
+	appcan.window.insertWindowBelowWindow("window1","window2");
+	//或者
+	appcan.window.insertWindowBelowWindow({
+		nameA:"window1",
+		nameB:"window2"
+	});
+
+>### appcan.window.onPopoverLoadFinishInRootWnd(callback)
+
+浮动窗口加载完成的监听方法
+
+**参数:**
+
+	callback(name,url):监听的回调函数
+		name:浮动窗口的名称
+		url:浮动窗口的url；当浮动窗口加载的是本地网页时，url返回网页的绝对路径（file:// 开头）当浮动窗口加载的是网络上的网页时，url返回网址（http:// 开头）
+
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	appcan.window.onPopoverLoadFinishInRootWnd(function(name,url){
+		if(name="pop1"){
+			alert("浮动窗口pop1加载完成！");
+		}
+	});
+
+
+>### appcan.window.preOpenStart()
+
+开始浮动窗口的预加载
+
+**说明:**
+
+	popOver的预加载必须要与appcan.window.open中的type=64配合：即open时有此type方可对应使用预加载。开始popOver(浮动窗口)的预加载。即一个窗口中需要有多个浮动窗口，可以让这些浮动窗口预先加载出来。
+	其执行过程：A窗口打开B窗口，B窗口中需要预加载多个浮动窗口。那么A窗口中执行appcan.window.open时，其type参数需要为64配合使用，即open时有此type，B窗口方可使用预加载。此时在B窗口中，会等所有预加载的浮动窗口都加载完毕（不包括异步获取网络数据），方才显示B窗口。预加载的浮动窗口的开启函数，即appcan.window.openPopover，需要放置于appcan.window.preOpenStart和appcan.window.preOpenFinish之间。
+
+**参数:**
+
+	无
+
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	//A窗口打开B窗口代码需要type为64
+	appcan.window.open("preOpen","preOpen.html",10,64); 
+	或者
+	appcan.window.open({
+		name:"preOpen",
+		data:"preOpen.html",
+		type:64//此为必须
+	}); 
+	
+	
+	//B窗口即preOpen.html
+	appcan.ready(function() {
+            
+	appcan.window.preOpenStart();
+        
+        appcan.window.openPopover({
+            name:"content1",
+            url:"list/lv_thickline_multi_content.html",
+            top:200,
+            left:0,
+            height:200
+        });
+        appcan.window.openPopover({ 
+            name:"content2",
+            url:"http://wap.3g2win.com",
+            top:50,
+            left:0,
+            height:200
+        });
+        appcan.window.openPopover({
+            name:"content3",
+            url:"list/lv_thickline_icon_sub_angle_content.html",
+            top:400,
+            left:0,
+            height:200
+        });
+        appcan.window.preOpenFinish();
+    });
+
+>### appcan.window.preOpenFinish()
+
+结束浮动窗口的预加载
+
+**参数:**
+
+	无
+
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	appcan.window.preOpenFinish();
+
+>### appcan.window.windowForward(animId,animDuration)
+
+在多窗口机制中，前进到下一个window。(前提是有打开的window窗口)
+
+**参数:**
+
+	animId:动画类型Id
+		0: 无动画
+        1: 从左向右推入
+        2: 从右向左推入
+        3: 从上向下推入
+        4: 从下向上推入
+        5: 淡入淡出
+        6: 左翻页
+        7: 右翻页
+        8: 水波纹
+        9: 由左向右切入
+     	10: 由右向左切入
+      	11: 由上先下切入
+      	12: 由下向上切入
+      	13: 由左向右切出
+      	14: 由右向左切出
+      	15: 由上向下切出
+      	16: 由下向上切出
+	animDuration:动画持续时长，单位为毫秒，默认为260毫秒
+
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	appcan.window.windowForward(0,200);
+
+>### appcan.window.windowBack(animId,animDuration)
+
+在多窗口机制中，用于返回上一个window，比如在Awindow中uexWindow.open了Bwindow，那么在Bwindow中返回Awindow就可使用此方法。
+
+**参数:**
+
+	animId:动画类型Id
+		0: 无动画
+        1: 从左向右推入
+        2: 从右向左推入
+        3: 从上向下推入
+        4: 从下向上推入
+        5: 淡入淡出
+        6: 左翻页
+        7: 右翻页
+        8: 水波纹
+        9: 由左向右切入
+     	10: 由右向左切入
+      	11: 由上先下切入
+      	12: 由下向上切入
+      	13: 由左向右切出
+      	14: 由右向左切出
+      	15: 由上向下切出
+      	16: 由下向上切出
+	animDuration:动画持续时长，单位为毫秒，默认250毫秒
+
+
+**JS SDK版本支持:**
+	
+1.0.0+
+
+**例子:**
+	
+	appcan.window.windowBack(0,200);

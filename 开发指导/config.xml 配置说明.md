@@ -1,10 +1,8 @@
 [TOC]
 
-#config.xml 配置说明
 
-`last update:2015-10-14`
 
->## 简介
+## 简介
 
 * config.xml中的`<widget>`节点内会有**一个或多个**`<config>`块(如下所示)
 
@@ -25,20 +23,20 @@
 
 
 
->##type="KEY" 插件KEY值配置
+##type="KEY" 插件KEY值配置
 
 本质上是进行替换操作
 
 
-####例子：
+**例子**
 
 ```
 <config desc="uexBaiduMap" type="KEY">
-	<param platform="iOS"  name="$uexBaiduMap_ApiKey$" value="qwerty"/>
-	<param platform="Android"  name="$uexBaiduMap_ApiKey$" value="123456"/>
+	<param platform="iOS"  name="$uexBaiduMap_APIKey$" value="qwerty"/>
+	<param platform="Android"  name="$uexBaiduMap_APIKey$" value="123456"/>
 </config>
 ```
-####另一个例子
+**另一个例子**
 
 ```
 <config desc="uexJPush" type="KEY">
@@ -47,7 +45,7 @@
     <param platform="iOS"  file="uexGroupfolder/PushConfig.plist" name="$UEXJPUSH_APS_ENVIRONMENT$" value="1"/>
 </config>
 ```
-####说明：
+**说明**
 
 *  **打包服务器对指定文件进行全局搜索，把name字段替换为value字段**
 *  `platform` 必选参数 操作平台
@@ -60,26 +58,30 @@
 *  `name` 必选参数 全局搜索的值、既替换之前的值
 *  `value` 必选参数 替换之后的值
 	*  插件开发者需保证name全局唯一，以避免冲突
+***
+##type="URLSCHEME" urlScheme管理（仅iOS）
+**什么是URLSchemes？**
+>Url Scheme：可以通过Url Scheme从一个应用打开另一个应用，并实现应用间的数据传递。
+`第三方应用插件客户端：`可以查看对应插件API文档说明部分查询Url Scheme配置
+    比如在微信支付过程中，App用过uexWeiXin插件打开微信客户端进行支付，支付过程完成后，微信客户端通过应用自定义的UrlScheme返回到本App,并传回支付结果
+`如果是另一个应用：`此属性可以通过AppCan平台生成的ipa包里的Info.plist文件中找到；或者可以自定义配置urlscheme值
 
->##type="URLSCHEME" urlScheme管理（仅iOS）
-
-
-####例子：
+**例子**
 
 ```
 <config desc="uexQQ" type="URLSCHEME">
 	<urlScheme name="uexQQ" schemes="['scheme1','scheme2','scheme3']"/>
 </config>
 ```
-####说明:
+**说明**
 *  `name` 必选参数 对所设置的urlscheme的名字 对应`<key>CFBundleURLName</key>`项，可设置任意字符串，无实际作用
 *  `schemes` 必选参数 要设置的urlschemes。`schemes`为数组形式的json字符串，具体规则如下
 * 数组用双引号(")和中括号([])包含 
 * 每个urlscheme用单引号(')包含 多个urlscheme之间用逗号(,)隔开
 * 以上所有标点均是半角英文符号
-
-
->##type="AUTHORITY" 权限设置
+以上述配置为例，假设应用A中有进行此UrlScheme配置，在另一个应用B中，通过引擎的JS方法`uexWidget.loadApp('scheme1:');`即可打开应用A（注意不要漏掉冒号!）
+***
+##type="AUTHORITY" 权限设置
 * 目前支持如下权限设置
 	* iOS 设置APP后台权限
 	* iOS 设置APP的urlScheme白名单
@@ -135,32 +137,55 @@
 ```
 <config desc="whiteList" type="AUTHORITY">
     <permission platform="iOS" info="urlSchemeWhiteList">
-       <!--如果您有用到uexWeiXin请添加如下urlSchemes至白名单中,本行不要复制-->
-       <string>wechat</string>
-       <string>weixin</string>
-       <!--如果您有用到uexSina请添加如下urlSchemes至白名单中,本行不要复制-->
-       <String>sinaweibohd</String>
-       <String>sinaweibo</String>
-       <String>sinaweibosso</String>
-       <String>sinaweibohdsso</String>
-       <String>weibosdk</String>
-       <String>weibosdk2.5</String>
-       <!-- 如果您有用到uexQQ请添加如下urlSchemes至白名单中,本行不要复制-->
-       <String>mqzoneopensdk<String> 
-		<String>mqzoneopensdkapi<String>
-		<String>mqzoneopensdkapi19<String>
-		<String>mqzoneopensdkapiV2<String>
-		<String>mqqOpensdkSSoLogin<String>
-		<String>mqqopensdkapiV2<String>
-		<String>mqqopensdkapiV3<String>
-		<String>wtloginmqq2<String>
-		<String>mqqapi<String>
-		<String>mqqwpa<String>
-		<String>mqzone<String>
-		<String>mqq<String>
+		<!--如果您有用到uexWeiXin请添加如下urlSchemes至白名单中,本行不要复制-->
+		<string>wechat</string>
+		<string>weixin</string>
+		<!--如果您有用到uexSina请添加如下urlSchemes至白名单中,本行不要复制-->
+		<string>sinaweibohd</string>
+		<string>sinaweibo</string>
+		<string>sinaweibosso</string>
+		<string>sinaweibohdsso</string>
+		<string>weibosdk</string>
+		<string>weibosdk2.5</string>
+		<!-- 如果您有用到uexQQ请添加如下urlSchemes至白名单中,本行不要复制-->
+		<string>mqzoneopensdk</string> 
+		<string>mqzoneopensdkapi</string>
+		<string>mqzoneopensdkapi19</string>
+		<string>mqzoneopensdkapiV2</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqopensdkapiV3</string>
+		<string>wtloginmqq2</string>
+		<string>mqqapi</string>
+		<string>mqqwpa</string>
+		<string>mqzone</string>
+		<string>mqq</string>
 		<!--如果您有用到uexAliPay请添加如下urlSchemes至白名单中,本行不要复制-->
-		<String>alipay</String>
-		<String>alipayshare</String>
+		<string>alipay</string>
+		<string>alipayshare</string>
 	</permission>
 </config>
 ```
+
+##type="ENTITLEMENTS" 授权信息管理（仅iOS）
+
+
+
+###设置merchant商户信息
+
+如果你的App需要支持ApplePay功能 那么必须要配置merchant商户信息
+
+#### 例子
+
+```
+<config desc="xxx" type="ENTITLEMENTS">
+    <entitlement type="merchant" value="merchantIdentifier1"/>
+    <entitlement type="merchant" value="merchantIdentifier2"/>
+</config>
+```
+
+####说明
+
+*  type是必传参数，配置merchant商户信息时,传`"merchant"`;
+*  value是必传参数，传你配置的商户信息的merchantIdentifier;
+*  如果此App内需要同时用到多个商户信息，配置多个`<entitlement>`条目即可

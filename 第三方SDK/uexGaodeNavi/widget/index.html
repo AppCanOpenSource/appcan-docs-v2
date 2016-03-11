@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script type="text/javascript">
+    function init(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexGaodeNavi.init(data);
+    }
+
+    function calculateWalkRoute(){
+        var params = {
+        startPoint:[39.925846, 116.432765],
+        endPoint:[39.925041, 116.437901]
+        };
+        var data = JSON.stringify(params);
+        uexGaodeNavi.calculateWalkRoute(data);
+    }
+
+    function calculateDriveRoute(){
+        var params = {
+            startPoint:[39.925846, 116.432765],
+        endPoint:[39.925041, 116.437901]
+        };
+        var data = JSON.stringify(params);
+        uexGaodeNavi.calculateDriveRoute(data);
+    }
+
+    function startNavi(){
+        var params = {
+            type:1
+        };
+        var data = JSON.stringify(params);
+        uexGaodeNavi.startNavi(data);
+    }
+
+
+        window.uexOnload = function(type){
+            if(type == 0){
+            uexGaodeNavi.cbInit = cbInit;
+            uexGaodeNavi.cbCalculateRoute = cbCalculateRoute;
+            uexGaodeNavi.onArriveDestination = onArriveDestination;
+            uexGaodeNavi.onGetNavigationText = onGetNavigationText;
+            uexGaodeNavi.onReCalculateRouteForTrafficJam = onReCalculateRouteForTrafficJam;
+            uexGaodeNavi.onReCalculateRouteForYaw = onReCalculateRouteForYaw;
+            uexGaodeNavi.onReCalculateRouteForYaw = onReCalculateRouteForYaw;
+            uexGaodeNavi.onStartNavi = onStartNavi;
+            uexGaodeNavi.onNaviCancel = onNaviCancel;
+
+            }
+        }
+    function cbInit(info){
+        alert(info);
+    }
+
+    function cbCalculateRoute(info){
+        alert(info);
+    }
+
+    function cbCalculateDriveRoute(info){
+        alert(info);
+    }
+
+    function onArriveDestination(info){
+        alert(info);
+    }
+
+    function onGetNavigationText(info){
+        alert(info);
+    }
+
+    function onReCalculateRouteForTrafficJam(info){
+        alert(info);
+    }
+
+    function onReCalculateRouteForYaw(info){
+        alert(info);
+    }
+
+    function onReCalculateRouteForYaw(info){
+        alert(info);
+    }
+
+    function onStartNavi(info){
+        alert(info);
+    }
+
+    function onNaviCancel(info){
+        alert(info);
+    }
+
+
+    </script>
+</head>
+
+<body>
+<div class="tit">uexGaodeNavi</div>
+<div class="conbor">
+    <div class="consj">
+            <input class='btn' type='button' value='init' onclick='init()'>
+
+            <input class='btn' type='button' value='calculateWalkRoute' onclick='calculateWalkRoute()'>
+
+            <input class='btn' type='button' value='calculateDriveRoute' onclick='calculateDriveRoute()'>
+
+            <input class='btn' type='button' value='stopNavi' onclick='stopNavi()'>
+        <input class='btn' type='button' value='startNavi' onclick='startNavi()'>
+
+    </div>
+</div>
+</body>
+</html>

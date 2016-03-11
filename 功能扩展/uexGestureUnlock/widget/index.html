@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    
+    <script type="text/javascript">
+        function openWin(name){
+            uexWindow.open(name, '0', name+".html", '2', '', '', 1024);
+        }
+        window.uexOnload = function(type){
+            uexGestureUnlock.onEventOccur=function(info){
+                //alert(info);
+            }
+            uexGestureUnlock.cbIsGestureCodeSet=function(info){
+                alert(info);
+            }
+            uexGestureUnlock.cbVerify=function(info){
+                alert(info);
+            }
+            uexGestureUnlock.cbCreate=function(info){
+                alert(info);
+            }
+        }
+    function config(){
+        var data={
+            backgroundImage:"res://bgImage.jpg",
+            iconImage:"res://icon.png",
+            normalThemeColor:"#F1F1F1",
+            selectedThemeColor:"#00ff00",
+            errorThemeColor:"#ff0000",
+            cancelVerificationButtonTitle:"切换其他账号",
+            minimumCodeLength:5
+        }
+        uexGestureUnlock.config(JSON.stringify(data));
+    }
+    function cancel(){
+        setTimeout("uexGestureUnlock.cancel();",5000);
+    }
+
+    function createGesture(){
+        var data={
+            isNeedVerifyBeforeCreate:true
+        }
+        uexGestureUnlock.create(JSON.stringify(data));
+    }
+    </script>
+</head>
+
+<body>
+    <div class="tit">uexGestureUnlock</div>
+    <div class="conbor">
+        <div class="consj">
+            <input class="btn" type="button" value="isGestureCodeSet" onclick="uexGestureUnlock.isGestureCodeSet();"/>
+            <input class="btn" type="button" value="resetGestureCode" onclick="uexGestureUnlock.resetGestureCode();"/>
+            <input class="btn" type="button" value="config" onclick="config();"/>
+            
+            <br>
+            <input class="btn" type="button" value="verify" onclick="uexGestureUnlock.verify();"/>
+            <input class="btn" type="button" value="create" onclick="createGesture()">
+            <br>
+            <input class="btn" type="button" value="点击此按钮后5s,执行cancel" onclick="cancel()">
+            
+        </div>
+    </div>
+</body>
+</html>

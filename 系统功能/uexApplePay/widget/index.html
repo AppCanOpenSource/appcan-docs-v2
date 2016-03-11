@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    
+    <script type="text/javascript">
+        function openWin(name){
+            uexWindow.open(name, '0', name+".html", '2', '', '', 0);
+        }
+        window.uexOnload = function(type){
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="tit">uexApplePayDemo</div>
+    <div class="conbor">
+        <div class="consj">
+            <input class="btn" type="button" value="StartPayDemo" onclick="openWin('startPay');">
+            <input class="btn" type="button" value="ChinaUnionPayDemo" onclick="openWin('startChinaUnionPay');">
+            <input class="btn" type="button" value="buttonTest" onclick="openWin('buttonTest');">
+        </div>
+    </div>
+</body>
+</html>

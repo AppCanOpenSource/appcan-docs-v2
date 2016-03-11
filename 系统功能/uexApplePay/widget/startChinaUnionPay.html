@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script  src="js/CCLog.js"></script>
+<script type="text/javascript">
+
+window.uexOnload = function(type){
+    uexApplePay.cbStartChinaUnionPay = function(info){
+        CCLog("asyncCallback:" + info);
+    }
+    uexApplePay.onChinaUnionPayFinish = function(info){
+        CCLog("onFinish:" +info);
+    }
+}
+    
+var startChinaUnionPay = function(){
+    var info = {
+        networks:"ChinaUnionPay"
+    }
+
+    var canPay = false;
+    var status = uexApplePay.canMakePayment(JSON.stringify(info));
+    CCLog(status);
+    switch(status){
+        case 0:{
+            CCLog("可以支付");
+            canPay = true;
+            break;
+        }
+        case 1:{
+            CCLog("该系统不支持支付");
+            break;
+        }
+        case 2:{
+            CCLog("该设备不支持支付");
+            break;
+        }
+        case 3:{
+            CCLog("该苹果账号不支持支付");
+            break;
+        }
+    }
+    if (!canPay) {
+        return;
+    };
+    
+    var data = {
+        merchantIdentifier:"merchant.com.zywx.devTest",
+        orderInfo:"201603011028451152878",//从http://101.231.114.216:1725/sim/getacptn可以获取测试用的orderInfo
+        mode:"01",
+    };
+    var result = uexApplePay.startChinaUnionPay(JSON.stringify(data));
+    CCLog("syncCallback:" + result);
+
+}
+
+    </script>
+</head>
+
+<body>
+    <div class="tit">ChinaUnionApplePay</div>
+    <div class="conbor">
+        <div class="consj">
+            <input class="btn" type="button" value="回到首页" onclick="uexWindow.close(-1)">
+            <input class="btn" type="button" value="startChinaUnionPay" onclick="startChinaUnionPay();">
+
+        </div>
+    </div>
+</body>
+</html>

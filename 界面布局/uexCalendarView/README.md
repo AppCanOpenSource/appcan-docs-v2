@@ -7,14 +7,13 @@
 ## 1.2、UI展示
 
 ## 1.3、开源源码
-插件测试用例与源码下载：[点击](http://plugin.appcan.cn/details.html?id=450_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=450_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
 ## 2.1、方法 
 
 >###open 打开日历
-
 
 `uexCalendarView.open(json)`
 
@@ -23,6 +22,7 @@
 打开日历
 
 **参数**
+
 ```
 var json = {
 x:,//view距离当前网页顶部的距离(px)
@@ -58,13 +58,13 @@ uexCalendarView.open(jsonStr);
 
 >###close  关闭日历
 
-
 `uexCalendarView.close()`
 
 **说明**
 
  关闭日历
  
+
 **参数**
 
 无
@@ -87,7 +87,6 @@ uexCalendarView.close()
 ```
 >###setSelectedDate 设置被选中的日期
 
-
 `uexCalendarView.setSelectedDate(json)`
 
 **说明**
@@ -95,6 +94,7 @@ uexCalendarView.close()
 设置被选中的日期
 
 **参数**
+
 ```
 var json = {
 	date:{  //所设置的日期
@@ -136,7 +136,6 @@ uexCalendarView.setSelectedDate(jsonStr);
 
 `uexCalendarView.onItemClick(json)`
 
-
 **说明**
 
  点击日期时的监听方法
@@ -174,18 +173,32 @@ alert(data);
 
 ```
 
-
 # 3、更新历史
-API 版本：uexCalendarView-3.0.0(iOS) uuexCalendarView-3.0.1(Android)
-最近更新时间：2015-7-30
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.1 |   | 修复日历界面弹动的问题|
-| 3.0.0 | 日历插件 | 日历插件|
+### iOS
 
+API版本:`uexCalendarView-3.0.5`
 
+最近更新时间:`2016-3-2`
 
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.5 | 修复uexCalendarView切换年份时触发click事件的bug |
+| 3.0.4 | 修复uexCalendarView切换月份时执行click事件的bug |
+| 3.0.3 | 添加IDE支持 |
+| 3.0.2 | 删除info.plist |
+| 3.0.1 | 添加国际化支持 |
+| 3.0.0 | 日历插件 |
 
+### Android
 
+API版本:`uexCalendarView-3.0.3`
 
+最近更新时间:`2015-11-30`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.3 | 修复month拼写错误的问题 |
+| 3.0.2 | 国际化 |
+| 3.0.1 | 修复日历界面弹动的问题 |
+| 3.0.0 | 日历插件 |

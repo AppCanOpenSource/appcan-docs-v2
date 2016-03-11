@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root layoutId = "topic-item1">
+    <linearlayout id = "content" width = "-1" height = "-2" background = "#ffffff"
+                  onClick = "onItemClick" padding= "30 20">
+        <text id = "title" width = "-1" height = "-2" text="${title}" textSize = "20"
+              textColor = "#000000" margin = "0 20"/>
+        <linearlayout id = "newsPic" orientation = "horizontal" width = "-1" height = "-2">
+            <img id = "newsPic1" weight ="1" width="-2" height="-2" src="${picPath1}"
+                 scale = "1" scaleType = "centerCrop"/>
+            <img id = "newsPic2" weight ="1" width="-2" height="-2" src="${picPath2}"
+                 margin = "10 0 0 0" scale = "1"  scaleType = "centerCrop"/>
+            <img id = "newsPic3" weight ="1" width="-2" height="-2" src="${picPath3}"
+                 margin = "10 0 0 0" scale = "1"  scaleType = "centerCrop"
+                visible = "${isThreePic}"/>
+        </linearlayout>
+        <relativelayout width = "-1" height = "-2" gravity = "centerY" margin = "0 20">
+            <text id = "nickName" width = "-2" height = "-2" text="${nickName}" textSize = "13"
+                  textColor = "#999999" margin = "10 0 0 0" float = "left|centerY"/>
+            <text id = "time" width = "-2" height = "-2" text="${time}" textSize = "13"
+                  textColor = "#999999" relation = "rightOf,nickName"  margin = "30 0 0 0"
+                  float = "centerY"/>
+            <linearlayout id = "comment" width="-2" height="-2" float="right|centerY"
+                          margin="20 0" gravity = "centerY" onClick = "onCommentClick"
+                          orientation = "horizontal">
+                <img id = "commentPic" width = "50" height = "50" src = "res://img/comment.png"
+                     margin="5 0"/>
+                <text id = "commentNum" width = "-2" height = "-2" text="${comment}" textSize = "13"
+                      textColor = "#999999" />
+            </linearlayout>
+            <linearlayout id = "favorite" width="-2" height="-2" float = "centerY"
+                          margin="20 0" gravity = "centerY" onClick = "onFavoriteClick"
+                          orientation = "horizontal" relation = "leftOf,comment">
+                <img id="goodPic" width = "50" height = "50" src = "res://img/up.png"
+                     margin="5 0"/>
+                <text id = "good" width = "-2" height = "-2" text="${favorable}" textSize = "13"
+                      textColor = "#999999"/>
+            </linearlayout>
+        </relativelayout>
+    </linearlayout>
+</root>
