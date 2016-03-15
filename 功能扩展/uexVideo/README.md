@@ -13,7 +13,7 @@
 
 ## 2.1、方法
 
-> ### open 打开视频播放界面
+> ### <del>open 打开视频播放界面</del> 本接口已废弃，请使用[openPlayer 打开视频播放器](#openPlayer 打开视频播放器)
 
 `uexVideo.open(path,orientation)`
 
@@ -27,6 +27,7 @@
 | ----- | ----- | ----- | ----- |
 | path | String | 是 | 视频文件路径,路径协议详见CONSTANT中PathTypes |
 | orientation | Number | 否 | 1:强制横屏,仅iOS有效 |
+
 
 **平台支持:**
 
@@ -42,96 +43,207 @@ iOS6.0+
 ```
 uexVideo.open("res://1.mp4")
 ```
+
+
+
+> ### openPlayer 打开视频播放器
+
+`uexVideo.openPlayer(param)`
+
+**说明:**
+
+打开视频播放器
+在播放器被关闭时会触发监听[onPlayerClosed 播放器被关闭时的监听方法](#onPlayerClosed 播放器被关闭时的监听方法)
+
+* 注意，一个网页内只允许存在一个视频播放器，
+* 如果已经打开了一个视频播放器，那么在打开新的播放器之前，会关闭已经打开的播放器，同时触发onPlayerClosed监听
+
+**参数:**
+
+
+param是JSON字符串,详细字段解释见下
+
+
+```
+var param = {
+	src:,//String，必选。播放文件路径。 支持本地路径wgt://,res://,file://和网络路径http://,https://
+	startTime:,//Number,可选。视频开始播放时间,单位为s(秒)。默认为0。
+	autoStart:,//Boolean,可选。是否自动开始。默认为false。
+	forceFullScreen:,//Boolean,可选。是否强制全屏，详见下方说明*。默认为false。
+	showCloseButton:,//Boolean,可选。是否显示关闭按钮,用户可以通过点击此按钮关闭播放器。默认为false。
+	showScaleButton:,//Boolean,可选。是否显示缩放按钮,用户可以通过点击此按钮切换全屏/非全屏模式。默认为true。
+	width:,//Number,可选。播放器宽度，单位px。默认为屏幕宽度。
+	height:,//Number,可选。播放器高度，单位px。默认为屏幕高度。
+	x:,//Number,可选。播放器左边距，单位px。默认为0。
+	y:,//Number,可选。播放器上边距，单位px。默认为0。
+ 	scrollWithWeb:,//Boolean,可选。普通状态下播放器是否跟随网页滑动。默认为true。
+}
+```
+
+* forceFullScreen参数说明
+	* 此参数传true时播放器会默认进入全屏状态，**且不能切换回普通状态**。
+	* 此参数传true时showCloseButton会被强制设置为true,传入的参数将被忽略。
+	* 此参数传true时showScaleButton会被强制设置为false,传入的参数将被忽略。
+	* 此参数传true时,width,height,x,y,scrollWithWeb 这5个参数无效。
+
+**平台支持:**
+
+iOS 7.0+
+
+**版本支持:**
+
+iOS 3.0.5+
+
+**示例:**
+
+```
+var param = {
+	src:"res://1.mp4"
+	startTime:3,
+	autoStart:true,
+	forceFullScreen:false,
+	showCloseButton:false,
+	showScaleButton:true,
+	width:320,
+	height:240,
+	x:10,
+	y:400, 
+	scrollWithWeb:true,
+}
+uexVideo.openPlayer(JSON.stringify(param))
+```
+
+> ### closePlayer 关闭视频播放器
+
+`uexVideo.getPlayerInfo()`
+
+**说明:**
+
+关闭视频播放器，此操作会触发[onPlayerClosed 播放器被关闭时的监听方法](#onPlayerClosed 播放器被关闭时的监听方法)
+
+**参数:**
+
+无
+
+**平台支持:**
+
+iOS 7.0+
+
+**版本支持:**
+
+iOS 插件版本3.0.5+  引擎版本3.3+
+
+**示例:**
+
+```
+uexVideo.closePlayer();
+
+```
+
+
+> ### getPlayerInfo 获取当前播放器的状态
+
+`uexVideo.getPlayerInfo(id)`
+
+**说明:**
+
+获取当前播放器的状态
+
+注意，此接口仅支持3.3+引擎；
+
+**参数:**
+
+无
+
+**返回值:**
+
+返回值returnValue是JSON字符串，具体格式如下
+
+```
+var returnValue = {
+	src:,//String,必选。当前播放器的播放文件路径。
+	status:,//Number ,必选。当前播放器状态 0-暂停中 1-播放中 
+	currentTime:,//Number,必选。当前播放时间 单位s(秒)
+}
+```
+
+**平台支持:**
+
+iOS 7.0+
+
+**版本支持:**
+
+iOS 插件版本3.0.5+  引擎版本3.3+
+
+**示例:**
+
+```
+var returnValue = uexVideo.getPlayerInfo();
+var info = JSON.parse(returnValue);
+alert("currentTime:" + info.currentTime + "\nstatus:" + info.status);
+
+```
+
+
 > ### record 打开视频录制界面
   
-`uexVideo.record()`
+`uexVideo.record(params)`
 
 **说明:**
 
-  打开视频录制界面
-  回调 [cbRecord](#cbRecord 录制完成的回调方法 "录制完成的回调方法")
+ 打开视频录制界面
+  
+  <del>回调 [cbRecord](#cbRecord 录制完成的回调方法)</del>**已废弃**
+  
+回调 [onRecordFinish](#onRecordFinish 录制结束的回调方法)
 
 **参数:**
 
-  无
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
+param 是JSON字符串
 ```
-uexVideo.record();
+var param = {
+	maxDuration:,//
+	qualityType:,//
+	bitRateMultipier:,//
+	fileType:,//
+}
 ```
-
-> ### createPlay 打开视频播放界面
-
-`uexVideo.createPlay(x,y,w,h,path)`
-
-**说明:**
-
-打开视频播放界面,可定义窗口大小以及位置
-
-**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| x | Number | 是 | 视频播放窗口x坐标 |
-| y | Number | 是 | 视频播放窗口y坐标 |
-| w | Number | 是 | 视频播放窗口宽度 |
-| h | Number | 是 | 视频播放窗口高度 |
-| path | String | 是 | 视频文件路径,路径协议详见CONSTANT中PathTypes |
+| maxDuration | Number | 否 | 视频录制最大时间,单位s(秒) |
+| qualityType | Number | 否 | 视频分辨率类型,**取值为0,1,2,默认为0**。0:1920x1080, 1:1280x720, 2:640x480|
+| bitRateMultipier | Number | 否 | 视频压缩码率系数，**默认为5**。*详见下方说明|
+| fileType | String | 否 | 输出的视频文件格式,**默认为`mp4`**。Android 平台上支持的的视频文件格式有:`mp4`、`3gp`; IOS支持的压缩视频文件格式有:`mp4`,`mov`|
+
+* 说明:最终录制的视频**平均码率**约为`width * height * bitRateMultipier`。
+	* 比如当视频分辨率为640x480,码率系数为5时，得到的视频的平均码率约为`640 * 480 * 5 = 1536000 ≈ 1500kbps`
+	* 受不同手机的硬件以及系统限制，当设置的平均码率过高时，会以手机所能使用的最高平均码率为准进行视频压缩。
 
 **平台支持:**
 
-Android2.2+
-iOS6.0+
+
+iOS7.0+
 
 **版本支持:**
 
-3.0.0+
+3.0.5+
 
 **示例:**
 
 ```
-uexVideo.createPlay(50,50,500,1225,"res://1.mp4")
+var params = {
+ 	maxDuration:15,
+ 	qualityType:1,
+ 	bitRateMultipier:2,
+ 	fileType:"mp4"
+}
+uexVideo.record(JSON.stringify(params));
 ```
 
-> ### removePlay 关闭视频播放界面
 
-`uexVideo.removePlay()`
-
-**说明:**
-
-关闭由createPlay接口打开的视频播放界面
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-uexVideo.removePlay()
-```
 ## 2.2、回调方法
-> ### cbRecord 录制完成的回调方法
+> ### <del>cbRecord 录制完成的回调方法</del>(此方法已废弃，请使用[onRecordFinish](#onRecordFinish 录制结束的回调方法))
   
 `uexVideo.cbRecord(opId,dataTpye,data)`
 
@@ -157,13 +269,115 @@ window.uexOnload = function(){
     uexVideo.cbRecord = cbRecord ;
 }
 ```
+
+## 2.3、监听方法
+
+> ### onPlayerClosed 播放器被关闭时的监听方法
+  
+`uexVideo.onPlayerClosed(param)`
+
+**参数:**
+
+param 是JSON字符串
+
+```
+var param = {
+	src://String,必选。视频文件路径。
+	currentTime:,// Number,必选。被关闭时视频正在播放的时间。
+}
+```
+
+
+
+**版本支持:**
+
+iOS 3.0.5+
+
+**示例**
+
+```
+function cbRecord (opId,dataType,data){
+    alert(data);
+}
+window.uexOnload = function(){
+    uexVideo.cbRecord = cbRecord ;
+}
+```
+
+
+> ### onRecordFinish 录制结束的监听方法
+  
+`uexVideo.onRecordFinish(param)`
+
+**参数:**
+
+param 是JSON字符串
+
+```
+var param = {
+	result://
+	path://
+}
+```
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| resuLt| Number | 是 | 录制结果。 0-录制成功 1-用户取消录制 2-视频录制或者压缩过程发送错误 |
+| path| String | 否 | 仅录制成功时才会有此参数，录制压缩得到的视频文件路径 |
+
+
+**系统支持**
+
+iOS 7.0+
+
+**版本支持:**
+
+iOS 3.0.5+
+
+**示例**
+
+```
+
+window.uexOnload = function(){
+    uexVideo.onRecordFinish = function(info){
+    	alert("onRecordFinish:" + info);
+    };
+}
+```
+
+> ### onExportWithProgress 视频压缩进度的监听方法（仅iOS）
+
+此接口仅限iOS，可以用于等待压缩时的UI展示。
+`uexVideo.onExportWithProgress(progress)`
+
+**参数:**
+
+|  参数名称 | 参数类型    |  说明 |
+| ----- | ----- | ----- |
+| progress | Number | 压缩进度值，取值范围为0~1 |
+
+**系统支持**
+
+iOS 7.0+
+
+**版本支持:**
+iOS 3.0.5+
+
+**示例**
+
+```
+uexVideo.onExportWithProgress = function(data){
+ 	console.log(data);
+}
+```
+
 # 3、更新历史
 
 ### iOS
 
 API版本:`uexVideo-3.0.4`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2015-2-20`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
@@ -175,13 +389,12 @@ API版本:`uexVideo-3.0.4`
 
 ### Android
 
-API版本:`uexVideo-3.0.5`
+API版本:`uexVideo-3.0.4`
 
-最近更新时间:`2016-1-28`
+最近更新时间:`2016-1-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.5 | 新增接口,实现自定义视频界面的大小和位置,支持扩展全屏,部分代码优化 |
 | 3.0.4 | 删除无用资源 |
 | 3.0.3 | 修复不支持wgt协议的问题 |
 | 3.0.2 | 修复录制视频时模糊问题 |
