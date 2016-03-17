@@ -1937,6 +1937,38 @@ Android2.2+
 uexBaiduMap.zoomControlsEnabled(0) 
 ```
 
+> ### getDistance 计算两点之间的距离 
+
+`uexBaiduMap.getDistance(lat1,lon1,lat2,lon2)`
+
+**说明**
+
+通过经纬度计算两点之间的距离
+
+**参数**
+
+| 参数 | 参数类型 | 是否必须 | 说明 |
+|-----|-----|-----|-----|
+| lat1 | Number | 是 |	第一个坐标纬度	|
+| lon1 | Number | 是 |	第一个坐标经度	|
+| lat2 | Number | 是 |	第二个坐标纬度	|
+| lon2 | Number | 是 |	第二个坐标经度	|
+
+**平台支持**
+
+Android2.2+
+
+**版本支持**
+
+3.0.0+
+
+**示例**
+
+```
+uexBaiduMap.getDistance(lat1,lon1,lat2,lon2)
+```
+
+
 ## 2.2、监听方法
 
 > ### onMapClickListener 点击地图的监听方法 
@@ -2304,6 +2336,7 @@ var data={
 			name:,
 			longitude:,
 			latitude:,
+			distance:,
 			city:,
 			postCode:
 		}
@@ -2318,6 +2351,7 @@ var data={
 | poiInfo | 是 | POI信息集合 |
 | longitude | 是 | 经度 |
 | latitude | 是 | 纬度 |
+| distance | 是 | 距离 |
 | name | 是 | 名称 |
 | uid | 是 | 唯一标识符 |
 | address | 是 | 地址 |
@@ -2391,6 +2425,34 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 }
 
 ```
+
+> ### cbGetDistance 计算两点之间的距离的回调方法
+
+`uexBaiduMap.cbGetDistance(data)`
+
+**参数**
+
+```
+data:(String类型) 必选 两点之间的距离，单位为米
+
+var data = "142658.29447225234";
+
+```
+
+**版本支持**
+
+3.0.0+ 
+
+**示例**
+
+```
+uexBaiduMap.cbGetDistance = function(data){
+	alert(data);
+}
+
+```
+
+
 # 3、更新历史
 
 ### iOS
@@ -2425,6 +2487,8 @@ API版本:`uexBaiduMap-3.2.30`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段，返回距离 |
+| 3.2.31 | 增加了，当不打开地图View时，也可以调用poi搜索功能（目前支持城市检索，周边检索，区域检索）,修复了打开地图再关闭地图，搜索poi无效的问题 |
 | 3.2.30 | 修复了前端调用open方法时传入小数时抛出NumberFormatException的问题 |
 | 3.2.29 | 修复了持续定位时cbCurrentLocation回调不生效的问题 |
 | 3.2.28 | 修复open接口传入的中心点不生效的问题 |
