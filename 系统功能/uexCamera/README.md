@@ -55,6 +55,7 @@ uexCamera.open();
 **平台支持:**
 
 Android2.2+
+iOS6.0+
 
 **版本支持:**
 
@@ -131,7 +132,7 @@ uexCamera.removeViewCameraFromWindow();
 
 **说明:**
 
-通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。
+通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。如果设置changeCameraPosition为前置摄像头则闪光灯无效。
 
 **参数:**
 
@@ -316,12 +317,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexCamera-3.0.3`
+API版本:`uexCamera-3.0.4`
 
-最近更新时间:`2016-2-16`
+最近更新时间:`2016-3-09`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.4 | 修改openViewCamera不传照片质量崩溃bug,修改changeFlashMode闪光灯接口 |
 | 3.0.3 | 插件改为arc,添加openInternal自定义相机接口,添加openViewCamera自定义view模式相机 |
 | 3.0.2 | 添加IDE支持 |
 | 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
@@ -335,7 +337,7 @@ API版本:`uexCamera-3.0.17`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.17 | 修复Activity拒绝服务漏洞的问题，修复了openViewCamera拒绝使用系统拍照权限后程序崩溃的问题 |
+| 3.0.17 | 修复Activity拒绝服务漏洞的问题,修复了openViewCamera拒绝使用系统拍照权限后程序崩溃的问题 |
 | 3.0.16 | 修复了在三星手机上照片旋转方向不一致的问题;修复了多次点击照相按钮,再点重拍照相按钮失效的问题 |
 | 3.0.15 | 修复了少写mCamera.setPreviewCallback(null)导致崩溃的问题 |
 | 3.0.14 | 新增自定义View相机功能,可自行设置大小、位置,可传入地理位置,可调整闪光灯模式和前后置摄像头切换 |
