@@ -650,7 +650,7 @@ uexWeiXin.sendTextContent(sence,txt);
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | sence| Number类型| 必选 | 发送的目标场景,0-会话场景,1-朋友圈场景。     |
-| thumbImgPath|String类型 | 必选 |  缩略图地址大小不能超过32K   |
+| thumbImgPath|String类型 | 必选 |  缩略图的大小不能超过32K   |
 | imgPath|String类型 | 必选 |  图片地址,路径协议详见CONSTANT中PathTypes   |
 | webpageURL|String类型 | 可选 |  分享的链接地址,使用此参数将分享一个链接      |
 | title|String类型 | 可选 |   链接标题长度不能超过512字节      |
@@ -786,7 +786,7 @@ function shareText(){
 
 ```
 jsonData {
-    thumbImg:,//(必选)缩略图地址Url(大小必须小于32k)
+    thumbImg:,//(必选)缩略图地址Url(缩略图的大小必须小于32k)
     image:,//(必选)图片地址(路径协议见constant中的 path type)
     scene:,//(必选)发送的目标场景 0-会话场景 1-朋友圈场景
     title://(必选)图片标题(仅iOS)
@@ -853,7 +853,7 @@ function sharePic(){
 
 ```
 var json = {
-    thumbImg:,//(必选)缩略图地址Url(大小必须小于32k)
+    thumbImg:,//(必选)缩略图地址Url(缩略图的大小必须小于32k)
     wedpageUrl:,//(必选)链接的地址
     scene:,//(必选)发送的目标场景 0-会话场景 1-朋友圈场景
     title:,//(必选)链接的标题
