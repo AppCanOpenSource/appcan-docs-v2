@@ -86,13 +86,15 @@ var param = {
 	* 此参数传true时showScaleButton会被强制设置为false,传入的参数将被忽略。
 	* 此参数传true时,width,height,x,y,scrollWithWeb 这5个参数无效。
 
-**平台支持:**
+**系统支持**
 
 iOS 7.0+
+Android 2.3+
 
 **版本支持:**
 
 iOS 3.0.5+
+Android 3.0.6+
 
 **示例:**
 
@@ -125,13 +127,16 @@ uexVideo.openPlayer(JSON.stringify(param))
 
 无
 
-**平台支持:**
+**系统支持**
 
 iOS 7.0+
+Android 2.3+
 
 **版本支持:**
 
-iOS 插件版本3.0.5+  引擎版本3.3+
+iOS 3.0.5+
+Android 3.0.6+
+
 
 **示例:**
 
@@ -141,48 +146,7 @@ uexVideo.closePlayer();
 ```
 
 
-> ### getPlayerInfo 获取当前播放器的状态
 
-`uexVideo.getPlayerInfo(id)`
-
-**说明:**
-
-获取当前播放器的状态
-
-注意，此接口仅支持3.3+引擎；
-
-**参数:**
-
-无
-
-**返回值:**
-
-返回值returnValue是JSON字符串，具体格式如下
-
-```
-var returnValue = {
-	src:,//String,必选。当前播放器的播放文件路径。
-	status:,//Number ,必选。当前播放器状态 0-暂停中 1-播放中 
-	currentTime:,//Number,必选。当前播放时间 单位s(秒)
-}
-```
-
-**平台支持:**
-
-iOS 7.0+
-
-**版本支持:**
-
-iOS 插件版本3.0.5+  引擎版本3.3+
-
-**示例:**
-
-```
-var returnValue = uexVideo.getPlayerInfo();
-var info = JSON.parse(returnValue);
-alert("currentTime:" + info.currentTime + "\nstatus:" + info.status);
-
-```
 
 
 > ### record 打开视频录制界面
@@ -218,14 +182,16 @@ var param = {
  
  * 说明:bitRateType 视频录制时使用的采样率，采样率越高，视频越清晰，质量越高，视频文件越大。
 
-**平台支持:** 
+**系统支持**
 
-
-iOS7.0+
+iOS 7.0+
+Android 2.3+
 
 **版本支持:**
 
-3.0.5+
+iOS 3.0.5+
+Android 3.0.6+
+
 
 **示例:**
 
@@ -257,6 +223,7 @@ uexVideo.record(JSON.stringify(params));
 
 3.0.0+
 
+
 **示例**
 
 ```
@@ -285,20 +252,59 @@ var param = {
 }
 ```
 
+**系统支持**
 
+iOS 7.0+
+Android 2.3+
 
 **版本支持:**
 
 iOS 3.0.5+
+Android 3.0.6+
+
 
 **示例**
 
 ```
-function cbRecord (opId,dataType,data){
-    alert(data);
-}
 window.uexOnload = function(){
-    uexVideo.cbRecord = cbRecord ;
+    uexVideo.onPlayerClosed = function(info){
+    	alert(info);
+    };
+}
+```
+
+> ### onPlayerStatusChange 播放器状态改变的监听方法
+  
+`uexVideo.onPlayerStatusChange(param)`
+
+**参数:**
+
+param 是JSON字符串
+
+```
+var param = {
+	status://Number,必选。播放器状态  0-暂停中 1-缓冲中 2-播放中 3-发生错误。
+}
+```
+
+**系统支持**
+
+iOS 7.0+
+Android 2.3+
+
+**版本支持:**
+
+iOS 3.0.5+
+Android 3.0.6+
+
+
+**示例**
+
+```
+window.uexOnload = function(){
+    uexVideo.onPlayerStatusChange = function(info){
+    	alert(info);
+    };
 }
 ```
 
@@ -327,10 +333,12 @@ var param = {
 **系统支持**
 
 iOS 7.0+
+Android 2.3+
 
 **版本支持:**
 
 iOS 3.0.5+
+Android 3.0.6+
 
 **示例**
 
