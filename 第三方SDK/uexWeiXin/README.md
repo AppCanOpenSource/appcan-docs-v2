@@ -860,7 +860,7 @@ var json = {
     description://(必选)描述
 }
 ```
-![](http://newdocx.appcan.cn/docximg/174228b2015w0k14h.png)
+![](https://raw.githubusercontent.com/LiguofuIOS/appcan-docs-v2/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexWeiXin/photo_01.png)
  
 
 **平台支持:**
