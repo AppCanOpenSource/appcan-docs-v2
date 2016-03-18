@@ -61,7 +61,7 @@ Path Types
 **说明:**
 
 必须先向微信终端注册本应用才可以进行其他操作
-回调 [cbRegisterApp](#cbregisterapp 用户授权的回调方法 "用户授权的回调方法 ") 
+回调 [cbRegisterApp](#cbRegisterApp 用户授权的回调方法)
                  
 
 **参数:**
@@ -97,7 +97,7 @@ uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 **说明:**
 
  
-必须先向微信客户端注册本应用才可以进行改操作
+必须先向微信客户端注册本应用才可以进行该操作
 回调 [weiXinLogin](#cbweixinlogin 微信登录授权的回调方法 "微信登录授权的回调方法 ")        
      
 
@@ -574,7 +574,7 @@ window.uexOnload = function(){
 </html>
 ```
 
-> ### sendTextContent 分享文本(`旧接口不推荐,改用新接口`)
+> ### sendTextContent 分享文本(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.sendTextContent(sence,txt)`
 
@@ -636,7 +636,7 @@ uexWeiXin.sendTextContent(sence,txt);
 
 ```
 
-> ### sendImageContent 分享图片到微信(`旧接口不推荐,改用新接口`)
+> ### sendImageContent 分享图片到微信(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.sendImageContent(sence,thumbImgPath,imgPath,webpageURL,title,description)`
 
@@ -651,7 +651,7 @@ uexWeiXin.sendTextContent(sence,txt);
 | ----- | ----- | ----- | ----- |
 | sence| Number类型| 必选 | 发送的目标场景,0-会话场景,1-朋友圈场景。     |
 | thumbImgPath|String类型 | 必选 |  缩略图地址大小不能超过32K   |
-| imgPath|String类型 | 必选 |  图片地址,路径协议详见CONSTANT中PathTypes   |
+| imgPath|String类型 | 必选 |  图片地址,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes   |
 | webpageURL|String类型 | 可选 |  分享的链接地址,使用此参数将分享一个链接      |
 | title|String类型 | 可选 |   链接标题长度不能超过512字节      |
 | description|String类型 | 可选 |   可选链接描述内容大小不能超过1K      |
@@ -782,7 +782,7 @@ function shareText(){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| jsonData| String类型| 必选 | 分享的文本内容|
+| jsonData| String类型| 必选 | 分享的文本内容，路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type|
 
 ```
 jsonData {
@@ -1059,7 +1059,7 @@ var data1 = JSON.stringify(param1);
 uexWeiXin.startPay(data1);
 
 ```
-> ### getAccessToken 获取支付token`<旧版接口,新版插件不支持,使用新接口>` 
+> ### getAccessToken 获取支付token`<旧版接口,新版插件不支持,请使用新接口>` 
 
 `uexWeiXin.getAccessToken(AppID,AppSecret)`
 
@@ -1088,7 +1088,7 @@ iOS6.0+
 
 见gotoPay方法示例  
 
-> ### getAccessTokenLocal 获取本地支付token`<旧版接口,新版插件不支持,使用新接口>` 
+> ### getAccessTokenLocal 获取本地支付token`<旧版接口,新版插件不支持,请使用新接口>` 
 
 `uexWeiXin.getAccessTokenLocal()`
 
@@ -1115,7 +1115,7 @@ iOS6.0+
 
 见gotoPay方法示例  
 
-> ### generateAdvanceOrder 生成预支付订单`<旧版接口,新版插件不支持,使用新接口>` 
+> ### generateAdvanceOrder 生成预支付订单`<旧版接口,新版插件不支持,请使用新接口>` 
 
 `uexWeiXin.generateAdvanceOrder(token,postJson) `
 
@@ -1185,7 +1185,7 @@ iOS6.0+
 **示例:**
 
 见gotoPay方法示例  
-> ### generatePrepayID 生成预支付订单`<旧版接口,新版插件不支持,使用新接口>` 
+> ### generatePrepayID 生成预支付订单`<旧版接口,新版插件不支持,请使用新接口>` 
 
 ` uexWeiXin.generatePrepayID(token,app_key,packageValue)`
 
@@ -1224,7 +1224,7 @@ iOS6.0+
 
 见sendPay方法示例
 
-> ### gotoPay 支付`<旧版接口,新版插件不支持,使用新接口>` 
+> ### gotoPay 支付`<旧版接口,新版插件不支持,请使用新接口>` 
 
 `uexWeiXin.gotoPay(partnerID,textareapayID,package,nonceStr,timeStamp,sign)`
 
@@ -1336,7 +1336,7 @@ uexWeiXin.cbGetAccessTokenLocal = function(opCode,dataType,data) {
 
 ```
 
-> ### sendPay `<旧版接口,新版插件不支持,使用新接口>` 
+> ### sendPay 支付`<旧版接口,新版插件不支持,请使用新接口>` 
 
 `uexWeiXin.sendPay(partnerID,textareapayID,app_key,packageValue)`
 
@@ -1757,7 +1757,7 @@ open调用方法:
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|Number类型 | 必选 |   0-成功,1-失败。    |
  
 
@@ -1782,7 +1782,7 @@ uexWeiXin.cbRegisterApp=function(opCode,dataType,data){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|String类型 | 必选 |  授权结果:0-----成功,-2-----用户取消,-4-----用户拒绝      |
  
 
@@ -1807,7 +1807,7 @@ uexWeiXin.cbWeiXinLogin = function (opCode,dataType,data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|Json类型 | 必选 | 返回的数据     |
 
 格式如下:
@@ -1850,7 +1850,7 @@ uexWeiXin.cbGetWeiXinLoginAccessToken = function (opCode,dataType,data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|Number类型 | 必选 | 0-----(有效),1-----(无效)         |
  
 
@@ -1875,7 +1875,7 @@ uexWeiXin.cbGetWeiXinLoginCheckAccessToken = function (opCode,dataType,data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|Json类型 | 必选 | 返回的数据      |
 
  正确返回格式:
@@ -1914,7 +1914,7 @@ uexWeiXin.cbGetWeiXinLoginRefreshAccessToken = function (opCode,dataType,data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|Json类型 | 必选 | 返回的数据      |
 
 data的格式: 
@@ -1960,7 +1960,7 @@ uexWeiXin.cbGetWeiXinLoginUnionID = function (opCode,dataType,data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|Number类型 | 必选 | 0-已安装,1-未安装。       |
  
 
@@ -1985,7 +1985,7 @@ uexWeiXin.cbIsWXAppInstalled = function (opCode,dataType,data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|String类型 | 必选 | 微信安装地址    |
  
 
@@ -2010,7 +2010,7 @@ uexWeiXin.cbGetWXAppInstalUrl = function (opCode,dataType,data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|String类型 | 必选 | 0-成功,1-失败。        |
  
 
@@ -2035,7 +2035,7 @@ uexWeiXin.cbIsWXAppSupportApi = function (opCode,dataType,data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|String类型 | 必选 | SDK版本号   |
  
 
@@ -2060,7 +2060,7 @@ uexWeiXin.cbGetApiVersion = function (opCode,dataType,data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|String类型 | 必选 | 微信返回的错误码   |
  
 
@@ -2085,7 +2085,7 @@ uexWeiXin.cbSendTextContent = function (opCode,dataType,data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|String类型 | 必选 | 微信返回的错误码   |
 
 **版本支持:**
@@ -2178,7 +2178,7 @@ uexWeiXin.cbShareLinkContent = function (data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data|String类型 | 必选 | 是否支持支付功能,0-支持,1-不支持。   |
  
 
@@ -2248,7 +2248,7 @@ uexWeiXin.cbStartPay = function(data){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType| Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType| Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data| String类型 | 必选 | 支付token |
  
 
@@ -2273,7 +2273,7 @@ uexWeiXin.cbGetAccessToken = function(data){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType| Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType| Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data| String类型 | 必选 | 支付token |
 
 **版本支持:**
@@ -2297,7 +2297,7 @@ uexWeiXin.cbGetAccessTokenLocal = function (opCode,dataType,data) {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType| Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType| Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data| String类型 | 必选 | 预支付订单号。 |
 
 **版本支持:**
@@ -2321,7 +2321,7 @@ alert(data);
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType| Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
+| dataType| Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
 | data| String类型 | 必选 | json格式如下:{"errCode":0,"errStr":""} |
 | errCode| String类型 | 必选 | json格式如下|
 
