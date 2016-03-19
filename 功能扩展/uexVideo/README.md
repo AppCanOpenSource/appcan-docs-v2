@@ -168,7 +168,7 @@ param 是JSON字符串
 var param = {
 	maxDuration:,//
 	qualityType:,//
-	bitRateMultipier:,//
+	bitRateType:,//
 	fileType:,//
 }
 ```
@@ -199,7 +199,7 @@ Android 3.0.6+
 var params = {
  	maxDuration:15,
  	qualityType:1,
- 	bitRateMultipier:2,
+ 	bitRateType:2,
  	fileType:"mp4"
 }
 uexVideo.record(JSON.stringify(params));
@@ -237,9 +237,9 @@ window.uexOnload = function(){
 
 ## 2.3、监听方法
 
-> ### onPlayerClosed 播放器被关闭时的监听方法
+> ### onPlayerClose 播放器被关闭时的监听方法
   
-`uexVideo.onPlayerClosed(param)`
+`uexVideo.onPlayerClose(param)`
 
 **参数:**
 
@@ -267,7 +267,7 @@ Android 3.0.6+
 
 ```
 window.uexOnload = function(){
-    uexVideo.onPlayerClosed = function(info){
+    uexVideo.onPlayerClose = function(info){
     	alert(info);
     };
 }
@@ -326,7 +326,7 @@ var param = {
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| resuLt| Number | 是 | 录制结果。 0-录制成功 1-用户取消录制 2-视频录制或者压缩过程发送错误 |
+| result| Number | 是 | 录制结果。 0-录制成功 1-用户取消录制 2-视频录制或者压缩过程发送错误 |
 | path| String | 否 | 仅录制成功时才会有此参数，录制压缩得到的视频文件路径 |
 
 
