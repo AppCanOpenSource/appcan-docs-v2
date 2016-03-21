@@ -139,11 +139,11 @@ uexLoadingView.close();
 
 API版本:`uexLoadingView-3.0.5`
 
-最近更新时间:`2016-3-12`
+最近更新时间:`2016-3-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.4 | 新增openCircleLoading接口 |
+| 3.0.5 | 修复openCircleLoading在ios7上背景不透明的BUG |
 | 3.0.4 | 新增openCircleLoading接口 |
 | 3.0.3 | uexLoadingView插件,修改open接口 |
 | 3.0.2 | 修改配置文件 |

@@ -1968,7 +1968,6 @@ Android2.2+
 uexBaiduMap.getDistance(lat1,lon1,lat2,lon2)
 ```
 
-
 ## 2.2、监听方法
 
 > ### onMapClickListener 点击地图的监听方法 
@@ -2433,7 +2432,7 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 **参数**
 
 ```
-data:(String类型) 必选 两点之间的距离，单位为米
+data:(String类型) 必选 两点之间的距离,单位为米
 
 var data = "142658.29447225234";
 
@@ -2451,7 +2450,6 @@ uexBaiduMap.cbGetDistance = function(data){
 }
 
 ```
-
 
 # 3、更新历史
 
@@ -2481,14 +2479,14 @@ API版本:`uexBaiduMap-3.0.15`
 
 ### Android
 
-API版本:`uexBaiduMap-3.2.30`
+API版本:`uexBaiduMap-3.2.32`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段，返回距离 |
-| 3.2.31 | 增加了，当不打开地图View时，也可以调用poi搜索功能（目前支持城市检索，周边检索，区域检索）,修复了打开地图再关闭地图，搜索poi无效的问题 |
+| 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段,返回距离 |
+| 3.2.31 | 增加了,当不打开地图View时,也可以调用poi搜索功能(目前支持城市检索,周边检索,区域检索),修复了打开地图再关闭地图,搜索poi无效的问题 |
 | 3.2.30 | 修复了前端调用open方法时传入小数时抛出NumberFormatException的问题 |
 | 3.2.29 | 修复了持续定位时cbCurrentLocation回调不生效的问题 |
 | 3.2.28 | 修复open接口传入的中心点不生效的问题 |
