@@ -81,7 +81,7 @@ var result = uexBackground.start(JSON.stringify(data));
 
 > ###stop() 停止当前正在运行的后台JS
 
-`uexBackground.start()`
+`uexBackground.stop()`
 
 **说明**
 
