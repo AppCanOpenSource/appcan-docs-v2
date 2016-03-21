@@ -316,7 +316,7 @@ uexWindow.confirm("警告","确定退出么？","OK,Cancel");
 | message | String | 是 | 对话框内容，不需要时请传空字符串`""` |
 | defaultValue | String | 是 | 输入框默认文字，不需要时请传空字符串`""` |
 | buttonLable | String | 是 | 显示在按钮上的文字的集合 ,多个按钮之间用逗号`,`分隔 |
-| hint | String | 否 | 输入框中的提示文字，在defaultValue为空时显示 |
+| hint | String | 否 | 输入框中的提示文字，在输入框中内容为空时显示 |
 **平台支持：**
 Android2.2+
 iOS6.0+
