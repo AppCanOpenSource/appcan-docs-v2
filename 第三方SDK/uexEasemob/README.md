@@ -1256,12 +1256,13 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 ### iOS
 
-API版本:`uexEasemob-3.0.19`
+API版本:`uexEasemob-3.0.20`
 
-最近更新时间:`2016-2-22`
+最近更新时间:`2016-3-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.20 | 修复加入公开群会失败的问题 |
 | 3.0.19 | 修复onMessageSent中群组信息错误的问题;setNotifyBySoundAndVibrate支持后台通知 |
 | 3.0.18 | 修复透传消息也会提示用户的问题 |
 | 3.0.17 | 修复getMessageHistory接口传入startMsgId但pagesize为0时取不到所有messages的问题 |

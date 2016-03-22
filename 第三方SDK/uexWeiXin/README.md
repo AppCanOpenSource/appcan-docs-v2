@@ -782,7 +782,7 @@ function shareText(){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| jsonData| String类型| 必选 | 分享的文本内容，路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type|
+| jsonData| String类型| 必选 | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type|
 
 ```
 jsonData {

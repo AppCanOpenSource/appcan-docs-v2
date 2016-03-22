@@ -317,12 +317,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexCamera-3.0.4`
+API版本:`uexCamera-3.0.5`
 
-最近更新时间:`2016-3-09`
+最近更新时间:`2016-3-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.5 | 修改openViewCamera接口适配地址长度,修改openInternal崩溃bug,修改第一次切换镜头无效 |
 | 3.0.4 | 修改openViewCamera不传照片质量崩溃bug,修改changeFlashMode闪光灯接口 |
 | 3.0.3 | 插件改为arc,添加openInternal自定义相机接口,添加openViewCamera自定义view模式相机 |
 | 3.0.2 | 添加IDE支持 |
@@ -331,13 +332,13 @@ API版本:`uexCamera-3.0.4`
 
 ### Android
 
-API版本:`uexCamera-3.0.17`
+API版本:`uexCamera-3.0.18`
 
 最近更新时间:`2016-03-07`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.18 | 优化了CameraView代码逻辑，优化了照片处理，优化了OOM问题处理，并做了为null判断，避免程序因空指针崩溃 |
+| 3.0.18 | 优化了CameraView代码逻辑,优化了照片处理,优化了OOM问题处理,并做了为null判断,避免程序因空指针崩溃 |
 | 3.0.17 | 修复Activity拒绝服务漏洞的问题,修复了openViewCamera拒绝使用系统拍照权限后程序崩溃的问题 |
 | 3.0.16 | 修复了在三星手机上照片旋转方向不一致的问题;修复了多次点击照相按钮,再点重拍照相按钮失效的问题 |
 | 3.0.15 | 修复了少写mCamera.setPreviewCallback(null)导致崩溃的问题 |
