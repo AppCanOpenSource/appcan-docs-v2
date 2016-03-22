@@ -88,6 +88,17 @@ iOS6.0+
 | ----- | ----- | ----- | ----- |
 | infoID | Number | 是 | 设备信息类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中设备信息类型。 |
 
+**返回值:**
+
+| 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- |
+| String | 是 | 设备信息 |
+
+* 在3.3+引擎版本下，此方法具有返回值，可以直接获得所需的设备信息
+
+
+
+
 **平台支持:**
 
 Android2.2+
@@ -100,7 +111,8 @@ iOS6.0+
 **示例:**
 
 ```
-    uexDevice.getInfo('1');//获取系统版本
+ var systemVersion = uexDevice.getInfo('1');//获取系统版本
+ alert(systemVersion);//限3.3+引擎
 ```
 > ### screenCapture 屏幕截图
 
@@ -175,6 +187,16 @@ Android3.0.1+
 
 无
 
+**返回值:**
+
+| 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- |
+| Number | 是 | 系统音量值,取值范围[0,1],为1时音量最大 |
+
+* 在3.3+引擎版本下，此方法具有返回值，可以直接获得系统音量值。
+
+
+
 **平台支持:**
 
 Android2.2+
@@ -188,7 +210,8 @@ Android3.0.1+
 **示例:**
 
 ```
-    uexDevice.getVolume();//获取系统音量值
+ var volume = uexDevice.getVolume();//获取系统音量值
+ alert(volume);
 ```
 > ### setScreenAlwaysBright 屏幕常亮控制 
 
@@ -204,6 +227,8 @@ Android3.0.1+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | data | Number | 是 | 屏幕常亮控制值,0 为取消常亮控制；1为设置屏幕常亮|
+
+
 
 **平台支持:**
 
@@ -231,8 +256,17 @@ Android3.0.1+
 
 **参数:**
 
- 
 无
+
+**返回值:**
+
+| 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- |
+| Number | 是 | 屏幕亮度值,取值范围[0,1],为1时屏幕最亮。 |
+
+* 在3.3+引擎版本下，此方法具有返回值，可以直接获得屏幕亮度值。
+
+
 
 **平台支持:**
 
@@ -247,7 +281,8 @@ Android3.0.1+
 **示例:**
 
 ```
-    uexDevice.getScreenBrightness();//获取屏幕亮度
+ var brightness = uexDevice.getScreenBrightness();//获取屏幕亮度
+ alert(brightness);
 ```
 
 > ### setScreenBrightness 调整屏幕亮度
@@ -345,11 +380,11 @@ Android3.0.3+
 **示例:**
 
 ```
-        var params = {
-            setting:"GPS"//位置服务功能
-        };
-        var data = JSON.stringify(params);
-        uexDevice.isFunctionEnable(data);
+var params = {
+ 	setting:"GPS"//位置服务功能
+};
+var data = JSON.stringify(params);
+uexDevice.isFunctionEnable(data);
 ```
 
 > ### openSetting 打开设置界面
@@ -421,9 +456,9 @@ iOS6.0+
 **示例:**
 
 ```
-    uexDevice.cbGetInfo=function (opCode,dataType,data){
-        alert(data);
-    };
+uexDevice.cbGetInfo=function (opCode,dataType,data){
+	alert(data);
+};
 ```
 
 > ### cbScreenCapture 获取屏幕截图的回调方法
@@ -450,10 +485,10 @@ Android3.0.1+
 **示例:**
 
 ```
-    uexDevice.cbScreenCapture =function(data){
-    	var data = JSON.parse(data);
-       alert(data.savePath);
-    };
+uexDevice.cbScreenCapture = function(data){
+	var data = JSON.parse(data);
+	alert(data.savePath);
+};
 ```
 
 > ### cbGetVolume 获取系统音量值的回调方法
@@ -480,10 +515,10 @@ Android3.0.1+
 **示例:**
 
 ```
-    uexDevice.cbGetVolume=function(data){
-    	var data = JSON.parse(data);
-       alert(data.volume);
-    };
+uexDevice.cbGetVolume=function(data){
+	var data = JSON.parse(data);
+	alert(data.volume);
+};
 ```
 
 > ### cbGetScreenBrightness 获取系统屏幕亮度值的回调方法
@@ -510,10 +545,10 @@ Android3.0.1+
 **示例:**
 
 ```
-    uexDevice.cbGetVolume=function(data){
-    	var data = JSON.parse(data);
-       alert(data.brightness);
-    };
+uexDevice.cbGetVolume=function(data){
+	var data = JSON.parse(data);
+	alert(data.brightness);
+};
 ```
 
 > ### cbIsFunctionEnable 判断某功能是否开启的回调方法
@@ -548,10 +583,10 @@ Android3.0.3+
 **示例:**
 
 ```
-    uexDevice.cbIsFunctionEnable = function(data){
-        var data = JSON.parse(data);
-        alert(data.isEnable);
-    };
+uexDevice.cbIsFunctionEnable = function(data){
+	var data = JSON.parse(data);
+	alert(data.isEnable);
+};
 ```
 
 > ### cbOpenSetting 打开设置界面的回调方法
@@ -586,10 +621,10 @@ Android3.0.3+
 **示例:**
 
 ```
-    uexDevice.cbOpenSetting = function(data){
-        var data = JSON.parse(data);
-        alert(data.errorCode);
-    };
+uexDevice.cbOpenSetting = function(data){
+	var data = JSON.parse(data);
+	alert(data.errorCode);
+};
 ```
 
 ## 2.3、监听方法
@@ -619,17 +654,17 @@ iOS6.0+
  
 
 ```
-    uexDevice.onOrientationChange = function(mode){
-        if(mode == 1){
-            alert("正竖屏");
-        }else if(mode == 2){
-            alert("左横屏");
-        }else if(mode == 4){
-            alert("倒竖屏");
-        }else if(mode == 8){
-            alert("右横屏");
-        }
-    };
+ uexDevice.onOrientationChange = function(mode){
+	if(mode == 1){
+		alert("正竖屏");
+	}else if(mode == 2){
+		alert("左横屏");
+	}else if(mode == 4){
+ 		alert("倒竖屏");
+ 	}else if(mode == 8){
+ 		alert("右横屏");
+ 	}
+};
 ```
 
 # 3、更新历史
