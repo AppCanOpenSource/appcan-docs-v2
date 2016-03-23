@@ -62,6 +62,7 @@ Android 2.2+
 iOS 6.0+
 
 **版本支持:**
+
   
 
 Android 3.0.0+
@@ -135,6 +136,7 @@ uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
 `uexPopoverMenu.cbItemSelected(selectRow)  `
 
 **参数:**
+
    
 
 |参数名称|参数类型 | 是否必选|  说明 |
