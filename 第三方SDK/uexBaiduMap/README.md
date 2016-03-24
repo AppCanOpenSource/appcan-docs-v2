@@ -4,8 +4,9 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 提供百度地图的相关相关功能。用户可以使用该插件在网页上嵌入一张地图,并实现对地图的基本操作, 例如放大缩小,移动,点击,隐藏,显示。另外还提供了定位功能,搜索功能,路线规划功能,地理编码功能 。
 ## 1.1、说明
-　　安卓&iOS插件已支持**config.xml文件**配置AK。IDE插件因为涉及到百度方面的ID与Key暂时无法使用。
-具体使用点击查看:[附录](http://newdocx.appcan.cn/newdocx/docx?type=1384_975 "百度地图插件接入指引")----->百度地图插件接入指引
+安卓&iOS插件已支持**config.xml文件**配置AK。
+>注：IDE插件因为涉及到百度方面的ID与Key暂时无法使用，此插件之前需要进行config.xml相关配置，具体使用点击查看:[附录](http://newdocx.appcan.cn/newdocx/docx?type=1384_975 "百度地图插件接入指引")----->百度地图插件接入指引
+
 ## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/153918c2015z6c16q.png)
 ## 1.3、公告
