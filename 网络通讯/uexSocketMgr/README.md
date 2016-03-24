@@ -14,7 +14,7 @@
 ## 2.1、方法
 > ### createUDPSocket 创建UDP对象
 
-`uexSocketMgr.createUDPSocket(id,port)`
+`uexSocketMgr.createUDPSocket(id,port,dataType)`
 
 **说明:**
 
@@ -27,7 +27,12 @@
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 唯一标识符 |
 | port | Number | 是 | 本地端口号 |
- 
+| dataType | Number | 否 | 数据类型 取值范围{0,1,2},详见下方说明。**默认为0** |
+
+* dataType应该根据Socket服务器端的情况进行设置
+	* dataType == 0 时, 收发的数据应该是以UTF-8编码的字符串。
+	* dataType == 1 时, 收到的数据会以base64编码后再返回给前端。前端传入的数据会先经过base64解码后再发送给服务器。
+	* dataType == 2 时, 收发的数据应该是以GBK编码的字符串。
 
 **平台支持:**
 
@@ -45,7 +50,7 @@
 ```
 > ### createTCPSocket 创建TCP对象
 
-`uexSocketMgr.createTCPSocket(id)`
+`uexSocketMgr.createTCPSocket(id,dataType)`
 
 **说明:**
 
@@ -57,6 +62,12 @@
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 唯一标识符 |
+| dataType | Number | 否 | 数据类型 取值范围{0,1,2},详见下方说明。**默认为0** |
+
+* dataType应该根据Socket服务器端的情况进行设置
+	* dataType == 0 时, 收发的数据应该是以UTF-8编码的字符串。
+	* dataType == 1 时, 收到的数据会以base64编码后再返回给前端。前端传入的数据会先经过base64解码后再发送给服务器。
+	* dataType == 2 时, 收发的数据应该是以GBK编码的字符串。
 
 **平台支持:**
 
@@ -386,12 +397,13 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexSocketMgr-3.0.6`
+API版本:`uexSocketMgr-3.0.7`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-3-23`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.7 | 收发数据支持base64以及GBK编码 |
 | 3.0.6 | 添加IDE支持 |
 | 3.0.5 | 解决使用base64格式传输数据ios发送不成功的问题 |
 | 3.0.4 | 调整onData方法的回调参数 |
