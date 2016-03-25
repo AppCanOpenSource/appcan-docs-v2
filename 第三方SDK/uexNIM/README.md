@@ -39,7 +39,7 @@ root页面收到回调后,可以通过uexWindow的相关方法传递到各个网
 
 ```
 <config desc="uexNIM" type="KEY">
-	<param name="$appKey$" platform="Android" value="8ce4f10b741de88e2b6bd86fb9c27cc3">
+	<param name="$appKey$" platform="Android" value="8ce4f10b741de88e2b6bd86fb9c27cc3"/>
     <param name="$packageName$" platform="Android" value="com.appcan.test"/>
 </config>
 ```
