@@ -162,14 +162,14 @@
             uexNIM.cbAllRecentSession=function(data){
                 alert("cbAllRecentSession"+data);
             }
-            uexNIM.cbAddRecentSession=function(data){
-                alert("cbAddRecentSession"+data);
+            uexNIM.onAddRecentSession=function(data){
+                alert("onAddRecentSession"+data);
             }
-            uexNIM.cbUpdateRecentSession=function(data){
-                alert("cbUpdateRecentSession"+data);
+            uexNIM.onUpdateRecentSession=function(data){
+                alert("onUpdateRecentSession"+data);
             }
-            uexNIM.cbRemoveRecentSession=function(data){
-                alert("cbRemoveRecentSession"+data);
+            uexNIM.onRemoveRecentSession=function(data){
+                alert("onRemoveRecentSession"+data);
             }
             uexNIM.cbDeleteAllMessages=function(data){
                 alert("cbDeleteAllMessages"+data);
@@ -187,9 +187,9 @@
             uexNIM.cbSearchMessages=function(data){
                 alert("cbSearchMessages"+data);
             }
-            
+
             //2.5 语音录制及回放
-            
+
             uexNIM.cbSwitchAudioOutputDevice=function(data){
                 alert("cbSwitchAudioOutputDevice"+data);
             }
@@ -202,7 +202,7 @@
             uexNIM.cbCompletedPlayAudio=function(data){
                 alert("cbCompletedPlayAudio"+data);
             }
-            
+
             uexNIM.cbIsRecording=function(data){
                 alert("cbIsRecording"+data);
             }
@@ -241,8 +241,12 @@
             uexNIM.cbTeamById=function(data){
                 alert("cbTeamById"+data);
             }
-            uexNIM.cbTeamAdded=function(data){
-                alert("cbTeamAdded"+data);
+            uexNIM.cbTeamById=function(data){
+                alert("cbTeamById"+data);
+            }
+
+            uexNIM.cbFetchTeamInfo=function(data){
+                alert("cbFetchTeamInfo:"+data);
             }
             uexNIM.cbCreateTeam=function(data){
                 alert("cbCreateTeam"+data);
@@ -298,8 +302,11 @@
             uexNIM.cbDismissTeam=function(data){
                 alert("cbDismissTeam"+data);
             }
-            uexNIM.cbUpdateNotifyState=function(data){
-                alert("cbUpdateNotifyState"+data);
+            uexNIM.cbUpdateNotifyStateForTeam=function(data){
+                alert("cbUpdateNotifyStateForTeam"+data);
+            }
+            uexNIM.cbNotifyForNewMsgForTeam=function(data){
+                alert("cbNotifyForNewMsgForTeam"+data);
             }
             uexNIM.onTeamUpdated=function(data){
                 alert("onTeamUpdated"+data);
@@ -386,10 +393,10 @@
             uexNIM.cbUpdateNotifyStateForUser=function(data){
                 alert("cbUpdateNotifyStateForUser"+data);
             }
-            uexNIM.cbNotifyForNewMsg=function(data){
-                alert("cbNotifyForNewMsg"+data);
+            uexNIM.cbNotifyForNewMsgForUser=function(data){
+                alert("cbNotifyForNewMsgForUser"+data);
             }
-            
+
             //2.11 通话
             uexNIM.cbStart=function(data){
                 alert("cbStart"+data);
@@ -449,10 +456,10 @@
             uexNIM.cbSetCameraDisable=function(data){
                 alert("cbSetCameraDisable"+data);
             }
-            
-            
-            
-            
+
+
+
+
         }
     var cPage="1";
     cp=function(name){

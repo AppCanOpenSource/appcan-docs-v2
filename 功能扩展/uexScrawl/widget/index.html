@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport"
+        content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+            <title>uexScrawl</title>
+            <script type="text/javascript">
+                window.uexOnload = function() {
+                    uexScrawl.cbSave = function(data){
+                        alert(data);
+                    }
+                }
+                function openButton(){
+                    var params = {
+                        "src":"res://car.png"
+                    };
+                    uexScrawl.open(JSON.stringify(params));
+                }
+            
+            </script>
+            </head>
+    
+    <body>
+        <div class="tit" id = "tit">uexScrawl</div>
+        <div class="conbor">
+            <div class="consj">
+                <br><br><br><br><br><br><br>
+                <input class="btn" type="button" value="open" onclick="openButton();"/>
+                
+                
+            </div>
+        </div>
+    </body>
+</html>

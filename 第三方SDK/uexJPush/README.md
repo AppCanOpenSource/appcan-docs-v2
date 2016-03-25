@@ -710,7 +710,7 @@ var json={
 ```
 
 * isAPNs 
-	* iOS 3.0.5添加此参数 用以区分是APNs推送(true)还是本地推送(true)
+	* iOS 3.0.5添加此参数 用以区分是APNs推送(true)还是本地推送(false)
 	* Android无此参数,因为Android推送永远不会由APNs服务发出
 * iOS 3.0.5+的版本才能捕获本地通知
 

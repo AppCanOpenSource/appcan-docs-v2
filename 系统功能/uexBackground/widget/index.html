@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/CCLog.js"></script>
+    <script type="text/javascript">
+        function openWin(name){
+            uexWindow.open(name, '0', name+".html", '2', '', '', 0);
+        }
+        window.uexOnload = function(type){
+
+        }
+    var start = function(){
+        uexWindow.putLocalData("token","" + new Date().getTime());
+        var data = {
+            jsPath:"res://background.js",
+            jsResourcePaths:["res://../js/constant.js","res://../js/CCLog.js"]
+        }
+        var result = uexBackground.start(JSON.stringify(data));
+        CCLog("start result:" + result);
+    }
+
+    </script>
+</head>
+
+<body>
+    <div class="tit">uexBackground</div>
+    <div class="conbor">
+        <div class="consj">
+            <input class="btn" type="button" value="test" onclick="start();">
+
+        </div>
+    </div>
+</body>
+</html>

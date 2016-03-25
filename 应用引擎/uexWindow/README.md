@@ -303,7 +303,7 @@ uexWindow.confirm("警告","确定退出么？","OK,Cancel");
 
 > ### prompt 弹出prompt对话框
   
-`uexWindow.prompt(title,message,defaultValue,buttonLable)`
+`uexWindow.prompt(title,message,defaultValue,buttonLable,hint)`
 
 **说明:**
 弹出包含两个按钮且带输入框的对话框
@@ -313,10 +313,10 @@ uexWindow.confirm("警告","确定退出么？","OK,Cancel");
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | title | String | 是 | 标题 |
-| message | String | 是 | 内容 |
-| defaultValue | String | 是 | 输入框默认文字 |
-| buttonLable | Array | 是 | 显示在按钮上的文字的集合 |
-
+| message | String | 是 | 对话框内容，不需要时请传空字符串`""` |
+| defaultValue | String | 是 | 输入框默认文字，不需要时请传空字符串`""` |
+| buttonLable | String | 是 | 显示在按钮上的文字的集合 ,多个按钮之间用逗号`,`分隔 |
+| hint | String | 否 | 输入框中的提示文字，在输入框中内容为空时显示 |
 **平台支持：**
 Android2.2+
 iOS6.0+
@@ -606,7 +606,7 @@ Android2.2+
 | type | Number | 是 | 0-没有进度条；1-有进度条 |
 | location | Number | 是 | 显示位置，详见CONSTANT中WindowToastLocation |
 | msg | Number | 是 | 消息 |
-| duration | Number | 是 | 显示时间，非正整数时，提示框一直存在，不会自动关闭 |
+| duration | Number | 是 | 显示时间，单位为毫秒，非正整数时，提示框一直存在，不会自动关闭 |
 
 **平台支持：**
 Android2.2+
@@ -1737,7 +1737,7 @@ index2.html
 `uexWindow.subscribeChannelNotification(channelId,functionName)`
 
 **说明:**
-窗口之间的通信，可以通过发布/订阅模式来实现。窗口调用此接口订阅频道监听，当在另一窗口调用publishChannelNotification时，对应此频道的回调方法将被调用，并传入相应的参数。
+窗口之间的通信，可以通过发布/订阅模式来实现。窗口调用此接口订阅频道监听，当在另一窗口调用publishChannelNotification或publishChannelNotificationForJson时，对应此频道的回调方法将被调用，并传入相应的参数。
 
 **参数:**
 
@@ -1900,6 +1900,35 @@ iOS6.0+
 **示例：**
 ```
 uexWindow.publishChannelNotification("1","channel 1 test just!");
+
+```
+> ### publishChannelNotificationForJson 发送全局Json类型消息
+
+
+
+`uexWindow.publishChannelNotificationForJson(channelId,content)`
+**说明:**
+发布消息通知，此频道的所有订阅者，将收到消息，回调函数将被调用，并传入相应的参数.
+
+**参数:**
+
+| 参数名称 | 参数类型  | 是否必选  |  说明 |
+| -------- | --------- | --------- | ----- |
+| channelId | Number | 是 | 频道唯一标识符 |
+| content | String | 是 | 发送Json类型的内容 |
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+**版本支持：**
+3.0.0+
+
+**示例：**
+```
+var json = ｛
+      key ：value
+｝
+uexWindow.publishChannelNotificationForJson("1",JSON.stringify(json));
 
 ```
 
