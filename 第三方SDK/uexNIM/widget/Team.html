@@ -205,14 +205,21 @@
         uexNIM.dismissTeam(JSON.stringify(param));
     }
     //[6.22]
-    function updateNotifyState(){
+    function updateNotifyStateForTeam(){
         var param={
             teamId:document.getElementById("updateNotifyState_teamId").value,
             notify:document.getElementById("updateNotifyState_notify").value,
         }
-        uexNIM.updateNotifyState(JSON.stringify(param));
+        uexNIM.updateNotifyStateForTeam(JSON.stringify(param));
     }
     //[6.23]
+    function notifyForNewMsgForTeam(){
+        var param={
+            teamId:document.getElementById("notifyForNewMsgForTeam_teamId").value,
+        }
+        uexNIM.notifyForNewMsgForTeam(JSON.stringify(param));
+    }
+    //[6.24]
     function updateTeamCustomInfo(){
         var param={
             teamId:document.getElementById("updateTeamCustomInfo_teamId").value,
@@ -252,11 +259,11 @@
              <input class='btn' type='button' value='调用接口' onclick='allMyTeams()'></input>
              
              <div> </div><span>teamById</span>
-             <div>teamId:</div><input class="textbox" type="text" id="teamById" value="224508"></input>
+             <div>teamId:</div><input class="textbox" type="text" id="teamById" value="2242508"></input>
              <input class='btn' type='button' value='调用接口' onclick='teamById()'></input>
              
              <div> </div><span>fetchTeamInfo</span>
-             <div>teamId:</div><input class="textbox" type="text" id="fetchTeamInfo" value="224508"></input>
+             <div>teamId:</div><input class="textbox" type="text" id="fetchTeamInfo" value="2242508"></input>
              <input class='btn' type='button' value='调用接口' onclick='fetchTeamInfo()'></input>
              
              <div> </div><span>createTeam</span>
@@ -271,7 +278,7 @@
              
              <div> </div><span>addUsers</span>
              <div>users:</div><input class="textbox" type="text" id="addUsers_users" value='["appcanuser2"]'></input>
-             <div>teamId:</div><input class="textbox" type="text" id="addUsers_teamId" value="2492076"></input>
+             <div>teamId:</div><input class="textbox" type="text" id="addUsers_teamId" value="3376270"></input>
              <div>postscript:</div><input class="textbox" type="text" id="addUsers_postscript" value="welcome"></input>
              <input class='btn' type='button' value='调用接口' onclick='addUsers()'></input>
              
@@ -293,17 +300,17 @@
              
              <div> </div><span>passApplyToTeam</span>
              <div>userId:</div><input class="textbox" type="text" id="passApplyToTeam_userId" value="appcanuser2"></input>
-             <div>teamId:</div><input class="textbox" type="text" id="passApplyToTeam_teamId" value="2492076"></input>
+             <div>teamId:</div><input class="textbox" type="text" id="passApplyToTeam_teamId" value="3376270"></input>
              <input class='btn' type='button' value='调用接口' onclick='passApplyToTeam()'></input>
              
              <div> </div><span>rejectApplyToTeam</span>
              <div>userId:</div><input class="textbox" type="text" id="rejectApplyToTeam_userId" value="appcanuser2"></input>
-             <div>teamId:</div><input class="textbox" type="text" id="rejectApplyToTeam_teamId" value="2492076"></input>
+             <div>teamId:</div><input class="textbox" type="text" id="rejectApplyToTeam_teamId" value="3376270"></input>
              <input class='btn' type='button' value='调用接口' onclick='rejectApplyToTeam()'></input>
              
              <div>======updateTeam================</div>
              <div>Update_Value(下面几个接口共用此输入框):</div><input class="textbox" type="text" id="updateTeam_value" value=""></input>
-             <div>teamId(下面几个接口共用此输入框):</div><input class="textbox" type="text" id="updateTeam_teamId" value="2492076"></input>
+             <div>teamId(下面几个接口共用此输入框):</div><input class="textbox" type="text" id="updateTeam_teamId" value="3376270"></input>
              <div> </div><span>updateTeamName</span>
              <input class='btn' type='button' value='调用接口' onclick='updateTeamName()'></input>
              <div> </div><span>updateTeamIntro</span>
@@ -314,17 +321,17 @@
              <input class='btn' type='button' value='调用接口' onclick='updateTeamJoinMode()'></input>
              
              <div>======管理群组权限================</div>
-             <div>teamId:</div><input class="textbox" type="text" id="teamManager_teamId" value="2492076"></input>
+             <div>teamId:</div><input class="textbox" type="text" id="teamManager_teamId" value="3376270"></input>
              <div>users:</div><input class="textbox" type="text" id="teamManager_users" value='["appcanuser2"]'></input>
              <input class='btn' type='button' value='addManagersToTeam' onclick='addManagersToTeam()'></input>
              <input class='btn' type='button' value='removeManagersFromTeam' onclick='removeManagersFromTeam()'></input>
-             <div>teamId:</div><input class="textbox" type="text" id="transferManagerWithTeam_teamId" value="2492076"></input>
+             <div>teamId:</div><input class="textbox" type="text" id="transferManagerWithTeam_teamId" value="3376270"></input>
              <div>newOwnerId:</div><input class="textbox" type="text" id="transferManagerWithTeam_newOwnerId" value="appcanuser2"></input>
              <div>isLeave:</div><input class="textbox" type="text" id="transferManagerWithTeam_isLeave" value="0"></input>
              <input class='btn' type='button' value='transferManagerWithTeam' onclick='transferManagerWithTeam()'></input>
              
              <div> </div><span>fetchTeamMembers</span>
-             <div>teamId:</div><input class="textbox" type="text" id="fetchTeamMembers_teamId" value="2492076"></input>
+             <div>teamId:</div><input class="textbox" type="text" id="fetchTeamMembers_teamId" value="3376270"></input>
              <input class='btn' type='button' value='调用接口' onclick='fetchTeamMembers()'></input>
              
              <div> </div><span>quitTeam</span>
@@ -332,24 +339,20 @@
              <input class='btn' type='button' value='调用接口' onclick='quitTeam()'></input>
              
              <div> </div><span>kickUsers</span>
-             <div>teamId:</div><input class="textbox" type="text" id="kickUsers_teamId" value="2492076"></input>
+             <div>teamId:</div><input class="textbox" type="text" id="kickUsers_teamId" value="3376270"></input>
              <div>users:</div><input class="textbox" type="text" id="kickUsers_users" value='["appcanuser2"]'></input>
              <input class='btn' type='button' value='调用接口' onclick='kickUsers()'></input>
              
              <div> </div><span>dismissTeam</span>
-             <div>teamId:</div><input class="textbox" type="text" id="dismissTeam_teamId" value="2492076"></input>
+             <div>teamId:</div><input class="textbox" type="text" id="dismissTeam_teamId" value="3376270"></input>
              <input class='btn' type='button' value='调用接口' onclick='dismissTeam()'></input>
              
-             <div> </div><span>updateNotifyState</span>
-             <div>teamId:</div><input class="textbox" type="text" id="updateNotifyState_teamId" value="2492076"></input>
+             <div> </div><span>updateNotifyStateForTeam</span>
+             <div>teamId:</div><input class="textbox" type="text" id="updateNotifyState_teamId" value="3376270"></input>
              <div>notify:</div><input class="textbox" type="text" id="updateNotifyState_notify" value="1"></input>
-             <input class='btn' type='button' value='调用接口' onclick='updateNotifyState()'></input>
+             <input class='btn' type='button' value='调用接口' onclick='updateNotifyStateForTeam()'></input>
              
-             <div> </div><span>updateTeamCustomInfo</span>
-             <div>teamId:</div><input class="textbox" type="text" id="updateTeamCustomInfo_teamId" value="2490893"></input>
-             <div>info:</div><input class="textbox" type="text" id="updateTeamCustomInfo_info" value=""></input>
-             <input class='btn' type='button' value='调用接口' onclick='updateTeamCustomInfo()'></input>
-             
+
              
              
         <div>======回调区域==========</div>
