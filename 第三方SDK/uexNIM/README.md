@@ -178,35 +178,6 @@ var param = {
 };
 ```
 
->###registerUser(param)  注册(网易云信不能通过客户端sdk创建账号)
-
-云信的账号体系和应用的账号体系是一个业务绑定的关系，创建账号在应用服务器进行可以有效控制账号的创建行为，任何应用的客户端都存在被破解的风险，如果直接通过客户端就可以创建云信账号可能会使您的应用出现被盗刷账号的情况。可能友商提供类似的客户端接口，使您在开发的时候节省了几行代码，但是为您的应用安全埋下了风险的种子。
-
-* 只有网易云信提供的测试appKey 才能够使用这个注册接口
-appKey:45c6af3c98409b18a84451215d0bdd6e;
-apnsCertName:ENTERPRISE;
-
-param为json字符串
-
-```
-var param = {
-	userId:,//用户名
-	nickname:,//昵称
-	password:,//密码
-};
-```
-
->###cbRegisterUser(param) 注册回调
-
-param为json字符串
-
-```
-var param = {
-	result:,//true or false
-	error:,//提示信息,result为true时为空
-};
-```
-
 ##2.3、基础消息功能
 ***
 SDK 中用户与同一个对象的聊天信息集合，称为一个会话，用 NIMSession 来表示。会话有单人会话和群组会话两种类型。如果会话为单人类型，会话 ID 为聊天用户的 ID；如果会话为群组类型，会话 ID 为群组 ID。
