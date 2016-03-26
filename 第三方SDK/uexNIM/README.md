@@ -513,7 +513,7 @@ var param = {
 	intro:,//群介绍,可选参数;
 	announcement:,//群公告，可选参数;
 	
-	users:,//array类型,邀请群成员.不能为空,不邀请人时传自己的userId;
+	users:,//array类型,邀请群成员.不能为空,不邀请人时传自己的userId; 当创建普通群时，必须要添加一个其它成员。
 };
 ```
 在创建群组成功后，邀请的群成员会收到系统通知，可以从 `onReceiveSystemNotification(param)` 回调中获取相关的信息。
