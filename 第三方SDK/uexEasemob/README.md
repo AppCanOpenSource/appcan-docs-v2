@@ -425,7 +425,7 @@ var param = {
 };
 ```
 
->###cbGetUnReadMsgCount(param) 获取未读消息数量回调
+>###cbGetUnreadMsgCount(param) 获取未读消息数量回调
 
 param为json字符串
 

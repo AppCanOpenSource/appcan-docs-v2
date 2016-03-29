@@ -122,11 +122,11 @@
         uexNIM.updateNotifyStateForUser(JSON.stringify(param));
     }
     //[10.10]
-    function notifyForNewMsg(){
+    function notifyForNewMsgForUser(){
         var param={
-            userId:document.getElementById("notifyForNewMsg_userId").value,
+            userId:document.getElementById("notifyForNewMsgForUser_userId").value,
         }
-        uexNIM.notifyForNewMsg(JSON.stringify(param));
+        uexNIM.notifyForNewMsgForUser(JSON.stringify(param));
     }
 
 
@@ -210,9 +210,9 @@
              <div>notify:</div><input class="textbox" type="text" id="updateNotifyStateForUser_notify" value=""></input>
              <input class='btn' type='button' value='调用接口' onclick='updateNotifyStateForUser()'></input>
              
-             <div> </div><span>notifyForNewMsg</span>
-             <div>userId:</div><input class="textbox" type="text" id="notifyForNewMsg_userId" value="appcanuser2"></input>
-             <input class='btn' type='button' value='调用接口' onclick='notifyForNewMsg()'></input>
+             <div> </div><span>notifyForNewMsgForUser</span>
+             <div>userId:</div><input class="textbox" type="text" id="notifyForNewMsgForUser_userId" value="appcanuser2"></input>
+             <input class='btn' type='button' value='调用接口' onclick='notifyForNewMsgForUser()'></input>
              
              
         <div>======回调记录==========</div>
