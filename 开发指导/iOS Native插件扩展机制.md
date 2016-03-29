@@ -149,8 +149,8 @@
 ```
 
 #####plugin.xml中注册插件方法的基本规则
-	1.每一个插件唯一对应了一个`<plugin>`节点,节点中必须声明此插件的名字 用`name`字段表示
-	2.在插件<plugin>节点内，每个 `<method>`节点对应了一个暴露给网页的插件方法,方法名字用`name`字段表示
+1.每一个插件唯一对应了一个`<plugin>`节点,节点中必须声明此插件的名字 用`name`字段表示
+2.在插件<plugin>节点内，每个 `<method>`节点对应了一个暴露给网页的插件方法,方法名字用`name`字段表示
 
 * 在网页中写一个按钮,在点击按钮的JS事件中调用`uexDemoPlugin.helloWorld();`
 
@@ -756,6 +756,7 @@ plugin.xml空白模板,是一个标准的xml文件
 ###5.2 插件如何引用资源文件
 
 	本小节主要介绍了如何建立插件自己的资源捆绑包(.bundle文件)以供使用。
+	这里的资源文件包括但不限于xib,storyboard,png,jpg,json,xml,js,plist等文件
 
 	
 ####5.2.1 生成插件资源捆绑包的target
@@ -784,10 +785,9 @@ plugin.xml空白模板,是一个标准的xml文件
 
 ####5.2.2 如何引用插件bundle中的资源文件
 
-* EUtility提供了方法`bundleForPlugin:`用以寻找插件bundle对应的NSBundle实例。然后按照正常NSBundle的处理方式`pathForResource:ofType:`加载资源即可。
+* EUtility提供了方法`bundleForPlugin:`用以寻找插件bundle对应的NSBundle实例。然后用NSBundle的方法`pathForResource:ofType:`获取资源路径加载资源即可。
 
 #####bundle加载@2x,@3x图片文件的处理方法
-
 
 获取到NSBundle实例后,用NSBundle的`pathForResource:ofType:`并不能自动识别@2x,@3x的图片文件,最好用`resourcePath`方法获得实际路径，然后拼接得到图片路径。
 示例如下
@@ -890,4 +890,33 @@ AppCan引擎会额外分发如下事件至每个插件入口类
 
 ##6.常见问题
 
-	
+####上传插件时提示目录结构错误
+
+* 检查zip包目录结构是否缺失
+	* zip包解压缩后应该只有一个`uexXXX`开头的文件夹
+	* 文件夹内至少有`libuexXXX.a`,`info.xml`,`plugin.xml`这3个文件
+* 首次上传插件时设置的插件名称应该是uex开头,且应该与`info.xml`,`plugin.xml`中的名称保持一致
+* 如果是更新插件,确认`info.xml`中的版本号正确的递增了,以及`<info>`节点正确填写了
+
+####在线打包时出现`Undefined symbols for architecture xxx`类型的报错:
+出现这种错误主要有以下几种原因
+
+* 生成.a的时候没有选择`Generic iOS Device`或者在用命令行编译时没有注明`-sdk iphoneos`,导致缺少对应的架构。
+	* 解决方法:正确编译引擎.a并重新生成插件包进行在线打包
+* 缺少依赖的第三方库或者第三方库本身架构缺失
+	* 解决方法:添加同时拥有armv7和arm64架构的第三方库并重新生成插件包进行在线打包
+* 缺少系统依赖库.
+	* 如果这个库的依赖iOS版本比AppCan引擎的依赖版本高,那么此插件只能配合自定义引擎使用
+	* 反之,请去[AppCan引擎github](https://github.com/AppCanOpenSource/appcan-ios/issues)提issue或者在[AppCan官方论坛](http://bbs.AppCan.cn)发帖说明,我们会第一时间进行反馈.
+	* 目前AppCan引擎的依赖版本为iOS 7.0
+
+####在线打包时出现`duplicate symbols for architecture xxx`类型的报错:
+出现这种错误的主要原因是类名冲突，请先根据日志找到冲突的类名以及它们分别所属的文件
+
+* 如果是您的插件和非官方的插件冲突
+	* 请联系插件作者协商解决
+* 如果您的插件和官方插件或者引擎冲突
+	* 如果此类是源自知名第三方库源码(比如SDWebImage等等),可以尝试只包含这些第三库的头文件使用
+	* 如果此类是您的自定义类或者包含您的自定义代码，那么应该优先尝试在类名前加上前缀避免冲突
+	* 如果此类属于第三方.a,那么应该尝试用libtool等工具将冲突的.o拆分出来,然后重新合并
+	* 如果以上方法都无法解决并且冲突来源于引擎,那么只能您的插件只能用自定义引擎,修改引擎源码配合使用
