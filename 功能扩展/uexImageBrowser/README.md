@@ -1,6 +1,6 @@
 [TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
-图片浏览插件
+图片浏览插件 （本API已停止维护更新，请使用优化升级版[uexImage](http://newdocx.appcan.cn/newdocx/docx?type=1507_975)，自定义插件下载[点击](http://plugin.appcan.cn/details.html?id=174_index) ）
 ## 1.1、说明
 封装选取本地图片,查看网络或本地图片集的功能,路径支持本地和网络地址。插件支持单选、多选图片(*`多选图片的数量可以手动设置最大张数`*)、清除图片缓存、保存图片到系统相册、截取本地相册图片,提供多个接口,灵活运用设置
 

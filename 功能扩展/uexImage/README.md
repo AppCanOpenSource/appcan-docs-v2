@@ -10,8 +10,6 @@
 ## 1.2、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=505_index)至插件详情页(插件测试用例与插件包已经提供)
 
-***
-
 #2、 API预览
 
 ##2.1、 方法
