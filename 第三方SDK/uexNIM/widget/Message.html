@@ -57,16 +57,6 @@
         uexNIM.sendImage('{"sessionId":"'+username+'","sessionType":"'+chatType+'","filePath":"'+filePath+'"}');
     }
     
-    //[2.7]
-    function sendLocationMsg(){
-        var username = document.getElementById("sendLocationMsgusername").value;
-        var chatType = document.getElementById("sendLocationMsgchatType").value;
-        var locationAddress = document.getElementById("sendLocationMsglocationAddress").value;
-        var latitude = document.getElementById("sendLocationMsglatitude").value;
-        var longitude = document.getElementById("sendLocationMsglongitude").value;
-        uexNIM.sendLocationMsg('{"sessionId":"'+username+'","sessionType":"'+chatType+'","title":"'+locationAddress+'","latitude":"'+latitude+'","longitude":"'+longitude+'"}');
-    }
-    
     //[2.8]
     function sendAudio(){
         var username = document.getElementById("sendAudiousername").value;
@@ -198,33 +188,26 @@
             <div> </div><span>[2.6]  sendImage</span>
             <div>sessionId:</div><input class="textbox" type="text" id="sendPictureusername" value="appcanuser2"></input>
             <div>sessionType:</div><input class="textbox" type="text" id="sendPicturechatType" value="0"></input>
-            <div>filePath:</div><input class="textbox" type="text" id="sendPicturefilePath" value="file:///sdcard/2.png"></input>
+            <div>filePath:</div><input class="textbox" type="text" id="sendPicturefilePath" value="res://2.jpg"></input>
             <input class='btn' type='button' value='调用接口' onclick='sendImage()'></input>
-            
-            <div> </div><span>[2.7]  sendLocationMsg</span>
-            <div>sessionId:</div><input class="textbox" type="text" id="sendLocationMsgusername" value="appcanuser2"></input>
-            <div>sessionType:</div><input class="textbox" type="text" id="sendLocationMsgchatType" value="0"></input>
-            <div>locationAddress:</div><input class="textbox" type="text" id="sendLocationMsglocationAddress" value=""></input>
-            <div>latitude:</div><input class="textbox" type="text" id="sendLocationMsglatitude" value=""></input>
-            <div>longitude:</div><input class="textbox" type="text" id="sendLocationMsglongitude" value=""></input>
-            <input class='btn' type='button' value='调用接口' onclick='sendLocationMsg()'></input>
+
             
             <div> </div><span>[2.8]  sendAudio</span>
             <div>sessionId:</div><input class="textbox" type="text" id="sendAudiousername" value="appcanuser2"></input>
             <div>sessionType:</div><input class="textbox" type="text" id="sendAudiochatType" value="0"></input>
-            <div>filePath:</div><input class="textbox" type="text" id="sendAudiofilePath" value="file:///sdcard/callRing.mp3"></input>
+            <div>filePath:</div><input class="textbox" type="text" id="sendAudiofilePath" value="res://callRing.mp3"></input>
             <input class='btn' type='button' value='调用接口' onclick='sendAudio()'></input>
             
             <div> </div><span>[2.9]  sendVideo</span>
             <div>sessionId:</div><input class="textbox" type="text" id="sendVideousername" value="appcanuser2"></input>
             <div>sessionType:</div><input class="textbox" type="text" id="sendVideochatType" value="0"></input>
-            <div>filePath:</div><input class="textbox" type="text" id="sendVideofilePath" value="file:///sdcard/1.mp4"></input>
+            <div>filePath:</div><input class="textbox" type="text" id="sendVideofilePath" value="res://1.mp4"></input>
             <input class='btn' type='button' value='调用接口' onclick='sendVideo()'></input>
 
             <div> </div><span>[2.10]  sendFile</span>
             <div>sessionId:</div><input class="textbox" type="text" id="sendFileusername" value="appcanuser2"></input>
             <div>sessionType:</div><input class="textbox" type="text" id="sendFilechatType" value="0"></input>
-            <div>filePath:</div><input class="textbox" type="text" id="sendFilefilePath" value="file:///sdcard/1.mp4"></input>
+            <div>filePath:</div><input class="textbox" type="text" id="sendFilefilePath" value="res://1.mp4"></input>
             <input class='btn' type='button' value='调用接口' onclick='sendFile()'></input>
             
 

@@ -178,35 +178,6 @@ var param = {
 };
 ```
 
->###registerUser(param)  注册(网易云信不能通过客户端sdk创建账号)
-
-云信的账号体系和应用的账号体系是一个业务绑定的关系，创建账号在应用服务器进行可以有效控制账号的创建行为，任何应用的客户端都存在被破解的风险，如果直接通过客户端就可以创建云信账号可能会使您的应用出现被盗刷账号的情况。可能友商提供类似的客户端接口，使您在开发的时候节省了几行代码，但是为您的应用安全埋下了风险的种子。
-
-* 只有网易云信提供的测试appKey 才能够使用这个注册接口
-appKey:45c6af3c98409b18a84451215d0bdd6e;
-apnsCertName:ENTERPRISE;
-
-param为json字符串
-
-```
-var param = {
-	userId:,//用户名
-	nickname:,//昵称
-	password:,//密码
-};
-```
-
->###cbRegisterUser(param) 注册回调
-
-param为json字符串
-
-```
-var param = {
-	result:,//true or false
-	error:,//提示信息,result为true时为空
-};
-```
-
 ##2.3、基础消息功能
 ***
 SDK 中用户与同一个对象的聊天信息集合，称为一个会话，用 NIMSession 来表示。会话有单人会话和群组会话两种类型。如果会话为单人类型，会话 ID 为聊天用户的 ID；如果会话为群组类型，会话 ID 为群组 ID。
@@ -231,21 +202,6 @@ var param = {
 	sessionId:,//单聊时聊天人的userid或者群聊时groupid
 	sessionType:,//0-单聊,1-群聊
 	filePath:,//图片文件路径
-};
-```
-
->###sendLocationMsg(param)//发送地理位置信息
-
-param为json字符串
-
-```
-var param = {
-	sessionId:,//单聊时聊天人的userid或者群聊时groupid
-	sessionType:,//0-单聊,1-群聊
-	title:,//位置的地址名
-	latitude:,
-	longitude:,
-
 };
 ```
 
@@ -390,7 +346,7 @@ var param = {
 var param = {sessions:[{
 	lastMessage:,//最后一条消息
 	unreadCount:,//未读消息数
-	sessionId:,//当前会话id
+	sessionId:,//当前会话id,仅iOS支持
 	sessionType:,//当前会话type
 	},{
 	}
@@ -479,54 +435,6 @@ var param = {
 该操作会触发回调cbCompletedPlayAudio。
 
 
-
->###isRecording  判断是否正在录制音频
->###cbIsRecording(param)  判断是否正在录制音频回调
-
-```
-var param = {
-	result:,
-};
-```
->###recordAudioForDuration(param)  录制音频
-
-```
-var param = {
-	duration:,// 限制了录音的最大时长,单位s
-	updateTime:, //录制音频进度回调频率,默认为 0.3 秒
-};
-```
->###cbBeganRecordAudio(param)  开始录制音频回调
-
-当初始化工作完成，准备开始录制的时候会触发
-
-```
-var param = {
-	filePath:,//音频文件的路径
-	error:,
-};
-```
->###cbCompletedRecordAudio(param)  停止录制音频回调
-
-当到录音时长达到设置的最大时长，或者手动停止录音会触发
-
-```
-var param = {
-	filePath:,//音频文件的路径
-	error:,
-};
-```
->###onRecordAudioProgress(param)  当前的录音时长监听
-
-其中 currentTime 为当前的录音时长，触发该回调的时间间隔可以通过recordProgressUpdateTimeInterval设置，默认为 0.3 秒
-
-```
-var param = {
-	currentTime:,
-};
-```
-
-
 ##2.6、群组功能
 ***
 群组功能提供了普通群 (Normal) 以及高级群 (Advanced) 两种形式的群聊功能。高级群拥有更多的权限操作，两种群聊形式在共有操作上保持了接口一致。推荐 APP 开发时只选择一种群类型进行开发。普通群和高级群在原则上是不能互相转换的，他们的群类型在创建时就已经确定。
@@ -605,9 +513,11 @@ var param = {
 	intro:,//群介绍,可选参数;
 	announcement:,//群公告，可选参数;
 	
-	users:,//array类型,邀请群成员.不能为空,不邀请人时传自己的userId;
+	users:,//array类型,邀请群成员.不能为空,不邀请人时传自己的userId; 当创建普通群时，必须要添加一个其它成员。
 };
 ```
+在创建群组成功后，邀请的群成员会收到系统通知，可以从 `onReceiveSystemNotification(param)` 回调中获取相关的信息。
+
 >###cbCreateTeam(param)  创建群组回调
 
 ```
@@ -927,6 +837,28 @@ var param = {
 	error:,//成功error为空。
 };
 ```
+
+##2.7、系统通知
+***
+除消息通道外，NIM SDK 还提供系统通知这种通道用于消息之外的通知分发。目前有两种类型:内置系统通知和自定义系统通知。
+
+内置：这是由 NIM SDK 预定义的通知类型，目前仅支持几种群操作的通知，如被邀请入群，SDK 负责这些通知的持久化。所有的内置系统通知都是通过onReceiveSystemNotification下发给 APP。为了保证整个程序逻辑的一致性，APP 需要针对不同类型的系统通知进行相应的操作。
+
+>###onReceiveSystemNotification(param)  内置系统通知监听
+
+```
+var param = {
+	notification:,//内置系统通知详细参数见下表
+};
+```
+| 参数 | 参数描述 |
+| ----- | ----- |
+| type | 申请入群:0,拒绝入群:1,邀请入群:2,拒绝入群邀请:3,添加好友:5 |
+| timestamp | 时间戳 |
+| sourceID | 操作者 |
+| targetID | 目标ID,群ID或者是用户ID |
+| postscript | 附言 , 仅iOS支持 | 
+| read | 是否已读 |
 
 
 

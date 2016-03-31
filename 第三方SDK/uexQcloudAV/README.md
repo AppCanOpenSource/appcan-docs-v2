@@ -18,7 +18,7 @@
 
 **说明:**
 
-通过此方法打开视频播放器,进入播放界面，但不会立即播放，若要播放，需调用start方法。
+通过此方法打开视频播放器,进入播放界面
 
 **参数:**
 
@@ -27,7 +27,16 @@ var params ={
     x: ,
     y: ,
     width: ,
-    height:
+    height:,
+    data : [
+              {
+                     "desc" :,
+                     "videoType" : ,
+                      "url" :
+              },
+                   .....
+   ]
+
 }
 ```
 
@@ -39,14 +48,20 @@ var params ={
 | y | Number | 是 | y坐标 |
 | width | Number | 是 | 宽度 |
 | height | Number | 是 | 高度 |
+| data | Array | 是 | 视频资源数组，至少一个 |
+| desc|String|是|对视频的描述，如"高清","标清"等，用于切换视频清晰度的显示按钮
+| videoType | Number | 是 | 视频类型，请参考[VideoType](#VideoType) |
+| url | String | 是 | 播放路径，对应实时转码的链接地址，如需加密，则需填写加密后的播放地址，[ 具体请参考](http://www.qcloud.com/doc/product/267/直播码防盗链使用方法) |
 
  
 
-**平台支持:**
+**平台支持:**  
+
 Android2.2+    
 iOS6.0+
 
-**版本支持:**
+**版本支持:**  
+
 Android3.0.0+    
 iOS3.0.0+
 
@@ -57,64 +72,8 @@ var params = {
        x: 20,
        y: window.screen.height - 240,
        width:window.screen.width - 40,
-       height:240
-     };
-var data = JSON.stringify(params);
-uexQcloudAV.open(data);
-```
-> ### start 开始播放
-
-`uexQcloudAV.start(params)`
-
-**说明:**
-
-通过此方法开始视频播放,在调用open方法后需紧随执行，以启动播放功能。
-
-**参数:**
-
-```
-var params = {
-        startSeconds : ,
-        index : ,
-        data : [
-                   {
-                     "desc" :,
-                     "videoType" : ,
-                      "url" :
-                   },
-                   .....
-               ]
-             }
-
-```
-
-各字段含义如下：
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| startSeconds | Number | 否 | 开始播放的时间点，不传默认为0 |
-| index | Number | 否 | 表示data数组的下标(从0开始)，不传默认为0。如：0代表播放data数组的第一个视频资源，1代表播放第二个视频资源 |
-| data | Array | 是 | 视频资源数组，至少一个 |
-| desc|String|是|对视频的描述，如"高清","标清"等，用于切换视频清晰度的显示按钮
-| videoType | Number | 是 | 视频类型，请参考[VideoType](#VideoType) |
-| url | String | 是 | 播放路径，对应实时转码的链接地址，如需加密，则需填写加密后的播放地址，[ 具体请参考](http://www.qcloud.com/doc/product/267/直播码防盗链使用方法) |
- 
-
-**平台支持:**
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-Android3.0.0+    
-iOS3.0.0+
-
-**示例:**
-
-```
-var params = {
-	var params = {
-		//startSeconds : 100,//不传默认为0
-		data: [{
+       height:240,
+       data: [{
 			"videoType": 1,
 			"desc": "1080p",
 			"url": "http://2527.vod.myqcloud.com/2527_3f7c6ea2e57611e48c830517c16aa0bc.f20.mp4"
@@ -123,10 +82,11 @@ var params = {
 			"desc": "蓝光",
 			"url": "http://2527.vod.myqcloud.com/2527_3f7c6ea2e57611e48c830517c16aa0bc.f30.mp4"
 		}]
-	};
-	var data = JSON.stringify(params);
-	uexQcloudAV.start(data);
+     };
+var data = JSON.stringify(params);
+uexQcloudAV.open(data);
 ```
+
 
 > ### play 播放
 
