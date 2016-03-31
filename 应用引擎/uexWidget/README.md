@@ -169,7 +169,19 @@ uexWidget.loadApp(appInfo);
 |------|-----|--------|------- |
 |mainInfo|String|是|包名|
 |addInfo|String|否|类名，为空时启动应用入口类|
-|extra|String|否|json格式如下：'{data:"http://www.baidu.com"}'
+|extra|String|否|json格式如下：|
+```
+{
+    "data": "http://www.baidu.com",
+    "isNewTask": "0"
+}
+```
+各字段含义如下:
+
+|参数|是否必须|说明|
+|-----|-----|-----|
+|data|否|data属性|
+|isNewTask|否|启动第三方Activity时，值为0，不使用NEW_TASK，值不为0，使用NEW_TASK，默认使用NEW_TASK|
 
 **startMode为1**
 
@@ -712,7 +724,33 @@ var json = {
 var data1 = JSON.stringify(json);
 uexWidget.setKeyboardMode(data1);
 ````
+
+> ### getMBaaSHost 获取MBaaS主机内容
   
+ ` uexWidget.getMBaaSHost()`
+ 
+**说明:**
+
+  获取MBaaS主机内容
+  
+**参数:**
+
+  无
+  
+**平台支持:**
+
+  Android2.2+
+  iOS6.0+
+  
+**版本支持:**
+
+  3.3.1+
+  
+**示例:**
+
+```
+  uexWidget.getMBaaSHost()
+```
 
 ## 2.2 回调方法
   
@@ -913,8 +951,7 @@ uexWidget.cbGetPushState=function(opId,dataType,data){
 	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
 }
   ````
-**版本支持:**
-  3.0.0+
+
 > ### cbIsAppInstalled 是否安装某第三方应用的回调方法
 
   
@@ -978,6 +1015,36 @@ uexWidget.cbGetPushState=function(opId,dataType,data){
   	uexWidget.cbStartApp = function(info){
         alert(info);
     }
+  ````
+
+> ### cbGetMBaaSHost 获取MBaaS主机内容的回调方法
+  
+`  uexWidget.cbGetMBaaSHost(opId,dataType,data)`
+
+**参数:**
+
+|参数名称|参数类型 | 是否必选|  说明 |
+|------|-----|--------|-------|
+|opId|Number|是|操作ID，在此函数中不起作用，可忽略|
+|dataType|Number|是|参数类型|
+|data|String|是|返回的MBaaS主机内容|
+
+**平台支持:**
+
+  Android2.2+
+  
+  iOS6.0+
+  
+**版本支持:**
+
+  3.3.1+
+
+**示例:**
+
+  ````
+uexWidget.cbGetMBaaSHost=function(opId,dataType,data){
+	alert('opid:'+opId+',dataType:'+dataType+',data:'+data);
+}
   ````
   
 ## 2.3 监听方法
