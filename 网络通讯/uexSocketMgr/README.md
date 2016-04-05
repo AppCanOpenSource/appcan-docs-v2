@@ -177,7 +177,7 @@ uexSocketMgr.setInetAddressAndPort(1,"192.168.1.255",3001);
 
 **说明:**
 
-发送数据
+发送数据，回调方法[cbSendData](#cbSendData 发送数据的回调方法 "cbSendData")
 
 **参数:**
 
