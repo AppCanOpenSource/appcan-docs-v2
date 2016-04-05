@@ -4,8 +4,7 @@
 ## 1.1、说明
   封装视频播放和录制相关操作,支持本地路径和网络地址。Android 平台上支持的的视频文件格式有:MP4、3gp；IOS 平台上支持的视频文件格式有:MOV,MP4,M4V。
 ## 1.2、UI展示
- ![](http://newdocx.appcan.cn/docximg/152402p2015k6n7f.jpg)
- ![](http://newdocx.appcan.cn/docximg/151401g2015e6r7v.jpg)
+ ![](http://newdocx.appcan.cn/docximg/152402p2015k6n7f.jpg)![](http://newdocx.appcan.cn/docximg/151401g2015e6r7v.jpg)
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=194_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
@@ -49,7 +48,7 @@ uexVideo.open("res://1.mp4")
 
 **说明:**
 
-打开视频播放器
+打开视频播放器，查看视频播放状态触发[onPlayerStatusChange](#onPlayerStatusChange 播放器状态改变的监听方法 "onPlayerStatusChange")
 在播放器被关闭时会触发监听[onPlayerClosed 播放器被关闭时的监听方法](#onPlayerClosed 播放器被关闭时的监听方法)
 
 * 注意,一个网页内只允许存在一个视频播放器,

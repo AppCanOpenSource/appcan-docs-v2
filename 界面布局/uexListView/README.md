@@ -81,7 +81,9 @@ iOS6.0+
 > ### setItems 设置listview列表项数据
 
 `uexListView.setItems(params);`
+**说明:**
 
+设置listview列表项数据，首次加载setItems必须在open之前
 **参数:**
 
   params:(String类型) 必选listview每一个条目数据的集合。该字符串为JSON格式。如下:

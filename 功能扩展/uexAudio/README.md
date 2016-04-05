@@ -344,7 +344,7 @@ uexAudio.record(1,"20153343443")
 
 **说明:**
 
-打开音效池 回调方法[cbOpenSoundPool](#cbOpenSoundPool  打开音效池的回调方法)
+打开音效池
 
 **参数:**
 
@@ -605,32 +605,7 @@ window.uexOnload = function(){
     uexAudio.cbBackgroundRecord = cbBackgroundRecord;
 }
 ```
-> ### cbOpenSoundPool  打开音效池的回调方法
 
-`uexAudio.cbOpenSoundPool(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number | 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType | Number | 是 | 数据类型,详见CONSTENT中Callback方法数据类型 |
-| data | String | 是 | 唯一标识符 |
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-function cbOpenSoundPool(opId,dataType,data) {
-    alert(data);
-}
-window.uexOnload = function(){
-    uexAudio.cbOpenSoundPool = cbOpenSoundPool;
-}
-```
 > ### onPlayFinished  播放完成后的监听方法
 
 `uexAudio.onPlayFinished(loopTime)`
