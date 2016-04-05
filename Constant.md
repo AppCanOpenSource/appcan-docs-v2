@@ -55,7 +55,7 @@ BaiduMobStatLogStrategyCustom=2,//根据开发者设定的时间间隔接口发�
 |uex.cMobileOperatorName|15|此key的 value表示当前移动网络运营商的名称，比如"中国联通",如 果获取不到返回空字符串|{mobileOperatorName:xxx}|
 |uex.cModel|17|此key的value表示当前设备的型号名 称，如"GalaxyNexus"|{model:xxx}|
 |uex.cResolutionRatio|18|此key的value表示获得屏 幕的分辨率回调，例如:iphone4的分辨率为640\*960(格式固定，宽\*高)|{resolutionRatio:宽*高}|
-|uex.cSimSerialNumber|19|此key的value表示当前 设备的sim卡的序列号。只支持Android|{simSerialNumbers:序列号}|
+|uex.cSimSerialNumber|19|此key的value表示当前 设备的sim卡的序列号。只支持Android|{simSerialNumber:序列号}|
 |uex.cUUID|20|iPhone生成一个随机的UUID，Android返回空。iOS的UUID是softToken。|{uuid:xxx}|
 
 ### Path Types

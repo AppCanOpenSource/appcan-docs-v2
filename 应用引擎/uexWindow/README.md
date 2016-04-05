@@ -2572,6 +2572,36 @@ var param = {
 uexWindow.setIsSupportSlideCallback(JSON.stringify(param));
 ```
 
+> ### setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法
+  
+`uexWindow.setIsSupportSwipeCallback(param)`
+
+**说明:**
+左右滑动监听包括[onSwipeRight](#onSwipeRight 向右滑动的监听方法)，[onSwipeLeft](#onSwipeLeft 向左滑动的监听方法)，
+
+**参数:**
+```
+var param = {
+    isSupport:true(支持)；false(不支持)。必选，默认为false。
+}
+```
+
+**平台支持：**
+   Android2.2+
+   iOS6.0+
+
+**版本支持：**
+   3.3.2+
+
+**示例：**
+
+```
+var param = {
+    isSupport:false
+};
+uexWindow.setIsSupportSwipeCallback(JSON.stringify(param));
+```
+
 > ### disturbLongPressGesture 阻碍当前网页长按手势
   
 `uexWindow.disturbLongPressGesture(flag)`
@@ -2587,6 +2617,8 @@ uexWindow.setIsSupportSlideCallback(JSON.stringify(param));
 | -------- | --------- | --------- | ----- |
 |flag|Number|是|取值 0或者1或者2 ，详细说明见下|
 
+iOS：
+
 * flag == 0 取消阻碍长按手势
 	* 在已设置阻碍长按手势的情况下，该flag会取消阻碍长按手势
 * flag == 1 正常阻碍长按手势
@@ -2598,12 +2630,20 @@ uexWindow.setIsSupportSlideCallback(JSON.stringify(param));
 	* **同时也会阻碍网页的onclick事件，但ontouchend事件不受影响**
 	* 建议用户将网页内的所有onclick事件替换成ontouchend事件后，再调用此flag完美解决长按屏幕会出现放大镜的问题
 
+Android：
+
+* flag == 0 不阻碍长按手势
+* flag == 1 阻碍长按手势
+* flag == 2 与1相同，阻碍长按手势
+
 **平台支持：**
 
+Android2.2+
 iOS9.0+
 
 **版本支持：**
 
+Android 3.3.2+
 iOS 2015_10_21+
 
 
