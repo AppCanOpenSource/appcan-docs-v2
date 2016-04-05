@@ -66,7 +66,7 @@ uexBaiduNavi.init(JSON.stringify(data));
 
 **说明**
 
-通过输入起点与终点,可以发起路径规划。
+通过输入起点与终点,可以发起路径规划。百度导航使用gps坐标系，使用前需要转换成百度坐标系（百度地图）防止定位偏差。
 
 回调 [cbStartRoutePlan](#cbStartRoutePlan 开始路径规划的回调方法) 开始路径规划的回调方法
 

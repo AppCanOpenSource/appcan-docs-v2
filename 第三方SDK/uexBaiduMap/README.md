@@ -2192,8 +2192,8 @@ uexBaiduMap.onReceiveLocation = function(data){
 
 ```
 level:(Number类型) 必选 缩放级别
-latitude:(Number类型) 必选 中心点纬度。
-longitude:(Number类型) 必选 中心点经度h
+latitude:(Number类型) 必选 中心点纬度
+longitude:(Number类型) 必选 中心点经度
 ```
 
 **版本支持**
@@ -2203,7 +2203,7 @@ longitude:(Number类型) 必选 中心点经度h
 **示例**
 
 ```
-uexBaiduMap.onSDKReceiverError = function(data){
+uexBaiduMap.onZoomLevelChangeListener = function(data){
 	alert(data);
 }
 ```
