@@ -3814,6 +3814,31 @@ window.uexOnload = function(type){
 }
 ```
 
+> ### onSlidingWindowStateChanged 侧滑菜单状态改变的监听方法
+  
+`uexWindow.onSlidingWindowStateChanged(state)`
+
+**参数:**
+
+| 参数名称 | 参数类型  | 是否必选  |  说明 |
+| -------- | --------- | --------- | ----- |
+| state | Number | 是 |返回的显示情况，0：左侧菜单显示；1：主界面显示；2：右侧菜单显示|
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.3.2+
+
+**示例：**
+
+```
+uexWindow.onSlidingWindowStateChanged=function(state){
+    console.log(state);
+}
+```
+
 #3 术语表
 
 >### WindowAnimationId 窗口动画Id
