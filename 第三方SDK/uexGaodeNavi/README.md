@@ -8,11 +8,11 @@
 ## 1.1、说明
 高德导航 SDK 是一款针对在线导航的产品,产品功能涵盖路径规划、模拟导航、获取导航播报信息等。此外,该产品的导航路径计算与实时交通信息相结合,力求为用户提供更加合理、准确、人性化的导航服务。
 高德导航没有内置的语音播报,可以选择官网的云知声或者讯飞插件来播报语音
+## 1.2、UI展示
+ ![](/docImg/975/134442r2016e3z30rb&#40;1&#41;.png)
+## 1.3、开源源码
+自定义beta版插件与源码下载：[点击](http://plugin.appcan.cn/details.html?id=580_index) 插件中心至插件详情页 （插件测试用例已经提供）
 
-## 1.2、开源源码
-插件测试用例与插件包已经提供
-
-***
 
 #2、 API预览
 
@@ -321,7 +321,7 @@ uexGaodeNavi.cbCalculateRoute=function(json){
 
 >### onArriveDestination 到达目的地
 
-`uexGaodeNavi. onArriveDestination()`
+`uexGaodeNavi.onArriveDestination()`
 
 **说明**
 
@@ -390,7 +390,7 @@ uexGaodeNavi.onGetNavigationText =function(param){
 
 >### onReCalculateRouteForTrafficJam 驾车导航时,如果前方遇到拥堵时重新计算路径的回调
 
-`uexGaodeNavi. onReCalculateRouteForTrafficJam()`
+`uexGaodeNavi.onReCalculateRouteForTrafficJam()`
 
 **说明**
 
@@ -414,7 +414,7 @@ Android 3.2.0+
 **示例**
 
 ```
-`uexGaodeNavi. onReCalculateRouteForTrafficJam()`=function(){
+uexGaodeNavi.onReCalculateRouteForTrafficJam()=function(){
 	alert("onReCalculateRouteForTrafficJam");
 }
 ```
@@ -444,7 +444,7 @@ iOS 3.0.0+
 **示例**
 
 ```
-`uexGaodeNavi.onReCalculateRouteForYaw`=function(){
+uexGaodeNavi.onReCalculateRouteForYaw=function(){
 	alert("onReCalculateRouteForYaw");
 }
 ```
@@ -474,7 +474,7 @@ iOS 3.0.0+
 **示例**
 
 ```
-`uexGaodeNavi.onStartNavi`=function(){
+uexGaodeNavi.onStartNavi=function(){
 	alert("onStartNavi");
 }
 ```
@@ -507,7 +507,7 @@ iOS 3.0.0+
 **示例**
 
 ```
-`uexGaodeNavi.onNaviCancel`=function(){
+uexGaodeNavi.onNaviCancel=function(){
 	alert("onNaviCancel");
 }
 ```
@@ -531,7 +531,7 @@ config.xml配置方法:将如下所示的value对应的值换成自己在高德�
 ```
 
 ## Android插件配置指引
-将如下所示的value对应的值换成自己在高德上申请的秘钥即可。
+安卓只支持在线打包正常使用，将如下所示的value对应的值换成自己在高德上申请的秘钥即可。
 
 ```
 <config desc="uexGaodeNavi" type="KEY">
