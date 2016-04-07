@@ -213,8 +213,8 @@ uexSocketMgr.sendData(1,"test");
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | UDP对象的唯一标识符 |
-| dataType | Number | 是 | 详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -246,9 +246,9 @@ iOS6.0+
  
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| opId | Number | 是 | TCP对象的唯一标识符 |
-| dataType | Number | 是 | 详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| opId | Number | 是 | UDP对象的唯一标识符 |
+| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -280,8 +280,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | UDP对象的唯一标识符 |
-| dataType | Number | 是 | 详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -313,8 +313,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | UDP对象的唯一标识符 |
-| dataType | Number | 是 | 详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
