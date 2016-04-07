@@ -117,7 +117,8 @@ uexDownloaderMgr.download(1, "http://wallpaper.pocketdigi.com/upload/1/bigImage/
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | serverURL | String | 是 | 服务器下载地址     |
-| clearMode | String | 否 | 默认为0。0-只取消此次下载任务,不清除已经下载的临时文件。1-取消此次下载任务并清除已经下载的临时文件 |
+| clearMode | String | 否 | 默认为0。0-只取消此次下载任务,不清除已经下载的临时文件。 1-取消此次下载任务并清除已经下载的临时文件 |
+
     
 
 **平台支持:**
@@ -207,7 +208,7 @@ uexDownloaderMgr.getInfo("http://wallpaper.pocketdigi.com/upload/1/bigImage/1284
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 下载对象的唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONTANT")中Callback方法dataType数据类型 |
 | data|Number | 是 | 回调的int型的数据,0-成功,1-失败 |
 
 **平台支持:**
@@ -251,7 +252,7 @@ uexDownloaderMgr.cbCreateDownloader = function(opCode,dataType,data){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 下载对象的唯一标识符 |
-| dataType| Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONTANT")中Callback方法dataType数据类型 |
 | data| String | 是 | json格式数据 |
 
 **平台支持:**
@@ -301,7 +302,7 @@ uexDownloaderMgr.cbGetInfo = function(opCode,dataType,data){
 | opId| Number| 是 | 下载对象的唯一标识符id |
 | fileSize|Number | 是 | 文件大小 |
 | percent|Number | 是 | 下载文件的百分比|
-| status|Number | 是 | 下载的状态,详见CONSTANT中DownloadStatus|
+| status|Number | 是 | 下载的状态,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#DownLoad "CONSTANT")中DownloadStatus|
 
 **平台支持:**
 

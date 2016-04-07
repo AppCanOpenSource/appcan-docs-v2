@@ -120,7 +120,7 @@ uexXmlHttpMgr.close(1);
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 请求对象的唯一标识符 |
-| dataType | Number | 是 |  请求中要发送的数据格式, 详见CONTANT中XmlHtttextareaquestDataType |
+| dataType | Number | 是 |  请求中要发送的数据格式, 详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#XmlHttpRequest "CONTANT")中XmlHtttextareaquestDataType |
 | key | String | 是 | 请求数据中的对应的键 |
 | value | String | 是 | 请求数据中的对应的值 |
 
@@ -152,7 +152,7 @@ uexXmlHttpMgr.setPostData(2, "0", "field1", "Hello");
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 |  请求对象的唯一标识符 |
-| filePath | String | 是 | 文件路径,详见CONSTANT中PathTypes |
+| filePath | String | 是 | 文件路径,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path%20Types "CONSTANT")中PathTypes |
 
 **平台支持:**
 
@@ -278,7 +278,7 @@ uexXmlHttpMgr.setHeaders(1, headJson);
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 |  请求对象的唯一标识符 |
 | psw | String | 是 | 数字证书密码。当使用appcan默认证书时,此参数为空(或"")|
-| path | String | 是 | 证书路径,支持 file://,res://,wgt://等协议路径,详见CONSTANT中PathTypes。 当传入'default'时,本次请求将取appcan默认数字证书。|
+| path | String | 是 | 证书路径,支持 file://,res://,wgt://等协议路径,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path%20Types "CONSTANT")中PathTypes。 当传入'default'时,本次请求将取appcan默认数字证书。|
 
 **平台支持:**
 
@@ -306,7 +306,7 @@ uexXmlHttpMgr.setCertificate(1, "" , "default");
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | Number| 是 |  请求对象的唯一标识符 |
-| status | Number | 是 | 返回的状态详见CONSTANT中XmlHtttextareaquestStatus |
+| status | Number | 是 | 返回的状态详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#XmlHttpRequest "CONSTANT")中XmlHtttextareaquestStatus |
 | result | Number | 是 | 服务器返回的任意数据,包含错误 |
 | requestCode | Number | 否 | http请求返回的状态码 |
 | response | String | 否 | 服务器返回的信息,该字符串为JSON格式,如下:          {"responseHeaders":"","responseStatusCode":"", "responseStatusMessage":"","responseError":""} |

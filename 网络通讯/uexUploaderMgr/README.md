@@ -114,7 +114,7 @@ uexUploaderMgr.setHeaders(1, headJson);
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 上传对象的唯一标识符     |
-| filePath | String | 是 | 需要上传的文件路径。详见CONSTANT中PathTypes |
+| filePath | String | 是 | 需要上传的文件路径。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path%20Types "CONSTANT")中PathTypes |
 | inputName | String | 是 | 页面当中input标签的name属性 |
 | quality | Number | 否 | 类型如果为图片,表示是否需要压缩及压缩质量。 0:不压缩 1:高质量压缩 2:中质量压缩 3:低质量压缩|
 | maxWidth | Number | 否 | 类型如果为图片,图片按尺寸等比压缩的最大宽度 |
@@ -130,9 +130,7 @@ iOS6.0+
 **  示例:**
 
 ```
-uexUploaderMgr.uploadFile(1,
-    "res://uexCoverFlow2_tupian.png", "inputName",
-    0);
+uexUploaderMgr.uploadFile(1,"res://uexCoverFlow2_tupian.png","inputName",0);
 ```
 
 ## 2.2、回调方法
@@ -145,8 +143,8 @@ uexUploaderMgr.uploadFile(1,
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONTANT")中Callback dataType 数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Data%20Types "CONTANT")中CallbackInt类型数据 |
 
 **平台支持:**
 
@@ -183,8 +181,8 @@ uexUploaderMgr.onStatus(opId, fileSize, percent, serverPath, status)
 | opId| Number| 是 | 上传对象唯一标识符 |
 | fileSize| Number | 是 | 文件大小 |
 | percent| Number | 是 | 上传文件的百分比|
-| serverPath| Number | 是 | 服务器上的路径|
-| status| Number | 是 | 上传的状态,详见CONSTANT中UpLoadStatus|
+| serverPath| String | 是 | 服务器上的路径|
+| status| Number | 是 | 上传的状态,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#UpLoad%20Status "CONSTANT")中UpLoadStatus|
 
 **平台支持:**
 
