@@ -31,7 +31,8 @@ Button插件
 | height | Number | 是 | 高 |
 | jsonData |String | 是 | 按钮内容 |
 
-* jsonData是json字符串,结构为
+* jsonData是json字符串,结构如下：
+自定义图片资源，图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
 
 ```
 jsonData={

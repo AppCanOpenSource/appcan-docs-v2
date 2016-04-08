@@ -4,7 +4,7 @@
 # 1、简介
 二维码插件
 ## 1.1、说明
-条形码,二维码等扫描,此插件提供可以自定义扫描界面UI设置接口,使其效果更能满足应用的需求和ui设计
+条形码,二维码等扫描,此插件提供可以自定义扫描界面UI设置接口,用户传入资源文件，使其效果更能满足应用的需求和ui设计
 
 ## 1.2、UI展示
 
@@ -49,7 +49,7 @@ uexScanner.open();
 **说明:**
 
 可以自定义扫描界面,未设置的话为默认界面
-
+自定义二维码扫描图片资源，图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
 **参数:**
 
 ```
@@ -87,8 +87,8 @@ uexScanner.setJsonData(jsonData);
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作ID,open失败时为1,正常时为0,失败时一般是用户禁止了APP摄像头权限 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中CallbackdataType数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
 
 **平台支持:**
 
@@ -146,7 +146,7 @@ API版本:`uexScanner-3.0.15`
 | 3.0.8 | ZBar更新UI,增加setJsonData接口 |
 | 3.0.7 | 修复uexScanner扫码画面颠倒问题 |
 | 3.0.6 | 修复插件包打包错误问题 |
-| 3.0.5 | 优化扫描界面 |
+| 3.0.5 | 优化扫描界面。提供下载：[旧版二维码](/docAttach/975/uexScanner-3.0.5.zip "旧版二维码") |
 | 3.0.4 | CreateBarCode不能调用问题 |
 | 3.0.3 | 新增生成条形码和二维码接口 |
 | 3.0.2 | 修复手动输入条形码崩溃问题 |

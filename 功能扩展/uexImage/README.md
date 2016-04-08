@@ -6,8 +6,9 @@
 
 ## 1.1、说明
 封装了图片的相关功能:您可以使用该插件进行选择。导出、裁剪、浏览、存入系统相册等一系列针对图片的操作。
-
-## 1.2、开源源码
+## 1.2、UI展示
+ ![](/docImg/975/093141n2015r11c2vt&#40;2&#41;.png)  ![](/docImg/975/093145g2015m11b2se&#40;2&#41;.png) 
+## 1.3、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=505_index)至插件详情页(插件测试用例与插件包已经提供)
 
 #2、 API预览
@@ -69,7 +70,7 @@ uexImage.openPicker(json)
 **说明**
 
 * 打开一个可以浏览图片的浏览器
-* 图片路径支持 wgt:// wgts:// res:// file:// http:// https:// 
+* 图片路径支持 wgt:// wgts:// res:// file:// http:// https:// 路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
 * 相关 [onBrowserClosed](#onBrowserClosed 图片浏览器被关闭的监听方法)图片浏览器被关闭的监听方法
 
 **参数**
@@ -278,43 +279,7 @@ iOS 3.0.4+
 uexImage.setIpadPopEnable(0);
 ```
 
->### cbClearOutputImages 清除由本插件导出的所有图片文件的回调方法
 
-`uexImage.cbClearOutputImages(param);`
-
-**说明**
-
-* 清除由本插件导出的所有图片文件后会调用此方法
-
-**参数**
-
- 
-
-param为json字符串,包含的参数如下
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| status | String | 是 | 成功返回"ok"|
-
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
-**示例**
-
-```
-window.uexOnload=function(type){
-	uexImage.cbClearOutputImages=function(info){
-		alert(info);
-	}
-}
-```
 
 ##2.2、 回调方法
 
@@ -353,6 +318,43 @@ iOS 3.0.0+
 ```
 window.uexOnload=function(type){
 	uexImage.cbSaveToPhotoAlbum=function(info){
+		alert(info);
+	}
+}
+```
+>### cbClearOutputImages 清除由本插件导出的所有图片文件的回调方法
+
+`uexImage.cbClearOutputImages(param);`
+
+**说明**
+
+* 清除由本插件导出的所有图片文件后会调用此方法
+
+**参数**
+
+ 
+
+param为json字符串,包含的参数如下
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 | 
+| ----- | ----- | ----- | ----- | ----- |
+| status | String | 是 | 成功返回"ok"|
+
+**平台支持**
+
+Android 2.2+ 
+iOS 7.0+ 
+
+**版本支持**
+
+Android 3.0.0+ 
+iOS 3.0.0+ 
+
+**示例**
+
+```
+window.uexOnload=function(type){
+	uexImage.cbClearOutputImages=function(info){
 		alert(info);
 	}
 }

@@ -20,14 +20,14 @@ uexSlidePager滑动切换页面的相关功能...... 通过创建滑动页面,�
 **说明:**
 
 创建滑动页面  
-
+ 
 **参数:**
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |-----|-----|-----|----- |
 |topMargin|Number|是|距离顶部的距离|
-|contents | Array | 是 | 内容页数组 |
-|icons| Array | 是 |图标数组 |
+|contents | Array | 是 | 内容页数组，路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+|icons| Array | 是 |图标数组路，径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 |colors | Array| 是 | 颜色数组 |
 |option | Json| 否 | 参数配置项,json格式如下: |
 
