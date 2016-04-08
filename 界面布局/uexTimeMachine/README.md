@@ -79,7 +79,7 @@ iOS6.0+
 |-----|-----|-----|
 |               id          |               是           |               唯一标示符           |
 |               data            |               是           |               数据关键字           |
-|               imageUrl            |               是           |               图片路径,路径协议详见 CONSTANT 中PathTypes         |
+|               imageUrl            |               是           |               图片路径,路径协议详见 [CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT") 中PathTypes         |
 **      平台支持:**
 Android2.2+ 
 iOS6.0+ 
@@ -146,8 +146,8 @@ iOS6.0+
 |参数名称|参数类型 | 是否必选|  说明 |
 |-----|-----|-----|----- |
 |opId|Number类型|必选|旋转动画的唯一标识符 |
-|dataType|Number类型|必选|参数类型详见CONSTANT中Callback方法数据类型 |
-|data|String类型|必选|返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+|dataType|Number类型|必选|参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback方法数据类型 |
+|data|String类型|必选|返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
  
 
 **版本支持:**

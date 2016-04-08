@@ -103,7 +103,7 @@ uexIndexBar.close();
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 索引值:a~z。|
  
 

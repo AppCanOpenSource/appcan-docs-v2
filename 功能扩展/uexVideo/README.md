@@ -2,7 +2,8 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 视频播放插件
 ## 1.1、说明
-  封装视频播放和录制相关操作,支持本地路径和网络地址。Android 平台上支持的的视频文件格式有:MP4、3gp；IOS 平台上支持的视频文件格式有:MOV,MP4,M4V。
+ 封装视频播放和录制相关操作。
+视频播放时可实现指定播放进度及播放关闭后回调返回播放进度，支持本地路径和网络地址（支持所有H264编码的常见格式）；视频插件可实现自定义录制时间功能，录制后能压缩，Android 平台上支持的的视频文件格式有:MP4、3gp；IOS 平台上支持的视频文件格式有:MOV,MP4,M4V。
 ## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/152402p2015k6n7f.jpg)![](http://newdocx.appcan.cn/docximg/151401g2015e6r7v.jpg)
 ## 1.3、开源源码
@@ -24,7 +25,7 @@
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path | String | 是 | 视频文件路径,路径协议详见CONSTANT中PathTypes |
+| path | String | 是 | 视频文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 | orientation | Number | 否 | 1:强制横屏,仅iOS有效 |
 
 **平台支持:**
@@ -56,7 +57,7 @@ uexVideo.open("res://1.mp4")
 
 **参数:**
 
-param是JSON字符串,详细字段解释见下
+param是JSON字符串,详细字段解释见下：路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes 
 
 ```
 var param = {
@@ -203,7 +204,7 @@ uexVideo.record(JSON.stringify(params));
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType| Number | 是 | 参数类型详见CONSTANT中[Callback](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "Callback")dataType数据类型 |
 | data | String | 是 | 视频路径 |
 
 **版本支持:**
