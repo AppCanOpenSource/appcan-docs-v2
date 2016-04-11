@@ -279,8 +279,6 @@ iOS 3.0.4+
 uexImage.setIpadPopEnable(0);
 ```
 
-
-
 ##2.2、 回调方法
 
 >### cbSaveToPhotoAlbum 储存到相册的回调方法

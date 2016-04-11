@@ -4,7 +4,7 @@
 # 1、简介
 二维码插件
 ## 1.1、说明
-条形码,二维码等扫描,此插件提供可以自定义扫描界面UI设置接口,用户传入资源文件，使其效果更能满足应用的需求和ui设计
+条形码,二维码等扫描,此插件提供可以自定义扫描界面UI设置接口,用户传入资源文件,使其效果更能满足应用的需求和ui设计
 
 ## 1.2、UI展示
 
@@ -49,7 +49,8 @@ uexScanner.open();
 **说明:**
 
 可以自定义扫描界面,未设置的话为默认界面
-自定义二维码扫描图片资源，图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
+自定义二维码扫描图片资源,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
+
 **参数:**
 
 ```
@@ -146,7 +147,7 @@ API版本:`uexScanner-3.0.15`
 | 3.0.8 | ZBar更新UI,增加setJsonData接口 |
 | 3.0.7 | 修复uexScanner扫码画面颠倒问题 |
 | 3.0.6 | 修复插件包打包错误问题 |
-| 3.0.5 | 优化扫描界面。提供下载：[旧版二维码](/docAttach/975/uexScanner-3.0.5.zip "旧版二维码") |
+| 3.0.5 | 优化扫描界面。提供下载:[旧版二维码](/docAttach/975/uexScanner-3.0.5.zip "旧版二维码") |
 | 3.0.4 | CreateBarCode不能调用问题 |
 | 3.0.3 | 新增生成条形码和二维码接口 |
 | 3.0.2 | 修复手动输入条形码崩溃问题 |

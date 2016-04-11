@@ -2,7 +2,7 @@
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 ActionSheet插件
 ## 1.1、说明
-自定义ActionSheet原生UI界面，通过调用open接口传入资源文件，配置参数，使其效果更能满足应用的需求和ui设计
+自定义ActionSheet原生UI界面,通过调用open接口传入资源文件,配置参数,使其效果更能满足应用的需求和ui设计
 ## 1.2、UI展示
 ![](http://plugin.appcan.cn/pluginimg/162850y2015o8u11og.jpg)![](http://plugin.appcan.cn/pluginimg/170136f2015b8u11na.jpg)![](http://plugin.appcan.cn/pluginimg/170127y2015d8y11kf.jpg)![](http://plugin.appcan.cn/pluginimg/165111f2015o8w11la.jpg)
  
@@ -33,8 +33,8 @@ ActionSheet插件
 
 * 现在插件会自动在屏幕底部生成
 * 现在插件高度会根据按钮内容自动计算获取
-* jsonData是json字符串,结构如下：
-自定义图片资源，图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
+* jsonData是json字符串,结构如下:
+自定义图片资源,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
 
 ```
 jsonData{

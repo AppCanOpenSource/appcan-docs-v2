@@ -81,10 +81,12 @@ iOS6.0+
 > ### setItems 设置listview列表项数据
 
 `uexListView.setItems(params);`
+
 **说明:**
 
-设置listview列表项数据，首次加载setItems必须在open之前
+设置listview列表项数据,首次加载setItems必须在open之前
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
+
 **参数:**
 
   params:(String类型) 必选listview每一个条目数据的集合。该字符串为JSON格式。如下:
@@ -230,6 +232,7 @@ iOS6.0+
 
 `uexListView.insertItemAt(params);`
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
+
 **说明:**
 
 插入数据到指定位置
@@ -293,6 +296,7 @@ iOS6.0+
 
 `uexListView.appendItems(params)`
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
+
 **说明:**
 
 加载数据到listview尾部
@@ -358,6 +362,7 @@ iOS6.0+
 
 `uexListView.reloadItems(params)`
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
+
 **说明:**
 
 刷新listview,清除当前数据,加载新数据
@@ -458,6 +463,7 @@ iOS6.0+
 
 设置listview下拉刷新样式。
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
+
 **参数:**
 
 ```
@@ -510,6 +516,7 @@ iOS6.0+
 
 设置listview上拉加载样式。
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
+
 **参数:**
 
   params:(String类型) 必选加载样式的集合。该字符串为JSON格式,如下:

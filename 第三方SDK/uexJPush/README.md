@@ -945,12 +945,13 @@ $UEXJPUSH_APS_ENVIRONMENT$ ----->推送证书类型   0-开发者证书(develope
 
 ### iOS
 
-API版本:`uexJPush-3.0.7`
+API版本:`uexJPush-3.0.8`
 
-最近更新时间:`2015-12-1`
+最近更新时间:`2016-4-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.8 | 更新JPush SDK到2.1.5 |
 | 3.0.7 | 现在应用在后台时,点击推送,会正确的触发onReceiveNotificationOpen |
 | 3.0.6 | 修复root页面回调失效的bug |
 | 3.0.5 | 新增接口disableLocalNotificationAlertView |

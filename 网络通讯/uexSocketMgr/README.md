@@ -177,7 +177,7 @@ uexSocketMgr.setInetAddressAndPort(1,"192.168.1.255",3001);
 
 **说明:**
 
-发送数据，回调方法[cbSendData](#cbSendData 发送数据的回调方法 "cbSendData")
+发送数据,回调方法[cbSendData](#cbSendData 发送数据的回调方法 "cbSendData")
 
 **参数:**
 
@@ -414,12 +414,13 @@ API版本:`uexSocketMgr-3.0.7`
 
 ### Android
 
-API版本:`uexSocketMgr-3.0.4`
+API版本:`uexSocketMgr-3.0.5`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-4-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.5 | 添加创建连接时设置编码参数 |
 | 3.0.4 | 添加设置编码格式的接口 |
 | 3.0.3 | 修改直接点击发送DUP或发送TCP系统崩溃问题 |
 | 3.0.2 | 修改onData回调方法的参数 |

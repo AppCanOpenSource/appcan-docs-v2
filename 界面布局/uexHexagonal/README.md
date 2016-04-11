@@ -20,7 +20,7 @@
 
 **说明:**
 
-设置六棱柱的数据，图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
+设置六棱柱的数据,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
 必须在open方法之前调用此方法
 
 **参数:**

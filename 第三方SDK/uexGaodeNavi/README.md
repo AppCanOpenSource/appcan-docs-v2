@@ -11,8 +11,7 @@
 ## 1.2、UI展示
  ![](/docImg/975/134442r2016e3z30rb&#40;1&#41;.png)
 ## 1.3、开源源码
-自定义beta版插件与源码下载：[点击](http://plugin.appcan.cn/details.html?id=580_index) 插件中心至插件详情页 （插件测试用例已经提供）
-
+自定义beta版插件与源码下载:[点击](http://plugin.appcan.cn/details.html?id=580_index) 插件中心至插件详情页 (插件测试用例已经提供)
 
 #2、 API预览
 
@@ -531,7 +530,7 @@ config.xml配置方法:将如下所示的value对应的值换成自己在高德�
 ```
 
 ## Android插件配置指引
-安卓只支持在线打包正常使用，将如下所示的value对应的值换成自己在高德上申请的秘钥即可。
+安卓只支持在线打包正常使用,将如下所示的value对应的值换成自己在高德上申请的秘钥即可。
 
 ```
 <config desc="uexGaodeNavi" type="KEY">

@@ -3,7 +3,7 @@
 视频播放插件
 ## 1.1、说明
  封装视频播放和录制相关操作。
-视频播放时可实现指定播放进度及播放关闭后回调返回播放进度，支持本地路径和网络地址（支持所有H264编码的常见格式）；视频插件可实现自定义录制时间功能，录制后能压缩，Android 平台上支持的的视频文件格式有:MP4、3gp；IOS 平台上支持的视频文件格式有:MOV,MP4,M4V。
+视频播放时可实现指定播放进度及播放关闭后回调返回播放进度,支持本地路径和网络地址(支持所有H264编码的常见格式)；视频插件可实现自定义录制时间功能,录制后能压缩,Android 平台上支持的的视频文件格式有:MP4、3gp；IOS 平台上支持的视频文件格式有:MOV,MP4,M4V。
 ## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/152402p2015k6n7f.jpg)![](http://newdocx.appcan.cn/docximg/151401g2015e6r7v.jpg)
 ## 1.3、开源源码
@@ -49,7 +49,7 @@ uexVideo.open("res://1.mp4")
 
 **说明:**
 
-打开视频播放器，查看视频播放状态触发[onPlayerStatusChange](#onPlayerStatusChange 播放器状态改变的监听方法 "onPlayerStatusChange")
+打开视频播放器,查看视频播放状态触发[onPlayerStatusChange](#onPlayerStatusChange 播放器状态改变的监听方法 "onPlayerStatusChange")
 在播放器被关闭时会触发监听[onPlayerClosed 播放器被关闭时的监听方法](#onPlayerClosed 播放器被关闭时的监听方法)
 
 * 注意,一个网页内只允许存在一个视频播放器,
@@ -57,7 +57,7 @@ uexVideo.open("res://1.mp4")
 
 **参数:**
 
-param是JSON字符串,详细字段解释见下：路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes 
+param是JSON字符串,详细字段解释见下:路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes 
 
 ```
 var param = {
