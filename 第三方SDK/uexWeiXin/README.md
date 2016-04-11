@@ -946,7 +946,7 @@ iOS6.0+
 
 **参数:**
 
-参数说明及生成办法详见微信开放平台文档[统一下单接口参数说明](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1 "统一下单接口参数说明")中的"请求参数" 
+参数说明及生成办法详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"请求参数" 
 
 ```
 var json = {
@@ -1020,7 +1020,7 @@ uexWeiXin.getPrepayId(data1);
 
 **参数:**
 
-参数说明及生成办法详见微信开放平台文档[调起支付接口参数说明](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_12&index=2 "调起支付接口参数说明")中的"请求参数" 
+参数说明及生成办法详见微信开放平台文档[调起支付接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口参数说明")中的"请求参数" 
 
 ```
 var json ={
@@ -2199,7 +2199,7 @@ uexWeiXin.cbIsSupportPay = function (opCode,dataType,data) {
 
 **参数:**
 
-json格式数据,参数详见微信开放平台文档[统一下单接口参数说明](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果"
+json格式数据,参数详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果"
 
 **版本支持:**
 
@@ -2219,7 +2219,7 @@ uexWeiXin.cbGetPrepayId = function(data){
 
 **参数:**
 
-参数说明及生成办法详见微信开放平台文档[调起支付接口](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_12&index=2 "调起支付接口")参数说明中的"返回结果"
+参数说明及生成办法详见微信开放平台文档[调起支付接口](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口")参数说明中的"返回结果"
 ```
 var json = {
     errCode:,//状态码。0:成功；-1:错误；-2:用户取消
