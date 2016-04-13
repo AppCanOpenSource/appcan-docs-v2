@@ -317,12 +317,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexCamera-3.0.6`
+API版本:`uexCamera-3.0.7`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-4-13`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.7 | 创建bundle存储资源文件,适配国际化 |
 | 3.0.6 | 修改IDE |
 | 3.0.5 | 修改openViewCamera接口适配地址长度,修改openInternal崩溃bug,修改第一次切换镜头无效 |
 | 3.0.4 | 修改openViewCamera不传照片质量崩溃bug,修改changeFlashMode闪光灯接口 |
