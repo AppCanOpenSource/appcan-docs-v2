@@ -34,7 +34,7 @@ param为json字符串，包含的参数如下:
 
 **平台支持:**
 
-Android4.0+
+Android4.0+  
 iOS6.0+
 
 **版本支持:**
@@ -81,7 +81,7 @@ param为json字符串，包含的参数如下:
 **平台支持:**
 
 
-Android4.0+
+Android4.0+  
 iOS6.0+
 
 **版本支持:**
@@ -113,7 +113,7 @@ uexQupai.init(JSON.stringify(params));
 
 **平台支持:**
 
-Android4.0+
+Android4.0+  
 iOS6.0+
 
 **版本支持:**
@@ -168,7 +168,6 @@ param 是JSON字符串
 
 ```
 var param = {
-    status: 0, //0代表成功，1 代表失败
     videoPath: //合成后视屏的路径， 当 status为0时存在
     thumbPath: //缩略图的路径， 当 status为0时存在
 }
@@ -194,7 +193,7 @@ window.uexOnload = function(){
 ### iOS
 
 API版本:`uexQupai-3.0.0`
-
+最近更新时间:`2016-4-13`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
@@ -203,7 +202,7 @@ API版本:`uexQupai-3.0.0`
 ### Android
 
 API版本:`uexQupai-3.0.0`
-
+最近更新时间:`2016-4-13`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
