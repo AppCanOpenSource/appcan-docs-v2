@@ -45,7 +45,7 @@ AppCan平台中，维护了一个窗口堆栈，每个窗口以唯一的窗口�
 | animationID | Number | 是 | 动画ID，详见术语表-[WindowAnimationId 窗口动画Id](http://newdocx.appcan.cn/newdocx/docx?type=978_975) |
 | w | Number | 是 | 窗口宽度，请传0 |
 | h | Number | 是 | 窗口高度，请传0 |
-| flag | Number | 是 | 窗口标记，详见CONSTANT中WindowFlags |
+| flag | Number | 是 | 窗口标记，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
 | animDuration | Number | 否 | 动画持续时长，单位为毫秒，默认为260毫秒 |
 | extras | String | 否 | 扩展参数，设置值时，animDuration参数必传，json格式如下
 
@@ -181,7 +181,7 @@ iOS6.0+
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
-| animID | Number | 否 | 动画ID，详见CONSTANT中WindowAnimiID|
+| animID | Number | 否 | 动画ID，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window AnimiID "CONSTANT")中WindowAnimiID|
 | animDuration | Number | 否 | 动画持续时长，单位为毫秒，默认为260毫秒 |
 
 **平台支持：**
@@ -501,7 +501,7 @@ uexWindow.showSlibing(1)
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | windName | String | 是 | 窗口名称，默认空为当前窗口（可以是主窗口、root窗口、浮动窗口） |
-| type | Number | 是 | 窗口的类型，uex.cWindowTypeNormal，uex.cWindowTypeTop 或uex.cWindowTypeBottom，详见CONSTANT中WindowTypes |
+| type | Number | 是 | 窗口的类型，uex.cWindowTypeNormal，uex.cWindowTypeTop 或uex.cWindowTypeBottom，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Types "CONSTANT")中WindowTypes |
 | js | String | 是 | js脚本内容 |
 
 **平台支持：**
@@ -604,7 +604,7 @@ Android2.2+
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | ------------ | ------------ | ------------ | ------------ |
 | type | Number | 是 | 0-没有进度条；1-有进度条 |
-| location | Number | 是 | 显示位置，详见CONSTANT中WindowToastLocation |
+| location | Number | 是 | 显示位置，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Toast Location "CONSTANT")中WindowToastLocation |
 | msg | Number | 是 | 消息 |
 | duration | Number | 是 | 显示时间，单位为毫秒，非正整数时，提示框一直存在，不会自动关闭 |
 
@@ -663,7 +663,7 @@ uexWindow.closeToast()
 | w | Number | 是 | 宽度，为空时默认为window的宽度 |
 | h | Number | 是 | 高度，为空时默认为window的高度 |
 | fontSize | Number | 是 | 字体大小 |
-| flag | Number | 是 | 浮动窗口标记，详见CONSTANT中WindowFlags |
+| flag | Number | 是 | 浮动窗口标记，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
 | bottomMargin | Number | 否 | 浮动窗口相对父窗口底部的距离。当值不等于0时，h参数无效。|
 | extraInfo | String | 否 | 设置值时，bottomMargin参数必传，json格式如下： {"extraInfo":{"opaque":"true","bgColor":"#011","delayTime":"250"}}|
 
@@ -839,7 +839,7 @@ uexWindow.setPopoverFrame('sss',500,200,400,400);
 `uexWindow.openMultiPopover(content,popName,dataType,x,y,w,h,fontSize,flag,indexSelected,extraInfo)`
 
 **说明:**
-在当前window打开一个多页面浮动窗口,页面之间滑动切换
+在当前window打开一个多页面浮动窗口,页面之间滑动切换，设置是否支持滑动参照[setMultilPopoverFlippingEnbaled](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249#setMultilPopoverFlippingEnbaled 设置控件是否响应滑动事件 "setMultilPopoverFlippingEnbaled")
 
 **参数:**
 
@@ -853,7 +853,7 @@ uexWindow.setPopoverFrame('sss',500,200,400,400);
 | w | Number | 是 | 宽度，为空时默认为window的宽度 |
 | h | Number | 是 | 高度，为空时默认为window的高度 |
 | fontSize | Number | 是 | 字体大小 |
-| flag | Number | 是 |  浮动窗口标记，详见CONSTANT中WindowFlags |
+| flag | Number | 是 |  浮动窗口标记，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
 | indexSelected | Number | 是 | 默认打开的页面索引，默认为0|
 | extraInfo | String | 否 | 扩展参数，json格式如下：{"extraInfo":{"opaque":"true","bgColor":"#011", "delayTime":"250"}} |
 
@@ -885,6 +885,7 @@ iOS6.0+
 3.0.0+
 
 **示例:**
+[下载](/docAttach/1254/打开多浮动窗口通用适配case.zip "下载")，建议采用JSSDK封装接口方法，参考[appcan.frame.open](http://newdocx.appcan.cn/newdocx/docx?type=1260_1254 "appcan.frame.open")和[appcan.window.openMultiPopover](http://newdocx.appcan.cn/newdocx/docx?type=1259_1254 "appcan.window.openMultiPopover")
 
 ```
 uexWindow.openMultiPopover('{"content":[{"inPageName":"p1", "inUrl":"hidden.html","inData":""},{"inPageName":"p2", "inUrl":"hidden1.html","inData":""}]}',"sss",0,400,0,'','','',0,1);
@@ -2067,7 +2068,7 @@ uexWindow.setAnimitionDuration(4000);
 
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
-| curve | Number | 否 | 动画曲线类型，默认为0。详见CONSTANT中WindowAnimCurveType |
+| curve | Number | 否 | 动画曲线类型，默认为0。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window AnimCurveType "CONSTANT")中WindowAnimCurveType |
 
 **平台支持：**
 Android2.2+
@@ -3175,7 +3176,7 @@ iOS 6.0+
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
 | opId | Number | 是 |操作ID，此方法中不起作用|
-| dataType | Number | 是 |参数类型详见CONSTANT中Callback方法数据类型|
+| dataType | Number | 是 |参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型|
 | data | Number | 是 |返回的数据，用户点击的按钮索引|
 
 **平台支持：**
@@ -3206,7 +3207,7 @@ window.uexOnload = function(type){
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
 | opId | Number | 是 | 操作ID，此方法中不起作用 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型|
+| dataType | Number | 是 |参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型|
 | data | String | 是 | 返回用户点击对话框上的按钮索引及输入框中的值,json格式为 {"num":"0","value":"xxx"} |
 
 `data`中各字段含义如下:
@@ -3244,7 +3245,7 @@ window.uexOnload = function(type){
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
 | opId | Number | 是 | 操作ID，此方法中不起作用 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型|
+| dataType | Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型|
 | data | Number | 是 | 返回的数据，用户点击的按钮索引 |
 
 **平台支持：**
@@ -3277,7 +3278,7 @@ window.uexOnload = function(type){
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
 | opId | Number | 是 | 操作ID，此方法中不起作用 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型|
+| dataType | Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型|
 | data | Number | 是 | 返回的数据，0：前台；1：后台 |
 
 **平台支持：**
@@ -3296,7 +3297,7 @@ iOS6.0+
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
 | opId | Number | 是 | 操作ID，此方法中不起作用 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型|
+| dataType | Number | 是 |参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型|
 | data | Number | 是 | 返回结果，0：成功；1：失败 |
 
 **平台支持：**
@@ -3315,7 +3316,7 @@ iOS6.0+
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
 | opId | Number | 是 | 操作ID，此方法中不起作用 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型|
+| dataType | Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型|
 | data | Number | 是 | 返回结果，0：成功；1：失败 |
 
 **平台支持：**
@@ -3334,7 +3335,7 @@ iOS6.0+
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
 | opId | Number | 是 | 操作ID，此方法中不起作用 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型|
+| dataType | Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型|
 | data | String | 是 | 返回当前选择的浮动窗口页面的数据，json格式如下： {"multiPopName":"name","multiPopSelectedIndex":"index"} |
 
 data字符串中各字段含义如下：
@@ -3360,7 +3361,7 @@ iOS6.0+
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
 | opId | Number | 是 | 操作ID，此方法中不起作用 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型|
+| dataType | Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型|
 | data | Number | 是 |返回的数据 |
 
 **平台支持：**
@@ -3380,7 +3381,7 @@ iOS6.0+
 | 参数名称 | 参数类型  | 是否必选  |  说明 |
 | -------- | --------- | --------- | ----- |
 | opId | Number | 是 | 操作ID，此方法中不起作用 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型|
+| dataType | Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型|
 | data | Number | 是 | 0：关闭；1：开启 |
 
 **平台支持：**

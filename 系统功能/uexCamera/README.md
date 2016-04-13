@@ -5,6 +5,11 @@
 ##1.1、说明
  调用设备照相机拍摄照片,成功后返回相关图片存储地址。
  自定义相机功能接口只适用安卓平台系统,其他接口功能支持跨平台使用
+ <div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">&times;</button> 注意!
+ Android因内存问题,调用系统相机会导致APP崩溃,需调用自定义相机接口或使用参数压缩下图片。
+主要是因为，系统相机和调用系统相机的APP不在同一进程，因内存过低，系统将APP杀死。
+</div>
+
 ##1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/151400o2015o6w7s.jpg)
 ##1.3、开源源码
