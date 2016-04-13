@@ -192,7 +192,7 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexQupai-3.0.0`
+API版本:`uexQupai-3.0.0`  
 最近更新时间:`2016-4-13`
 
 | 历史发布版本 | 更新内容 |
@@ -201,7 +201,7 @@ API版本:`uexQupai-3.0.0`
 
 ### Android
 
-API版本:`uexQupai-3.0.0`
+API版本:`uexQupai-3.0.0`  
 最近更新时间:`2016-4-13`
 
 | 历史发布版本 | 更新内容 |
