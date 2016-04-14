@@ -1,4 +1,4 @@
-﻿
+﻿									
 
 再次封装相关浮动窗口的基础操作
 
@@ -39,7 +39,7 @@
     change:''
 }````
 **例如：**
-
+[下载](/docAttach/1254/打开多浮动窗口通用适配case.zip "下载")
 ````
 //弹出一个简单的demo浮动窗口,并打开appcan.cn
 appcan.frame.open({
@@ -228,7 +228,7 @@ frame.evaluateScript({
 	
     popName:打开新窗口的名称
     content:要传入的数据，一个json对象，或者json字符串，结构必须为{'content':[{"inPageName":"p1", "inUrl":"xxx1.html","inData":""}]}其中：inPageName:所包含的单页面窗口的名字，inUrl：url类型数据，inData：窗口的内容的二进制数据，可为空
-    dataType:窗口载入的数据的类型，0：url方式载入；1：html内容 方式载入；2：既有url方式，又有html内容方式
+    dataType:窗口载入的数据的类型，0：url方式载入；1：html内容 方式载入(必如传入的是一个<div></div>)；2：既有url方式，又有html内容方式
     left:距离左边界的距离
     top:距离上边界的距离
     width:窗口的宽

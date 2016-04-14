@@ -164,6 +164,8 @@ uexInputTextFieldView.changeWebViewFrame(600);
 > ### onCommit 点击评论按钮时的监听方法
 
 `uexInputTextFieldView.onCommit(json)`
+**说明**
+使用此接口时，可能会出现json解析失败的情况，请使用[onCommitJson](http://newdocx.appcan.cn/newdocx/docx?type=1478_975#onCommitJson 点击发送的监听方法 "onCommitJson")方法
 
 **参数**
 
@@ -190,7 +192,41 @@ uexInputTextFieldView.onCommit = function(data){
     alert(data);
 }
 ```
- 
+> ### onCommitJson 点击发送的监听方法
+
+`uexInputTextFieldView.onCommitJson(json)`
+
+**参数:**
+
+```
+var json = {
+emojiconsText:
+}
+```
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| emojiconsText | String | 是 | 输入框里的内容 |
+
+**支持平台:**
+Android2.2+    
+iOS6.0+
+
+**版本支持:**
+
+Android 3.0.10+
+iOS 3.0.10+
+
+**示例:**
+
+```
+function onCommitJson(data) {
+alert(data);
+}
+window.uexOnload = function(){
+uexInputTextFieldView.onCommitJson = onCommitJson;
+}
+``` 
 > ### onKeyBoardShow 键盘弹出或收起时的监听方法
 
 `uexInputTextFieldView.onKeyBoardShow(json)`
@@ -227,41 +263,7 @@ uexInputTextFieldView.onKeyBoardShow = onKeyBoardShow;
 }
 ```
 
-> ### onCommitJson 点击发送的监听方法
 
-`uexInputTextFieldView.onCommitJson(json)`
-
-**参数:**
-
-```
-var json = {
-emojiconsText:
-}
-```
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| emojiconsText | String | 是 | 输入框里的内容 |
-
-**支持平台:**
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android 3.0.10+
-iOS 3.0.10+
-
-**示例:**
-
-```
-function onCommitJson(data) {
-alert(data);
-}
-window.uexOnload = function(){
-uexInputTextFieldView.onCommitJson = onCommitJson;
-}
-```
  
 
 # 3、更新历史
