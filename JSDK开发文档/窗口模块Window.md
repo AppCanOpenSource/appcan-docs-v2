@@ -13,7 +13,7 @@ appcan是多窗口的，该模块封装了关于窗口的基础操作
     data:新窗口填充的数据
     dataType:新窗口填充的数据类型
            0: url
-            1: html 数据
+            1: html 数据//必如传入的是一个<div></div>
             2: html 和 url 混合数据
     aniId:动画类型Id
             0: 无动画
@@ -523,7 +523,7 @@ win.moveAnim({
     name:要打开弹出窗的名称
     dataType:新窗口填充的数据类型
           0: url
-          1: html 数据
+          1: html 数据//必如传入的是一个<div></div>
           2: html 和 url 混合数据
     url:弹出框要加载的页面的地址
     data:弹出框要加载的数据内容
@@ -877,7 +877,7 @@ win.popoverElement({
     结构必须为'{"content":[{"inPageName":"p1","inUrl":"xxx1.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}},{"inPageName":"p2","inUrl":"xxx2.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}]}' 其中：inPageName:所包含的单页面窗口的名字，inUrl：url类型数据，inData：窗口的内容的二进制数据，可为空,extraInfo:extraInfo参数,opaque:是否透明 true/false默认为false,bgColor:背景色，支持图片和颜色，格式为#fff、#ffffff、rgba(r,g,b,a)等，图片路径支持res://、wgt://等AppCan协议路径
     dataType:窗口载入的数据的类型
         0：url方式载入；
-        1：html内容 方式载入；
+        1：html内容方式载入；//必如传入的是一个<div></div>
         2：既有url方式，又有html内容方式
     left:距离左边界的距离
     top:距离上边界的距离
@@ -903,7 +903,7 @@ win.popoverElement({
     extraInfo:扩展参数，json格式如下： {"extraInfo":{"opaque":"true","bgColor":"#011","delayTime":"250"}}
 ````
 **例子:**
-
+源码下载同[appcan.frame.open](http://newdocx.appcan.cn/newdocx/docx?type=1260_1254 "appcan.frame.open")
 ````
 var content = {
                 content:[
