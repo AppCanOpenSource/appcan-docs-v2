@@ -27,8 +27,11 @@
 
 **参数:**
 
- comtextareass:(Number类型) 可选  图片是否压缩,0表示压缩,非0或者不传表示不压缩。
- quality:(Number类型) 可选  图片压缩质量,comtextareass为0时有效,取值范围[0,100]。
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| comtextareass | Number类型 | 可选 | 图片是否压缩,0表示压缩,非0或者不传表示不压缩 |
+| quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
+ 
 
 **平台支持:**
 
@@ -54,9 +57,10 @@ uexCamera.open();
 
 **参数:**
 
- comtextareass:(Number类型) 可选  图片是否压缩,0表示压缩,非0或者不传表示不压缩。
- quality:(Number类型) 可选  图片压缩质量,comtextareass为0时有效,取值范围[0,100]。
-
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| comtextareass | Number类型 | 可选 | 图片是否压缩,0表示压缩,非0或者不传表示不压缩 |
+| quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
 **平台支持:**
 
 Android2.2+
@@ -82,12 +86,15 @@ uexCamera.openInternal();
 
 **参数:**
 
- x:(Number类型) 必选  照相机View起始位置x坐标,x为0时有效,取值范围[0,屏幕分辨率最大宽度]。
- y:(Number类型) 必选  照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度]。
- width:(Number类型) 必选  照相机View宽度,width为0时有效,取值范围[0,屏幕分辨率最大宽度]。
- heigth:(Number类型) 必选  照相机View高度,height为0时有效,取值范围[0,屏幕分辨率最大高度]。
- location:(String类型) 必选  传入的地理位置。
- quality:(Number类型) 可选  图片压缩质量,comtextareass为0时有效,取值范围[0,100]。
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| x | Number类型 | 必选 | 照相机View起始位置x坐标,x为0时有效,取值范围[0,屏幕分辨率最大宽度]|
+| y | Number类型 | 必选 | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
+| width | Number类型 | 必选 | 照相机View宽度,width为0时有效,取值范围[0,屏幕分辨率最大宽度] |
+| heigth | Number类型 | 必选 | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
+| location | String类型 | 必选 | 传入的地理位置 |
+| quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
+
 
 **平台支持:**
 
@@ -140,8 +147,9 @@ uexCamera.removeViewCameraFromWindow();
 通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。如果设置changeCameraPosition为前置摄像头则闪光灯无效。
 
 **参数:**
-
+````
  flashMode:(Number类型) 必选  照相机View的闪光灯模式,x为0、1、2时有效,取值范围[0,2]。
+````
 
 **平台支持:**
 
@@ -167,9 +175,9 @@ uexCamera.changeFlashMode(flashMode);
 通过此方法改变自定义相机View的摄像头位置,0代表后置,1代表前置。
 
 **参数:**
-
+````
  cameraPosition:(Number类型) 必选  照相机View的摄像头位置,x为0、1时有效,取值范围[0,1]。
-
+````
 **平台支持:**
 
 Android2.2+
@@ -192,9 +200,13 @@ uexCamera.changeCameraPosition(cameraPosition);
 
 **参数:**
 
-  opId:(Number类型) 必选  操作ID,此函数中不起作用,可忽略。
-  dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(String类型) 必选  拍照成功后图片的保存路径
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | String类型 | 必选 | 拍照成功后图片的保存路径 |
+ 
+
 
 **版本支持:**
 
@@ -215,9 +227,12 @@ window.uexOnload = function(){
 
 **参数:**
 
-  opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
-  dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(String类型) 必选  拍照成功后图片的保存路径
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | String类型 | 必选 | 拍照成功后图片的保存路径 |
+ 
 
 **版本支持:**
 
@@ -239,9 +254,12 @@ window.uexOnload = function(){
 
 **参数:**
 
-  opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
-  dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(String类型) 必选  JSON字符串,格式如下:
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | String类型 | 必选 | JSON字符串,格式如下: |
+   
 ```
 data:
   {
@@ -276,9 +294,12 @@ window.uexOnload = function(){
 
 **参数:**
 
-  opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
-  dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(Number类型) 必选  返回一个int型,闪光灯模式,0表示自动,1表示开启,2表示关闭,-1表示更改失败:
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number类型 | 必选 | 返回一个int型,闪光灯模式,0表示自动,1表示开启,2表示关闭,-1表示更改失败 |
+
 
 **版本支持:**
 
@@ -300,9 +321,12 @@ window.uexOnload = function(){
 
 **参数:**
 
-  opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
-  dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(Number类型) 必选  返回一个int型,摄像头位置,0表示后置,1表示前置,-1表示更改失败;
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number类型 | 必选 | 返回一个int型,摄像头位置,0表示后置,1表示前置,-1表示更改失败 |
+ 
 
 **版本支持:**
 

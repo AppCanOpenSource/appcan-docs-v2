@@ -3,9 +3,11 @@
 该对象主要封装了文件操作,主要包含创建文件,打开文件,以及文件提供过路径或者文件对象进行文件增,删,改,查等,读取文件内容,限utf-8编码txt文件,以及文本阅读器等多个接口。
 
 ## 1.1、说明
-文件路径包括:wgt://...,res://...,wgts://...,box://...,file://...,http://...。
-其中:wgt://...对应widget的沙盒根路径,可读可写；
+
+> 文件路径包括:`wgt://...,res://...,wgts://...,box://...,file://...,http://...`。
+其中: wgt://..对应widget的沙盒根路径,可读可写；
 	res://...对应widget目录下的wgtRes路径,只可读不可写。
+	
 关于文件路径的使用,可调用uexFileMgr.getFileRealPath接口获得文件真实路径作为参考
 
 ## 1.2、UI展示
@@ -31,7 +33,7 @@
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 唯一标识符 |
-| path|String | 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 
 **平台支持:**
 
@@ -62,7 +64,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 唯一标识符 |
-| dirPath|String | 是 | 文件夹路径,路径协议详见CONSTANT中PathTypes |
+| dirPath|String | 是 |文件夹路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 
 **平台支持:**
 
@@ -93,8 +95,8 @@ uexFileMgr.createDir('20', path);
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 唯一标识符 |
-| path|String | 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
-| mode|String | 是 | 文件打开模式,详见CONSTANT中FileOpenModes |
+| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| mode|String | 是 | 文件打开模式,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#File "CONSTANT")中FileOpenModes |
 
 **平台支持:**
 
@@ -123,7 +125,7 @@ uexFileMgr.openFile(1,"res://reader.txt",1);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 
 **平台支持:**
 
@@ -182,7 +184,7 @@ uexFileMgr.deleteFileByID(1);
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 文件的唯一标识符,与回调函数中的opId对应 |
-| path |String | 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 
 **平台支持:**
 
@@ -240,7 +242,7 @@ uexFileMgr.isFileExistByID('2');
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 
 **平台支持:**
 
@@ -297,7 +299,7 @@ uexFileMgr.getFileTypeByID('4');
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 
 **平台支持:**
 
@@ -326,7 +328,7 @@ uexFileMgr.explorer("/sdcard/widgetone");
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 
 **平台支持:**
 
@@ -447,7 +449,7 @@ uexFileMgr.seekEndOfFile('1');
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
-| mode| Number| 是 |写文件的模式,详见CONSTANT中writeFilemode |
+| mode| Number| 是 |写文件的模式,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#File "CONSTANT")中writeFilemode |
 | data| String| 是 |要写入的数据 |
 
 **平台支持:**
@@ -568,7 +570,7 @@ iOS6.0+
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path| String| 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
+| path| String| 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 | cbName| String| 否 | 指定的回调函数名,使用此方法回调,只回调给前端一个参数realPath |
 
 **平台支持:**
@@ -747,8 +749,8 @@ uexFileMgr.readtextarea('1','20');
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
-| path| String| 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
-| mode| Number| 是 | 文件打开模式,详见CONSTANT中FileOpenModes |
+| path| String| 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| mode| Number| 是 | 文件打开模式,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#File "CONSTANT")中FileOpenModes |
 | key| String| 是 | 密码 |
 
 **平台支持:**
@@ -779,7 +781,7 @@ uexFileMgr.openSecure('100', "wgt://secure.txt", '1', '123456');
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
-| path| String| 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
+| path| String| 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 | key| String| 是 | 密码 |
 
 **平台支持:**
@@ -810,7 +812,7 @@ uexFileMgr.createSecure('100', "wgt://data/test.txt", '123456');
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
-| path| String| 是 | 文件路径,路径协议详见CONSTANT中PathTypes |
+| path| String| 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 
 **平台支持:**
 
@@ -941,7 +943,7 @@ uexFileMgr.search(JSON.stringify(data));
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path | String| 是 | 文件夹路径,支持wgt://, wgts://, file://协议路径 |
+| path | String| 是 | 文件夹路径,支持wgt://, wgts://, file://协议路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes  |
 
 **平台支持:**
 
@@ -982,7 +984,7 @@ var params = {
 |  字段名称 | 类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | String| 是 | 唯一标识符,与回调方法中id对应 |
-| path | String| 是 | 文件或文件夹路径,支持wgt://, wgts://, file://协议路径 |
+| path | String| 是 | 文件或文件夹路径,支持wgt://, wgts://, file://协议路径 ,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 | unit | String| 否 | 文件大小单位,默认为"B",取值范围参考[unit](#GetFileSizeUnit) |
 
 **平台支持:**
@@ -1022,8 +1024,8 @@ Android 3.0.12+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opID | String| 是 | 复制文件任务id |
-| srcFilePath | String| 是 | 源文件路径,支持wgt://, wgts://, res://协议路径 |
-| objPath | String| 是 | 目标文件夹路径,支持wgt://, wgts://, res://协议路径 |
+| srcFilePath | String| 是 | 源文件路径,支持wgt://, wgts://, res://协议路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes  |
+| objPath | String| 是 | 目标文件夹路径,支持wgt://, wgts://, res://协议路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes  |
 
 **平台支持:**
 
@@ -1054,8 +1056,8 @@ uexFileMgr.copyFile('109',s,o);
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
 
 **平台支持:**
 
@@ -1087,8 +1089,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
 
 **平台支持:**
 
@@ -1120,8 +1122,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
 
 **平台支持:**
 
@@ -1153,8 +1155,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
 
 **平台支持:**
 
@@ -1186,8 +1188,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
 
 **平台支持:**
 
@@ -1219,7 +1221,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|Number | 是 | 返回的int型的数据,1-存在；0-不存在 |
 
 **平台支持:**
@@ -1254,7 +1256,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|Number | 是 | 返回的int型的数据,1-存在；0-不存在 |
 
 **平台支持:**
@@ -1289,7 +1291,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|Number | 是 | 返回的int型的数据,1-文件夹；0-文件 |
 
 **平台支持:**
@@ -1324,7 +1326,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|Number | 是 | 返回的int型的数据,1-文件夹；0-文件 |
 
 **平台支持:**
@@ -1359,7 +1361,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回文件管理器里选择的文件路径 |
 
 **平台支持:**
@@ -1388,7 +1390,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回文件管理器里选择的文件的路径列表,json格式如下:Key:索引值,从零开始;Value:返回的路径{"2":"/sdcard/DCIM/IMG_0003.JPG","1":"/sdcard/DCIM/1337569458885.png","0":"/sdcard/Apks/com.aurorasoftworks4.apk"} |
 
 **平台支持:**
@@ -1424,7 +1426,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opCode| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|Number | 是 |  0- 成功 1-失败 |
 
 **平台支持:**
@@ -1452,7 +1454,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回文件的内容 |
 
 **平台支持:**
@@ -1480,7 +1482,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回文件的大小 |
 
 **平台支持:**
@@ -1508,7 +1510,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回文件的路径 |
 
 **平台支持:**
@@ -1537,7 +1539,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回文件的真实路径 |
 
 **平台支持:**
@@ -1566,7 +1568,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回文件的偏移量 |
 
 **平台支持:**
@@ -1594,7 +1596,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回文件的内容 |
 
 **平台支持:**
@@ -1623,7 +1625,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回文件的内容 |
 
 **平台支持:**
@@ -1652,7 +1654,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回文件的内容 |
 
 **平台支持:**
@@ -1681,8 +1683,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -1714,8 +1716,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -1747,7 +1749,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回创建时间 |
 
 **平台支持:**
@@ -1866,7 +1868,7 @@ uexFileMgr.cbSearch=function (info){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作Id |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data| Json | 是 | 文件列表数据,如下: |
 
 ```
@@ -1962,8 +1964,8 @@ uexFileMgr.cbGetFileSizeByPath=function(info){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opCode | String | 是 | 复制文件任务id |
-| dataType | Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
