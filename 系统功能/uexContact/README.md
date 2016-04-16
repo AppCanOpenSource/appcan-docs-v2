@@ -417,7 +417,7 @@ uexContact.addItemWithVCard(`BEGIN:VCARD\nVERSION:3.0\nN:韩;超\nTEL:22334752\n
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
 | data | Number | 是 | Key值uex.jkName、uex.jkNum、uex.jkEmail,详见CONSTANT中CallbackJson类型keyname |
 
 **版本支持:**
@@ -444,7 +444,7 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
 | data | Number | 是 | Key值uex.jkName、uex.jkNum、uex.jkEmail,详见CONSTANT中CallbackJson类型keyname |
 
 **版本支持:**
@@ -470,8 +470,8 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **版本支持:**
 
@@ -496,8 +496,8 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **版本支持:**
 
@@ -521,8 +521,8 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **版本支持:**
 
@@ -585,7 +585,7 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
 | data | String | 是 | 返回的数据。Key值uex.jkName、uex.jkNum、uex.jkEmail,详见CONSTANT中CallbackJson类型keyname |
  
 
@@ -611,8 +611,8 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **版本支持:**
 
@@ -637,8 +637,8 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **版本支持:**
 
