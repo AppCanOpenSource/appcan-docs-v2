@@ -109,8 +109,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
  
 
 **平台支持:**
@@ -137,7 +137,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回获取的地址或者错误信息ErrorCode。|
  
 

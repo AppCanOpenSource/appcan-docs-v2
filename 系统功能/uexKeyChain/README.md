@@ -345,14 +345,15 @@ Window.uexOnload=function(){
 * **可以通过keyChain在iOS 7+系统上实现唯一标识符的功能**
 
 >### accessibility KeyChain数据保护设置说明
+
 | accessibility值 | 对应的属性| 说明 | 备注 |
 | ----- | ----- | ----- | ----- |
-|0|kSecAttrAccessibleAlways|总是允许任何访问|完全无保护,不推荐使用|
-|1|kSecAttrAccessibleAlwaysThisDeviceOnly|总是允许任何访问,但仅限此设备|
+|0|kSecAttrAccessibleAlways|总是允许任何访问|完全无保护,不推荐 使用|
+|1|kSecAttrAccessibleAlwaysThisDeviceOnly|总是允许任何访问,但仅限此设备||
 |2|kSecAttrAccessibleAfterFirstUnlock|当iPhone首次解锁完成后,允许访问|默认值|
-|3|kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly|当iPhone首次解锁完成后,允许访问,但仅限此设备|
-|4|kSecAttrAccessibleWhenUnlocked|当iPhone没有被锁定时,允许访问|需要后台访问的数据不要用此项|
-|5|kSecAttrAccessibleWhenUnlockedThisDeviceOnly|当iPhone没有被锁定时,允许访问,但仅限此设备|
+|3|kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly|当iPhone首次解锁完成后,允许访问,但仅限此设备||
+|4|kSecAttrAccessibleWhenUnlocked|当iPhone没有被锁定时,允许访问|需要后台访问的数 据不要用此项|
+|5|kSecAttrAccessibleWhenUnlockedThisDeviceOnly|当iPhone没有被锁定时,允许访问,但仅限此设备||
 |6|kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly|仅限此设备,并且启用设备密码验证,见下方说明|仅限iOS8+|
 
 * 仅限此设备的意思是,keychain数据通过iCloud同步,或者恢复备份后会验证设备的udid,如果不匹配(另一台iOS设备,或者刷机之后),那么此数据将会被销毁
