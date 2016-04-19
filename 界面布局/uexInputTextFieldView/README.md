@@ -30,13 +30,13 @@ var json = {
     "placeHold":,//输入框提示语
 }
 ```
+>参数emojicons的自定义表情配置文件为："res://emojicons/emojicons.xml"，详细配置步骤:
 
-自定义表情的配置文件配置步骤:
 1、在widget的wgtRes目录下创建emojicons目录；
 2、在emojicons中放入表情以及删除的图片资源,表情的默认命名格式:
 ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
 3、在emojicons中创建emojicons.xml文件,格式如下:
-
+```
 <?xml version="1.0" encoding="utf-8"?>
 <emojicons delete="ace_emoji_delete.png ">
   <key>[微笑]</key>
@@ -44,7 +44,7 @@ ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
    <key>[憋嘴]</key>
    <string> ace_emoji_2.png</string>
 </emojicons>
-
+```
 * delete:删除对应的图片名；
 * key:表情对应的文字；
 * string:表情对应的图片名

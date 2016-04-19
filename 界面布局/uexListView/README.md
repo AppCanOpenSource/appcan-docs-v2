@@ -742,12 +742,13 @@ API版本:`uexListView-3.0.7`
 
 ### Android
 
-API版本:`uexListView-3.0.9`
+API版本:`uexListView-3.0.10`
 
-最近更新时间:`2016-1-29`
+最近更新时间:`2016-4-16`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.10 | 删除universalimageloader源码  |
 | 3.0.9 | 修复plugin.xml |
 | 3.0.8 | 添加自定义布局相关接口 |
 | 3.0.7 | 修复listview加载网络图片显示不正常的问题 |

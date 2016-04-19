@@ -27,7 +27,7 @@
 |  phoneNum | String | 是 | 接收者的手机号码 |
 | subject | String | 是 | 彩信主题 |
 | content | String | 是 | 彩信正文内容 |
-| mediaPath | String | 是 | 彩信媒体附件路径， 支持的协议有wgt://…,wgts://…,file://,等本地协议， 详见CONSTANT中的PathTypes |
+| mediaPath | String | 是 | 彩信媒体附件路径， 支持的协议有wgt://…,wgts://…,file://,等本地协议， 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的PathTypes |
 
 **平台支持:	**
 Android2.2+

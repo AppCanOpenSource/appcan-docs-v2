@@ -39,14 +39,12 @@ var viewInfo={
 }
 ```
 
-自定义表情的配置文件配置步骤:
+>参数emojicons的自定义表情配置文件为："res://emojicons/emojicons.xml"[widget路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "widget路径")，详细配置步骤:
 
-1. 在widget的wgtRes目录下创建emojicons目录；
-
-2. 在emojicons中放入表情以及删除的图片资源,表情的默认命名格式:
+1、在widget的wgtRes目录下创建emojicons目录；
+2、在emojicons中放入表情以及删除的图片资源,表情的默认命名格式:
 ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
-
-3. 在emojicons中创建emojicons.xml文件,格式如下:
+3、在emojicons中创建emojicons.xml文件,格式如下:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -64,12 +62,12 @@ ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
 * 表情目录、图片名以及配置文件名都可以自定义命名,但是必须保
 证配置文件中的图片名与资源图片对应。
 
-自定义分享选项的配置文件配置步骤:
+>参数shares的自定义分享选项配置文件为："res://emojicons/emojicons.xml"[widget路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "widget路径")，详细配置步骤:
 
-1. 在widget的wgtRes目录下创建shares目录；
-2. 在shares中放入分享选项的图片资源,图片的默认命名格式:
+1、在widget的wgtRes目录下创建shares目录；
+2、在shares中放入分享选项的图片资源,图片的默认命名格式:
 ace_share_1；
-3. 在shares中创建shares.xml文件,格式如下:
+3、在shares中创建shares.xml文件,格式如下:
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -93,9 +91,7 @@ ace_share_1；
 Android 2.2+  
 iOS 6.0+    
 
-**版本支持**
-
-:  
+**版本支持**:  
     3.0.0+    
 
 **示例:**
@@ -220,7 +216,7 @@ iOS 3.0.10+
 
 **说明:**
 
-收到 onKeyBoardShow回调,并且status为1时调用这个方法传入当前div(表示文本输入框的高度)的高度,键盘会根据高度将聊天内容推上去
+收到 [onKeyBoardShow](#onKeyBoardShow 键盘弹出或收起时的监听方法 "onKeyBoardShow")回调,并且status为1时调用这个方法传入当前div（表示文本输入框的高度）的高度,键盘会根据高度将聊天内容推上去
 
 **参数:**
 

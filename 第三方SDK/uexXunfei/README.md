@@ -613,14 +613,14 @@ iOS 3.0.0+
 
 |JSON字段|英文全称|类型|说明|
 |-----|-----|-----|-----|
-sn|sentence|number|第几句
-ls|last sentence |bool|是否最后一句
-bg|begin    |number|开始
-ed|end|number|结束
-ws|words|array|词
-cw|chinese word|array|中文分词
-w|word|String|单字
-sc|score|number|分数
+|sn|sentence|number|第几句
+|ls|last sentence |bool|是否最后一句
+|bg|begin    |number|开始
+|ed|end|number|结束
+|ws|words|array|词
+|cw|chinese word|array|中文分词
+|w|word|String|单字
+|sc|score|number|分数
 
 语音识别示例:  
 
