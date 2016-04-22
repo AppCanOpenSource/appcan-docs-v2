@@ -209,7 +209,7 @@ window.uexOnload=function(type){
 
 API版本:`uexSecurityKeyboard-3.0.0`
 
-最近更新时间:`2016-12-30`
+最近更新时间:`2016-02-30`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
