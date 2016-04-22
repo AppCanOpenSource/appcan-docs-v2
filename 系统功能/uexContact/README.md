@@ -121,6 +121,7 @@ uexContact.addItem("张三","13436827900","widgetone@3g2win.com",JSON.stringify(
 `uexContact.deleteWithId(option)`
 
 **说明:**
+
 通过联系人id精确删除对应联系人
 由于手机端可能存在同名称的联系人导致原有deleteItem接口无法完全满足删除问题。
 删除联系人 回调方法[cbDeleteWithId](#cbDeleteWithId 通过id删除联系人的回调方法)
@@ -189,7 +190,7 @@ uexContact.deleteItem("张三");
 
 **说明:**
 
-由于Android联系人的诸多信息要多次查询,因此建议如果有获取所有联系的人的需求的时候建议仅仅查询Name字段,其余字段可考虑设置不查询，以优化查询速度。
+由于Android联系人的诸多信息要多次查询,因此建议如果有获取所有联系的人的需求的时候建议仅仅查询Name字段,其余字段可考虑设置不查询,以优化查询速度。
 查询联系人 回调方法[cbSearch](#cbSearch 查询联系人的回调方法)
 
 **参数:**
@@ -202,7 +203,7 @@ uexContact.deleteItem("张三");
 var option = {
     resultNum:,//可选,单次返回数据数量,-1表示一次返回所有结果,默认50
     searchName:,//和contactId字段二选一,通过名字查询联系人,传空默认查询所有。
-    contactId:,//和searchName字段二选一，可用于精确查找。(优先于Name)
+    contactId:,//和searchName字段二选一,可用于精确查找。(优先于Name)
     isSearchNum:,//可选,true,false是否查询电话号码(Android 推荐)
     isSearchEmail:,//可选,true,false是否查询Email(Android 推荐)
     isSearchAddress:,//可选,true,false是否查询Address(Android 推荐)
@@ -658,12 +659,14 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexContact-3.0.8`
+API版本:`uexContact-3.0.10`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.10 | 修复cbSearch回调与安卓不一致,参数命名不一致的问题 |
+| 3.0.9 | 新增search,modifyWithId,deleteWithId接口以及对应回调 |
 | 3.0.8 | 改用bundle方式加载资源;添加IDE支持 |
 | 3.0.7 | searchItem接口增加返回信息条数配置;addItem接口增加是否弹出提示框配置 |
 | 3.0.6 | 修改配置文件,修改BUG |
@@ -676,12 +679,13 @@ API版本:`uexContact-3.0.8`
 
 ### Android
 
-API版本:`uexContact-3.0.3`
+API版本:`uexContact-3.0.4`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.4 | 新增search,modifyWithId,deleteWithId接口以及对应回调.优化查询逻辑 |
 | 3.0.3 | 修复执行过慢影响UI线程的问题,修正当增删改查存在的部分回调错误问题 |
 | 3.0.2 | 修复打开联系人后邮箱错乱的问题 |
 | 3.0.1 | 1:searchItem接口增加返回信息条数配置;2:addItem接口增加是否弹出提示框配置 |

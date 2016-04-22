@@ -1286,12 +1286,13 @@ API版本:`uexEasemob-3.0.20`
 
 ### Android
 
-API版本:`uexEasemob-3.0.20`
+API版本:`uexEasemob-3.0.21`
 
-最近更新时间:`2016-1-28`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.21 | 修改getRecentChatters |
 | 3.0.20 | 修复setNotifyBySoundAndVibrate无效的问题 |
 | 3.0.19 | 纠正拼写错误 |
 | 3.0.18 | 修改cbGetMessageHistory与文档不一致的问题 |

@@ -48,7 +48,6 @@ var params = {
 
 注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请用[cbCanMakePayment ](#cbCanMakePayment 检测是否可以进行ApplePay支付的回调方法 "cbCanMakePayment ")回调方法获取返回值。
 
-
 **平台支持:**
 
 iOS 9.2+

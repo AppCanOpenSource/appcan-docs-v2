@@ -2456,12 +2456,13 @@ uexBaiduMap.cbGetDistance = function(data){
 
 ### iOS
 
-API版本:`uexBaiduMap-3.1.16`
+API版本:`uexBaiduMap-3.1.17`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.1.17 | 修复removeMakersOverlay接口传不当参数会闪退的问题 |
 | 3.1.16 | 增加对多种类型参数的识别,支持3.3引擎 |
 | 3.0.15 | 修改插件,使其支持config配置APIKey |
 | 3.0.14 | 删去info.plist |

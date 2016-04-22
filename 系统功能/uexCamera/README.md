@@ -7,7 +7,7 @@
  自定义相机功能接口只适用安卓平台系统,其他接口功能支持跨平台使用
  <div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">&times;</button> 注意!
  Android因内存问题,调用系统相机会导致APP崩溃,需调用自定义相机接口或使用参数压缩下图片。
-主要是因为，系统相机和调用系统相机的APP不在同一进程，因内存过低，系统将APP杀死。
+主要是因为,系统相机和调用系统相机的APP不在同一进程,因内存过低,系统将APP杀死。
 </div>
 
 ##1.2、UI展示
@@ -61,6 +61,7 @@ uexCamera.open();
 | ----- | ----- | ----- | ----- |
 | comtextareass | Number类型 | 可选 | 图片是否压缩,0表示压缩,非0或者不传表示不压缩 |
 | quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
+
 **平台支持:**
 
 Android2.2+
@@ -94,7 +95,6 @@ uexCamera.openInternal();
 | heigth | Number类型 | 必选 | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
 | location | String类型 | 必选 | 传入的地理位置 |
 | quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
-
 
 **平台支持:**
 
@@ -147,6 +147,7 @@ uexCamera.removeViewCameraFromWindow();
 通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。如果设置changeCameraPosition为前置摄像头则闪光灯无效。
 
 **参数:**
+
 ````
  flashMode:(Number类型) 必选  照相机View的闪光灯模式,x为0、1、2时有效,取值范围[0,2]。
 ````
@@ -175,9 +176,11 @@ uexCamera.changeFlashMode(flashMode);
 通过此方法改变自定义相机View的摄像头位置,0代表后置,1代表前置。
 
 **参数:**
+
 ````
  cameraPosition:(Number类型) 必选  照相机View的摄像头位置,x为0、1时有效,取值范围[0,1]。
 ````
+
 **平台支持:**
 
 Android2.2+
@@ -206,7 +209,6 @@ uexCamera.changeCameraPosition(cameraPosition);
 | dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
 | data | String类型 | 必选 | 拍照成功后图片的保存路径 |
  
-
 
 **版本支持:**
 
@@ -299,7 +301,6 @@ window.uexOnload = function(){
 | opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
 | dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
 | data | Number类型 | 必选 | 返回一个int型,闪光灯模式,0表示自动,1表示开启,2表示关闭,-1表示更改失败 |
-
 
 **版本支持:**
 

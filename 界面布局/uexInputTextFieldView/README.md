@@ -30,7 +30,7 @@ var json = {
     "placeHold":,//输入框提示语
 }
 ```
->参数emojicons的自定义表情配置文件为："res://emojicons/emojicons.xml"，详细配置步骤:
+>参数emojicons的自定义表情配置文件为:"res://emojicons/emojicons.xml",详细配置步骤:
 
 1、在widget的wgtRes目录下创建emojicons目录；
 2、在emojicons中放入表情以及删除的图片资源,表情的默认命名格式:
@@ -164,8 +164,10 @@ uexInputTextFieldView.changeWebViewFrame(600);
 > ### onCommit 点击评论按钮时的监听方法
 
 `uexInputTextFieldView.onCommit(json)`
+
 **说明**
-使用此接口时，可能会出现json解析失败的情况，请使用[onCommitJson](http://newdocx.appcan.cn/newdocx/docx?type=1478_975#onCommitJson 点击发送的监听方法 "onCommitJson")方法
+
+使用此接口时,可能会出现json解析失败的情况,请使用[onCommitJson](http://newdocx.appcan.cn/newdocx/docx?type=1478_975#onCommitJson 点击发送的监听方法 "onCommitJson")方法
 
 **参数**
 
@@ -263,7 +265,6 @@ uexInputTextFieldView.onKeyBoardShow = onKeyBoardShow;
 }
 ```
 
-
  
 
 # 3、更新历史
@@ -288,12 +289,14 @@ API版本:`uexInputTextFieldView-3.0.8`
 
 ### Android
 
-API版本:`uexInputTextFieldView-3.2.13`
+API版本:`uexInputTextFieldView-3.2.15`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.2.15 | 修正白屏问题的解决逻辑,修复键盘遮蔽的有时候页面推动过多的问题 |
+| 3.2.14 | 某些情况下可能出现白屏的问题 |
 | 3.2.13 | 解决有些机型上获取屏幕宽度不对的问题 |
 | 3.2.12 | 修改兼容性问题,添加getInputBarHeight接口以及onCommitJson和onKeyBoardShow,cbGetInputBarHeight的回调,调整优化代码逻辑,解决键盘遮蔽问题 |
 | 3.2.11 | 修复关闭输入框时,键盘未自动收起的问题 |

@@ -43,7 +43,7 @@
 
 **参数**
 
-param 是JSON字符串，路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
+param 是JSON字符串,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
 
 ```
 var param = {
