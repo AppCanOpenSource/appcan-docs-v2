@@ -2428,16 +2428,15 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 
 > ### cbGetDistance 计算两点之间的距离的回调方法
 
-`uexBaiduMap.cbGetDistance(data)`
+`uexBaiduMap.cbGetDistance(opId,dataType,data)`
 
 **参数**
 
-```
-data:(String类型) 必选 两点之间的距离,单位为米
-
-var data = "142658.29447225234";
-
-```
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | String类型 | 必选 | 两点之间的距离,单位为米 |
 
 **版本支持**
 
@@ -2446,7 +2445,7 @@ var data = "142658.29447225234";
 **示例**
 
 ```
-uexBaiduMap.cbGetDistance = function(data){
+uexBaiduMap.cbGetDistance = function(opCode,dataType,data){
 	alert(data);
 }
 
@@ -2485,11 +2484,11 @@ API版本:`uexBaiduMap-3.1.17`
 
 API版本:`uexBaiduMap-3.2.32`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-04-23`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段,返回距离 |
+| 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段,返回距离;修复了文档中cbGetDistance代码case说明不对的问题 |
 | 3.2.31 | 增加了,当不打开地图View时,也可以调用poi搜索功能(目前支持城市检索,周边检索,区域检索),修复了打开地图再关闭地图,搜索poi无效的问题 |
 | 3.2.30 | 修复了前端调用open方法时传入小数时抛出NumberFormatException的问题 |
 | 3.2.29 | 修复了持续定位时cbCurrentLocation回调不生效的问题 |
