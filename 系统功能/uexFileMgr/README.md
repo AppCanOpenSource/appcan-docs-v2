@@ -4,9 +4,9 @@
 
 ## 1.1、说明
 
-> 文件路径包括:`wgt://...,res://...,wgts://...,box://...,file://...,http://...`。
-其中: wgt://..对应widget的沙盒根路径,可读可写；
-	res://...对应widget目录下的wgtRes路径,只可读不可写。
+> 文件路径包括:`wgt://...`,`res://...`,`wgts://...`,`file://...`,`http://...`,`https://...`
+其中: `wgt://...`对应widget的沙盒根路径,可读可写；
+	`res://...`对应widget目录下的wgtRes路径,只可读不可写。
 	
 关于文件路径的使用,可调用uexFileMgr.getFileRealPath接口获得文件真实路径作为参考
 
@@ -438,7 +438,7 @@ uexFileMgr.seekEndOfFile('1');
 
 > ### writeFile 写文件
 
-`uexFileMgr.writeFile(id,mode,data)`
+`uexFileMgr.writeFile(id,option ,data)`
 
 **说明:**
 
@@ -449,8 +449,21 @@ uexFileMgr.seekEndOfFile('1');
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
-| mode| Number| 是 |写文件的模式,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#File "CONSTANT")中writeFilemode |
+| option | Number| 是 |写入设置(详见下) |
 | data| String| 是 |要写入的数据 |
+
+
+* uexFileWritingOption是一个枚举值,将所需设置对应的flag传入即可。
+* 同时需要多种设置时，应将设置对应的flag相加后再传入。比如 option传3 (= 1+2) 意味着先进行base64解码，再追加写入.
+* 不需要这些额外设置时,option请传0
+
+| flag | 含义 | 解释 |
+| --- | --- | --- | 
+| 1 | Append | 包含此flag时,数据会追加写入到指定的文件|
+| 2 | Base64Decode | 包含此flag时,插件会先对传入的字符串进行base64解码,然后将解码后的数据写入文件|
+
+
+
 
 **平台支持:**
 
@@ -465,12 +478,12 @@ iOS6.0+
 
 ```
     uexFileMgr.openFile('1', "wgt://test.txt", '1');
-    uexFileMgr.writeFile('1', '0', "test");
+    uexFileMgr.writeFile('1', 0, "test");
 ```
 
 > ### readFile 读文件
 
-`uexFileMgr.readFile(id,len)`
+`uexFileMgr.readFile(id,len,option)`
 
 **说明:**
 
@@ -481,7 +494,17 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
-| len| Number| 是 |字节数,"-1"-全部读取|
+| len| Number| 是 |字节数,传-1表示读取全部内容|
+| option | Number | 否 | 读取设置(详见下),默认为0 |
+
+* uexFileReadingOption是一个枚举值,将所需设置对应的flag传入即可。
+* 同时需要多种设置时，应将设置对应的flag相加后再传入。
+* 不需要这些额外设置时,option请传0
+
+| flag | 含义 | 解释 |
+| --- | --- | --- | 
+| 1 | Base64Encode | 包含此flag时,插件会对读取到的数据先进行base64编码,再传回给前端|
+
 
 **平台支持:**
 
