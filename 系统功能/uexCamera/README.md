@@ -79,7 +79,7 @@ uexCamera.openInternal();
 
 > ### openViewCamera 打开自定义View照相机
 
-`openViewCamera(x,y,width,heigth,location,quality)`
+`openViewCamera(x,y,width,heigth,label,quality)`
 
 **说明:**
 
@@ -93,7 +93,7 @@ uexCamera.openInternal();
 | y | Number类型 | 必选 | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
 | width | Number类型 | 必选 | 照相机View宽度,width为0时有效,取值范围[0,屏幕分辨率最大宽度] |
 | heigth | Number类型 | 必选 | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
-| location | String类型 | 必选 | 传入的地理位置 |
+| label | String类型 | 必选 | 拍照时显示在界面中的提示语或标签 |
 | quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
 
 **平台支持:**
@@ -108,7 +108,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexCamera.openViewCamera(x, y, w, h,location,quality);
+uexCamera.openViewCamera(x, y, w, h,label,quality);
 ```
 
 > ### removeViewCameraFromWindow 从屏幕上移除自定义View相机
@@ -266,7 +266,7 @@ window.uexOnload = function(){
 data:
   {
     "photoPath": "/storage/emulated/0/widgetone/apps/11352882/uexViewCameraPhotos/2015-11-27_14-41-34.jpg",
-    "location": "北京"
+    "label": "北京"
   }
 ```
 各字段含义如下
@@ -274,7 +274,7 @@ data:
 | 参数 | 是否必须 | 说明 |
 |-----|-----|-----|
 | photoPath | 是 | 图片的保存路径 |
-| location | 是 | 传入的地理位置 |
+| label | 是 | 拍照时显示在界面中的提示语或标签 |
 
 **版本支持:**
 
@@ -370,6 +370,7 @@ API版本:`uexCamera-3.0.18`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.19 | 优化了EUExCamera代码逻辑，优化了压缩图片算法，增加注释，规范代码；在cbOpenViewCamera的返回JSON中增加字段label,替换之前的location |
 | 3.0.18 | 优化了CameraView代码逻辑,优化了照片处理,优化了OOM问题处理,并做了为null判断,避免程序因空指针崩溃 |
 | 3.0.17 | 修复Activity拒绝服务漏洞的问题,修复了openViewCamera拒绝使用系统拍照权限后程序崩溃的问题 |
 | 3.0.16 | 修复了在三星手机上照片旋转方向不一致的问题;修复了多次点击照相按钮,再点重拍照相按钮失效的问题 |
