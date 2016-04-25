@@ -318,7 +318,7 @@ uexDemoPlugin.sendJSONValue(JSON.stringify(json));
 
 ```
 此小节示范了如何通过EUtility工具类中的方法执行网页中的JS,实现OC --> JavaScript 的操作
-异步回调的本质是执行一段JS脚本
+异步回调的本质是
 ```
 
 * 在EUExDemoPlugin类中引入`EUtility.h`,这个头文件在engineHeader文件夹中，之前就应该已经引入工程了。
@@ -327,19 +327,23 @@ uexDemoPlugin.sendJSONValue(JSON.stringify(json));
 	* 如果`EUtility.h`中报`Expected a Type`错误，在`EUtility.h`中引入系统库UIKit(`#import <UIKit/UIKit.h>`)即可解决
 
 ```
-//EUtility.h中和JS相关的方法有4个
+//EUtility.h中和JS相关的方法
+
+//执行一段JS脚本的方法
 //在指定网页中执行JS脚本
 + (void)brwView:(EBrowserView*)inBrwView evaluateScript:(NSString*)inScript;
 //在主窗口中执行JS脚本
 + (void)evaluatingJavaScriptInRootWnd:(NSString*)script;
 //在最顶端的窗口中执行JS脚本
 + (void)evaluatingJavaScriptInFrontWnd:(NSString*)script;
-//以及对上述3个方法的进一步封装
-+ (void)uexPlugin:(NSString *)pluginName callbackByName:(NSString *)functionName withObject:(id)obj andType:(uexPluginCallbackType)type inTarget:(id)target;
+
+//JavaScriptCore的回调封装
++ (void)browserView:(EBrowserView *)brwView callbackWithFunctionKeyPath:(NSString *)JSKeyPath arguments:(NSArray *)arguments completion:(void (^)(JSValue *returnValue))completion;
 
 //详细参数说明请见EUtility.h中的注释
 ```
 
+##### 执行网页中的JS脚本进行回调的方法实现
 * 在EUExDemoPlugin类中实现一个方法`doCallback:`,并在config.xml中添加相应的方法。
 
 ```
@@ -355,9 +359,40 @@ uexDemoPlugin.sendJSONValue(JSON.stringify(json));
 }
 ```
 
+##### 直接执行JS中的函数的回调方法实现
 
+* 在**3.3引擎中**,提供了直接通过JavaScriptCore运行网页中定义的函数的方法
 
+```
+//参数说明详见EUtility.h头文件
++ (void)browserView:(EBrowserView *)brwView callbackWithFunctionKeyPath:(NSString *)JSKeyPath arguments:(NSArray *)arguments completion:(void (^)(JSValue *returnValue))completion;
+```
 
+* 相比于执行网页中的JS脚本进行回调的方法，利用JavaScriptCore进行回调拥有如下优点
+	* 避免了繁琐的JS脚本构造过程
+	* 避免了回调结果中的特殊字符(比如`\n`,`\r`)导致回调失败或者前端JSON无法解析的问题
+	* 可以判断回调是否成功,如有需要，回调成功时还可以拿到回调方法的返回值
+
+* 利用此方法封装`doCallback`的如下所示
+
+```
+- (void)doCallback:(NSMutableArray *)inArguments{
+    NSDictionary *dict = @{
+                           @"key":@"value"
+                           };
+    
+    //构造参数数组
+    //[dict JSONFragment] 可以把NSString NSDictionary NSArray 转换成JSON字符串
+    NSArray * args = [NSArray arrayWithObjects:[dict JSONFragment],nil];
+    [EUtility browserView:self.meBrwView callbackWithFunctionKeyPath:@"uexDemoPlugin.cbDoCallback" arguments:args completion:^(JSValue *returnValue) {
+        if (returnValue) {
+            NSLog(@"回调成功!");
+        }
+    }];
+}
+```
+
+#####在网页中接收回调
 
 * 在网页中注册回调函数`cbDoCallback`，并调用`doCallback`方法
 	* 在cbDoCallback函数中，我们封装一个JS方法showDetails用于展示回调结果
@@ -404,45 +439,9 @@ uexDemoPlugin.doCallback();
   padding: 4px;
 " src="http://newdocx.appcan.cn/docImg/1291/iOS9.png" alt="Brown and white cows in a field">  
  
+##### 进一步封装回调方法
 
-* 每次都要如上构造JavaScript脚本确实有些繁琐，因此EUtility封装了一个更简洁的方法，回调过程可以省略如下
-
-```
-NSDictionary *dict = @{
-						  @"key":@"value"
-						  };
-[EUtility uexPlugin:@"uexDemoPlugin"
-	  callbackByName:@"cbDoCallback"
-         withObject:dict
-            andType:uexPluginCallbackWithJsonString
-           inTarget:self.meBrwView];
-```
-
-* 由于不同的方法可能都需要进行回调,因此可以进行进一步封装,方便复用
-
-```
-/**
- *  异步回调方法的封装
- *
- *  @param funcName 回调函数名
- *  @param obj      回调的对象
- */
-- (void)callbackJSONWithName:(NSString *)funcName object:(id)obj{
-    [EUtility uexPlugin:@"uexDemoPlugin"
-         callbackByName:funcName
-             withObject:obj
-                andType:uexPluginCallbackWithJsonString
-               inTarget:self.meBrwView];
-}
-```
-
-```
-NSDictionary *dict = @{
-						  @"key":@"value"
-						  };
-//然后在插件接口中直接调用此方法即可
-[self callbackJSONWithName:@"cbDoCallback" object:dict];
-```
+* 参见demo中的示例代码
 
 ####3.2.5 同步返回值给网页
 
