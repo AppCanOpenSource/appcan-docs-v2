@@ -27,6 +27,7 @@ var json = {
     top:,//(可选) 菜单上间距,默认底部
     width:,//(可选) 菜单宽度,默认屏幕宽度
     height:,//(可选) 菜单高度,默认50
+    statusColor:,//(可选) 底部tab选中指示条的颜色,默认"#EA7C24"
     tab:{//(必选) 底部tab菜单数据
         textSize:,//(可选) 字体大小,默认为10
         textNColor:,//(可选) 字体正常颜色,默认黑色
@@ -47,6 +48,7 @@ var json = {
         textNColor:,//(可选) 字体正常颜色,默认黑色
         textHColor:,//(可选) 字体高亮颜色,默认白色
         bgColor:,//(可选) 弹出菜单的背景色，默认"#66ffffff"
+        bottomDistance:(可选)弹出菜单距离底部的距离,默认300
         data:[//(必选) 弹出菜单项数组
             {
                 title:,//(必选) 标题
@@ -77,6 +79,7 @@ iOS 3.0.0+
             top:window.screen.height - 50,
             width:window.screen.width,
             height:50,
+            statusColor:"#EA7C24",
             tab:{
                 textSize:10,
                 textNColor:"#ffffff",
@@ -111,6 +114,7 @@ iOS 3.0.0+
                 textNColor:"#000000",
                 textHColor:"#dddddd",
                 bgColor:"#66ffffff",
+                bottomDistance:300,
                 data:[
                     {
                         title: "联系人",
