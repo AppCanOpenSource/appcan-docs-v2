@@ -30,7 +30,7 @@ Document阅读器,是用来阅读Office文件的,包括PPT幻灯片,Excel表格,
  
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| documentPath | String | 是 | 文档路径,路径协议详见CONSTANT中PathTypes。 |
+| documentPath | String | 是 | 文档路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes。 |
 
 **平台支持:**
 

@@ -5,13 +5,13 @@
 
 ## 1.1、说明
 
-该插件封装了自定义布局的功能，开发者可通过该插件实现原生布局。
+该插件封装了自定义布局的功能,开发者可通过该插件实现原生布局。
 
 ## 1.2、UI展示
 
 ## 1.3、开源源码
 
-插件测试用例与源码下载：[点击]() 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
+插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
@@ -23,7 +23,7 @@
 
 **说明:**
 
-初始化布局，动态数据定义方式，请参考[数据载入方式](#数据载入方式)，该方法需要在所有方法之前调用，回调方法[cbInitLayout](#cbInitLayout 初始化布局的回调方法)
+初始化布局,动态数据定义方式,请参考[数据载入方式](#数据载入方式),该方法需要在所有方法之前调用,回调方法[cbInitLayout](#cbInitLayout 初始化布局的回调方法)
 
 **参数:**
 
@@ -38,7 +38,7 @@ var params ={
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
@@ -61,16 +61,16 @@ iOS3.0.0+
 **示例:**
 
 ```
-    var params = {
-        listViewId:0,
-        layout:{
-            center:["res://case1/layout_item1.xml","res://case1/layout_item2.xml"],
-            left:["res://case1/layout_left.xml"],
-            right:["res://case1/layout_right.xml"]
-        }
-    };
-    var data = JSON.stringify(params);
-    uexNBListView.initLayout(data);
+var params = {
+ 	listViewId:0,
+ 	layout:{
+ 		center:["res://case1/layout_item1.xml","res://case1/layout_item2.xml"],
+ 		left:["res://case1/layout_left.xml"],
+ 		right:["res://case1/layout_right.xml"]
+ 	}
+};
+var data = JSON.stringify(params);
+uexNBListView.initLayout(data);
 ```
 
 > ### setItems 设置列表数据
@@ -79,7 +79,7 @@ iOS3.0.0+
 
 **说明:**
 
-设置列表数据，也可以刷新列表数据。原列表数据会被清空。该方法需要在initLayout方法之后调用，回调方法[cbSetItems](#cbSetItems 设置列表数据的回调方法)
+设置列表数据,也可以刷新列表数据。原列表数据会被清空。该方法需要在initLayout方法之后调用,回调方法[cbSetItems](#cbSetItems 设置列表数据的回调方法)
 
 **参数:**
 
@@ -96,26 +96,30 @@ var params ={
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
 | dataList | Json数组 | 是 | 列表数据关键字 |
-| center | Json | 是 | 主布局数据，键值对，与相应的布局文件中的变量key对应，至少包含指定布局唯一标识符id键值对，详见示例 |
-| left | Json | 否 | 列表项向右滑动时，左侧布局数据，键值对，与相应的布局文件中的变量key对应，至少包含指定布局唯一标识符id键值对，详见示例 |
-| right | Json | 否 | 列表项向左滑动时，右侧布局数据，键值对，与相应的布局文件中的变量key对应，至少包含指定布局唯一标识符id键值对，详见示例 |
+| center | Json | 是 | 主布局数据,键值对,与相应的布局文件中的变量key对应,至少包含指定布局唯一标识符id键值对,详见示例 |
+| left | Json | 否 | 列表项向右滑动时,左侧布局数据,键值对,与相应的布局文件中的变量key对应,至少包含指定布局唯一标识符id键值对,详见示例 |
+| right | Json | 否 | 列表项向左滑动时,右侧布局数据,键值对,与相应的布局文件中的变量key对应,至少包含指定布局唯一标识符id键值对,详见示例 |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
-layout_item1布局代码：
+
+layout_item1布局代码:
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "1" layoutType = "${type1}">
@@ -158,7 +162,8 @@ layout_item1布局代码：
 </root>
 ```
 
-layout_item2布局代码：
+layout_item2布局代码:
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "2">
@@ -188,7 +193,8 @@ layout_item2布局代码：
 </root>
 ```
 
-layout_left布局代码：
+layout_left布局代码:
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "left">
@@ -198,7 +204,9 @@ layout_left布局代码：
     </linearlayout>
 </root>
 ```
-layout_right布局代码：
+
+layout_right布局代码:
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "right">
@@ -210,55 +218,56 @@ layout_right布局代码：
 ```
 
 setItems接口数据传入方式:
+
 ```
-    var params = {
-        listViewId:0,
-        dataList:[
-            {
-                center:{
-                    "type1":1,//指定布局id，这里对应initLayout接口的layout_item1布局，该布局文件定义了layoutType的属性值为${type1},则需要在这里通过type1关键字指定布局id。值1和layout_item1布局文件中的layoutId属性值一致。
-                    //以下键值对中键是与layout_item1布局文件中定义的变量值(形如:${变量值})对应，值即是相对应的属性值。
-                    "text1" : "测试1",
-                    "text2" : "测试2",
-                    "text3" : "测试3",
-                    "text4" : "测试4",
-                    "img1":"res://case1/006.png",
-                    "text1-color":"#ff0000",
-                    "text1-size":15,
-                    "visible2":0,
-                    "button-text":"btn1",
-                    "button-textSize":20,
-                    "button-textColor":"#00ff00",
-                    "button-bg":"#dddddd"
-                },
-                left:{
-                    "layoutId" : "left",//指定布局id，这里对应initLayout接口的layout_left布局，该布局文件没有定义layoutType属性,则需要在这里通过layoutId关键字指定布局id。值left和layout_left布局文件中的layoutId属性值一致。
-                    "left-button" : "left1"
-                },
-                right:{
-                    "layoutId" : "right",//指定布局id，这里对应initLayout接口的layout_right布局，该布局文件没有定义layoutType属性,则需要在这里通过layoutId关键字指定布局id。值right和layout_right布局文件中的layoutId属性值一致。
-                    "right-button" : "right1"
-                }
-            },
-            {
-                center:{
-                    "layoutId":2,
-                    "content_bg":"#ff0000",
-                    "left_pic":"res://case1/BaDongQian.jpg"
-                },
-                left:{
-                    "layoutId" : "left",
-                    "left-button" : "left3"
-                },
-                right:{
-                    "layoutId" : "right",
-                    "right-button" : "right3"
-                }
-            }
-        ]
-    };
-    var data = JSON.stringify(params);
-    uexNBListView.setItems(data);
+var params = {
+ 	listViewId:0,
+ 	dataList:[
+ 		{
+ 		center:{
+ 			"type1":1,//指定布局id,这里对应initLayout接口的layout_item1布局,该布局文件定义了layoutType的属性值为${type1},则需要在这里通过type1关键字指定布局id。值1和layout_item1布局文件中的layoutId属性值一致。
+ 			//以下键值对中键是与layout_item1布局文件中定义的变量值(形如:${变量值})对应,值即是相对应的属性值。
+ 			"text1" : "测试1",
+ 			"text2" : "测试2",
+ 			"text3" : "测试3",
+ 			"text4" : "测试4",
+ 			"img1":"res://case1/006.png",
+ 			"text1-color":"#ff0000",
+ 			"text1-size":15,
+ 			"visible2":0,
+ 			"button-text":"btn1",
+ 			"button-textSize":20,
+ 			"button-textColor":"#00ff00",
+ 			"button-bg":"#dddddd"
+ 		},
+  		left:{
+ 				"layoutId" : "left",//指定布局id,这里对应initLayout接口的layout_left布局,该布局文件没有定义layoutType属性,则需要在这里通过layoutId关键字指定布局id。值left和layout_left布局文件中的layoutId属性值一致。
+ 				"left-button" : "left1"
+ 		},
+ 		right:{
+ 			"layoutId" : "right",//指定布局id,这里对应initLayout接口的layout_right布局,该布局文件没有定义layoutType属性,则需要在这里通过layoutId关键字指定布局id。值right和layout_right布局文件中的layoutId属性值一致。
+ 			"right-button" : "right1"
+ 		}
+ 	},
+ 		{
+ 		center:{
+ 			"layoutId":2,
+ 			"content_bg":"#ff0000",
+ 			"left_pic":"res://case1/BaDongQian.jpg"
+ 		},
+ 		left:{
+ 			"layoutId" : "left",
+ 			"left-button" : "left3"
+ 		},
+ 		right:{
+ 			"layoutId" : "right",
+ 			"right-button" : "right3"
+ 		}
+ 	}
+	]
+};
+var data = JSON.stringify(params);
+uexNBListView.setItems(data);
 ```
 
 > ### open 打开自定义布局列表
@@ -267,7 +276,7 @@ setItems接口数据传入方式:
 
 **说明:**
 
-打开自定义布局列表，回调方法[cbOpen](#cbOpen 打开自定义布局列表的回调方法)，该方法需要在initLayout方法之后调用，若在调用该方法之前，设置了数据，则会直接显示列表内容，否则不显示。
+打开自定义布局列表,回调方法[cbOpen](#cbOpen 打开自定义布局列表的回调方法),该方法需要在initLayout方法之后调用,若在调用该方法之前,设置了数据,则会直接显示列表内容,否则不显示。
 
 **参数:**
 
@@ -281,11 +290,16 @@ var params ={
     swipeMode:,
     offsetLeft:,
     offsetRight:,
-    refreshMode:
+    refreshMode:,
+    refreshTimeout:,
+    openType:,
+    containerID:,
+    containerIndex:,
+    backgroundColor:
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
@@ -294,10 +308,15 @@ var params ={
 | top | Number | 是 | 上间距 |
 | width | Number | 是 | 宽 |
 | height | Number | 是 | 高 |
-| swipeMode | Number | 否 | 侧滑模式，参考[SwipeType](#SwipeType)，默认3 |
-| offsetLeft | Number | 否 | 向左滑动时右侧布局显示的宽度，swipeMode支持左滑时必选。**建议和右侧布局的宽度一致**。 |
-| offsetRight | Number | 否 | 向右滑动时左侧布局显示的宽度，swipeMode支持右滑时必选。**建议和左侧布局的宽度一致**。 |
-| refreshMode | Number | 否 | 刷新模式，参考[RefreshMode](#RefreshMode)，默认0 |
+| swipeMode | Number | 否 | 侧滑模式,参考[SwipeType](#SwipeType),默认3 |
+| offsetLeft | Number | 否 | 向左滑动时右侧布局显示的宽度,swipeMode支持左滑时必选。**建议和右侧布局的宽度一致**。 |
+| offsetRight | Number | 否 | 向右滑动时左侧布局显示的宽度,swipeMode支持右滑时必选。**建议和左侧布局的宽度一致**。 |
+| refreshMode | Number | 否 | 刷新模式,参考[RefreshMode](#RefreshMode),默认0 |
+| refreshTimeout | Number | 否 | 刷新超时时间,单位毫秒。在refreshMode非等于0有效,默认为3000 |
+| openType | Number | 否 | 打开方式,参考[OpenType](#OpenType) |
+| containerID | String | 否 | 只在openType为2时有效且必选,并且该容器已经通过uexWindow中的createPluginViewContainer方法创建成功。 |
+| containerIndex | Number | 否 | 只在openType为2时有效且必选。指定该列表视图在容器中的索引 |
+| backgroundColor | String | 否 | listView的背景色,不传默认为透明 |
 
 **平台支持:**
 
@@ -312,19 +331,19 @@ iOS3.0.0+
 **示例:**
 
 ```
-        var params = {
-            listViewId:0,
-            left: 0,
-            top: 0,
-            width:800,
-            height:800,
-            offsetLeft:400,//建议为右侧布局的宽度，这里为layout_right布局文件的宽度
-            offsetRight:300,//建议为左侧布局的宽度，这里为layout_left布局文件的宽度
-            swipeMode:3,
-            refreshMode:0
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.open(data);
+var params = {
+ 	listViewId:0,
+ 	left: 0,
+ 	top: 0,
+ 	width:800,
+ 	height:800,
+ 	offsetLeft:400,//建议为右侧布局的宽度,这里为layout_right布局文件的宽度
+ 	offsetRight:300,//建议为左侧布局的宽度,这里为layout_left布局文件的宽度
+ 	swipeMode:3,
+ 	refreshMode:0
+ };
+ var data = JSON.stringify(params);
+ uexNBListView.open(data);
 ```
 
 > ### close 关闭自定义布局列表
@@ -332,6 +351,7 @@ iOS3.0.0+
 `uexNBListView.close(params);`
 
 **说明:**
+
 关闭自定义布局列表
 
 **参数:**
@@ -363,7 +383,8 @@ iOS3.0.0+
 `uexNBListView.insert(params);`
 
 **说明:**
-根据索引插入一条或连续的多条数据，若索引大于或等于当前列表长度，则直接插入到列表末尾。注意dataList数据结构需要和setItems中的dataList数据结构保持一致。回调方法[cbInsert](#cbInsert 插入数据的回调方法)
+
+根据索引插入一条或连续的多条数据,若索引大于或等于当前列表长度,则直接插入到列表末尾。注意dataList数据结构需要和setItems中的dataList数据结构保持一致。回调方法[cbInsert](#cbInsert 插入数据的回调方法)
 
 **参数:**
 
@@ -381,77 +402,78 @@ var params ={
 }
 ```
 
-
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| index | Number | 是 | 数据插入的位置索引，取值范围大于等于0，小于等于当前列表长度，若值大于当前列表长度则默认插入到列表末尾 |
+| index | Number | 是 | 数据插入的位置索引,取值范围大于等于0,小于等于当前列表长度,若值大于当前列表长度则默认插入到列表末尾 |
 | dataList | Json数组 | 是 | 列表数据关键字 |
-| center | Json | 是 | 主布局数据，键值对，与相应的布局文件中的变量key对应，至少包含指定布局唯一标识符id键值对，详见示例 |
-| left | Json | 否 | 列表项向右滑动时，左侧布局数据，键值对，与相应的布局文件中的变量key对应，至少包含指定布局唯一标识符id键值对，详见示例 |
-| right | Json | 否 | 列表项向左滑动时，右侧布局数据，键值对，与相应的布局文件中的变量key对应，至少包含指定布局唯一标识符id键值对，详见示例 |
+| center | Json | 是 | 主布局数据,键值对,与相应的布局文件中的变量key对应,至少包含指定布局唯一标识符id键值对,详见示例 |
+| left | Json | 否 | 列表项向右滑动时,左侧布局数据,键值对,与相应的布局文件中的变量key对应,至少包含指定布局唯一标识符id键值对,详见示例 |
+| right | Json | 否 | 列表项向左滑动时,右侧布局数据,键值对,与相应的布局文件中的变量key对应,至少包含指定布局唯一标识符id键值对,详见示例 |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        var params = {
-            listViewId:0,
-            index:1,
-            dataList:[
-                {
-                    center:{
-                        "type1":1,
-                        "text1" : "add1",
-                        "text2" : "add2",
-                        "text3" : "add3",
-                        "text4" : "add4",
-                        "img1":"res://case1/006.png",
-                        "text1-color":"#000000",
-                        "text1-size":15,
-                        "visible2":0,
-                        "button-text":"btn1",
-                        "button-textSize":12,
-                        "button-textColor":"#00ff00",
-                        "button-bg":"res://case1/005.png"
-                    },
-                    left:{
-                        "layoutId" : "left",
-                        "left-button" : "addleft1"
-                    },
-                    right:{
-                        "layoutId" : "right",
-                        "right-button" : "addright1"
-                    }
-                },
-                {
-                    center:{
-                        "layoutId":2,
-                        "content_bg":"#00ff00",
-                        "left_pic":"res://case1/BaDongQian.jpg"
-                    },
-                    left:{
-                        "layoutId" : "left",
-                        "left-button" : "addleft2"
-                    },
-                    right:{
-                        "layoutId" : "right",
-                        "right-button" : "addright2"
-                    }
-                }
-            ]
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.insert(data);
+var params = {
+	listViewId:0,
+	index:1,
+	dataList:[
+ 		{
+ 			center:{
+ 			"type1":1,
+ 			"text1" : "add1",
+ 			"text2" : "add2",
+ 			"text3" : "add3",
+ 			"text4" : "add4",
+ 			"img1":"res://case1/006.png",
+ 			"text1-color":"#000000",
+ 			"text1-size":15,
+ 			"visible2":0,
+ 			"button-text":"btn1",
+ 			"button-textSize":12,
+ 			"button-textColor":"#00ff00",
+ 			"button-bg":"res://case1/005.png"
+	  		},
+ 			left:{
+				"layoutId" : "left",
+ 				"left-button" : "addleft1"
+ 			},
+ 			right:{
+ 				"layoutId" : "right",
+ 				"right-button" : "addright1"
+ 			}
+ 		},
+ 		{
+ 			center:{
+ 				"layoutId":2,
+ 				"content_bg":"#00ff00",
+ 				"left_pic":"res://case1/BaDongQian.jpg"
+ 			},
+ 			left:{
+ 				"layoutId" : "left",
+ 				"left-button" : "addleft2"
+		 	},
+ 			right:{
+ 				"layoutId" : "right",
+ 				"right-button" : "addright2"
+ 			}
+ 		}
+ 	]
+ };
+ var data = JSON.stringify(params);
+ uexNBListView.insert(data);
 ```
 
 > ### update 更新数据
@@ -459,9 +481,11 @@ iOS3.0.0+
 `uexNBListView.update(params);`
 
 **说明:**
+
 根据索引更新数据。[cbUpdate](#cbUpdate 更新数据的回调方法)
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -474,39 +498,41 @@ var params ={
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| index | Number | 是 | 数据插入的位置索引，取值范围大于等于0，小于等于当前列表长度，若值大于当前列表长度则默认插入到列表末尾 |
+| index | Number | 是 | 数据插入的位置索引,取值范围大于等于0,小于等于当前列表长度,若值大于当前列表长度则默认插入到列表末尾 |
 | data | Json | 是 | item数据关键字 |
-| center | Json | 否 | 主布局数据，键值对，此处不能指定布局id，只需传入要更新的数据即可 |
-| left | Json | 否 | 列表项向右滑动时，左侧布局数据，键值对 |
-| right | Json | 否 | 列表项向左滑动时，右侧布局数据，键值对 |
+| center | Json | 否 | 主布局数据,键值对,此处不能指定布局id,只需传入要更新的数据即可 |
+| left | Json | 否 | 列表项向右滑动时,左侧布局数据,键值对 |
+| right | Json | 否 | 列表项向左滑动时,右侧布局数据,键值对 |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        var params = {
-            listViewId:0,
-            index:0,
-            data:{
-                center:{
-                    "text1":"更新我" + index
-                }
-            }
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.update(data);
+var params = {
+	listViewId:0,
+	index:0,
+	data:{
+		center:{
+			"text1":"更新我" + index
+			}
+		}
+	};
+var data = JSON.stringify(params);
+uexNBListView.update(data);
 ```
 
 > ### delete 删除数据
@@ -514,40 +540,43 @@ iOS3.0.0+
 `uexNBListView.delete(params);`
 
 **说明:**
+
 根据唯一标识符和索引删除数据。回调方法[cbDelete](#cbDelete 删除数据的回调方法)
 
 **参数:**
+
 ```
 var params ={
     listViewId:,//(必选) 唯一标识符
-    indexs:[]//(必选) 索引数组
+    indexes:[]//(必选) 索引数组
 }
 ```
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| indexs | Array | 是 | 索引数组 |
-
+| indexes | Array | 是 | 索引数组 |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        var params = {
-            listViewId:0,
-            indexs:[0,1]
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.delete(data);
+var params = {
+	listViewId:0,
+	indexes:[0,1]
+};
+var data = JSON.stringify(params);
+uexNBListView.delete(data);
 ```
 
 > ### show 显示自定义列表
@@ -555,9 +584,11 @@ iOS3.0.0+
 `uexNBListView.show(params);`
 
 **说明:**
+
 根据唯一标识符显示自定义列表。
 
 **参数:**
+
 ```
 var params ={
     listViewId://(必选) 唯一标识符
@@ -565,21 +596,23 @@ var params ={
 ```
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        var params = {
-            listViewId:0
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.show(data);
+var params = {
+	listViewId:0
+};
+var data = JSON.stringify(params);
+uexNBListView.show(data);
 ```
 
 > ### hide 隐藏自定义列表
@@ -587,9 +620,11 @@ iOS3.0.0+
 `uexNBListView.hide(params);`
 
 **说明:**
+
 根据唯一标识符隐藏自定义列表。
 
 **参数:**
+
 ```
 var params ={
     listViewId://(必选) 唯一标识符
@@ -597,21 +632,59 @@ var params ={
 ```
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        var params = {
-            listViewId:0
-        };
-        var data = JSON.stringify(params);
-        uexNBListView.hide(data);
+var params = {
+	listViewId:0
+};
+var data = JSON.stringify(params);
+uexNBListView.hide(data);
+```
+
+> ### setRefreshStatusCompleted 设置刷新完成状态
+
+`uexNBListView.setRefreshStatusCompleted(params);`
+
+**说明:**
+
+在用户执行上拉或者下拉操作后可通过该方法设置刷新完成状态。若当前用户没有执行上拉或下拉操作,则调用该方法无效。
+
+**参数:**
+
+```
+var params = {
+    listViewId://(必选) 唯一标识符
+}
+```
+
+**平台支持:**
+
+Android2.2+    
+iOS6.0+
+
+**版本支持:**
+
+Android3.0.0+    
+iOS3.0.0+
+
+**示例:**
+
+```
+var params = {
+	listViewId:0
+};
+var data = JSON.stringify(params);
+uexNBListView.setRefreshStatusCompleted(data);
 ```
 
 ## 2.2、回调方法
@@ -621,6 +694,7 @@ iOS3.0.0+
 `uexNBListView.cbInitLayout(params);`
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -628,27 +702,29 @@ var params ={
 }
 ```
 
-字段含义如下：
+字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| errorCode | Number | 是 | 错误码，请参考[errorCode](#ErrorCode) |
+| errorCode | Number | 是 | 错误码,请参考[errorCode](#ErrorCode) |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        uexNBListView.cbInitLayout = function(data){
-            alert("cbInitLayout->" + data);
-        }
+uexNBListView.cbInitLayout = function(data){
+	alert("cbInitLayout->" + data);
+}
 ```
 
 > ### cbSetItems 设置列表数据的回调方法
@@ -656,6 +732,7 @@ iOS3.0.0+
 `uexNBListView.cbSetItems(params);`
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -663,27 +740,29 @@ var params ={
 }
 ```
 
-字段含义如下：
+字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| errorCode | Number | 是 | 错误码，请参考[errorCode](#ErrorCode) |
+| errorCode | Number | 是 | 错误码,请参考[errorCode](#ErrorCode) |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        uexNBListView.cbSetItems = function(data){
-            alert("cbSetItems->" + data);
-        }
+uexNBListView.cbSetItems = function(data){
+	alert("cbSetItems->" + data);
+}
 ```
 
 > ### cbOpen 打开自定义布局列表的回调方法
@@ -691,6 +770,7 @@ iOS3.0.0+
 `uexNBListView.cbOpen(params);`
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -698,27 +778,29 @@ var params ={
 }
 ```
 
-字段含义如下：
+字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| errorCode | Number | 是 | 错误码，请参考[errorCode](#ErrorCode) |
+| errorCode | Number | 是 | 错误码,请参考[errorCode](#ErrorCode) |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        uexNBListView.cbOpen = function(data){
-            alert("cbOpen->" + data);
-        }
+uexNBListView.cbOpen = function(data){
+ 	alert("cbOpen->" + data);
+}
 ```
 
 > ### cbUpdate 更新数据的回调方法
@@ -726,6 +808,7 @@ iOS3.0.0+
 `uexNBListView.cbUpdate(params);`
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -733,27 +816,29 @@ var params ={
 }
 ```
 
-字段含义如下：
+字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| errorCode | Number | 是 | 错误码，请参考[errorCode](#ErrorCode) |
+| errorCode | Number | 是 | 错误码,请参考[errorCode](#ErrorCode) |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        uexNBListView.cbUpdate = function(data){
-            alert("cbUpdate->" + data);
-        }
+uexNBListView.cbUpdate = function(data){
+	alert("cbUpdate->" + data);
+}
 ```
 
 > ### cbInsert 插入数据的回调方法
@@ -761,6 +846,7 @@ iOS3.0.0+
 `uexNBListView.cbInsert(params);`
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -768,27 +854,29 @@ var params ={
 }
 ```
 
-字段含义如下：
+字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| errorCode | Number | 是 | 错误码，请参考[errorCode](#ErrorCode) |
+| errorCode | Number | 是 | 错误码,请参考[errorCode](#ErrorCode) |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        uexNBListView.cbInsert = function(data){
-            alert("cbInsert->" + data);
-        }
+uexNBListView.cbInsert = function(data){
+	alert("cbInsert->" + data);
+}
 ```
 
 > ### cbDelete 删除数据的回调方法
@@ -796,6 +884,7 @@ iOS3.0.0+
 `uexNBListView.cbDelete(params);`
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -803,27 +892,29 @@ var params ={
 }
 ```
 
-字段含义如下：
+字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| errorCode | Number | 是 | 错误码，请参考[errorCode](#ErrorCode) |
+| errorCode | Number | 是 | 错误码,请参考[errorCode](#ErrorCode) |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        uexNBListView.cbDelete = function(data){
-            alert("cbDelete->" + data);
-        }
+uexNBListView.cbDelete = function(data){
+	alert("cbDelete->" + data);
+}
 ```
 
 ## 2.3、监听方法
@@ -833,33 +924,35 @@ iOS3.0.0+
 `uexNBListView.onPullRefreshHeader(params);`
 
 **参数:**
+
 ```
 var params ={
     status:
 }
 ```
 
-字段含义如下：
-
+字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| status | Number | 是 | 刷新状态，请参考[RefreshStatus](#RefreshStatus) |
+| status | Number | 是 | 刷新状态,请参考[RefreshStatus](#RefreshStatus) |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        uexNBListView.onPullRefreshHeader = function(data){
-            //alert("onPullRefreshHeader->" + data);
-        }
+uexNBListView.onPullRefreshHeader = function(data){
+	//alert("onPullRefreshHeader->" + data);
+}
 ```
 
 > ### onPullRefreshFooter 上拉刷新的监听方法
@@ -867,32 +960,35 @@ iOS3.0.0+
 `uexNBListView.onPullRefreshFooter(params);`
 
 **参数:**
+
 ```
 var params ={
     status:
 }
 ```
 
-字段含义如下：
+字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| status | Number | 是 | 刷新状态，请参考[RefreshStatus](#RefreshStatus) |
+| status | Number | 是 | 刷新状态,请参考[RefreshStatus](#RefreshStatus) |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
 ```
-        uexNBListView.onPullRefreshFooter = function(data){
-            //alert("onPullRefreshFooter->" + data);
-        }
+uexNBListView.onPullRefreshFooter = function(data){
+	//alert("onPullRefreshFooter->" + data);
+}
 ```
 
 > ### XXX 自定义布局内的元素被点击的监听方法
@@ -900,9 +996,11 @@ iOS3.0.0+
 `uexNBListView.XXX(params);`
 
 **说明:**
-XXX表示名称开发者可自定义。给在布局中的元素设置onClick属性值，在该元素被点击时该监听方法被触发。
+
+XXX表示名称开发者可自定义。给在布局中的元素设置onClick属性值,在该元素被点击时该监听方法被触发。
 
 **参数:**
+
 ```
 var params ={
     listViewId:,
@@ -911,7 +1009,7 @@ var params ={
 }
 ```
 
-字段含义如下：
+字段含义如下:
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
@@ -920,16 +1018,19 @@ var params ={
 | id | Number | 是 | 元素的唯一标识符 |
 
 **平台支持:**
+
 Android2.2+    
 iOS6.0+
 
 **版本支持:**
+
 Android3.0.0+    
 iOS3.0.0+
 
 **示例:**
 
-在布局文件中设置元素及其onClick属性，如下:
+在布局文件中设置元素及其onClick属性,如下:
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "left">
@@ -941,26 +1042,33 @@ iOS3.0.0+
 
 则需要在调用open的网页的uexOnload方法中添加如下注册:
 ```
-        uexNBListView.onLeftClick = function(data){
-            alert("onLeftClick->" + data);
-        };
+uexNBListView.onLeftClick = function(data){
+	alert("onLeftClick->" + data);
+};
 ```
 其中onLeftClick方法在id为txt的元素被点击时触发。
 
 # 3、更新历史
-API 版本：uexNBListView-3.0.0(iOS) uexNBListView-3.0.0(Android)
-最近更新时间：2015-11-24
 
-|  历史发布版本 | iOS更新  | 安卓更新  |
-|------------|------------|------------|
-| 3.0.0 |  | 自定义布局列表功能插件 |
+### iOS
 
+**uexNBListView目前不支持iOS**
+
+### Android
+
+API版本:`uexNBListView-3.0.0`
+
+最近更新时间:`2015-11-24`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | 自定义布局列表功能插件 |
 # 4、附录
 
 ### SwipeType
 
 |  value | 说明  |
-| --- | ----- |
+| ----- | ----- |
 | 0 | 可以向右滑动 |
 | 1 | 可以向左滑动 |
 | 2 | 左右都可以滑动 |
@@ -969,7 +1077,7 @@ API 版本：uexNBListView-3.0.0(iOS) uexNBListView-3.0.0(Android)
 ### RefreshMode
 
 |  value | 说明  |
-| --- | ----- |
+| ----- | ----- |
 | 0 | 无刷新模式 |
 | 1 | 只支持下拉刷新 |
 | 2 | 只支持上拉刷新 |
@@ -978,17 +1086,25 @@ API 版本：uexNBListView-3.0.0(iOS) uexNBListView-3.0.0(Android)
 ### RefreshStatus
 
 | value | 说明  |
-| --- | ----- |
+| ----- | ----- |
 | 0 | 开始刷新 |
-| 1 | 刷新中 |
-| 2 | 刷新完成 |
+| 1 | 刷新完成 |
+| 2 | 刷新超时 |
+
+### OpenType
+
+| value | 说明  |
+| ----- | ----- |
+| 0 | 可以跟随网页滚动 |
+| 1 | 不随网页滚动 |
+| 2 | 列表添加到容器中,可实现容器中视图的左右滑动切换功能 |
 
 ### ErrorCode
 
 | errorCode | 说明  |
-| --- | ----- |
+| ----- | ----- |
 | 0 | 成功 |
-| 1 | 失败，未知错误 |
+| 1 | 失败,未知错误 |
 | -1 | 参数错误 |
 | -2 | 未初始化布局错误  |
 | -3 | 未打开列表错误 |
@@ -996,7 +1112,7 @@ API 版本：uexNBListView-3.0.0(iOS) uexNBListView-3.0.0(Android)
 ### VariableSupport
 
 | 属性名 | 说明  |
-| --- | ----- |
+| ----- | ----- |
 | textSize | 字体大小 |
 | textColor | 字体颜色 |
 | text | 文本内容 |
@@ -1007,8 +1123,9 @@ API 版本：uexNBListView-3.0.0(iOS) uexNBListView-3.0.0(Android)
 # 5、技术专题
 
 ### 数据载入方式
-ListView在使用过程中，需要优先调用initLayout初始化布局方法，布局在定义时需要指定哪些数据在列表中是动态的，然后在setItems，insert或者update接口时对应的传入相应的数据。举例如下：
+ListView在使用过程中,需要优先调用initLayout初始化布局方法,布局在定义时需要指定哪些数据在列表中是动态的,然后在setItems,insert或者update接口时对应的传入相应的数据。举例如下:
 布局文件:
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "2" layoutType = "${type}">
@@ -1020,8 +1137,11 @@ ListView在使用过程中，需要优先调用initLayout初始化布局方法�
     </linearlayout>
 </root>
 ```
-其中定义了两个控件元素，一个text显示标题，一个button显示操作按钮。其中跟根布局linearlayout的背景颜色和text的文本内容需要动态变化，则定义id为content的linearlayout的background属性为:${自定义变量名}，这里的“自定义变量名”为backgroundColor。同理定义id为text的text属性为${title}。
-则在设置数据的时候，传入如下代码:
+
+其中定义了两个控件元素,一个text显示标题,一个button显示操作按钮。
+其中跟根布局linearlayout的背景颜色和text的文本内容需要动态变化,则定义id为content的linearlayout的background属性为:${自定义变量名},这里的"自定义变量名"为backgroundColor。同理定义id为text的text属性为${title}。
+则在设置数据的时候,传入如下代码:
+
 ```
         var params = {
             listViewId:0,
@@ -1045,11 +1165,12 @@ ListView在使用过程中，需要优先调用initLayout初始化布局方法�
         var data = JSON.stringify(params);
         uexNBListView.setItems(data);
 ```
-则运行效果为：
+则运行效果为:
 
 ![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexNBListView/ScreenShoot/data.png)
 
 **注意事项**
->1. 需要动态更新的数据，必须唯一指定该元素的id，如上例中的linearlayout的id为content，text的id为text。
->2. 定义变量名时必须是形如${XXX}，XXX表示自定义的名称，该名称不能再包含"$"、"{"和"}"符号，并且和传入数据时的key一一对应；
->3. 目前只支持部分属性的动态更新，详情请参考[附录](#VariableSupport)，属性的取值范围及规则参考"自定义布局指引文档"中的各属性介绍。
+>1. 需要动态更新的数据,必须唯一指定该元素的id,如上例中的linearlayout的id为content,text的id为text。
+>2. 定义变量名时必须是形如${XXX},XXX表示自定义的名称,该名称不能再包含"$"、"{"和"}"符号,并且和传入数据时的key一一对应；
+>3. 目前只支持部分属性的动态更新,详情请参考[附录](#VariableSupport),属性的取值范围及规则参考"自定义布局指引文档"中的各属性介绍。
+

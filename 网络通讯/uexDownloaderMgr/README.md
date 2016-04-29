@@ -117,7 +117,8 @@ uexDownloaderMgr.download(1, "http://wallpaper.pocketdigi.com/upload/1/bigImage/
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | serverURL | String | 是 | 服务器下载地址     |
-| clearMode | String | 否 | 默认为0。0-只取消此次下载任务,不清除已经下载的临时文件。1-取消此次下载任务并清除已经下载的临时文件 |
+| clearMode | String | 否 | 默认为0。0-只取消此次下载任务,不清除已经下载的临时文件。 1-取消此次下载任务并清除已经下载的临时文件 |
+
     
 
 **平台支持:**
@@ -207,7 +208,7 @@ uexDownloaderMgr.getInfo("http://wallpaper.pocketdigi.com/upload/1/bigImage/1284
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 下载对象的唯一标识符 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONTANT")中Callback方法dataType数据类型 |
 | data|Number | 是 | 回调的int型的数据,0-成功,1-失败 |
 
 **平台支持:**
@@ -251,7 +252,7 @@ uexDownloaderMgr.cbCreateDownloader = function(opCode,dataType,data){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 下载对象的唯一标识符 |
-| dataType| Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONTANT")中Callback方法dataType数据类型 |
 | data| String | 是 | json格式数据 |
 
 **平台支持:**
@@ -301,7 +302,7 @@ uexDownloaderMgr.cbGetInfo = function(opCode,dataType,data){
 | opId| Number| 是 | 下载对象的唯一标识符id |
 | fileSize|Number | 是 | 文件大小 |
 | percent|Number | 是 | 下载文件的百分比|
-| status|Number | 是 | 下载的状态,详见CONSTANT中DownloadStatus|
+| status|Number | 是 | 下载的状态,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#DownLoad "CONSTANT")中DownloadStatus|
 
 **平台支持:**
 
@@ -339,12 +340,13 @@ uexDownloaderMgr.onStatus = function(opCode,fileSize,percent,status){
 
 ### iOS
 
-API版本:`uexDownloaderMgr-3.0.13`
+API版本:`uexDownloaderMgr-3.0.14`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-3-2`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.14 | 修复在复用窗口中使用时回调丢失的bug |
 | 3.0.13 | 添加IDE支持 |
 | 3.0.12 | 修改了下载时进度条不动的BUG |
 | 3.0.11 | 修改请求的变量 |
@@ -362,12 +364,13 @@ API版本:`uexDownloaderMgr-3.0.13`
 
 ### Android
 
-API版本:`uexDownloaderMgr-3.0.13`
+API版本:`uexDownloaderMgr-3.0.14`
 
-最近更新时间:`2015-12-28`
+最近更新时间:`2016-3-2`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.14 | 修复下载过程中下载进度过快导致应用异常的问题。 |
 | 3.0.13 | 修复有些url被encode不能下载的问题 |
 | 3.0.12 | 修复下载过程中崩溃的问题(由于与其他插件使用的数据库同名造成的)。 |
 | 3.0.11 | 修复调用cancelDownload之后,即使不清除已下载的临时文件,下次下载时不能断点续传的问题 |

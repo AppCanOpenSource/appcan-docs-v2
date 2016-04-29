@@ -4,8 +4,9 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 提供百度地图的相关相关功能。用户可以使用该插件在网页上嵌入一张地图,并实现对地图的基本操作, 例如放大缩小,移动,点击,隐藏,显示。另外还提供了定位功能,搜索功能,路线规划功能,地理编码功能 。
 ## 1.1、说明
-　　安卓&iOS插件已支持**config.xml文件**配置AK。IDE插件因为涉及到百度方面的ID与Key暂时无法使用。
-具体使用点击查看:[附录](http://newdocx.appcan.cn/newdocx/docx?type=1384_975 "百度地图插件接入指引")----->百度地图插件接入指引
+安卓&iOS插件已支持**config.xml文件**配置AK。
+>注:IDE插件因为涉及到百度方面的ID与Key暂时无法使用,此插件之前需要进行config.xml相关配置,具体使用点击查看:[附录](http://newdocx.appcan.cn/newdocx/docx?type=1384_975 "百度地图插件接入指引")----->百度地图插件接入指引
+
 ## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/153918c2015z6c16q.png)
 ## 1.3、公告
@@ -1937,6 +1938,37 @@ Android2.2+
 uexBaiduMap.zoomControlsEnabled(0) 
 ```
 
+> ### getDistance 计算两点之间的距离 
+
+`uexBaiduMap.getDistance(lat1,lon1,lat2,lon2)`
+
+**说明**
+
+通过经纬度计算两点之间的距离
+
+**参数**
+
+| 参数 | 参数类型 | 是否必须 | 说明 |
+|-----|-----|-----|-----|
+| lat1 | Number | 是 |	第一个坐标纬度	|
+| lon1 | Number | 是 |	第一个坐标经度	|
+| lat2 | Number | 是 |	第二个坐标纬度	|
+| lon2 | Number | 是 |	第二个坐标经度	|
+
+**平台支持**
+
+Android2.2+
+
+**版本支持**
+
+3.0.0+
+
+**示例**
+
+```
+uexBaiduMap.getDistance(lat1,lon1,lat2,lon2)
+```
+
 ## 2.2、监听方法
 
 > ### onMapClickListener 点击地图的监听方法 
@@ -2160,8 +2192,8 @@ uexBaiduMap.onReceiveLocation = function(data){
 
 ```
 level:(Number类型) 必选 缩放级别
-latitude:(Number类型) 必选 中心点纬度。
-longitude:(Number类型) 必选 中心点经度h
+latitude:(Number类型) 必选 中心点纬度
+longitude:(Number类型) 必选 中心点经度
 ```
 
 **版本支持**
@@ -2171,7 +2203,7 @@ longitude:(Number类型) 必选 中心点经度h
 **示例**
 
 ```
-uexBaiduMap.onSDKReceiverError = function(data){
+uexBaiduMap.onZoomLevelChangeListener = function(data){
 	alert(data);
 }
 ```
@@ -2304,6 +2336,7 @@ var data={
 			name:,
 			longitude:,
 			latitude:,
+			distance:,
 			city:,
 			postCode:
 		}
@@ -2318,6 +2351,7 @@ var data={
 | poiInfo | 是 | POI信息集合 |
 | longitude | 是 | 经度 |
 | latitude | 是 | 纬度 |
+| distance | 是 | 距离 |
 | name | 是 | 名称 |
 | uid | 是 | 唯一标识符 |
 | address | 是 | 地址 |
@@ -2391,16 +2425,44 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 }
 
 ```
+
+> ### cbGetDistance 计算两点之间的距离的回调方法
+
+`uexBaiduMap.cbGetDistance(opId,dataType,data)`
+
+**参数**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | String类型 | 必选 | 两点之间的距离,单位为米 |
+
+**版本支持**
+
+3.0.0+ 
+
+**示例**
+
+```
+uexBaiduMap.cbGetDistance = function(opCode,dataType,data){
+	alert(data);
+}
+
+```
+
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexBaiduMap-3.0.15`
+API版本:`uexBaiduMap-3.1.17`
 
-最近更新时间:`2015-12-03`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.1.17 | 修复removeMakersOverlay接口传不当参数会闪退的问题 |
+| 3.1.16 | 增加对多种类型参数的识别,支持3.3引擎 |
 | 3.0.15 | 修改插件,使其支持config配置APIKey |
 | 3.0.14 | 删去info.plist |
 | 3.0.13 | 国际化 |
@@ -2416,15 +2478,18 @@ API版本:`uexBaiduMap-3.0.15`
 | 3.0.3 | 修复公交路线搜索失败的问题 |
 | 3.0.2 | 修复cbPoiSearchResult接口回调信息不完整问题 |
 | 3.0.1 | 与安卓统一回调接口的参数 |
+| 3.1.0 | 百度地图iOS_SDK_2.5.0 |
 
 ### Android
 
-API版本:`uexBaiduMap-3.2.30`
+API版本:`uexBaiduMap-3.2.32`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-04-23`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段,返回距离;修复了文档中cbGetDistance代码case说明不对的问题 |
+| 3.2.31 | 增加了,当不打开地图View时,也可以调用poi搜索功能(目前支持城市检索,周边检索,区域检索),修复了打开地图再关闭地图,搜索poi无效的问题 |
 | 3.2.30 | 修复了前端调用open方法时传入小数时抛出NumberFormatException的问题 |
 | 3.2.29 | 修复了持续定位时cbCurrentLocation回调不生效的问题 |
 | 3.2.28 | 修复open接口传入的中心点不生效的问题 |

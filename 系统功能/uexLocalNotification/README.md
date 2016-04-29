@@ -17,12 +17,16 @@
  
 ##2.1、方法
 
-> ### 			add		注册通知		
+> ###add注册通知		
 
 `uexLocalNotification.add(id,time,mode,message,buttonTitle,ringPath,cycle,notifyCount,extras)`
-**	说明:		**
-注册通知					
-** 			参数:		**
+
+**说明:**
+
+注册通知	
+				
+
+**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
@@ -36,42 +40,74 @@
 | notifyCount|Number类型 | 是 | 应用图标上显示的通知数,仅iOS有效。 |
 | extras | String | 否 | 额外的数据信息,extras为json字符串 |
  
-** 			平台支持:		**
-Android2.2+					
-iOS6.0+					
-** 			版本支持:		**
-3.0.0+					
-**		示例:		**
-见removeAll示例					
-> ### 		remove	移除通知	
+ 
 
-`uexLocalNotification.remove(id)`			
-**	说明:	**
-移除指定唯一标示符的通知			
-**	参数:	**
+**平台支持:**
+
+Android2.2+					
+iOS6.0+		
+			
+
+**版本支持:**
+
+3.0.0+		
+			
+
+**示例:**
+
+见removeAll示例		
+			
+> ###remove	移除通知	
+
+`uexLocalNotification.remove(id)`	
+		
+
+**说明:**
+
+移除指定唯一标示符的通知	
+		
+
+**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number类型| 是 |  通知的唯一标示符,取值范围[alarm_1,…,alarm_10]。 |
+| id| String类型| 是 |  通知的唯一标示符,取值范围[alarm_1,…,alarm_10]。 |
  
-**	平台支持:	**
+
+**平台支持:**
+
 Android2.2+			
-iOS6.0+			
-**		版本支持:	**
-3.0.0+			
-**	示例:	**
-					　见removeAll示例			
-> ### 	removeAll 移除所有通知
+iOS6.0+	
+		
+
+**版本支持:**
+
+3.0.0+	
+		
+
+**示例:**
+
+见removeAll示例	
+		
+> ### removeAll 移除所有通知
 
 `uexLocalNotification.removeAll()`	
-**	说明:**
+
+**说明:**
+
 移除所有通知	
-** 	参数:**
+
+**参数:**
+
 无	
-**  	平台支持:**
+
+**平台支持:**
+
 Android2.2+	
 iOS6.0+	
-** 	版本支持:**
+
+**版本支持:**
+
 3.0.0+	
 
 **示例:**
@@ -80,17 +116,16 @@ iOS6.0+
 <!DOCTYPE HTML>
     <html>
     <head>
-    <meta http-equiv="Content-Type" content="text/html; <appcan>char<appcan>set=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>本地通知功能</title>
         <script type="text/javascript">
         function addNotification() {
-		alert("已经设置闹钟，4秒钟后将会提醒！");
+		alert("已经设置闹钟,4秒钟后将会提醒!");
 		var d = new Date();
     d = d.getTime() + 4*1000;
-		//non1-id, weekly, d, ""-ring Url 
-		//non1
-	  uexLocalNotification.add("alarm_6", d, 1, "message body", "ok", "", "daily", "5",'{"extras1":"extras1","extras2":"extras2"}');
+
+	  uexLocalNotification.add("alarm_6", d, 1, "message body", "ok", "", "daily", "5",'{"key1":"value1","key2":"value2"}');
 	}
 	
 	function onActiveCallBack(notificationID,extras) {
@@ -104,47 +139,53 @@ iOS6.0+
         </head>
         <body>
         <div class="tit">本地通知功能</div>
-        <div class="conb<appcan>or<appcan>">
+        <div class="conbor">
             <div class="consj">
             <span>1.添加本地通知</span>
-            <input class="btn" type="button" value="添加本地通知"
-            
-            onclick="addNotification()">
+            <input class="btn" type="button" value="添加本地通知" onclick="addNotification()">
             <span>2.删除指定本地通知:</span>
-            <input class="btn" type="button" value="删除指定本地通知"
-            
-            onclick="uexLocalNotification.remove(`non1`)">
+            <input class="btn" type="button" value="删除指定本地通知" onclick="uexLocalNotification.remove(`alarm_6`)">
             <span>3.删除全部本地通知</span>
-            <input class="btn" type="button" value="删除全部本地通知"
-            
-            onclick="uexLocalNotification.removeAll()">
+            <input class="btn" type="button" value="删除全部本地通知" onclick="uexLocalNotification.removeAll()">
             </div>
             <input class="btn" type="button" value="返回" onclick="uexWindow.back();">
             </div>
             </body>
             </html>
             
-        </appcan></appcan></appcan></appcan>
+        
 ```
 ## 2.2、监听方法
-> ### onActive		用户点击了通知监听		
 
+> ### onActive		用户点击了通知监听		
 `uexLocalNotification.onActive(notificationID,extras)`
-**	说明:		**
-注册通知					
-** 			参数:		**
+
+**说明:**
+
+注册通知	
+				
+
+**参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | notificationID | String类型| 是 |  通知的唯一标示符,取值范围[alarm_1,…,alarm_10]。 |
 | extras | String | 否 | 额外的数据信息,extras为json字符串 |
  
-** 			平台支持:		**
-Android2.2+					
-iOS6.0+					
-** 			版本支持:		**
-3.0.0+					
-**		示例:		**
+
+**平台支持:**
+
+					
+iOS6.0+		
+			
+
+**版本支持:**
+
+iOS 3.0.7+			
+		
+
+**示例:**
+
 见removeAll示例
 #3、更新历史
 
@@ -167,12 +208,13 @@ API版本:`uexLocalNotification-3.0.7`
 
 ### Android
 
-API版本:`uexLocalNotification-3.0.8`
+API版本:`uexLocalNotification-3.0.9`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-2-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.9 | 修复删除指定本地通知失败的问题 |
 | 3.0.8 | 修复部分机型通知没有提示音的问题 |
 | 3.0.7 | 修复部分机型闪退的问题 |
 | 3.0.6 | 修复应用在后台被杀后无法通知的问题 |

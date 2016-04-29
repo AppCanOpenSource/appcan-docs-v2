@@ -88,6 +88,14 @@ iOS6.0+
 | ----- | ----- | ----- | ----- |
 | infoID | Number | 是 | 设备信息类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中设备信息类型。 |
 
+**返回值:**
+
+| 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- |
+| String | 是 | 设备信息 |
+
+* 在3.3+引擎版本下,此方法具有返回值,可以直接获得所需的设备信息
+
 **平台支持:**
 
 Android2.2+
@@ -100,7 +108,8 @@ iOS6.0+
 **示例:**
 
 ```
-    uexDevice.getInfo('1');//获取系统版本
+ var systemVersion = uexDevice.getInfo('1');//获取系统版本
+ alert(systemVersion);//限3.3+引擎
 ```
 > ### screenCapture 屏幕截图
 
@@ -175,6 +184,14 @@ Android3.0.1+
 
 无
 
+**返回值:**
+
+| 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- |
+| Number | 是 | 系统音量值,取值范围[0,1],为1时音量最大 |
+
+* 在3.3+引擎版本下,此方法具有返回值,可以直接获得系统音量值。
+
 **平台支持:**
 
 Android2.2+
@@ -188,7 +205,8 @@ Android3.0.1+
 **示例:**
 
 ```
-    uexDevice.getVolume();//获取系统音量值
+ var volume = uexDevice.getVolume();//获取系统音量值
+ alert(volume);
 ```
 > ### setScreenAlwaysBright 屏幕常亮控制 
 
@@ -231,8 +249,15 @@ Android3.0.1+
 
 **参数:**
 
- 
 无
+
+**返回值:**
+
+| 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- |
+| Number | 是 | 屏幕亮度值,取值范围[0,1],为1时屏幕最亮。 |
+
+* 在3.3+引擎版本下,此方法具有返回值,可以直接获得屏幕亮度值。
 
 **平台支持:**
 
@@ -247,7 +272,8 @@ Android3.0.1+
 **示例:**
 
 ```
-    uexDevice.getScreenBrightness();//获取屏幕亮度
+ var brightness = uexDevice.getScreenBrightness();//获取屏幕亮度
+ alert(brightness);
 ```
 
 > ### setScreenBrightness 调整屏幕亮度
@@ -345,11 +371,11 @@ Android3.0.3+
 **示例:**
 
 ```
-        var params = {
-            setting:"GPS"//位置服务功能
-        };
-        var data = JSON.stringify(params);
-        uexDevice.isFunctionEnable(data);
+var params = {
+ 	setting:"GPS"//位置服务功能
+};
+var data = JSON.stringify(params);
+uexDevice.isFunctionEnable(data);
 ```
 
 > ### openSetting 打开设置界面
@@ -421,9 +447,9 @@ iOS6.0+
 **示例:**
 
 ```
-    uexDevice.cbGetInfo=function (opCode,dataType,data){
-        alert(data);
-    };
+uexDevice.cbGetInfo=function (opCode,dataType,data){
+	alert(data);
+};
 ```
 
 > ### cbScreenCapture 获取屏幕截图的回调方法
@@ -450,10 +476,10 @@ Android3.0.1+
 **示例:**
 
 ```
-    uexDevice.cbScreenCapture =function(data){
-    	var data = JSON.parse(data);
-       alert(data.savePath);
-    };
+uexDevice.cbScreenCapture = function(data){
+	var data = JSON.parse(data);
+	alert(data.savePath);
+};
 ```
 
 > ### cbGetVolume 获取系统音量值的回调方法
@@ -480,10 +506,10 @@ Android3.0.1+
 **示例:**
 
 ```
-    uexDevice.cbGetVolume=function(data){
-    	var data = JSON.parse(data);
-       alert(data.volume);
-    };
+uexDevice.cbGetVolume=function(data){
+	var data = JSON.parse(data);
+	alert(data.volume);
+};
 ```
 
 > ### cbGetScreenBrightness 获取系统屏幕亮度值的回调方法
@@ -510,10 +536,10 @@ Android3.0.1+
 **示例:**
 
 ```
-    uexDevice.cbGetVolume=function(data){
-    	var data = JSON.parse(data);
-       alert(data.brightness);
-    };
+uexDevice.cbGetVolume=function(data){
+	var data = JSON.parse(data);
+	alert(data.brightness);
+};
 ```
 
 > ### cbIsFunctionEnable 判断某功能是否开启的回调方法
@@ -548,10 +574,10 @@ Android3.0.3+
 **示例:**
 
 ```
-    uexDevice.cbIsFunctionEnable = function(data){
-        var data = JSON.parse(data);
-        alert(data.isEnable);
-    };
+uexDevice.cbIsFunctionEnable = function(data){
+	var data = JSON.parse(data);
+	alert(data.isEnable);
+};
 ```
 
 > ### cbOpenSetting 打开设置界面的回调方法
@@ -586,10 +612,10 @@ Android3.0.3+
 **示例:**
 
 ```
-    uexDevice.cbOpenSetting = function(data){
-        var data = JSON.parse(data);
-        alert(data.errorCode);
-    };
+uexDevice.cbOpenSetting = function(data){
+	var data = JSON.parse(data);
+	alert(data.errorCode);
+};
 ```
 
 ## 2.3、监听方法
@@ -619,29 +645,32 @@ iOS6.0+
  
 
 ```
-    uexDevice.onOrientationChange = function(mode){
-        if(mode == 1){
-            alert("正竖屏");
-        }else if(mode == 2){
-            alert("左横屏");
-        }else if(mode == 4){
-            alert("倒竖屏");
-        }else if(mode == 8){
-            alert("右横屏");
-        }
-    };
+ uexDevice.onOrientationChange = function(mode){
+	if(mode == 1){
+		alert("正竖屏");
+	}else if(mode == 2){
+		alert("左横屏");
+	}else if(mode == 4){
+ 		alert("倒竖屏");
+ 	}else if(mode == 8){
+ 		alert("右横屏");
+ 	}
+};
 ```
 
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexDevice-3.0.6`
+API版本:`uexDevice-3.0.9`
 
-最近更新时间:`2015-1-28`
+最近更新时间:`2016-4-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.9 | 修改获取设备型号的方式,添加设备型号 |
+| 3.0.8 | 修改工程为arc;部分接口支持同步回调;设备型号现在可以识别iPad Pro |
+| 3.0.7 | openSetting接口支持打开推送通知设置 |
 | 3.0.6 | 添加判断功能是否开启,以及打开设置界面接口 |
 | 3.0.5 | 添加IDE支持 |
 | 3.0.4 | 新增屏幕截图、调节屏幕亮度、调节系统音量、屏幕常亮控制、跳转WIFI界面相关接口 |
@@ -652,12 +681,15 @@ API版本:`uexDevice-3.0.6`
 
 ### Android
 
-API版本:`uexDevice-3.0.3`
+API版本:`uexDevice-3.0.6`
 
-最近更新时间:`2016-01-06`
+最近更新时间:`2016-4-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.6 | Android6.0支持获取wifi mac地址 |
+| 3.0.5 | 修复多次截图都是同一张图片的问题 |
+| 3.0.4 | 解决多次截屏失效的问题 |
 | 3.0.3 | 添加判断功能是否开启,以及打开设置界面接口 |
 | 3.0.2 | 添加截图,听筒和扩音器切换, 设置/获取音量等接口 |
 | 3.0.1 | 新增屏幕截图、调节屏幕亮度、调节系统音量、屏幕常亮控制、跳转WIFI界面相关接口 |
@@ -669,4 +701,5 @@ API版本:`uexDevice-3.0.3`
 | ----- | ----- |
 | GPS | GPS功能 |
 | BLUETOOTH | 蓝牙功能 |
+| NOTIFICATION | 推送通知设置(仅iOS) |
 

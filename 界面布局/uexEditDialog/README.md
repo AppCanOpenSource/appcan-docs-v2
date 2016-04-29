@@ -3,7 +3,7 @@
 
 自定义编辑框插件
 ## 1.1、说明
- 自定义编辑框
+ 实现自定义编辑框,获取输入框内内容数据进行复制粘贴等操作
 ## 1.2、UI展示
  
  ![](http://newdocx.appcan.cn/docximg/141950m2015c6g16o.jpg)
@@ -26,15 +26,13 @@
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id  | Number类型  |必选   | 唯一标识符  |
-| num  | Number类型  |必选   | 剩余字数  |
 | x  | Number类型  |必选   | x坐标  |
 | y  | Number类型  |必选   | y坐标  |
-| z  | Number类型  |必选   | z坐标  |
 | w  | Number类型  |必选   | 宽度  |
 | h  | Number类型  |必选   | 高度  |
 | fontSize  | Number类型  |必选   |   字体大小,建议16-18  |
 | fontColor  | String类型  |必选   | 字体颜色  |
-| inputType  | Number类型  |必选   |  键盘类型,见文档CONSTANT中KeyboardType；  |
+| inputType  | Number类型  |必选   |  键盘类型,见文档[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Keyboard Types "CONSTANT")中KeyboardType；  |
 | inputHint  | String类型  |必选   | 提示文字  |
 | defaultText  | String类型  |必选   | 默认显示文字  |
 | maxNum  | maxNum  |可选   | 最大字数,如果为0,或者缺省长度无限制,并且不回调uexEditDialog.onNum方法；  |
@@ -188,8 +186,8 @@ uexEditDialog.getContent(1)
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id  | Number类型  |必选   | 打开输入框的id  |
-| dataType  | Number类型  |必选   | 返回uex.cInt类型。 详见CONSTANT中CallbackDataTypes。  |
-| data  | Number类型  |必选   | 返回uex.cSuccess或uex.cFailed。 详见CONSTANT中CallbackIntValues  |
+| dataType  | Number类型  |必选   | 返回uex.cInt类型。 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中CallbackDataTypes。  |
+| data  | Number类型  |必选   | 返回uex.cSuccess或uex.cFailed。 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中CallbackIntValues  |
  
 
 **版本支持:**

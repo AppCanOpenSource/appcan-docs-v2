@@ -1,12 +1,13 @@
-﻿
+﻿									
 
-封装相关浮动窗口的基础操作
+再次封装相关浮动窗口的基础操作
 
 [TOC]
 
 >### appcan.frame.open(id,url,left,top,name,index,change,extraInfo)
 
-  打开一个浮动窗口，如果不存在则会先创建然后再打开，如果存在则直接打开,如会在页面中查找id的元素，把id元素的宽高指定为浮动窗口的宽高，把id元素的font-size设置为id元素的font-size
+  打开一个浮动窗口，如果不存在则会先创建然后再打开，如果存在则直接打开,就会在页面中查找id的元素，把id元素的宽高指定为浮动窗口的宽高，把id元素的font-size设置为id元素的font-size
+  再次封装[appcan.window.openPopover](http://newdocx.appcan.cn/newdocx/docx?type=1259_1254 "appcan.window.openPopover")常用参数（简化版）
 ```` 
     id:要打开浮动窗口的名称
     url:浮动窗口要加载的页面的地址,如果url是一个数组则打开多页面浮动窗口
@@ -38,7 +39,7 @@
     change:''
 }````
 **例如：**
-
+[下载](/docAttach/1254/打开多浮动窗口通用适配case.zip "下载")
 ````
 //弹出一个简单的demo浮动窗口,并打开appcan.cn
 appcan.frame.open({
@@ -110,7 +111,7 @@ frame.close('demo');
     id:指定的元素，根据该元素设置浮动窗口的大小
     left:浮动窗口距离左边界的距离
     top:浮动窗口距离上边界的距离
-    name:要设置的浮动窗口的名称，_**如果id没有传值的话使用这个值
+    name:要设置的浮动窗口的名称，如果id没有传值的话使用这个值
 参数还可以以对象的形式传参：
 ````
 {
@@ -226,8 +227,8 @@ frame.evaluateScript({
    打开多页面浮动窗口
 	
     popName:打开新窗口的名称
-    content:要传入的数据，一个json对象，或者json字符串，结构必须为````{'content':[{"inPageName":"p1", "inUrl":"xxx1.html","inData":""}]}```` 其中：inPageName:所包含的单页面窗口的名字，inUrl：url类型数据，inData：窗口的内容的二进制数据，可为空
-    dataType:窗口载入的数据的类型，0：url方式载入；1：html内容 方式载入；2：既有url方式，又有html内容方式
+    content:要传入的数据，一个json对象，或者json字符串，结构必须为{'content':[{"inPageName":"p1", "inUrl":"xxx1.html","inData":""}]}其中：inPageName:所包含的单页面窗口的名字，inUrl：url类型数据，inData：窗口的内容的二进制数据，可为空
+    dataType:窗口载入的数据的类型，0：url方式载入；1：html内容 方式载入(必如传入的是一个<div></div>)；2：既有url方式，又有html内容方式
     left:距离左边界的距离
     top:距离上边界的距离
     width:窗口的宽
@@ -244,7 +245,7 @@ frame.evaluateScript({
         64: 等待popOver加载完毕后显示
       128: 支持手势
       256: 标记opn的window上一个window不隐藏
-      512: 标记open的浮动窗口用友打开wabapp
+      512: 标记open的浮动窗口用于打开wabapp
     indexSelected:默认显示的索引项，默认显示第一项
 参数还可以以对象的形式传参：
 ````

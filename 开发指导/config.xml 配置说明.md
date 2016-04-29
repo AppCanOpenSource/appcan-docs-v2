@@ -3,19 +3,17 @@
 
 
 ## 简介
+config.xml文件是AppCan移动App的配置文件，用于指定应用的显示名称、图标、应用起始页地址及需要使用的设备权限等信息，用户可通过AppCan IDE的可视化界面视图或者源码视图来配置移动App的信息。
+*  在IDE中创建“项目”应用后后都会在工程下生成config.xml文件，在“项目管理器”中**双击**即可打开 或 **右键config文件**选择打开方式![](/docImg/1291/QQ图片20160408115820.png)进行代码编辑。
 
-* config.xml中的`<widget>`节点内会有**一个或多个**`<config>`块(如下所示)
-
+*  config.xml中的`<widget>`节点内会有**一个或多个**`<config>`块(如下所示)
 ```
 <config desc="" type="">
 	XXXX
 </config>
 ```
-	
-* 其中`desc`为此config块的描述（无实际作用）
-* 打包服务器会**逐条处理**每个`<config>`块，根据不同的`type`进行相应的操作
-
-
+	* 其中`desc`为此config块的描述（无实际作用）
+	* 打包服务器会**逐条处理**每个`<config>`块，根据不同的`type`进行相应的操作
 
 ***
 
@@ -60,7 +58,11 @@
 	*  插件开发者需保证name全局唯一，以避免冲突
 ***
 ##type="URLSCHEME" urlScheme管理（仅iOS）
-
+**什么是URLSchemes？**
+>Url Scheme：可以通过Url Scheme从一个应用打开另一个应用，并实现应用间的数据传递。
+`第三方应用插件客户端：`可以查看对应插件API文档说明部分查询Url Scheme配置
+    比如在微信支付过程中，App用过uexWeiXin插件打开微信客户端进行支付，支付过程完成后，微信客户端通过应用自定义的UrlScheme返回到本App,并传回支付结果
+`如果是另一个应用：`此属性可以通过AppCan平台生成的ipa包里的Info.plist文件中找到；或者可以自定义配置urlscheme值
 
 **例子**
 
@@ -75,7 +77,7 @@
 * 数组用双引号(")和中括号([])包含 
 * 每个urlscheme用单引号(')包含 多个urlscheme之间用逗号(,)隔开
 * 以上所有标点均是半角英文符号
-
+以上述配置为例，假设应用A中有进行此UrlScheme配置，在另一个应用B中，通过引擎的JS方法`uexWidget.loadApp('scheme1:');`即可打开应用A（注意不要漏掉冒号!）
 ***
 ##type="AUTHORITY" 权限设置
 * 目前支持如下权限设置
@@ -162,3 +164,26 @@
 	</permission>
 </config>
 ```
+
+##type="ENTITLEMENTS" 授权信息管理（仅iOS）
+
+
+
+###设置merchant商户信息
+
+如果你的App需要支持ApplePay功能 那么必须要配置merchant商户信息
+
+#### 例子
+
+```
+<config desc="xxx" type="ENTITLEMENTS">
+    <entitlement type="merchant" value="merchantIdentifier1"/>
+    <entitlement type="merchant" value="merchantIdentifier2"/>
+</config>
+```
+
+####说明
+
+*  type是必传参数，配置merchant商户信息时,传`"merchant"`;
+*  value是必传参数，传你配置的商户信息的merchantIdentifier;
+*  如果此App内需要同时用到多个商户信息，配置多个`<entitlement>`条目即可

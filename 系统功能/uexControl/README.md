@@ -82,7 +82,7 @@ uexControl.openTimePicker(10,23);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| type | Number | 是 | 键盘类型,详见CONSTANT中KeyboardTypes |
+| type | Number | 是 | 键盘类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Keyboard Types "CONSTANT")中KeyboardTypes |
 | inputHint | String | 是 | 默认数据 |
 |btnText | String | 是 | 输入框按钮上标题 |
 
@@ -179,8 +179,8 @@ var params = {
 | limitType | Number | 是 | 限制方式,0-表示具体日期限制,此种方式年月日参数必选；1-表示相对于初始化日期的前后天数,月数或年数,此种方式年月日参数有且只有一个有效,有效的优先级为日>月>年。具体用法请参考示例。 |
 | data | Json | 是 | 限制数据 |
 | year | Number | 是 | 年,当limitType为0时,必传,表示具体年份。当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中年的相对值x,负数表示小于初始化年份x年,正数表示大于初始化年份x年 |
-| month | Number | 是 | 月,当limitType为0时,必传,表示具体月份。当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中月的相对值x,负数表示小于初始化月份x月,正数表示大于初始化月份x月 | |
-| day | Number | 是 | 日,当limitType为0时,必传,表示具体日期。当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中日的相对值x,负数表示小于初始化日期x天,正数表示大于初始化日期x天 | |
+| month | Number | 是 | 月,当limitType为0时,必传,表示具体月份。当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中月的相对值x,负数表示小于初始化月份x月,正数表示大于初始化月份x月 | 
+| day | Number | 是 | 日,当limitType为0时,必传,表示具体日期。当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中日的相对值x,负数表示小于初始化日期x天,正数表示大于初始化日期x天 | 
 
 **支持平台:**
 
@@ -279,7 +279,7 @@ Android 3.0.6+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType| Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback方法数据类型 |
 | data | String | 是 | 选择的日期,格式为:{"month":10,"second":0,"day":19,"year":1900,"hour":0,"minute":0} | 
 
  各字段含义如下:
@@ -317,7 +317,7 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType| Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback方法数据类型 |
 | data | String | 是 | 选择的日期,格式为:{"month":10,"second":0,"day":19,"year":1900,"hour":0,"minute":0} |
 
 |参数|是否必须|说明|
@@ -353,7 +353,7 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType| Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback方法数据类型 |
 | data | String | 是 | 文字内容 | 
 
 **版本支持:**
@@ -380,7 +380,7 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType| Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback方法数据类型 |
 | data | String | 是 | 选择的日期,格式为:{"year":1900,"month":10} |
 
 |参数|是否必须|说明|
@@ -496,12 +496,14 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexControl-3.0.14`
+API版本:`uexControl-3.0.16`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-3-23`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.16 | 对3.3引擎下非string参数造成闪退的情况进行了处理 |
+| 3.0.15 | 修改无法打开带配置的日期选择器的BUG |
 | 3.0.14 | 添加IDE支持 |
 | 3.0.13 | 删除info.plist |
 | 3.0.12 | 添加国际化支持 |
@@ -520,12 +522,13 @@ API版本:`uexControl-3.0.14`
 
 ### Android
 
-API版本:`uexControl-3.0.6`
+API版本:`uexControl-3.0.7`
 
-最近更新时间:`2015-9-25`
+最近更新时间:`2016-3-2`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.7 | 修复日期不在范围内时,点击"确定"按钮能获取日期的问题 |
 | 3.0.6 | 6:修复华为手机上输入日期不生效的问题;新增openDatePickerWithConfig可配置日期范围的日期选择器接口。 |
 | 3.0.5 | 在openInputDialog接口中添加参数 |
 | 3.0.4 | 新增接口openDatePickerWithoutDay,打开只有年月的日历选择器 |

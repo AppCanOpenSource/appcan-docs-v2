@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>PathArcMenu</title>
+<script type="text/javascript">
+    window.uexOnload = function() {
+        uexTabBarWithPopMenu.onTabItemClick = tabItemCallback;
+        uexTabBarWithPopMenu.onPopMenuItemClick = popItemCallback;
+	}
+    function createMenu(){
+        var params = {
+            left:0,
+            top:window.screen.height - 50,
+            width:window.screen.width,
+            height:50,
+            statusColor:"#EA7C24",
+            tab:{
+                textSize:10,
+                textNColor:"#ffffff",
+                textHColor:"#EA7C24",
+                centerImg:"res://plus2.png",
+                bgColor:"#32394A",
+                data:[
+                    {
+                        title:"动态",
+                        iconN:"res://tab1.png",
+                        iconH:"res://tab1_1.png"
+                    },
+                    {
+                        title:"与我相关",
+                        iconN:"res://tab2.png",
+                        iconH:"res://tab2_1.png"
+                    },
+                    {
+                        title:"我的空间",
+                        iconN:"res://tab3.png",
+                        iconH:"res://tab3_1.png"
+                    },
+                    {
+                        title:"玩吧",
+                        iconN:"res://tab4.png",
+                        iconH:"res://tab4_1.png"
+                    }
+                ]
+            },
+            popMenu:{
+                textSize:13,
+                textNColor:"#000000",
+                textHColor:"#dddddd",
+                bgColor:"#66ffffff",
+                bottomDistance:300,
+                data:[
+                    {
+                        title: "联系人",
+                        iconN:"res://pop1.png",
+                        iconH:"res://pop1_1.png"
+                    },
+                    {
+                        title: "保存",
+                        iconN:"res://pop2.png",
+                        iconH:"res://pop2_1.png"
+                    },
+                    {
+                        title: "拍照",
+                        iconN:"res://pop3.png",
+                        iconH:"res://pop3_1.png"
+                    },
+                    {
+                        title: "打印文件",
+                        iconN:"res://pop4.png",
+                        iconH:"res://pop4_1.png"
+                    },
+                    {
+                        title: "定位",
+                        iconN:"res://pop5.png",
+                        iconH:"res://pop5_1.png"
+                    }
+                    
+                ]
+            }
+        }
+        uexTabBarWithPopMenu.open(JSON.stringify(params));
+        setItemChecked(3);
+        
+    }
+   function closeMenu(){
+      uexTabBarWithPopMenu.close();
+   }
+   function setMenu(){
+      var params = {
+          index:1
+    };
+    var data = JSON.stringify(params);
+    uexTabBarWithPopMenu.setItemChecked(data);
+   }
+
+    function tabItemCallback(data){
+        alert("tabItemCallback:"+data);
+        setItemChecked(JSON.parse(data).index);
+    }
+    function popItemCallback(data){
+        alert("popItemCallback:"+data);
+    }
+
+</script>
+</head>
+
+<body>
+	<div class="tit">Demo</div>
+        <div class="conbor">
+            <div class="consj">
+                <input class="btn" type="button" value="open" onclick="createMenu();"/>
+                <input class="btn" type="button" value="close" onclick="closeMenu();"/>
+                <input class="btn" type="button" value="setItemChecked" onclick="setMenu();"/>
+            </div>
+        </div>
+</body>
+</html>

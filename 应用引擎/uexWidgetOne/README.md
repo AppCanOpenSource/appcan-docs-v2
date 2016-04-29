@@ -181,14 +181,14 @@ window.uexOnload = function() {
 ````
 opId:(Number类型) 必选  操作ID，在此函数中不起作用，可忽略
 dataType:(Number类型) 必选  参数类型详见CONSTANT中Callback方法数据类型
-data:(Number类型) 必选  回当前widget相关信息，json数据格式````
+data:(Number类型) 必选  回调当前widget相关信息，json数据格式````
 **版本支持:**
 3.0.0+
 **示例:**
 ```
 function cbGetCurrentWidgetInfo(opId,dataType,data){
     var obj = eval('('+data+')');
-    alert(obj.widgetId);
+    alert(obj.widgetId);//获取当前APP的一些信息，比如应用ID之类的数据
 }
 window.uexOnload = function() {
      uexWidgetOne.cbGetCurrentWidgetInfo = cbGetCurrentWidgetInfo;

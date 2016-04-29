@@ -215,10 +215,11 @@ API版本:`uexTestinCrash-3.0.1`
 
 ### Android
 
-API版本:`uexTestinCrash-3.0.0`
+API版本:`uexTestinCrash-3.0.2`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-1-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.2 | 版本号修订,修复plugin.xml |
 | 3.0.0 | 云测崩溃大师 |

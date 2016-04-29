@@ -82,7 +82,7 @@ iOS 3.0.0+
     uexSearchBarView.open(data1);
 ```
 运行效果:
-![](http://i.imgur.com/x980gf9.png)
+![](/docImg/975/u10&#40;1&#41;.png)
 
 > ### close 关闭搜索框  
 

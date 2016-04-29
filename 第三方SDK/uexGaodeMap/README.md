@@ -11,7 +11,7 @@
 ## 1.2、开源源码
 自定义插件下载:[点击此处](http://plugin.appcan.cn/details.html?id=428_index) (插件测试用例与插件包已经提供)
 ## 1.3、 UI展示
- 
+ ![](http://plugin.appcan.cn/pluginApi/getCImg?img=100857y2015t5o28ip.jpg)![](http://plugin.appcan.cn/pluginApi/getCImg?img=100909q2015h5f28yu.jpg)![](http://plugin.appcan.cn/pluginApi/getCImg?img=100918p2015g5h28ug.jpg)![](http://plugin.appcan.cn/pluginApi/getCImg?img=100925f2015t5o28pl.jpg)
 ## 1.4、术语表
 ### 1.4.1 Download Status
 

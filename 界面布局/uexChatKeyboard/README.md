@@ -39,14 +39,12 @@ var viewInfo={
 }
 ```
 
-自定义表情的配置文件配置步骤:
+>参数emojicons的自定义表情配置文件为:"res://emojicons/emojicons.xml"[widget路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "widget路径"),详细配置步骤:
 
-1. 在widget的wgtRes目录下创建emojicons目录；
-
-2. 在emojicons中放入表情以及删除的图片资源,表情的默认命名格式:
+1、在widget的wgtRes目录下创建emojicons目录；
+2、在emojicons中放入表情以及删除的图片资源,表情的默认命名格式:
 ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
-
-3. 在emojicons中创建emojicons.xml文件,格式如下:
+3、在emojicons中创建emojicons.xml文件,格式如下:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -64,12 +62,12 @@ ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
 * 表情目录、图片名以及配置文件名都可以自定义命名,但是必须保
 证配置文件中的图片名与资源图片对应。
 
-自定义分享选项的配置文件配置步骤:
+>参数shares的自定义分享选项配置文件为:"res://emojicons/emojicons.xml"[widget路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "widget路径"),详细配置步骤:
 
-1. 在widget的wgtRes目录下创建shares目录；
-2. 在shares中放入分享选项的图片资源,图片的默认命名格式:
+1、在widget的wgtRes目录下创建shares目录；
+2、在shares中放入分享选项的图片资源,图片的默认命名格式:
 ace_share_1；
-3. 在shares中创建shares.xml文件,格式如下:
+3、在shares中创建shares.xml文件,格式如下:
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -94,7 +92,6 @@ Android 2.2+
 iOS 6.0+    
 
 **版本支持**
-
 :  
     3.0.0+    
 
@@ -220,7 +217,7 @@ iOS 3.0.10+
 
 **说明:**
 
-收到 onKeyBoardShow回调,并且status为1时调用这个方法传入当前div的高度,键盘会根据高度将聊天内容推上去
+收到 [onKeyBoardShow](#onKeyBoardShow 键盘弹出或收起时的监听方法 "onKeyBoardShow")回调,并且status为1时调用这个方法传入当前div(表示文本输入框的高度)的高度,键盘会根据高度将聊天内容推上去
 
 **参数:**
 
@@ -476,12 +473,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexChatKeyboard-3.0.23`
+API版本:`uexChatKeyboard-3.0.24`
 
-最近更新时间:`2016-1-20`
+最近更新时间:`2016-2-16`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.24 | 修改键盘+号切换异常,修改发送按钮自定义 |
 | 3.0.23 | 修改发送消息遮挡、修改录音从0开始 |
 | 3.0.22 | 修改回调对象引用类型 |
 | 3.0.21 | 添加IDE支持 |
@@ -509,12 +507,14 @@ API版本:`uexChatKeyboard-3.0.23`
 
 ### Android
 
-API版本:`uexChatKeyboard-3.0.12`
+API版本:`uexChatKeyboard-3.0.14`
 
-最近更新时间:`2016-1-21`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.14 | 修复部分机型显示不全的问题,修复关闭白屏问题,修复部分机型屏幕宽度获取不对的问题,修复键盘遮蔽问题有时候页面推动过多的问题 |
+| 3.0.13 | 优化点击非键盘区域收回键盘时的判断机制,代码逻辑调整优化. |
 | 3.0.12 | 修正键盘弹出效果,修正声音相关回调问题,修正关闭崩溃错误,添加自定义参数,部分代码优化 |
 | 3.0.11 | 去掉LocalActivityManager |
 | 3.0.10 | open接口新增参数inputMode默认输入方式 |

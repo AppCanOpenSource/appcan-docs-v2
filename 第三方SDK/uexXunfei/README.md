@@ -613,14 +613,14 @@ iOS 3.0.0+
 
 |JSON字段|英文全称|类型|说明|
 |-----|-----|-----|-----|
-sn|sentence|number|第几句
-ls|last sentence |bool|是否最后一句
-bg|begin    |number|开始
-ed|end|number|结束
-ws|words|array|词
-cw|chinese word|array|中文分词
-w|word|String|单字
-sc|score|number|分数
+|sn|sentence|number|第几句
+|ls|last sentence |bool|是否最后一句
+|bg|begin    |number|开始
+|ed|end|number|结束
+|ws|words|array|词
+|cw|chinese word|array|中文分词
+|w|word|String|单字
+|sc|score|number|分数
 
 语音识别示例:  
 
@@ -642,12 +642,13 @@ AppID申请需要在讯飞官网申请完成。创建应用之后需要开通`�
 
 ### iOS
 
-API版本:`uexXunfei-3.0.0`
+API版本:`uexXunfei-3.0.1`
 
-最近更新时间:`2016-1-5`
+最近更新时间:`2016-3-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.1 | 添加iflyMSC.framework |
 | 3.0.0 | 新增uexXunfei插件 |
 
 ### Android

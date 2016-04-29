@@ -20,7 +20,7 @@
 
 **说明:**
 
-设置六棱柱的数据
+设置六棱柱的数据,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
 必须在open方法之前调用此方法
 
 **参数:**
@@ -197,12 +197,13 @@ API版本:`uexHexagonal-3.0.3`
 
 ### Android
 
-API版本:`uexHexagonal-3.0.3`
+API版本:`uexHexagonal-3.0.4`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-3-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.4 | 修复open参数无效的问题 |
 | 3.0.3 | 修复点击图片打开新窗口后六棱柱显示在窗口上层问题 |
 | 3.0.2 | 增加cbOpenHexagonal函数回调接口 |
 | 3.0.1 | 修复图片顺序问题 |

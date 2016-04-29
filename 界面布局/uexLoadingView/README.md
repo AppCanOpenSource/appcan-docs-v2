@@ -4,7 +4,7 @@
 ## 1.1、说明
 实现了加载视图的动画效果,提供了两种加载的视图动画样式,用户可以自定义View的颜色以及加载点个数。
 ## 1.2、UI展示
-![](http://plugin.appcan.cn/pluginApi/getCImg?img=140505s2015p7y15ew.png)
+ ![](/docImg/975/loading.png)  ![](/docImg/975/loading1&#40;1&#41;.png)
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=453_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
@@ -137,12 +137,14 @@ uexLoadingView.close();
 
 ### iOS
 
-API版本:`uexLoadingView-3.0.4`
+API版本:`uexLoadingView-3.0.6`
 
-最近更新时间:`2016-1-5`
+最近更新时间:`2016-4-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.6 | 添加IDE支持 |
+| 3.0.5 | 修复openCircleLoading在ios7上背景不透明的BUG |
 | 3.0.4 | 新增openCircleLoading接口 |
 | 3.0.3 | uexLoadingView插件,修改open接口 |
 | 3.0.2 | 修改配置文件 |
@@ -153,7 +155,7 @@ API版本:`uexLoadingView-3.0.4`
 
 API版本:`uexLoadingView-3.0.6`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2015-03-12`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |

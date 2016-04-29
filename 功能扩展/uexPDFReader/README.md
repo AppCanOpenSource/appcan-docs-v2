@@ -26,7 +26,7 @@ PDF阅读器插件
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| pdfPath | String | 是 | pdf文档路径,路径协议详见CONSTANT中PathTypes。 |
+| pdfPath | String | 是 | pdf文档路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes。 |
 
 **平台支持:**
 
@@ -88,12 +88,13 @@ API版本:`uexPDFReader-3.0.5`
 
 ### Android
 
-API版本:`uexPDFReader-3.0.3`
+API版本:`uexPDFReader-3.0.4`
 
-最近更新时间:`2015-11-06`
+最近更新时间:`2016-04-28`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.4 | 由于一些特殊字体的pdf无法打开,基于mupdf重写uexPDFReader插件;1.兼容一些特殊字体的pdf;2.优化了方法数,使插件更轻量级:方法数从6837减至1016 |
 | 3.0.3 | 去掉插件中的ActivityGroup,配合引擎升级 |
 | 3.0.2 | 修复打包冲突的问题 |
 | 3.0.1 | 修复路径不存在时崩溃问题 |
