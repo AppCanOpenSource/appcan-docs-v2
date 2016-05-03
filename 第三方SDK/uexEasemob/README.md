@@ -7,7 +7,7 @@
 * 单聊功能:支持发送语音,图片,表情,文字,位置,附件；
 * 群聊功能:支持500人到2000人大群,拥有完善的群组权限管理；
 * 实时语音:基于IP网络的点对点实时语音,适应低带宽要求；
-* 客服功能(3.0.22以上支持):基于新一代移动互联网技术的全媒体智能客户关系中心系统,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+* 客服功能(iOS 3.0.22, Android 3.0.23及以上支持):基于新一代移动互联网技术的全媒体智能客户关系中心系统,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 
 > **使用前说明:**
 
@@ -46,14 +46,14 @@ root页面收到回调后,可以通过uexWindow的相关方法传递到各个网
  
 ##1.4、 术语表
 
-Path Types
+Path Types  
 
- | 协议头 | Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径 | 
- | ----- | ----- | ----- | 
- | res:// | widget/wgtRes/ | widget/wgtRes | 
- | wgts:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ | 
- | wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ | 
- | file:///sdcard/ | /storage/emulated/0/ | 无 | 
+| 协议头 | Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径 | 
+| ----- | ----- | ----- | 
+| res:// | widget/wgtRes/ | widget/wgtRes | 
+| wgts:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ | 
+| wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ | 
+| file:///sdcard/ | /storage/emulated/0/ | 无 | 
  
 
 #2、API概述		
@@ -214,7 +214,7 @@ var param = {
 	chatType:,//0-单聊,1-群聊
 	content:,//文本内容
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（3.0.22新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 };
 ```
 
@@ -229,7 +229,7 @@ var param = {
 	filePath:,//文件路径
 	displayName:,//对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（3.0.22新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 };
 ```
 
@@ -244,7 +244,7 @@ var param = {
 	filePath:,//图片文件路径
 	displayName:,//对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（3.0.22新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 };
 ```
 
@@ -260,7 +260,7 @@ var param = {
 	latitude:,
 	longitude:,
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（3.0.22新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 
 };
 ```
@@ -278,7 +278,7 @@ var param = {
 	length:,//长度(Android必选,iOS可选)
 	displayName://对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（3.0.22新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 };
 ```
 
@@ -295,7 +295,7 @@ var param = {
 	length:,//长度(Android必选,iOS可选)
 	displayName://对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（3.0.22新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 };
 ```
 
@@ -309,7 +309,7 @@ var param = {
 	action:,//
 	toUsername:,//
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（3.0.22新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 };
 ```
 
@@ -1051,7 +1051,7 @@ param为json字符串
     	message:,//邀请消息
 };
 ```
->###onReceiveGroupInvitation(param)//收到群组邀请监听（3.0.22新增接口）
+>###onReceiveGroupInvitation(param)//收到群组邀请监听（iOS 3.0.22, Android 3.0.23新增接口）
 
 用户A邀请用户B入群,用户B接收到该回调
 
@@ -1065,7 +1065,7 @@ param为json字符串
 };
 ```
 
->###acceptJoinApplication(param)//批准入群申请, 需要Owner权限（3.0.22新增接口）
+>###acceptJoinApplication(param)//批准入群申请, 需要Owner权限（iOS 3.0.22, Android 3.0.23新增接口）
 
 param为json字符串
 
@@ -1076,7 +1076,7 @@ var param={
 };
 ```
 
->###declineJoinApplication(param)//拒绝入群申请, 需要Owner权限（3.0.22新增接口）
+>###declineJoinApplication(param)//拒绝入群申请, 需要Owner权限（iOS 3.0.22, Android 3.0.23新增接口）
 
 param为json字符串
 
@@ -1088,7 +1088,7 @@ var param={
 };
 ```
 
->###acceptInvitationFromGroup(param)//接受入群邀请（3.0.22新增接口）
+>###acceptInvitationFromGroup(param)//接受入群邀请（iOS 3.0.22, Android 3.0.23新增接口）
 
 param为json字符串
 
@@ -1099,7 +1099,7 @@ var param={
 };
 ```
 
->###declineInvitationFromGroup(param)//拒绝入群邀请（3.0.22新增接口）
+>###declineInvitationFromGroup(param)//拒绝入群邀请（iOS 3.0.22, Android 3.0.23新增接口）
 
 param为json字符串
 
@@ -1247,7 +1247,7 @@ isRead	 | 是否已读
 chatType: | 聊天类别 0-个人 1-群组
 messageType | 消息类型  text/video/audio/image/location/file/cmd
 ext | 扩展属性 String格式
-extObj | 扩展属性（3.0.22新增，JSONString 用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+extObj | 扩展属性（iOS 3.0.22, Android 3.0.23新增，JSONString 用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 messageBody | 消息主体json
 
 messageBody的结构为
@@ -1373,13 +1373,14 @@ API版本:`uexEasemob-3.0.22`
 
 ### Android
 
-API版本:`uexEasemob-3.0.22`
+API版本:`uexEasemob-3.0.23`
 
 最近更新时间:`2016-5-7`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.22 | initEasemob接口新增isAutoAcceptGroupInvitation参数；消息接口新增extObj参数以适配环信客服功能；group内新增群组加人的相关接口 |
+| 3.0.23 | 升级环信官方SDK到3.1.2, 同时添加客服功能 |
+| 3.0.22 | init只执行一次 |
 | 3.0.21 | 修改getRecentChatters |
 | 3.0.20 | 修复setNotifyBySoundAndVibrate无效的问题 |
 | 3.0.19 | 纠正拼写错误 |
