@@ -351,7 +351,7 @@ var param = {
 };
 ```
 
->###sendHasReadResponseForMessage(param) 发送消息已读回执
+>###sendHasReadResponseForMessage(param) 发送消息已读回执
 
 param为json字符串
 
