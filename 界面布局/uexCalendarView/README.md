@@ -63,7 +63,7 @@ uexCalendarView.open(jsonStr);
 **说明**
 
  关闭日历
- 
+
 
 **参数**
 
@@ -134,16 +134,16 @@ uexCalendarView.setSelectedDate(jsonStr);
 
 >###onItemClick  点击日期时的监听方法
 
-`uexCalendarView.onItemClick(json)`
+`uexCalendarView.onItemClick(jsonString)`
 
 **说明**
 
  点击日期时的监听方法
- 
+
 
 **参数**
 
-```
+```javascript
 var json = {
 	date:{  //返回的日期
 		year:,//年
@@ -151,7 +151,6 @@ var json = {
 		day:,//日
 	} 
 }
-
 ```
 
 **平台支持**
@@ -167,10 +166,9 @@ iOS 3.0.0+
 **示例**
 
 ```
-uexCalendarView.onItemClick = function(data){
-alert(data);
+uexCalendarView.onItemClick = function(jsonString){
+alert(jsonString);
 }
-
 ```
 
 # 3、更新历史
@@ -181,14 +179,14 @@ API版本:`uexCalendarView-3.0.5`
 
 最近更新时间:`2016-3-2`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.5 | 修复uexCalendarView切换年份时触发click事件的bug |
-| 3.0.4 | 修复uexCalendarView切换月份时执行click事件的bug |
-| 3.0.3 | 添加IDE支持 |
-| 3.0.2 | 删除info.plist |
-| 3.0.1 | 添加国际化支持 |
-| 3.0.0 | 日历插件 |
+| 历史发布版本 | 更新内容                                |
+| ------ | ----------------------------------- |
+| 3.0.5  | 修复uexCalendarView切换年份时触发click事件的bug |
+| 3.0.4  | 修复uexCalendarView切换月份时执行click事件的bug |
+| 3.0.3  | 添加IDE支持                             |
+| 3.0.2  | 删除info.plist                        |
+| 3.0.1  | 添加国际化支持                             |
+| 3.0.0  | 日历插件                                |
 
 ### Android
 
@@ -196,9 +194,9 @@ API版本:`uexCalendarView-3.0.3`
 
 最近更新时间:`2015-11-30`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.3 | 修复month拼写错误的问题 |
-| 3.0.2 | 国际化 |
-| 3.0.1 | 修复日历界面弹动的问题 |
-| 3.0.0 | 日历插件 |
+| 历史发布版本 | 更新内容           |
+| ------ | -------------- |
+| 3.0.3  | 修复month拼写错误的问题 |
+| 3.0.2  | 国际化            |
+| 3.0.1  | 修复日历界面弹动的问题    |
+| 3.0.0  | 日历插件           |
