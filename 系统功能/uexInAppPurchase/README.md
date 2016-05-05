@@ -65,7 +65,7 @@ uexInAppPurchase.purchase(params);
 
 **说明:**
 
-该产品应该为从服务器返回的某一产品,该产品可以是消耗品或非消耗品以及其它类型,开发人员应对非消耗品进行逻辑处理,非消耗品无需再次购买。购买后要创建请求到苹果官网进行购买验证。
+该产品应该为从服务器返回的某一产品,通过cbGetProductList获取,该产品可以是消耗品或非消耗品以及其它类型,开发人员应对非消耗品进行逻辑处理,非消耗品无需再次购买。购买后要创建请求到苹果官网进行购买验证。
 
                 
 
@@ -74,7 +74,7 @@ uexInAppPurchase.purchase(params);
  ```
 var params = {
     var params = {
-       productID: ,//必选,从服务器返回的某一产品ID
+       productID: ,//必选,从服务器返回的某一产品ID,通过cbGetProductList获取
        appStoreVerifyURL: ,//必选,布尔类型,true为实际购买验证；false为沙盒测试。
      };
 }
@@ -394,7 +394,9 @@ API版本:`uexInAppPurchase-3.0.0`
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 | 3.0.0 | 内部支付(IAP)插件 |
-
+| 3.0.1 | 优化内购插件 |
+| 3.0.2 | 修复无法返回产品列表 |
+| 3.0.3 | 更新方法 |
 ### Android
 
 **uexInAppPurchase目前不支持Android**
