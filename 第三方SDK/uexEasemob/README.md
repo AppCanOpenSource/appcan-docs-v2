@@ -972,16 +972,6 @@ var param = {
 };
 ```
 
->###setReceiveNotNoifyGroup(param)//群聊不提醒只显示数目(仅Android可用)
-
-param为json字符串
-
-```
-var param = {
-	groupIds:// List<String> 
-};
-```
-
 >###blockUser(param)//将群成员拉入群组的黑名单（iOS 3.0.22后支持）
 
 param为json字符串
