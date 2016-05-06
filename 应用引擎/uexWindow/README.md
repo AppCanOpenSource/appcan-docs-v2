@@ -914,7 +914,7 @@ iOS6.0+
 3.0.0+
 
 **示例:**
-[下载](/docAttach/1254/打开多浮动窗口通用适配case.zip "下载")，建议采用JSSDK封装接口方法，参考[appcan.frame.open](http://newdocx.appcan.cn/newdocx/docx?type=1260_1254 "appcan.frame.open")和[appcan.window.openMultiPopover](http://newdocx.appcan.cn/newdocx/docx?type=1259_1254 "appcan.window.openMultiPopover")
+[实例下载](/docAttach/1249/打开多浮动窗口通用适配case  &#40;1&#41;.zip "实例下载")，建议采用JSSDK封装接口方法，参考[appcan.frame.open](http://newdocx.appcan.cn/newdocx/docx?type=1260_1254 "appcan.frame.open")和[appcan.window.openMultiPopover](http://newdocx.appcan.cn/newdocx/docx?type=1259_1254 "appcan.window.openMultiPopover")
 
 ```
 uexWindow.openMultiPopover('{"content":[{"inPageName":"p1", "inUrl":"hidden.html","inData":""},{"inPageName":"p2", "inUrl":"hidden1.html","inData":""}]}',"sss",0,400,0,'','','',0,1);
@@ -1767,7 +1767,7 @@ index2.html
 `uexWindow.subscribeChannelNotification(channelId,functionName)`
 
 **说明:**
-窗口之间的通信，可以通过发布/订阅模式来实现。窗口调用此接口订阅频道监听，当在另一窗口调用publishChannelNotification或publishChannelNotificationForJson时，对应此频道的回调方法将被调用，并传入相应的参数。
+窗口之间的通信，可以通过发布/订阅模式来实现。窗口调用此接口订阅频道监听，当在另一窗口调用[publishChannelNotification](#publishChannelNotification 发送全局消息 "publishChannelNotification")或[publishChannelNotificationForJson](#publishChannelNotificationForJson 发送全局Json类型消息 "publishChannelNotificationForJson")时，对应此频道的回调方法将被调用，并传入相应的参数。
 
 **参数:**
 
@@ -2675,7 +2675,7 @@ iOS9.0+
 
 **版本支持：**
 
-Android 3.3.2+
+Android 3.3_160429_01+
 iOS 3.2_20151021+
 
 
@@ -5530,6 +5530,7 @@ uexWindow.destroyProgressDialog()
 | content | String | 是    | 发送的内容 |
 
 **平台支持：**
+iOS 6.0+
 Android2.2+
 
 **版本支持：**

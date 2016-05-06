@@ -870,7 +870,7 @@ win.popoverElement({
 ````
 >### appcan.window.openMultiPopover(popName,content,dataType, left, top, width, height,change, fontSize, flag, indexSelected,extraInfo)
 
-   打开多页面浮动窗口
+   打开多页面浮动窗口，页面之间可滑动切换，设置是否支持滑动参照[setMultilPopoverFlippingEnbaled](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249#setMultilPopoverFlippingEnbaled 设置控件是否响应滑动事件 "setMultilPopoverFlippingEnbaled")
 ````
     popName:打开新窗口的名称
     content:要传入的数据，一个json对象，或者json字符串，
@@ -903,7 +903,7 @@ win.popoverElement({
     extraInfo:扩展参数，json格式如下： {"extraInfo":{"opaque":"true","bgColor":"#011","delayTime":"250"}}
 ````
 **例子:**
-源码下载同[appcan.frame.open](http://newdocx.appcan.cn/newdocx/docx?type=1260_1254 "appcan.frame.open")
+[实例代码](/docAttach/1254/打开多浮动窗口通用适配case  &#40;1&#41;.zip "实例代码")，相似用法[appcan.frame.open](http://newdocx.appcan.cn/newdocx/docx?type=1260_1254 "appcan.frame.open")
 ````
 var content = {
                 content:[
