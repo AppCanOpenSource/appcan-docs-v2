@@ -12,7 +12,7 @@
 如:在root页面调用`uexXunfei.init()`,则回调都会发送到root window
 
 ## 1.2、开源源码
-[点击]()至插件详情页(插件测试用例与插件包已经提供)
+[点击](http://plugin.appcan.cn/details.html?id=603_pluginlist)至插件详情页(测试用例与插件源码已经提供)
 
 ***
 

@@ -206,6 +206,7 @@ var param = {
 
 >###sendText(param) 发送文本消息及表情
 
+**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -214,12 +215,13 @@ var param = {
 	chatType:,//0-单聊,1-群聊
 	content:,//文本内容
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
 };
 ```
 
 >###sendFile(param) 发送文件
 
+**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -229,12 +231,13 @@ var param = {
 	filePath:,//文件路径
 	displayName:,//对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
 };
 ```
 
 >###sendPicture(param)//发送图片
 
+**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -244,12 +247,13 @@ var param = {
 	filePath:,//图片文件路径
 	displayName:,//对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
 };
 ```
 
 >###sendLocationMsg(param)//发送地理位置信息
 
+**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -260,13 +264,13 @@ var param = {
 	latitude:,
 	longitude:,
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
-
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
 };
 ```
 
 >###sendVoice(param)//发送语音
 
+**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -278,12 +282,13 @@ var param = {
 	length:,//长度(Android必选,iOS可选)
 	displayName://对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
 };
 ```
 
 >###sendVideo(param) 发送视频
 
+**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -295,12 +300,13 @@ var param = {
 	length:,//长度(Android必选,iOS可选)
 	displayName://对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
 };
 ```
 
 >###sendCmdMessage(param) 发送透传消息
 
+**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -309,7 +315,7 @@ var param = {
 	action:,//
 	toUsername:,//
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
 };
 ```
 

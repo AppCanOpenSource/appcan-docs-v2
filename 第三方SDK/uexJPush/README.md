@@ -12,7 +12,7 @@
  * 本插件为单例插件,用户可以在任意界面调用插件的接口,但回调始终传回给root页面。
  
 ##1.2、 开源源码
-[点击](http://plugin.appcan.cn/details.html?id=432_index)插件中心至插件详情页(插件测试用例与插件包已经提供)
+[点击](http://plugin.appcan.cn/details.html?id=432_index)插件中心至插件详情页(测试用例与插件源码已经提供)
 
  
 #2、API概览
