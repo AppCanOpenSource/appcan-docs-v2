@@ -587,6 +587,8 @@ uexWidget.setPushState(0);
 
   是否安装某第三方应用
   
+  * 在iOS9.0+的系统上,只有在URLScheme白名单内的应用才会被正确的检测是否安装。检测在URLScheme白名单外的应用会一律返回未安装的结果。
+  
 **参数:**
 
 
@@ -595,6 +597,12 @@ uexWidget.setPushState(0);
     appData://(必选) 第三方应用数据,android平台为第三方应用包名；iOS平台为 Scheme Url
  } 
   ````
+  
+**返回值:**
+
+  在3.4+引擎下此方法具有Boolean类型返回值:当应用已安装时会返回`true`,当应用未安装或者调用接口的参数错误时会返回`false`
+  
+  
   
 **平台支持:**
 
