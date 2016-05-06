@@ -39,7 +39,7 @@
     change:''
 }````
 **例如：**
-[下载](/docAttach/1254/打开多浮动窗口通用适配case.zip "下载")
+[实例下载](/docAttach/1254/打开多浮动窗口通用适配case  .zip "实例下载") ，打开多浮动页面之间可滑动切换，设置是否支持滑动参照[setMultilPopoverFlippingEnbaled](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249#setMultilPopoverFlippingEnbaled 设置控件是否响应滑动事件 "setMultilPopoverFlippingEnbaled")
 ````
 //弹出一个简单的demo浮动窗口,并打开appcan.cn
 appcan.frame.open({
@@ -224,7 +224,7 @@ frame.evaluateScript({
 });````
 >### appcan.frame.openMulti(popName,content,dataType, left, top, width, height, fontSize, flag, indexSelected)
 
-   打开多页面浮动窗口
+    打开多页面浮动窗口，页面之间可滑动切换，设置是否支持滑动参照[setMultilPopoverFlippingEnbaled](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249#setMultilPopoverFlippingEnbaled 设置控件是否响应滑动事件 "setMultilPopoverFlippingEnbaled")
 	
     popName:打开新窗口的名称
     content:要传入的数据，一个json对象，或者json字符串，结构必须为{'content':[{"inPageName":"p1", "inUrl":"xxx1.html","inData":""}]}其中：inPageName:所包含的单页面窗口的名字，inUrl：url类型数据，inData：窗口的内容的二进制数据，可为空
@@ -262,7 +262,7 @@ frame.evaluateScript({
     indexSelected:''
 }````
 **例如：**
-
+[实例下载](/docAttach/1254/打开多浮动窗口通用适配case  &#40;2&#41;.zip "实例下载")
 ````
 //打开一个四个窗口的浮动窗口
 appcan.frame.openMulti({
