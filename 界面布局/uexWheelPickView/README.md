@@ -37,10 +37,9 @@ var params ={
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-|  x   | Number | 是 | 距离屏幕左边距离 |
-| y    | Number | 是 | 距离屏幕顶部距离 |
-| width | Number | 是 | 宽 |
-| height | Number | 是 | 高 |
+| y    | Number | 否 | 距离屏幕顶部距离，不传时视图在屏幕底部显示|
+| width | Number | 否 | 宽 |
+| height | Number | 否 | 高 |
 | src | String | 是 | 传入的数据源(json)的路径 |
 | select | Array | 是 | 选中数据源所在列的索引值，默认从0开始|
 ```
