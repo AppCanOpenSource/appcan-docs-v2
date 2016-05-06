@@ -93,6 +93,11 @@ uexWindow.open('dd', '0', 'index.html', 1, '', '', 0, 500);
 
 与`uexWindow.open()`一致
 
+**平台支持：**
+
+Android2.2+
+iOS 6.0+
+
 **版本支持：**
 
 3.3.1+
@@ -1772,7 +1777,9 @@ index2.html
 | functionName | String | 是    | 回调方法名称  |
 
 **平台支持：**
+
 Android2.2+
+iOS 6.0+
 
 **版本支持：**
 3.0.0+
@@ -2669,7 +2676,7 @@ iOS9.0+
 **版本支持：**
 
 Android 3.3.2+
-iOS 2015_10_21+
+iOS 3.2_20151021+
 
 
 **示例：**
