@@ -1,9 +1,11 @@
+[TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
-KeyChain插件
+KeyChain（钥匙串）插件
 
 ## 1.1、说明
 
-封装了iOS系统的KeyChain相关功能
+封装了iOS系统的KeyChain相关功能。iOS的keychain服务提供了一种安全的保存私密信息（如密码，序列号）的方式，每个ios程序都有一个独立的keychain存储。
+对于一些私密信息，比如密码等等，就需要使用更为安全的keychain了。keychain里保存的信息不会因App被删除而丢失，在用户重新安装App后依然有效，数据还在。
 
 ## 1.2、UI展示
 
