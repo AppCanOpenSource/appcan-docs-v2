@@ -387,16 +387,17 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexInAppPurchase-3.0.0`
+API版本:`uexInAppPurchase-3.0.3`
 
 最近更新时间:`2016-01-18`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 内部支付(IAP)插件 |
-| 3.0.1 | 优化内购插件 |
-| 3.0.2 | 修复无法返回产品列表 |
 | 3.0.3 | 更新方法 |
+| 3.0.2 | 修复无法返回产品列表 |
+| 3.0.1 | 优化内购插件 |
+| 3.0.0 | 内部支付(IAP)插件 |
+
 ### Android
 
 **uexInAppPurchase目前不支持Android**

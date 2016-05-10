@@ -43,13 +43,12 @@ root页面收到回调后,可以通过uexWindow的相关方法传递到各个网
 ##1.3、 开源源码
 插件测试用例与自定义插件下载:[点击此处]()  (插件测试用例与插件源码已经提供)
 
-
 ##1.4、 术语表
 
 Path Types
 
 | 协议头             | Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径                           |
-| --------------- | ---------------------------------------- | --------------------------------- |
+| ----- | ----- | ----- |
 | res://          | widget/wgtRes/                           | widget/wgtRes                     |
 | wgts://         | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
 | wgts://         | /storage/emulated/0/widgetone/widgets/   | /Documents/widgets/               |
@@ -82,17 +81,13 @@ param为json字符串
 };
 ```
 
-**Android 版本的AppKey需要在`config.xml`中配置，把`value`对应的值替换成自己的AppKey即可。示例如下：**
+**Android 版本的AppKey需要在`config.xml`中配置,把`value`对应的值替换成自己的AppKey即可。示例如下:**
 
 ```xml
 <config desc="uexRongCloud" type="KEY">
 	<param name="$uexRongCloud_APPKEY$" platform="Android" value="e5t4ouvptdhca"/>
 </config>
 ```
-
-
-
-
 
 ##2.2、登录与登出
 
@@ -643,7 +638,7 @@ var params={
 >### 建立连接返回的错误码
 
 | error | 错误信息                                     |
-| ----- | ---------------------------------------- |
+| ----- | ----- |
 | 30000 | 导航路由失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。    |
 | 30001 | 连接已被释放, 建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。   |
 | 30002 | 连接不可用,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。     |
@@ -679,7 +674,7 @@ var params={
 >### 具体业务错误码
 
 | code  | 详细描述                               |
-| ----- | ---------------------------------- |
+| ----- | ----- |
 | -1    | 未知错误(预留)                           |
 | 405   | 已被对方加入黑名单                          |
 | 5004  | 超时                                 |
@@ -705,9 +700,9 @@ API版本:`uexRongCloud-3.0.0`
 
 最近更新时间:`2016-01-16`
 
-| 历史发布版本 | 更新内容                         |
-| ------ | ---------------------------- |
-| 3.0.0  | 融云IM(uexRongCloud)插件 for iOS |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | 融云IM(uexRongCloud)插件 for iOS |
 
 ### Android
 
@@ -715,8 +710,8 @@ API版本:`uexRongCloud-3.0.0`
 
 最近更新时间:`2016-4-11`
 
-| 历史发布版本 | 更新内容                 |
-| ------ | -------------------- |
-| 3.0.0  | 融云IM(uexRongCloud)插件 |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.0 | 融云IM(uexRongCloud)插件 |
 #5 文档更新记录
 
