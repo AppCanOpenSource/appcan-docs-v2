@@ -23,7 +23,7 @@
 
 **说明:**
 
-通过此方法调用系统相机,进入拍照界面。
+通过此方法调用系统相机,进入拍照界面。调方法[cbOpen　](#cbOpen　拍照的回调方法 "cbOpen　")
 
 **参数:**
 
@@ -53,7 +53,7 @@ uexCamera.open();
 
 **说明:**
 
-通过此方法打开自定义相机,进入拍照界面。
+通过此方法打开自定义相机,进入拍照界面。回调方法[cbOpenInternal](#cbOpenInternal　自定义相机拍照成功的回调方法 "cbOpenInternal")
 
 **参数:**
 
@@ -83,7 +83,7 @@ uexCamera.openInternal();
 
 **说明:**
 
-通过此方法打开自定义View照相机。
+通过此方法打开自定义View照相机。回调方法 [cbOpenViewCamera](#cbOpenViewCamera　自定义相机View拍照成功的回调方法 "cbOpenViewCamera")
 
 **参数:**
 
@@ -145,7 +145,7 @@ uexCamera.removeViewCameraFromWindow();
 **说明:**
 
 通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。如果设置changeCameraPosition为前置摄像头则闪光灯无效。
-
+回调方法 [cbChangeFlashMode](#cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式 "cbChangeFlashMode")　
 **参数:**
 
 ````
@@ -173,7 +173,7 @@ uexCamera.changeFlashMode(flashMode);
 
 **说明:**
 
-通过此方法改变自定义相机View的摄像头位置,0代表后置,1代表前置。
+通过此方法改变自定义相机View的摄像头位置,0代表后置,1代表前置。回调方法[cbChangeCameraPosition](#cbChangeCameraPosition　返回更改前后摄像头成功后当前摄像头的位置 "cbChangeCameraPosition")　
 
 **参数:**
 
@@ -250,10 +250,11 @@ window.uexOnload = function(){
 }
 ```
 
-> ### cbOpenViewCamera　自定义相机View拍照成功的回调方法,返回拍照成功后图片的保存路径和之前传入的地理位置
+> ### cbOpenViewCamera　自定义相机View拍照成功的回调方法
 
 `uexCamera.cbOpenViewCamera(opId,dataType,data)`
-
+**说明:**
+返回拍照成功后图片的保存路径和之前传入的地理位置
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -290,10 +291,11 @@ window.uexOnload = function(){
 }
 ```
 
-> ### cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式, 0表示自动,1表示开启,2表示关闭,-1表示更改失败。
+> ### cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式
 
 `uexCamera.cbChangeFlashMode(opId,dataType,data)`
-
+**说明:**
+ 0表示自动,1表示开启,2表示关闭,-1表示更改失败
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -316,7 +318,7 @@ window.uexOnload = function(){
 }
 ```
 
-> ### cbChangeCameraPosition　返回更改前后摄像头成功后当前摄像头的位置。
+> ### cbChangeCameraPosition　返回更改前后摄像头成功后当前摄像头的位置
 
 `uexCamera.cbChangeCameraPosition(opId,dataType,data)`
 

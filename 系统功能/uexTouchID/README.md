@@ -1,6 +1,6 @@
 [TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
-TouchID功能插件
+TouchID苹果指纹识别功能插件
 ## 1.1、说明
  本对象封装了用于调用系统TouchID功能的方法,可以调用系统TouchID验证界面进行指纹识别。
  TouchID功能接口只适用iOS8.0以上系统和支持指纹识别的设备。

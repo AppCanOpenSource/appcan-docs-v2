@@ -8,7 +8,7 @@
 该插件封装了Camera360开放SDK编辑图片的功能。
 
 ## 1.2、开源源码
-[点击](http://plugin.appcan.cn/details.html?id=608_index)至插件详情页(插件测试用例与原生插件源码已经提供)
+[点击](http://plugin.appcan.cn/details.html?id=609_index)至插件详情页(插件测试用例与原生插件源码已经提供)
 
 ## 1.3、插件截图
 

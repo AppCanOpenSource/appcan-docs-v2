@@ -87,7 +87,7 @@ iOS 3.0.0+
 ![](http://i.imgur.com/ryLSVMU.png)
 
 点击按钮进入选择编辑状态:
-![](http://i.imgur.com/BrIlwtC.png)
+![](/docImg/975/BrllwtC.png)
 
 > ### close 关闭分段选择器
 
