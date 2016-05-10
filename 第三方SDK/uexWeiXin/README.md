@@ -2571,10 +2571,11 @@ uexWeiXin.cbGetLoginUnionID = function (data) {
 
 API版本:`uexWeiXin-3.0.19`
 
-最近更新时间:`2016-1-7`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.20 | 修复getWeiXinLoginAccessToken失败的bug |
 | 3.0.19 | 修复getWeiXinLoginAccessToken失败的bug |
 | 3.0.18 | 修改回调方式,支持setCallbackWindowName接口;部分支持IDE |
 | 3.0.17 | 新增一版微信登陆相关接口 |
@@ -2597,12 +2598,13 @@ API版本:`uexWeiXin-3.0.19`
 
 ### Android
 
-API版本:`uexWeiXin-3.1.33`
+API版本:`uexWeiXin-3.1.34`
 
-最近更新时间:`2015-12-21`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.1.34 | 支持https |
 | 3.1.33 | 修复和完善抛出异常的捕获 |
 | 3.1.32 | 新增setCallbackWindowName接口,解决偶尔收不到回调的问题 |
 | 3.1.31 | 更新微信登陆相关接口 |

@@ -47,7 +47,7 @@ var json = {
         textSize:,//(可选) 字体大小,默认为13
         textNColor:,//(可选) 字体正常颜色,默认黑色
         textHColor:,//(可选) 字体高亮颜色,默认白色
-        bgColor:,//(可选) 弹出菜单的背景色，默认"#66ffffff"
+        bgColor:,//(可选) 弹出菜单的背景色,默认"#66ffffff"
         bottomDistance:(可选)弹出菜单距离底部的距离,默认300
         data:[//(必选) 弹出菜单项数组
             {

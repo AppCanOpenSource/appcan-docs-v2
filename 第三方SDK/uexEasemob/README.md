@@ -68,7 +68,7 @@ param为json字符串
 	appKey:,//区别app的标识   
 	apnsCertName:,//iOS中推送证书名称(仅iOS)
 	isAutoLoginEnabled:,//可选参数 是否开启自动登录功能 1-开启 2-关闭
-	isAutoAcceptGroupInvitation:,//可选参数 是否开启用户自动同意群邀请, 1-开启 2-关闭 默认为开启（此参数为3.0.22后新加入）
+	isAutoAcceptGroupInvitation:,//可选参数 是否开启用户自动同意群邀请, 1-开启 2-关闭 默认为开启(此参数为3.0.22后新加入)
 };
 ```
 
@@ -206,7 +206,8 @@ var param = {
 
 >###sendText(param) 发送文本消息及表情
 
-**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+**说明:**
+环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -215,13 +216,14 @@ var param = {
 	chatType:,//0-单聊,1-群聊
 	content:,//文本内容
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
+	extObj:,//扩展参数(iOS 3.0.22, Android 3.0.23新增可选参数,JSONString extObj存在时ext无效).用于环信移动客服功能,详情见[环信移动客服文档]
 };
 ```
 
 >###sendFile(param) 发送文件
 
-**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+**说明:**
+环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -231,13 +233,14 @@ var param = {
 	filePath:,//文件路径
 	displayName:,//对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
+	extObj:,//扩展参数(iOS 3.0.22, Android 3.0.23新增可选参数,JSONString extObj存在时ext无效).用于环信移动客服功能,详情见[环信移动客服文档]
 };
 ```
 
 >###sendPicture(param)//发送图片
 
-**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+**说明:**
+环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -247,13 +250,14 @@ var param = {
 	filePath:,//图片文件路径
 	displayName:,//对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
+	extObj:,//扩展参数(iOS 3.0.22, Android 3.0.23新增可选参数,JSONString extObj存在时ext无效).用于环信移动客服功能,详情见[环信移动客服文档]
 };
 ```
 
 >###sendLocationMsg(param)//发送地理位置信息
 
-**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+**说明:**
+环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -264,13 +268,14 @@ var param = {
 	latitude:,
 	longitude:,
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
+	extObj:,//扩展参数(iOS 3.0.22, Android 3.0.23新增可选参数,JSONString extObj存在时ext无效).用于环信移动客服功能,详情见[环信移动客服文档]
 };
 ```
 
 >###sendVoice(param)//发送语音
 
-**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+**说明:**
+环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -282,13 +287,14 @@ var param = {
 	length:,//长度(Android必选,iOS可选)
 	displayName://对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
+	extObj:,//扩展参数(iOS 3.0.22, Android 3.0.23新增可选参数,JSONString extObj存在时ext无效).用于环信移动客服功能,详情见[环信移动客服文档]
 };
 ```
 
 >###sendVideo(param) 发送视频
 
-**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+**说明:**
+环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -300,13 +306,14 @@ var param = {
 	length:,//长度(Android必选,iOS可选)
 	displayName://对方接收时显示的文件名(仅iOS需要)
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
+	extObj:,//扩展参数(iOS 3.0.22, Android 3.0.23新增可选参数,JSONString extObj存在时ext无效).用于环信移动客服功能,详情见[环信移动客服文档]
 };
 ```
 
 >###sendCmdMessage(param) 发送透传消息
 
-**说明：**环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+**说明:**
+环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -315,7 +322,7 @@ var param = {
 	action:,//
 	toUsername:,//
 	ext:,//扩展属性(可选参数,String)
-	extObj:,//扩展参数（iOS 3.0.22, Android 3.0.23新增可选参数，JSONString extObj存在时ext无效）.用于环信移动客服功能，详情见[环信移动客服文档]
+	extObj:,//扩展参数(iOS 3.0.22, Android 3.0.23新增可选参数,JSONString extObj存在时ext无效).用于环信移动客服功能,详情见[环信移动客服文档]
 };
 ```
 
@@ -329,7 +336,7 @@ var param = {
 	soundEnable:,// 0-关闭,1-开启。默认为1 开启声音提醒
 	vibrateEnable:,// 0-关闭,1-开启。默认为1 开启震动提醒
 	userSpeaker:,// 0-关闭,1-开启。默认为1 开启扬声器播放(仅Android可用)
-	showNotificationInBackgroud:// 0-关闭,1-开启。默认为1。设置后台接收新消息时是否通过通知栏提示(此参数在android环信SDK3.0后已不支持，对应插件版本3.0.22；iOS不完全支持,详见下方说明*)
+	showNotificationInBackgroud:// 0-关闭,1-开启。默认为1。设置后台接收新消息时是否通过通知栏提示(此参数在android环信SDK3.0后已不支持,对应插件版本3.0.22；iOS不完全支持,详见下方说明*)
 	acceptInvitationAlways:,// 0-关闭,1-开启。默认添加好友时为1,是不需要验证的,改成需要验证为0(仅Android可用)
 	deliveryNotification:,// 0-关闭 1-开启  默认为1 开启消息送达通知	(仅iOS可用)
 };
@@ -408,7 +415,6 @@ var param = {
 ```
 
 >###getMessageHistory(param) 获取聊天记录
-
 
 param为json字符串
 
@@ -553,7 +559,7 @@ var param ={
 
 ##2.4、Friend
 ***
->###onContactAdded(param)//新增联系人监听（iOS 3.0.22后支持）
+>###onContactAdded(param)//新增联系人监听(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -563,7 +569,7 @@ var param = {
 };
 ```
 
->###onContactDeleted(param)//删除联系人监听（iOS 3.0.22后支持）
+>###onContactDeleted(param)//删除联系人监听(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -978,7 +984,7 @@ var param = {
 };
 ```
 
->###blockUser(param)//将群成员拉入群组的黑名单（iOS 3.0.22后支持）
+>###blockUser(param)//将群成员拉入群组的黑名单(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -989,7 +995,7 @@ var param = {
 };
 ```
 
->###unblockUser(param)//将拉入黑名单的群成员移除（iOS 3.0.22后支持）
+>###unblockUser(param)//将拉入黑名单的群成员移除(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -1000,7 +1006,7 @@ var param = {
 };
 ```
 
->###getBlockedUsers(param)//获取群组的黑名单用户列表（iOS 3.0.22后支持）
+>###getBlockedUsers(param)//获取群组的黑名单用户列表(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -1010,7 +1016,7 @@ var param = {
 };
 ```
 
->###cbGetBlockedUsers(param)//获取群组的黑名单用户列表回调（iOS 3.0.22后支持）
+>###cbGetBlockedUsers(param)//获取群组的黑名单用户列表回调(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -1033,9 +1039,9 @@ var param={
 
 * 每当添加/移除/更改角色/更改主题/更改群组信息之后,都会触发此回调
 
->###onDidJoinedGroup(param)//自动加入群组监听（3.0.22新增接口）
+>###onDidJoinedGroup(param)//自动加入群组监听(3.0.22新增接口)
 
-SDK自动同意了用户A的加B入群邀请后，用户B接收到该回调，需要initEasemob时设置isAutoAcceptGroupInvitation为TRUE
+SDK自动同意了用户A的加B入群邀请后,用户B接收到该回调,需要initEasemob时设置isAutoAcceptGroupInvitation为TRUE
 
 param为json字符串
 
@@ -1047,7 +1053,7 @@ param为json字符串
     	message:,//邀请消息
 };
 ```
->###onReceiveGroupInvitation(param)//收到群组邀请监听（iOS 3.0.22, Android 3.0.23新增接口）
+>###onReceiveGroupInvitation(param)//收到群组邀请监听(iOS 3.0.22, Android 3.0.23新增接口)
 
 用户A邀请用户B入群,用户B接收到该回调
 
@@ -1061,7 +1067,7 @@ param为json字符串
 };
 ```
 
->###acceptJoinApplication(param)//批准入群申请, 需要Owner权限（iOS 3.0.22, Android 3.0.23新增接口）
+>###acceptJoinApplication(param)//批准入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
 
 param为json字符串
 
@@ -1072,7 +1078,7 @@ var param={
 };
 ```
 
->###declineJoinApplication(param)//拒绝入群申请, 需要Owner权限（iOS 3.0.22, Android 3.0.23新增接口）
+>###declineJoinApplication(param)//拒绝入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
 
 param为json字符串
 
@@ -1084,7 +1090,7 @@ var param={
 };
 ```
 
->###acceptInvitationFromGroup(param)//接受入群邀请（iOS 3.0.22, Android 3.0.23新增接口）
+>###acceptInvitationFromGroup(param)//接受入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
 
 param为json字符串
 
@@ -1095,7 +1101,7 @@ var param={
 };
 ```
 
->###declineInvitationFromGroup(param)//拒绝入群邀请（iOS 3.0.22, Android 3.0.23新增接口）
+>###declineInvitationFromGroup(param)//拒绝入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
 
 param为json字符串
 
@@ -1243,7 +1249,7 @@ isRead	 | 是否已读
 chatType: | 聊天类别 0-个人 1-群组
 messageType | 消息类型  text/video/audio/image/location/file/cmd
 ext | 扩展属性 String格式
-extObj | 扩展属性（iOS 3.0.22, Android 3.0.23新增，JSONString 用于环信移动客服功能，详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+extObj | 扩展属性(iOS 3.0.22, Android 3.0.23新增,JSONString 用于环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 messageBody | 消息主体json
 
 messageBody的结构为

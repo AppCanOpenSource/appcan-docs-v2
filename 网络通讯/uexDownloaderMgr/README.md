@@ -205,7 +205,7 @@ uexDownloaderMgr.getInfo("http://wallpaper.pocketdigi.com/upload/1/bigImage/1284
 创建一个后台下载任务
 
 * 后台任务是全局对象,不会受到网页关闭影响
-* 当App退到后台时,后台任务可以继续进行下载，有着如下的特点
+* 当App退到后台时,后台任务可以继续进行下载,有着如下的特点
 	* 在iOS端,后台下载无需后台权限,不受后台应用冻结机制的限制,但若用户从AppSwitcher结束应用进程,后台任务会停止
 	* 在iOS端,后台任务仅当WIFI环境下,网络空闲时(即当前在前台的应用没有大量占用网络资源时),才会进行下载
 
@@ -254,7 +254,6 @@ var ret = uexDownloaderMgr.createBackgroundTask(JSON.stringify(param));
 alert("create:" + ret);
 ```
 
-
 > ### startBackgroundTask 开始后台下载任务
 
 `uexDownloaderMgr.startBackgroundTask(param)`
@@ -278,13 +277,12 @@ param = {
 ```
 
 * 当identifier对应的后台下载任务是从缓存中恢复时,serverURL,savePath,headers,canResume 这4个参数均为可选参数,传参会更新此任务中的相应的配置
-* 当identifier对应的后台下载任务不是从缓存中恢复时,serverURL,savePath为必选参数,headers为可选参数,默认为空，canResume为可选参数,默认为false;
+* 当identifier对应的后台下载任务不是从缓存中恢复时,serverURL,savePath为必选参数,headers为可选参数,默认为空,canResume为可选参数,默认为false;
 
 **返回值:**
 
 该方法在3.3+引擎上具有返回值returnValue,returnValue是一个Boolean
 如果identifier对应的下载任务不存在,或者下载任务缺少必要的参数导致无法开始下载,会返回false,否则返回true
-
 
 **平台支持:**
 
@@ -314,7 +312,6 @@ var ret = uexDownloaderMgr.startBackgroundTask(JSON.stringify(param));
 alert(ret);
 ```
 
-
 > ### cancelBackgroundTask 取消后台下载任务
 
 `uexDownloaderMgr.cancelBackgroundTask(param)`
@@ -330,20 +327,18 @@ param 是JSON字符串,各字段含义如下
 ```
 param = {
 	identifier:,//String,必选,任务唯一标识符
-	option:,//Number 可选，取消的设置(详见下方说明),默认为0
+	option:,//Number 可选,取消的设置(详见下方说明),默认为0
 }
 ```
 
 | option | 解释 |
-| --- | --- |
+| ----- | ----- |
 | 1 | 清除断点下载数据,传此值时会清除断点下载的缓存数据 |
-
 
 **返回值:**
 
 该方法在3.3+引擎上具有返回值returnValue,returnValue是一个Boolean
 如果identifier对应的下载任务不存在,会返回false,否则返回true
-
 
 **平台支持:**
 
@@ -386,13 +381,10 @@ param = {
 }
 ```
 
-
-
 **返回值:**
 
 该方法在3.3+引擎上具有返回值returnValue,returnValue是一个Boolean
 如果identifier对应的下载任务不存在,会返回false,否则返回true
-
 
 **平台支持:**
 
@@ -413,7 +405,6 @@ var ret = uexDownloaderMgr.observeBackgroundTask(JSON.stringify(param));
 alert(ret);
 ```
 
-
 > ### getBackgroundTaskInfo 获取后台下载任务信息
 
 `uexDownloaderMgr.getBackgroundTaskInfo(param)`
@@ -433,8 +424,6 @@ param = {
 }
 ```
 
-
-
 **返回值:**
 
 该方法在3.3+引擎上具有返回值returnValue,returnValue是一个JSON字符串
@@ -450,8 +439,7 @@ var returnValue = {
 }
 ```
 
-returnValue可能会包含一些额外的信息，这些信息均可以忽略。
-
+returnValue可能会包含一些额外的信息,这些信息均可以忽略。
 
 **平台支持:**
 
@@ -479,7 +467,7 @@ alert(info);
 **说明:**
 
 清除下载信息记录
-	* 如果有断点续传的缓存数据，这些数据也会被一并清除
+	* 如果有断点续传的缓存数据,这些数据也会被一并清除
 
 **参数:**
 
@@ -495,13 +483,13 @@ param = {
 * downloaderServerURLs会清除由createDownloader生成的下载对象记录
 	* 此参数不传时,不做任何操作
 	* 当前正在进行的downloader不会受此接口影响
-	* 传空数组[]时，会清除所有下载对象记录
-	* 传非空数组时，对数组中的每一个serverURL,会清除所有服务器地址为此URL的下载对象记录
+	* 传空数组[]时,会清除所有下载对象记录
+	* 传非空数组时,对数组中的每一个serverURL,会清除所有服务器地址为此URL的下载对象记录
 * bachgroundTaskIdentifiers会清除由createBackgroundTask生成的后台下载任务记录
 	* 此参数不传时,不做任何操作
 	* 当前正在进行的后台下载任务不会受此接口影响
-	* 传空数组[]时，会清除所有后台下载任务记录
-	* 传非空数组时，会清除数组中的每一个identifier对应的后台下载任务的记录
+	* 传空数组[]时,会清除所有后台下载任务记录
+	* 传非空数组时,会清除数组中的每一个identifier对应的后台下载任务的记录
 
 **返回值:**
 
@@ -525,7 +513,6 @@ var param = {
 };
 uexDownloaderMgr.clearCache(JSON.stringify(param));
 ```
-
 
 ## 2.2、回调方法
 
@@ -667,7 +654,6 @@ uexDownloaderMgr.onStatus = function(opCode,fileSize,percent,status){
 }
 ```
 
-
 > ### onBackgroundTaskStatusChange 后台下载任务的状态改变的监听方法
 
 `uexDownloaderMgr.onBackgroundTaskStatusChange(param)`
@@ -686,7 +672,6 @@ param = {
 }
 ```
 
-
 **平台支持:**
 
 iOS7.0+  
@@ -702,23 +687,21 @@ iOS7.0+
 
 uexDownloaderMgr.onBackgroundTaskStatusChange = function(json){
 	var info = JSON.parse(json);
-	document.getElementById('status').innerHTML ="status:" + info.status + "<br>文件大小:" + info.fileSize + "字节<br>下载进度：" + info.percent + "%";
+	document.getElementById('status').innerHTML ="status:" + info.status + "<br>文件大小:" + info.fileSize + "字节<br>下载进度:" + info.percent + "%";
 }
 ```
-
-
-
 
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexDownloaderMgr-3.0.14`
+API版本:`uexDownloaderMgr-3.3.15`
 
-最近更新时间:`2016-3-2`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.3.15 | 用AFNetworking重构;添加后台下载的相关接口 |
 | 3.0.14 | 修复在复用窗口中使用时回调丢失的bug |
 | 3.0.13 | 添加IDE支持 |
 | 3.0.12 | 修改了下载时进度条不动的BUG |

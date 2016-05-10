@@ -347,12 +347,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexCamera-3.0.7`
+API版本:`uexCamera-3.0.8`
 
-最近更新时间:`2016-4-13`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.8 | cbOpenViewCamera回调方法,返回的JSON中增加字段label,替换之前的location |
 | 3.0.7 | 创建bundle存储资源文件,适配国际化 |
 | 3.0.6 | 修改IDE |
 | 3.0.5 | 修改openViewCamera接口适配地址长度,修改openInternal崩溃bug,修改第一次切换镜头无效 |
@@ -364,13 +365,13 @@ API版本:`uexCamera-3.0.7`
 
 ### Android
 
-API版本:`uexCamera-3.0.18`
+API版本:`uexCamera-3.0.19`
 
 最近更新时间:`2016-03-07`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.19 | 优化了EUExCamera代码逻辑，优化了压缩图片算法，增加注释，规范代码；在cbOpenViewCamera的返回JSON中增加字段label,替换之前的location |
+| 3.0.19 | 优化了EUExCamera代码逻辑,优化了压缩图片算法,增加注释,规范代码；在cbOpenViewCamera的返回JSON中增加字段label,替换之前的location |
 | 3.0.18 | 优化了CameraView代码逻辑,优化了照片处理,优化了OOM问题处理,并做了为null判断,避免程序因空指针崩溃 |
 | 3.0.17 | 修复Activity拒绝服务漏洞的问题,修复了openViewCamera拒绝使用系统拍照权限后程序崩溃的问题 |
 | 3.0.16 | 修复了在三星手机上照片旋转方向不一致的问题;修复了多次点击照相按钮,再点重拍照相按钮失效的问题 |
