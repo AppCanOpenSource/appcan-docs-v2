@@ -1,9 +1,5 @@
 [TOC]
-
-#iOS Native 插件开发指南
-
-`last update:2016-03-25`
-
+ 
 ## 1.概述
 	
 * 本文档主要介绍了如何进行AppCan iOS原生插件开发。
@@ -40,7 +36,13 @@
 **注1**: 此处静态库工程的命名规则为 `EUEx + 插件名称`，之后出现的`EUExDemoPlugin`亦是如此。
 
 **注2**: 修改target的BuildSettings的方法如下图所示，选中工程主体-选择指定的target-选择BuildSettings-选中all,然后在右上角搜索框中搜索相应的键,双击编辑对应的值
- ![image](./img/iOS1.png)
+  
+  <img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS1.png" alt="Brown and white cows in a field">  
 
 **注3**: 此处Product Name 的命名规则为 `uex + 插件名称`，之后出现的`uexDemoPlugin`亦是如此。
 
@@ -56,29 +58,57 @@
 
 **注1**:
 编辑Build Phases方法如下图所示:选中工程主体-选择target-选择Build Phases - 展开相应的Phase - 点击下方的按钮进行相应的操作
- ![image](./img/iOS2.png)
+
+  <img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS2.png" alt="Brown and white cows in a field">  
+ 
  
 **注2**:
 编辑完成后应该如下图所示:
- ![image](./img/iOS3.png)
+
+  <img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS3.png" alt="Brown and white cows in a field">  
+ 
 
 ### 2.3 插件调试工程简介
 
 见下图，红框标注部分都是在插件开发调试中可能会用到的部分。
-![image](./img/iOS4.png)
+
+  <img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS4.png" alt="Brown and white cows in a field">  
+ 
 
 
-	好了，到此，前期的准备工作就已经完成了，可以正式开始插件开发了!
+好了，到此，前期的准备工作就已经完成了，可以正式开始插件开发了!
 	
 	
 ## 3.开始插件开发
 
-	所有的开发和调试工作，都可以直接在刚刚建立的插件调试工程中进行!
+所有的开发和调试工作，都可以直接在刚刚建立的插件调试工程中进行!
 	
 ### 3.1 编写插件入口类
 
 * 在AppCan插件开发包中,打开`AppCan引擎头文件`文件夹，找到engineHeader，将此文件夹引入插件工程，如下图所示
-![image](./img/iOS5.png)
+
+  <img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS5.png" alt="Brown and white cows in a field">  
+ 
 * 新建插件入口类EUExPlugin。如果你的插件静态库工程名就是EUExDemoPlugin，那么这个类应该已经自动生成了，此步可跳过。
 * 在EUExDemoPlugin这个类的头文件中引入`EUExBase.h` 并使得EUExDemoPlugin类继承自EUExBase
 * *在此类中实现生命周期方法`initWithBrwView:`和`clean`*
@@ -121,7 +151,7 @@
 ### 3.2 插件和网页进行交互
 
 ####3.2.1 暴露接口给网页
-	本小节示范了如何让网页JS去调用一个原生的方法helloWorld，实现 JavaScript --> OC 的操作
+本小节示范了如何让网页JS去调用一个原生的方法helloWorld，实现 JavaScript --> OC 的操作
 	
 * 在EUExDemoPlugin类中实现一个方法`helloWorld:`
 
@@ -170,11 +200,17 @@ var helloWorld = function(){
 
 * 好了 让我们运行工程，点击按钮看一下效果吧！
 
-![image](./img/iOS6.png)
+  <img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS6.png" alt="Brown and white cows in a field">  
+ 
 
 ####3.2.2 网页传值给原生环境
 
-	本小节示范了如何从网页传值给原生环境
+本小节示范了如何从网页传值给原生环境
 	
 * 在EUExDemoPlugin类中实现一个方法`sendValue:`
 
@@ -208,7 +244,13 @@ uexDemoPlugin.sendValue("aaa",12,true,["x","y"],{key:"value"});
 ```
 * 结果如下
 
-![image](./img/iOS7.png)
+  <img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS7.png" alt="Brown and white cows in a field">  
+ 
 
 #####JaveScript-->OC传值的转换规则
 由上述例子可以看到,JSValue按照如下规则转换成了NSObject
@@ -221,9 +263,9 @@ uexDemoPlugin.sendValue("aaa",12,true,["x","y"],{key:"value"});
 | Array | NSArray |
 | Object | NSDictionary |
 | null,undefined| NSNull|
-| Function | 不支持*|
+| Function | 不支持（注）|
 
-*: 任何function都会被转换成一个空的NSDictionary，其所有信息都会丢失；
+注: 任何function都会被转换成一个空的NSDictionary，其所有信息都会丢失；
 
 
 #### 3.2.3 网页传递JSON数据给原生环境
@@ -262,15 +304,21 @@ uexDemoPlugin.sendJSONValue(JSON.stringify(json));
 ```
 * 结果如下
 
-![image](./img/iOS8.png)
+  <img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS8.png" alt="Brown and white cows in a field">  
+ 
 
-可以看到JSON传值依旧遵循了[JaveScript-->OC传值的转换规则](#JaveScript-->OC传值的转换规则)
+可以看到JSON传值依旧遵循了[JaveScript-->OC传值的转换规则](#JaveScript—>OC传值的转换规则)
 
 #### 3.2.4 原生异步回调JS给网页
 
 ```
 此小节示范了如何通过EUtility工具类中的方法执行网页中的JS,实现OC --> JavaScript 的操作
-异步回调的本质是执行一段JS脚本
+异步回调的本质是
 ```
 
 * 在EUExDemoPlugin类中引入`EUtility.h`,这个头文件在engineHeader文件夹中，之前就应该已经引入工程了。
@@ -279,19 +327,23 @@ uexDemoPlugin.sendJSONValue(JSON.stringify(json));
 	* 如果`EUtility.h`中报`Expected a Type`错误，在`EUtility.h`中引入系统库UIKit(`#import <UIKit/UIKit.h>`)即可解决
 
 ```
-//EUtility.h中和JS相关的方法有4个
+//EUtility.h中和JS相关的方法
+
+//执行一段JS脚本的方法
 //在指定网页中执行JS脚本
 + (void)brwView:(EBrowserView*)inBrwView evaluateScript:(NSString*)inScript;
 //在主窗口中执行JS脚本
 + (void)evaluatingJavaScriptInRootWnd:(NSString*)script;
 //在最顶端的窗口中执行JS脚本
 + (void)evaluatingJavaScriptInFrontWnd:(NSString*)script;
-//以及对上述3个方法的进一步封装
-+ (void)uexPlugin:(NSString *)pluginName callbackByName:(NSString *)functionName withObject:(id)obj andType:(uexPluginCallbackType)type inTarget:(id)target;
+
+//JavaScriptCore的回调封装
++ (void)browserView:(EBrowserView *)brwView callbackWithFunctionKeyPath:(NSString *)JSKeyPath arguments:(NSArray *)arguments completion:(void (^)(JSValue *returnValue))completion;
 
 //详细参数说明请见EUtility.h中的注释
 ```
 
+##### 执行网页中的JS脚本进行回调的方法实现
 * 在EUExDemoPlugin类中实现一个方法`doCallback:`,并在config.xml中添加相应的方法。
 
 ```
@@ -307,9 +359,40 @@ uexDemoPlugin.sendJSONValue(JSON.stringify(json));
 }
 ```
 
+##### 直接执行JS中的函数的回调方法实现
 
+* 在**3.3引擎中**,提供了直接通过JavaScriptCore运行网页中定义的函数的方法
 
+```
+//参数说明详见EUtility.h头文件
++ (void)browserView:(EBrowserView *)brwView callbackWithFunctionKeyPath:(NSString *)JSKeyPath arguments:(NSArray *)arguments completion:(void (^)(JSValue *returnValue))completion;
+```
 
+* 相比于执行网页中的JS脚本进行回调的方法，利用JavaScriptCore进行回调拥有如下优点
+	* 避免了繁琐的JS脚本构造过程
+	* 避免了回调结果中的特殊字符(比如`\n`,`\r`)导致回调失败或者前端JSON无法解析的问题
+	* 可以判断回调是否成功,如有需要，回调成功时还可以拿到回调方法的返回值
+
+* 利用此方法封装`doCallback`的如下所示
+
+```
+- (void)doCallback:(NSMutableArray *)inArguments{
+    NSDictionary *dict = @{
+                           @"key":@"value"
+                           };
+    
+    //构造参数数组
+    //[dict JSONFragment] 可以把NSString NSDictionary NSArray 转换成JSON字符串
+    NSArray * args = [NSArray arrayWithObjects:[dict JSONFragment],nil];
+    [EUtility browserView:self.meBrwView callbackWithFunctionKeyPath:@"uexDemoPlugin.cbDoCallback" arguments:args completion:^(JSValue *returnValue) {
+        if (returnValue) {
+            NSLog(@"回调成功!");
+        }
+    }];
+}
+```
+
+#####在网页中接收回调
 
 * 在网页中注册回调函数`cbDoCallback`，并调用`doCallback`方法
 	* 在cbDoCallback函数中，我们封装一个JS方法showDetails用于展示回调结果
@@ -349,46 +432,16 @@ uexDemoPlugin.doCallback();
 
 * 调用接口后,控制台显示数据如下
 
-![image](./img/iOS9.png)
+  <img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS9.png" alt="Brown and white cows in a field">  
+ 
+##### 进一步封装回调方法
 
-* 每次都要如上构造JavaScript脚本确实有些繁琐，因此EUtility封装了一个更简洁的方法，回调过程可以省略如下
-
-```
-NSDictionary *dict = @{
-						  @"key":@"value"
-						  };
-[EUtility uexPlugin:@"uexDemoPlugin"
-	  callbackByName:@"cbDoCallback"
-         withObject:dict
-            andType:uexPluginCallbackWithJsonString
-           inTarget:self.meBrwView];
-```
-
-* 由于不同的方法可能都需要进行回调,因此可以进行进一步封装,方便复用
-
-```
-/**
- *  异步回调方法的封装
- *
- *  @param funcName 回调函数名
- *  @param obj      回调的对象
- */
-- (void)callbackJSONWithName:(NSString *)funcName object:(id)obj{
-    [EUtility uexPlugin:@"uexDemoPlugin"
-         callbackByName:funcName
-             withObject:obj
-                andType:uexPluginCallbackWithJsonString
-               inTarget:self.meBrwView];
-}
-```
-
-```
-NSDictionary *dict = @{
-						  @"key":@"value"
-						  };
-//然后在插件接口中直接调用此方法即可
-[self callbackJSONWithName:@"cbDoCallback" object:dict];
-```
+* 参见demo中的示例代码
 
 ####3.2.5 同步返回值给网页
 
@@ -437,7 +490,13 @@ showDetails(obj,obj.key1,obj.key2,obj.key3.subKey);
 
 * 控制台显示的结果如下
 
-![image](./img/iOS10.png)
+  <img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS10.png" alt="Brown and white cows in a field">  
+
 
 #####OC-->JavaScript同步返回值的转换规则
 
@@ -445,14 +504,14 @@ showDetails(obj,obj.key1,obj.key2,obj.key3.subKey);
 | NSObject | JSValue |
 | ----- | ----- |
 | NSString | String|
-| @YES,@NO| Boolean |
+| @ YES,@ NO| Boolean |
 | 其他NSNumber | Number |
 | NSArray | Array |
 | NSDictionary | Object |
 | nil,NSNull | null |
-| block | Function* |
+| block | Function（注） |
 
-*:返回block会被转化成JS中的function，但block中的代码如果需要继续与JS交互，可能会用到`JavaScriptCore.framework`这个系统库中的方法，这里就不做详细介绍了，您可以自行去研究。
+注:返回block会被转化成JS中的function，但block中的代码如果需要继续与JS交互，可能会用到`JavaScriptCore.framework`这个系统库中的方法，这里就不做详细介绍了，您可以自行去研究。
 
 
 
@@ -460,14 +519,14 @@ showDetails(obj,obj.key1,obj.key2,obj.key3.subKey);
 
 ####3.3.1 在网页上添加View
 
-	本小节介绍了插件如何在网页上添加原生的View
+本小节介绍了插件如何在网页上添加原生的View
 
 #####添加view的限制
 	原生View总是会在网页顶端,即网页中所有<div>等网页元素上方
 	
 * 在`EUExDemoPlugin`类中实现方法`addView:` `removeView`并在plugin.xml中声明
 	* addView方法有一个必选参数isScrollable 用来控制被添加的view是跟随网页滑动 还是固定在窗口上
-	* EUtility 中有2个方法`brwView:addSubviewToScrollView:`,`brwView:addSubview:`分别对应了上述2种情况
+	* EUtility 中有2个方法`brwView: addSubviewToScrollView:`,`brwView: addSubview:`分别对应了上述2种情况
 	* 用一个实例变量`aView`来管理被添加的View
 	
 ```
@@ -543,9 +602,15 @@ var removeView = function(){
 ```
 
 * 运行结果如下
-* ![image](./img/iOS11.gif)
+  <img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS11.gif" alt="Brown and white cows in a field">  
+ 
 
-####在网页中展示一个viewController
+####3.3.2在网页中展示一个viewController
 
 	本小节介绍了插件如何在网页上展示原生的ViewController。
 
@@ -638,8 +703,13 @@ uexDemoPlugin.onControllerClose = function(){
 ```
 
 * 结果如下
-
-![image](./img/iOS12.gif)
+<img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS12.gif" alt="Brown and white cows in a field"> 
+ 
 
 
 ##4.生成插件包
@@ -732,8 +802,13 @@ plugin.xml空白模板,是一个标准的xml文件
 	* 插件资源包`uexDemoPlugin.bundle`
 	* 插件配置文件`uexDemoPlugin.plist`
 * 全部拷贝工作完成后，`uexDemoPlugin`文件夹内的内容如下图所示
-
-![image](./img/iOS14.png)
+<img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS14.png" alt="Brown and white cows in a field"> 
+ 
 
 * 以上所有步骤均完成后，返回上级目录,压缩`uexDemoPlugin`文件夹,得到插件zip包。
 * 此zip包可以直接上传作为自定义插件包使用。
@@ -762,7 +837,13 @@ plugin.xml空白模板,是一个标准的xml文件
 ####5.2.1 生成插件资源捆绑包的target
 
 * 选中插件静态库工程，然后点击菜单栏中的File - New - Target.. ,在弹出的对话框中选择OS X - Framework & Library - Bundle
-![image](./img/iOS13.png)
+<img style="
+  background: #e8eae9;
+  border: 1px solid #c6c9cc;
+  float: center;
+  padding: 4px;
+" src="http://newdocx.appcan.cn/docImg/1291/iOS13.png" alt="Brown and white cows in a field"> 
+ 
 * *product Name取名为uexDemoPluginBundle*,点击finish完成创建。
 * 修改此target的如下Build Settings
 	* 将`Product Name`对应的值修改为 `uexDemoPlugin`
@@ -785,11 +866,11 @@ plugin.xml空白模板,是一个标准的xml文件
 
 ####5.2.2 如何引用插件bundle中的资源文件
 
-* EUtility提供了方法`bundleForPlugin:`用以寻找插件bundle对应的NSBundle实例。然后用NSBundle的方法`pathForResource:ofType:`获取资源路径加载资源即可。
+* EUtility提供了方法`bundleForPlugin:`用以寻找插件bundle对应的NSBundle实例。然后用NSBundle的方法`pathForResource: ofType:`获取资源路径加载资源即可。
 
-#####bundle加载@2x,@3x图片文件的处理方法
+**bundle加载@ 2x ,@ 3x图片文件的处理方法**
 
-获取到NSBundle实例后,用NSBundle的`pathForResource:ofType:`并不能自动识别@2x,@3x的图片文件,最好用`resourcePath`方法获得实际路径，然后拼接得到图片路径。
+获取到NSBundle实例后,用NSBundle的`pathForResource: ofType:`并不能自动识别@ 2x,@ 3x的图片文件,最好用`resourcePath`方法获得实际路径，然后拼接得到图片路径。
 示例如下
 
 ```
@@ -802,7 +883,7 @@ UIImage *image = [UIImage imageWithContentsOfFile:path];
 
 ####5.2.3 插件如何进行读取国际化文件Localizable.strings
 
-* 将国际化文件Localizable.strings放入插件bundle中，然后用EUtility.h中的方法`uexPlugin:localizedString:`得到国际化的字符串.示例如下
+* 将国际化文件Localizable.strings放入插件bundle中，然后用EUtility.h中的方法`uexPlugin: localizedString:`得到国际化的字符串.示例如下
 
 ```
 label.text = [EUtility uexPlugin:@"uexDemoPlugin" localizedString:@"title"];

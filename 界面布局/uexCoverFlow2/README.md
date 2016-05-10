@@ -25,7 +25,7 @@ CoverFlow 功能,封装的HTML5代码片段,通过配合的样式和JS对象 ,�
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | json  | String类型  |必选   | json数据  |
-| img  | img  |必选   | 默认图片路径  |
+| img  | img  |必选   | 默认图片路径,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes  |
  
 ````
   json 格式为:  '{"id":"500","selectColor":"#FFFFFF","alpha":"0.2","data":  [{"title":"10","imageUrl":"res://***.png"},  {"title":"20","imageUrl":"res://xxx.png"}]}';
@@ -37,7 +37,7 @@ CoverFlow 功能,封装的HTML5代码片段,通过配合的样式和JS对象 ,�
 |-----|-----|-----|
 |id|是|唯一标识符|
 |data|是|数据|
-|imageUrl|是|图片地址|
+|imageUrl|是|图片地址,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
  
 
 **平台支持:**

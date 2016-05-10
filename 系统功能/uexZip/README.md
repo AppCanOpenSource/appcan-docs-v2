@@ -26,8 +26,8 @@
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| srcPath | String类型 | 必选 |  源文件路径。路径协议详见CONSTANT中PathTypes|
-| zippedPath| String类型 | 必选 | 目标文件路径。路径协议详见CONSTANT中PathTypes |
+| srcPath | String类型 | 必选 |  源文件路径。路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
+| zippedPath| String类型 | 必选 | 目标文件路径。路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
  
 **			平台支持:		**
 Android2.2+					
@@ -45,8 +45,8 @@ iOS6.0+
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| srcPath | String类型 | 必选 |  压缩的文件或文件夹的路径,路径协议详见CONSTANT中PathTypes |
-| zippedPath| String类型 | 必选 | 目标文件路径,路径协议详见CONSTANT中PathTypes |
+| srcPath | String类型 | 必选 |  压缩的文件或文件夹的路径,路径协议详见[CONSTAN](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTAN")T中PathTypes |
+| zippedPath| String类型 | 必选 | 目标文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 | password | String类型 | 必选 | 密码 |
  
 **		平台支持:		**
@@ -65,8 +65,8 @@ Android2.2+
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| srcPath | String类型 | 必选 |  要解压缩的文件路径,路径协议详见CONSTANT中PathTypes|
-| zippedPath| String类型 | 必选 | 解压缩后的文件路径,路径协议详见CONSTANT中PathTypes |
+| srcPath | String类型 | 必选 |  要解压缩的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
+| zippedPath| String类型 | 必选 | 解压缩后的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
  
 **		平台支持:		**
 Android2.2+					
@@ -85,8 +85,8 @@ iOS6.0+
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| srcPath | String类型 | 必选 |  要解压缩的文件路径,路径协议详见CONSTANT中PathTypes|
-| zippedPath| String类型 | 必选 | 解压缩后的文件路径,路径协议详见CONSTANT中PathTypes |
+| srcPath | String类型 | 必选 |  要解压缩的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
+| zippedPath| String类型 | 必选 | 解压缩后的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 | password | String类型 | 必选 | 解压密码 |
  
 **	平台支持:		**
@@ -106,8 +106,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | String类型 | 必选 |  操作ID,在此函数中不起作用,可忽略|
-| dataType| Number类型 | 必选 | 返回数据类型为uex.cInt。详见CONSTANT中CallbackDataTypes|
-| data | Number类型 | 必选 | 返回uex.cSuccess或者uex.cFailed。详见CONSTANT中CallbackIntValue |
+| dataType| Number类型 | 必选 | 返回数据类型为uex.cInt。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中CallbackDataTypes|
+| data | Number类型 | 必选 | 返回uex.cSuccess或者uex.cFailed。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中CallbackIntValue |
 
 **	版本支持:		**
 3.0.0+					
@@ -119,8 +119,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | String类型 | 必选 |  操作ID,在此函数中不起作用,可忽略|
-| dataType| Number类型 | 必选 | 返回数据类型为uex.cInt。详见CONSTANT中CallbackDataTypes|
-| data | Number类型 | 必选 | 返回uex.cSuccess或者uex.cFailed。详见CONSTANT中CallbackIntValue |
+| dataType| Number类型 | 必选 | 返回数据类型为uex.cInt。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中CallbackDataTypes|
+| data | Number类型 | 必选 | 返回uex.cSuccess或者uex.cFailed。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中CallbackIntValue |
  
 **	版本支持:		**
 3.0.0+					

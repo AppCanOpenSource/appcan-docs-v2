@@ -2,8 +2,7 @@
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 音频播放插件
 ## 1.1、说明
- 播放背景音乐和效果音乐,本插件只支持播放本地音乐。
-## 1.2、UI展示
+封装了对音频流播放的接口,可播放本地背景音乐和效果音乐和网络音频、后台录音。实现对音频资源的播放、暂停、继续、停止等相关操作。对网络音频资源暂不支持缓存到本地。在ios上如需支持后台播放音频,需配置相关权限,请参考应用配置说明文档里关于[BackgroundMode](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置APP后台权限 "BackgroundMode")的配置
  ![](http://newdocx.appcan.cn/docximg/151400p2015i6f7k.jpg)
 ## 1.3、开源源码:
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=154_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
@@ -23,7 +22,7 @@
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path | String | 是 | 音频文件路径,路径协议详见CONSTANT中 PathTypes音频文件路径,路径协议详见CONSTANT中PathTypes |
+| path | String | 是 | 音频文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes音频文件路径wgt://,res://,file://,支持网络协议地址路径http://, https:// |
 
 **平台支持:**
 
@@ -210,7 +209,7 @@ uexAudio.volumeDown()
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| paths | String | 是 | 要播放的所有音频路径,路径协议详见CONSTANT中PathTypes,以逗号分隔 |
+| paths | String | 是 | 要播放的所有音频路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes音频文件路径wgt://,res://,file://,以逗号分隔 |
 | index | Number | 是 | 索引 |
 
 **平台支持:**
@@ -377,7 +376,7 @@ uexAudio.openSoundPool()；
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | soundID | Number | 是 | 唯一标识符 |
-| path | String | 是 | 音效文件路径,路径协议详见CONSTANT中PathTypes |
+| path | String | 是 | 音效文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes音频文件路径wgt://,res://,file://|
 
 **平台支持:**
 
@@ -562,7 +561,7 @@ uexAudio.play(0);
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType | Number | 是 | 数据类型,详见CONSTENT中Callback方法数据类型 |
+| dataType | Number | 是 | 数据类型,详见[CONSTENT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTENT")中Callback dataType数据类型 |
 | data | String | 是 | 文件路径 |
 
 **版本支持:**
@@ -588,7 +587,7 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType | Number | 是 | 数据类型,详见CONSTENT中Callback方法数据类型 |
+| dataType | Number | 是 | 数据类型,详见[CONSTENT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTENT")中Callback dataType数据类型 |
 | data | String | 是 | 文件路径 |
 
 **版本支持:**
@@ -634,12 +633,14 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexAudio-3.0.16`
+API版本:`uexAudio-3.0.18`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-4-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.18 | 修改播放amr格式时无回调的BUG |
+| 3.0.17 | 修改退出后光感继续存在的BUG |
 | 3.0.16 | 添加setProximityState()接口设置光感听筒模式 |
 | 3.0.15 | 添加setPlayMode()接口设置播放模式 |
 | 3.0.14 | 修改audio录的本地录音传到服务器上放不了bug |

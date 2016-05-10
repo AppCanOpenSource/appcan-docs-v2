@@ -946,7 +946,7 @@ iOS6.0+
 
 **参数:**
 
-参数说明及生成办法详见微信开放平台文档[统一下单接口参数说明](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1 "统一下单接口参数说明")中的"请求参数" 
+参数说明及生成办法详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"请求参数" 
 
 ```
 var json = {
@@ -1020,7 +1020,7 @@ uexWeiXin.getPrepayId(data1);
 
 **参数:**
 
-参数说明及生成办法详见微信开放平台文档[调起支付接口参数说明](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_12&index=2 "调起支付接口参数说明")中的"请求参数" 
+参数说明及生成办法详见微信开放平台文档[调起支付接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口参数说明")中的"请求参数" 
 
 ```
 var json ={
@@ -2199,7 +2199,7 @@ uexWeiXin.cbIsSupportPay = function (opCode,dataType,data) {
 
 **参数:**
 
-json格式数据,参数详见微信开放平台文档[统一下单接口参数说明](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果"
+json格式数据,参数详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果"
 
 **版本支持:**
 
@@ -2219,7 +2219,7 @@ uexWeiXin.cbGetPrepayId = function(data){
 
 **参数:**
 
-参数说明及生成办法详见微信开放平台文档[调起支付接口](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_12&index=2 "调起支付接口")参数说明中的"返回结果"
+参数说明及生成办法详见微信开放平台文档[调起支付接口](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口")参数说明中的"返回结果"
 ```
 var json = {
     errCode:,//状态码。0:成功；-1:错误；-2:用户取消
@@ -2571,10 +2571,11 @@ uexWeiXin.cbGetLoginUnionID = function (data) {
 
 API版本:`uexWeiXin-3.0.19`
 
-最近更新时间:`2016-1-7`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.20 | 修复getWeiXinLoginAccessToken失败的bug |
 | 3.0.19 | 修复getWeiXinLoginAccessToken失败的bug |
 | 3.0.18 | 修改回调方式,支持setCallbackWindowName接口;部分支持IDE |
 | 3.0.17 | 新增一版微信登陆相关接口 |
@@ -2597,12 +2598,13 @@ API版本:`uexWeiXin-3.0.19`
 
 ### Android
 
-API版本:`uexWeiXin-3.1.33`
+API版本:`uexWeiXin-3.1.34`
 
-最近更新时间:`2015-12-21`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.1.34 | 支持https |
 | 3.1.33 | 修复和完善抛出异常的捕获 |
 | 3.1.32 | 新增setCallbackWindowName接口,解决偶尔收不到回调的问题 |
 | 3.1.31 | 更新微信登陆相关接口 |

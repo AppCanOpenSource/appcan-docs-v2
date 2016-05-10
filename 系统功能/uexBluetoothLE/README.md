@@ -56,9 +56,9 @@ iOS 3.0.0+
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| serviceUUIDs | Array | 否 | 由service的UUID字符串组成的数组。	serviceUUIDs不传时,插件会扫描所有蓝牙设备；否则,插件会只扫描包含数组中的指定service的蓝牙设备；iOS系统,在进行后台蓝牙设备扫描时,该参数必须,若前台扫描则该参数为可选。 |
+| 参数名称         | 参数类型  | 是否必选 | 说明                                       |
+| ------------ | ----- | ---- | ---------------------------------------- |
+| serviceUUIDs | Array | 否    | 由service的UUID字符串组成的数组。	serviceUUIDs不传时,插件会扫描所有蓝牙设备；否则,插件会只扫描包含数组中的指定service的蓝牙设备；iOS系统,在进行后台蓝牙设备扫描时,该参数必须,若前台扫描则该参数为可选。 |
 
 **平台支持:**
 
@@ -310,7 +310,7 @@ iOS 3.0.0+
 var param={
 	serviceUUID://service的UUID
 	characteristicUUID://characteristic的UUID
-	descrtiptorUUID://descriptor的UUID
+	descriptorUUID://descriptor的UUID
 	value://要写入的值
 }
 ```
@@ -622,10 +622,10 @@ var data={
 ```
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| address | String | 是 | Android的address参数传回的是设备的mac地址；iOS的address参数传回的是设备的UUID |
-| name | String | 是 | 蓝牙设备名称 |
+| 参数名称    | 参数类型   | 是否必选 | 说明                                       |
+| ------- | ------ | ---- | ---------------------------------------- |
+| address | String | 是    | Android的address参数传回的是设备的mac地址；iOS的address参数传回的是设备的UUID |
+| name    | String | 是    | 蓝牙设备名称                                   |
 
 **平台支持:**
 
@@ -687,9 +687,9 @@ iOS 3.0.0+
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| data | Json | 是 | uexBLECharacteristic的Json格式数据,uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明) |
+| 参数名称 | 参数类型 | 是否必选 | 说明                                       |
+| ---- | ---- | ---- | ---------------------------------------- |
+| data | Json | 是    | uexBLECharacteristic的Json格式数据,uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明) |
 
 **平台支持:**
 
@@ -744,22 +744,22 @@ iOS 3.0.0+
 
 ### 3.3.1 iOS权限说明
 
-|flag|desription|
-|-----|-----|
-|1|Permits broadcasts of the characteristic value using a characteristic configuration descriptor.|
-|2|Permits reads of the characteristic value.|
-|4|Permits writes of the characteristic value, without a response.|
-|8|Permits writes of the characteristic value.|
-|16|Permits notifications of the characteristic value, without a response.|
-|32|Permits indications of the characteristic value.|
-|64|Permits signed writes of the characteristic value|
-|128|If set, additional characteristic properties are defined in the characteristic extended properties descriptor.|
-|256|If set, only trusted devices can enable notifications of the characteristic value.|
-|512|If set, only trusted devices can enable indications of the characteristic value.|
+| flag | desription                               |
+| ---- | ---------------------------------------- |
+| 1    | Permits broadcasts of the characteristic value using a characteristic configuration descriptor. |
+| 2    | Permits reads of the characteristic value. |
+| 4    | Permits writes of the characteristic value, without a response. |
+| 8    | Permits writes of the characteristic value. |
+| 16   | Permits notifications of the characteristic value, without a response. |
+| 32   | Permits indications of the characteristic value. |
+| 64   | Permits signed writes of the characteristic value |
+| 128  | If set, additional characteristic properties are defined in the characteristic extended properties descriptor. |
+| 256  | If set, only trusted devices can enable notifications of the characteristic value. |
+| 512  | If set, only trusted devices can enable indications of the characteristic value. |
 
 ## 3.4 writeType
     待补充
-    
+
 # 4、更新历史
 
 ### iOS
@@ -768,13 +768,13 @@ API版本:`uexBluetoothLE-3.0.4`
 
 最近更新时间:`2016-1-5`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.4 | 修复cbInit回调参数错误的bug |
-| 3.0.3 | 添加IDE支持 |
-| 3.0.2 | 修复一个会导致Characteristic写入失败的bug |
-| 3.0.1 | 修改读写的字符串均为为Base64编码 |
-| 3.0.0 | 低功耗蓝牙插件 for iOS |
+| 历史发布版本 | 更新内容                          |
+| ------ | ----------------------------- |
+| 3.0.4  | 修复cbInit回调参数错误的bug            |
+| 3.0.3  | 添加IDE支持                       |
+| 3.0.2  | 修复一个会导致Characteristic写入失败的bug |
+| 3.0.1  | 修改读写的字符串均为为Base64编码           |
+| 3.0.0  | 低功耗蓝牙插件 for iOS               |
 
 ### Android
 
@@ -782,10 +782,10 @@ API版本:`uexBluetoothLE-3.0.4`
 
 最近更新时间:`2016-2-16`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.4 | 修改回调函数名称与文档一致 |
-| 3.0.3 | 修正回调数据不正确的问题 |
-| 3.0.2 | init时自动调用开启蓝牙 |
-| 3.0.1 | js接口数据传输用Base64编码 |
-| 3.0.0 | 蓝牙BLE插件 |
+| 历史发布版本 | 更新内容              |
+| ------ | ----------------- |
+| 3.0.4  | 修改回调函数名称与文档一致     |
+| 3.0.3  | 修正回调数据不正确的问题      |
+| 3.0.2  | init时自动调用开启蓝牙     |
+| 3.0.1  | js接口数据传输用Base64编码 |
+| 3.0.0  | 蓝牙BLE插件           |

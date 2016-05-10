@@ -5,7 +5,7 @@
 提供百度地图的相关相关功能。用户可以使用该插件在网页上嵌入一张地图,并实现对地图的基本操作, 例如放大缩小,移动,点击,隐藏,显示。另外还提供了定位功能,搜索功能,路线规划功能,地理编码功能 。
 ## 1.1、说明
 安卓&iOS插件已支持**config.xml文件**配置AK。
->注：IDE插件因为涉及到百度方面的ID与Key暂时无法使用，此插件之前需要进行config.xml相关配置，具体使用点击查看:[附录](http://newdocx.appcan.cn/newdocx/docx?type=1384_975 "百度地图插件接入指引")----->百度地图插件接入指引
+>注:IDE插件因为涉及到百度方面的ID与Key暂时无法使用,此插件之前需要进行config.xml相关配置,具体使用点击查看:[附录](http://newdocx.appcan.cn/newdocx/docx?type=1384_975 "百度地图插件接入指引")----->百度地图插件接入指引
 
 ## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/153918c2015z6c16q.png)
@@ -2428,16 +2428,15 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 
 > ### cbGetDistance 计算两点之间的距离的回调方法
 
-`uexBaiduMap.cbGetDistance(data)`
+`uexBaiduMap.cbGetDistance(opId,dataType,data)`
 
 **参数**
 
-```
-data:(String类型) 必选 两点之间的距离,单位为米
-
-var data = "142658.29447225234";
-
-```
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | String类型 | 必选 | 两点之间的距离,单位为米 |
 
 **版本支持**
 
@@ -2446,7 +2445,7 @@ var data = "142658.29447225234";
 **示例**
 
 ```
-uexBaiduMap.cbGetDistance = function(data){
+uexBaiduMap.cbGetDistance = function(opCode,dataType,data){
 	alert(data);
 }
 
@@ -2456,12 +2455,14 @@ uexBaiduMap.cbGetDistance = function(data){
 
 ### iOS
 
-API版本:`uexBaiduMap-3.0.15`
+API版本:`uexBaiduMap-3.1.17`
 
-最近更新时间:`2015-12-03`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.1.17 | 修复removeMakersOverlay接口传不当参数会闪退的问题 |
+| 3.1.16 | 增加对多种类型参数的识别,支持3.3引擎 |
 | 3.0.15 | 修改插件,使其支持config配置APIKey |
 | 3.0.14 | 删去info.plist |
 | 3.0.13 | 国际化 |
@@ -2477,16 +2478,17 @@ API版本:`uexBaiduMap-3.0.15`
 | 3.0.3 | 修复公交路线搜索失败的问题 |
 | 3.0.2 | 修复cbPoiSearchResult接口回调信息不完整问题 |
 | 3.0.1 | 与安卓统一回调接口的参数 |
+| 3.1.0 | 百度地图iOS_SDK_2.5.0 |
 
 ### Android
 
 API版本:`uexBaiduMap-3.2.32`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-04-23`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段,返回距离 |
+| 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段,返回距离;修复了文档中cbGetDistance代码case说明不对的问题 |
 | 3.2.31 | 增加了,当不打开地图View时,也可以调用poi搜索功能(目前支持城市检索,周边检索,区域检索),修复了打开地图再关闭地图,搜索poi无效的问题 |
 | 3.2.30 | 修复了前端调用open方法时传入小数时抛出NumberFormatException的问题 |
 | 3.2.29 | 修复了持续定位时cbCurrentLocation回调不生效的问题 |

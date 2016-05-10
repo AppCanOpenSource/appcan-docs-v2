@@ -81,9 +81,12 @@ iOS6.0+
 > ### setItems 设置listview列表项数据
 
 `uexListView.setItems(params);`
+
 **说明:**
 
-设置listview列表项数据，首次加载setItems必须在open之前
+设置listview列表项数据,首次加载setItems必须在open之前
+图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
+
 **参数:**
 
   params:(String类型) 必选listview每一个条目数据的集合。该字符串为JSON格式。如下:
@@ -228,6 +231,7 @@ iOS6.0+
 > ### insertItemAt 插入数据到指定位置
 
 `uexListView.insertItemAt(params);`
+图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
 
 **说明:**
 
@@ -291,6 +295,7 @@ iOS6.0+
 > ### appendItems 加载数据
 
 `uexListView.appendItems(params)`
+图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
 
 **说明:**
 
@@ -356,6 +361,7 @@ iOS6.0+
 > ### reloadItems 刷新数据
 
 `uexListView.reloadItems(params)`
+图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
 
 **说明:**
 
@@ -456,6 +462,7 @@ iOS6.0+
 **说明:**
 
 设置listview下拉刷新样式。
+图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
 
 **参数:**
 
@@ -508,6 +515,7 @@ iOS6.0+
 **说明:**
 
 设置listview上拉加载样式。
+图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
 
 **参数:**
 
@@ -734,12 +742,13 @@ API版本:`uexListView-3.0.7`
 
 ### Android
 
-API版本:`uexListView-3.0.9`
+API版本:`uexListView-3.0.10`
 
-最近更新时间:`2016-1-29`
+最近更新时间:`2016-4-16`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.10 | 删除universalimageloader源码 |
 | 3.0.9 | 修复plugin.xml |
 | 3.0.8 | 添加自定义布局相关接口 |
 | 3.0.7 | 修复listview加载网络图片显示不正常的问题 |

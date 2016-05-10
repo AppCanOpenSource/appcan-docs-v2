@@ -1,9 +1,11 @@
+[TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
-KeyChain插件
+KeyChain（钥匙串）插件
 
 ## 1.1、说明
 
-封装了iOS系统的KeyChain相关功能
+封装了iOS系统的KeyChain相关功能。iOS的keychain服务提供了一种安全的保存私密信息（如密码，序列号）的方式，每个ios程序都有一个独立的keychain存储。
+对于一些私密信息，比如密码等等，就需要使用更为安全的keychain了。keychain里保存的信息不会因App被删除而丢失，在用户重新安装App后依然有效，数据还在。
 
 ## 1.2、UI展示
 
@@ -345,14 +347,15 @@ Window.uexOnload=function(){
 * **可以通过keyChain在iOS 7+系统上实现唯一标识符的功能**
 
 >### accessibility KeyChain数据保护设置说明
+
 | accessibility值 | 对应的属性| 说明 | 备注 |
 | ----- | ----- | ----- | ----- |
-|0|kSecAttrAccessibleAlways|总是允许任何访问|完全无保护,不推荐使用|
-|1|kSecAttrAccessibleAlwaysThisDeviceOnly|总是允许任何访问,但仅限此设备|
+|0|kSecAttrAccessibleAlways|总是允许任何访问|完全无保护,不推荐 使用|
+|1|kSecAttrAccessibleAlwaysThisDeviceOnly|总是允许任何访问,但仅限此设备||
 |2|kSecAttrAccessibleAfterFirstUnlock|当iPhone首次解锁完成后,允许访问|默认值|
-|3|kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly|当iPhone首次解锁完成后,允许访问,但仅限此设备|
-|4|kSecAttrAccessibleWhenUnlocked|当iPhone没有被锁定时,允许访问|需要后台访问的数据不要用此项|
-|5|kSecAttrAccessibleWhenUnlockedThisDeviceOnly|当iPhone没有被锁定时,允许访问,但仅限此设备|
+|3|kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly|当iPhone首次解锁完成后,允许访问,但仅限此设备||
+|4|kSecAttrAccessibleWhenUnlocked|当iPhone没有被锁定时,允许访问|需要后台访问的数 据不要用此项|
+|5|kSecAttrAccessibleWhenUnlockedThisDeviceOnly|当iPhone没有被锁定时,允许访问,但仅限此设备||
 |6|kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly|仅限此设备,并且启用设备密码验证,见下方说明|仅限iOS8+|
 
 * 仅限此设备的意思是,keychain数据通过iCloud同步,或者恢复备份后会验证设备的udid,如果不匹配(另一台iOS设备,或者刷机之后),那么此数据将会被销毁

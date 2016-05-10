@@ -2,8 +2,11 @@
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 ## 1.1、说明
    该插件封装几何图表功能,包括饼状图,折线图和柱状图功能。
+   <div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">&times;</button> 公告!
+ ios版插件暂支持公测环境编译,需获取公测权限[跳转](http://plugin.appcan.cn/details.html?id=456_index) ,具体更新到公共插件时间请关注官方通知.
+</div>
 ## 1.2、UI展示
-
+见具体API
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=456_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
@@ -173,8 +176,8 @@ iOS 3.0.0+
     uexChart.openPieChart(data2);
 ```
 运行效果:
-![](http://i.imgur.com/inVOmXE.png)
-
+ 
+![](/docImg/975/2.png)
 >### closePieChart 关闭饼状图
 
   
@@ -374,8 +377,8 @@ iOS 3.0.0+
 ```
 
 运行效果:(网页背景色为蓝色)
-![](http://i.imgur.com/I1ojQqC.png)
-
+ 
+![](/docImg/975/3.png)
 示例2
 
 ```
@@ -446,8 +449,8 @@ iOS 3.0.0+
     uexChart.openLineChart(data1);
 ```
 运行效果:
-![](http://i.imgur.com/x5mXY8N.png)
-
+ 
+![](/docImg/975/4.png)
 >### closeLineChart 关闭曲线图
 
 `uexChart.closeLineChart(json)`
@@ -597,8 +600,8 @@ iOS 3.0.0+
     uexChart.openBarChart(data1);
 ```
 运行效果:(网页背景色为蓝色)
-![](http://i.imgur.com/2dYPSdL.png)
-
+ 
+![](/docImg/975/5.png)
 示例2
 
 ```
@@ -665,8 +668,8 @@ iOS 3.0.0+
     uexChart.openBarChart(data1);
 ```
 运行效果:
-![](http://i.imgur.com/EareBll.png)
-
+ 
+![](/docImg/975/6.png)
 >### closeBarChart 关闭直方图
 
 `uexChart.closeBarChart(json)`

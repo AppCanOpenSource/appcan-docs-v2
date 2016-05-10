@@ -1,13 +1,13 @@
 [TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
-TouchID功能插件
+TouchID苹果指纹识别功能插件
 ## 1.1、说明
  本对象封装了用于调用系统TouchID功能的方法,可以调用系统TouchID验证界面进行指纹识别。
  TouchID功能接口只适用iOS8.0以上系统和支持指纹识别的设备。
 ## 1.2、UI展示
 
 ## 1.3、开源源码
-插件测试用例与源码下载:<a href="" target="_blank">点击此处</a>
+插件测试用例与源码下载:[点击此处](http://plugin.appcan.cn/details.html?id=504_pluginlist "点击此处")
 #2、API概览
 ## 2.1、方法
 

@@ -78,7 +78,7 @@ uexClipboard.getContent();
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 || dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
 | data | String | 是 | 剪贴板上存放的文字 |
 
 **版本支持:**

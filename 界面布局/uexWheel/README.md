@@ -30,7 +30,7 @@
 |y|Number类型|必选|y坐标|
 |w|Number类型|必选|宽度|
 |h|Number类型|必选|高度|
-|jsonData|String类型|必选|按钮内容,json格式数据如下:|
+|jsonData|String类型|必选|按钮内容,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes json格式数据如下:|
 ```
 {
     "button": "res://circle/button.png",
@@ -153,7 +153,7 @@ iOS6.0+
 |y|Number类型|必选|y坐标|
 |w|Number类型|必选|宽度|
 |h|Number类型|必选|高度|
-|jsonData|String类型|必选|按钮内容,json格式如下:|
+|jsonData|String类型|必选|按钮内容,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes json格式数据如下:|
 
 ```
 {
@@ -274,7 +274,7 @@ iOS6.0+
 |y|Number类型|必选|y坐标|
 |w|Number类型|必选|宽度|
 |h|Number类型|必选|高度|
-|jsonData|String类型|必选|按钮内容,json格式如下:|
+|jsonData|String类型|必选|按钮内容,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes json格式数据如下:|
 
 ```
 {

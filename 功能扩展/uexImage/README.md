@@ -6,8 +6,9 @@
 
 ## 1.1、说明
 封装了图片的相关功能:您可以使用该插件进行选择。导出、裁剪、浏览、存入系统相册等一系列针对图片的操作。
-
-## 1.2、开源源码
+## 1.2、UI展示
+ ![](/docImg/975/093141n2015r11c2vt&#40;2&#41;.png)  ![](/docImg/975/093145g2015m11b2se&#40;2&#41;.png) 
+## 1.3、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=505_index)至插件详情页(插件测试用例与插件包已经提供)
 
 #2、 API预览
@@ -69,7 +70,7 @@ uexImage.openPicker(json)
 **说明**
 
 * 打开一个可以浏览图片的浏览器
-* 图片路径支持 wgt:// wgts:// res:// file:// http:// https:// 
+* 图片路径支持 wgt:// wgts:// res:// file:// http:// https:// 路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
 * 相关 [onBrowserClosed](#onBrowserClosed 图片浏览器被关闭的监听方法)图片浏览器被关闭的监听方法
 
 **参数**
@@ -278,44 +279,6 @@ iOS 3.0.4+
 uexImage.setIpadPopEnable(0);
 ```
 
->### cbClearOutputImages 清除由本插件导出的所有图片文件的回调方法
-
-`uexImage.cbClearOutputImages(param);`
-
-**说明**
-
-* 清除由本插件导出的所有图片文件后会调用此方法
-
-**参数**
-
- 
-
-param为json字符串,包含的参数如下
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| status | String | 是 | 成功返回"ok"|
-
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
-**示例**
-
-```
-window.uexOnload=function(type){
-	uexImage.cbClearOutputImages=function(info){
-		alert(info);
-	}
-}
-```
-
 ##2.2、 回调方法
 
 >### cbSaveToPhotoAlbum 储存到相册的回调方法
@@ -353,6 +316,43 @@ iOS 3.0.0+
 ```
 window.uexOnload=function(type){
 	uexImage.cbSaveToPhotoAlbum=function(info){
+		alert(info);
+	}
+}
+```
+>### cbClearOutputImages 清除由本插件导出的所有图片文件的回调方法
+
+`uexImage.cbClearOutputImages(param);`
+
+**说明**
+
+* 清除由本插件导出的所有图片文件后会调用此方法
+
+**参数**
+
+ 
+
+param为json字符串,包含的参数如下
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 | 
+| ----- | ----- | ----- | ----- | ----- |
+| status | String | 是 | 成功返回"ok"|
+
+**平台支持**
+
+Android 2.2+ 
+iOS 7.0+ 
+
+**版本支持**
+
+Android 3.0.0+ 
+iOS 3.0.0+ 
+
+**示例**
+
+```
+window.uexOnload=function(type){
+	uexImage.cbClearOutputImages=function(info){
 		alert(info);
 	}
 }
@@ -475,12 +475,13 @@ window.uexOnload=function(type){
 
 ### iOS
 
-API版本:`uexImage-3.0.9`
+API版本:`uexImage-3.0.10`
 
-最近更新时间:`2016-3-2`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.10 | 修复在4/4s机型上裁剪接口闪退的问题 |
 | 3.0.9 | 修复openPicker接口在选择相册界面滑动时可能会产生重影的问题 |
 | 3.0.8 | openPicker接口打开相册时,默认滑动至最底端,以显示最新拍摄的照片 |
 | 3.0.7 | 修复7.x系统上一个导致卡死的bug;修复iPhone包在iPad上运行时的崩溃bug |
@@ -494,12 +495,14 @@ API版本:`uexImage-3.0.9`
 
 ### Android
 
-API版本:`uexImage-3.0.12`
+API版本:`uexImage-3.0.14`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.14 | 修复三星等机型Exif导致图片显示方向不正确的问题 |
+| 3.0.13 | 优化图片选择器按照图片修改时间排序 |
 | 3.0.12 | 更换图片加载中资源文件 |
 | 3.0.11 | 优化图片剪裁功能,优化图片选择器倒序加载图片 |
 | 3.0.10 | 针对保存图片到相册接口,修复开启增量更新时的res协议路径的bug |

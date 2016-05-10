@@ -12,7 +12,7 @@
 如:在root页面调用`uexXunfei.init()`,则回调都会发送到root window
 
 ## 1.2、开源源码
-[点击]()至插件详情页(插件测试用例与插件包已经提供)
+[点击](http://plugin.appcan.cn/details.html?id=603_pluginlist)至插件详情页(测试用例与插件源码已经提供)
 
 ***
 
@@ -613,14 +613,14 @@ iOS 3.0.0+
 
 |JSON字段|英文全称|类型|说明|
 |-----|-----|-----|-----|
-sn|sentence|number|第几句
-ls|last sentence |bool|是否最后一句
-bg|begin    |number|开始
-ed|end|number|结束
-ws|words|array|词
-cw|chinese word|array|中文分词
-w|word|String|单字
-sc|score|number|分数
+|sn|sentence|number|第几句
+|ls|last sentence |bool|是否最后一句
+|bg|begin    |number|开始
+|ed|end|number|结束
+|ws|words|array|词
+|cw|chinese word|array|中文分词
+|w|word|String|单字
+|sc|score|number|分数
 
 语音识别示例:  
 

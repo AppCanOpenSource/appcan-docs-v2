@@ -5,6 +5,11 @@
 ##1.1、说明
  调用设备照相机拍摄照片,成功后返回相关图片存储地址。
  自定义相机功能接口只适用安卓平台系统,其他接口功能支持跨平台使用
+ <div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">&times;</button> 注意!
+ Android因内存问题,调用系统相机会导致APP崩溃,需调用自定义相机接口或使用参数压缩下图片。
+主要是因为,系统相机和调用系统相机的APP不在同一进程,因内存过低,系统将APP杀死。
+</div>
+
 ##1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/151400o2015o6w7s.jpg)
 ##1.3、开源源码
@@ -18,12 +23,15 @@
 
 **说明:**
 
-通过此方法调用系统相机,进入拍照界面。
+通过此方法调用系统相机,进入拍照界面。调方法[cbOpen　](#cbOpen　拍照的回调方法 "cbOpen　")
 
 **参数:**
 
- comtextareass:(Number类型) 可选  图片是否压缩,0表示压缩,非0或者不传表示不压缩。
- quality:(Number类型) 可选  图片压缩质量,comtextareass为0时有效,取值范围[0,100]。
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| comtextareass | Number类型 | 可选 | 图片是否压缩,0表示压缩,非0或者不传表示不压缩 |
+| quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
+ 
 
 **平台支持:**
 
@@ -45,12 +53,14 @@ uexCamera.open();
 
 **说明:**
 
-通过此方法打开自定义相机,进入拍照界面。
+通过此方法打开自定义相机,进入拍照界面。回调方法[cbOpenInternal](#cbOpenInternal　自定义相机拍照成功的回调方法 "cbOpenInternal")
 
 **参数:**
 
- comtextareass:(Number类型) 可选  图片是否压缩,0表示压缩,非0或者不传表示不压缩。
- quality:(Number类型) 可选  图片压缩质量,comtextareass为0时有效,取值范围[0,100]。
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| comtextareass | Number类型 | 可选 | 图片是否压缩,0表示压缩,非0或者不传表示不压缩 |
+| quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
 
 **平台支持:**
 
@@ -69,20 +79,22 @@ uexCamera.openInternal();
 
 > ### openViewCamera 打开自定义View照相机
 
-`openViewCamera(x,y,width,heigth,location,quality)`
+`openViewCamera(x,y,width,heigth,label,quality)`
 
 **说明:**
 
-通过此方法打开自定义View照相机。
+通过此方法打开自定义View照相机。回调方法 [cbOpenViewCamera](#cbOpenViewCamera　自定义相机View拍照成功的回调方法 "cbOpenViewCamera")
 
 **参数:**
 
- x:(Number类型) 必选  照相机View起始位置x坐标,x为0时有效,取值范围[0,屏幕分辨率最大宽度]。
- y:(Number类型) 必选  照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度]。
- width:(Number类型) 必选  照相机View宽度,width为0时有效,取值范围[0,屏幕分辨率最大宽度]。
- heigth:(Number类型) 必选  照相机View高度,height为0时有效,取值范围[0,屏幕分辨率最大高度]。
- location:(String类型) 必选  传入的地理位置。
- quality:(Number类型) 可选  图片压缩质量,comtextareass为0时有效,取值范围[0,100]。
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| x | Number类型 | 必选 | 照相机View起始位置x坐标,x为0时有效,取值范围[0,屏幕分辨率最大宽度]|
+| y | Number类型 | 必选 | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
+| width | Number类型 | 必选 | 照相机View宽度,width为0时有效,取值范围[0,屏幕分辨率最大宽度] |
+| heigth | Number类型 | 必选 | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
+| label | String类型 | 必选 | 拍照时显示在界面中的提示语或标签 |
+| quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
 
 **平台支持:**
 
@@ -96,7 +108,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexCamera.openViewCamera(x, y, w, h,location,quality);
+uexCamera.openViewCamera(x, y, w, h,label,quality);
 ```
 
 > ### removeViewCameraFromWindow 从屏幕上移除自定义View相机
@@ -133,10 +145,12 @@ uexCamera.removeViewCameraFromWindow();
 **说明:**
 
 通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。如果设置changeCameraPosition为前置摄像头则闪光灯无效。
-
+回调方法 [cbChangeFlashMode](#cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式 "cbChangeFlashMode")　
 **参数:**
 
+````
  flashMode:(Number类型) 必选  照相机View的闪光灯模式,x为0、1、2时有效,取值范围[0,2]。
+````
 
 **平台支持:**
 
@@ -159,11 +173,13 @@ uexCamera.changeFlashMode(flashMode);
 
 **说明:**
 
-通过此方法改变自定义相机View的摄像头位置,0代表后置,1代表前置。
+通过此方法改变自定义相机View的摄像头位置,0代表后置,1代表前置。回调方法[cbChangeCameraPosition](#cbChangeCameraPosition　返回更改前后摄像头成功后当前摄像头的位置 "cbChangeCameraPosition")　
 
 **参数:**
 
+````
  cameraPosition:(Number类型) 必选  照相机View的摄像头位置,x为0、1时有效,取值范围[0,1]。
+````
 
 **平台支持:**
 
@@ -187,9 +203,12 @@ uexCamera.changeCameraPosition(cameraPosition);
 
 **参数:**
 
-  opId:(Number类型) 必选  操作ID,此函数中不起作用,可忽略。
-  dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(String类型) 必选  拍照成功后图片的保存路径
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | String类型 | 必选 | 拍照成功后图片的保存路径 |
+ 
 
 **版本支持:**
 
@@ -210,9 +229,12 @@ window.uexOnload = function(){
 
 **参数:**
 
-  opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
-  dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(String类型) 必选  拍照成功后图片的保存路径
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | String类型 | 必选 | 拍照成功后图片的保存路径 |
+ 
 
 **版本支持:**
 
@@ -228,20 +250,24 @@ window.uexOnload = function(){
 }
 ```
 
-> ### cbOpenViewCamera　自定义相机View拍照成功的回调方法,返回拍照成功后图片的保存路径和之前传入的地理位置
+> ### cbOpenViewCamera　自定义相机View拍照成功的回调方法
 
 `uexCamera.cbOpenViewCamera(opId,dataType,data)`
-
+**说明:**
+返回拍照成功后图片的保存路径和之前传入的地理位置
 **参数:**
 
-  opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
-  dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(String类型) 必选  JSON字符串,格式如下:
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | String类型 | 必选 | JSON字符串,格式如下: |
+   
 ```
 data:
   {
     "photoPath": "/storage/emulated/0/widgetone/apps/11352882/uexViewCameraPhotos/2015-11-27_14-41-34.jpg",
-    "location": "北京"
+    "label": "北京"
   }
 ```
 各字段含义如下
@@ -249,7 +275,7 @@ data:
 | 参数 | 是否必须 | 说明 |
 |-----|-----|-----|
 | photoPath | 是 | 图片的保存路径 |
-| location | 是 | 传入的地理位置 |
+| label | 是 | 拍照时显示在界面中的提示语或标签 |
 
 **版本支持:**
 
@@ -265,15 +291,18 @@ window.uexOnload = function(){
 }
 ```
 
-> ### cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式, 0表示自动,1表示开启,2表示关闭,-1表示更改失败。
+> ### cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式
 
 `uexCamera.cbChangeFlashMode(opId,dataType,data)`
-
+**说明:**
+ 0表示自动,1表示开启,2表示关闭,-1表示更改失败
 **参数:**
 
-  opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
-  dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(Number类型) 必选  返回一个int型,闪光灯模式,0表示自动,1表示开启,2表示关闭,-1表示更改失败:
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number类型 | 必选 | 返回一个int型,闪光灯模式,0表示自动,1表示开启,2表示关闭,-1表示更改失败 |
 
 **版本支持:**
 
@@ -289,15 +318,18 @@ window.uexOnload = function(){
 }
 ```
 
-> ### cbChangeCameraPosition　返回更改前后摄像头成功后当前摄像头的位置。
+> ### cbChangeCameraPosition　返回更改前后摄像头成功后当前摄像头的位置
 
 `uexCamera.cbChangeCameraPosition(opId,dataType,data)`
 
 **参数:**
 
-  opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
-  dataType:(Number类型) 必选  数据类型详见CONSTANT中Callback方法数据类型
-  data:(Number类型) 必选  返回一个int型,摄像头位置,0表示后置,1表示前置,-1表示更改失败;
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number类型 | 必选 | 返回一个int型,摄像头位置,0表示后置,1表示前置,-1表示更改失败 |
+ 
 
 **版本支持:**
 
@@ -317,12 +349,15 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexCamera-3.0.5`
+API版本:`uexCamera-3.0.8`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.8 | cbOpenViewCamera回调方法,返回的JSON中增加字段label,替换之前的location |
+| 3.0.7 | 创建bundle存储资源文件,适配国际化 |
+| 3.0.6 | 修改IDE |
 | 3.0.5 | 修改openViewCamera接口适配地址长度,修改openInternal崩溃bug,修改第一次切换镜头无效 |
 | 3.0.4 | 修改openViewCamera不传照片质量崩溃bug,修改changeFlashMode闪光灯接口 |
 | 3.0.3 | 插件改为arc,添加openInternal自定义相机接口,添加openViewCamera自定义view模式相机 |
@@ -332,12 +367,13 @@ API版本:`uexCamera-3.0.5`
 
 ### Android
 
-API版本:`uexCamera-3.0.18`
+API版本:`uexCamera-3.0.19`
 
 最近更新时间:`2016-03-07`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.19 | 优化了EUExCamera代码逻辑,优化了压缩图片算法,增加注释,规范代码；在cbOpenViewCamera的返回JSON中增加字段label,替换之前的location |
 | 3.0.18 | 优化了CameraView代码逻辑,优化了照片处理,优化了OOM问题处理,并做了为null判断,避免程序因空指针崩溃 |
 | 3.0.17 | 修复Activity拒绝服务漏洞的问题,修复了openViewCamera拒绝使用系统拍照权限后程序崩溃的问题 |
 | 3.0.16 | 修复了在三星手机上照片旋转方向不一致的问题;修复了多次点击照相按钮,再点重拍照相按钮失效的问题 |
