@@ -367,12 +367,13 @@ API版本:`uexCamera-3.0.8`
 
 ### Android
 
-API版本:`uexCamera-3.0.19`
+API版本:`uexCamera-3.0.20`
 
-最近更新时间:`2016-03-07`
+最近更新时间:`2016-05-12`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.20 | 修复了open时选择不压缩导致的拍照不能保存的问题 |
 | 3.0.19 | 优化了EUExCamera代码逻辑,优化了压缩图片算法,增加注释,规范代码；在cbOpenViewCamera的返回JSON中增加字段label,替换之前的location |
 | 3.0.18 | 优化了CameraView代码逻辑,优化了照片处理,优化了OOM问题处理,并做了为null判断,避免程序因空指针崩溃 |
 | 3.0.17 | 修复Activity拒绝服务漏洞的问题,修复了openViewCamera拒绝使用系统拍照权限后程序崩溃的问题 |
