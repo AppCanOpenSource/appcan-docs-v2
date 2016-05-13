@@ -379,14 +379,14 @@ alert(data);
 
 ```
 
-> ### getWXAppInstalUrl 获取微信itunes的安装地址
+> ### getWXAppInstallUrl 获取微信itunes的安装地址
 
-`uexWeiXin.getWXAppInstalUrl()`
+`uexWeiXin.getWXAppInstallUrl()`
 
 **说明:**
 
 获取微信itunes的安装地址 
-回调 [cbGetWXAppInstalUrl](#cbGetWXAppInstalUrl 获取微信的itunes安装地址的回调方法 "获取微信的itunes安装地址的回调方法")
+回调 [cbGetWXAppInstallUrl](#cbGetWXAppInstallUrl 获取微信的itunes安装地址的回调方法 "获取微信的itunes安装地址的回调方法")
 
 **参数:**
 
@@ -411,7 +411,7 @@ iOS6.0+
 <title>微信功能</title>
 <script type="text/javascript">
 window.uexOnload = function(){
-uexWeiXin.cbGetWXAppInstalUrl=function(opCode,dataType,data){
+uexWeiXin.cbGetWXAppInstallUrl=function(opCode,dataType,data){
 alert(data);
 }
 }
@@ -422,7 +422,7 @@ alert(data);
 <div class="conbor">
 <div class="consj">
 <span>获取微信安装地址 </span>
-<input class="btn" type="button" value="获取微信安装地址" onclick="uexWeiXin.getWXAppInstalUrl();">
+<input class="btn" type="button" value="获取微信安装地址" onclick="uexWeiXin.getWXAppInstallUrl();">
 </div>
 </div>
 </body>
