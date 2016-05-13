@@ -1980,9 +1980,9 @@ uexWeiXin.cbIsWXAppInstalled = function (opCode,dataType,data) {
 }
 ```
 
-> ### cbGetWXAppInstalUrl 获取微信的itunes安装地址的回调方法
+> ### cbGetWXAppInstallUrl 获取微信的itunes安装地址的回调方法
 
-`uexWeiXin.cbGetWXAppInstalUrl(opId,dataTpye,data)`
+`uexWeiXin.cbGetWXAppInstallUrl(opId,dataTpye,data)`
 
 **参数:**
 
@@ -2000,7 +2000,7 @@ uexWeiXin.cbIsWXAppInstalled = function (opCode,dataType,data) {
 **示例**
 
 ```
-uexWeiXin.cbGetWXAppInstalUrl = function (opCode,dataType,data) {
+uexWeiXin.cbGetWXAppInstallUrl = function (opCode,dataType,data) {
     alert(data);
 }
 ```
