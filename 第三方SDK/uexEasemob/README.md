@@ -797,7 +797,7 @@ var param = {
 	members://群聊成员,为空时这个创建的群组只包含自己
 	allowInvite://是否允许群成员邀请人进群
 	maxUsers://最大群聊用户数,可选参数,默认为200,最大为2000
-	initialWelcomeMessage://群组创建时发送给每个初始成员的欢迎信息(仅iOS需要)
+	initialWelcomeMessage://群组创建时发送给每个初始成员的欢迎信息
 };
 ```
 
@@ -812,7 +812,7 @@ var param = {
 	members://群聊成员,为空时这个创建的群组只包含自己
 	needApprovalRequired://如果创建的公开群用需要户自由加入,就传false。否则需要申请,等群主批准后才能加入,传true
 	maxUsers://最大群聊用户数,可选参数,默认为200,最大为2000
-  	initialWelcomeMessage://群组创建时发送给每个初始成员的欢迎信息(仅iOS需要)
+  	initialWelcomeMessage://群组创建时发送给每个初始成员的欢迎信息
 };
 ```
 
