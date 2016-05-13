@@ -72,8 +72,8 @@ iOS 3.0.0+
 
 ```
 var params = {
-    "x": window.screen.width＊0.02,
-    "y": window.screen.height＊0.1,
+    "x": window.screen.width*0.02,
+    "y": window.screen.height*0.1,
     "direction":2,
     "bgColor":'#FFC125',
     "dividerColor":'#FFC125',
@@ -103,8 +103,8 @@ uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
 或者
   
 var params = {
-    "x": window.screen.width＊0.02,
-    "y": window.screen.height＊0.1,
+    "x": window.screen.width*0.02,
+    "y": window.screen.height*0.1,
     "direction":2,
     "bgColor":'#FFC125',
     "dividerColor":'#FFC125',
