@@ -49,6 +49,10 @@ Path Types
 | wgts:// | /storage/emulated/0/widgetone/apps/xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
 | wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ |
 | file:///sdcard/ | /storage/emulated/0/ | 无 |
+
+## 1.5 错误返回码说明
+前端收到的回调中的错误返回码errCode可查看下方链接获取详细信息
+[微信官方全局返回码说明地址](http://mp.weixin.qq.com/wiki/17/fa4e1434e57290788bde25603fa2fcbd.html)
  
 # 2、API概览
    
@@ -2598,12 +2602,13 @@ API版本:`uexWeiXin-3.0.19`
 
 ### Android
 
-API版本:`uexWeiXin-3.1.34`
+API版本:`uexWeiXin-3.1.35`
 
-最近更新时间:`2016-5-10`
+最近更新时间:`2016-5-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.1.35 | 更新SDK，优化代码逻辑；文档中增加错误返回码说明 |
 | 3.1.34 | 支持https |
 | 3.1.33 | 修复和完善抛出异常的捕获 |
 | 3.1.32 | 新增setCallbackWindowName接口,解决偶尔收不到回调的问题 |
