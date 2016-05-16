@@ -13,10 +13,6 @@
 	}
     function createMenu(){
         var params = {
-            left:0,
-            top:window.screen.height - 50,
-            width:window.screen.width,
-            height:50,
             statusColor:"#EA7C24",
             tab:{
                 textSize:10,
@@ -51,7 +47,7 @@
                 textSize:13,
                 textNColor:"#000000",
                 textHColor:"#dddddd",
-                bgColor:"#66ffffff",
+                bgColor:"#ffffff",
                 bottomDistance:300,
                 data:[
                     {
@@ -84,7 +80,6 @@
             }
         }
         uexTabBarWithPopMenu.open(JSON.stringify(params));
-        setItemChecked(3);
         
     }
    function closeMenu(){
