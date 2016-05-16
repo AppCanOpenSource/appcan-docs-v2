@@ -142,7 +142,7 @@ param为json字符串
 
 ```
 var param = {
-	code:,//
+	code:,//被踢下线code，见下表
 };
 ```
 
@@ -173,7 +173,7 @@ var param = {
 
 ```
 var param = {
-	error:,
+	error:,失败错误码，成功为空
 };
 ```
 
@@ -192,7 +192,7 @@ var param = {
 	content:,//文本内容
 };
 ```
->###sendImage(param)//发送图片
+>###sendImage(param) 发送图片
 
 param为json字符串
 
@@ -204,7 +204,7 @@ var param = {
 };
 ```
 
->###sendAudio(param)//发送音频消息
+>###sendAudio(param) 发送音频消息
 
 param为json字符串
 
@@ -307,7 +307,7 @@ var param = {
 
 >###onRecvMessages(param) 收到新消息监听
 
-如果收到的是图片,视频等需要下载附件的消息,会自动下载。在监听的处理中会调用onFetchMessageAttachment和cbFetchMessageAttachment这两个回调返回进度和结果。
+
 
 ```
 var param = {
@@ -360,8 +360,8 @@ var param = {sessions:[{
 
 ```
 var param = {
-	sessionId:,
-	sessionType:,
+	sessionId:, //会话ID,如果当前session为team,则sessionId为teamId,如果是P2P则为对方帐号
+	sessionType:, //会话类型,当前仅支持P2P(单聊)和Team（群聊）
 	messageId:,//起始查询消息的消息Id
 	limit:,//检索条数, 最大限制100条
 	startTime:,//起始时间,默认为0
@@ -374,8 +374,8 @@ var param = {
 
 ```
 var param = {
-	messages:,
-	error:,
+	messages:,//message组成的数组
+	error:,//错误码,如果成功则error为空
 };
 ```
 
@@ -402,7 +402,7 @@ var param = {
 
 ```
 var param = {
-	result:,
+	result:,//true or false
 };
 ```
 >###playAudio(param)  播放音频
@@ -417,7 +417,7 @@ var param = {
 ```
 var param = {
 	filePath:,//音频文件的路径
-	error:,
+	error:,错误码,如果成功则error为空
 };
 ```
 >###cbCompletedPlayAudio(param)  播放音频结束回调
@@ -425,7 +425,7 @@ var param = {
 ```
 var param = {
 	filePath:,//音频文件的路径
-	error:,
+	error:,错误码,如果成功则error为空
 };
 ```
 >###stopPlay  停止播放音频
@@ -456,7 +456,7 @@ var param = {
 
 ```
 var param = {
-	teamId:,//
+	teamId:,//群组Id
 };
 ```
 >###cbTeamById(param)  获取群组信息回调
@@ -464,7 +464,6 @@ var param = {
 ```
 var param = {
 	team:,//team内详细参数见下表；
-    error:,// 出错信息
 };
 ```
 | team参数 | 参数信息|
@@ -480,14 +479,14 @@ var param = {
 | createTime | 群创建时间 |
 | joinMode | 群验证方式,允许所有人加入:0,需要验证:1,不允许任何人加入:2 |
 | serverCustomInfo | 群服务端自定义信息,应用方可以自行拓展这个字段做个性化配置,客户端不可以修改这个字段 |
-| clientCustomInfo | 群客户端自定义信息,应用方可以自行拓展这个字段做个性化配置,客户端可以通过updateTeamCustomInfo接口修改这个字段 |
+| clientCustomInfo | 群客户端自定义信息,应用方可以自行拓展这个字段做个性化配置,客户端可以修改这个字段 |
 | notifyForNewMsg | 群消息是否需要通知,这个设置影响群消息的APNS推送 |
 
 >###fetchTeamInfo(param)  远程获取群组信息
 
 ```
 var param = {
-	teamId:,//
+	teamId:,//群组Id
 };
 ```
 
@@ -513,14 +512,14 @@ var param = {
 	users:,//array类型,邀请群成员.不能为空,不邀请人时传自己的userId; 当创建普通群时,必须要添加一个其它成员。
 };
 ```
-在创建群组成功后,邀请的群成员会收到系统通知,可以从 `onReceiveSystemNotification(param)` 回调中获取相关的信息。
+在创建群组成功后,邀请的群成员会收到系统通知,可以从 [onReceiveSystemNotification](#onReceiveSystemNotification\(param\)内置系统通知监听)回调中获取相关的信息。
 
 >###cbCreateTeam(param)  创建群组回调
 
 ```
 var param = {
-	teamId:,//
-	error:,//
+	teamId:,//群Id
+	error:,//错误信息,如果成功则error为空
 };
 ```
 >###addUsers(param)  邀请用户入群
@@ -530,8 +529,8 @@ var param = {
 ```
 var param = {
 	teamId:,//群Id
-	users:,//
-	postscript:,//(仅ios有效,android不支持)
+	users:,//userId组成的数组
+	postscript:,//附言(仅ios有效,android不支持)
 };
 ```
 >###cbAddUsers(param)  邀请用户入群回调
@@ -543,7 +542,7 @@ var param = {
 对于android,如果返回的error为810,表示发出邀请成功了,但是还需要对方同意
 ```
 >###acceptInviteWithTeam(param)  同意群邀请(仅限高级群)
-被邀请通知通过onReceiveSystemNotification收到系统通知接口监听
+被邀请通知通过[onReceiveSystemNotification](#onReceiveSystemNotification\(param\)内置系统通知监听)收到系统通知接口监听
 
 ```
 var param = {
@@ -600,7 +599,7 @@ var param = {
 ```
 var param = {
 	teamId:,//群Id
-	userId:,//
+	userId:,//用户Id
 };
 ```
 >###cbPassApplyToTeam(param)  发送通过申请回调(仅限高级群)
@@ -618,8 +617,8 @@ var param = {
 ```
 var param = {
 	teamId:,//群Id
-	userId:,//
-	rejectReason:,//
+	userId:,//用户Id
+	rejectReason:,//拒绝原因
 };
 ```
 >###cbRejectApplyToTeam(param)  发送拒绝申请回调(仅限高级群)
@@ -634,14 +633,14 @@ var param = {
 ```
 var param = {
 	teamId:,//群Id
-	teamName:,//
+	teamName:,//群组名称
 };
 ```
->###cbUpdateTeamName(param)  修改群名称
+>###cbUpdateTeamName(param)  修改群名称回调
 
 ```
 var param = {
-	error:,//修改成功,error为空。
+	error:,//错误码，修改成功error为空。
 };
 ```
 >###updateTeamIntro(param)  修改群介绍(仅限高级群)
@@ -649,7 +648,7 @@ var param = {
 ```
 var param = {
 	teamId:,//群Id
-	intro:,//
+	intro:,//群介绍
 };
 ```
 >###cbUpdateTeamIntro(param)  修改群介绍回调(仅限高级群)
@@ -664,7 +663,7 @@ var param = {
 ```
 var param = {
 	teamId:,//群Id
-	announcement:,//
+	announcement:,//群公告
 };
 ```
 >###cbUpdateTeamAnnouncement(param)  修改群公告回调(仅限高级群)
@@ -679,7 +678,7 @@ var param = {
 ```
 var param = {
 	teamId:,//群Id
-	joinMode:,//
+	joinMode:,//群验证方式,允许所有人加入:0,需要验证:1,不允许任何人加入:2
 };
 ```
 >###cbUpdateTeamJoinMode(param)  修改群验证方式回调(仅限高级群)
@@ -694,14 +693,14 @@ var param = {
 ```
 var param = {
 	teamId:,//群Id
-	users:,//
+	users:,//userId组成的数组
 };
 ```
 >###cbAddManagersToTeam(param)  提升管理员回调(仅限高级群)
 
 ```
 var param = {
-	error:,//成功error为空。
+	error:,//错误码,成功error为空。
 };
 ```
 >###removeManagersFromTeam(param)  移除管理员(仅限高级群)
@@ -709,14 +708,14 @@ var param = {
 ```
 var param = {
 	teamId:,//群Id
-	users:,//
+	users:,//userId组成的数组
 };
 ```
 >###cbRemoveManagersFromTeam(param)  移除管理员回调(仅限高级群)
 
 ```
 var param = {
-	error:,//成功error为空。
+	error:,//错误码,成功error为空。
 };
 ```
 >###transferManagerWithTeam(param)  转让群(仅限高级群)
@@ -732,7 +731,7 @@ var param = {
 
 ```
 var param = {
-	error:,//成功error为空。
+	error:,//错误码,成功error为空。
 };
 ```
 >###fetchTeamMembers(param)  获取群成员
@@ -750,11 +749,11 @@ var param = {
 
 ```
 var param = {
-	members:,//
-	error:,//成功error为空
+	members:,//member组成的数组，member详细参数见下表
+	error:,//错误码,成功error为空
 };
 ```
-| members | 参数信息|
+| member | 参数信息|
 | ----- | ----- |
 | teamId | 群ID |
 | userId | 群成员ID |
@@ -775,7 +774,7 @@ var param = {
 
 ```
 var param = {
-	error:,//成功error为空。
+	error:,//错误码,成功error为空。
 };
 ```
 >###kickUsers(param)  踢出用户
@@ -785,14 +784,14 @@ var param = {
 ```
 var param = {
 	teamId:,//群Id
-	users:,
+	users:,userId组成的数组
 };
 ```
 >###cbKickUsers(param)  踢出用户回调
 
 ```
 var param = {
-	error:,//成功error为空。
+	error:,//错误码,成功error为空。
 };
 ```
 >###dismissTeam(param)  解散群
@@ -808,12 +807,12 @@ var param = {
 
 ```
 var param = {
-	error:,//成功error为空。
+	error:,//错误码,成功error为空。
 };
 ```
 >###updateNotifyStateForTeam(param)  修改群消息通知状态
 
-群组通知是一种消息类型 ( NIMMessageTypeNotification ) ,用户在创建群或者进入群成功之后,任何关于群的变动,云信服务器都会下发一条群通知消息。群通知消息和其他消息一样,可从 NIMConverationManager 提供的消息查询接口中获取.
+群组通知是一种消息类型 ,用户在创建群或者进入群成功之后,任何关于群的变动,云信服务器都会下发一条群通知消息。群通知消息和其他消息一样,可从提供的消息查询接口中获取.
 
 * SDK 在收到群通知之后,会对本地缓存的群信息做出对应的修改,然后触发与修改相对应的委托事件回调。
 
@@ -839,9 +838,9 @@ var param = {
 ***
 除消息通道外,NIM SDK 还提供系统通知这种通道用于消息之外的通知分发。目前有两种类型:内置系统通知和自定义系统通知。
 
-内置:这是由 NIM SDK 预定义的通知类型,目前仅支持几种群操作的通知,如被邀请入群,SDK 负责这些通知的持久化。所有的内置系统通知都是通过onReceiveSystemNotification下发给 APP。为了保证整个程序逻辑的一致性,APP 需要针对不同类型的系统通知进行相应的操作。
+内置:这是由 NIM SDK 预定义的通知类型,目前仅支持几种群操作的通知,如被邀请入群,SDK 负责这些通知的持久化。所有的内置系统通知都是通过[onReceiveSystemNotification](#onReceiveSystemNotification\(param\)内置系统通知监听)下发给 APP。为了保证整个程序逻辑的一致性,APP 需要针对不同类型的系统通知进行相应的操作。
 
->###onReceiveSystemNotification(param)  内置系统通知监听
+>###onReceiveSystemNotification(param)内置系统通知监听
 
 ```
 var param = {
@@ -856,6 +855,60 @@ var param = {
 | targetID | 目标ID,群ID或者是用户ID |
 | postscript | 附言 , 仅iOS支持 | 
 | read | 是否已读 |
+
+
+##2.8、APNS 推送(以下方法全部仅限iOS)
+***
+NIM SDK 提供全局 APNS 属性设置，用于设置免打扰时间和推送样式
+>### registerAPNS(param)  初始化
+>### cbRegisterAPNS(param)  初始化回调
+
+param为json字符串
+
+```
+  var param{
+	result:,//true ,false
+	error:,//result为false时才有
+};
+```
+>###getApnsSetting(param) 获取推送设置
+>###cbGetApnsSetting(param) 获取推送设置回调
+
+param为json字符串
+
+```
+var param = {
+	type:,//推送消息显示类型,显示详情:1,不显示详情:2
+	noDisturbing:,//推送消息是否开启免打扰 TRUE表示开启免打扰
+	noDisturbingStartH:,//免打扰开始时间:小时
+	noDisturbingStartM:,//免打扰开始时间:分
+	noDisturbingEndH:,//免打扰结束时间:小时
+	noDisturbingEndM:,//免打扰结束时间:分
+}
+```
+>###updateApnsSetting(param) 修改推送设置
+
+param为json字符串
+
+```
+var param = {
+	type:,//推送消息显示类型,显示详情:1,不显示详情:2
+	noDisturbing:,//推送消息是否开启免打扰 TRUE表示开启免打扰
+	noDisturbingStartH:,//免打扰开始时间:小时
+	noDisturbingStartM:,//免打扰开始时间:分
+	noDisturbingEndH:,//免打扰结束时间:小时
+	noDisturbingEndM:,//免打扰结束时间:分
+}
+```
+>###cbUpdateApnsSetting(param) 修改推送设置回调
+
+param为json字符串
+
+```
+var param = {
+	error:,
+}
+```
 
 #3、附录
 >###iOS端状态码
