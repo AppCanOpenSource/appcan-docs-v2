@@ -2573,7 +2573,7 @@ uexWeiXin.cbGetLoginUnionID = function (data) {
 
 ### iOS
 
-API版本:`uexWeiXin-3.0.19`
+API版本:`uexWeiXin-3.0.20`
 
 最近更新时间:`2016-5-10`
 
@@ -2608,7 +2608,7 @@ API版本:`uexWeiXin-3.1.35`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.1.35 | 更新SDK，优化代码逻辑；文档中增加错误返回码说明 |
+| 3.1.35 | 更新SDK,优化代码逻辑；文档中增加错误返回码说明 |
 | 3.1.34 | 支持https |
 | 3.1.33 | 修复和完善抛出异常的捕获 |
 | 3.1.32 | 新增setCallbackWindowName接口,解决偶尔收不到回调的问题 |

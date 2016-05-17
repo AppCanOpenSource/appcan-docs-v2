@@ -207,6 +207,7 @@ var param = {
 >###sendText(param) 发送文本消息及表情
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -223,6 +224,7 @@ var param = {
 >###sendFile(param) 发送文件
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -240,6 +242,7 @@ var param = {
 >###sendPicture(param)//发送图片
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -257,6 +260,7 @@ var param = {
 >###sendLocationMsg(param)//发送地理位置信息
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -275,6 +279,7 @@ var param = {
 >###sendVoice(param)//发送语音
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -294,6 +299,7 @@ var param = {
 >###sendVideo(param) 发送视频
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -313,6 +319,7 @@ var param = {
 >###sendCmdMessage(param) 发送透传消息
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -1343,12 +1350,13 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 ### iOS
 
-API版本:`uexEasemob-3.0.22`
+API版本:`uexEasemob-3.0.23`
 
-最近更新时间:`2016-5-7`
+最近更新时间:`2016-5-17`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.23 | 删除EaseUIResource.bundle内会引起上架失败的info.plist |
 | 3.0.22 | initEasemob接口新增isAutoAcceptGroupInvitation参数；消息接口新增extObj参数以适配环信客服功能；group内新增群组加人的相关接口 |
 | 3.0.21 | 更新SDK到3.1.1 |
 | 3.0.20 | 修复加入公开群会失败的问题 |
@@ -1375,12 +1383,14 @@ API版本:`uexEasemob-3.0.22`
 
 ### Android
 
-API版本:`uexEasemob-3.0.23`
+API版本:`uexEasemob-3.0.25`
 
-最近更新时间:`2016-5-7`
+最近更新时间:`2016-5-17`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.25 | 修复获取群组信息时数据返回异常的问题 |
+| 3.0.24 | 创建群组时,Android支持initialWelcomeMessage参数 |
 | 3.0.23 | 升级环信官方SDK到3.1.2, 同时添加客服功能 |
 | 3.0.22 | init只执行一次 |
 | 3.0.21 | 修改getRecentChatters |

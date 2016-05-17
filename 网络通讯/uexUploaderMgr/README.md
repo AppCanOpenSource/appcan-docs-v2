@@ -146,7 +146,6 @@ iOS7.0+
 uexUploaderMgr.uploadFile('1',"res://uexCoverFlow2_tupian.png","inputName",'0');
 ```
 
-
 ## 2.2、回调方法
 > ### cbCreateUploader 创建上传对象是否成功的回调方法
 
@@ -166,6 +165,7 @@ Android2.2+
 iOS7.0+
 
 **版本支持:**
+
 3.0.0+
 
 **示例:**
@@ -205,6 +205,7 @@ Android2.2+
 iOS7.0+
 
 **版本支持:**
+
 3.0.0+
 
 **示例:**
@@ -232,12 +233,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexUploaderMgr-3.0.14`
+API版本:`uexUploaderMgr-3.0.15`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-5-17`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.15 | 用AFNetWorking重写;支持多文件上传;支持后台上传 |
 | 3.0.14 | 添加IDE支持 |
 | 3.0.13 | 修改了上传进度条达不到100% |
 | 3.0.12 | 修改clean方法,setAppVerify新增加appId的信息 |
@@ -256,12 +258,13 @@ API版本:`uexUploaderMgr-3.0.14`
 
 ### Android
 
-API版本:`uexUploaderMgr-3.0.9`
+API版本:`uexUploaderMgr-3.0.10`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-5-17`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.10 | :支持uexBackground。 |
 | 3.0.9 | :兼容http请求返回数据编码格式不是utf-8的情况；修复上传进度回调过快的问题。 |
 | 3.0.8 | 修正plugin文件错误,导致uexFileMgr的plugin方法被覆盖的问题 |
 | 3.0.7 | 增加新的 header以及plugin里面的子应用的appId和appkey都按照主应用为准 |
