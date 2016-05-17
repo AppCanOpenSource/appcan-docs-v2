@@ -18,22 +18,18 @@ NIM(网易云信)插件
 **以上内容非常重要**
 
 root页面收到回调后,可以通过uexWindow的相关方法传递到各个网页去,
-以下方法是您可能要用到的——
-
+以下方法是您可能要用到的
+````
  传递给某个窗口:
- 
-* uexWindow.evaluateScript;
-* uexWindow.evaluatePopoverScript
-* uexWindow.evaluateMultiPopoverScript
-
+uexWindow.evaluateScript
+uexWindow.evaluatePopoverScript
+uexWindow.evaluateMultiPopoverScript
  传递给某些窗口:
- 
-* uexWindow.publishChannelNotification
-* uexWindow.subscribeChannelNotification
+ uexWindow.publishChannelNotification
+ uexWindow.subscribeChannelNotification
+````
 
-这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1318_1249) 内有描述
-
-当然,也可[下载Demo]() 参考Demo内的调用。
+这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1390_1249) 内有描述，当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
 
 需要注意,对于Android 版插件,开发者需要在 config.xml中配置`appKey`和`packageName`。如下
 
@@ -44,11 +40,11 @@ root页面收到回调后,可以通过uexWindow的相关方法传递到各个网
 </config>
 ```
  
-##1.2、 UI展示
+##1.2、UI展示
 暂无
  
-##1.3、 开源源码
-插件测试用例与自定义插件下载:[点击此处](http://plugin.appcan.cn/details.html?id=608_index)  (插件测试用例与插件源码已经提供)
+##1.3、开源源码
+插件测试用例与自定义插件下载:[点击此处](http://plugin.appcan.cn/details.html?id=614_index)  (插件测试用例与插件源码已经提供)
 
  
 ##1.4、 术语表
@@ -331,7 +327,6 @@ var param = {
     latitude:,//纬度(位置消息)
 	longitude:,//经度(位置消息)
 	title:,//标题(位置消息)
-
 };
 ```
 
@@ -349,7 +344,7 @@ var param = {sessions:[{
 	sessionType:,//当前会话type
 	},{
 	}
-};
+]};
 ```
 
 ##2.4、历史记录
@@ -474,7 +469,7 @@ var param = {
 | owner | 群拥有者ID, 普通群拥有者就是群创建者,但是高级群可以进行拥有信息的转让 |
 | intro | 群介绍 |
 | announcement | 群公告 |
-| memberNumber | 群成员人数,这个值表示是上次登录后同步下来群成员数据,并不实时变化,必要时需要调用fetchTeamInfo:completion:进行刷新 |
+| memberNumber | 群成员人数,这个值表示是上次登录后同步下来群成员数据,并不实时变化,必要时需要调用fetchTeamInfo进行刷新 |
 | level | 群等级,目前群人数主要是限制群人数上限 |
 | createTime | 群创建时间 |
 | joinMode | 群验证方式,允许所有人加入:0,需要验证:1,不允许任何人加入:2 |
@@ -512,7 +507,7 @@ var param = {
 	users:,//array类型,邀请群成员.不能为空,不邀请人时传自己的userId; 当创建普通群时,必须要添加一个其它成员。
 };
 ```
-在创建群组成功后,邀请的群成员会收到系统通知,可以从 [onReceiveSystemNotification](#onReceiveSystemNotification\(param\)内置系统通知监听)回调中获取相关的信息。
+在创建群组成功后,邀请的群成员会收到系统通知,可以从 [onReceiveSystemNotification](#onReceiveSystemNotification内置系统通知监听 "onReceiveSystemNotification") 回调中获取相关的信息。
 
 >###cbCreateTeam(param)  创建群组回调
 
@@ -542,7 +537,8 @@ var param = {
 对于android,如果返回的error为810,表示发出邀请成功了,但是还需要对方同意
 ```
 >###acceptInviteWithTeam(param)  同意群邀请(仅限高级群)
-被邀请通知通过[onReceiveSystemNotification](#onReceiveSystemNotification\(param\)内置系统通知监听)收到系统通知接口监听
+
+被邀请通知通过 [onReceiveSystemNotification](#onReceiveSystemNotification内置系统通知监听 "onReceiveSystemNotification") 收到系统通知接口监听
 
 ```
 var param = {
@@ -743,7 +739,7 @@ var param = {
 	teamId:,//群Id
 };
 ```
->###cbFetchTeamMembers(param)  获取群成员
+>###cbFetchTeamMembers(param)  获取群成员回调
 
 获取到的群成员只有云信服务器托管的群相关数据,需要开发者结合自己管理的用户数据进行界面显示
 
@@ -835,13 +831,14 @@ var param = {
 ```
 
 ##2.7、系统通知
-***
 除消息通道外,NIM SDK 还提供系统通知这种通道用于消息之外的通知分发。目前有两种类型:内置系统通知和自定义系统通知。
 
-内置:这是由 NIM SDK 预定义的通知类型,目前仅支持几种群操作的通知,如被邀请入群,SDK 负责这些通知的持久化。所有的内置系统通知都是通过[onReceiveSystemNotification](#onReceiveSystemNotification\(param\)内置系统通知监听)下发给 APP。为了保证整个程序逻辑的一致性,APP 需要针对不同类型的系统通知进行相应的操作。
+内置:这是由 NIM SDK 预定义的通知类型,目前仅支持几种群操作的通知,如被邀请入群,SDK 负责这些通知的持久化。所有的内置系统通知都是通过onReceiveSystemNotification下发给 APP。为了保证整个程序逻辑的一致性,APP 需要针对不同类型的系统通知进行相应的操作。
+自定义系统通知：开发中....
 
->###onReceiveSystemNotification(param)内置系统通知监听
+>###onReceiveSystemNotification内置系统通知监听
 
+`uexNIM.onReceiveSystemNotification(param);`
 ```
 var param = {
 	notification:,//内置系统通知详细参数见下表

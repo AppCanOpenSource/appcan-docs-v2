@@ -156,13 +156,13 @@ uexSlidePager.onPageClick = function(data){
 }  
 
 ```
-> ### onChangeColor 点击页面的监听方法
+> ### onChangeColor 页面切换背景色的监听方法
 
 `uexSlidePager.onChangeColor(color) `
 
 **说明:**
 
-点击页面的监听方法   
+页面切换背景色的监听方法   
  
 
 **参数:**
