@@ -71,10 +71,6 @@ iOS 3.0.0+
 
 ```
     var param1 = {
-            left:0,
-            top:window.screen.height - 50,
-            width:window.screen.width,
-            height:50,
             statusColor:"#EA7C24",
             tab:{
                 textSize:10,
