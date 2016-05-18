@@ -16,26 +16,20 @@
 * 在任何网页调用本插件,调用的是同一个插件实例;
 * 所有的API都是异步方法,不会直接返回值;
 * 所有的回调都会传到root页面(config.xml中配置的App起始页面)
-
 **以上内容非常重要**
 
 root页面收到回调后,可以通过uexWindow的相关方法传递到各个网页去,
 以下方法是您可能要用到的——
-
- 传递给某个窗口:
- 
-* uexWindow.evaluateScript;
-* uexWindow.evaluatePopoverScript
-* uexWindow.evaluateMultiPopoverScript
-
+````
+ 传递给某个窗口
+uexWindow.evaluateScript;
+uexWindow.evaluatePopoverScript
+uexWindow.evaluateMultiPopoverScript
  传递给某些窗口:
- 
-* uexWindow.publishChannelNotification
-* uexWindow.subscribeChannelNotification
-
-这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1318_1249) 内有描述
-
-当然,也可[下载Demo](http://plugin.appcan.cn/details.html?id=406_index) 参考Demo内的调用。
+uexWindow.publishChannelNotification
+uexWindow.subscribeChannelNotification
+````
+这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1390_1249) 内有描述，当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
  
 ##1.2、 UI展示
 暂无
@@ -1028,7 +1022,6 @@ var param = {
 param为json字符串
 
 ```
-
 	var param = {
 	usernames:,// List<String> json格式 
 };
@@ -1046,8 +1039,10 @@ var param={
 
 * 每当添加/移除/更改角色/更改主题/更改群组信息之后,都会触发此回调
 
->###onDidJoinedGroup(param)//自动加入群组监听(3.0.22新增接口)
+>###onDidJoinedGroup(param)//自动加入群组监听
 
+**说明**
+(iOS 3.0.22新增接口)
 SDK自动同意了用户A的加B入群邀请后,用户B接收到该回调,需要initEasemob时设置isAutoAcceptGroupInvitation为TRUE
 
 param为json字符串
@@ -1060,8 +1055,10 @@ param为json字符串
     	message:,//邀请消息
 };
 ```
->###onReceiveGroupInvitation(param)//收到群组邀请监听(iOS 3.0.22, Android 3.0.23新增接口)
+>###onReceiveGroupInvitation(param)//收到群组邀请监听
 
+**说明**
+(iOS 3.0.22, Android 3.0.23新增接口)
 用户A邀请用户B入群,用户B接收到该回调
 
 param为json字符串
@@ -1074,8 +1071,10 @@ param为json字符串
 };
 ```
 
->###acceptJoinApplication(param)//批准入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
+>###acceptJoinApplication(param)//批准入群申请, 需要Owner权限
 
+**说明**
+(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
@@ -1085,8 +1084,10 @@ var param={
 };
 ```
 
->###declineJoinApplication(param)//拒绝入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
+>###declineJoinApplication(param)//拒绝入群申请, 需要Owner权限
 
+**说明**
+(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
@@ -1097,8 +1098,10 @@ var param={
 };
 ```
 
->###acceptInvitationFromGroup(param)//接受入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
+>###acceptInvitationFromGroup(param)//接受入群邀请
 
+**说明**
+(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
@@ -1108,8 +1111,10 @@ var param={
 };
 ```
 
->###declineInvitationFromGroup(param)//拒绝入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
+>###declineInvitationFromGroup(param)//拒绝入群邀请
 
+**说明**
+(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
