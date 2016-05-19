@@ -639,11 +639,13 @@ uexWidget.setPushState(0);
   
 **平台支持:**
 
+  iOS 7.0+
   Android2.2+
   
 **版本支持:**
-
-  3.2.0+
+	
+	iOS 3.4.1+
+  	Android 3.2.0+
   
 **示例:**
 

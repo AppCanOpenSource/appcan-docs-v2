@@ -7145,30 +7145,38 @@ iOS 6.0+
 
 > ### setLoadingImagePath 设置启动图相关参数
 
-`uexWindow.setLoadingImagePath(json)`
+`uexWindow.setLoadingImagePath(params)`
 
 **说明:**
-设置启动图路径和时间，再次启动应用才会生效，若同时调用了uexWidget.closeLoading()和uexWindow.setLoadingImagePath()，则启动图显示时间以最长的为准
+
+设置启动图路径和时间，下次启动应用才会生效
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
-| ---- | ------ | ---- | ---------------------------------------- |
-| json | String | 是    | 该字符串为JSON格式。如下 loadingImagePath: (String类型) 必选 启动图路径，路径协议详见CONSTANT中Path Types；loadingImageTime:(Number类型) 可选 毫秒值 |
+params是JSON字符串,具体结构如下
+
+```
+var params = {
+	loadingImagePath:,//String,必选 启动图路径,只支持"res://","wgt://"协议,当此字段传空字符串("")时,代表取消自定义启动图
+	loadingImageTime:,//Number,当loadingImagePath非空时必选 启动图持续时间,单位毫秒
+}
+```
 
 **平台支持：**
+
 Android2.2+
-iOS6.0+
+iOS7.0+
 
 **版本支持：**
-3.4.0+
+
+3.4.1+
 
 **示例：**
 
 ```
 var params  = {
-		"loadingImagePath":"file:///sdcard/startup_file.jpg",
-		"loadingImageTime":1000
+	loadingImagePath:"file:///sdcard/startup_file.jpg",
+	loadingImageTime:3000
 };
  
 var paramStr = JSON.stringify(params);
