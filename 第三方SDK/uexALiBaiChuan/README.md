@@ -441,7 +441,7 @@ window.uexOnload = function(){
 * 在阿里百川官网控制台--> 证书管理权限下,权限能力中申请开通无线开放百川淘客包，如图![image](./img/11.png)开通后即可显示阿里妈妈淘客PID即mmpid.![image](./img/02.png) 
 * 加入淘宝联盟[链接地址](http://pub.alimama.com/?spm=0.0.0.0.CrMksN)
 ![image](./img/03.png)![image](./img/04.png)
-* 插件使用，先买个乐高试试，网址（https://item.taobao.com/item.htm?spm=a219t.7664554.1998457203.254.FDU0Gt&id=38922866272）[链接地址](https://item.taobao.com/item.htm?spm=a219t.7664554.1998457203.254.FDU0Gt&id=38922866272)
+* 插件使用，先买个乐高试试，[链接地址](https://item.taobao.com/item.htm?spm=a219t.7664554.1998457203.254.FDU0Gt&id=38922866272)
 ![image](./img/05.png)
 通过接口买了，
 
