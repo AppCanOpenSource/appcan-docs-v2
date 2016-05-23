@@ -1194,6 +1194,8 @@ param为json字符串
  
 >###updatePushOptions(param);//设置apns全局属性
 
+**说明:**
+updatePushOptions全为可选参数,当传入空值时,即可通过回调获得当前apns全局属性
 param为json字符串
 
 ```
@@ -1222,7 +1224,7 @@ var param{
 ```
 
  
-	说明:updatePushOptions全为可选参数,当传入空值时,即可通过回调获得当前apns全局属性
+	
 	
 >###ignoreGroupPushNotification(param)://设置指定群组是否接收
 
@@ -1236,7 +1238,8 @@ param为json字符串
 ```
 
  
->###cbIgnoreGroupPushNotification(param)://回调
+>###cbIgnoreGroupPushNotification(param)://设置指定群组是否接收回调
+
 param为json字符串
 
 ```
@@ -1279,6 +1282,7 @@ key | 说明
 action | 具体命令 
 
 >###位置消息
+
 key | 说明         
 ----- | ----- 
 longitude | 经度
