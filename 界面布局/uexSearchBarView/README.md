@@ -6,7 +6,7 @@
 ## 1.2、UI展示
 
 ## 1.3、开源源码
-插件测试用例与源码下载：[点击](xxxx ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=474_index ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
@@ -15,10 +15,15 @@
 > ### open 打开搜索框
 
 `uexSearchBarView.open(json)`  
-**说明:**  
+
+**说明:**
+
+  
 打开搜索框
 
-**参数：**  
+**参数:**
+
+  
 
 ```
 var json = {
@@ -38,15 +43,21 @@ var json = {
     }
 }
 ```
-**平台支持：**  
+
+**平台支持:**
+
+  
 Android 2.2+  
 iOS 6.0+
 
-**版本支持：**  
+**版本支持:**
+
+  
 Android 3.0.0+  
 iOS 3.0.0+
   
-**示例：**
+
+**示例:**
 
 ```
     var width = window.screen.width;
@@ -70,9 +81,8 @@ iOS 3.0.0+
     var data1 = JSON.stringify(param1);
     uexSearchBarView.open(data1);
 ```
-运行效果：
-![](http://i.imgur.com/x980gf9.png)
-
+运行效果:
+![](/docImg/975/u10&#40;1&#41;.png)
 
 > ### close 关闭搜索框  
 
@@ -80,24 +90,33 @@ iOS 3.0.0+
 uexSearchBarView.close()
 ```
 
-**说明:**  
+**说明:**
+
+  
 关闭搜索框  
 
-**参数：**  
+**参数:**
+
+  
 
 无
 
-**平台支持：**  
+**平台支持:**
+
+  
 
 Android 2.2+  
 iOS 6.0+  
 
-**版本支持：**  
+**版本支持:**
+
+  
 
 Android 3.0.0+  
 iOS 3.0.0+
   
-**示例：**
+
+**示例:**
 
 ```
     uexSearchBarView.close()
@@ -108,24 +127,32 @@ iOS 3.0.0+
 ```
 uexSearchBarView.clearHistory()
 ```  
-**说明:**  
+
+**说明:**
+
+  
 清空搜索历史  
 
-**参数：**  
+**参数:**
+
+  
 
 无
 
-**平台支持：**
+**平台支持:**
+
   
 Android 2.2+  
 iOS 6.0+
 
-**版本支持：**  
+**版本支持:**
+
+  
 
 Android 3.0.0+  
 iOS 3.0.0+
 
-**示例：**
+**示例:**
 
 ```
     uexSearchBarView.clearHistory();
@@ -136,7 +163,9 @@ iOS 3.0.0+
 
 `uexSearchBarView.onItemClick(json);`
 
-**参数：**  
+**参数:**
+
+  
 
 ```
 var json = {
@@ -144,19 +173,20 @@ var json = {
     keyword://(必选) 关键字
 }
 ```
-**平台支持：**
+
+**平台支持:**
 
 Android 2.2+
 
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
 
 Android 3.0.0+  
 
 iOS 3.0.0+
 
-**示例：**
+**示例:**
 
 ```
     uexSearchBarView.onItemClick = function(data){
@@ -168,26 +198,27 @@ iOS 3.0.0+
 
 `uexSearchBarView.onSearch(json);`
 
-**参数：**
+**参数:**
 
 ```
 var json = {
     keyword://(必选) 关键字
 }
 ```
-**平台支持：**
+
+**平台支持:**
 
 Android 2.2+
 
 iOS 6.0+
 
-**版本支持：**
+**版本支持:**
 
 Android 3.0.0+
 
 iOS 3.0.0+
 
-**示例：**
+**示例:**
 
 ```
     uexSearchBarView.onSearch = function(data){
@@ -195,10 +226,25 @@ iOS 3.0.0+
     }
 ```
 # 3、更新历史
-API 版本：uexSearchBarView-3.0.0(iOS) uexSearchBarView-3.0.0(Android)  
 
-最近更新时间：2015-08-11
+### iOS
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-| 3.0.0 | 搜索框 | 搜索框|
+API版本:`uexSearchBarView-3.0.1`
+
+最近更新时间:`2015-12-26`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.1 | 添加IDE支持 |
+| 3.0.0 | 搜索框 |
+
+### Android
+
+API版本:`uexSearchBarView-3.0.1`
+
+最近更新时间:`2015-11-06`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.1 | 去掉插件中的ActivityGroup,配合引擎升级 |
+| 3.0.0 | 搜索框 |

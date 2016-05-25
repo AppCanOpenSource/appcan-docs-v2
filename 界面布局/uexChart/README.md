@@ -1,9 +1,12 @@
 [TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 ## 1.1、说明
-   该插件封装几何图表功能，包括饼状图，折线图和柱状图功能。
+   该插件封装几何图表功能,包括饼状图,折线图和柱状图功能。
+   <div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">&times;</button> 公告!
+ ios版插件暂支持公测环境编译,需获取公测权限[跳转](http://plugin.appcan.cn/details.html?id=456_index) ,具体更新到公共插件时间请关注官方通知.
+</div>
 ## 1.2、UI展示
-
+见具体API
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=456_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
@@ -16,6 +19,7 @@
 `uexChart.openPieChart(json)`
 
 **说明:**
+
 打开一个饼状图
 
 **参数:**
@@ -23,31 +27,31 @@
 ```
 var json = {
     id:,//(必选) 唯一标识符
-    left:,//(可选) 左间距，默认0
-    top:,//(可选) 上间距，默认0
-    width:,//(可选) 宽度，默认屏幕宽度
-    height:,//(可选) 高度，默认屏幕高度
-    bgColor:,//(可选) 背景颜色，默认透明(仅Android)
-    showUnit:,//(可选) 是否显示单位，默认false
+    left:,//(可选) 左间距,默认0
+    top:,//(可选) 上间距,默认0
+    width:,//(可选) 宽度,默认屏幕宽度
+    height:,//(可选) 高度,默认屏幕高度
+    bgColor:,//(可选) 背景颜色,默认透明(仅Android)
+    showUnit:,//(可选) 是否显示单位,默认false
     unit:,//(可选) 单位
-    valueTextColor:,//(可选) 饼状图上值的文本颜色，默认#ffffff
-    valueTextSize:,//(可选) 饼状图上值的字体大小，默认13
+    valueTextColor:,//(可选) 饼状图上值的文本颜色,默认#ffffff
+    valueTextSize:,//(可选) 饼状图上值的字体大小,默认13
     desc:,//(可选) 描述
-    descTextColor:,//(可选) 描述及图例文本颜色，默认#000000
-    descTextSize:,//(可选) 描述及图例字体大小，默认12
-    showValue:,//(可选) 是否显示value，默认true
-    showLegend:,//(可选) 是否显示图例，默认false
-    legendPosition:,//(可选) 图例显示的位置，取值范围:bottom-饼状图下方；right-饼状图右侧，默认bottom
-    duration:,//(可选) 显示饼状图动画时间，单位ms，默认1000
-    isScrollWithWeb:,//(可选) 是否跟随网页滑动，默认false
-    showTitle:,//(可选) 是否显示title，默认true
+    descTextColor:,//(可选) 描述及图例文本颜色,默认#000000
+    descTextSize:,//(可选) 描述及图例字体大小,默认12
+    showValue:,//(可选) 是否显示value,默认true
+    showLegend:,//(可选) 是否显示图例,默认false
+    legendPosition:,//(可选) 图例显示的位置,取值范围:bottom-饼状图下方；right-饼状图右侧,默认bottom
+    duration:,//(可选) 显示饼状图动画时间,单位ms,默认1000
+    isScrollWithWeb:,//(可选) 是否跟随网页滑动,默认false
+    showTitle:,//(可选) 是否显示title,默认true
     showPercent:,//(可选) 是否用百分比代替value,默认true
-    showCenter:,//(可选) 是否显示中心圆，默认true
-    centerColor:,//(可选) 中心圆颜色，默认透明
+    showCenter:,//(可选) 是否显示中心圆,默认true
+    centerColor:,//(可选) 中心圆颜色,默认透明
     centerTitle:,//(可选) 中心标题
     centerSummary:,//(可选) 中心子标题
-    centerRadius:,//(可选) 中心圆半径百分比，默认40
-    centerTransRadius:,//(可选) 中心圆半透明部分半径，默认42
+    centerRadius:,//(可选) 中心圆半径百分比,默认40
+    centerTransRadius:,//(可选) 中心圆半透明部分半径,默认42
     data:[//(必选) 数组
         {
             title:,//(必选) 色块名称
@@ -59,10 +63,12 @@ var json = {
 ```
 
 **平台支持:**
+
 Android 2.2+
 iOS 7.1+
 
 **版本支持:**
+
 Android 3.0.0+
 iOS 3.0.0+
 
@@ -170,13 +176,8 @@ iOS 3.0.0+
     uexChart.openPieChart(data2);
 ```
 运行效果:
-![](http://i.imgur.com/inVOmXE.png)
-
-
-
-
-
-
+ 
+![](/docImg/975/2.png)
 >### closePieChart 关闭饼状图
 
   
@@ -186,10 +187,11 @@ iOS 3.0.0+
 
   关闭饼状图
   
+
 **参数:**
 
 ```
-var json = []//(可选) 饼状图唯一标识符数组，不传时关闭所有饼状图
+var json = []//(可选) 饼状图唯一标识符数组,不传时关闭所有饼状图
 ```
 
 **平台支持:**
@@ -217,6 +219,7 @@ iOS 3.0.0+
 >### openLineChart 打开曲线图
 
 **说明:**
+
   打开曲线图
   
 `uexChart.openLineChart(json)`
@@ -226,38 +229,38 @@ iOS 3.0.0+
 ```
 var json = {
     id:,//(必选) 唯一标识符
-    left:,//(可选) 左间距，默认0
-    top:,//(可选) 上间距，默认0
-    width:,//(可选) 宽度，默认屏幕宽度
-    height:,//(可选) 高度，默认屏幕高度
-    bgColor:,//(可选) 背景颜色，默认透明
-    showUnit:,//(可选) 是否显示单位，默认false
+    left:,//(可选) 左间距,默认0
+    top:,//(可选) 上间距,默认0
+    width:,//(可选) 宽度,默认屏幕宽度
+    height:,//(可选) 高度,默认屏幕高度
+    bgColor:,//(可选) 背景颜色,默认透明
+    showUnit:,//(可选) 是否显示单位,默认false
     unit:,//(可选) 单位
-    valueTextColor:,//(可选) 曲线图上值的文本颜色，默认#ffffff
-    valueTextSize:,//(可选) 曲线图上值的字体大小，默认13
+    valueTextColor:,//(可选) 曲线图上值的文本颜色,默认#ffffff
+    valueTextSize:,//(可选) 曲线图上值的字体大小,默认13
     desc:,//(可选) 描述
-    descTextColor:,//(可选) 描述及图例文本颜色，默认#000000
-    descTextSize:,//(可选) 描述及图例字体大小，默认12
-    showValue:,//(可选) 是否显示value，默认true
-    showLegend:,//(可选) 是否显示图例，默认false
-    legendPosition:,//(可选) 图例显示的位置，取值范围:bottom-曲线图下方；right-曲线图右侧，默认bottom
-    duration:,//(可选) 显示曲线图动画时间，单位ms，默认1000
-    isScrollWithWeb:,//(可选) 是否跟随网页滑动，默认false
-    minValue,//(可选)纵坐标最小值（不填默认为传入的数据中最小的纵坐标值）
-    maxValue,//(可选)纵坐标最大值（不填默认为传入的数据中最大的纵坐标值）
-    borderColor:,//（可选）图表边框颜色（默认为黑）   
-    extraLines:[//（可选）辅助线数组，辅助线是一条平行于x轴的直线
+    descTextColor:,//(可选) 描述及图例文本颜色,默认#000000
+    descTextSize:,//(可选) 描述及图例字体大小,默认12
+    showValue:,//(可选) 是否显示value,默认true
+    showLegend:,//(可选) 是否显示图例,默认false
+    legendPosition:,//(可选) 图例显示的位置,取值范围:bottom-曲线图下方；right-曲线图右侧,默认bottom
+    duration:,//(可选) 显示曲线图动画时间,单位ms,默认1000
+    isScrollWithWeb:,//(可选) 是否跟随网页滑动,默认false
+    minValue,//(可选)纵坐标最小值(不填默认为传入的数据中最小的纵坐标值)
+    maxValue,//(可选)纵坐标最大值(不填默认为传入的数据中最大的纵坐标值)
+    borderColor:,//(可选)图表边框颜色(默认为黑)   
+    extraLines:[//(可选)辅助线数组,辅助线是一条平行于x轴的直线
         {
-            yValue:,//（必选）纵坐标值,
+            yValue:,//(必选)纵坐标值,
              lineName,//(必选)辅助线标签名
-               lineColor:,//（可选）辅助线颜色
-             textColor:,//（可选）辅助线标签颜色
-               textSize:,//（可选）辅助线标签字体大小
-             isSolid:,//（可选）是否是实线，默认true
-              lineWidth://（可选）辅助线宽度
+               lineColor:,//(可选)辅助线颜色
+             textColor:,//(可选)辅助线标签颜色
+               textSize:,//(可选)辅助线标签字体大小
+             isSolid:,//(可选)是否是实线,默认true
+              lineWidth://(可选)辅助线宽度
         }
     ],
-    xData:[],//（必选）横坐标数组，包含所有横坐标的值
+    xData:[],//(可选)横坐标数组,包含所有横坐标的值 (详见下方说明)
     lines:[//(必选) 曲线数组
         {
             lineName:,//(必选) 曲线名称
@@ -265,21 +268,31 @@ var json = {
             lineWidth:,//(必选) 曲线线宽
             circleColor:,//(必选) 结点圆圈颜色
             circleSize:,//(必选) 结点圆圈大小
-            isSolid:,//(可选) 是否是实线，默认true
-            cubicIntensity:,//(可选)圆滑程度，取值0.05~1 值越大曲线越弯曲，不传时曲线为折线
+            isSolid:,//(可选) 是否是实线,默认true
+            cubicIntensity:,//(可选)圆滑程度,取值0.05~1 值越大曲线越弯曲,不传时曲线为折线
             data:[//(必选) 数据数组
                 {
-                    xValue:,//(必选) 横坐标值，必须是xData中包含的值
+                    xValue:,//(必选) 横坐标值(必须是xData中包含的值,详见下方说明)
                     yValue://(必选) 纵坐标值
                 }
             ]
         }
-    ]
+    ],
+    option:{
+		initZoomX:,//Number,可选, X方向缩放系数。initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
+		initZoomY:,//Number,可选, Y方向缩放系数。initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
+		isSupportDrag:,//Boolean,可选,是否支持滑动手势
+		isSupportZoomX:,//Boolean,可选,是否响应X方向上的缩放手势
+		isSupportZoomY://Boolean,可选,是否响应Y方向上的缩放手势
+	}
 }
 ```
 
-**平台支持:**
+* xData里的元素是在x轴上显示的文字,支持Number和String。
+* 当xData不传时,插件内部会新建一个数组,并将**每一个出现过的**xValue**顺次**添加至此数组中,并将此数组当做xData使用。
+* 传入xData时,插件不会再往其中添加新元素。此时,若数据的xValue没有出现在xData中,那么这个数据将被忽略。
 
+**平台支持:**
 
 Android 2.2+
 iOS 7.1+
@@ -290,6 +303,7 @@ Android 3.0.0+
 iOS 3.0.0+
 
 **示例:**
+
 示例1
 
 ```
@@ -363,8 +377,8 @@ iOS 3.0.0+
 ```
 
 运行效果:(网页背景色为蓝色)
-![](http://i.imgur.com/I1ojQqC.png)
-
+ 
+![](/docImg/975/3.png)
 示例2
 
 ```
@@ -435,8 +449,8 @@ iOS 3.0.0+
     uexChart.openLineChart(data1);
 ```
 运行效果:
-![](http://i.imgur.com/x5mXY8N.png)
-
+ 
+![](/docImg/975/4.png)
 >### closeLineChart 关闭曲线图
 
 `uexChart.closeLineChart(json)`
@@ -445,11 +459,10 @@ iOS 3.0.0+
 
   关闭曲线图
 
-
 **参数:**
 
 ```
-var json = []//(可选) 曲线图唯一标识符数组，不传时关闭所有曲线图
+var json = []//(可选) 曲线图唯一标识符数组,不传时关闭所有曲线图
 ```
 
 **平台支持:**
@@ -478,45 +491,45 @@ iOS 3.0.0+
  
 `uexChart.openBarChart(json)`
 
-
 **说明:**
 
   打开直方图
   
+
 **参数:**
 
 ```
 var json = {
     id:,//(必选) 唯一标识符
-    left:,//(可选) 左间距，默认0
-    top:,//(可选) 上间距，默认0
-    width:,//(可选) 宽度，默认屏幕宽度
-    height:,//(可选) 高度，默认屏幕高度
-    bgColor:,//(可选) 背景颜色，默认透明
-    showUnit:,//(可选) 是否显示单位，默认false
+    left:,//(可选) 左间距,默认0
+    top:,//(可选) 上间距,默认0
+    width:,//(可选) 宽度,默认屏幕宽度
+    height:,//(可选) 高度,默认屏幕高度
+    bgColor:,//(可选) 背景颜色,默认透明
+    showUnit:,//(可选) 是否显示单位,默认false
     unit:,//(可选) 单位
-    valueTextColor:,//(可选) 直方图上值的文本颜色，默认#ffffff
-    valueTextSize:,//(可选) 直方图上值的字体大小，默认13
+    valueTextColor:,//(可选) 直方图上值的文本颜色,默认#ffffff
+    valueTextSize:,//(可选) 直方图上值的字体大小,默认13
     desc:,//(可选) 描述
-    descTextColor:,//(可选) 描述及图例文本颜色，默认#000000
-    descTextSize:,//(可选) 描述及图例字体大小，默认12
-    showValue:,//(可选) 是否显示value，默认true
-    showLegend:,//(可选) 是否显示图例，默认false
-    legendPosition:,//(可选) 图例显示的位置，取值范围:bottom-直方图下方；right-直方图右侧，默认bottom
-    duration:,//(可选) 显示直方图动画时间，单位ms，默认1000
-    isScrollWithWeb:,//(可选) 是否跟随网页滑动，默认false
-    minValue,//(可选)纵坐标最小值（不填默认为传入的数据中最小的纵坐标值）
-    maxValue,//(可选)纵坐标最大值（不填默认为传入的数据中最大的纵坐标值）
-    borderColor:,//（可选）图表边框颜色（默认为黑）
-    extraLines:[//（可选）辅助线数组，辅助线是一条平行于x轴的直线
+    descTextColor:,//(可选) 描述及图例文本颜色,默认#000000
+    descTextSize:,//(可选) 描述及图例字体大小,默认12
+    showValue:,//(可选) 是否显示value,默认true
+    showLegend:,//(可选) 是否显示图例,默认false
+    legendPosition:,//(可选) 图例显示的位置,取值范围:bottom-直方图下方；right-直方图右侧,默认bottom
+    duration:,//(可选) 显示直方图动画时间,单位ms,默认1000
+    isScrollWithWeb:,//(可选) 是否跟随网页滑动,默认false
+    minValue,//(可选)纵坐标最小值(不填默认为传入的数据中最小的纵坐标值)
+    maxValue,//(可选)纵坐标最大值(不填默认为传入的数据中最大的纵坐标值)
+    borderColor:,//(可选)图表边框颜色(默认为黑)
+    extraLines:[//(可选)辅助线数组,辅助线是一条平行于x轴的直线
         {
-            yValue:,//（必选）纵坐标值,
+            yValue:,//(必选)纵坐标值,
             lineName,//(必选)辅助线标签名
-            lineColor:,//（可选）辅助线颜色
-            textColor:,//（可选）辅助线标签颜色
-            textSize:,//（可选）辅助线标签字体大小
-            isSolid:,//（可选）是否是实线，默认true
-            lineWidth:,//（可选）辅助线宽度
+            lineColor:,//(可选)辅助线颜色
+            textColor:,//(可选)辅助线标签颜色
+            textSize:,//(可选)辅助线标签字体大小
+            isSolid:,//(可选)是否是实线,默认true
+            lineWidth:,//(可选)辅助线宽度
         }
     ],
     bars:[//直方数组
@@ -525,12 +538,19 @@ var json = {
             barColor:,//(必选) 直方颜色
             data:[//(必选) 数据数组
                 {
-                    xValue:,//(必选) 横坐标值
+                    xValue:,//(必选) 横坐标值,(必须是xData中包含的值,详见下方说明)
                     yValue://(必选) 纵坐标值
                 }
             ]
         }
-    ]
+    ],
+    option:{
+		initZoomX:,//Number,可选, X方向缩放系数。initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
+		initZoomY:,//Number,可选, Y方向缩放系数。initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
+		isSupportDrag:,//Boolean,可选,是否支持滑动手势
+		isSupportZoomX:,//Boolean,可选,是否响应X方向上的缩放手势
+		isSupportZoomY://Boolean,可选,是否响应Y方向上的缩放手势
+	}
 }
 ```
 
@@ -580,8 +600,8 @@ iOS 3.0.0+
     uexChart.openBarChart(data1);
 ```
 运行效果:(网页背景色为蓝色)
-![](http://i.imgur.com/2dYPSdL.png)
-
+ 
+![](/docImg/975/5.png)
 示例2
 
 ```
@@ -605,6 +625,7 @@ iOS 3.0.0+
         duration:1800,
         isScrollWithWeb:true,
         borderColor:"#ccc",
+        xData:["2001","2002","2003","2004","2005","2006"],
         bars:[
             {
                 barName:"bar1",
@@ -647,8 +668,8 @@ iOS 3.0.0+
     uexChart.openBarChart(data1);
 ```
 运行效果:
-![](http://i.imgur.com/EareBll.png)
-
+ 
+![](/docImg/975/6.png)
 >### closeBarChart 关闭直方图
 
 `uexChart.closeBarChart(json)`
@@ -657,10 +678,11 @@ iOS 3.0.0+
 
   关闭直方图
   
+
 **参数:**
 
 ```
-var json = []//(可选) 直方图唯一标识符数组，不传时关闭所有直方图
+var json = []//(可选) 直方图唯一标识符数组,不传时关闭所有直方图
 ```
 
 **平台支持:**
@@ -674,6 +696,7 @@ Android 3.0.0+
 iOS 3.0.0+
 
 **示例:**
+
 ```
 示例1
     var params = [1];
@@ -684,17 +707,9 @@ iOS 3.0.0+
     uexChart.closeBarChart();//关闭所有直方图
 ```
 
-
-
-
-
-
-
 ## 2.2、监听方法
 
 >### onValueSelected 图表中元素被点击的监听方法
-
-
 
 `uexChart.onValueSelected(json);`
 
@@ -706,9 +721,14 @@ iOS 3.0.0+
 
 ```
 var json = {
-    value://被点击的元素对应的值
+    id:,//Number,图表id,用来区分不同的图表
+    value:,//Number,被点击的元素对应的y值
+    dataSetIndex:,//Number,被点击的元素所在的数据数组序号
+    xIndex://Number,被点击的元素对应的x轴序号
 }
 ```
+
+* dataSetIndex和xIndex iOS 3.0.3+才支持
 
 **平台支持:**
 
@@ -720,7 +740,6 @@ var json = {
 Android 3.0.0+
 iOS 3.0.0+
 
-
 **示例:**
 
 ```
@@ -730,13 +749,33 @@ iOS 3.0.0+
 ```
 
 # 3、更新历史
-API 版本:uexChart-3.0.0(iOS) uexChart-3.0.1(Android)
-最近更新时间:2015-07-01
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ------------ | ------------ | ------------ |
-|3.0.1||替换ActivityGroup|
-| 3.0.0 | 几何图表插件 | 几何图表插件|
+### iOS
 
+API版本:`uexChart-3.0.6`
 
+最近更新时间:`2016-1-27`
 
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.6 | 修改了每次只能获取最后一个图表id的BUG |
+| 3.0.5 | 在监听方法onValueSelected中增加了图表id字段,用来区分图表 |
+| 3.0.4 | 改用embedFrameworks方式调用,提高编译速度 |
+| 3.0.3 | openBarChart和openLineChart新增option参数; |
+| 3.0.2 | 使用Swift2.1编译,支持IDE本地打包 |
+| 3.0.1 | 使用Swift2.0的库,支持Xcode7 |
+| 3.0.0 | 几何图表插件 |
+
+### Android
+
+API版本:`uexChart-3.0.4`
+
+最近更新时间:`2016-01-25`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.4 | 修复了获取id与iOS不符的问题 |
+| 3.0.3 | 在图表中元素被点击的监听方法onValueSelected中增加了图表id字段,用来区分图表 |
+| 3.0.2 | openBarChart和openLineChart新增option参数 |
+| 3.0.1 | 替换ActivityGroup |
+| 3.0.0 | 几何图表插件 |

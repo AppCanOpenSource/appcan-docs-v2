@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<!--
+ 
+ uexEasemob是基于环信API封装的AppCan平台的插件模块。
+ 详情可见：http://plugin.appcan.cn/details.html?id=406_index 内含插件包、插件源码及API文档
+ 
+ 
+ 
+ 本插件为单例插件 ——
+ * 在任何网页调用本插件，调用的是同一个插件实例;
+ * 所有的API都是异步方法，不会直接返回值;
+ * 所有的回调都会传到root页面（config.xml中配置的App起始页面，本Demo中就为本页面）
+ 
+ 以上内容非常重要，
+ 以上内容非常重要，所以说了两遍。
+ 
+ 
+ root页面收到回调后，可以通过uexWindow的相关方法传递到各个网页去，
+ 以下方法是您可能要用到的——
+ 传递给某个窗口:
+ * uexWindow.evaluateScript;
+ * uexWindow.evaluatePopoverScript
+ * uexWindow.evaluateMultiPopoverScript
+ 传递给某些窗口:
+ * uexWindow.publishChannelNotification
+ * uexWindow.subscribeChannelNotification
+ 
+ 这些方法具体用法在文档 http://newdocx.appcan.cn/index.html?templateId=409 内有描述
+ 当然，也可参考本Demo内的调用。
+ 
+ 
+ 
+ 
+ 有任何问题/发现bug等等等请去论坛 http://bbs.appcan.cn/forum.php?mod=forumdisplay&fid=61&page=1 发帖获得支持和反馈
+ 
+ 3Q~
+ 
+ 2015-6-16 by Cerino
+ 
+ 
+ 
+ -->
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+            <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+                <link rel="stylesheet" href="css/ui-btn.css">
+                    <link rel="stylesheet" href="css/ui-base.css">
+                        <link rel="stylesheet" href="css/ui-box.css">
+                            <link rel="stylesheet" href="css/ui-color.css">
+                                <link rel="stylesheet" href="css/ui-res.css">
+                                    
+                                    <script src="js/zy_click.js">
+                                        </script>
+                                    <script src="js/zy_control.js"></script>
+                                    <script>
+                                        </script>
+                                    </head>
+    <body class="um-vp" ontouchstart>
+        <div id="page_0" class="up ub ub-ver" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh t-wh ub" style="background: #27A73F;">
+                <!-- <div class="umw4 ub ub-ac ub-pc" ontouchstart="zy_touch()" onclick="uexWindow.close(-1)">
+                 <div ontouchstart="zy_touch('btn-act')" class="btn uba b-bla uinn5 c-blu c-m1 uc-a t-wh" style="background: -webkit-gradient(linear,0 0,0 100%,from(#FFCD00),color-stop(50%,#FFBC00),color-stop(50%,orange));border: 1px solid #FFA700;-webkit-border-radius: 8px;  text-align: center;color: #712000;  display: block; font-size: 1em; padding: 0.2em;">返回</div>
+                 </div>
+                 -->
+                <h1 class="ut ub-f1 ulev0 ut-s tx-c" tabindex="0">uexNIM Demo</h1>
+                <div class="umw4" ontouchstart="zy_touch()" onclick="">
+                    <!--插入按钮控件-->
+                </div>
+            </div>
+            <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l t-bla" style="">
+                
+            </div>
+        </div>
+    </body>
+     <script src="js/appcan.control.js"></script>
+      <script src="js/appcan.js"></script>
+    
+    <script>
+        
+        
+        
+        
+        
+        zy_init();
+        
+        window.uexOnload = function(type)
+        {
+            
+            if (!type) {
+                zy_con("content", "index_content.html", 0, $$("header").offsetHeight);
+            }
+            window.onorientationchange=window.onresize=function()
+            {
+                zy_resize("content",0,$$("header").offsetHeight);
+            }
+            cp('root');
+            
+            
+            
+            
+            uexNIM.cbRegisterApp=function(data){
+                alert("cbRegisterApp"+data);
+            }
+            uexNIM.cbRegisterUser=function(data){
+                alert("cbRegisterUser"+data);
+            }
+            uexNIM.cbLogin=function(data){
+                alert("cbLogin"+data);
+            }
+            uexNIM.cbLogout=function(data){
+                alert("cbLogout"+data);
+            }
+            //登陆状态回调
+            uexNIM.onLogin=function(data){
+                //alert("onLogin"+data);
+            }
+            uexNIM.onKick=function(data){
+                alert("onKick"+data);
+            }
+            uexNIM.onAutoLoginFailed=function(data){
+                alert("onAutoLoginFailed"+data);
+            }
+            uexNIM.onAutoLoginFailed=function(data){
+                alert("onAutoLoginFailed"+data);
+            }
+            uexNIM.onMultiLoginClientsChanged=function(data){
+                alert("onMultiLoginClientsChanged"+data);
+            }
+            
+            //2.3基础消息
+            uexNIM.willSendMessage=function(data){
+                alert("willSendMessage"+data);
+            }
+            uexNIM.cbDidSendMessage=function(data){
+                var data1=JSON.parse(data);
+                appcan.locStorage.setVal("sessionId",data1.sessionId);
+                appcan.locStorage.setVal("messageId",data1.messageId);
+                appcan.locStorage.setVal("sessionType",data1.sessionType);
+                appcan.locStorage.setVal("endTime",data1.timestamp);
+                if(data.messageType==2){
+                    appcan.locStorage.setVal("audioPath",data1.path);
+                }
+                alert("cbDidSendMessage"+data);
+            }
+            uexNIM.onSendMessageWithProgress=function(data){
+                alert("onSendMessageWithProgress"+data);
+            }
+            uexNIM.onRecvMessages=function(data){
+                alert("onRecvMessages"+data);
+            }
+            uexNIM.onFetchMessageAttachment=function(data){
+                alert("onFetchMessageAttachment"+data);
+            }
+            uexNIM.cbFetchMessageAttachment=function(data){
+                alert("cbFetchMessageAttachment"+data);
+            }
+            uexNIM.cbAllRecentSession=function(data){
+                alert("cbAllRecentSession"+data);
+            }
+            uexNIM.onAddRecentSession=function(data){
+                alert("onAddRecentSession"+data);
+            }
+            uexNIM.onUpdateRecentSession=function(data){
+                alert("onUpdateRecentSession"+data);
+            }
+            uexNIM.onRemoveRecentSession=function(data){
+                alert("onRemoveRecentSession"+data);
+            }
+            uexNIM.cbDeleteAllMessages=function(data){
+                alert("cbDeleteAllMessages"+data);
+            }
+            uexNIM.cbAllUnreadCount=function(data){
+                alert("cbAllUnreadCount"+data);
+            }
+            //2.4 历史记录
+            uexNIM.cbFetchMessageHistory=function(data){
+                alert("cbFetchMessageHistory"+data);
+            }
+            uexNIM.cbMessagesInSession=function(data){
+                alert("cbMessagesInSession"+data);
+            }
+            uexNIM.cbSearchMessages=function(data){
+                alert("cbSearchMessages"+data);
+            }
+
+            //2.5 语音录制及回放
+
+            uexNIM.cbSwitchAudioOutputDevice=function(data){
+                alert("cbSwitchAudioOutputDevice"+data);
+            }
+            uexNIM.cbIsPlaying=function(data){
+                alert("cbIsPlaying"+data);
+            }
+            uexNIM.cbBeganPlayAudio=function(data){
+                alert("cbBeganPlayAudio"+data);
+            }
+            uexNIM.cbCompletedPlayAudio=function(data){
+                alert("cbCompletedPlayAudio"+data);
+            }
+
+            uexNIM.cbIsRecording=function(data){
+                alert("cbIsRecording"+data);
+            }
+            uexNIM.cbBeganRecordAudio=function(data){
+                alert("cbBeganRecordAudio"+data);
+            }
+            uexNIM.cbCompletedRecordAudio=function(data){
+                var data1=JSON.parse(data);
+                appcan.locStorage.setVal("audioPath",data1.filePath);
+                alert("cbCompletedPlayAudio"+data);
+            }
+            //录音进度回调
+            uexNIM.onRecordAudioProgress=function(data){
+                //alert("onRecordAudioProgress"+data);
+            }
+            uexNIM.cbCecordAudioDidCancelled=function(data){
+                alert("cbCecordAudioDidCancelled"+data);
+            }
+            uexNIM.onPlayAudioInterruptionBegin=function(data){
+                alert("onPlayAudioInterruptionBegin"+data);
+            }
+            uexNIM.onRecordAudioInterruptionBegin=function(data){
+                alert("onRecordAudioInterruptionBegin"+data);
+            }
+            uexNIM.onPlayAudioInterruptionEnd=function(data){
+                alert("onPlayAudioInterruptionEnd"+data);
+            }
+            uexNIM.onRecordAudioInterruptionEnd=function(data){
+                alert("onRecordAudioInterruptionEnd"+data);
+            }
+            
+            //2.6 群组功能
+            uexNIM.cbAllMyTeams=function(data){
+                alert("cbAllMyTeams"+data);
+            }
+            uexNIM.cbTeamById=function(data){
+                alert("cbTeamById"+data);
+            }
+            uexNIM.cbTeamById=function(data){
+                alert("cbTeamById"+data);
+            }
+
+            uexNIM.cbFetchTeamInfo=function(data){
+                alert("cbFetchTeamInfo:"+data);
+            }
+            uexNIM.cbCreateTeam=function(data){
+                alert("cbCreateTeam"+data);
+            }
+            uexNIM.cbAddUsers=function(data){
+                alert("cbAddUsers"+data);
+            }
+            uexNIM.cbAcceptInviteWithTeam=function(data){
+                alert("cbAcceptInviteWithTeam"+data);
+            }
+            uexNIM.cbRejectInviteWithTeam=function(data){
+                alert("cbRejectInviteWithTeam"+data);
+            }
+            uexNIM.cbApplyToTeam=function(data){
+                alert("cbApplyToTeam"+data);
+            }
+            uexNIM.cbPassApplyToTeam=function(data){
+                alert("cbPassApplyToTeam"+data);
+            }
+            uexNIM.cbRejectApplyToTeam=function(data){
+                alert("cbRejectApplyToTeam"+data);
+            }
+            uexNIM.cbUpdateTeamName=function(data){
+                alert("cbUpdateTeamName"+data);
+            }
+            uexNIM.cbUpdateTeamIntro=function(data){
+                alert("cbUpdateTeamIntro"+data);
+            }
+            uexNIM.cbUpdateTeamAnnouncement=function(data){
+                alert("cbUpdateTeamAnnouncement"+data);
+            }
+            uexNIM.cbUpdateTeamJoinMode=function(data){
+                alert("cbUpdateTeamJoinMode"+data);
+            }
+            uexNIM.cbAddManagersToTeam=function(data){
+                alert("cbAddManagersToTeam"+data);
+            }
+            uexNIM.cbRemoveManagersFromTeam=function(data){
+                alert("cbRemoveManagersFromTeam"+data);
+            }
+            uexNIM.cbTransferManagerWithTeam=function(data){
+                alert("cbTransferManagerWithTeam"+data);
+            }
+            uexNIM.cbFetchTeamMembers=function(data){
+                alert("cbFetchTeamMembers"+data);
+            }
+            uexNIM.cbQuitTeam=function(data){
+                alert("cbQuitTeam"+data);
+            }
+            uexNIM.cbKickUsers=function(data){
+                alert("cbKickUsers"+data);
+            }
+            uexNIM.cbDismissTeam=function(data){
+                alert("cbDismissTeam"+data);
+            }
+            uexNIM.cbUpdateNotifyStateForTeam=function(data){
+                alert("cbUpdateNotifyStateForTeam"+data);
+            }
+            uexNIM.cbNotifyForNewMsgForTeam=function(data){
+                alert("cbNotifyForNewMsgForTeam"+data);
+            }
+            uexNIM.onTeamUpdated=function(data){
+                alert("onTeamUpdated"+data);
+            }
+            uexNIM.onTeamRemoved=function(data){
+                alert("onTeamRemoved"+data);
+            }
+            //2.7 系统通知
+            uexNIM.onReceiveSystemNotification=function(data){
+                alert("onReceiveSystemNotification"+data);
+            }
+
+          }
+    var cPage="1";
+    cp=function(name){
+        cPage=name;
+    }
+    
+    
+    
+    
+    postToFront=function(name,data){
+        window.localStorage.fName=name;
+        window.localStorage.fData=data;
+        var jsStr='callBack();';
+        if(cPage == 'root'){
+            uexWindow.evaluatePopoverScript("root","content",jsStr);
+        }else{
+            uexWindow.evaluateScript(cPage,0,jsStr);
+        }
+        
+    }
+    globalPost=function(data){
+        window.localStorage.gData=data;
+        uexWindow.publishChannelNotification("1","");
+    }
+    </script>
+</html>

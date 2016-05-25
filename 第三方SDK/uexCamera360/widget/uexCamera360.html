@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    
+    <script type="text/javascript">
+    function cameraEdit(){
+        var path = document.getElementById("path").value;
+        var savePath = document.getElementById("savePath").value;;
+        var params = {
+            id:2,
+            imgSrcPath:path,//要编辑的图片源地址
+            isSaveToGallery:false,//编辑后的图片是否保存到相册(仅Android支持)
+            imgSavePath:savePath //编辑后的图片存储路径
+        };
+        var data = JSON.stringify(params);
+        uexCamera360.edit(data);
+    }
+
+
+    window.uexOnload = function(type){
+        if(type == 0){
+            uexCamera360.cbEdit = cbEdit;
+        }
+    }
+
+    function cbEdit(info){
+        alert('cbEdit: '+info);
+    }
+    </script>
+</head>
+
+<body>
+    <div class="tit">uexCamera360</div>
+    <div class="conbor">
+        <div class="consj">
+            源图片路径:<input class="textbox" type="text" value="" id="path">
+            保存图片文件夹路径:<input class="textbox" type="text" value="wgt://" id="savePath">
+            <input class='btn' type='button' value='edit' onclick='cameraEdit()'>
+
+        </div>
+    </div>
+</body>
+</html>

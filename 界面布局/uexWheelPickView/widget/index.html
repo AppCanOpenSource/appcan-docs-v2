@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport"
+        content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+            <title>uexWheelPickView</title>
+            <script type="text/javascript">
+                window.uexOnload = function() {
+                    uexWheelPickView.onConfirmClick = function(state){
+                        alert(state);
+                    }
+                }
+                function openButton(){
+                    var params = {
+                        x:0,
+                        y:100,
+                        width:window.screen.width,
+                        height:300,
+                        src:"res://test.json",
+                        select:[13,3,0]
+                    };
+                    uexWheelPickView.open(JSON.stringify(params));
+                }
+            function closeButton(){
+                uexWheelPickView.close();
+            }
+            </script>
+            </head>
+    
+    <body>
+        <div class="tit" id = "tit">uexWheelPickView</div>
+        <div class="conbor">
+            <div class="consj">
+                <br><br><br><br><br><br><br>
+                <input class="btn" type="button" value="open" onclick="openButton();"/>
+                <input class="btn" type="button" value="close" onclick="closeButton();"/>
+                
+            </div>
+        </div>
+    </body>
+</html>

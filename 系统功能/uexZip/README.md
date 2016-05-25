@@ -1,4 +1,4 @@
-﻿ 
+ 
 [TOC]
  #1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 解压插件
@@ -9,26 +9,25 @@
 
  ![](http://newdocx.appcan.cn/docximg/125135p2015q6p16r.png)
 ##1.3 、 开源源码
-插件测试用例与源码下载：[点击](http://plugin.appcan.cn/details.html?id=198_index) 插件中心至插件详情页 （插件测试用例与插件源码已经提供）
+插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=198_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
  #2、API概览
 
  
 ##2.1、方法
 
-
 > ### 			zip	  压缩文件		
 
 `uexZip.zip(srcPath,zippedPath)	`				
 ** 			说明:		**
 压缩文件					
-回调 [cbZip](#cbZip 压缩的回调方法，压缩完成时被调用   "压缩的回调方法") 
+回调 [cbZip](#cbZip 压缩的回调方法,压缩完成时被调用   "压缩的回调方法") 
 **  			参数:		**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| srcPath | String类型 | 必选 |  源文件路径。路径协议详见CONSTANT中PathTypes|
-| zippedPath| String类型 | 必选 | 目标文件路径。路径协议详见CONSTANT中PathTypes |
+| ----- | ----- | ----- | ----- |
+| srcPath | String类型 | 必选 |  源文件路径。路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
+| zippedPath| String类型 | 必选 | 目标文件路径。路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
  
 **			平台支持:		**
 Android2.2+					
@@ -45,9 +44,9 @@ iOS6.0+
 **			参数:		**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| srcPath | String类型 | 必选 |  压缩的文件或文件夹的路径，路径协议详见CONSTANT中PathTypes |
-| zippedPath| String类型 | 必选 | 目标文件路径，路径协议详见CONSTANT中PathTypes |
+| ----- | ----- | ----- | ----- |
+| srcPath | String类型 | 必选 |  压缩的文件或文件夹的路径,路径协议详见[CONSTAN](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTAN")T中PathTypes |
+| zippedPath| String类型 | 必选 | 目标文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 | password | String类型 | 必选 | 密码 |
  
 **		平台支持:		**
@@ -65,9 +64,9 @@ Android2.2+
 ** 			参数:		**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| srcPath | String类型 | 必选 |  要解压缩的文件路径，路径协议详见CONSTANT中PathTypes|
-| zippedPath| String类型 | 必选 | 解压缩后的文件路径，路径协议详见CONSTANT中PathTypes |
+| ----- | ----- | ----- | ----- |
+| srcPath | String类型 | 必选 |  要解压缩的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
+| zippedPath| String类型 | 必选 | 解压缩后的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
  
 **		平台支持:		**
 Android2.2+					
@@ -81,13 +80,13 @@ iOS6.0+
 `uexZip.unzipWithPassword(srcPath,zippedPath,password)					`
 ** 			说明:		**
 解压缩加密的文件					
-回调 [cbUnZip](#cbUnZip 解压缩的回调方法，解压缩完成时被调用  "解压缩的回调方法") 
+回调 [cbUnZip](#cbUnZip 解压缩的回调方法,解压缩完成时被调用  "解压缩的回调方法") 
 ** 			参数:		**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| srcPath | String类型 | 必选 |  要解压缩的文件路径，路径协议详见CONSTANT中PathTypes|
-| zippedPath| String类型 | 必选 | 解压缩后的文件路径，路径协议详见CONSTANT中PathTypes |
+| ----- | ----- | ----- | ----- |
+| srcPath | String类型 | 必选 |  要解压缩的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
+| zippedPath| String类型 | 必选 | 解压缩后的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 | password | String类型 | 必选 | 解压密码 |
  
 **	平台支持:		**
@@ -99,29 +98,29 @@ iOS6.0+
 							   [见附录1](#3、附录一 "见附录1")					
 
 ##2.2、回调方法
-> ### cbZip 压缩的回调方法，压缩完成时被调用 
+> ### cbZip 压缩的回调方法,压缩完成时被调用 
 
 `uexZip.cbZip(opId,dataType,data)					`
 **		参数:		**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| opId | String类型 | 必选 |  操作ID，在此函数中不起作用，可忽略|
-| dataType| Number类型 | 必选 | 返回数据类型为uex.cInt。详见CONSTANT中CallbackDataTypes|
-| data | Number类型 | 必选 | 返回uex.cSuccess或者uex.cFailed。详见CONSTANT中CallbackIntValue |
+| ----- | ----- | ----- | ----- |
+| opId | String类型 | 必选 |  操作ID,在此函数中不起作用,可忽略|
+| dataType| Number类型 | 必选 | 返回数据类型为uex.cInt。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中CallbackDataTypes|
+| data | Number类型 | 必选 | 返回uex.cSuccess或者uex.cFailed。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中CallbackIntValue |
 
 **	版本支持:		**
 3.0.0+					
-> ### cbUnZip 解压缩的回调方法，解压缩完成时被调用 
+> ### cbUnZip 解压缩的回调方法,解压缩完成时被调用 
 
 `uexZip.cbUnZip(opId,dataType,data)		`			
 **	参数:		**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ------------ | ------------ | ------------ | ------------ |
-| opId | String类型 | 必选 |  操作ID，在此函数中不起作用，可忽略|
-| dataType| Number类型 | 必选 | 返回数据类型为uex.cInt。详见CONSTANT中CallbackDataTypes|
-| data | Number类型 | 必选 | 返回uex.cSuccess或者uex.cFailed。详见CONSTANT中CallbackIntValue |
+| ----- | ----- | ----- | ----- |
+| opId | String类型 | 必选 |  操作ID,在此函数中不起作用,可忽略|
+| dataType| Number类型 | 必选 | 返回数据类型为uex.cInt。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中CallbackDataTypes|
+| data | Number类型 | 必选 | 返回uex.cSuccess或者uex.cFailed。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中CallbackIntValue |
  
 **	版本支持:		**
 3.0.0+					
@@ -193,12 +192,29 @@ iOS6.0+
         
 ```
 #3、更新历史
- API 版本：uexZip-3.0.2(iOS) uexZip-3.0.1（Android）
-最近更新时间：2015-06-19
 
-|  历史发布版本 | iOS更新  | 安卓更新  |
-| ------------ | ------------ | ------------ |
-| 3.0.2  |  解决压缩和解压缩大文件时，卡屏问题 |   |
-| 3.0.1  | 使用新版Xcode重新编译,支持arm64  |修复非压缩文件也能解压成功的问题 |
-| 3.0.0  | zip压缩解压功能插件  | zip压缩解压功能插件|
- 
+### iOS
+
+API版本:`uexZip-3.0.4`
+
+最近更新时间:`2015-12-26`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.4 | 添加IDE支持 |
+| 3.0.3 | 修改类名ZipArchive为UexZipArchive,解决与引擎的类名冲突 |
+| 3.0.2 | 解决压缩和解压缩大文件时,卡屏问题 |
+| 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
+| 3.0.0 | zip压缩解压功能插件 |
+
+### Android
+
+API版本:`uexZip-3.0.2`
+
+最近更新时间:`2015-12-17`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 3.0.2 | 修复带密码加密时某些情况下返回成功但实际失败的问题 |
+| 3.0.1 | 修复非压缩文件也能解压成功的问题 |
+| 3.0.0 | zip压缩解压功能插件 |

@@ -21,7 +21,7 @@ appcan.logs('这是一个打印消息');
 创建一个新模块 appcan.define(name,defineCall)
 ````
     name:要创建的模块名
-    name:defineCall:创建模块的函数，执行该函数时会传入三个参数，第一个参数是zepto对象，第二个是要导出的模 块的引用的副本，第三个是要导出模块对象，其中的exports对象就是要导出到来的引用点。
+    defineCall:创建模块的函数，执行该函数时会传入三个参数，第一个参数是zepto对象，第二个是要导出的模 块的引用的副本，第三个是要导出模块对象，其中的exports对象就是要导出到来的引用点。
 ````
 **例如:**
 
@@ -121,7 +121,7 @@ var res = appcan.isFunction(foo); //如果res为true则foo是函数，否则foo�
 
 ````
 //判断foo是否是一个朴素的对象
-var res = appcan.isPlainObject(foo); //如果foo是一个存纯粹的对象，不是window，不是Aarry，是单纯Object对象
+var res = appcan.isPlainObject(foo); //如果foo是一个存纯粹的对象，不是window，不是Array，是单纯Object对象
 ````
 >### appcan.ready(funCall)
 
@@ -156,7 +156,7 @@ Foo.prototype = {
         //do something
     }
 };
-//定义一个子类集成Foo
+//parent ---> Foo
 var ChildFoo = appcan.inherit(parent,{
     init:function(){//要添加给子类的方法
         //do something
@@ -191,7 +191,7 @@ cf.show();
 **例如:**
   
 ````
-  //去除字符串两端的空格
+  //去除字符串左端的空格
   appcan.trimLeft(' a ');//返回'a '左边空格去掉 
 ````
 >###   appcan.trimRight(str)
@@ -203,7 +203,7 @@ cf.show();
 **例如:**
  
 ````
-  //去除字符串两端的空格
+  //去除字符串右端的空格
   appcan.trimRight(' a ');//返回' a'右边空格去掉 
 ````
 

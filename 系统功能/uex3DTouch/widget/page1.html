@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+    content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    
+    <script type="text/javascript">
+    window.uexOnload = function(type){
+        uexWindow.setReportKey(0,1);
+        uexWindow.onKeyPressed = function(keyCode){
+            uexChart.closeLineChart();
+            uexWindow.close(-1);
+        }
+        uexChart.onValueSelected = function(data){
+            alert(data);
+        }
+    }
+    
+  
+</script>
+</head>
+
+<body>
+    <div class="tit">PAGE1</div>
+    <div class="conbor">
+        <div class="consj">
+            <div>PAGE1</div>
+            <input class="btn" type="button" value="back" onclick="uexWindow.close(-1);">
+
+        </div>
+    </div>
+</body>
+</html>

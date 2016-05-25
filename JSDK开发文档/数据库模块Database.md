@@ -68,7 +68,7 @@ db.exec('delete from user where userId = 1 ',function(err,data,dataType,optId){
 
 ````
 //数据库创建成功了为对象db，然后就可以直接用db执行事务操作了,删除两个用户
-db.exec({
+db.transaction({
     sqlFun:function(){
         //删除一个用户
         db.exec({sql:'delete from user where userId = 1',callback:function(){
@@ -152,7 +152,7 @@ appcan.database.exec({
 
 ````
 //数据库创建成功了为对象db，然后就可以直接用db执行事务操作了,删除两个用户
-appcan.database.exec({
+appcan.database.transaction({
     name:'blog',
     sqlFun:function(){
         //删除一个用户
@@ -183,7 +183,7 @@ appcan.database.exec({
    销毁已经创建的数据库
 ````
     name:要销毁的数据库名称
-    optId:可选，销户数据库的操作id
+    optId:可选，销毁数据库的操作id
     callback(err,data,dataType,optId):第一个参数是Error对象如果为空则表示 没有错误，否则表示操作出错了，data表示返回的操作结果,dataType操作结果的数据类型，optId该操作id 
 ````
 **例如：**

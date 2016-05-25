@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root layoutId = "topic-item5">
+    <linearlayout id = "content" orientation = "horizontal" width = "-1"
+                  height = "-2" padding = "20 30" background = "#ffffff" gravity = "centerY">
+        <img id = "icon" width = "-2" height = "-2" src = "${icon}"/>
+        <linearlayout width = "-2" height = "-2" weight = "1" margin = "20 0">
+            <text id = "topicName" width = "-2" height = "-2" text="${topicName}" textSize = "20"
+                  textColor = "#000000"/>
+        </linearlayout>
+        <img id = "status" width = "-2" height = "-2" src = "res://img/attention/delete.png"
+             onClick = "onDeleteAttentionClick"/>
+    </linearlayout>
+</root>

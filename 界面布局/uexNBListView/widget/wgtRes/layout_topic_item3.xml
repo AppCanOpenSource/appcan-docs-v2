@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root layoutId = "topic-item3">
+    <linearlayout id = "content" orientation = "horizontal" width = "-1"
+                  height = "-2" background = "#ffffff">
+        <text id = "txt" width = "-2" height = "-2" text="${topicName}" textSize = "22"
+              textColor = "#000000"/>
+    </linearlayout>
+</root>
