@@ -447,7 +447,7 @@ uexXmlHttpMgr.onPostProgress = function (inOpCode,inProgress){
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 下载对象的唯一标识符 |
 | dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONTANT")中Callback方法dataType数据类型 |
-| data|String | 是 | 包含具体的cookie信息Jsno字符串，其中key为cookie的对应value就是cookie信息 |
+| data|String | 是 | 包含具体的cookie信息Json字符串，其中key为cookie的对应value就是cookie信息 |
 
 **平台支持:**
 
