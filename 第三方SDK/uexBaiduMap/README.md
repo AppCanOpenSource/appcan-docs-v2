@@ -1489,7 +1489,7 @@ uexBaiduMap.removeBusLine();
 **平台支持**
 
 Android2.2+
-iOS6.0+
+iOS不支持
 
 **版本支持**
 
@@ -1516,7 +1516,7 @@ uexBaiduMap.preBusLineNode();
 **平台支持**
 
 Android2.2+
- iOS 6.0+
+ iOS不支持
 
 **版本支持**
 
