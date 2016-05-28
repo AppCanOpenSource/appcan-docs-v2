@@ -63,7 +63,7 @@ Path Types
 ##2.1、初始化
 ***
 >### registerApp(param)  初始化
-
+f
 param为json字符串
 
 ```
@@ -183,8 +183,8 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid或者群聊时groupid
-	sessionType:,//0-单聊,1-群聊
+	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	content:,//文本内容
 	ext://扩展字段， Object类型
 };
@@ -195,8 +195,8 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid或者群聊时groupid
-	sessionType:,//0-单聊,1-群聊
+	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	filePath:,//图片文件路径
 	displayName：,//显示名称，非必须
 	ext://扩展字段， Object类型
@@ -209,8 +209,8 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid或者群聊时groupid
-	sessionType:,//0-单聊,1-群聊
+	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	title:,//位置的地址名
 	latitude:,
 	longitude:,
@@ -225,8 +225,8 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid或者群聊时groupid
-	sessionType:,//0-单聊,1-群聊
+	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	filePath:,//语音文件路径
 	ext://扩展字段， Object类型
 };
@@ -238,8 +238,8 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid或者群聊时groupid
-	sessionType:,//0-单聊,1-群聊
+	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	filePath:,//视频文件路径
 	displayName：,//显示名称，非必须
 	ext://扩展字段， Object类型
@@ -251,8 +251,8 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid或者群聊时groupid
-	sessionType:,//0-单聊,1-群聊
+	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	filePath:,//文件路径
 	displayName：,//显示名称，非必须
 	ext://扩展字段， Object类型
