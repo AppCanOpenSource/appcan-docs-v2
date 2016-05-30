@@ -90,7 +90,7 @@ iOS6.0+
 var params={
             duration:10  //视频录制最大时间
         }
-uexQupai.init(JSON.stringify(params));
+uexQupai.config(JSON.stringify(params));
 ```
 
 > ### record 打开视频录制界面
