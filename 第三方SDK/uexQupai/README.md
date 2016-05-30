@@ -70,7 +70,7 @@ param为json字符串,包含的参数如下:
 | maxDuration | Number | 否 |视屏录制的时间长度,默认为8秒|
 | rate | Number | 否 |视屏的码率,码率越高,画面越清晰,合成越慢,默认是2000 * 1000|
 | width | Number | 否 |输出视屏的宽度, 不传默认为320|
-| height | Number | 否 |输出视屏的高度,不传默认为480, 推荐的视屏分辨率为 320*240, 640*480, 480*480, 640*360|
+| height | Number | 否 |输出视屏的高度,不传默认为480, 推荐的视屏分辨率为 320\*240, 640\*480, 480\*480, 640\*360|
 | cameraFrontOn | boolean | 否 |是否默认使用前置摄像头,默认为true|
 | openBeautySkin | boolean | 否 |是否开启美颜效果,默认为true|
 | beautySkinRate | Number | 否 |美颜比例,值为0-100, 默认为80|
@@ -88,8 +88,8 @@ iOS6.0+
 
 ```
 var params={
-            duration:10  //视频录制最大时间
-        }
+    maxDuration:10  //视频录制最大时间
+}
 uexQupai.config(JSON.stringify(params));
 ```
 
