@@ -1147,8 +1147,8 @@ data的结构为:
 		isInBlackList: //是否在黑名单中，boolean
 		isMuted： //是否被禁言， boolean
 		isOnline：//是否在线， boolean
-		isValid：//是否有效, boolean
-		memberType：//成员类型, Number
+		isValid：//是否有效, boolean, 仅Android支持
+		memberType：//成员类型, Number。 游客: -2, 受限用户: -1, 普通用户:0, 创建者:1, 管理员: 2
 		extention://进聊天室时提交的扩展字段，Object				
 	}
 ]
