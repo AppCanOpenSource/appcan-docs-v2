@@ -29,7 +29,7 @@ uexWindow.evaluateMultiPopoverScript
  uexWindow.subscribeChannelNotification
 ````
 
-这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1390_1249) 内有描述，当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
+这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249) 内有描述，当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
 
 需要注意,对于Android 版插件,开发者需要在 config.xml中配置`appKey`和`packageName`。如下
 

@@ -22,8 +22,13 @@ locStorage.getVal('color');
    要设置的键值对
 ````
     key:要保存的键，key如果是数组，就会把数组中每个键值对都保存起来，如果是对象则会把对象里面每个  键值对都保存起来
-    val:要保存对应的值
+    val:要保存对应的值	
+	
+*注：所谓的数组是指对象数组
+如：appcan.locStorage.setVal([{"key1":'value1'},{"key2":'value2'}]);
+如果是对象则如：appcan.locStorage.setVal({"key1":'value1',"key2":'value2'});
 ````
+ 
 **例如:**
   
 ````

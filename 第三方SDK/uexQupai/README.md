@@ -1,13 +1,13 @@
 [TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
-趣拍插件
+趣拍短视频插件
 ## 1.1、说明
 封装了趣拍精简版功能, 支持自定义视屏尺寸,码率,美颜效果等。
 
 ## 1.2、UI展示
  
 ## 1.3、开源源码
-插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=194_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=622_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
@@ -70,7 +70,7 @@ param为json字符串,包含的参数如下:
 | maxDuration | Number | 否 |视屏录制的时间长度,默认为8秒|
 | rate | Number | 否 |视屏的码率,码率越高,画面越清晰,合成越慢,默认是2000 * 1000|
 | width | Number | 否 |输出视屏的宽度, 不传默认为320|
-| height | Number | 否 |输出视屏的高度,不传默认为480, 推荐的视屏分辨率为 320\*240, 640\*480, 480\*480, 640\*360|
+| height | Number | 否 |输出视屏的高度,不传默认为480, 推荐的视屏分辨率为 320 X 240, 640 X 480, 480 X 480, 640 X 360|
 | cameraFrontOn | boolean | 否 |是否默认使用前置摄像头,默认为true|
 | openBeautySkin | boolean | 否 |是否开启美颜效果,默认为true|
 | beautySkinRate | Number | 否 |美颜比例,值为0-100, 默认为80|
