@@ -130,8 +130,8 @@ data = {
 | ----- | ----- | ----- | ----- |
 |  latitude   | Number | 是 |  纬度|
 | longitude    | Number | 是 | 经度 |
-| from | String | 是 | 源坐标类型,具体含义请参考[附录]()|
-| to | String | 是 | 目的坐标类型,具体含义请参考[附录]()|
+| from | String | 是 | 源坐标类型,具体含义请参考[附录](#4、附录)|
+| to | String | 是 | 目的坐标类型,具体含义请参考[附录](#4、附录)|
 
 **平台支持:**
 
@@ -153,7 +153,9 @@ var params = {
      to:"bd09"
  };
 var data = uexLocation.convertLocation(JSON.stringify(params));
-alert(data);                   
+var obj = JSON.parse(data)
+alert(obj.latitude+","+obj.longitude);//同步返回json字符串
+//alert(data);                  
 ```
 
 ## 2.2、回调方法

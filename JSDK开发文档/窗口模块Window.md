@@ -10,10 +10,10 @@ appcan是多窗口的，该模块封装了关于窗口的基础操作
    打开一个新的窗口
 ````
     name:新窗口的的名称，如果窗口存在直接打开，如果不存在先创建然后打开
-    data:新窗口填充的数据
+    data:新窗口填充的数据，当dataType为0时，url支持相对路径、 绝对路径；当dataType为1时，把相应html的内容传进去。
     dataType:新窗口填充的数据类型
-           0: url
-            1: html 数据//必如传入的是一个<div></div>
+            0: url
+            1: html 数据//必如data传入的是一个'<div>hello,world!</div>'
             2: html 和 url 混合数据
     aniId:动画类型Id
             0: 无动画
@@ -523,10 +523,10 @@ win.moveAnim({
     name:要打开弹出窗的名称
     dataType:新窗口填充的数据类型
           0: url
-          1: html 数据//必如传入的是一个<div></div>
+          1: html 数据//必如data传入的是一个'<div>hello,world!</div>'
           2: html 和 url 混合数据
-    url:弹出框要加载的页面的地址
-    data:弹出框要加载的数据内容
+    url:弹出框要加载的页面的地址或url地址，用于当dataType为0时，url支持相对路径、 绝对路径；
+    data:弹出框要加载的数据内容，用于当dataType为1时，把相应html的内容传进去。
     left:弹出框距离左边的距离
     top:弹出框距离上边的距离
     width:弹出框的宽度

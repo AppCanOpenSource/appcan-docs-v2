@@ -16,26 +16,20 @@
 * 在任何网页调用本插件,调用的是同一个插件实例;
 * 所有的API都是异步方法,不会直接返回值;
 * 所有的回调都会传到root页面(config.xml中配置的App起始页面)
-
 **以上内容非常重要**
 
 root页面收到回调后,可以通过uexWindow的相关方法传递到各个网页去,
 以下方法是您可能要用到的——
-
- 传递给某个窗口:
- 
-* uexWindow.evaluateScript;
-* uexWindow.evaluatePopoverScript
-* uexWindow.evaluateMultiPopoverScript
-
+````
+ 传递给某个窗口
+uexWindow.evaluateScript;
+uexWindow.evaluatePopoverScript
+uexWindow.evaluateMultiPopoverScript
  传递给某些窗口:
- 
-* uexWindow.publishChannelNotification
-* uexWindow.subscribeChannelNotification
-
-这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1318_1249) 内有描述
-
-当然,也可[下载Demo](http://plugin.appcan.cn/details.html?id=406_index) 参考Demo内的调用。
+uexWindow.publishChannelNotification
+uexWindow.subscribeChannelNotification
+````
+这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1390_1249) 内有描述，当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
  
 ##1.2、 UI展示
 暂无
@@ -207,6 +201,7 @@ var param = {
 >###sendText(param) 发送文本消息及表情
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -223,6 +218,7 @@ var param = {
 >###sendFile(param) 发送文件
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -240,6 +236,7 @@ var param = {
 >###sendPicture(param)//发送图片
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -257,6 +254,7 @@ var param = {
 >###sendLocationMsg(param)//发送地理位置信息
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -275,6 +273,7 @@ var param = {
 >###sendVoice(param)//发送语音
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -294,6 +293,7 @@ var param = {
 >###sendVideo(param) 发送视频
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -313,6 +313,7 @@ var param = {
 >###sendCmdMessage(param) 发送透传消息
 
 **说明:**
+
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -1021,7 +1022,6 @@ var param = {
 param为json字符串
 
 ```
-
 	var param = {
 	usernames:,// List<String> json格式 
 };
@@ -1039,8 +1039,10 @@ var param={
 
 * 每当添加/移除/更改角色/更改主题/更改群组信息之后,都会触发此回调
 
->###onDidJoinedGroup(param)//自动加入群组监听(3.0.22新增接口)
+>###onDidJoinedGroup(param)//自动加入群组监听
 
+**说明**
+(iOS 3.0.22新增接口)
 SDK自动同意了用户A的加B入群邀请后,用户B接收到该回调,需要initEasemob时设置isAutoAcceptGroupInvitation为TRUE
 
 param为json字符串
@@ -1053,8 +1055,10 @@ param为json字符串
     	message:,//邀请消息
 };
 ```
->###onReceiveGroupInvitation(param)//收到群组邀请监听(iOS 3.0.22, Android 3.0.23新增接口)
+>###onReceiveGroupInvitation(param)//收到群组邀请监听
 
+**说明**
+(iOS 3.0.22, Android 3.0.23新增接口)
 用户A邀请用户B入群,用户B接收到该回调
 
 param为json字符串
@@ -1067,8 +1071,10 @@ param为json字符串
 };
 ```
 
->###acceptJoinApplication(param)//批准入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
+>###acceptJoinApplication(param)//批准入群申请, 需要Owner权限
 
+**说明**
+(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
@@ -1078,8 +1084,10 @@ var param={
 };
 ```
 
->###declineJoinApplication(param)//拒绝入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
+>###declineJoinApplication(param)//拒绝入群申请, 需要Owner权限
 
+**说明**
+(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
@@ -1090,8 +1098,10 @@ var param={
 };
 ```
 
->###acceptInvitationFromGroup(param)//接受入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
+>###acceptInvitationFromGroup(param)//接受入群邀请
 
+**说明**
+(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
@@ -1101,8 +1111,10 @@ var param={
 };
 ```
 
->###declineInvitationFromGroup(param)//拒绝入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
+>###declineInvitationFromGroup(param)//拒绝入群邀请
 
+**说明**
+(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
@@ -1182,6 +1194,8 @@ param为json字符串
  
 >###updatePushOptions(param);//设置apns全局属性
 
+**说明:**
+updatePushOptions全为可选参数,当传入空值时,即可通过回调获得当前apns全局属性
 param为json字符串
 
 ```
@@ -1210,7 +1224,7 @@ var param{
 ```
 
  
-	说明:updatePushOptions全为可选参数,当传入空值时,即可通过回调获得当前apns全局属性
+	
 	
 >###ignoreGroupPushNotification(param)://设置指定群组是否接收
 
@@ -1224,7 +1238,8 @@ param为json字符串
 ```
 
  
->###cbIgnoreGroupPushNotification(param)://回调
+>###cbIgnoreGroupPushNotification(param)://设置指定群组是否接收回调
+
 param为json字符串
 
 ```
@@ -1267,6 +1282,7 @@ key | 说明
 action | 具体命令 
 
 >###位置消息
+
 key | 说明         
 ----- | ----- 
 longitude | 经度
@@ -1343,12 +1359,13 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 ### iOS
 
-API版本:`uexEasemob-3.0.22`
+API版本:`uexEasemob-3.0.23`
 
-最近更新时间:`2016-5-7`
+最近更新时间:`2016-5-17`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.23 | 删除EaseUIResource.bundle内会引起上架失败的info.plist |
 | 3.0.22 | initEasemob接口新增isAutoAcceptGroupInvitation参数；消息接口新增extObj参数以适配环信客服功能；group内新增群组加人的相关接口 |
 | 3.0.21 | 更新SDK到3.1.1 |
 | 3.0.20 | 修复加入公开群会失败的问题 |
@@ -1375,12 +1392,14 @@ API版本:`uexEasemob-3.0.22`
 
 ### Android
 
-API版本:`uexEasemob-3.0.23`
+API版本:`uexEasemob-3.0.25`
 
-最近更新时间:`2016-5-7`
+最近更新时间:`2016-5-17`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.25 | 修复获取群组信息时数据返回异常的问题 |
+| 3.0.24 | 创建群组时,Android支持initialWelcomeMessage参数 |
 | 3.0.23 | 升级环信官方SDK到3.1.2, 同时添加客服功能 |
 | 3.0.22 | init只执行一次 |
 | 3.0.21 | 修改getRecentChatters |

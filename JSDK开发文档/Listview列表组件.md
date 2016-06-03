@@ -1,4 +1,4 @@
-列表组件是根据AppCan 布局框架对数据列表进行封装的JS对象，通过配合的样式，使开发者在界面中可以快速完成列表控件的开发。
+@列表组件是根据AppCan 布局框架对数据列表进行封装的JS对象，通过配合的样式，使开发者在界面中可以快速完成列表控件的开发。
 ### 依赖
 - appcan.js
 - appcan.control.js
@@ -156,7 +156,7 @@
 **参数：**
 
     Obj   列表条目DOM对象 
-    Data  列表条目对应数据源对象 其中switch.value代表switch状态
+    Data  列表条目对应数据源对象 其中switchBtn.value代表switch状态,switchBtn.mini代表switch的样式
 
 **示例：**  
    ````
@@ -187,7 +187,7 @@
             subNote : "12:03",
             icon : "../css/res/appcan_s.png",
             icontitle:"",
-            "switch":{
+            "switchBtn":{
                 mini:true,
                 value:true
             }
@@ -234,7 +234,7 @@ var lv1 = appcan.listview({
             hasControl:true,//包含控件
         });
         lv1.set([{
-            title : "Switch:true",
+            title : "Switch:false",
             "switchBtn":{//switch控件配置
                 value:false,
                 mini:true
@@ -248,7 +248,7 @@ var lv1 = appcan.listview({
         }
 ]);
         lv1.on("switch:change",function(obj,data){
-            lv1.updateItem(obj,"title","Switch:"+data.switch.value);
+            lv1.updateItem(obj,"title","Switch:"+data.switchBtn.value);
         })
    ````
    以组的形式展示的列表

@@ -630,7 +630,7 @@ uexWidget.setPushState(0);
  
 **说明:**
 
-  关闭启动图。用于应用启动期间需要做页面跳转等逻辑。需要在config.xml 添加配置 `<removeloading>true</removeloading>`。添加之后引擎不会关闭启动图，由前端调用此接口关闭。超时（时间为3秒）之后引擎才会关闭启动图。
+    关闭启动图。用于应用启动期间需要做页面跳转等逻辑。需要在config.xml 添加 `<removeloading>true</removeloading>`配置。 添加之后引擎不会关闭启动图，由前端调用此接口关闭，超时（时间为3秒）之后引擎才会关闭启动图。
   
   
 **参数:**
@@ -639,16 +639,18 @@ uexWidget.setPushState(0);
   
 **平台支持:**
 
+  iOS 7.0+
   Android2.2+
   
 **版本支持:**
-
-  3.2.0+
+	
+	iOS 3.4.1+
+  	Android 3.2.0+
   
 **示例:**
 
 ```
-  uexWidget.closeLoading()
+  uexWidget.closeLoading();
 ```
  
 > ### moveToBack 运行到后台,不退出程序
@@ -687,7 +689,7 @@ Android2.2+
 
 **参数**
 
-appId：子widget对应的appId
+   appId：子widget对应的appId（必选）
 
 **平台支持**
 
@@ -700,8 +702,9 @@ iOS 5.1.1+
 
 **示例**
 
-`uexWidget.reloadWidgetByAppId(sdk2015);`
-
+````
+uexWidget.reloadWidgetByAppId(sdk2015);
+````
 
 > ### setKeyboardMode 设置键盘模式
 
