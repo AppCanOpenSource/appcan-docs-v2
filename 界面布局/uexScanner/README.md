@@ -59,7 +59,8 @@ var params = {
     "pickBgImg": , //扫描区域边框图片, 可选
     "tipLabel": ,  //扫描区下部提示语,可选
     "title": ,//扫描界面顶部标题 (仅iOS支持),可选
-    "charset"//设置字符编码,可选
+    "charset": ,//设置字符编码,可选
+    "isGallery": ,//新增字段，用来控制是否显示右上角的从相册扫描功能，0表示不显示,非0或者不传表示显示
 }
 ```
 
@@ -75,8 +76,16 @@ iOS 6.0+
 **示例:**
 
 ```
-var jsonData = '{"lineImg":"res://line.png","pickBgImg":"res://pick_bg.png","tipLabel":"对准二维码/条形码,即可自动扫描","title":"扫一下"}';
-uexScanner.setJsonData(jsonData);
+
+var data = {
+            lineImg:"res://line.png",
+            pickBgImg:"res://pick_bg.png",
+            tipLabel:"对准二维码/条形码,即可自动扫描",
+            title:"扫一下",
+            isGallery:"0"
+        }; 
+uexScanner.setJsonData(JSON.stringify(data));
+
 ```
 ## 2.2、回调方法
 > ### cbOpen 扫描结果的回调方法
@@ -132,12 +141,14 @@ API版本:`uexScanner-3.1.7`
 
 ### Android
 
-API版本:`uexScanner-3.0.15`
+API版本:`uexScanner-3.0.17`
 
-最近更新时间:`2016-3-2`
+最近更新时间:`2016-06-06`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.17 | 修复了当扫描线高度过小时，获取View的高度小于等于0造成的程序崩溃问题 |
+| 3.0.16 | 添加是否显示从相册选择按钮配置开关 |
 | 3.0.15 | 添加charset字段设置编码 |
 | 3.0.14 | 调整扫描框为正方形 |
 | 3.0.13 | 拍照权限被禁止情况处理 |
