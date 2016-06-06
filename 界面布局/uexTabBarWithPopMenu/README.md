@@ -119,17 +119,17 @@ iOS 3.0.0+
                         iconH:"res://pop2_1.png"
                     },
                     {
-                        title: "拍照",
+                        title: "打印文件",
                         iconN:"res://pop3.png",
                         iconH:"res://pop3_1.png"
                     },
                     {
-                        title: "打印文件",
+                        title: "定位",
                         iconN:"res://pop4.png",
                         iconH:"res://pop4_1.png"
                     },
                     {
-                        title: "定位",
+                        title: "拍照",
                         iconN:"res://pop5.png",
                         iconH:"res://pop5_1.png"
                     }
