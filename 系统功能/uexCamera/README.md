@@ -14,16 +14,25 @@
  ![](http://newdocx.appcan.cn/docximg/151400o2015o6w7s.jpg)
 ##1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=159_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。
+在后续版本中新添加的接口会在文档中额外说明。
+
 #2、API概览
  ##2.1、方法
 
 > ### open 打开相机
 
-`uexCamera.open(comtextareass,quality)`
+`uexCamera.open(comtextareass, quality, callbackFunction)`
 
 **说明:**
 
-通过此方法调用系统相机,进入拍照界面。调方法[cbOpen　](#cbOpen　拍照的回调方法 "cbOpen　")
+通过此方法调用系统相机,进入拍照界面。
 
 **参数:**
 
@@ -31,29 +40,29 @@
 | ----- | ----- | ----- | ----- |
 | comtextareass | Number类型 | 可选 | 图片是否压缩,0表示压缩,非0或者不传表示不压缩 |
 | quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
+| callbackFunction|函数 | 必选 | 回调函数，用来获取相关业务数据|
+
+callbackFunction的参数是String类型，返回拍照完成后图片的存储路径。
  
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
 ```
-uexCamera.open();
+var comtextareass = '0';
+var quality = '100';
+uexCamera.open(comtextareass, quality, function(picPath) {
+  alert(picPath);
+});
 ```
+
 > ### openInternal　打开自定义相机
 
-`uexCamera.openInternal(comtextareass,quality)`
+`uexCamera.openInternal(comtextareass, quality, callbackFunction)`
 
 **说明:**
 
-通过此方法打开自定义相机,进入拍照界面。回调方法[cbOpenInternal](#cbOpenInternal　自定义相机拍照成功的回调方法 "cbOpenInternal")
+通过此方法打开自定义相机,进入拍照界面。
 
 **参数:**
 
@@ -61,29 +70,28 @@ uexCamera.open();
 | ----- | ----- | ----- | ----- |
 | comtextareass | Number类型 | 可选 | 图片是否压缩,0表示压缩,非0或者不传表示不压缩 |
 | quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
+| callbackFunction|函数 | 必选 | 回调函数，用来获取拍照后图片的存储路径|
 
-**平台支持:**
+callbackFunction的参数是String类型，返回拍照完成后图片的存储路径。
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
 ```
-uexCamera.openInternal();
+var comtextareass = '0';
+var quality = '100';
+uexCamera.openInternal(comtextareass, quality, function(data) {
+  alert(data);
+});
 ```
 
 > ### openViewCamera 打开自定义View照相机
 
-`openViewCamera(x,y,width,heigth,label,quality)`
+`openViewCamera(x, y, width, heigth, label, quality, callbackFunction)`
 
 **说明:**
 
-通过此方法打开自定义View照相机。回调方法 [cbOpenViewCamera](#cbOpenViewCamera　自定义相机View拍照成功的回调方法 "cbOpenViewCamera")
+通过此方法打开自定义View照相机。
 
 **参数:**
 
@@ -94,21 +102,26 @@ uexCamera.openInternal();
 | width | Number类型 | 必选 | 照相机View宽度,width为0时有效,取值范围[0,屏幕分辨率最大宽度] |
 | heigth | Number类型 | 必选 | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
 | label | String类型 | 必选 | 拍照时显示在界面中的提示语或标签 |
-| quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
+| quality | Number类型 | 必选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
+| callbackFunction|函数 | 必选 | 回调函数，用来获取拍照后图片的存储路径|
 
-**平台支持:**
+callbackFunction 的参数是JSON 对象类型。格式如下：
 
-Android2.2+
-iOS6.0+
+```
+{
+    "photoPath": "/storage/emulated/0/widgetone/apps/11352882/uexViewCameraPhotos/2016-06-06_19-52-13.jpg",
+    "location": "奥格瑞玛",
+    "label": "奥格瑞玛"  //拍照时显示在界面中的提示语或标签
+}
+```
 
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
 ```
-uexCamera.openViewCamera(x, y, w, h,label,quality);
+uexCamera.openViewCamera(x, y, w, h,label,quality, function(data) {
+  alert(JSON.stringify(data));
+});
 ```
 
 > ### removeViewCameraFromWindow 从屏幕上移除自定义View相机
@@ -123,14 +136,6 @@ uexCamera.openViewCamera(x, y, w, h,label,quality);
 
  无
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -145,26 +150,20 @@ uexCamera.removeViewCameraFromWindow();
 **说明:**
 
 通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。如果设置changeCameraPosition为前置摄像头则闪光灯无效。
-回调方法 [cbChangeFlashMode](#cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式 "cbChangeFlashMode")　
+返回更改闪光灯模式成功后当前闪光灯的模式
+
 **参数:**
 
 ````
  flashMode:(Number类型) 必选  照相机View的闪光灯模式,x为0、1、2时有效,取值范围[0,2]。
 ````
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
 ```
-uexCamera.changeFlashMode(flashMode);
+var mode = uexCamera.changeFlashMode(flashMode);
+alert(mode);
 ```
 
 > ### changeCameraPosition 改变自定义相机View的摄像头位置
@@ -173,7 +172,7 @@ uexCamera.changeFlashMode(flashMode);
 
 **说明:**
 
-通过此方法改变自定义相机View的摄像头位置,0代表后置,1代表前置。回调方法[cbChangeCameraPosition](#cbChangeCameraPosition　返回更改前后摄像头成功后当前摄像头的位置 "cbChangeCameraPosition")　
+通过此方法改变自定义相机View的摄像头位置,0代表后置,1代表前置。返回更改前后摄像头成功后当前摄像头的位置
 
 **参数:**
 
@@ -181,180 +180,24 @@ uexCamera.changeFlashMode(flashMode);
  cameraPosition:(Number类型) 必选  照相机View的摄像头位置,x为0、1时有效,取值范围[0,1]。
 ````
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
-uexCamera.changeCameraPosition(cameraPosition);
-```
-
-##2.2、回调方法
-> ### cbOpen　拍照的回调方法
-
-`uexCamera.cbOpen(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
-| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data | String类型 | 必选 | 拍照成功后图片的保存路径 |
- 
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-window.uexOnload = function(){
-  uexCamera.cbOpen = function(opCode, dataType, data){
-     alert(data)；
-  }
-}
-```
-> ### cbOpenInternal　自定义相机拍照成功的回调方法
-
-`uexCamera.cbOpenInternal(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
-| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data | String类型 | 必选 | 拍照成功后图片的保存路径 |
- 
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-window.uexOnload = function(){
-  uexCamera.cbOpenInternal = function(opCode, dataType, data){
-     alert(data)；
-  }
-}
-```
-
-> ### cbOpenViewCamera　自定义相机View拍照成功的回调方法
-
-`uexCamera.cbOpenViewCamera(opId,dataType,data)`
-**说明:**
-返回拍照成功后图片的保存路径和之前传入的地理位置
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
-| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data | String类型 | 必选 | JSON字符串,格式如下: |
-   
-```
-data:
-  {
-    "photoPath": "/storage/emulated/0/widgetone/apps/11352882/uexViewCameraPhotos/2015-11-27_14-41-34.jpg",
-    "label": "北京"
-  }
-```
-各字段含义如下
-
-| 参数 | 是否必须 | 说明 |
-|-----|-----|-----|
-| photoPath | 是 | 图片的保存路径 |
-| label | 是 | 拍照时显示在界面中的提示语或标签 |
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-window.uexOnload = function(){
-  uexCamera.cbOpenViewCamera = function(opCode, dataType, data){
-     alert(data)；
-  }
-}
-```
-
-> ### cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式
-
-`uexCamera.cbChangeFlashMode(opId,dataType,data)`
-**说明:**
- 0表示自动,1表示开启,2表示关闭,-1表示更改失败
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
-| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data | Number类型 | 必选 | 返回一个int型,闪光灯模式,0表示自动,1表示开启,2表示关闭,-1表示更改失败 |
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-window.uexOnload = function(){
-  uexCamera.cbChangeFlashMode = function(opCode, dataType, data){
-     alert(data)；
-  }
-}
-```
-
-> ### cbChangeCameraPosition　返回更改前后摄像头成功后当前摄像头的位置
-
-`uexCamera.cbChangeCameraPosition(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
-| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data | Number类型 | 必选 | 返回一个int型,摄像头位置,0表示后置,1表示前置,-1表示更改失败 |
- 
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-window.uexOnload = function(){
-  uexCamera.cbChangeCameraPosition = function(opCode, dataType, data){
-     alert(data)；
-  }
-}
+var position = uexCamera.changeCameraPosition(cameraPosition);
+alert(position);
 ```
 
 #3、更新历史 
 
 ### iOS
 
-API版本:`uexCamera-3.0.8`
+API版本:`uexCamera-4.0.0`
 
-最近更新时间:`2016-5-10`
+最近更新时间:`2016-6-6`
 
-| 历史发布版本 | 更新内容 |
+| 历史发布版本| 更新内容 |
 | ----- | ----- |
+| 4.0.0|支持function传入|
 | 3.0.8 | cbOpenViewCamera回调方法,返回的JSON中增加字段label,替换之前的location |
 | 3.0.7 | 创建bundle存储资源文件,适配国际化 |
 | 3.0.6 | 修改IDE |
@@ -367,12 +210,13 @@ API版本:`uexCamera-3.0.8`
 
 ### Android
 
-API版本:`uexCamera-3.0.21`
+API版本:`uexCamera-4.0.0`
 
-最近更新时间:`2016-05-14`
+最近更新时间:`2016-6-6`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0|支持function传入|
 | 3.0.21 | 修复了小内存手机压缩图片时发生OOM的问题 |
 | 3.0.20 | 修复了open时选择不压缩导致的拍照不能保存的问题 |
 | 3.0.19 | 优化了EUExCamera代码逻辑,优化了压缩图片算法,增加注释,规范代码；在cbOpenViewCamera的返回JSON中增加字段label,替换之前的location |
