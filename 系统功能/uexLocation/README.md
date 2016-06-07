@@ -1,5 +1,5 @@
 [TOC]
-# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 定位插件
 ## 1.1、说明
 定位功能。同时使用GPS,GPRS,WIFI三种方式联合定位,取最先返回值。
@@ -8,35 +8,38 @@
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=177_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。
+在后续版本中新添加的接口会在文档中额外说明。
+
 # 2、API概览
 
 ## 2.1、方法
 > ### openLocation 打开定位功能,监听并返回设备所在地经纬度信息
 
-`uexLocation.openLocation()`
+`uexLocation.openLocation(callBackFunction)`
 
 **说明:**
 
-位置信息将通过手机GPS、WIFI或移动网络信号获取。成功打开定位功能时回调[cbOpenLocation](#cbOpenLocation 定位功能是否成功打开的回调方法 "cbOpenLocation")方法,成功获取到位置信息时通过[onChange](#onChange 设备位置变化的监听方法 "onChange")回调方法返回。
+位置信息将通过手机GPS、WIFI或移动网络信号获取。成功打开定位功能时会执行回调方法,成功获取到位置信息时通过[onChange](#onChange 设备位置变化的监听方法 "onChange")回调方法返回。
 
 **参数:**
 
  无
 
-**平台支持:**
-
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
-uexLocation.openLocation();
+uexLocation.openLocation(function(data) {
+    alert(data); //data值为  0: 成功  1: 失败
+});
 ```
+
+
 
 > ### closeLocation 关闭定位功能
 
@@ -50,15 +53,6 @@ uexLocation.openLocation();
 
  无
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
@@ -67,37 +61,49 @@ iOS6.0+
 
 > ### getAddress 获取经纬度对应的具体地址信息
 
-`uexLocation.getAddress(inLatitude,inLongitude,flag)`
+`uexLocation.getAddress(inLatitude,inLongitude,flag, callbackFunction)`
 
 ** 说明:**
-根据经纬度获取对应的地址信息
-回调 [cbGetAddress](#cbGetAddress 获取到位置信息返回经纬度数据的回调方法 "cbGetAddress")
+根据经纬度获取对应的地址信息，执行完成后会回调传入的函数`callbackFunction`
 
 **参数:**
 
- 
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | inLatitude | Number | 是 | 纬度 |
 | inLongitude | Number | 是 | 经度 |
-| flag | Number | 否 | 返回地址类型,默认是地址名称。值为1时返回地址详情(JSON格式),|
-````
-格式如下: {"formatted_address":"北京市海淀区海淀中街15号","location":{"lat":39.983197,"lng":116.317383},"addressComponent":{"province":"北京市","street_number":"15号","district":"海淀区","street":"海淀中街","city":"北京市"}} 
-````
+| flag | Number | 是 | 返回地址类型,默认是地址名称。值为1时返回地址详情(JSON格式)|
+|callbackFunction|Function|是| 获取地址成功后的回调函数|
 
-**平台支持:**
+回调函数中返回的数据是JSON对象(如果出错会返回ErrorCode)，格式如下:
 
-Android2.2+
-iOS6.0+
-
-** 版本支持:**
-3.0.0+
+```
+{
+    "formatted_address": "北京市海淀区海淀中街15号",
+    "location": {
+        "lat": 39.983197,
+        "lng": 116.317383
+    },
+    "addressComponent": {
+        "province": "北京市",
+        "street_number": "15号",
+        "district": "海淀区",
+        "street": "海淀中街",
+        "city": "北京市"
+    }
+}
+```
 
 **  示例:**
 
 ```
-    uexLocation.getAddress("30.475798", "114.402815");
+    var callbackFunction = function (data) {
+      alert(JSON.stringify(data));
+    }
+    uexLocation.getAddress("30.475798", "114.402815"，1，callbackFunction);
 ```
+
 > ### convertLocation 转换坐标的方法
 
 `var data = uexLocation.convertLocation(params);`
@@ -133,16 +139,6 @@ data = {
 | from | String | 是 | 源坐标类型,具体含义请参考[附录](#4、附录)|
 | to | String | 是 | 目的坐标类型,具体含义请参考[附录](#4、附录)|
 
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
 **示例:**
 
 ```
@@ -158,84 +154,20 @@ alert(obj.latitude+","+obj.longitude);//同步返回json字符串
 //alert(data);                  
 ```
 
-## 2.2、回调方法
-> ### cbOpenLocation 定位功能是否成功打开的回调方法
 
-`uexLocation.cbOpenLocation(opId, dataType, data)`
-
-** 参数:**
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
- 
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-** 版本支持:**
-3.0.0+
-
-**  示例:**
-```
-    uexLocation.cbOpenLocation = function(opCode, dataType, data){
-        alert(opCode + "," + dataType + "," + data);
-    }
-```
-
-> ### cbGetAddress 获取到位置信息返回经纬度数据的回调方法
-
-`uexLocation.cbGetAddress(opCode,dataType,data)`
-
-** 参数:**
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回获取的地址或者错误信息ErrorCode。|
- 
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**  版本支持:**
-3.0.0+
-
-**  示例:**
-```
-    uexLocation.cbGetAddress = function(opCode, dataType, data){
-        alert(opCode + "," + dataType + "," + data);
-    }
-```
-
-## 2.3、监听方法
+## 2.2、监听方法
 > ### onChange 设备位置变化的监听方法
 
   uexLocation.onChange(lat, log)
 
 **参数:**
 
- 
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | lat| Number| 是 |  纬度 |
 | log|Number | 是 | 经度 |
- 
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**  版本支持:**
-3.0.0+
 
 **  示例:**
 ```
@@ -248,12 +180,13 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexLocation-3.0.26`
+API版本:`uexLocation-4.0.0`
 
-最近更新时间:`2016-5-10`
+最近更新时间:`2016-6-6`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入 |
 | 3.0.26 | 新增坐标转换接口 |
 | 3.0.25 | 修复3.3引擎下的参数问题;修复用户未决定是否支持定位时会回调可以定位的问题 |
 | 3.0.24 | 修改定位权限,支持后台定位 |
@@ -284,12 +217,13 @@ API版本:`uexLocation-3.0.26`
 
 ### Android
 
-API版本:`uexLocation-3.0.8`
+API版本:`uexLocation-4.0.0`
 
-最近更新时间:`2016-5-10`
+最近更新时间:`2016-6-6`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入 |
 | 3.0.8 | 新增坐标系转换接口,支持wgs84,gcj02,bd09格式相互转换 |
 | 3.0.7 | 修复bug支持后台定位插件 |
 | 3.0.6 | sdk升级 |
@@ -306,4 +240,3 @@ API版本:`uexLocation-3.0.8`
 | wgs84 | GPS设备获取的角度坐标,世界标准地理坐标 |
 | bd09 | 百度地图采用的经纬度坐标 |
 | gcj02 | google地图、soso地图、aliyun地图、mapabc地图和amap地图所用坐标,中国国测局地理坐标 |
-
