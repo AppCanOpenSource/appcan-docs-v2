@@ -5,16 +5,30 @@
 ## 1.1、说明
 
 > 文件路径包括:`wgt://...`,`res://...`,`wgts://...`,`file://...`,`http://...`,`https://...`
-其中: `wgt://...`对应widget的沙盒根路径,可读可写；
-	`res://...`对应widget目录下的wgtRes路径,只可读不可写。
+其中: `wgt://...`对应widget的沙盒根路径,可读可写
+	`res://...`对应widget目录下的wgtRes路径,只可读不可写
 	
 关于文件路径的使用,可调用uexFileMgr.getFileRealPath接口获得文件真实路径作为参考
 
 ## 1.2、UI展示
- ![](http://newdocx.appcan.cn/docximg/151401f2015r6l7o.jpg)
+![](./img/screenshot1.jpg)
+![](./img/screenshot2.jpg)
 
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=172_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+
+## 1.4、平台版本支持
+
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统
+
+有特殊版本要求的API会在文档中额外说明
+
+## 1.5、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用
+
+在后续版本中新添加的接口会在文档中额外说明
+
 
 # 2、API概览
 
@@ -26,29 +40,25 @@
 
 **说明:**
 
-创建文件,同一id只能被创建一次。回调方法[cbCreateFile](#cbCreateFile 创建文件的回调方法 "cbCreateFile")
+创建文件,同一id只能被创建一次
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 唯一标识符 |
-| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
+Boolean类型,是否创建成功
 
-**版本支持:**
-
-3.0.0+
-
-** 示例:**
+**示例:**
 
 ```
-	var path = "wgt://data/test.txt";
-	uexFileMgr.createFile('1', path);
+var path = "wgt://data/test.txt";
+var ret = uexFileMgr.createFile('1', path);
+alert(ret);
 ```
 
 > ### createDir 创建文件夹
@@ -57,29 +67,26 @@ iOS6.0+
 
 **说明:**
 
-  创建文件夹,回调方法[cbCreateDir](#cbCreateDir 创建文件夹的回调方法 "cbCreateDir")
+  创建文件夹
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 唯一标识符 |
-| dirPath|String | 是 |文件夹路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| dirPath|String | 是 |文件夹路径,路径协议详见[附录-PathTypes](#PathTypes)  |
 
-**平台支持:**
 
-Android2.2+
-iOS6.0+
+**返回值:**
 
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否创建成功
 
 **示例:**
 
 ```
 var path = "wgt://data/test2/";
-uexFileMgr.createDir('20', path);
+var ret = uexFileMgr.createDir('20', path);
+alert(ret);
 ```
 
 > ### openFile 打开文件
@@ -88,29 +95,27 @@ uexFileMgr.createDir('20', path);
 
 **说明:**
 
-打开文件,回调方法[cbOpenFile](#cbOpenFile 打开文件的回调方法 "cbOpenFile")
+打开文件
+
+
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 唯一标识符 |
-| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 | mode|String | 是 | 文件打开模式,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#File "CONSTANT")中FileOpenModes |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否打开成功
 
 **示例:**
 
 ```
-uexFileMgr.openFile(1,"res://reader.txt",1);
+var ret = uexFileMgr.openFile(1,"res://reader.txt",1);
+alert(ret);
 ```
 
 > ### deleteFileByPath 根据路径删除文件
@@ -119,27 +124,23 @@ uexFileMgr.openFile(1,"res://reader.txt",1);
 
 **说明:**
 
-根据路径删除文件,回调方法[cbDeleteFileByPath](#cbDeleteFileByPath 根据路径删除文件的回调方法 "cbDeleteFileByPath")
+根据路径删除文件
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否删除成功
 
 **示例:**
 
 ```
-uexFileMgr.deleteFileByPath("wgt://data/test.txt");
+var ret = uexFileMgr.deleteFileByPath("wgt://data/test.txt");
+alert(ret);
 ```
 
 > ### deleteFileByID 根据id删除文件
@@ -148,7 +149,7 @@ uexFileMgr.deleteFileByPath("wgt://data/test.txt");
 
 **说明:**
 
-根据id删除文件,回调方法[cbDeleteFileByID](#cbDeleteFileByID 根据id删除文件的回调方法 "cbDeleteFileByID")
+根据id删除文件
 
 **参数:**
 
@@ -156,19 +157,17 @@ uexFileMgr.deleteFileByPath("wgt://data/test.txt");
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
+Boolean类型,是否删除成功
 
-**版本支持:**
 
-3.0.0+
 
 **示例:**
 
 ```
-uexFileMgr.deleteFileByID(1);
+var ret = uexFileMgr.deleteFileByID(1);
+alert(ret);
 ```
 
 > ### isFileExistByPath 根据路径判断文件是否存在
@@ -177,28 +176,25 @@ uexFileMgr.deleteFileByID(1);
 
 **说明:**
 
-根据路径判断文件是否存在,回调方法[cbIsFileExistByPath](#cbIsFileExistByPath 根据路径判断文件是否存在的回调方法 "cbIsFileExistByPath")
+根据路径判断文件是否存在
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 文件的唯一标识符,与回调函数中的opId对应 |
-| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 
-**平台支持:**
 
-Android2.2+
-iOS6.0+
+**返回值:**
 
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否存在
 
 **示例:**
 
 ```
-uexFileMgr.isFileExistByPath(2,"wgt://data/test.txt");
+var ret = uexFileMgr.isFileExistByPath(2,"wgt://data/test.txt");
+alert(ret);
 ```
 
 > ### isFileExistByID 根据id判断文件是否存在
@@ -207,7 +203,7 @@ uexFileMgr.isFileExistByPath(2,"wgt://data/test.txt");
 
 **说明:**
 
-根据id判断文件是否存在,回调方法[cbIsFileExistById](#cbIsFileExistByID 根据id判断文件是否存在的回调方法 "cbIsFileExistById")
+根据id判断文件是否存在
 
 **参数:**
 
@@ -215,19 +211,15 @@ uexFileMgr.isFileExistByPath(2,"wgt://data/test.txt");
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否存在
 
 **示例:**
 
 ```
-uexFileMgr.isFileExistByID('2');
+var ret = uexFileMgr.isFileExistByID('2');
+alert(ret);
 ```
 
 > ### getFileTypeByPath 根据路径获取文件类型
@@ -236,27 +228,23 @@ uexFileMgr.isFileExistByID('2');
 
 **说明:**
 
-根据路径获取文件类型,回调方法[cbGetFileTypeByPath](#cbGetFileTypeByPath 根据路径获取文件类型的回调方法 "cbGetFileTypeByPath")
+根据路径获取文件类型
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Number类型, -1:文件不存在或发生未知错误 0:文件 1:文件夹
 
 **示例:**
 
 ```
-uexFileMgr.getFileTypeByPath("wgt://data/test.txt");
+var ret = uexFileMgr.getFileTypeByPath("wgt://data/test.txt");
+alert(ret);
 ```
 
 > ### getFileTypeByID 根据id获取文件类型
@@ -265,7 +253,7 @@ uexFileMgr.getFileTypeByPath("wgt://data/test.txt");
 
 **说明:**
 
-根据id获取文件类型,回调方法[cbGetFileTypeById](#cbGetFileTypeByID 根据id获取文件类型的回调方法 "cbGetFileTypeById")
+根据id获取文件类型
 
 **参数:**
 
@@ -273,76 +261,75 @@ uexFileMgr.getFileTypeByPath("wgt://data/test.txt");
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Number类型, -1:文件不存在或发生未知错误 0:文件 1:文件夹
 
 **示例:**
 
 ```
-uexFileMgr.getFileTypeByID('4');
+var ret = uexFileMgr.getFileTypeByID('4');
+alert(ret);
 ```
 > ### explorer 文件管理器
 
-`uexFileMgr.explorer(path)`
+`uexFileMgr.explorer(folderPath,cb)`
 
 **说明:**
 
-文件管理器,回调方法[cbExplorer](#cbExplorer 文件管理器的回调方法 "cbExplorer")
+文件管理器
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| folderPath|String | 是 | 起始文件夹路径,路径协议详见[附录-PathTypes](#PathTypes) |
+| cb | Function| 是 | 文件浏览结束后,会调用此函数,函数参数说明见下|
 
-**平台支持:**
 
-Android2.2+
-iOS6.0+
+**回调参数:**
 
-**版本支持:**
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| path|String | 用户选择的文件的路径;若用户取消选择,则path为null |
 
-3.0.0+
+
 
 **示例:**
 
 ```
-uexFileMgr.explorer("/sdcard/widgetone");
+uexFileMgr.explorer("/sdcard/widgetone",function(path){
+	alert(path);
+});
 ```
 
 > ### multiExplorer 文件管理器(多选)
 
-`uexFileMgr.multiExplorer(path)`
+`uexFileMgr.multiExplorer(path,cb)`
 
 **说明:**
 
-文件管理器,支持选择多个文件,回调方法[cbMultiExplorer](#cbMultiExplorer 文件管理器(多选)的回调方法 "cbMultiExplorer")
+文件管理器,支持选择多个文件
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
+| cb | Function| 是 | 文件浏览结束后,会调用此函数,函数参数说明见下|
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| paths|Array | 用户选择的文件的路径构成的数组;若用户取消选择,则path为空数组 |
 
 **示例:**
 
 ```
-uexFileMgr.multiExplorer("/sdcard/widgetone");
+uexFileMgr.multiExplorer("/sdcard/widgetone",function(paths){
+	alert(paths);
+});
 ```
 
 > ### seekFile 定位到文件某一位置
@@ -360,20 +347,17 @@ uexFileMgr.multiExplorer("/sdcard/widgetone");
 | id| Number| 是 | 文件唯一标识符 |
 | len| Number| 是 |字节数 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否定位成功
 
 **示例:**
 
 ```
 uexFileMgr.openFile('1', "wgt://test.txt", '1');
-uexFileMgr.seekFile('1', '1');
+var ret = uexFileMgr.seekFile('1', '1');
+alert(ret);
+
 ```
 
 > ### seekBeginOfFile 定位到起始位置
@@ -390,20 +374,16 @@ uexFileMgr.seekFile('1', '1');
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否定位成功
 
 **示例:**
 
 ```
 uexFileMgr.openFile('1', "wgt://test.txt", '1');
-uexFileMgr.seekBeginOfFile('1');
+var ret = uexFileMgr.seekBeginOfFile('1');
+alert(ret);
 ```
 
 > ### seekEndOfFile 定位到结束位置
@@ -420,29 +400,26 @@ uexFileMgr.seekBeginOfFile('1');
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否定位成功
 
 **示例:**
 
 ```
+
 uexFileMgr.openFile('1', "wgt://test.txt", '1');
-uexFileMgr.seekEndOfFile('1');
+var ret = uexFileMgr.seekEndOfFile('1');
+alert(ret);
 ```
 
 > ### writeFile 写文件
 
-`uexFileMgr.writeFile(id,option ,data)`
+`uexFileMgr.writeFile(id,option ,data,cb)`
 
 **说明:**
 
-写文件,回调方法[cbWriteFile](#cbWriteFile 写文件的回调方法 "cbWriteFile")　　
+写文件　
 
 **参数:**
 
@@ -451,6 +428,7 @@ uexFileMgr.seekEndOfFile('1');
 | id| Number| 是 | 文件唯一标识符 |
 | option | Number| 是 |写入设置(详见下) |
 | data| String| 是 |要写入的数据 |
+| cb | Function| 是 | 写入结束后,会调用此函数,函数参数说明见下|
 
 * uexFileWritingOption是一个枚举值,将所需设置对应的flag传入即可。
 * 同时需要多种设置时,应将设置对应的flag相加后再传入。比如 option传3 (= 1+2) 意味着先进行base64解码,再追加写入.
@@ -461,29 +439,32 @@ uexFileMgr.seekEndOfFile('1');
 | 1 | Append | 包含此flag时,数据会追加写入到指定的文件|
 | 2 | Base64Decode | 包含此flag时,插件会先对传入的字符串进行base64解码,然后将解码后的数据写入文件|
 
-**平台支持:**
 
-Android2.2+
-iOS6.0+
+**回调参数:**
 
-**版本支持:**
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| ret| Boolean | 写入是否成功 |
 
-3.0.0+
+
+
 
 **示例:**
 
 ```
-    uexFileMgr.openFile('1', "wgt://test.txt", '1');
-    uexFileMgr.writeFile('1', 0, "test");
+uexFileMgr.openFile('1', "wgt://test.txt", '1');
+uexFileMgr.writeFile('1', 0, "test",function(ret){
+	alert(ret);
+});
 ```
 
 > ### readFile 读文件
 
-`uexFileMgr.readFile(id,len,option)`
+`uexFileMgr.readFile(id,len,option,cb)`
 
 **说明:**
 
-读文件,回调方法[cbReadFile](#cbReadFile 读文件的回调方法 "cbReadFile")
+读文件
 
 **参数:**
 
@@ -491,7 +472,8 @@ iOS6.0+
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 | len| Number| 是 |字节数,传-1表示读取全部内容|
-| option | Number | 否 | 读取设置(详见下),默认为0 |
+| option | Number | 是 | 读取设置(详见下)|
+| cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
 
 * uexFileReadingOption是一个枚举值,将所需设置对应的flag传入即可。
 * 同时需要多种设置时,应将设置对应的flag相加后再传入。
@@ -501,20 +483,21 @@ iOS6.0+
 | ----- | ----- | ----- | 
 | 1 | Base64Encode | 包含此flag时,插件会对读取到的数据先进行base64编码,再传回给前端|
 
-**平台支持:**
+* 不需要这些额外设置时,option请传0
 
-Android2.2+
-iOS6.0+
+**回调参数:**
 
-**版本支持:**
-
-3.0.0+
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| data| String | 读取到的数据,读取失败时返回null |
 
 **示例:**
 
 ```
-    uexFileMgr.openFile('1', "wgt://test.txt", '1');
-    uexFileMgr.readFile('1', -1);
+uexFileMgr.openFile('1', "wgt://test.txt", '1');
+uexFileMgr.readFile('1', -1,0,function(data){
+	alert(data);
+});
 ```
 
 > ### getFileSize 获取文件大小
@@ -523,7 +506,7 @@ iOS6.0+
 
 **说明:**
 
-获取文件大小,回调方法[cbGetFileSize](#cbGetFileSize 获取文件大小的回调方法 "cbGetFileSize")
+获取文件大小
 
 **参数:**
 
@@ -531,20 +514,16 @@ iOS6.0+
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+String类型,文件大小转成的字符串
 
 **示例:**
 
 ```
-    uexFileMgr.openFile('1', "wgt://test.txt", '1');
-    uexFileMgr.getFileSize('1');
+uexFileMgr.openFile('1', "wgt://test.txt", '1');
+var size = uexFileMgr.getFileSize('1');
+alert(size);
 ```
 
 > ### getFilePath 获取文件路径
@@ -553,7 +532,7 @@ iOS6.0+
 
 **说明:**
 
-获取文件路径, 回调方法[cbGetFilePath](#cbGetFilePath 获取文件路径的回调方法 "cbGetFilePath")
+获取文件路径
 
 **参数:**
 
@@ -561,20 +540,17 @@ iOS6.0+
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
+String类型,文件路径
 
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
 ```
-    uexFileMgr.openFile('1', "wgt://test.txt", '1');
-    uexFileMgr.getFilePath('1');
+uexFileMgr.openFile('1', "wgt://test.txt", '1');
+var path = uexFileMgr.getFilePath('1');
+alert(path);
 ```
 > ### getFileRealPath 获取文件实际路径
 
@@ -582,23 +558,18 @@ iOS6.0+
 
 **说明:**
 
-获取文件实际路径,回调方法[cbGetFileRealPath](#cbGetFileRealPath 获取文件实际路径的回调方法 "cbGetFileRealPath")
+获取文件实际路径
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path| String| 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
-| cbName| String| 否 | 指定的回调函数名,使用此方法回调,只回调给前端一个参数realPath |
+| path| String| 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
+String类型,文件绝对路径
 
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -620,19 +591,15 @@ uexFileMgr.getFileRealPath("wgt://data/test.txt", "cbName");
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否关闭成功
 
 **示例:**
 
 ```
-uexFileMgr.closeFile(1);
+var ret = uexFileMgr.closeFile(1);
+alert(ret);
 ```
 > ### getReaderOffset 获取文件偏移值
 
@@ -640,7 +607,7 @@ uexFileMgr.closeFile(1);
 
 **说明:**
 
-获取文件偏移值, 回调方法[cbGetReaderOffset](#cbGetReaderOffset 获取文件偏移值的回调方法 "cbGetReaderOffset")
+获取文件偏移值
 
 **参数:**
 
@@ -648,14 +615,9 @@ uexFileMgr.closeFile(1);
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Number类型,文件偏移值
 
 **示例:**
 
@@ -665,11 +627,11 @@ iOS6.0+
 
 > ### readPercent 读百分比对应位置的字符
 
-`uexFileMgr.readPercent(id,percent,len)`
+`uexFileMgr.readPercent(id,percent,len,cb)`
 
 **说明:**
 
-读百分比对应位置的字符,回调方法[cbReadPercent](#cbReadPercent 读百分比对应位置的字符的回调方法 "cbReadPercent")
+读百分比对应位置的字符
 
 **参数:**
 
@@ -678,29 +640,29 @@ iOS6.0+
 | id| Number| 是 | 文件唯一标识符 |
 | percent| Number| 是 | 百分比(不带百分号) |
 | len| Number| 是 | 字节数,读取百分比之后的字节长度 |
+| cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| data| String | 读取到的数据,读取失败时为null |
 
 **示例:**
 
 ```
-uexFileMgr.readPercent('1','20','3');
+uexFileMgr.readPercent('1','20','3',function(data){
+	alert(data);
+});
 ```
 
 > ### readNext 读取下一页字符
 
-`uexFileMgr.readNext(id,len)`
+`uexFileMgr.readNext(id,len,cb)`
 
 **说明:**
 
-读取下一页字符, 回调方法[cbReadNext](#cbReadNext 读取下一页字符的回调方法 "cbReadNext")
+读取下一页字符
 
 **参数:**
 
@@ -708,29 +670,29 @@ uexFileMgr.readPercent('1','20','3');
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 | len| Number| 是 | 字节数 |
+| cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| data| String | 读取到的数据,读取失败时为null |
 
 **示例:**
 
 ```
-uexFileMgr.readNext('1', '20');
+uexFileMgr.readNext('1', '20',function(data){
+	alert(data);
+});
 ```
 
-> ### readtextarea 读取上一页字符
+> ### readPre 读取上一页字符
 
-`uexFileMgr.readtextarea(id,len)`
+`uexFileMgr.readPre(id,len,cb)`
 
 **说明:**
 
-读取上一页字符, 回调方法[cbReadtextarea](#cbReadtextarea 读取上一页字符的回调方法 "cbReadtextarea")
+读取上一页字符
 
 **参数:**
 
@@ -738,20 +700,20 @@ uexFileMgr.readNext('1', '20');
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
 | len| Number| 是 | 字节数 |
+| cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| data| String | 读取到的数据,读取失败时为null |
 
 **示例:**
 
 ```
-uexFileMgr.readtextarea('1','20');
+uexFileMgr.readPre('1','20',function(data){
+	alert(data);
+});
 ```
 
 > ### openSecure 使用密码打开文件
@@ -760,30 +722,26 @@ uexFileMgr.readtextarea('1','20');
 
 **说明:**
 
-使用密码打开文件,回调方法[cbOpenSecure](#cbOpenSecure 使用密码打开文件的回调方法 "cbOpenSecure")
+使用密码打开文件
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
-| path| String| 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| path| String| 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 | mode| Number| 是 | 文件打开模式,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#File "CONSTANT")中FileOpenModes |
 | key| String| 是 | 密码 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否打开成功
 
 **示例:**
 
 ```
-uexFileMgr.openSecure('100', "wgt://secure.txt", '1', '123456');
+var ret = uexFileMgr.openSecure('100', "wgt://secure.txt", '1', '123456');
+alert(ret);
 ```
 
 > ### createSecure 使用密码创建文件
@@ -792,29 +750,25 @@ uexFileMgr.openSecure('100', "wgt://secure.txt", '1', '123456');
 
 **说明:**
 
-使用密码创建文件, 回调方法[cbCreateSecure](#cbCreateSecure 使用密码创建文件的回调方法 "cbCreateSecure")
+使用密码创建文件
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
-| path| String| 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| path| String| 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 | key| String| 是 | 密码 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否创建成功
 
 **示例:**
 
 ```
-uexFileMgr.createSecure('100', "wgt://data/test.txt", '123456');
+var ret = uexFileMgr.createSecure('100', "wgt://data/test.txt", '123456');
+alert ret;
 ```
 
 > ### getFileCreateTime 获取文件或文件夹的创建时间
@@ -823,45 +777,40 @@ uexFileMgr.createSecure('100', "wgt://data/test.txt", '123456');
 
 **说明:**
 
-获取文件或文件夹的创建时间, 回调方法[cbGetFileCreateTime](#cbGetFileCreateTime 使用获取文件或文件夹创建时间的回调方法 "cbGetFileCreateTime")
+获取文件或文件夹的创建时间
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 文件唯一标识符 |
-| path| String| 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| path| String| 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+String类型,创建时间
 
 **示例:**
 
 ```
-uexFileMgr.getFileCreateTime('33','wgt://test.txt');
+var timeStr = uexFileMgr.getFileCreateTime('33','wgt://test.txt');
+alert(timeStr);
 ```
 
 >### renameFile 重命名文件
 
-`uexFileMgr.renameFile(param)`
+`uexFileMgr.renameFile(param,cb)`
 
 **说明:**
 
 重命名文件
-
-回调方法[cbRenameFile](#cbRenameFile 重命名文件的回调方法)
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | param| String| 是 | param是字典结构json字符串,详情见下 |
+| cb | Function| 是 | 重命名结束后,会调用此函数,函数参数说明见下|
 
 ```
 var param = {
@@ -870,15 +819,19 @@ var param = {
 }
 ```
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+
-iOS6.0+
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| resultObj| Object | 重命名操作结果 |
 
-**版本支持:**
+```
+var resultObj = {
+	result:,//Number,必选.重命名成功时为1,失败时为0
+}
+```
 
-iOS 3.0.9+
-Androd 3.0.4+
+
 
 **示例:**
 
@@ -888,24 +841,30 @@ var data = {
 	newFilePath:"wgt://2.txt"
 }
 
-uexFileMgr.renameFile(JSON.stringify(data));
+uexFileMgr.renameFile(JSON.stringify(data),function(obj){
+	if(obj.result == 1){
+		alert("重命名成功!");
+	}else{
+		alert("重命名失败!");
+	}
+});
 ```
 
 > ### search 搜索文件
 
-`uexFileMgr.search(param)`
+`uexFileMgr.search(param,cb)`
 
 **说明:**
 
 搜索文件
 
-回调方法[cbSearch](#cbSearch 搜索文件的回调方法)
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | param| String| 是 | param是字典结构json字符串,详情见下 |
+| cb | Function| 是 | 搜索操作结束后,会调用此函数,函数参数说明见下|
 
 ```
 var param = {
@@ -924,15 +883,18 @@ var param = {
 
 * 需要多项option时 请将各option值相加再传入。比如传5 (=4+1),表示既递归搜索,又匹配文件夹
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+
-iOS6.0+
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| resultObj| Object | 搜索操作结果 |
 
-**版本支持:**
-
-iOS 3.0.12+
-Android 3.0.10+
+```
+var resultObj = {
+	isSuccess:,//Boolean,必选.是否搜索成功
+	result:,//Array,搜索成功时才有此参数.所有符合条件的路径构成的数组;若没有路径符合搜索条件,则为一个空数组
+}
+```
 
 **示例:**
 
@@ -944,7 +906,13 @@ var data={
 	suffixes:["txt","xml"]
 	}
 
-uexFileMgr.search(JSON.stringify(data));
+uexFileMgr.search(JSON.stringify(data),function(obj){
+	if(obj.isSuccess){
+		alert(obj.result);
+	}else{
+		alert("搜索失败!");
+	}
+});
 ```
 
 > ### getFileListByPath 获取某路径下的所有文件
@@ -955,40 +923,50 @@ uexFileMgr.search(JSON.stringify(data));
 
 获取某路径下的所有文件
 
-回调方法[cbGetFileListByPath](#cbGetFileListByPath 获取某路径下的所有文件的回调方法)
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path | String| 是 | 文件夹路径,支持wgt://, wgts://, file://协议路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes  |
+| path | String| 是 | 文件夹路径,支持wgt://, wgts://, file://协议路径,路径协议详见[附录-PathTypes](#PathTypes)|
 
-**平台支持:**
 
-Android2.2+    
-iOS6.0+
 
-**版本支持:**
+**返回值:**
 
-iOS 3.0.13+    
-Android 3.0.6+
+Array<FileInfo>类型,此路径下所有文件的信息构成的数组,文件信息结构如下
+
+```
+var FileInfo = {
+	fileName:,//String,文件名
+	filePath:,//String,文件路径
+	fileType:,//Number,类型。0-文件 1-文件夹 
+}
+```
 
 **示例:**
 
 ```
 var path = "wgt://"
-uexFileMgr.getFileListByPath(path);
+var result = uexFileMgr.getFileListByPath(path);
+alert(result);
 ```
 
 > ### getFileSizeByPath 通过路径获取文件大小
 
-`uexFileMgr.getFileSizeByPath(params)`
+`uexFileMgr.getFileSizeByPath(params,cb)`
 
 **说明:**
 
-通过路径获取文件或文件夹大小,回调方法[cbGetFileSizeByPath](#cbGetFileSizeByPath 通过路径获取文件大小的回调方法)
+通过路径获取文件或文件夹大小
 
 **参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| param| String| 是 | param是字典结构json字符串,详情见下 |
+| cb | Function| 是 | 操作结束后,会调用此函数,函数参数说明见下|
+
 
 ```
 var params = {
@@ -1001,1008 +979,81 @@ var params = {
 
 |  字段名称 | 类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id | String| 是 | 唯一标识符,与回调方法中id对应 |
-| path | String| 是 | 文件或文件夹路径,支持wgt://, wgts://, file://协议路径 ,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| id | Number| 是 | 唯一标识符,与回调方法中id对应 |
+| path | String| 是 | 文件或文件夹路径,支持wgt://, wgts://, file://协议路径 ,路径协议详见[附录-PathTypes](#PathTypes) |
 | unit | String| 否 | 文件大小单位,默认为"B",取值范围参考[unit](#GetFileSizeUnit) |
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+    
-iOS6.0+
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| resultObj| Object | 搜索操作结果 |
 
-**版本支持:**
+```
+var resultObj = {
+	errorCode:,//Number, 0-获取成功 1-获取失败
+	id:,//Number,唯一标识符
+	unit,//String,文件大小单位
+	data,//Number,文件大小
+}
 
-iOS 3.0.17+    
-Android 3.0.12+
+```
+
 
 **示例:**
 
 ```
-    var params = {
-        id:1,
-        path:"wgt://",
-        unit:"KB"
-    }
-    var data = JSON.stringify(params);
-    uexFileMgr.getFileSizeByPath(data);
+var params = {
+	id:1,
+ 	path:"wgt://",
+ 	unit:"KB"
+}
+var data = JSON.stringify(params);
+uexFileMgr.getFileSizeByPath(data,function(info){
+	if(info.errorCode == 0){
+		alert(info.data);
+	}else{
+		alert("ERROR!");
+	}
+});
 ```
 
 > ### copyFile 复制单个文件
 
-`uexFileMgr.copyFile(opID, srcFilePath, objPath);`
+`uexFileMgr.copyFile(opID, srcFilePath, objPath,cb);`
 
 **说明:**
 
 复制单个文件
 
-回调方法[cbCopyFile](#cbCopyFile 复制单个文件的回调方法)
+
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opID | String| 是 | 复制文件任务id |
-| srcFilePath | String| 是 | 源文件路径,支持wgt://, wgts://, res://协议路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes  |
-| objPath | String| 是 | 目标文件夹路径,支持wgt://, wgts://, res://协议路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes  |
+| srcFilePath | String| 是 | 源文件路径,支持wgt://, wgts://, res://协议路径,路径协议详见[附录-PathTypes](#PathTypes)  |
+| objPath | String| 是 | 目标文件夹路径,支持wgt://, wgts://, res://协议路径,路径协议详见[附录-PathTypes](#PathTypes)  |
+| cb | Function| 是 | 操作结束后,会调用此函数,函数参数说明见下|
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-iOS 3.0.22+  
-Android 3.0.13+
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| result| Boolean | 是否复制成功 |
 
 **示例:**
 
 ```
 var s = "res://1016.jpg";
 var o = "wgt://";
-uexFileMgr.copyFile('109',s,o);
+uexFileMgr.copyFile('109',s,o,function(result){
+	alert(result);
+});
 ```
 
-## 2.2、回调方法
 
-> ### cbCreateFile 创建文件的回调方法
-
-`uexFileMgr.cbCreateFile(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-    uexFileMgr.cbCreateFile = function(opId, dataType, data) {
-        if (data == 0) {
-            alert("创建文件成功");
-        } else {
-            alert("创建文件失败");
-        }
-    }
-```
-
-> ### cbCreateDir 创建文件夹的回调方法
-
-`uexFileMgr.cbCreateDir(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbCreateDir = function(opId, dataType, data) {
-            if (data == 0) {
-                alert("创建文件夹成功");
-            } else {
-                alert("创建文件夹失败");
-            }
-        }
-```
-
-> ### cbOpenFile 打开文件的回调方法
-
-`uexFileMgr.cbOpenFile(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbOpenFile=function(opId,dataType,data){
-            if(data == 0){
-                alert("打开文件成功");
-            }else{
-                alert("打开文件失败");
-            }
-        }
-```
-
-> ### cbDeleteFileByPath 根据路径删除文件的回调方法
-
-`uexFileMgr.cbDeleteFileByPath(opId,dataType,data)`
-
- **参数: **
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbDeleteFileByPath = function(opId, dataType, data) {
-            if (data == 0) {
-                alert("删除成功");
-            } else {
-                alert("删除失败");
-            }
-        }
-```
-
-> ### cbDeleteFileByID 根据id删除文件的回调方法
-
-`uexFileMgr.cbDeleteFileByID(opId,dataType,data)`
-
- **参数: **
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbDeleteFileByID = function(opId, dataType, data) {
-            if (data == 0) {
-                alert("删除成功");
-            } else {
-                alert("删除失败");
-            }
-        }
-```
-
-> ### cbIsFileExistByPath 根据路径判断文件是否存在的回调方法
-
-`uexFileMgr.cbIsFileExistByPath(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回的int型的数据,1-存在；0-不存在 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbIsFileExistByPath = function(opId, dataType, data) {
-            if (data == 0) {
-                alert("文件不存在");
-            } else if (data == 1) {
-                alert("文件存在");
-            } else {
-                alert(data);
-            }
-        }
-```
-
-> ### cbIsFileExistByID 根据id判断文件是否存在的回调方法
-
-`uexFileMgr.cbIsFileExistByID(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回的int型的数据,1-存在；0-不存在 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbIsFileExistById = function(opId, dataType, data) {
-            if (data == 0) {
-                alert("文件不存在");
-            } else if (data == 1) {
-                alert("文件存在");
-            } else {
-                alert(data);
-            }
-        }
-```
-
-> ### cbGetFileTypeByPath 根据路径获取文件类型的回调方法
-
-`uexFileMgr.cbGetFileTypeByPath(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回的int型的数据,1-文件夹；0-文件 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbGetFileTypeByPath = function(opId, dataType, data) {
-            if (data == 1) {
-                alert("是文件夹");
-            } else if (data == 0) {
-                alert("是文件");
-            } else {
-                alert(data);
-            }
-        }
-```
-
-> ### cbGetFileTypeByID 根据id获取文件类型的回调方法
-
- `uexFileMgr.cbGetFileTypeByID(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回的int型的数据,1-文件夹；0-文件 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbGetFileTypeById = function(opId, dataType, data) {
-            if (data == 1) {
-                alert("是文件夹");
-            } else if (data == 0) {
-                alert("是文件");
-            } else {
-                alert(data);
-            }
-        }
-```
-
-> ### cbExplorer 文件管理器的回调方法
-
-`uexFileMgr.cbExplorer(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回文件管理器里选择的文件路径 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbExplorer = function(opId, dataType, data) {
-            alert(data);
-        }
-```
-
-> ### cbMultiExplorer 文件管理器(多选)的回调方法
-
-`uexFileMgr.cbMultiExplorer(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回文件管理器里选择的文件的路径列表,json格式如下:Key:索引值,从零开始;Value:返回的路径{"2":"/sdcard/DCIM/IMG_0003.JPG","1":"/sdcard/DCIM/1337569458885.png","0":"/sdcard/Apks/com.aurorasoftworks4.apk"} |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbMultiExplorer = function(opId, dataType, data) {
-            var text="";
-            var jsonList=eval("("+data+")");
-            if(jsonList.length == 0){
-                alert("无数据");
-            }     
-            for(var key in jsonList){          
-                text+=jsonList[key]+"<br>";
-            }
-            alert(text);
-        }
-```
-> ###cbWriteFile 写文件的回调方法
-
-`uexFileMgr.cbWriteFile(opCode,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opCode| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 |  0- 成功 1-失败 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbWriteFile = function(opCode,dataType,data) {
-            alert(data);
-        }
-```
-> ### cbReadFile 读文件的回调方法
-
-`uexFileMgr.cbReadFile(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回文件的内容 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbReadFile = function(opId, dataType, data) {
-            alert(data);
-        }
-```
-> ### cbGetFileSize 获取文件大小的回调方法
-
-`uexFileMgr.cbGetFileSize(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回文件的大小 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbGetFileSize = function(opId, dataType, data) {
-            alert("文件长度:" + data);
-        }
-```
-> ### cbGetFilePath 获取文件路径的回调方法
-
-`uexFileMgr.cbGetFilePath(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回文件的路径 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbGetFilePath = function(opId, dataType, data) {
-            alert("文件路径:" + data);
-        }
-```
-
-> ### cbGetFileRealPath 获取文件实际路径的回调方法
-
-`uexFileMgr.cbGetFileRealPath(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回文件的真实路径 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbGetFileRealPath = function(opId, dataType, data) {
-            alert("文件的真实路径:" + data);
-        }
-```
-
-> ### cbGetReaderOffset 获取文件偏移值的回调方法
-
-`uexFileMgr.cbGetReaderOffset(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回文件的偏移量 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbGetReaderOffset=function(opId,dataType,data){
-            alert(data);
-        }
-```
-> ### cbReadPercent 读百分比对应位置的字符的回调方法
-
-`uexFileMgr.cbReadPercent(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回文件的内容 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbReadPercent =function(opId,dataType,data){
-            alert(data);
-        }
-```
-
-> ### cbReadNext 读取下一页字符的回调方法
-
-`uexFileMgr.cbReadNext(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回文件的内容 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbReadNext = function(opId,dataType,data){
-            alert(data);
-        }
-```
-
-> ### cbReadtextarea 读取上一页字符的回调方法
-
-`uexFileMgr.cbReadtextarea(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回文件的内容 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbReadtextarea = function(opId,dataType,data){
-            alert(data);
-        }
-```
-
-> ### cbOpenSecure 使用密码打开文件的回调方法
-
-`uexFileMgr.cbOpenSecure(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbOpenSecure = function(opId, dataType, data) {
-            if (data == 0) {
-                alert(opId+"打开加密文件成功");
-            } else {
-                alert(opId+"打开加密文件失败");
-            }
-        }
-```
-
-> ### cbCreateSecure 使用密码创建文件的回调方法
-
-`uexFileMgr.cbCreateSecure(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-        uexFileMgr.cbCreateSecure = function(opId, dataType, data) {
-            if (data == 0) {
-                alert("创建加密文件成功");
-            } else {
-                alert("创建加密文件失败");
-            }
-        }
-```
-
-> ### cbGetFileCreateTime 使用获取文件或文件夹创建时间的回调方法
-
-`uexFileMgr.cbGetFileCreateTime(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 唯一标识符 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回创建时间 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-uexFileMgr.cbGetFileCreateTime = function(opId,dataType,data){
-    alert(data);
-};
-```
-
-> ### cbRenameFile 重命名文件的回调方法
-
-`uexFileMgr.cbRenameFile(param)`
-
-**说明:**
-
-重命名文件的回调方法
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| param| String| 是 | param是字典结构json字符串,详情见下 |
-
-```
-var param = {
-	result:,//String,必选 重命名结果  "0" 失败  "1" 成功
-}
-
-```
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS 3.0.9+
-Androd 3.0.4+
-
-**示例:**
-
-```
-uexFileMgr.cbRenameFile=function (info){
-	alert(info);
-}
-```
-
-> ### cbSearch 搜索文件的回调方法
-
-`uexFileMgr.cbSearch(param)`
-
-**说明:**
-
-搜索文件的回调方法
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| param| String| 是 | param是字典结构json字符串,详情见下 |
-
-```
-var param = {
-	isSuccess:,//true false
-	result:[],//文件路径数组
-}
-
-```
-* 文件名规则
-	* 如果是文件,传完整文件名,比如:"1.txt"
-	* 如果是文件夹,则以"/"结尾,比如:"dir/"
-
-* 文件路径规则
-	* 如果在目标文件夹下 传"文件名"  比如"1.txt"
-	* 如果在其子文件夹下 传"/子文件夹1/子文件夹2/.../文件名"  比如:"dir/1.txt" "dir/dir2/"
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS 3.0.12+
-Android 3.0.10+
-
-**示例:**
-
-```
-uexFileMgr.cbSearch=function (info){
-	alert(info);
-}
-```
-
-> ### cbGetFileListByPath 获取某路径下的所有文件的回调方法
-
-`uexFileMgr.cbGetFileListByPath(opId, dataType, data)`
-
-**说明:**
-
-获取某路径下的所有文件的回调方法
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 操作Id |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data| Json | 是 | 文件列表数据,如下: |
-
-```
-var data = [
-    {
-        fileName:,
-        fileType:,
-        filePath:
-    }
-]
-```
-各字段含义如下:
-
-|  字段名称 | 类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| fileName| String| 是 | 文件名称 |
-| fileType| Number| 是 | 类型,0-表示文件,1-表示文件夹 |
-| filePath| String| 是 | 当前文件路径 |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-iOS 3.0.13+    
-Android 3.0.6+
-
-**示例:**
-
-```
-uexFileMgr.cbGetFileListByPath=function (opId, dataType, info){
-	alert(info);
-}
-```
-
-> ### cbGetFileSizeByPath 通过路径获取文件大小的回调方法
-
-`uexFileMgr.cbGetFileSizeByPath(params)`
-
-**说明:**
-
-通过路径获取文件大小的回调方法
-
-**参数:**
-
-```
-var params = {
-    errorCode:,
-    id:,
-    data:,
-    unit:
-}
-```
-各字段含义如下:
-
-|  字段名称 | 类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| errorCode| Number| 是 | 状态码,0表示获取成功,非0表示失败,详情参考[errorCode](#GetFileSizeErrorCode) |
-| id| String| 否 | 唯一标识符,errorCode不等于-1时,必选 |
-| data| String| 否 | 文件大小数据,errorCode为0时返回 |
-| unit| String| 否 | 文件大小单位,errorCode为0时返回,详情参考[unit](#GetFileSizeUnit) |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-iOS 3.0.17+    
-Android 3.0.12+
-
-**示例:**
-
-```
-uexFileMgr.cbGetFileSizeByPath=function(info){
-	alert(info);
-}
-```
-
-> ### cbCopyFile 复制单个文件的回调方法
-
-`uexFileMgr.cbCopyFile(opCode, dataType, data)`
-
-**说明:**
-
-重命名文件的回调方法
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opCode | String | 是 | 复制文件任务id |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS 3.0.22+
-Androd 3.0.13+
-
-**示例:**
-
-```
-		uexFileMgr.cbCopyFile = function(opCode, dataType, data){
-		    alert("opCode:"+opCode+",dataType:"+dataType+",data"+data);
-		    
-		}
-```
 
 # 3、更新历史
 
@@ -2071,6 +1122,8 @@ API版本:`uexFileMgr-3.0.21`
 | 3.0.2 | 修复res://协议下获取真实路径不正确的问题 |
 | 3.0.1 | 新增获取文件或文件夹的创建时间 |
 | 3.0.0 | 文件管理功能插件 |
+
+
 # 4、附录
 
 ### GetFileSizeErrorCode
@@ -2090,4 +1143,13 @@ API版本:`uexFileMgr-3.0.21`
 | KB | 1KB = 1024B |
 | MB | 1MB = 1024KB |
 | GB | 1GB = 1024MB |
+
+### PathTypes
+
+|  协议头 |  Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径  |
+| ------------ | ------------ | ------------ |
+| res:// |widget/wgtRes/   |widget/wgtRes   |
+| wgt:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/  | /Documents/apps/xxx(widgetAppId)/ |
+| wgts:// |  /storage/emulated/0/widgetone/widgets/ |  /Documents/widgets/ |
+| file:///sdcard/ | /storage/emulated/0/  | 绝对路径  |
 
