@@ -1,6 +1,6 @@
 [TOC]
 
- #1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+#1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
  照相机插件
 ##1.1、说明
  调用设备照相机拍摄照片,成功后返回相关图片存储地址。
