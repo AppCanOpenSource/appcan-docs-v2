@@ -95,7 +95,7 @@ uexLocation.openLocation(function(data) {
 }
 ```
 
-**  示例:**
+**示例:**
 
 ```
     var callbackFunction = function (data) {
