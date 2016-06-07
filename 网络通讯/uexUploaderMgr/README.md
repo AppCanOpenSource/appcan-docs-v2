@@ -7,6 +7,19 @@
 ![](http://newdocx.appcan.cn/docximg/133734g2015g6g16d.png)
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=193_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+## 1.4、平台版本支持
+
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统
+
+有特殊版本要求的API会在文档中额外说明
+
+## 1.5、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用
+
+在后续版本中新添加的接口会在文档中额外说明
+
+
 
 # 2、API概览
 
@@ -32,26 +45,20 @@ var extraInfo = {
 	type:,//Number,可选,uploader类型 0: 一般上传对象 1: 全局上传对象 2: 后台上传对象
 }
 ```
-
-* extraInfo在插件插件版本iOS 3.0.15+ 以及Android 3.0.10+ 才有效
 * type:
 	* 全局上传对象在当前网页关闭时不会停止上传
 	* 后台上传对象是全局上传对象,且当应用处于后台时,仍然可以进行上传
 	* 创建全局上传对象或者后台上传对象时,id需保证全局唯一
 
-**平台支持:**
+**返回值:**
 
-Android 2.2+
-iOS 7.0+
-
-**版本支持:**
-
-3.0.0+
+Boolean类型,是否创建成功
 
 **示例:**
 
 ```
-uexUploaderMgr.createUploader(1, "http://te.3g2win.com/pidginimg/upload.php");
+var ret = uexUploaderMgr.createUploader(1, "http://te.3g2win.com/pidginimg/upload.php",JSON.stringify({type:2}));
+alert(ret);
 ```
 
 > ### closeUploader 关闭上传对象
@@ -68,26 +75,24 @@ uexUploaderMgr.createUploader(1, "http://te.3g2win.com/pidginimg/upload.php");
 | ----- | ----- | ----- | ----- |
 |  id | String | 是 | 唯一标识符 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS7.0+
+Boolean类型,是否关闭成功
 
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
 ```
-uexUploaderMgr.closeUploader(1);
+var ret = uexUploaderMgr.closeUploader(1);
+alert(ret);
 ```
 
 > ### setHeaders 设置请求头
 
 `uexUploaderMgr.setHeaders(id, json)`
 
-** 说明:**
+**说明:**
+
 设置http请求头
 
 **参数:**
@@ -97,28 +102,25 @@ uexUploaderMgr.closeUploader(1);
 | id | String | 是 | 上传对象的唯一标识符     |
 | json | JSON字符串 | 是 | 请求头信息 |
 
-**平台支持:**
+**返回值:**
 
-Android2.2+
-iOS6.0+
+Boolean类型,是否设置成功
 
-** 版本支持:**
-3.0.0+
-
-**  示例:**
+**示例:**
 
 ```
 var headJson = {"myHeaderKey":"myHeaderValue"};
-uexUploaderMgr.setHeaders(1, JSON.stringify(headJson)); 
+var ret = uexUploaderMgr.setHeaders(1, JSON.stringify(headJson)); 
+alert(ret);
 ```
 
 > ### uploadFile 上传文件
 
-`uexUploaderMgr.uploadFile(id, filePath, field, quality, maxWidth)`
+`uexUploaderMgr.uploadFile(id, filePath, field, quality, maxWidth,cb)`
 
 **说明:**
 
-上传文件,调用该接口时需确保创建过唯一标识符为id的上传对象。获取文件上传过程中的信息,可以采用监听方法[onStatus](#onStatus 上传状态的监听方法 "onStatus")
+上传文件,调用该接口时需确保创建过唯一标识符为id的上传对象。
 
 **参数:**
 
@@ -128,91 +130,32 @@ uexUploaderMgr.setHeaders(1, JSON.stringify(headJson));
 | id | String | 是 | 上传对象的唯一标识符     |
 | filePath | String | 是 | 需要上传的文件路径。支持`wgt://`,`res://`,`file://` |
 | field | String | 是 | 文件数据所在的field |
-| quality | Number | 否 | 类型如果为图片,表示是否需要压缩及压缩质量。 0:不压缩 1:高质量压缩 2:中质量压缩 3:低质量压缩|
-| maxWidth | Number | 否 | 类型如果为图片,图片按尺寸等比压缩的最大宽度 |
+| quality | Number | 是 | 类型如果为图片,表示是否需要压缩及压缩质量。 0:不压缩 1:高质量压缩 2:中质量压缩 3:低质量压缩|
+| maxWidth | Number | 是 | 类型如果为图片,图片按尺寸等比压缩的最大宽度 |
+| cb | Function | 是 | 文件上传中的信息会通过此函数回调|
 
-**平台支持:**
 
-Android2.2+
-iOS7.0+
 
-**版本支持:**
-
-3.0.0+
-
-**示例:**
+**回调参数:**
 
 ```
-uexUploaderMgr.uploadFile('1',"res://uexCoverFlow2_tupian.png","inputName",'0');
-```
-
-## 2.2、回调方法
-> ### cbCreateUploader 创建上传对象是否成功的回调方法
-
-`uexUploaderMgr.cbCreateUploader(id, dataType, datra)`
-
-** 参数:**
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | 上传对象的唯一标识符 |
-| dataType|Number | 是 | data的数据类型,该回调中此参数永远为2,可忽略 |
-| data|Number | 是 | 0-成功 1-失败 |
-
-**平台支持:**
-
-Android2.2+
-iOS7.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-function cbCreateUploader(id, dataType, data){
-    if (data == 0) {
-        alert("创建成功");
-    } else {
-        alert("创建失败");
-    }
-}
-window.uexOnload = function() {
-    uexUploaderMgr.cbCreateUploader = cbCreateUploader;
+cb = function(packageSize, percent, responseString, status){
+	//...
 }
 ```
 
-## 2.3、监听方法
-> ### onStatus 上传状态的监听方法
-
-uexUploaderMgr.onStatus(id, packageSize, percent, responseString, status)
-
-**参数:**
-
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| Number| 是 | 上传对象唯一标识符 |
-| packageSize| Number | 是 | 上传包的总大小 |
+|  参数名称 | 参数类型  |  说明 |
+| ----- | ----- | ----- |
+| packageSize| Number | 是 | 上传包的总大小,单位:字节 |
 | percent| Number | 是 | 上传的百分比|
 | resonseString| String | 是 | 服务器的response|
 | status| Number | 是 | 上传的状态,0-上传中 1-上传成功 2-上传失败|
 
-**平台支持:**
-
-Android2.2+
-iOS7.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
-function onStatus(id, packageSize, percent, responseString, status){
-    switch (status) {
+uexUploaderMgr.uploadFile('1',"res://uexCoverFlow2_tupian.png","inputName",1,640,function(packageSize, percent, responseString, status){
+	switch (status) {
     case 0:
         document.getElementById('percentage').innerHTML = "上传包大小:"+packageSize+"<br>上传进度:"+percent+"%";
         break;
@@ -223,10 +166,7 @@ function onStatus(id, packageSize, percent, responseString, status){
         alert("上传失败");
         break;
     }
-}
-window.uexOnload = function(){
-    uexUploaderMgr.onStatus = onStatus;
-}
+});
 ```
 
 # 3、更新历史
