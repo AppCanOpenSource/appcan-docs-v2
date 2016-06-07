@@ -47,17 +47,25 @@ Path Types
 |  wgts:// |  /storage/emulated/0/widgetone/widgets/ |  /Documents/widgets/ |
 |  file:///sdcard/ | /storage/emulated/0/  | 无  |
 
+## 1.5、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.6、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。
+在后续版本中新添加的接口会在文档中额外说明。
+
 # 2、API概览
 ##  2.1 方法
 
 > ### registerApp 用户授权
 
-`uexSina.registerApp(appKey,appSecret,registerURL) `
+`uexSina.registerApp(appKey,appSecret,registerURL, callbackFunction) `
 
 **说明:**
 
 用户授权,用户授权后可以进行调用分享等接口,如果手机上端有微博客户端,会直接调用客户端进行授权。如果没有,则开启网页让用户授权。
-回调 [cbRegisterApp](#cbregisterapp 用户授权的回调方法 "用户授权的回调方法")
+
 
 **参数:**
 
@@ -65,31 +73,36 @@ Path Types
 | ----- | ----- | ----- | ----- |
 | appKey| String类型| 必选 | 通过开放平台注册的appKey,appKey申请点击跳转   |
 | appSecret|String类型 | 必选 | 通过开放平台注册的appSecret |
-| registerURL|String类型 | 必选 | 通过开放平台注册的registerURL |
-  
+| registerURL|String类型 | 必选 | 通过开放平台注册的registerURL|
+| callbackFunction|函数 | 必选 | 回调函数，用来获取相关业务数据|
 
-**平台支持:**
+callbackFunction 参数是JSON对象, 其数据格式如下：
 
-Android2.2+  
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
+```
+{
+    openId: 
+    token:
+    code:// code 为0时表示成功, 此时openId和token会有值，1 代表失败
+}
+```
 
 **示例:**
-
-见sendImageContent方法示例 
+```
+var appKey = "4072168402";
+var appSecret = "b28223208b965d73c19fab20eab38943";
+var registerUrl = "http://www.testsina.com";
+uexSina.registerApp(appKey,appSecret,registerUrl, function(data) {
+    alert("openId:" + data.openId + "    token:" + data.token);
+});
+```
 
 > ### login 登录
 
-`uexSina.login(appKey,registerUrl); `
+`uexSina.login(appKey,registerUrl, callbackFunction); `
 
 **说明:**
 
 用户登录, 支持SSO登录。如果手机上端有微博客户端,会直接调用客户端进行登录授权。如果没有,则开启网页让用户登录授权。
-
-回调[cbLogin](#cbLogin 用户登录回调方法 "用户登录回调方法")
 
 **参数:**
 
@@ -97,16 +110,18 @@ iOS6.0+
 | ----- | ----- | ----- | ----- |
 | appKey| String类型| 必选 | 通过开放平台注册的appKey,appKey申请点击跳转   |
 | registerURL|String类型 | 必选 | 通过开放平台注册的registerURL |
+| callbackFunction|函数 | 必选 | 回调函数，用来获取相关业务数据|
 
-**平台支持:**
+登录成功后，回调函数的数据格式如下（如果失败返回ErrorCode）:
+```
+{
+    "uid": "1820127523",
+    "expires_in": 1465844397060,
+    "access_token": "2.00X_ELzBXB6a8E0b24b217d5CYmpKE",
+    "refresh_token": "2.00X_ELzBXB6a8Ef59d49d381oDgtuC"
+}
+```
 
-Android2.2+  
-iOS6.0+ 
-
-**版本支持:**
-
-Android 3.0.9+ 
-iOS 3.0.6+
 
 **示例:**
 
@@ -114,97 +129,82 @@ iOS 3.0.6+
 
 > ### getUserInfo 获取用户基本信息
 
-`uexSina.getUserInfo(); `
+`uexSina.getUserInfo(callbackFunction); `
 
 **说明:**
 
 返回该用户的新浪微博相关信息,如用户名,姓别,所在地等。
-回调[cbGetUserInfo](#cbGetUserInfo 获取用户信息的回调方法 "获取用户信息的回调方法")
 
 **参数:**
 
-无
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| callbackFunction|函数 | 必选 | 回调函数，用来获取相关业务数据|
 
-**平台支持:**
+回调函数的参数类型是JSON 对象，包含用户的基本信息。
 
-  
-Android2.2+  
-iOS6.0+ 
-
-**版本支持:**
-
-  
-Android 3.0.9+ 
-iOS 3.0.6+
 
 **示例:**
-
-见sendImageContent方法示例 
+```
+var commonCallback = function(data) {
+    alert("commonCallback:" + JSON.stringify(data));
+}
+uexSina.getUserInfo(commonCallback);
+```
 
 > ### logout 退出
 
-`uexSina.logout(); `
+`uexSina.logout(callbackFunction); `
 
 **说明:**
 
 注销该新浪微博帐号
-回调[cbLogout](#cbLogout 用户退出的回调方法 "用户退出的回调方法")
 
 **参数:**
 
-无
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| callbackFunction|函数 | 必选 | 回调函数，返回退出是否成功的状态|
 
-**平台支持:**
-
-Android2.2+  
-iOS6.0+ 
-
-**版本支持:**
-
-  
-Android 3.0.9+ 
-iOS 3.0.6+
 
 **示例:**
-
-见sendImageContent方法示例 
+```
+uexSina.logout(function(data) {
+    alert(data); // data: 0 成功， 1: 失败
+});
+```
 
 > ### sendTextContent 分享文字
 
-`uexSina.sendTextContent(txt)`
+`uexSina.sendTextContent(txt, callbackFunction)`
 
 **说明:**
 
-分享文字 回调 [cbShare](#cbshare 分享后的回调方法 "分享后的回调方法")
+分享文字
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | txt| String类型| 必选 | 文本内容   |
- 
+| callbackFunction|函数 | 必选 | 回调函数，返回分享是否成功的状态|
 
-**平台支持:**
-
-Android2.2+  
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
 
 **示例:**
-
-见sendImageContent方法示例 
+```
+var txt = "中国最大的移动中间平台AppCan对新浪微博分享支持测试";
+uexSina.sendTextContent(txt, function(data) {
+    alert(data); // data: 0 成功， 1 失败
+});
+```
 
 > ### sendImageContent 分享图片
 
-`uexSina.sendImageContent(imagePath,txt)`
+`uexSina.sendImageContent(imagePath,txt, callbackFunction)`
 
 **说明:**
 
 如果要分享网络图片需要申请新浪微博高级权限
-回调 [cbShare](#cbshare 分享后的回调方法 "分享后的回调方法")
 
 **参数:**
 
@@ -212,190 +212,28 @@ iOS6.0+
 | ----- | ----- | ----- | ----- |
 | imagePath| String类型| 必选 | 图片路径,路径协议详见CONSTANT中PathTypes。   |
 | txt|String类型 | 必选 | 文本内容 |
- 
-
-**平台支持:**
-
-Android2.2+  
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
+| callbackFunction|函数 | 必选 | 回调函数，返回分享是否成功的状态|
 
 **示例:**
-
 ```
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="../css/index.css">
-            <title>新浪功能</title>
-            <script type="text/javascript">
-                window.uexOnload = function(){
-                    uexSina.cbShare = function(opCode, dataType, data){
-                     document.getElementById("showStatus").innerHTML = "返回分享状态码:"+data;
-                    };
-                   uexSina.cbRegisterApp = function(opCode, dataType, data){
-                        alert(data);
-                    }
-                   uexSina.cbLogin = function(opCode,dataType,data) {
-                        document.getElementById("selectItem").innerHTML = data;
-                   }
-                  uexSina.cbGetUserInfo = function(opCode, dataType, data) {
-                         alert(data);
-                   }
-                  uexSina.cbLogout = function(opCode, dataType, data){
-                        alert(data);
-                  }
-                }
-            function shareText(){
-                var txt = "这是来自appcan平台对新浪微博分享支持测试";
-                uexSina.sendTextContent(txt);
-            }
-            function sharePic(){
-                var content = "这是来自appcan平台对新浪微博分享支持测试";
-                var realImgPath = "res://Icon.png";//http:// 本地
-                uexSina.sendImageContent(realImgPath, content);
-            }
-            function register23(){
-                var appKey = "3101073421";
-                var appSecret = "2f5acd0e39889f9965c86c743afdda04";
-                var registerUrl = "http://mp.ceair.com/";
-                uexSina.registerApp(appKey,appSecret,registerUrl);
-            }
-            function login() {
-                var appKey = "4072168403";
-                var registerUrl = "http://www.dotlink.com";
-                uexSina.login(appKey,registerUrl);
-            }
-            function getUserInfo() {
-                uexSina.getUserInfo();
-            }
-            </script>
-            </head>
-    <body>
-        <div class="tit">新浪功能</div>
-        <div class="conbor">
-            <div class="consj">
-                <span>1.注册app id</span>
-                <input class="btn" type="button" value="注册App" onClick="register23();">
-                    <div class="tcxx" id="selectItem"> </div>
-                    <span>2.发表状态</span>
-                    <input class="btn" type="button" value="分享文本" onClick="shareText();">
-                        <div class="tcxx" id="showStatus"></div><br>
-                        <span>3.分享图片</span>
-                        <input class="btn" type="button" value="分享图片" onClick="sharePic
-
-();">
-                            <div class="tcxx" id="showPicStatus">
-</div><br>
-            <input class="btn" type="button" value="获取用户信息" onclick="getUserInfo();">
-            <br>
-            <input class="btn" type="button" value="登出" onclick="uexSina.logout();">
-</div>
-</div>
-    </body>
-</html>
+var content = "中国最大的移动中间平台AppCan对新浪微博分享的图片支持测试";
+var realImgPath = "res://sotower.png";//http:// 本地
+uexSina.sendImageContent(realImgPath, content,function(data) {
+    alert(data); // data: 0 成功， 1 失败
+});
 ```
-
-##  2.1 回调方法
-> ### cbRegisterApp 用户授权的回调方法
-
-`uexSina.cbRegisterApp(opId,dataType,data)  `
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。  |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
-| data|Number类型 | 必选 | 注册结果,0-成功,1-失败。  |
-  
-
-**版本支持**
-
-3.0.0+  
-
-> ### cbLogin 用户登录回调方法
-
-`uexSina.cbLogin(opCode,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。  |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
-| data|String类型 | 必选 | 登录后返回的用户相关信息,包括uid, access_token |
-
-**版本支持**
-
-Android 3.0.9+  
-iOS 3.0.6+
-
-> ### cbGetUserInfo 获取用户信息的回调方法
-
-`uexSina.cbGetUserInfo(opCode,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。  |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
-| data|String类型 | 必选 | 用户的信息,返回一个json String  |
-
-**版本支持**
-
-Android 3.0.9+  
-iOS 3.0.6+
-
-> ### cbLogout 用户退出的回调方法
-
-`uexSina.cbLogout(opCode,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。  |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
-| data|Number类型 | 必选 | 分享结果,0-成功,1-失败。  |
-
-**版本支持**
-
-Android 3.0.9+  
-iOS 3.0.6+
-
-> ### cbShare 分享后的回调方法
-
-`uexSina.cbShare(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型     |
-| data|Number类型 | 必选 | 分享结果,成功:0,失败:状态码。 |
- 
-
-**版本支持:**
-
-3.0.0+  
 
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexSina-3.0.7`
+API版本:`uexSina-4.0.0`
 
-最近更新时间:`2016-01-26`
+最近更新时间:`2016-06-06`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入 |
 | 3.0.7 | uexSina添加分享图片可以分享网络图片的功能 |
 | 3.0.6 | 替换SinaSDK3.1.1,重写授权登陆相关接口；新增login、logout、getUserInfo接口 |
 | 3.0.5 | 注册回调方法名统一修改为uexSina.cbRegisterApp |
@@ -407,12 +245,14 @@ API版本:`uexSina-3.0.7`
 
 ### Android
 
-API版本:`uexSina-3.0.12`
+API版本:`uexSina-4.0.0`
 
-最近更新时间:`2016-4-22`
+最近更新时间:`2016-06-06`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入 |
+| 3.0.13 | 修复registerApp回调不执行的问题 |
 | 3.0.12 | 修复图片路径读取的问题 |
 | 3.0.11 | 修复了分享图片不能读取wgts://格式的文件问题 |
 | 3.0.10 | cbRegisterApp回调openId和token |
