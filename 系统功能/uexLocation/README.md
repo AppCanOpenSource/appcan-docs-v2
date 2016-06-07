@@ -63,7 +63,7 @@ uexLocation.openLocation(function(data) {
 
 `uexLocation.getAddress(inLatitude,inLongitude,flag, callbackFunction)`
 
-** 说明:**
+**说明:**
 根据经纬度获取对应的地址信息，执行完成后会回调传入的函数`callbackFunction`
 
 **参数:**
@@ -169,7 +169,7 @@ alert(obj.latitude+","+obj.longitude);//同步返回json字符串
 | log|Number | 是 | 经度 |
 
 
-**  示例:**
+**示例:**
 ```
     uexLocation.onChange = function(lat, log){
         alert(lat + "," + log);
