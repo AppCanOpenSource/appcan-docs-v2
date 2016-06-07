@@ -12,6 +12,15 @@
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=167_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。
+在后续版本中新添加的接口会在文档中额外说明。
+
 # 2、API概览
 
 ## 2.1、方法
@@ -31,14 +40,6 @@
 | ----- | ----- | ----- | ----- |
 | milliseconds | Number | 是 | 震动持续时长,单位毫秒 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -58,14 +59,6 @@ iOS6.0+
 
   无
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -79,7 +72,7 @@ iOS6.0+
 
 **说明:**
 
-获取设备信息,回调方法[cbGetInfo](#cbGetInfo 获取设备信息的回调方法 "cbGetInfo")
+获取设备信息
 
 **参数:**
 
@@ -96,14 +89,6 @@ iOS6.0+
 
 * 在3.3+引擎版本下,此方法具有返回值,可以直接获得所需的设备信息
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -113,11 +98,11 @@ iOS6.0+
 ```
 > ### screenCapture 屏幕截图
 
-`uexDevice.screenCapture(quality)`
+`uexDevice.screenCapture(quality, callbackFunction)`
 
 **说明:**
 
-获取当前屏幕截图,回调方法[cbScreenCapture](#cbScreenCapture 获取所截图片地址的回调方法 "cbScreenCapture")
+获取当前屏幕截图
 
 **参数:**
 
@@ -125,21 +110,15 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | quality | Number | 是 | 图片压缩质量,取值范围[0,1] 为0时压缩率最大|
+|callbackFunction|	函数|	必选|	回调函数，用来获取相关业务数据|
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.1+
 
 **示例:**
 
 ```
-    uexDevice.screenCapture(0.8);//获取屏幕截图
+    uexDevice.screenCapture(0.8, function(data) {
+        alert(data.savePath);
+    });//获取屏幕截图
 ```
 
 > ### setVolume 调整音量 
@@ -157,15 +136,7 @@ Android3.0.1+
 | ----- | ----- | ----- | ----- |
 | volume | Number | 是 | 音量大小,取值范围[0,1] 为1时音量为最大 |
 
-**平台支持:**
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.1+
 
 **示例:**
 
@@ -178,7 +149,7 @@ Android3.0.1+
 
 **说明:**
 
-获取系统音量值,回调方法[cbGetVolume](#cbGetVolume 获取系统音量的回调方法 "cbGetVolume")
+获取系统音量值
 
 **参数:**
 
@@ -192,15 +163,6 @@ Android3.0.1+
 
 * 在3.3+引擎版本下,此方法具有返回值,可以直接获得系统音量值。
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.1+
 
 **示例:**
 
@@ -223,15 +185,6 @@ Android3.0.1+
 | ----- | ----- | ----- | ----- |
 | data | Number | 是 | 屏幕常亮控制值,0 为取消常亮控制；1为设置屏幕常亮|
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.1+
 
 **示例:**
 
@@ -245,7 +198,7 @@ Android3.0.1+
 
 **说明:**
 
-获取屏幕亮度值,回调方法[cbGetScreenBrightness](#cbScreenBrightness 获取系统音量的回调方法 "cbGetScreenBrightness")
+获取屏幕亮度值
 
 **参数:**
 
@@ -259,15 +212,6 @@ Android3.0.1+
 
 * 在3.3+引擎版本下,此方法具有返回值,可以直接获得屏幕亮度值。
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.1+
 
 **示例:**
 
@@ -291,15 +235,6 @@ Android3.0.1+
 | ----- | ----- | ----- | ----- |
 | brightness | Number | 是 | 屏幕亮度值,取值范围[0,1] 为1时屏幕亮度最大 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.1+
 
 **示例:**
 
@@ -317,18 +252,8 @@ Android3.0.1+
 
 **参数:**
 
- 
 无
 
-**平台支持:**
-
-Android2.2+
-iOS8.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.1+
 
 **示例:**
 
@@ -338,11 +263,11 @@ Android3.0.1+
 
 > ### isFunctionEnable 判断某功能是否开启
 
-`uexDevice.isFunctionEnable(params)`
+`uexDevice.isFunctionEnable(params, callbackFunction)`
 
 **说明:**
 
-判断某功能是否开启,回调方法[cbIsFunctionEnable](#cbIsFunctionEnable 判断某功能是否开启的回调方法)
+判断某功能是否开启
 
 **参数:**
 
@@ -357,16 +282,17 @@ var params = {
 | 字段名称 | 类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | setting | String | 是 | 功能名称,详情请参考[功能](#Settings) |
+|callbackFunction|	函数|	必选|	回调函数，用来获取相关业务数据|
 
-**平台支持:**
+callbackFunction 函数的参数是JSON对象类型，格式如下
 
-Android2.2+
-iOS7.0+
+```
+{
+    "setting":"GPS",
+    "isEnable":false
+}
+```
 
-**版本支持:**
-
-iOS3.0.7+
-Android3.0.3+
 
 **示例:**
 
@@ -375,16 +301,18 @@ var params = {
  	setting:"GPS"//位置服务功能
 };
 var data = JSON.stringify(params);
-uexDevice.isFunctionEnable(data);
+uexDevice.isFunctionEnable(data, function(data) {
+    alert(JSON.stringify(data));
+});
 ```
 
 > ### openSetting 打开设置界面
 
-`uexDevice.openSetting(params)`
+`uexDevice.openSetting(params, callbackFunction)`
 
 **说明:**
 
-打开设置界面,回调方法[cbOpenSetting](#cbOpenSetting 打开设置界面的回调方法)
+打开设置界面
 
 **参数:**
 
@@ -399,226 +327,32 @@ var params = {
 | 字段名称 | 类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | setting | String | 否 | 功能名称,详情请参考[功能](#Settings),不传时打开设置入口界面 |
+|callbackFunction|	函数|	必选|	回调函数，用来获取相关业务数据|
 
-**平台支持:**
-
-Android2.2+
-iOS8.0+(插件3.0.10后支持iOS7.0+)
-
-**版本支持:**
-
-iOS3.0.7+
-Android3.0.3+
-
-**示例:**
+callbackFunction 函数的参数是JSON对象类型，格式如下
 
 ```
-        var params = {
-            setting:"GPS"//位置服务功能
-        };
-        var data = JSON.stringify(params);
-        uexDevice.openSetting(data);
-```
-
-## 2.2、回调方法
-
-> ### cbGetInfo 获取设备信息的回调方法
-
-`uexDevice.cbGetInfo(opId,dataType,data)`
-
-**参数:**
-
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number | 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType | Number | 是 | 数据类型,详见[CONSTENT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTENT")中Callback方法数据类型 |
-| data | String | 是 | 返回设备的相关信息,json格式数据,参数说明详见[CONSTAN](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTAN")T中设备信息类型 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-uexDevice.cbGetInfo=function (opCode,dataType,data){
-	alert(data);
-};
-```
-
-> ### cbScreenCapture 获取屏幕截图的回调方法
-
-`uexDevice.cbScreenCapture(savePath)`
-
-**参数:**
-
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| data | String | 是 | 返回屏幕截图本地存储地址 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.1+
-
-**示例:**
-
-```
-uexDevice.cbScreenCapture = function(data){
-	var data = JSON.parse(data);
-	alert(data.savePath);
-};
-```
-
-> ### cbGetVolume 获取系统音量值的回调方法
-
-`uexDevice.cbGetVolume(data)`
-
-**参数:**
-
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| data | String | 是 | 系统音量值信息,音量值范围为[0,1] |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.1+
-
-**示例:**
-
-```
-uexDevice.cbGetVolume=function(data){
-	var data = JSON.parse(data);
-	alert(data.volume);
-};
-```
-
-> ### cbGetScreenBrightness 获取系统屏幕亮度值的回调方法
-
-`uexDevice.cbGetScreenBrightness(data)`
-
-**参数:**
-
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| data | String | 是 | 系统屏幕亮度值信息,值范围为[0,1] |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.1+
-
-**示例:**
-
-```
-uexDevice.cbGetVolume=function(data){
-	var data = JSON.parse(data);
-	alert(data.brightness);
-};
-```
-
-> ### cbIsFunctionEnable 判断某功能是否开启的回调方法
-
-`uexDevice.cbIsFunctionEnable(data)`
-
-**参数:**
-
-```
-var data = {
-    setting:,
-    isEnable:
+{
+    "setting":"GPS",
+    "errorCode":0 // 0 表示成功 
 }
 ```
-各字段含义如下:
-
-|  字段参数名称 | 类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| setting | String | 是 | 与isFunctionEnable中的setting字段对应 |
-| isEnable | boolean | 是 | 是否开启 |
-
-**平台支持:**
-
-Android2.2+
-iOS7.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.3+
 
 **示例:**
 
 ```
-uexDevice.cbIsFunctionEnable = function(data){
-	var data = JSON.parse(data);
-	alert(data.isEnable);
+var params = {
+    setting:"GPS"//位置服务功能
 };
+var data = JSON.stringify(params);
+uexDevice.openSetting(data, function(data) {
+    alert(JSON.stringify(data));
+});
 ```
 
-> ### cbOpenSetting 打开设置界面的回调方法
 
-`uexDevice.cbOpenSetting(data)`
 
-**参数:**
-
-```
-var data = {
-    setting:,
-    errorCode:
-}
-```
-各字段含义如下:
-
-|  字段参数名称 | 类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| setting | String | 是 | 与openSetting中的setting字段对应 |
-| errorCode | int | 是 | 状态码,0-打开设置成功,1-打开设置失败 |
-
-**平台支持:**
-
-Android2.2+
-iOS7.0+
-
-**版本支持:**
-
-iOS3.0.4+
-Android3.0.3+
-
-**示例:**
-
-```
-uexDevice.cbOpenSetting = function(data){
-	var data = JSON.parse(data);
-	alert(data.errorCode);
-};
-```
-
-## 2.3、监听方法
+## 2.2、监听方法
 
 > ### onOrientationChange 屏幕旋转的监听方法
 
@@ -631,14 +365,6 @@ uexDevice.cbOpenSetting = function(data){
 | ----- | ----- | ----- | ----- |
 | mode | Number | 是 | 屏幕方向,1-正竖屏；2-左横屏；4-倒竖屏；8-右横屏。 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -662,12 +388,13 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexDevice-3.0.9`
+API版本:`uexDevice-4.0.0`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-6-6`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+|4.0.0 |支持function传入|
 | 3.0.9 | 修改获取设备型号的方式,添加设备型号 |
 | 3.0.8 | 修改工程为arc;部分接口支持同步回调;设备型号现在可以识别iPad Pro |
 | 3.0.7 | openSetting接口支持打开推送通知设置 |
@@ -681,12 +408,13 @@ API版本:`uexDevice-3.0.9`
 
 ### Android
 
-API版本:`uexDevice-3.0.6`
+API版本:`uexDevice-4.0.0`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-6-6`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+|4.0.0 |支持function传入|
 | 3.0.6 | Android6.0支持获取wifi mac地址 |
 | 3.0.5 | 修复多次截图都是同一张图片的问题 |
 | 3.0.4 | 解决多次截屏失效的问题 |
