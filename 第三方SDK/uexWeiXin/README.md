@@ -54,18 +54,32 @@ Path Types
 前端收到的回调中的错误返回码errCode可查看下方链接获取详细信息
 [微信官方全局返回码说明地址](http://mp.weixin.qq.com/wiki/17/fa4e1434e57290788bde25603fa2fcbd.html)
  
+ 
+
+## 1.6、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用。
+
+在后续版本中新添加的接口会在文档中额外说明。
+
+## 1.7、平台版本支持
+
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+
+有特殊版本要求的API会在文档中额外说明。
+
 # 2、API概览
    
 ## 2.1 方法:
 
 > ### registerApp 用户授权
 
-`uexWeiXin.registerApp(appID)`
+`var info = uexWeiXin.registerApp(appID)`
 
 **说明:**
 
 必须先向微信终端注册本应用才可以进行其他操作
-回调 [cbRegisterApp](#cbRegisterApp 用户授权的回调方法)
+
                  
 
 **参数:**
@@ -73,36 +87,25 @@ Path Types
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | appID| String类型| 必选 | 到微信开发者登记页面进行登记并设置相关信息后将获得appID|
+| info | Number类型| 必选 | 0-成功,1-失败|
  
- 
-
-**平台支持:**
-
-  
-Android2.2+                  
-iOS6.0+    
-             
-版本支持:       
-3.0.0+    
-              
-
 **示例:**
 
      
 
 ```
-uexWeiXin.registerApp('wxd930ea5d5a258f4f');
+var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 ```
 
 > ### weiXinLogin 微信授权登录
 
-`uexWeiXin.weiXinLogin(scope,state)`
+`uexWeiXin.weiXinLogin(scope,state,function(data){})`
 
 **说明:**
 
  
 必须先向微信客户端注册本应用才可以进行该操作
-回调 [weiXinLogin](#cbweixinlogin 微信登录授权的回调方法 "微信登录授权的回调方法 ")        
+       
      
 
 **参数:**
@@ -113,106 +116,29 @@ uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 | ----- | ----- | ----- | ----- |
 | scope| String类型| 必选 |应用授权作用域.  注:授权作用域(scope)代表用户授权给第三方的接口权限, 第三方应用需要向微信开放平台申请使用相应scope的权限后, 使用文档所述方式让用户进行授权,经过用户授权, 获取到相应access_token后方可对接口进行调用.一般为snsapi_userinfo   |
 | state|String类型 | 可选 | 注:用于保持请求和回调的状态,授权请求后原样带回给第三方。 该参数可用于防止csrf攻击(跨站请求伪造攻击), 建议第三方带上该参数,可设置为简单的随机数加session进行校验|
-          
+| data | Number类型| 必选 | 授权结果:0——-成功,-2——-用户取消,-4——-用户拒绝|         
 
-**平台支持:**
 
-   
-Android2.2+         
-iOS6.0+      
-   
-
-**版本支持:**
-
-   
-3.0.0+     
      
 
 **示例:**
 
- 
-
 ```
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信授权登录功能</title>
-<script type="text/javascript">
-var cText = 0;
-var cJson = 1;
-var cInt = 2;
-var openid;
-var access_token;
-var refresh_token;
-window.uexOnload = function(){
-uexWeiXin.cbRegisterApp = function(opCode,dataType,data) {
-alert(data);
-}
-uexWeiXin.cbWeiXinLogin = function (opCode,dataType,data) {
-alert(data);
-}
-uexWeiXin.cbGetWeiXinLoginAccessToken = function (opCode,dataType,data) {
-alert(data);
-data = JSON.parse(data);
-openid=data.openid;
-access_token = data.access_token;
-refresh_token = data.refresh_token;
-}
-uexWeiXin.cbGetWeiXinLoginUnionID = function (opCode,dataType,data) {
-alert(data);
-}
-uexWeiXin.cbGetWeiXinLoginCheckAccessToken = function (opCode,dataType,data) {
-alert(data);
-}
-//刷新后重新赋值
-uexWeiXin.cbGetWeiXinLoginRefreshAccessToken = function (opCode,dataType,data) {
-alert(data);
-data = JSON.parse(data);
-openid=data.openid;
-access_token = data.access_token;
-refresh_token = data.refresh_token;
-}
+ uexWeiXin.weiXinLogin('snsapi_userinfo,snsapi_base','0744',function(data){
+            alert("callback:"+ JSON.stringify(data));
+        });
 
-uexWeiXin.cbIsWXAppInstalled=function(opCode,dataType,data){
-alert("cbIsWXAppInstalled:"+data);
-};
-uexWeiXin.cbGetWXAppInstallUrl=function(opCode,dataType,data){
-alert("cbGetWXAppInstallUrl:"+data);
-};
-
-}
-</script>
-</head>
-<body>
-<div class="tit">微信授权登录功能</div>
-<div class="conbor">
-<div class="consj">
-<span>1.注册app id</span>
-<input class="btn" type="button" value="注册App" onClick="uexWeiXin.registerApp('wxd930ea5d5a258f4f');">
-<span>2.检测是否安装微信(必须先注册)</span>
-<input class="btn" type="button" value="检测" onClick="uexWeiXin.isWXAppInstalled();">
-<input class="btn" type="button" value="授权登陆" onClick="uexWeiXin.weiXinLogin('snsapi_userinfo,snsapi_base','0744');">
-<input class="btn" type="button" value="获取accessToken" onClick="uexWeiXin.getWeiXinLoginAccessToken('db426a9829e4b49a0dcac7b4162da6b6','authorization_code');">
-<input class="btn" type="button" value="获取个人信息" onClick="uexWeiXin.getWeiXinLoginUnionID(access_token,openid);">
-<input class="btn" type="button" value="获取刷新accessToken" onClick="uexWeiXin.getWeiXinLoginRefreshAccessToken('refresh_token',refresh_token);">
-<input class="btn" type="button" value="检验accessToken" onClick="uexWeiXin.getWeiXinLoginCheckAccessToken(access_token,openid);">
-</div>
-</body>
-</html>
 
 ```
 
 > ### getWeiXinLoginAccessToken 获取微信登录accessToken
 
-`uexWeiXin.getWeiXinLoginAccessToken(secret,grant_type)`
+`uexWeiXin.getWeiXinLoginAccessToken(secret,grant_type,,function(data){})`
 
 **说明:**
 
 获取微信登录accessToken   
-回调 [cbGetWeiXinLoginAccessToken](#cbGetWeiXinLoginAccessToken 获取微信accessToken的回调方法 "获取微信accessToken的回调方法 ") 
+
 
 **参数:**
 
@@ -220,29 +146,41 @@ alert("cbGetWXAppInstallUrl:"+data);
 | ----- | ----- | ----- | ----- |
 | secret| String类型| 必选 | 应用密钥AppSecret,在微信开放平台提交应用审核通过后获得|
 | grant_type|String类型 | 必选 | 根据微信SDK要求,填authorization_code(固定值)       |
+| data|Json类型 | 必选 | 返回的数据     |
+
+格式如下:
+```
+{ 
+"access_token":"ACCESS_TOKEN", 
+"expires_in":7200, 
+"refresh_token":"REFRESH_TOKEN",
+"openid":"OPENID", 
+"scope":"SCOPE" 
+}
+```
+各字段说明:            
+ ![](http://newdocx.appcan.cn/docximg/110320f2015r3p16x.png)
+图_uexWeiXin_3.0     
  
-
-**平台支持:**
-
-Android2.2+  
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+  
 
 **示例:**
 
-见weiXinLogin方法
+```
+  uexWeiXin.getWeiXinLoginAccessToken('db426a9829e4b49a0dcac7b4162da6b6','authorization_code',function(data){
+            alert("callback:"+ JSON.stringify(data));
+        });
+
+
+```
 
 > ### getWeiXinLoginCheckAccessToken 检验accessToken是否有效
 
-`uexWeiXin.getWeiXinLoginCheckAccessToken(access_token,openid)`
+`uexWeiXin.getWeiXinLoginCheckAccessToken(access_token,openid,function(data){})`
 
 **说明:**
 
-用于检验通过uexWeiXin.getWeiXinLoginAccessToken()方法获取的accessToken是否还在有效期内(目前为2个小时)其中access_token和openid从cbGetWeiXinLoginAccessToken的返回数据获取.
-回调 [cbGetWeiXinLoginCheckAccessToken](#cbGetWeiXinLoginCheckAccessToken 检验微信accessToken是否超时的回调方法 "检验微信accessToken是否超时的回调方法 ")
+用于检验通过uexWeiXin.getWeiXinLoginAccessToken()方法获取的accessToken是否还在有效期内(目前为2个小时)其中access_token和openid从getWeiXinLoginAccessToken的返回数据获取.
+
 
 **参数:**
 
@@ -250,29 +188,28 @@ iOS6.0+
 | ----- | ----- | ----- | ----- |
 | access_token| String类型| 必选 | 调用接口凭证|
 | openid|String类型 | 必选 | 普通用户标识,对该公众帐号唯一      |
+| data|Number类型 | 必选 | 0-----(有效),1-----(无效)         |
+
  
-
-**平台支持:**
-
-Android2.2+  
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+  
 
 **示例:**
 
-见weiXinLogin方法
+```
+  uexWeiXin.getWeiXinLoginCheckAccessToken(accessToken,openid,function(data){
+            alert("callback:"+ JSON.stringify(data));
+        }); 
+
+
+```
 
 > ### getWeiXinLoginRefreshAccessToken 获取微信登录的刷新或续期access_token
 
-`uexWeiXin.getWeiXinLoginRefreshAccessToken(grant_type,refresh_token)`
+`uexWeiXin.getWeiXinLoginRefreshAccessToken(grant_type,refresh_token,function(data){})`
 
 **说明:**
 
-当access_token超时后,可以使用refresh_token进行刷新其中refresh_token从cbGetWeiXinLoginAccessToken的返回数据获取.   
-回调 [cbGetWeiXinLoginRefreshAccessToken](#cbGetWeiXinLoginRefreshAccessToken 微信刷新或续期accessToken的回调方法 "微信刷新或续期accessToken的回调方法 ")
+当access_token超时后,可以使用refresh_token进行刷新其中refresh_token从getWeiXinLoginAccessToken的返回数据获取.   
+
 
 **参数:**
 
@@ -280,29 +217,42 @@ iOS6.0+
 | ----- | ----- | ----- | ----- |
 | grant_type| String类型| 必选 | 填refresh_token(固定值) |
 | refresh_token|String类型 | 必选 |      |
+| data|Json类型 | 必选 | 返回的数据      |
+
+ 正确返回格式:
+```
+{ 
+    "access_token":"ACCESS_TOKEN", 
+    "expires_in":7200, 
+    "refresh_token":"REFRESH_TOKEN", 
+    "openid":"OPENID", 
+    "scope":"SCOPE" 
+} 
+```
+各字段说明见:
+ ![](http://newdocx.appcan.cn/docximg/110655t2015f3i16k.png)
+      图_uexWeiXin_3.0   
+
  
-
-**平台支持:**
-
-Android2.2+  
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+  
 
 **示例:**
 
-见weiXinLogin方法
+```
+  uexWeiXin.getWeiXinLoginRefreshAccessToken('refresh_token',refreshToken,function(data){
+            alert("callback:"+ JSON.stringify(data));
+        });
+
+
+```
 
 > ### getWeiXinLoginUnionID 获取用户个人信息
 
-`uexWeiXin.getWeiXinLoginUnionID(access_token,openid)`
+`uexWeiXin.getWeiXinLoginUnionID(access_token,openid,function(data){})`
 
 **说明:**
 
-获取授权用户的个人信息其中access_token和openid从cbGetWeiXinLoginAccessToken的返回数据获取.若调用getWeiXinLoginRefreshAccessToken方法,则从cbGetWeiXinLoginRefreshAccessToken的返回数据获取
-回调 [cbGetWeiXinLoginUnionID](#cbGetWeiXinLoginUnionID 获取用户个人信息的回调方法 "获取用户个人信息的回调方法")  
+获取授权用户的个人信息其中access_token和openid从getWeiXinLoginAccessToken的返回数据获取.若调用getWeiXinLoginRefreshAccessToken方法,则从getWeiXinLoginRefreshAccessToken的返回数据获取
+  
   
 
 **参数:**
@@ -311,229 +261,147 @@ iOS6.0+
 | ----- | ----- | ----- | ----- |
 | access_token| String类型| 必选 | 调用接口凭证|
 | openid|String类型 | 必选 | 普通用户标识,对该公众帐号唯一      |
- 
+| data|Json类型 | 必选 | 返回的数据      |
 
-**平台支持:**
+data的格式: 
 
-Android2.2+ 
-iOS6.0+ 
+```
+{
+    "openid": "OPENID", 
+    "nickname": "NICKNAME", 
+    "sex": 1, 
+    "province": "PROVINCE", 
+    "city": "CITY", 
+    "country": "COUNTRY", 
+    "headimgurl": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/0", 
+    "privilege": [
+        "PRIVILEGE1", 
+        "PRIVILEGE2"
+    ], 
+    "unionid": " o6_bmasdasdsad6_2sgVt7hMZOPfL"
+}
+```
 
-**版本支持:**
+各字段说明:    
+ ![](http://newdocx.appcan.cn/docximg/110725r2015e3y16g.png)
 
-3.0.0+  
 
-**示例:**
-
-见weiXinLogin方法
-
-> ### isWXAppInstalled 检查微信是否已安装
-
-`uexWeiXin.isWXAppInstalled()`
-
-**说明:**
-
-检查微信是否已安装   
-回调 [cbIsWXAppInstalled](#cbIsWXAppInstalled 检查微信是否已安装的回调方法 "检查微信是否已安装的回调方法")
-       
-
-**参数:**
-
-无 
-
-**平台支持:**
-
-Android2.2+  
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+  
 
 **示例:**
 
 ```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-window.uexOnload = function(){
-uexWeiXin.cbIsWXAppInstalled=function(opCode,dataType,data){
-alert(data);
-}
-}
-</script>
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>检测是否安装微信 </span>
-<input class="btn" type="button" value="检测是否安装微信" onclick="uexWeiXin.isWXAppInstalled();">
-</div>
-</div>
-</body>
-</html>
+ uexWeiXin.getWeiXinLoginUnionID(accessToken,openid,function(data){
+            alert("callback:"+ JSON.stringify(data));
+        });  
+
+
+```
+
+> ### isWXAppInstalled 检查微信是否已安装
+
+`var info = uexWeiXin.isWXAppInstalled()`
+
+**说明:**
+
+检查微信是否已安装   
+
+       
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| info| Number类型| 必选 | 0表示已安装，1表示未安装|
+
+
+
+**示例:**
+
+```
+var info = uexWeiXin.isWXAppInstalled()
 
 ```
 
 > ### getWXAppInstallUrl 获取微信itunes的安装地址
 
-`uexWeiXin.getWXAppInstallUrl()`
+`uexWeiXin.getWXAppInstallUrl(function(data){})`
 
 **说明:**
 
 获取微信itunes的安装地址 
-回调 [cbGetWXAppInstallUrl](#cbGetWXAppInstallUrl 获取微信的itunes安装地址的回调方法 "获取微信的itunes安装地址的回调方法")
+
 
 **参数:**
 
-无 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| data|String类型 | 必选 | 微信安装地址    |
 
-**平台支持:**
 
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+  
 
 **示例:**
 
 ```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-window.uexOnload = function(){
-uexWeiXin.cbGetWXAppInstallUrl=function(opCode,dataType,data){
-alert(data);
-}
-}
-</script>
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>获取微信安装地址 </span>
-<input class="btn" type="button" value="获取微信安装地址" onclick="uexWeiXin.getWXAppInstallUrl();">
-</div>
-</div>
-</body>
-</html>
+uexWeiXin.getWXAppInstallUrl(function(data) {
+            alert("callback:" + JSON.stringify(data));
+        });
 
 ```
 
 > ### isWXAppSupportApi 判断API是否被支持
 
-`uexWeiXin.isWXAppSupportApi()`
+`uexWeiXin.isWXAppSupportApi(function(data){})`
 
 **说明:**
 
 判断API是否被支持
-回调 [cbIsWXAppSupportApi](#cbIsWXAppSupportApi 判断API是否被支持的回调方法 "判断API是否被支持的回调方法")    
+   
 
 **参数:**
 
-无 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| data| Number类型| 必选 | 0表示支持，1表示不支持|
 
-**平台支持:**
-
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+  
+ 
 
 **示例:**
 
 ```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-window.uexOnload = function(){
-uexWeiXin.cbIsWXAppSupportApi=function(opCode,dataType,data){
-alert(data);
-}
-}
-</scriptv
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>是否支持本API </span>
-<input class="btn" type="button" value="是否支持本API" onclick="uexWeiXin.isWXAppSupportApi();">
-</div>
-</div>
-</body>
-</html>
+uexWeiXin.isWXAppSupportApi(function(data){
+alert("callback:" + JSON.stringify(data));
+})
 ```
 
 > ### getApiVersion 获取SDK的版本号
 
-`uexWeiXin.getApiVersion()`
+`uexWeiXin.getApiVersion(function(data){})`
 
 **说明:**
 
 获取SDK的版本号
-回调 [cbGetApiVersion](#cbGetApiVersion 获取SDK的版本号的回调方法 "获取SDK的版本号的回调方法")      
+     
 
 **参数:**
 
-无 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| data|String类型 | 必选 | SDK版本号   |
 
-**平台支持:**
 
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+ 
 
 **示例:**
 
 ```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-window.uexOnload = function(){
-uexWeiXin.cbGetApiVersion =function(opCode,dataType,data){
-alert(data);
-}
-}
-</script>
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>获取微信安装地址 </span>
-<input class="btn" type="button" value="获取微信安装地址" onclick="uexWeiXin.getApiVersion();">
-</div>
-</div>
-</body>
-</html>
+uexWeiXin.getApiVersion(function(data){
+    alert("callback:" + JSON.stringify(data));
+});
 
 ```
 
 > ### openWXApp 打开微信
 
-`uexWeiXin.openWXApp()  `
+`uexWeiXin.openWXApp(function(data){})  `
 
 **说明:**
 
@@ -541,185 +409,38 @@ alert(data);
 
 **参数:**
 
-无 
-
-**平台支持:**
-
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+ 
- 
-
-**示例:**
-
-```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-window.uexOnload = function(){
-}
-</script>
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>打开微信 </span>
-<input class="btn" type="button" value="打开微信" onclick="uexWeiXin.openWXApp();">
-</div>
-</div>
-</body>
-</html>
-```
-
-> ### sendTextContent 分享文本(`旧接口不推荐,请使用新接口`)
-
-`uexWeiXin.sendTextContent(sence,txt)`
-
-**说明:**
-
-分享文本    
-回调 [cbSendTextContent](#cbSendTextContent 分享文本的回调方法(旧接口不推荐) "分享文本的回调方法(旧接口不推荐)")   
- 
-
-**参数:**
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| sence| Number类型| 必选 | 发送的目标场景,0-会话场景,1-朋友圈场景。     |
-| txt|String类型 | 必选 | 发送的文本内容     |
-	  
-
-**平台支持:**
-
-Android2.2+ 
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例:**
-
-```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-window.uexOnload = function(){
-uexWeiXin.cbSendTextContent=function(opCode,dataType,data){
-alert(data);
-}
-}
-function shareText(){
-var txt = "这是来自AppCan中国最大的移动中间平台对微信支持测试";
-var sence = 1;
-uexWeiXin.sendTextContent(sence,txt);
-}
-</script>
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>打开微信 </span>
-<input class="btn" type="button" value="打开微信" onclick="shareText();">
-</div>
-</div>
-</body>
-</html>
-
-```
-
-> ### sendImageContent 分享图片到微信(`旧接口不推荐,请使用新接口`)
-
-`uexWeiXin.sendImageContent(sence,thumbImgPath,imgPath,webpageURL,title,description)`
-
-**说明:**
-
-分享结果将回调给cbSendImageContent方法
-回调 [cbSendImageContent](#cbSendImageContent 分享图片的回调方法(旧接口不推荐) "分享图片的回调方法(旧接口不推荐)")      
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| sence| Number类型| 必选 | 发送的目标场景,0-会话场景,1-朋友圈场景。     |
-| thumbImgPath|String类型 | 必选 |  缩略图地址大小不能超过32K   |
-| imgPath|String类型 | 必选 |  图片地址,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes   |
-| webpageURL|String类型 | 可选 |  分享的链接地址,使用此参数将分享一个链接      |
-| title|String类型 | 可选 |   链接标题长度不能超过512字节      |
-| description|String类型 | 可选 |   可选链接描述内容大小不能超过1K      |
+| data|Number类型 | 必选 | 0表示打开成功，1表示打开失败   |
  
 
-**平台支持:**
-
-Android2.2+ 
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
-
 **示例:**
 
 ```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-window.uexOnload = function(){
-uexWeiXin.cbSendImageContent=function(opCode,dataType,data){
-//data是状态码
-document.getElementById("showPicStatus").innerHTML = "返回分享图片状态码:"+data;
-};}
-function sharePic(){
-var thumImgPath = "res://icon.png";
-var realImgPath = "res://Default.png";
-var sence = 1;
-uexWeiXin.sendImageContent(sence,thumImgPath,realImgPath);
-}
-</script>
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>分享图片 </span>
-<input class="btn" type="button" value="分享图片" onclick="sharePic();">
-</div>
-</div>
-</body>
-</html>
-    
+uexWeiXin.openWXApp(function(data){
+   alert("callback:" + JSON.stringify(data));
+});
 ```
+
+
+
+
 
 > ### shareTextContent 分享文本
 
-`uexWeiXin.shareTextContent(jsonData)`
+`uexWeiXin.shareTextContent(jsonData,function(data){})`
 
 **说明:**
 
 分享文本内容到微信   
-回调 [cbShareTextContent](#cbShareTextContent 分享文本的回调方法 "分享文本的回调方法")      
+     
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | jsonData| String类型| 必选 | 分享的文本内容|
+| data|Number类型 | 必选 | 返回的错误码,0-成功,非0-失败. |
 
 ```
 {
@@ -730,56 +451,27 @@ uexWeiXin.sendImageContent(sence,thumImgPath,realImgPath);
 
 ![](http://newdocx.appcan.cn/docximg/115925v2014m11r9r.png)
 
-**平台支持:**
 
-Android2.2+ 
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
 
 **示例:**
 
 ```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-window.uexOnload = function(){
-uexWeiXin.cbShareTextContent=function(data){
-alert(data);
-}
-}
-function shareText(){
-   var JsonData = '{"text":"中国最大的移动中间键平台AppCan对微信分享的图片支持测试","scene":1}';
-   uexWeiXin.shareTextContent(JsonData);
-}
-</script>
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>分享文本 </span>
-<input class="btn" type="button" value="分享文本" onclick="shareText();">
-</div>
-</div>
-</body>
-</html>
+
+       var jsonstr = '{"text":"这是来自AppCan平台对微信支持测试","scene":1}';
+       uexWeiXin.shareTextContent(jsonstr, function(data){
+        alert("callback:" + JSON.stringify(data));
+       });
+
 ```
 
 > ### shareImageContent 分享图片
 
-`uexWeiXin.shareImageContent(jsonData)`
+`uexWeiXin.shareImageContent(jsonData,function(data){})`
 
 **说明:**
 
 分享图片到微信
-回调 [cbShareImageContent](#cbShareImageContent 分享图片的回调方法 "分享图片的回调方法")      
+      
   
 
 **参数:**
@@ -787,6 +479,7 @@ function shareText(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | jsonData| String类型| 必选 | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type|
+| data|Number类型 | 必选 | 返回的错误码,0-成功,非0-失败.       |
 
 ```
 jsonData {
@@ -797,64 +490,33 @@ jsonData {
 }
 ```
 
-**平台支持:**
 
-Android 2.2+
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
 
 **示例:**
 
 ```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-window.uexOnload = function(){
-uexWeiXin.cbShareImageContent=function(data){
-//data是状态码
-alert(data);
-};}
-function sharePic(){
-    var JsonData = '{"thumbImg":"res://icon.png","image":"res://Default.png","scene":1}';
-    uexWeiXin.shareImageContent(JsonData);
-}
-</script>
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>分享图片 </span>
-<input class="btn" type="button" value="分享图片" onclick="sharePic();">
-</div>
-</div>
-</body>
-</html>
+ var JsonData = '{"thumbImg":"res://icon.png","image":"res://Default.png","scene":1}';
+    uexWeiXin.shareImageContent(JsonData,function(data){
+     alert("callback:" + JSON.stringify(data));
+    });
     
 ```
 
 > ### shareLinkContent 分享Link
 
-`uexWeiXin.shareLinkContent(jsonData)`
+`uexWeiXin.shareLinkContent(jsonData,function(data){})`
 
 **说明:**
 
 分享Link到微信
-回调 [cbShareLinkContent](#cbShareLinkContent 分享Link的回调方法 "分享Link的回调方法")
+
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | jsonData| String类型| 必选 | 分享的文本内容,JSON格式|
-
+| data|Number类型 | 必选 | 返回的错误码,0-成功,非0-失败.       |
 ```
 var json = {
     thumbImg:,//(必选)缩略图地址Url(大小必须小于32k)
@@ -867,90 +529,66 @@ var json = {
 ![](http://newdocx.appcan.cn/docximg/174228b2015w0k14h.png)
  
 
-**平台支持:**
+
 
  
-Android2.2+  
-iOS6.0+
 
-**版本支持:**
-
-3.0.0+  
 
 **示例:**
 
 ```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-window.uexOnload = function(){
-uexWeiXin.cbShareLinkContent=function(data){
-//data是状态码
-alert(data);
-};}
-function shareLinkContent(){
 var JsonData = '{"thumbImg":"res://icon.png","wedpageUrl":"http://www.appcan.cn","scene":1,"title":"你好,我是AppCan","description":"你好,我是AppCan描述"}';
-uexWeiXin.shareLinkContent(JsonData);
-
-}
-</script>
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>分享Link </span>
-<input class="btn" type="button" value="分享Link" onclick="shareLinkContent();">
-</div>
-</div>
-</body>
-</html>
+uexWeiXin.shareLinkContent(JsonData,function(data){
+       alert("callback:" + JSON.stringify(data));
+});
     
 ```
 
 > ### isSupportPay 判断是否支持支付功能
 
-`uexWeiXin.isSupportPay()`
+`uexWeiXin.isSupportPay(function(data){})`
 
 **说明:**
 
 微信5.0以上版本支持支付功能
-回调 [cbIsSupportPay](#cbIsSupportPay 是否支持支付功能的回调方法 "是否支持支付功能的回调方法")
+
    
 
 **参数:**
 
-无 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| data|Number类型 | 必选 | 是否支持支付功能,0-支持,1-不支持。       |
 
-**平台支持:**
 
-Android2.2+  
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+   
 
 **示例:**
 
-见gotoPay方法示例  
+```
+  uexWeiXin.isSupportPay(function(data){
+   alert("callback:" + JSON.stringify(data));
+  })
+
+
+``` 
 
 > ### getPrepayId 生成预支付订单
 
-`uexWeiXin.getPrepayId(json)`
+`uexWeiXin.getPrepayId(json,,function(data){})`
 
 **说明:**
 
 生成预支付订单 
-回调 [cbGetPrepayId](#cbGetPrepayId 生成预支付订单的回调接口 "生成预支付订单的回调接口") 
+ 
 
 **参数:**
 
-参数说明及生成办法详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"请求参数" 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| json|json字符串 | 必选 | 请求参数|
+| data|json格式数据 | 必选 | 返回参数，参数详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果"
+       |
+请求参数说明及生成办法详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"请求参数" 
 
 ```
 var json = {
@@ -975,14 +613,7 @@ var json = {
     sign://(必选) 签名,详见签名生成算法
 ```
 
-**平台支持:**
 
-Android2.2+  
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+ 
  
 
 **示例:**
@@ -1010,21 +641,28 @@ var param1 = {
 	sign:"8FC5935C38628F44B924C838D760E33E"
 };
 var data1 = JSON.stringify(param1);
-uexWeiXin.getPrepayId(data1);
+uexWeiXin.getPrepayId(data1,function(data){
+   alert("callback:" + JSON.stringify(data));
+});
 ```
 
 > ### startPay 支付
 
-`uexWeiXin.startPay(json)`
+`uexWeiXin.startPay(json,function(data){})`
 
 **说明:**
 
 支付  
-回调 [cbStartPay](#cbStartPay 支付结果的回调方法 "支付结果的回调方法") 
+
 
 **参数:**
 
-参数说明及生成办法详见微信开放平台文档[调起支付接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口参数说明")中的"请求参数" 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| json|json字符串 | 必选 | 请求参数|
+| data|json格式数据 | 必选 | 返回参数,参数说明及生成办法详见微信开放平台文档[调起支付接口](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口")参数说明中的"返回结果"
+|
+请求参数说明及生成办法详见微信开放平台文档[调起支付接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口参数说明")中的"请求参数" 
 
 ```
 var json ={
@@ -1038,14 +676,7 @@ var json ={
 	}
 ```
 
-**平台支持:**
 
-Android2.2+  
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
 
 **示例:**
 
@@ -1060,424 +691,20 @@ var param1 = {
 	sign:"8FC5935C38628F44B924C838D760E33E"
 };
 var data1 = JSON.stringify(param1);
-uexWeiXin.startPay(data1);
+uexWeiXin.startPay(data1,function(data){
+   alert("callback:" + JSON.stringify(data));
+});
 
 ```
-> ### getAccessToken 获取支付token`<旧版接口,新版插件不支持,请使用新接口>` 
 
-`uexWeiXin.getAccessToken(AppID,AppSecret)`
-
-**说明:**
-
-请先向微信开放平台申请AppID、AppSecret、AppKey、partnerKey。
-回调 [cbGetAccessToken](#cbGetAccessToken 获取支付token的回调方法`<旧版接口,新版插件不支持>`使用新接口 "获取支付token的回调方法")   
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| AppID| Number类型| 必选 | 在微信开放平台申请的AppID|
-| AppSecret| String类型| 必选 | 在微信开放平台申请的AppSecret|
-
-**平台支持:**
-
-Android2.2+  
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+  
-
-**示例:**
-
-见gotoPay方法示例  
-
-> ### getAccessTokenLocal 获取本地支付token`<旧版接口,新版插件不支持,请使用新接口>` 
-
-`uexWeiXin.getAccessTokenLocal()`
-
-**说明:**
-
-必选先使用getAccessToken方法将支付token存在本地,在使用本方法获得支付token,目的是因为微信对getAccessToken方法的调用次数有限制。
-回调 [cbGetAccessTokenLocal](#cbGetAccessTokenLocal 获取本地支付token的回调方法`<旧版接口,新版插件不支持>`使用新接口 "获取本地支付token的回调方法")   
-      
-
-**参数:**
-
-无 
-
-**平台支持:**
-
-Android2.2+  
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例:**
-
-见gotoPay方法示例  
-
-> ### generateAdvanceOrder 生成预支付订单`<旧版接口,新版插件不支持,请使用新接口>` 
-
-`uexWeiXin.generateAdvanceOrder(token,postJson) `
-
-**说明:**
-
-生成预支付订单 
-回调 [cbGenerateAdvanceOrder](#cbGenerateAdvanceOrder 生成预支付订单的回调方法`<旧版接口,新版插件不支持>`使用新接口"生成预支付订单的回调方法")
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| token| String类型| 必选 | 支付token     |
-| postJson|String类型 | 必选 | json字符串,格式如下:|
-
-```
-{
-    "appid": "wwwwb4f85f3a797777", 
-    "traceid": "crestxu", 
-    "noncestr": "111112222233333", 
-    "package": "bank_type=WX&body=XXX&fee_type=1&input_charset=GBK?ify_url=http%3a%2f%2fwww.qq.com&out_trade_no=16642817866003386000&partner=1900000109&spbill_create_ip=127.0.0.1&total_fee=1&sign=BEEF37AD19575D92E191C1E4B1474CA9", 
-    "timestamp": 1381405298, 
-    "app_signature": "53cca9d47b883bd4a5c85a9300df3da0cb48565c", 
-    "sign_method": "sha1"
-}
-```
-
-各字段含义如下:
-
-|               参数          |               是否必须            |               说明          |
-|-----|-----|-----|
-|               appid           |               是           |               应用唯一标识,在微信开放平台提交应用审核通过后获得           |
-|               traceid         |               否           |               商家对用户的唯一标识,如果用微信SSO,此处建议填写授权用户的openid           |
-|               noncestr            |               是           |               32位内的随机串,防重发            |
-|               package         |               是           |               订单详情(具体生成方法见后文)         |
-|               timestamp           |               是           |               时间戳,为1970年1月1日00:00到请求发起时间的秒数           |
-|               app_signature           |               是           |               签名(具体生成方法见后文)           |
-|               sign_method         |               是           |               加密方式,默认为sha1            |
-
-package生成方法:
-      
-      A)对所有传入参数按照字段名的ASCII码从小到大排序(字典序)后,使用URL键值对的格式(即key1=value1&key2=value2...)拼接成字符串string1;
-      B)在string1最后拼接上key=partnerKey得到stringSignTemp字符串,并对stringSignTemp进行md5运算,再将得到的字符串所有字符转换为大写,得
-      到sign值signValue。
-      C)对string1中的所有键值对中的value进行urlencode转码,按照a步骤重新拼接成字符串,得到string2。对于js前端程序,一定要使用函数
-      encodeURIComponent进行urlencode编码(注意!进行urlencode时要将空格转化为%20而不是+)。
-      D)将sign=signValue拼接到string1后面得到最终的package字符串。
-app_signature生成方法:
-
-    A)参与签名的字段包括:appid、appkey、noncer、package、timestamp以及traceid
-    B)对所有待签名参数按照字段名的ASCII码从小到大排序(字典序)后,使用URL键值对的格式(即key1=value1&key2=value2...)拼接成字符串string1。注
-      意:所有参数名均为小写字符
-    C)对string1作签名算法,字段名和字段值都采用原始值,不进行URL转义。具体签名算法为SHA1
-      正确的Json返回示例:{"textareapayid":"textareaPAY_ID","errcode":0,"errmsg":"Success"}
-      错误的Json返回示例:{"errcode":48001,"errmsg":"apiunauthorized"}
-	  
-
-**平台支持:**
-
-Android2.2+ 
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例:**
-
-见gotoPay方法示例  
-> ### generatePrepayID 生成预支付订单`<旧版接口,新版插件不支持,请使用新接口>` 
-
-` uexWeiXin.generatePrepayID(token,app_key,packageValue)`
-
-**说明:**
-
-生成预支付订单,generateAdvanceOrder方法的替代方法 
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| token| String类型| 必选 | 支付token     |
-| app_key|String类型 | 必选 | app_key     |
-| packageValue|String类型 | 必选 | 生成方法如下 |
-  
-packageValue生成方法:
-
-      A)对所有传入参数按照字段名的ASCII码从小到大排序(字典序)后,使用URL键值对的格式(即key1=value1&key2=value2...)拼接成字符串string1;
-      B)在string1最后拼接上key=partnerKey得到stringSignTemp字符串,并对stringSignTemp进行md5运算,再将得到的字符串所有字符转换为大写,得
-      到sign值signValue。
-      C)对string1中的所有键值对中的value进行urlencode转码,按照a步骤重新拼接成字符串,得到string2。对于js前端程序,一定要使用函数
-      encodeURIComponent进行urlencode编码(注意!进行urlencode时要将空格转化为%20而不是+)。
-      D)将sign=signValue拼接到string1后面得到最终的package字符串。
-	  
-
-**平台支持:**
-
-Android2.2+  
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+  
-
-**示例:**
-
-见sendPay方法示例
-
-> ### gotoPay 支付`<旧版接口,新版插件不支持,请使用新接口>` 
-
-`uexWeiXin.gotoPay(partnerID,textareapayID,package,nonceStr,timeStamp,sign)`
-
-**说明:**
-
-支付前需要生成预支付订单
-回调 [cbGotoPay](#cbGotoPay 支付回调方法`<旧版接口,新版插件不支持>`使用新接口"支付回调方法")  
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| partnerID| String类型| 必选 | 商家向财付通申请的商家ID     |
-| textareapayID|String类型 | 必选 | 预支付订单     |
-| package|String类型 | 必选 | 随机串,防重发 |
-| nonceStr|String类型 | 必选 | 时间戳,防重发 |
-| timestamp|String类型 | 必选 | 商家根据财付通文档填写的数据和签名 |
-| sign|String类型 | 必选 | 商家根据微信开放平台文档对数据做得签名 |
-
-**支持平台:**
-Android2.2+  
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+  
-
-**示例:**
-
-```
-<!DOCTYPE HTML>
-<HTML>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>微信支付功能</title>
-<script type="text/javascript">
-var cText = 0;
-var cJson = 1;
-var cInt = 2;
-window.uexOnload = function(){
-uexWeiXin.cbIsSupportPay =function(opCode,dataType,data) {
-document.getElementById("showSupportInfo").innerHTML = data;
-}
-uexWeiXin.cbGotoPay = function(opCode,dataType,data) {
-data = eval('(' + data + ')');
-if(data.errCode==0){
-document.getElementById("showPayInfo").innerHTML = data;
-}else{
-document.getElementById("showPayInfo").innerHTML = data.errCode;
-}
-}
-
-uexWeiXin.cbGenerateAdvanceOrder = function(opCode,dataType,data) {
-document.getElementById("showOrderInfo").innerHTML = data;
-}
-uexWeiXin.cbGetAccessToken = function(opCode,dataType,data) {
-document.getElementById("showAccess_tokenold").innerHTML = data;
-}
-uexWeiXin.cbGetAccessTokenLocal = function(opCode,dataType,data) {
-   document.getElementById("showAccess_token").innerHTML = data;
-   }
-   uexWeiXin.cbIsWXAppInstalled=function(opCode,dataType,data){
-   alert("cbIsWXAppInstalled:"+data);
-   };
-   }
-   function generateAdvanceOrder(){
-   var token = document.getElementById("showAccess_token").innerHTML;
-   var postJsonStr = "{\"appid\":\"wx652070b3a10fcd45\",\"noncestr\":\"3b3ee08309979aa868ed5980d62e7db0\",\"package\":\"bank_type=WX&body=%C0%D6%B1%B4%CB%B9%CC%F0%C6%B7%C3%C0%CE%B6%CA%A5%B4%FA3%D1%A11%A3%AC%B2%DD%DD%AE%2F%C7%C9%BF%CB%C1%A6%2F%C3%A2%B9%FB&fee_type=1&input_charset=GBK?ify_url=http%3A%2F%2Ftuan.iweihai.cn%2Fmobile%2Fweixinpay%2Fnotify_url.php&out_trade_no=20140604260005&partner=1218583701&spbill_create_ip=221.2.146.40&total_fee=500&sign=9D3AC54D47C3346A07248E0C74AD996B\",\"timestamp\":1401861361,\"traceid\":\"\",\"sign_method\":\"sha1\",\"app_signature\":\"e647c6357755a1151fe1a1eb6dc6a2f4b7d33ba3\"}";
-   uexWeiXin.generateAdvanceOrder(token,postJsonStr);
-   }
-   function gotoPay(){
-   uexWeiXin.gotoPay('1218583701','1101000000140702906bfc8e71d49c1d','Sign=WXPay','62645c89febabd1906f1a56c635e6e3f','1404281177','8a94d714eaa156897c3d6dd0446eb04b7ec12a20');
-   }
-</script>
-</head>
-<body>
-<div class="tit">微信功能</div>
-<div class="conbor">
-<div class="consj">
-<span>1.注册app id </span>
-<input class="btn" type="button" value="注册App" onclick="uexWeiXin.registerApp('wxd930ea5d5a258f4f');">
-<div class="tcxx" id="selectItem"></div><br>
-<span>零.当前手机安装的微信版本是否支持微信支付</span>
-<span>返回0支持,1版本太低不支持</span>
-<input class="btn" type="button" value="判断是否支持微信支付" onclick="uexWeiXin.isSupportPay()">
-<div class="tcxx" id="showSupportInfo"></div><br>
-<span>一.获取微信支付access_token</span>
-<span>准备工作:在使用接口之前请先保证持有向微信开放平台申请得到的 appid、appsecret(长度为
-32 的字符串,用于获取 access_token)、appkey(长度为 128 的字符串,用于支付过程中生 成 app_signature)及 partnerkey(微信公众平台商户模块生成的商户密钥)。网页会在cbGetAccessTocken()中获得。</span>
-<input class="btn" type="button" value="获取access_token" onclick="uexWeiXin.getAccessToken('wx652070b3a10fcd45','00f373c57777e46ba86d461cbcc2fbe8');">
-<div class="tcxx" id="showAccess_tokenold"></div><br>
-<span>一.获取本地微信支付access_token</span>
-<span>第一次调用getAccessTokenLocal,是没有办法获取access_token,必须通过getAccessToken获取access_token之后会把access_token存在本地,下次再使用access_token的时候就可以通过getAccessTokenLocal来获得,这么做的目的是因为微信对每天获得token的次数有限制</span>
-<input class="btn" type="button" value="获取本地access_token" onclick="uexWeiXin.getAccessTokenLocal();">
-<div class="tcxx" id="showAccess_token"></div><br>
-<span>二.生成预支付订单</span>
-<span>用第一步请求的 access_token 作为参数,然后往微信开放平台接口post订单详情(需要在服务器端生成)生成预支付订单。网页会在cbGetAccessTocken()中获得生成订单情况</span>
-<input class="btn" type="button" value="生成预支付订单" onclick="generateAdvanceOrder()">
-<div class="tcxx" id="showOrderInfo"></div><br>
-<span>三.调起微信支付</span>
-<span>将第二步生成的 textareapayId 作为参数,调用微信 sdk 发送支付请求到微信。</span>
-<input class="btn" type="button" value="调微信支付" onclick="gotoPay()">
-<div class="tcxx" id="showPayInfo"></div><br>
-</div>
-</div>
-</body>
-</html>
-
-```
-
-> ### sendPay 支付`<旧版接口,新版插件不支持,请使用新接口>` 
-
-`uexWeiXin.sendPay(partnerID,textareapayID,app_key,packageValue)`
-
-**说明:**
-
-支付前需要生成预支付订单,gotoPay方法的替代方法 
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| partnerID| String类型| 必选 | 商家向财付通申请的商家ID     |
-| textareapayID|String类型 | 必选 | 预支付订单     |
-| app_key|Number类型 | 必选 | app_key |
-| packageValue|String类型 | 必选 | packageValue |
-
-**支持平台:**
-Android2.2+  
-iOS6.0+  
-
-**版本支持:**
-
-3.0.0+  
-
-**示例:**
-
-```
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" /><link rel="stylesheet" type="text/css" href="../css/index.css">
-<title>微信功能</title>
-<script type="text/javascript">
-var cText = 0;
-var cJson = 1;
-var cInt = 2;
-var appId = "wxd930ea5d5a258f4f";
-var app_serect = "db426a9829e4b49a0dcac7b4162da6b6";
-var app_key = "L8LrMqqeGRxST5reouB0K66CaYAWpqhAVsq7ggKkxHCOastWksvuX1uvmvQclxaHoYd3ElNBrNO2DHnnzgfVG9Qs473M3DTOZug5er46FhuGofumV8H2FVR9qkjSlC5K";
-var partnerId = "1900000109";
-var traceId = "crestxu_test";
-var packageValue = "bank_type=WX&body=%E5%8D%83%E8%B6%B3%E9%87%91%E7%AE%8D%E6%A3%92&fee_type=1&input_charset=UTF-8?ify_url=http%3A%2F%2Fweixin.qq.com&out_trade_no=9d86d83f925f2149e9edb0ac3b492299c&partner=1900000109&spbill_create_ip=196.168.1.1&total_fee=1&sign=899815E4F3106CC5DCFAF76A4D16069B";
-
-    window.uexOnload = function(){
-        uexWeiXin.cbRegisterApp =function(opCode,dataType,data)
-        {
-            //0支持,1 不支持
-            alert("cbRegisterApp:"+data);
-            document.getElementById("selectItem").innerHTML = data;
-        }
-        
-        uexWeiXin.cbGotoPay = function(opCode,dataType,data)
-        {
-            //如果datatype是0说明返回的data是整数0,意味着支付成功了。
-            //如果datatype是2说明返回的data是字符串,意味着支付失败了。data就是失败信息
-            console.log("cbGotoPay");
-            alert("cbGotoPay:"+data);
-            document.getElementById("showPayInfo").innerHTML = data;
-        }
-        
-        uexWeiXin.cbGenerateAdvanceOrder = function(opCode,dataType,data)
-        {
-            alert("cbGenerateAdvanceOrder:"+data);
-            document.getElementById("showOrderInfo").innerHTML = data;
-        }
-        
-        uexWeiXin.cbGetAccessToken = function(opCode,dataType,data)
-        {
-           alert("cbGetAccessToken:"+data);
-           document.getElementById("showAccess_token").innerHTML = data;
-        }
-        
-        
-        uexWeiXin.cbGetAccessTokenLocal = function(opCode,dataType,data)
-        {
-           alert("cbGetAccessTokenLocal:"+data);
-           document.getElementById("showAccess_token").innerHTML = data;
-        }
-     }
-
-   
-   
-    function getAccessToken(){
-        uexWeiXin.getAccessToken(appId,app_serect); 
-    }        
-    function generateAdvanceOrder(){
-        var JsonStr = document.getElementById("showAccess_token").innerHTML;
-        var token = JSON.parse(JsonStr).access_token;
-        uexWeiXin.generatetextareapayID(token,app_key,packageValue);
-    }
-    function gotoPay(){
-        var JsonStr = document.getElementById("showOrderInfo").innerHTML;
-        var textareapayid = JSON.parse(JsonStr).textareapayid;
-        uexWeiXin.sendPay(partnerId,textareapayid,app_key,packageValue);
-    }
-</script>
-</head>
-
-<body>
-    <div class="conbor">
-        <div class="consj">            
-            <span>1.注册app id</span>
-               //wxd930ea5d5a258f4f
-                <input class="btn" type="button" value="iOS注册App" onclick="uexWeiXin.registerApp('wxd930ea5d5a258f4f');">
-                
-            <span>一.获取微信支付access_token</span>
-            <span>准备工作:在使用接口之前请先保证持有向微信开放平台申请得到的 appid、appsecret(长度为
-                32 的字符串,用于获取 access_token)、appkey(长度为 128 的字符串,用于支付过程中生 成 app_signature)及 partnerkey(微信公众平台商户模块生成的商户密钥)。网页会在cbGetAccessTocken()中获得。</span>
-            <input class="btn" type="button" value="获取access_token" onclick="getAccessToken()">      
-            
-             <span>一.获取本地微信支付access_token</span>
-             <span>第一次调用getAccessTokenLocal,是没有办法获取access_token,必须通过getAccessToken获取access_token之后会把access_token存在本地,下次再使用access_token的时候就可以通过getAccessTokenLocal来获得,这么做的目的是因为微信对每天获得token的次数有限制</span>
-            <input class="btn" type="button" value="获取本地access_token" onclick="uexWeiXin.getAccessTokenLocal();">
-            <div class="tcxx" id="showAccess_token"></div><br>
-            <span>二.生成预支付订单</span>
-            <span>用第一步请求的 access_token 作为参数,然后往微信开放平台接口post订单详情(需要在服务器端生成)生成预支付订单。网页会在cbGetAccessTocken()中获得生成订单情况</span>
-            <input class="btn" type="button" value="生成预支付订单" onclick="generateAdvanceOrder()">
-                <div class="tcxx" id="showOrderInfo"></div><br>
-                <span>三.调起微信支付</span>
-                <span>将第二步生成的 textareapayId 作为参数,调用微信 sdk 发送支付请求到微信。</span>
-                <input class="btn" type="button" value="调微信支付" onclick="gotoPay()">
-                    <div class="tcxx" id="showPayInfo"></div>
-        </div>
-    </div>
-</body>
-</html>
-
-```
 
 > ### login 登录
 
-`uexWeiXin.login(json)`
+`uexWeiXin.login(json,function(data){})`
 
 **说明:**
 
-微信登录,回调 [cbLogin](#cbLogin 登录的回调方法 "cbLogin")  
+微信登录  
 
 **参数:**
 
@@ -1493,15 +720,28 @@ var json = {
 | ----- | ----- | ----- | ----- |
 | scope | String | 是 | 应用授权作用域,可传多个,用英文逗号隔开。详情请参考[授权域说明](https://open.weixin.qq.com/cgi-bin/showdocument?action=doc&id=open1419317851&t=0.009076760848984122#scope) |
 | state | String | 否 | 用于保持请求和回调的状态,授权请求后原样带回给第三方。该参数可用于防止csrf攻击(跨站请求伪造攻击),建议第三方带上该参数,可设置为简单的随机数加session进行校验 |
+| data|json字符串 | 必选 | 返回数据|
+```
+返回数据格式:
+var data = {
+    errCode: "0",
+    code: "CODE",
+    country: "CN",
+    language: "zh_CN",
+    state: "0902"
+}
+```
 
-**支持平台:**
-Android 2.2+  
-iOS 6.0+  
+各字段含义如下:
 
-**版本支持:**
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| errCode| Number| 是 | 0:用户同意；-4:用户拒绝授权；-2:用户取消 |
+| code| String | 否 | 用户换取access_token的code,仅在errCode为0时有效 |
+| country| String | 是 | 微信用户当前国家信息 |
+| language| String | 是 | 微信客户端当前语言 |
+| state| String | 否 | 第三方程序发送时用来标识其请求的唯一性的标志,由login接口传入,由微信终端回传,state字符串长度不能超过1K。仅在errCode为0时有效 |
 
-Android 3.1.31+  
-iOS 3.0.17+  
 
 **示例:**
 
@@ -1511,16 +751,18 @@ iOS 3.0.17+
         state:"0902"
     };
     var data = JSON.stringify(params);
-    uexWeiXin.login(data);
+    uexWeiXin.login(data,function(data){
+   alert("callback:" + JSON.stringify(data));
+});
 ```
 
 > ### getLoginAccessToken 获取access_token
 
-`uexWeiXin.getLoginAccessToken(json)`
+`uexWeiXin.getLoginAccessToken(json,function(data){})`
 
 **说明:**
 
-获取access_token,回调 [cbGetLoginAccessToken](#cbGetLoginAccessToken 获取access_token的回调方法 "cbGetLoginAccessToken")  
+获取access_token  
 
 **参数:**
 
@@ -1538,15 +780,31 @@ var json = {
 | secret | String | 是 | 应用密钥AppSecret,在微信开放平台提交应用审核通过后获得 |
 | code | String | 是 | 调用login接口时获得的code |
 | grant_type | String | 是 | 填authorization_code |
+| data|json字符串 | 必选 | 返回数据|
 
-**支持平台:**
-Android 2.2+  
-iOS 6.0+  
 
-**版本支持:**
+```
+返回数据格式:
+var data = {
+    access_token: "ACCESS_TOKEN",
+    expires_in: 7200,
+    refresh_token: "REFRESH_TOKEN",
+    openid: "OPENID",
+    scope: "snsapi_userinfo",
+    unionid:"UNIONID"
+}
+```
 
-Android 3.1.31+  
-iOS 3.0.17+  
+各字段含义如下:
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| access_token| String| 是 | 接口调用凭证 |
+| expires_in| Number | 是 | access_token接口调用凭证超时时间,单位(秒) |
+| refresh_token| String | 是 | 用户刷新access_token |
+| openid| String | 是 | 授权用户唯一标识 |
+| scope| String | 是 | 用户授权的作用域,使用逗号(,)分隔 |
+| unionid| String | 否 | 只有在用户将公众号绑定到微信开放平台帐号后,才会出现该字段。 |
 
 **示例:**
 
@@ -1557,16 +815,18 @@ iOS 3.0.17+
         grant_type:"authorization_code"
     };
     var data = JSON.stringify(params);
-    uexWeiXin.getLoginAccessToken(data);
+    uexWeiXin.getLoginAccessToken(data,function(data){
+   alert("callback:" + JSON.stringify(data));
+});
 ```
 
 > ### getLoginRefreshAccessToken 获取刷新access_token
 
-`uexWeiXin.getLoginRefreshAccessToken(json)`
+`uexWeiXin.getLoginRefreshAccessToken(json,function(data){})`
 
 **说明:**
 
-刷新access_token有效期,回调 [cbGetLoginRefreshAccessToken](#cbGetLoginRefreshAccessToken 获取刷新access_token的回调方法 "cbGetLoginRefreshAccessToken")  
+刷新access_token有效期 
 
 **参数:**
 
@@ -1582,15 +842,28 @@ var json = {
 | ----- | ----- | ----- | ----- |
 | grant_type | String | 是 | 填refresh_token |
 | refresh_token | String | 是 | 调用getLoginAccessToken接口时获得的refresh_token |
+| data|json字符串 | 必选 | 返回数据|
+```
+返回数据格式:
+var data = {
+    access_token: "ACCESS_TOKEN",
+    expires_in: 7200,
+    refresh_token: "REFRESH_TOKEN",
+    openid: "OPENID",
+    scope: "snsapi_userinfo"
+}
+```
 
-**支持平台:**
-Android 2.2+  
-iOS 6.0+  
+各字段含义如下:
 
-**版本支持:**
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| access_token| String| 是 | 接口调用凭证 |
+| expires_in| Number | 是 | access_token接口调用凭证超时时间,单位(秒) |
+| refresh_token| String | 是 | 用户刷新access_token |
+| openid| String | 是 | 授权用户唯一标识 |
+| scope| String | 是 | 用户授权的作用域,使用逗号(,)分隔 |
 
-Android 3.1.31+  
-iOS 3.0.17+  
 
 **示例:**
 
@@ -1600,16 +873,18 @@ iOS 3.0.17+
         refresh_token:"REFRESH_TOKEN"
     };
     var data = JSON.stringify(params);
-    uexWeiXin.getLoginRefreshAccessToken(data);
+    uexWeiXin.getLoginRefreshAccessToken(data,function(data){
+   alert("callback:" + JSON.stringify(data));
+});
 ```
 
 > ### getLoginCheckAccessToken 检验access_token是否有效
 
-`uexWeiXin.getLoginCheckAccessToken(json)`
+`uexWeiXin.getLoginCheckAccessToken(json,,function(data){})`
 
 **说明:**
 
-检验access_token是否有效,回调 [cbGetLoginCheckAccessToken](#cbGetLoginCheckAccessToken 检验access_token是否有效的回调方法 "cbGetLoginCheckAccessToken")  
+检验access_token是否有效 
 
 **参数:**
 
@@ -1625,15 +900,21 @@ var json = {
 | ----- | ----- | ----- | ----- |
 | access_token | String | 是 | 调用接口凭证 |
 | openid | String | 是 | 普通用户标识,通过调用getLoginAccessToken或者getLoginRefreshAccessToken可获得该唯一标识符 |
+| data|json字符串 | 必选 | 返回数据|
+```
+var data = {
+    errcode: 0
+    errmsg: "ok"
+}
+```
 
-**支持平台:**
-Android 2.2+  
-iOS 6.0+  
+各字段含义如下:
 
-**版本支持:**
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| errcode| Number| 是 | 返回码,0:有效。非0:无效。返回码参考[返回码说明](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318634&token=&lang=zh_CN) |
+| errmsg| String | 是 | 返回码文字描述 |
 
-Android 3.1.31+  
-iOS 3.0.17+  
 
 **示例:**
 
@@ -1643,16 +924,18 @@ iOS 3.0.17+
         openid:"OPENID"
     };
     var data = JSON.stringify(params);
-    uexWeiXin.getLoginCheckAccessToken(data);
+    uexWeiXin.getLoginCheckAccessToken(data,function(data){
+   alert("callback:" + JSON.stringify(data));
+});
 ```
 
 > ### getLoginUnionID 获取用户个人信息
 
-`uexWeiXin.getLoginUnionID(json)`
+`uexWeiXin.getLoginUnionID(json,function(data){})`
 
 **说明:**
 
-获取用户个人信息,UnionID机制,开发者可通过OpenID来获取用户基本信息。特别需要注意的是,如果开发者拥有多个移动应用、网站应用和公众帐号,可通过获取用户基本信息中的unionid来区分用户的唯一性,因为只要是同一个微信开放平台帐号下的移动应用、网站应用和公众帐号,用户的unionid是唯一的。换句话说,同一用户,对同一个微信开放平台下的不同应用,unionid是相同的。回调 [cbGetLoginUnionID](#cbGetLoginUnionID 获取用户个人信息的回调方法 "cbGetLoginUnionID")  
+获取用户个人信息,UnionID机制,开发者可通过OpenID来获取用户基本信息。特别需要注意的是,如果开发者拥有多个移动应用、网站应用和公众帐号,可通过获取用户基本信息中的unionid来区分用户的唯一性,因为只要是同一个微信开放平台帐号下的移动应用、网站应用和公众帐号,用户的unionid是唯一的。换句话说,同一用户,对同一个微信开放平台下的不同应用,unionid是相同的。
 
 **参数:**
 
@@ -1668,15 +951,37 @@ var json = {
 | ----- | ----- | ----- | ----- |
 | access_token | String | 是 | 调用接口凭证 |
 | openid | String | 是 | 普通用户标识,通过调用getLoginAccessToken,getLoginRefreshAccessToken或者getLoginUnionID可获得该唯一标识符 |
+| data|json字符串 | 必选 | 返回数据|
+```
+返回数据:
+var data = {
+    openid: "OPENID",
+    nickname: "xxx",
+    sex: 2,
+    language: "zh_CN",
+    city: "",
+    province: "",
+    country: "CN",
+    headimgurl: "xxxx",
+    privilege: [],
+    unionid: "UNIONID"
+}
+```
 
-**支持平台:**
-Android 2.2+  
-iOS 6.0+  
+各字段含义如下:
 
-**版本支持:**
-
-Android 3.1.31+  
-iOS 3.0.17+  
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| openid| String| 是 | 普通用户的标识,对当前开发者帐号唯一 |
+| nickname | String | 是 | 普通用户昵称 |
+| sex | String | 是 | 普通用户性别,1为男性,2为女性 |
+| language | String | 是 | 微信客户端当前语言 |
+| city | String | 是 | 普通用户个人资料填写的城市 |
+| province | String | 是 | 普通用户个人资料填写的省份 |
+| country | String | 是 | 国家,如中国为CN |
+| headimgurl | String | 是 | 用户头像,最后一个数值代表正方形头像大小(有0、46、64、96、132数值可选,0代表640*640正方形头像),用户没有头像时该项为空 |
+| privilege | String | 是 | 用户特权信息,json数组,如微信沃卡用户为(chinaunicom) |
+| unionid | String | 是 | 用户统一标识。针对一个微信开放平台帐号下的应用,同一用户的unionid是唯一的。 |
 
 **示例:**
 
@@ -1686,7 +991,9 @@ iOS 3.0.17+
         openid:"OPENID"
     };
     var data = JSON.stringify(params);
-    uexWeiXin.getLoginUnionID(data);
+    uexWeiXin.getLoginUnionID(data,function(data){
+   alert("callback:" + JSON.stringify(data));
+});
 ```
 
 > ### setCallbackWindowName 设置接收回调方法的窗口名称
@@ -1751,834 +1058,19 @@ open调用方法:
     uexWeiXin.setCallbackWindowName(JSON.stringify(params));
 ```
 
-## 2.2 回调方法
-> ### cbRegisterApp 用户授权的回调方法
 
-`uexWeiXin.cbRegisterApp(opId,dataTpye,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|Number类型 | 必选 |   0-成功,1-失败。    |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbRegisterApp=function(opCode,dataType,data){
-    alert(data);
-}
-```
-
-> ### cbWeiXinLogin 微信登录授权的回调方法
-
-`uexWeiXin.cbWeiXinLogin(opid,dataType,data) `
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|String类型 | 必选 |  授权结果:0-----成功,-2-----用户取消,-4-----用户拒绝      |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbWeiXinLogin = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbGetWeiXinLoginAccessToken 获取微信accessToken的回调方法
-
-`uexWeiXin.cbGetWeiXinLoginAccessToken(opid,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|Json类型 | 必选 | 返回的数据     |
-
-格式如下:
-```
-{ 
-"access_token":"ACCESS_TOKEN", 
-"expires_in":7200, 
-"refresh_token":"REFRESH_TOKEN",
-"openid":"OPENID", 
-"scope":"SCOPE" 
-}
-```
-各字段说明:            
- ![](http://newdocx.appcan.cn/docximg/110320f2015r3p16x.png)
-图_uexWeiXin_3.0    
-           
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbGetWeiXinLoginAccessToken = function (opCode,dataType,data) {
-    alert(data);
-    data = JSON.parse(data);
-    openid=data.openid;
-    access_token = data.access_token;
-    refresh_token = data.refresh_token;
-}
-```
-
-> ### cbGetWeiXinLoginCheckAccessToken 检验微信accessToken是否超时的回调方法
-
-`uexWeiXin.cbGetWeiXinLoginCheckAccessToken(opid,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|Number类型 | 必选 | 0-----(有效),1-----(无效)         |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbGetWeiXinLoginCheckAccessToken = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbGetWeiXinLoginRefreshAccessToken 微信刷新或续期accessToken的回调方法
-
-`uexWeiXin.cbGetWeiXinLoginRefreshAccessToken(opid,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|Json类型 | 必选 | 返回的数据      |
-
- 正确返回格式:
-```
-{ 
-    "access_token":"ACCESS_TOKEN", 
-    "expires_in":7200, 
-    "refresh_token":"REFRESH_TOKEN", 
-    "openid":"OPENID", 
-    "scope":"SCOPE" 
-} 
-```
-各字段说明见:
- ![](http://newdocx.appcan.cn/docximg/110655t2015f3i16k.png)
-      图_uexWeiXin_3.0   
-	  
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbGetWeiXinLoginRefreshAccessToken = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbGetWeiXinLoginUnionID 获取用户个人信息的回调方法
-
-`uexWeiXin.cbGetWeiXinLoginUnionID(opid,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|Json类型 | 必选 | 返回的数据      |
-
-data的格式: 
-
-```
-{
-    "openid": "OPENID", 
-    "nickname": "NICKNAME", 
-    "sex": 1, 
-    "province": "PROVINCE", 
-    "city": "CITY", 
-    "country": "COUNTRY", 
-    "headimgurl": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/0", 
-    "privilege": [
-        "PRIVILEGE1", 
-        "PRIVILEGE2"
-    ], 
-    "unionid": " o6_bmasdasdsad6_2sgVt7hMZOPfL"
-}
-```
-
-各字段说明:    
- ![](http://newdocx.appcan.cn/docximg/110725r2015e3y16g.png)
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbGetWeiXinLoginUnionID = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-> ### cbIsWXAppInstalled 检查微信是否已安装的回调方法
-
-`uexWeiXin.cbIsWXAppInstalled(opId,dataTpye,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|Number类型 | 必选 | 0-已安装,1-未安装。       |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbIsWXAppInstalled = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbGetWXAppInstallUrl 获取微信的itunes安装地址的回调方法
-
-`uexWeiXin.cbGetWXAppInstallUrl(opId,dataTpye,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|String类型 | 必选 | 微信安装地址    |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbGetWXAppInstallUrl = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbIsWXAppSupportApi 判断API是否被支持的回调方法
-
-`uexWeiXin.cbIsWXAppSupportApi(opId,dataTpye,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|String类型 | 必选 | 0-成功,1-失败。        |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbIsWXAppSupportApi = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbGetApiVersion 获取SDK的版本号的回调方法
-
-`uexWeiXin.cbGetApiVersion(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|String类型 | 必选 | SDK版本号   |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbGetApiVersion = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbSendTextContent 分享文本的回调方法(旧接口不推荐)
-
-`uexWeiXin.cbSendTextContent(opId,dataTpye,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|String类型 | 必选 | 微信返回的错误码   |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbSendTextContent = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbSendImageContent 分享图片的回调方法(旧接口不推荐)
-
-`uexWeiXin.cbSendImageContent(opId,dataTpye,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|String类型 | 必选 | 微信返回的错误码   |
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbSendImageContent = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbShareTextContent 分享文本的回调方法
-
-`uexWeiXin.cbShareTextContent(data) `
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| data|Number类型 | 必选 | 返回的错误码,0-成功,非0-失败. |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbShareTextContent = function (data) {
-    alert(data);
-}
-```
-
-> ### cbShareImageContent 分享图片的回调方法
-
-`uexWeiXin.cbShareImageContent(data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| data|Number类型 | 必选 | 返回的错误码,0-成功,非0-失败.       |
- 
-
-**版本支持:**
-
-3.0.0+ 
-
-**示例**
-
-```
-uexWeiXin.cbShareImageContent = function (data) {
-    alert(data);
-}
-```
-
-> ### cbShareLinkContent 分享Link的回调方法
-
-`uexWeiXin.cbShareLinkContent(data) `
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| data|Number类型 | 必选 | 返回的错误码,0-成功,非0-失败.       |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbShareLinkContent = function (data) {
-    alert(data);
-}
-```
-
-> ### cbIsSupportPay 是否支持支付功能的回调方法
- 
-`uexWeiXin.cbIsSupportPay(opId,dataType,data);  `
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType|Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data|String类型 | 必选 | 是否支持支付功能,0-支持,1-不支持。   |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbIsSupportPay = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbGetPrepayId 生成预支付订单的回调接口
-`uexWeiXin.cbGetPrepayId(json); `
-
-**参数:**
-
-json格式数据,参数详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果"
-
-**版本支持:**
-
-3.0.0+  
-
-**示例:**
-
-```
-uexWeiXin.cbGetPrepayId = function(data){
-	alert(data);
-}
-```
-
-> ### cbStartPay 支付结果的回调方法
-
-`uexWeiXin.cbStartPay(json);`
-
-**参数:**
-
-参数说明及生成办法详见微信开放平台文档[调起支付接口](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口")参数说明中的"返回结果"
-```
-var json = {
-    errCode:,//状态码。0:成功；-1:错误；-2:用户取消
-    errStr: //状态说明
-}
-```
-
-**版本支持:**
-
-3.0.0+  
-
-**示例:**
-
-```
-uexWeiXin.cbStartPay = function(data){
-	alert(data);
-}
-```
-
-> ### cbGetAccessToken 获取支付token的回调方法`<旧版接口,新版插件不支持,使用新接口>` 
-
-`uexWeiXin.cbGetAccessToken(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType| Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data| String类型 | 必选 | 支付token |
- 
-
-**版本支持:**
-
-3.0.0+  
-
-**示例:**
-
-```
-uexWeiXin.cbGetAccessToken = function(data){
-	alert(data);
-}
-```
-
-> ### cbGetAccessTokenLocal 获取本地支付token的回调方法`<旧版接口,新版插件不支持,使用新接口>` 
-
-`uexWeiXin.cbGetAccessTokenLocal(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType| Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data| String类型 | 必选 | 支付token |
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbGetAccessTokenLocal = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbGenerateAdvanceOrder 生成预支付订单的回调方法`<旧版接口,新版插件不支持,使用新接口>` 
-
-`uexWeiXin.cbGenerateAdvanceOrder(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType| Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data| String类型 | 必选 | 预支付订单号。 |
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbGenerateAdvanceOrder = function (opCode,dataType,data) {
-alert(data);
-}
-```
-
-> ### cbGotoPay 支付回调方法`<旧版接口,新版插件不支持,使用新接口>` 
-
-`uexWeiXin.cbGotoPay(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。     |
-| dataType| Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callback方法数据类型     |
-| data| String类型 | 必选 | json格式如下:{"errCode":0,"errStr":""} |
-| errCode| String类型 | 必选 | json格式如下|
-
-```
-{
-	"errCode"://支付成功返回0；否则返回错误码, 
-	"errStr"://错误信息
-} 
-```
-
-**版本支持:**
-
-3.0.0+  
-
-**示例**
-
-```
-uexWeiXin.cbGotoPay = function (opCode,dataType,data) {
-    alert(data);
-}
-```
-
-> ### cbLogin 登录的回调方法
-
-`uexWeiXin.cbLogin(data)`
-
-**参数:**
-
-```
-var data = {
-    errCode: "0",
-    code: "CODE",
-    country: "CN",
-    language: "zh_CN",
-    state: "0902"
-}
-```
-
-各字段含义如下:
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| errCode| Number| 是 | 0:用户同意；-4:用户拒绝授权；-2:用户取消 |
-| code| String | 否 | 用户换取access_token的code,仅在errCode为0时有效 |
-| country| String | 是 | 微信用户当前国家信息 |
-| language| String | 是 | 微信客户端当前语言 |
-| state| String | 否 | 第三方程序发送时用来标识其请求的唯一性的标志,由login接口传入,由微信终端回传,state字符串长度不能超过1K。仅在errCode为0时有效 |
-
-**支持平台:**
-Android 2.2+  
-iOS 6.0+  
-
-**版本支持:**
-
-Android 3.1.31+  
-iOS 3.0.17+  
-
-**示例**
-
-```
-uexWeiXin.cbLogin = function (data) {
-    alert(data);
-}
-```
-
-> ### cbGetLoginAccessToken 获取access_token的回调方法
-
-`uexWeiXin.cbGetLoginAccessToken(data)`
-
-**参数:**
-
-```
-var data = {
-    access_token: "ACCESS_TOKEN",
-    expires_in: 7200,
-    refresh_token: "REFRESH_TOKEN",
-    openid: "OPENID",
-    scope: "snsapi_userinfo",
-    unionid:"UNIONID"
-}
-```
-
-各字段含义如下:
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| access_token| String| 是 | 接口调用凭证 |
-| expires_in| Number | 是 | access_token接口调用凭证超时时间,单位(秒) |
-| refresh_token| String | 是 | 用户刷新access_token |
-| openid| String | 是 | 授权用户唯一标识 |
-| scope| String | 是 | 用户授权的作用域,使用逗号(,)分隔 |
-| unionid| String | 否 | 只有在用户将公众号绑定到微信开放平台帐号后,才会出现该字段。 |
-
-**支持平台:**
-Android 2.2+  
-iOS 6.0+  
-
-**版本支持:**
-
-Android 3.1.31+  
-iOS 3.0.17+  
-
-**示例**
-
-```
-uexWeiXin.cbGetLoginAccessToken = function (data) {
-    alert(data);
-}
-```
-
-> ### cbGetLoginRefreshAccessToken 获取刷新access_token的回调方法
-
-`uexWeiXin.cbGetLoginRefreshAccessToken(data)`
-
-**参数:**
-
-```
-var data = {
-    access_token: "ACCESS_TOKEN",
-    expires_in: 7200,
-    refresh_token: "REFRESH_TOKEN",
-    openid: "OPENID",
-    scope: "snsapi_userinfo"
-}
-```
-
-各字段含义如下:
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| access_token| String| 是 | 接口调用凭证 |
-| expires_in| Number | 是 | access_token接口调用凭证超时时间,单位(秒) |
-| refresh_token| String | 是 | 用户刷新access_token |
-| openid| String | 是 | 授权用户唯一标识 |
-| scope| String | 是 | 用户授权的作用域,使用逗号(,)分隔 |
-
-**支持平台:**
-Android 2.2+  
-iOS 6.0+  
-
-**版本支持:**
-
-Android 3.1.31+  
-iOS 3.0.17+  
-
-**示例**
-
-```
-uexWeiXin.cbGetLoginRefreshAccessToken = function (data) {
-    alert(data);
-}
-```
-
-> ### cbGetLoginCheckAccessToken 检验access_token是否有效的回调方法
-
-`uexWeiXin.cbGetLoginCheckAccessToken(data)`
-
-**参数:**
-
-```
-var data = {
-    errcode: 0
-    errmsg: "ok"
-}
-```
-
-各字段含义如下:
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| errcode| Number| 是 | 返回码,0:有效。非0:无效。返回码参考[返回码说明](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318634&token=&lang=zh_CN) |
-| errmsg| String | 是 | 返回码文字描述 |
-
-**支持平台:**
-Android 2.2+  
-iOS 6.0+  
-
-**版本支持:**
-
-Android 3.1.31+  
-iOS 3.0.17+  
-
-**示例**
-
-```
-uexWeiXin.cbGetLoginCheckAccessToken = function (data) {
-    alert(data);
-}
-```
-
-> ### cbGetLoginUnionID 获取用户个人信息的回调方法
-
-`uexWeiXin.cbGetLoginUnionID(data)`
-
-**参数:**
-
-```
-var data = {
-    openid: "OPENID",
-    nickname: "xxx",
-    sex: 2,
-    language: "zh_CN",
-    city: "",
-    province: "",
-    country: "CN",
-    headimgurl: "xxxx",
-    privilege: [],
-    unionid: "UNIONID"
-}
-```
-
-各字段含义如下:
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| openid| String| 是 | 普通用户的标识,对当前开发者帐号唯一 |
-| nickname | String | 是 | 普通用户昵称 |
-| sex | String | 是 | 普通用户性别,1为男性,2为女性 |
-| language | String | 是 | 微信客户端当前语言 |
-| city | String | 是 | 普通用户个人资料填写的城市 |
-| province | String | 是 | 普通用户个人资料填写的省份 |
-| country | String | 是 | 国家,如中国为CN |
-| headimgurl | String | 是 | 用户头像,最后一个数值代表正方形头像大小(有0、46、64、96、132数值可选,0代表640*640正方形头像),用户没有头像时该项为空 |
-| privilege | String | 是 | 用户特权信息,json数组,如微信沃卡用户为(chinaunicom) |
-| unionid | String | 是 | 用户统一标识。针对一个微信开放平台帐号下的应用,同一用户的unionid是唯一的。 |
-
-**支持平台:**
-Android 2.2+  
-iOS 6.0+  
-
-**版本支持:**
-
-Android 3.1.31+  
-iOS 3.0.17+  
-
-**示例**
-
-```
-uexWeiXin.cbGetLoginUnionID = function (data) {
-    alert(data);
-}
-```
 
 #3、更新历史
 
 ### iOS
 
-API版本:`uexWeiXin-3.0.20`
+API版本:`uexWeiXin-4.0.0`
 
-最近更新时间:`2016-5-10`
+最近更新时间:`2016-6-7`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持引擎4.0,函数入参 |
 | 3.0.20 | 修复getWeiXinLoginAccessToken失败的bug |
 | 3.0.19 | 修复getWeiXinLoginAccessToken失败的bug |
 | 3.0.18 | 修改回调方式,支持setCallbackWindowName接口;部分支持IDE |
@@ -2602,12 +1094,13 @@ API版本:`uexWeiXin-3.0.20`
 
 ### Android
 
-API版本:`uexWeiXin-3.1.35`
+API版本:`uexWeiXin-4.0.0`
 
-最近更新时间:`2016-5-11`
+最近更新时间:`2016-6-7`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持引擎4.0,函数入参 |
 | 3.1.35 | 更新SDK,优化代码逻辑；文档中增加错误返回码说明 |
 | 3.1.34 | 支持https |
 | 3.1.33 | 修复和完善抛出异常的捕获 |
