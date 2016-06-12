@@ -75,25 +75,17 @@ Path Types
 | wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ |
 | file:///sdcard/ | /storage/emulated/0/ | 无 |
 
-## 1.5、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
-有特殊版本要求的API会在文档中额外说明。
-
-## 1.6、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。
-在后续版本中新添加的接口会在文档中额外说明。
-
 #2、API概览 
 ## 2.1 方法:
 
 > ### login 登录      
 
-`uexQQ.login(appId, callbackFunction);                    `
+`uexQQ.login(appId);                    `
 
 **说明:**
 
     
-登录QQ  
+登录QQ  回调 [cbLogin](#cbLogin  登录完成的回调方法  "cbLogin")
 
 **参数:**
 
@@ -102,73 +94,75 @@ Path Types
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | appId| String类型| 必选 | 在腾讯开放平台注册的应用appId,具体申请步骤可参考,点击跳转 |
-| callbackFunction|函数 | 必选 | 回调函数，用来获取相关业务数据|
+    
 
-回调函数中的数据是JSON对象,包含access_token, openId等信息。
-具体格式如下：
-```
-{
-    "ret": "0",
-    "data": {
-        "access_token": "7C8A051D7F77B7265171E742CC0A225B",
-        "openid": "7CD70F4AD1E7BE6FCACB904A65D2C8F9",
-        "expires_in": "7776000"
-    }
-}
-```
+**平台支持:**
+
+    
+Android2.2+                 
+iOS6.0+    
+
+**版本支持:**
+
+    
+3.0.0+                  
 
 **示例:**
 
-```
-uexQQ.login("222222", function(data) {
-    alert("data:" + JSON.stringify(data));
-});
+    
 
 ```
-
+    function login(){
+        uexQQ.login("222222");
+        }
+```
 > ### isQQInstalled 检查QQ是否已安装
 
 `uexQQ.isQQInstalled()`
 
 **说明:**
 
-检查QQ是否已安装, 如果已安装返回true, 未安装返回false.
+    
+检查QQ是否已安装  
+回调 [cbIsQQInstalled](#cbIsQQInstalled  检查QQ是否已安装的回调方法  "cbIsQQInstalled")
 
 **参数:**
 
+    
 无       
 
+**平台支持:**
+
+    
+Android2.2+                 
+iOS6.0+    
+
+**版本支持:**
+
+    
+3.0.0+
                   
 > ### shareWebImgTextToQQ     分享图文到QQ     
 
-`uexQQ.shareWebImgTextToQQ(appId,jsonData, callbackFunction);`
+`uexQQ.shareWebImgTextToQQ(appId,jsonData);`
 
 **说明:**
 
     
-分享图文信息到QQ
+分享图文信息到QQ  
+回调 [cbShareQQ](#cbShareQQ  分享完成的回调方法  "cbShareQQ")
 
 **参数:**
 
+    
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | appId| Number类型| 必选 | 在腾讯开放平台注册的应用appId |
 | jsonData|Json类型 | 必选 | 内容 |
-| callbackFunction|函数 | 可选 | 回调函数，用来获取分享结果|
-
-jsonData的格式如下
-
-```
-{
-    "title": "标题",
-    "summary": "摘要",
-    "targetUrl": "",
-    "imageUrl": "",
-    "appName": "uexQQ",
-    "cflag": "1"
-}
-```
+````
+ json格式如下:{"title":"标题","summary":"摘要","targetUrl":"","imageUrl":"","appName":"uexQQ","cflag":"1"}       
+````
 各字段含义如下:
 
 | 参数 | 是否必须 | 说明 |
@@ -180,38 +174,36 @@ jsonData的格式如下
 | appName | 否 | 应用名称,显示在分享完成时的返回按钮,如下图所示 |
 | cflag | 否 |是否弹出分享到空间对话框。不传时,不弹出对话框,可以选择分享到QQ好友或QQ空间； 值为"1",弹出对话框;值为"2",不弹出对话框,只能分享到QQ好友 |
 
+**平台支持:**
 
-callbackFunction 参数是JSON 对象类型，格式如下
+    
+Android2.2+                 
+iOS6.0+    
 
-```
-{
-    "errStr": {
-        "ret": 0
-    },
-    "errCode": 0 // 0 成功。其它为失败，失败时errStr会显示失败原因
-}
-```
+**版本支持:**
+
+    
+3.0.0+                  
 
 **示例:**
 
     
 
 ```
-function shareWebImgTextToQQ(){
-    var json = '{"title":"图文分享标题","summary":"图文分享消息摘要","targetUrl":"http://appcan.cn","imageUrl":"res://aa.jpg","appName":"uexQQ", "cflag":"1"}';
-    uexQQ.shareWebImgTextToQQ("222222", json, function(data) {
-        alert("data:" + JSON.stringify(data));
-    });
-}
+        function shareWebImgTextToQQ(){
+            var json = '{"title":"图文分享标题","summary":"图文分享消息摘要","targetUrl":"http://appcan.cn","imageUrl":"res://aa.jpg","appName":"uexQQ", "cflag":"1"}';
+            uexQQ.shareWebImgTextToQQ("222222", json);
+            }
 ```
 > ### shareLocalImgToQQ 分享本地图片到QQ
 
-`uexQQ.shareLocalImgToQQ(appId,jsonData, callbackFunction);`
+`uexQQ.shareLocalImgToQQ(appId,jsonData);`
 
 **说明:**
 
     
-分享本地图片到QQ
+分享本地图片到QQ       
+回调 [cbShareQQ](#cbShareQQ  分享完成的回调方法  "cbShareQQ")
 
 **参数:**
 
@@ -221,18 +213,9 @@ function shareWebImgTextToQQ(){
 | ----- | ----- | ----- | ----- |
 | appId| Number类型| 必选 | 在腾讯开放平台注册的应用appId |
 | jsonData|Json类型 | 必选 | 内容 |
-| callbackFunction|函数 | 可选 | 回调函数，用来获取分享结果|
-
-
-jsonData的格式如下
-
-```
- {
-    "imageLocalUrl": "res: //aa.jpg",
-    "appName": "uexQQ",
-    "cflag": "1"
-} 
-```
+````
+ json格式如下:{"imageLocalUrl":"res://aa.jpg","appName":"uexQQ","cflag":"1"}      
+````
 各字段含义如下:
 
 | 参数 | 是否必须 | 说明 |
@@ -241,24 +224,37 @@ jsonData的格式如下
 | appName | 否 | 应用名称(说明同shareWebImgTextToQQ) |
 | cflag | 否 | 是否弹出分享到空间对话框(说明同shareWebImgTextToQQ) |
 
+**平台支持:**
+
+    
+Android2.2+                 
+iOS6.0+                     
+
+**版本支持:**
+
+    
+3.0.0+                  
+
+**示例:**
+
+    
 
 ```
-function shareLocalImgToQQ(){
-    var json = '{"imageLocalUrl":"res://aa.jpg","appName":"uexQQ"}';
-    uexQQ.shareLocalImgToQQ("222222", json , function(data) {
-        alert("data:" + JSON.stringify(data));
-    });
-}
+  function shareLocalImgToQQ(){
+     var json = '{"imageLocalUrl":"res://aa.jpg","appName":"uexQQ"}';
+     uexQQ.shareLocalImgToQQ("222222", json);
+  }
 
 ```
-
 > ### shareAudioToQQ 分享音频到QQ
 
-`uexQQ.shareAudioToQQ(appId, jsonData, callbackFunction);`
+`uexQQ.shareAudioToQQ(appId,jsonData);`
 
 **说明:**
 
-分享音频到QQ
+    
+分享音频到QQ          
+回调 [cbShareQQ](#cbShareQQ  分享完成的回调方法  "cbShareQQ")
 
 **参数:**
 
@@ -268,22 +264,9 @@ function shareLocalImgToQQ(){
 | ----- | ----- | ----- | ----- |
 | appId| Number类型| 必选 | 在腾讯开放平台注册的应用appId |
 | jsonData|Json类型 | 必选 | 内容 |
-| callbackFunction|函数 | 可选 | 回调函数，用来获取分享结果|
-
-jsonData的格式如下
-
-```
-{
-    "title": "title",
-    "summary": "summary",
-    "targetUrl": "url",
-    "imageUrl": "url",
-    "appName": "uexQQ",
-    "audio_url": "url",
-    "cflag": "2"
-}
-
-```
+````
+ json格式如下:{"title":"title","summary":"summary","targetUrl":"url","imageUrl":"url",appName":"uexQQ","audio_url":"url","cflag":"2"}         
+ ````
 
 各字段含义如下:
 
@@ -296,26 +279,37 @@ jsonData的格式如下
 | appName | 否  | 应用名称(说明同shareWebImgTextToQQ)   |
 | audio_url  | 是  | 音频地址   |
 | cflag  | 否  | 是否弹出分享到空间对话框(说明同shareWebImgTextToQQ)   |
-                      
+
+**平台支持:**
+
+        
+Android2.2+                         
+iOS6.0+                             
+
+**版本支持:**
+
+    
+3.0.0+                          
 
 **示例:**
 
-```
-function shareAudioToQQ(){
-    var json = '{"title":"音乐分享标题","summary":"音乐分享消息摘要","targetUrl":"http://appcan.cn","imageUrl":"http://imgcache.qq.com/qzone/space_item/textarea/0/66768.gif","appName":"uexQQ", "audio_url":"http://pan.baidu.com/share/link?shareid=1055030794&uk=2337020227","cflag":"2"}';
-    uexQQ.shareAudioToQQ("222222", json, function(data) {
-        alert("data:" + JSON.stringify(data));
-    });
-}
-```
+    
 
+```
+                function shareAudioToQQ(){
+                var json = '{"title":"音乐分享标题","summary":"音乐分享消息摘要","targetUrl":"http://appcan.cn","imageUrl":"http://imgcache.qq.com/qzone/space_item/textarea/0/66768.gif","appName":"uexQQ", "audio_url":"http://pan.baidu.com/share/link?shareid=1055030794&uk=2337020227","cflag":"2"}';
+                uexQQ.shareAudioToQQ("222222", json);
+                }
+```
 > ### shareAppToQQ  分享应用到QQ         
 
-`uexQQ.shareAppToQQ(appId,jsonData, callbackFunction);`
+`uexQQ.shareAppToQQ(appId,jsonData);`
 
 **说明:**
 
-分享应用到QQ
+    
+分享应用到QQ      
+回调 [cbShareQQ](#cbShareQQ  分享完成的回调方法  "cbShareQQ")
 
 **参数:**
 
@@ -325,19 +319,9 @@ function shareAudioToQQ(){
 | ----- | ----- | ----- | ----- |
 | appId| Number类型| 必选 | 在腾讯开放平台注册的应用appId |
 | jsonData|Json类型 | 必选 | 内容 |
-| callbackFunction|函数 | 可选 | 回调函数，用来获取分享结果|
-
-jsonData的格式如下
-
-```
-{
-    "title": "标题",
-    "summary": "摘要",
-    "imageUrl": "",
-    "appName": "uexQQ",
-    "cflag": "1"
-}   
-```
+````
+ json格式如下:{"title":"标题","summary":"摘要","imageUrl":"","appName":"uexQQ","cflag":"1"}       
+````
 各字段含义如下:
 
 | 参数 | 是否必须   | 说明 |
@@ -348,50 +332,49 @@ jsonData的格式如下
 | appName | 否  | 应用名称(说明同shareWebImgTextToQQ)   |
 | cflag  | 否  | 是否弹出分享到空间对话框(说明同shareWebImgTextToQQ)   |
 
+**平台支持:**
+
+           
+Android2.2+                         
+iOS不支持    
+
+**版本支持:**
+
+        
+3.0.0+                            
+
 **示例:**
 
     
 
 ```
-function shareAppToQQ(){
-    var json = '{"title":"标题","summary":"摘要","imageUrl":"","appName":"uexQQ","cflag":"1"}';
-    uexQQ.shareAppToQQ("222222", json, function(data) {
-        alert("data:" + JSON.stringify(data));
-    });
-}
+    function shareAppToQQ(){
+        var json = '{"title":"标题","summary":"摘要","imageUrl":"","appName":"uexQQ","cflag":"1"}';
+        uexQQ.shareAppToQQ("222222", json);
+    }
 ```
-
 > ###shareImgTextToQZone 分享图文到QQ空间   
 
-`uexQQ.shareImgTextToQZone(appId,jsonData, callbackFunction);`
+`uexQQ.shareImgTextToQZone(appId,jsonData);`
 
 **说明:**
 
     
 分享图文到QQ空间       
+回调 [cbShareQQ](#cbShareQQ  分享完成的回调方法  "cbShareQQ")
 
 **参数:**
+
+    
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | appId| Number类型| 必选 | 在腾讯开放平台注册的应用appId |
 | jsonData|Json类型 | 必选 | 内容 |
-| callbackFunction|函数 | 可选 | 回调函数，用来获取分享结果|
 
-jsonData的格式如下
-
-```
-{
-    "title": "标题",
-    "summary": "摘要",
-    "targetUrl": "http://appcan.cn",
-    "imageUrl": [
-        "res://aa.png",
-        "res://aa.jpg",
-        "res://bb.png"
-    ]
-}
-```
+````
+ json格式如下:{"title":"标题","summary":"摘要","targetUrl":"http://appcan.cn","imageUrl":["res://aa.png","res://aa.jpg","res://bb.png"]}            
+````
         
 各字段含义如下:                            
 
@@ -400,32 +383,101 @@ jsonData的格式如下
 | title  | 是  | 标题,最长30个字符 |
 | summary | 否  | 消息摘要,最长40个字符   |
 | targetUrl  | 是  | 点击消息跳转URL  |
-| imageUrl   | 否  | 图片地址,支持网络图片和本地图片(iOS不支持发送多张图片) |          
+| imageUrl   | 否  | 图片地址,支持网络图片和本地图片(iOS不支持发送多张图片) |
+
+**平台支持:**
+
+           
+Android2.2+                         
+iOS6.0+                             
+
+**版本支持:**
+
+        
+3.0.0+                          
 
 **示例:**
 
     
+
 ```
-function shareImgTextToQZone(){
-    var json = '{"title":"空间分享标题","summary":"空间分享消息摘要","targetUrl":"http://appcan.cn","imageUrl":["res://aa.png", "res://aa.jpg", "res://bb.png"]}';
-    uexQQ.shareImgTextToQZone(appId, json, function(data) {
-        alert("data:" + JSON.stringify(data));
-    });
-}
+    function shareImgTextToQZone(){
+     var json = '{"title":"空间分享标题","summary":"空间分享消息摘要","targetUrl":"http://appcan.cn","imageUrl":["res://aa.png", "res://aa.jpg", "res://bb.png"]}';
+     uexQQ.shareImgTextToQZone(appId, json);
+    }
 ```
-                                     
+## 2.2 回调方法:
+> ### cbLogin  登录完成的回调方法           
+
+`uexQQ.cbLogin(opId,dataType,data);`
+
+**参数:**
+
+    
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| appId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。 |
+| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型 |
+| data|String类型 | 必选 | 返回的数据|
+
+````
+ json格式数据如下:
+      {"ret":"0","data":"{"expires_in":"","openid":"","access_token":""}"}"
+      ret"为"0",登录成功,data数据为用户相关数据；否则登录失败,登录失败时,data为错误码。
+````
+
+**版本支持:**
+
+    
+3.0.0+                          
+> ###cbShareQQ  分享完成的回调方法           
+
+`uexQQ.cbShareQQ(opId,dataType,data);`
+
+**参数:**
+
+    
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| appId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。 |
+| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型 |
+| data|String类型 | 必选 | 分享结果,详见CONSTANT中Callbackint类型数据 |
+
+**版本支持:**
+
+    
+3.0.0+                                  
+> ###cbIsQQInstalled  检查QQ是否已安装的回调方法      
+
+`uexQQ.cbIsQQInstalled(opId,dataType,data)`
+
+**参数:**
+
+    
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| appId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。 |
+| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型 |
+| data|String类型 | 必选 | 安装结果,0-已安装,1-未安装 |
+
+**版本支持:**
+
+    
+3.0.0+                                          
 
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexQQ-4.0.0`
+API版本:`uexQQ-3.0.14`
 
-最近更新时间:`2016-6-6`
+最近更新时间:`2016-5-17`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 4.0.0 | 支持function传入|
 | 3.0.14 | 修改回调逻辑,解决presentWindow收不到回调的问题 |
 | 3.0.13 | SDK更新为2.9.3(2015-11-03),新增注销授权、获取用户信息接口 |
 | 3.0.12 | 删去腾讯SDK中的info.plist,防止ERROR ITMS-90049 |
@@ -444,13 +496,12 @@ API版本:`uexQQ-4.0.0`
 
 ### Android
 
-API版本:`uexQQ-4.0.0`
+API版本:`uexQQ-3.0.7`
 
-最近更新时间:`2016-6-6`
+最近更新时间:`2016-3-2`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 4.0.0 | 支持function传入|
 | 3.0.7 | 更新sdk,修正部分回调bug,(1,2)修正打开增量开关后,图片获取不到的问题,增加getUserInfo接口 |
 | 3.0.6 | 支持config.xml配置 |
 | 3.0.5 | 修复qq图文分享错误 |
