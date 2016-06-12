@@ -473,7 +473,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexWindow.openPopover("sss",0,"hidden.html","",400,0,'','','',0,100);
+uexWindow.openPopover("sss",0,"hidden.html","",0,0,'','','',0,100);
 ```
 
 > ### closePopover 关闭浮动窗口
