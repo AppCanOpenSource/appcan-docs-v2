@@ -23,8 +23,17 @@
  
 ##  1.3.公告
 旧版uexPay 已经下架了,官方不再维护,如需使用,请[跳转](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=25876 "跳转")到详细官方通告
+
 ##  1.4.开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=279_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+
+## 1.5、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.6、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
 
 #    2、API概览
 
@@ -53,37 +62,28 @@
 | notifyUrl|String类型 | 必选 | 服务器通知路径|
  
 
-**平台支持:**
-
-Android2.2+ 
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
-
 **示例:**
 
 ```
-    var partner = "208845648165561";
-    var seller = "48652321@qq.com";
-    var rsaPrivate = "MIICdwIBADANBgkn4E3TszcjB+Kf7CGVQ/nsvyywjA+i+0vmaftUzoOdIcWnI8UEr9I=";
-    var rsaPublic = "MIGfMA0GCSqGSIb3DQEBAQUAVsW8Ol75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
-    
-    function setInfo(){
+var partner = "208845648165561";
+var seller = "48652321@qq.com";
+var rsaPrivate = "MIICdwIBADANBgkn4E3TszcjB+Kf7CGVQ/nsvyywjA+i+0vmaftUzoOdIcWnI8UEr9I=";
+var rsaPublic = "MIGfMA0GCSqGSIb3DQEBAQUAVsW8Ol75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
+
+function setInfo(){
     var notifyUrl = document.getElementById("notifyURL").value;
     uexAliPay.setPayInfo(partner, seller, rsaPrivate, rsaPublic, notifyUrl);
-    }
+}
 
 ```
-> ###   pay 支付功能
 
-`uexAliPay.pay(num,subject,body,fee)    `
+> ###  pay 支付功能
+
+`uexAliPay.pay(num,subject,body,fee, callbackFunction)`
 
 **说明:**
 
-进行支付前必须先设置商户信息,否则无法完成支付 
-监听方法 [onStatus](#onStatus 支付状态改变时的监听方法 "onStatus") 
+进行支付前必须先设置商户信息,否则无法完成支付, 执行完后回调`callbackFunction`
 
 **参数:**
 
@@ -93,74 +93,40 @@ iOS6.0+
 | subject|String类型 | 必选 | 商品名称 |
 | body|String类型 | 必选 | 商品详情|
 | fee|String类型 | 必选 | 总金额,单位为RMB-Yuan,取值范围为[0.01,100000000.00]  |
-   
+| callbackFunction|函数| 否 | 回调函数，用来获取支付结果状态 |
 
-**平台支持:**
+callbackFunction的参数为status(状态值), msg（提示信息)
 
-Android2.2+ 
-iOS6.0+ 
-
-**版本支持:**
-
-3.0.0+  
 
 **示例:**
 
 ```
-    function pay(){
+var commonCallback = function(status, msg) {
+    alert(status + "   " + msg);
+};
+
+function pay(){
     setInfo();
     var subject = "珍珠项链";
     var body = "韩版,韩国流行饰品小太阳花小巧雏菊 珍珠项链2M15。";
     var fee = "0.01";
     var num = "200155555";
-    uexAliPay.pay(num, subject, body, fee);
-    
-    }
-    function paySuccess(status, des){
-    document.getElementById('adre').innerHTML  = des;
-    }
-    
-    function payFailed(opCode, errorCode, des){
-    document.getElementById('adre').innerHTML  = des;
-    }
-    
-    window.uexOnload = function(){
-    
-    uexAliPay.onStatus = paySuccess;
-    uexWidgetOne.cbError = payFailed;
-    }
+    uexAliPay.pay(num, subject, body, fee, commonCallback);
+}
 
 ```
-##2.2.监听方法
-> ###onStatus 支付状态改变时的监听方法
-
- uexAliPay.onStatus(status,des) 
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| status| String类型| 必选 | 支付状态 |
-| des|String类型 | 必选 | 支付状态描述 |
- 
-                                                      
-
-![](http://newdocx.appcan.cn/docximg/182534h2015q2t11e.png)
-
-**版本支持:**
-
-                            
-3.0.0+          
+        
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexAliPay-3.0.9`
+API版本:`uexAliPay-4.0.0`
 
-最近更新时间:`2016-4-22`
+最近更新时间:`2016-06-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入|
 | 3.0.9 | 更新支付宝SDK到15.0.6 |
 | 3.0.8 | 更新支付宝SDK到2.2.1 |
 | 3.0.7 | uexAliPay新增gotoPay传入服务器签名好的数据直接支付 |
@@ -174,12 +140,13 @@ API版本:`uexAliPay-3.0.9`
 
 ### Android
 
-API版本:`uexAliPay-3.0.8`
+API版本:`uexAliPay-4.0.0`
 
-最近更新时间:`2015-06-19`
+最近更新时间:`2016-06-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入|
 | 3.0.8 | 更新支付宝SDK。 解决当用户手机没有安装支付宝快捷 支付服务时出现解析包错误的问题 |
 | 3.0.7 | 更新支付宝SDK |
 | 3.0.6 | 插件主页面点击物理返回键,插件崩溃 |
