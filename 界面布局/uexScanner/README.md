@@ -12,34 +12,52 @@
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=184_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。  
+
+
 # 2、API概览
 
 ## 2.1、方法
 > ### open 启动扫描
 
-`uexScanner.open()`
+`uexScanner.open(callbackFunction)`
 
 **说明:**
 
-开启扫描功能,当扫描窗口开启后会回调[cbOpen](#cbOpen 扫描结果的回调方法 "cbOpen")方法。
+开启扫描功能,当扫描完成后会执行回调函数
 
 **参数:**
 
-无
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| callbackFunction| 函数| 是 |扫描成功后的回调函数|
 
-**平台支持:**
+`callbackFunction`的参数是JSON对象类型，其格式如下：
 
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-3.0.0+
+```
+{
+    code:, //code为1时代表打开摄像头失败
+    type:
+}
+```
 
 **示例:**
 
 ```
-uexScanner.open();
+var callback = function(data) {
+    var result = "data:" + JSON.stringify(data)
+    console.log(result);
+    alert(result);
+};
+
+uexScanner.open(callback);
+
 ```
 
 > ### setJsonData 设置数据
@@ -63,64 +81,25 @@ var params = {
 }
 ```
 
-**平台支持:**
-
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
 var jsonData = '{"lineImg":"res://line.png","pickBgImg":"res://pick_bg.png","tipLabel":"对准二维码/条形码,即可自动扫描","title":"扫一下"}';
 uexScanner.setJsonData(jsonData);
 ```
-## 2.2、回调方法
-> ### cbOpen 扫描结果的回调方法
 
-`uexScanner.cbOpen(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 操作ID,open失败时为1,正常时为0,失败时一般是用户禁止了APP摄像头权限 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中CallbackdataType数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
-
-**示例**
-
-```
-function ScannerSuccessCallBack(opCode, dataType, data) {
-    alert(data);
-}
-window.uexOnload = function(){
-    uexScanner.cbOpen = ScannerSuccessCallBack;
-}
-```
 
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexScanner-3.1.7`
+API版本:`uexScanner-4.0.0`
 
-最近更新时间:`2016-5-17`
+最近更新时间:`2016-6-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入 |
 | 3.1.7 | 修改为ios7.0以上调用系统库扫描 |
 | 3.1.6 | 修复横屏扫描时图像显示异常的BUG |
 | 3.1.5 | 添加可选参数charset,支持GBK编码的二维码 |
@@ -132,12 +111,13 @@ API版本:`uexScanner-3.1.7`
 
 ### Android
 
-API版本:`uexScanner-3.0.15`
+API版本:`uexScanner-4.0.0`
 
-最近更新时间:`2016-3-2`
+最近更新时间:`2016-6-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入 |
 | 3.0.15 | 添加charset字段设置编码 |
 | 3.0.14 | 调整扫描框为正方形 |
 | 3.0.13 | 拍照权限被禁止情况处理 |
