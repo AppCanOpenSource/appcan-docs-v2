@@ -546,7 +546,7 @@ uexWeiXin.shareLinkContent(JsonData,function(data){
 
 > ### isSupportPay 判断是否支持支付功能
 
-`uexWeiXin.isSupportPay(function(data){})`
+` var info = uexWeiXin.isSupportPay()`
 
 **说明:**
 
@@ -558,17 +558,14 @@ uexWeiXin.shareLinkContent(JsonData,function(data){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| data|Number类型 | 必选 | 是否支持支付功能,0-支持,1-不支持。       |
+| info|Number类型 | 必选 | 是否支持支付功能,0-支持,1-不支持。       |
 
 
 
 **示例:**
 
 ```
-  uexWeiXin.isSupportPay(function(data){
-   alert("callback:" + JSON.stringify(data));
-  })
-
+  var info = uexWeiXin.isSupportPay()
 
 ``` 
 
