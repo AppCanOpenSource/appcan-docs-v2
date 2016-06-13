@@ -16,16 +16,23 @@
 ## 1.4、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=281_index)插件中心至插件详情页(插件测试用例与插件源码已经提供)
 
+## 1.5、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.6、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
+
 # 2、API概览
 ## 2.1、方法
 > ### open 打开地图
 
-`uexBaiduMap.open(x,y,width,height,longitude,latitude)`
+`uexBaiduMap.open(x,y,width,height,longitude,latitude, callbackFunction)`
 
 **说明**
 
-在界面的指定位置显示地图
-回调 [cbOpen](#cbOpen 加载地图完成的回调方法 "cbOpen")
+在界面的指定位置显示地图, 成功显示地图后会回调`callbackFunction`
 
 **参数**
 
@@ -37,23 +44,18 @@
 | height | Number | 是 | 地图高度 |
 | longitude | Number | 是 | 地图中心点经度 |
 | latitude | Number | 是 | 地图中心点纬度|
+| callbackFunction | 函数 | 否 | 地图打开后的回调|
 
 * x,y,width,height 的单位均为px
 * (x,y)表示地图左上角的坐标
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
 ```
-uexBaiduMap.open(10,100,480,640,"116.309","39.977");
+uexBaiduMap.open(10,100,480,640,"116.309","39.977", function(){
+	console.log('------->open success');
+});
 ```
 
 > ### close 关闭地图
@@ -224,6 +226,39 @@ iOS6.0+
 ```
 uexBaiduMap.setCenter(121.481,31.227);
 ```
+
+> ### getCenter 得到地图的中心点
+
+`uexBaiduMap.getCenter()`
+
+**说明**
+
+得到当前地图的中心点经纬度
+
+**参数**
+无
+
+**返回值**
+
+获取成功后，返回值是JSON对象，格式如下:
+```
+{
+	longitude:,
+	latitude:
+}
+```
+如果失败，返回null
+
+
+
+**示例**
+
+```
+var data = uexBaiduMap.getCenter();
+alert('data:' + JSON.stringify(data));
+```
+
+
 > ### setZoomLevel 设置地图的比例级别
 
 `uexBaiduMap.setZoomLevel(zoomLevel)`
@@ -238,14 +273,6 @@ uexBaiduMap.setCenter(121.481,31.227);
 | ----- | ----- | ----- | ----- |
 | zoomLevel | Number | 是 | 地图的缩放级别 范围:3~19 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -265,14 +292,7 @@ uexBaiduMap.setZoomLevel(10);
 
 无 
 
-**平台支持**
 
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -292,14 +312,6 @@ uexBaiduMap.zoomIn();
 
 无
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -321,14 +333,6 @@ uexBaiduMap.zoomOut();
 | ----- | ----- | ----- | ----- |
 | angle| Number | 是 | 旋转地图的角度,旋转角范围:-180~180,单位:度,逆时针旋转 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -349,14 +353,6 @@ uexBaiduMap.rotate(90);
 | ----- | ----- | ----- | ----- |
 | angle| Number | 是 | 俯视地图的角度,俯角范围:-45~0,单位:度 |
 
-**平台支持**
-
-Android2.2+ 
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -378,15 +374,6 @@ uexBaiduMap.overlook(-30);
 | ----- | ----- | ----- | ----- |
 | type| Number | 是 | 0-关闭,1-开启 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
-
 **示例**
 
 ```
@@ -407,14 +394,6 @@ uexBaiduMap.setZoomEnable(1);
 | ----- | ----- | ----- | ----- |
 | type| Number | 是 | 0-关闭,1-开启 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -436,14 +415,6 @@ uexBaiduMap.setRotateEnable(1);
 | ----- | ----- | ----- | ----- |
 | type| Number | 是 | 0-关闭,1-开启 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -465,14 +436,6 @@ uexBaiduMap.setCompassEnable(1);
 | ----- | ----- | ----- | ----- |
 | type| Number | 是 | 0-关闭,1-开启 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -493,14 +456,6 @@ uexBaiduMap.setScrollEnable(1);
 | ----- | ----- | ----- | ----- |
 | type| Number | 是 | 0-关闭,1-开启 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -545,14 +500,6 @@ var json=[
 | title | String | 是 | 自定义弹出气泡标题 |
 | bgImage | String | 否 | 自定义弹出气泡背景图片,格式:res://btn.png |
 
-**平台支持**
-
-Android2.2+ 
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -619,15 +566,6 @@ var makerInfo={
 	}
 ```
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
-
 **示例**
 
 ```
@@ -662,14 +600,6 @@ uexBaiduMap. setMarkerOverlay (makerId, jsonStr);
 |-----|-----|-----|-----|
 | makerId | String | 是 | 唯一标识符 |
 
-**平台支持**
-
-Android2.2+ 
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -689,14 +619,7 @@ uexBaiduMap. showBubble (makerId);
 
 无 
 
-**平台支持**
 
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -735,14 +658,6 @@ var dotInfo={
 | longitude | Number | 是 | 圆点经度 |
 | latitude | Number | 是 | 圆点纬度 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -798,14 +713,6 @@ var polylineInfo={
 | longitude | Number | 是 | 连接点经度 |
 | latitude | Number | 是 | 连接点纬度 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -875,14 +782,6 @@ var arcInfo={
 | endLongitude | Number | 是 | 终点经度 |
 | endLatitude | Number | 是 | 终点纬度 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -936,14 +835,6 @@ var circleInfo={
 | longitude | Number | 是 | 圆心经度 |
 | latitude | Number | 是 | 圆心纬度 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -999,14 +890,6 @@ var polygonInfo={
 | longitude | Number | 是 | 连接点经度 |
 | latitude | Number | 是 | 连接点纬度 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1081,14 +964,6 @@ var groundInfo={
 | imageWidth | Number | 是(property数组长度为1时)否(property数组长度为2时) | 图片宽度,单位:米 |
 | imageHeight | Number | 否 | 图片高度,单位:米 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1151,13 +1026,6 @@ var textInfo = {
 | latitude | Number | 是 | 纬度 |
 | rotate | Number | 否 | 文字旋转角度(逆时针),旋转角范围:-180~180,单位:度 |
 
-**平台支持**
-
-Android2.2+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1188,14 +1056,6 @@ uexBaiduMap.addTextOverlay(jsonStr);
 |-----|-----|-----|-----|
 | ids | String | 是 | 唯一标识符数组,json结构字符串 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1218,14 +1078,6 @@ iOS6.0+
 |-----|-----|-----|-----|
 | id | String | 是 | 唯一标识符 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1235,12 +1087,11 @@ iOS6.0+
 
 > ### poiSearchInCity 城市内检索 
 
-`uexBaiduMap.poiSearchInCity(json);`
+`uexBaiduMap.poiSearchInCity(json, callbackFunction);`
 
 **说明**
 
-根据单个关键字在指定城市内搜索兴趣点 
-回调 [cbPoiSearchResult](#cbPoiSearchResult:poiSearchInCity、poiNearbySearch、poiBoundSearch的回调方法 "cbPoiSearchResult")
+根据单个关键字在指定城市内搜索兴趣点, 搜索完成后回调`callbackFunction`
 
 **参数**
 
@@ -1261,15 +1112,6 @@ var json={
 | searchKey | 是 | 关键字 |
 | pageNum | 是 | 结果页索引 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
-
 **示例**
 
 ```
@@ -1279,16 +1121,64 @@ var data={
 	pageNum: "0"
 };
 var jsonStr=JSON.stringify(data)；
-uexBaiduMap.poiSearchInCity(jsonStr);
+uexBaiduMap.poiSearchInCity(jsonStr, function(data) {
+	alert(JSON.stringify(data));
+});
 ```
+
+`callbackFunction`的参数是JSON类型对象，其格式如下：
+
+```
+{
+	totalPoiNum:,
+	totalPageNum:,
+	currentPageNum:,
+	currentPageCapacity:,
+	poiInfo:[
+		{
+			uid:,
+			poiType:,
+			phoneNum:,
+			address:,
+			name:,
+			longitude:,
+			latitude:,
+			distance:,
+			city:,
+			postCode:
+		}
+	]
+}
+```
+
+各字段含义如下
+
+| 参数 | 是否必须 | 说明 |
+|-----|-----|-----|
+| poiInfo | 是 | POI信息集合 |
+| longitude | 是 | 经度 |
+| latitude | 是 | 纬度 |
+| distance | 是 | 距离 |
+| name | 是 | 名称 |
+| uid | 是 | 唯一标识符 |
+| address | 是 | 地址 |
+| city | 是 | 城市 |
+| phoneNum | 是 | 电话 |
+| postCode | 是 | 邮编 |
+| poiType | 是 | 类型(POI类型,0:普通点1:公交站2:公交线路3:地铁站4:地铁线路) |
+| totalPoiNum | 是 | 总结果数 |
+| totalPageNum | 是 | 总页数 |
+| currentPageNum | 是 | 当前页 |
+| currentPageCapacity | 是 | 当前页的poi结果数 |
+
+
 > ### poiNearbySearch 周边检索 
 
-`uexBaiduMap.poiNearbySearch(json);`
+`uexBaiduMap.poiNearbySearch(json, callbackFunction);`
 
 **说明**
 
 根据单个关键字在指定的中心点和半径范围内搜索兴趣点 
-回调 [cbPoiSearchResult](#cbPoiSearchResult:poiSearchInCity、poiNearbySearch、poiBoundSearch的回调方法 "cbPoiSearchResult")
 
 **参数**
 
@@ -1313,14 +1203,6 @@ var json={
 | searchKey | 是 | 关键字 |
 | pageNum | 是 | 结果页索引 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1333,17 +1215,21 @@ iOS6.0+
 	pageNum: "0"
 	};
 var jsonStr=JSON.stringify(data);
-uexBaiduMap. poiNearbySearch (jsonStr);
+uexBaiduMap. poiNearbySearch (jsonStr, function(data) {
+	alert(JSON.stringify(data));
+});
 ```
+
+`callbackFunction`的参数是JSON类型对象, 其格式同`poiSearchInCity`中的回调数据格式一致
+
 
 > ### poiBoundSearch 区域检索
 
-`uexBaiduMap.poiBoundSearch(json);`
+`uexBaiduMap.poiBoundSearch(json, callbackFunction);`
 
 **说明**
 
 根据单个关键字在指定的矩形区域内搜索兴趣点
-回调 [cbPoiSearchResult](#cbPoiSearchResult:poiSearchInCity、poiNearbySearch、poiBoundSearch的回调方法 "cbPoiSearchResult")
 
 **参数**
 
@@ -1374,14 +1260,6 @@ var json={
 | longitude | 是 | 经度 |
 | latitude | 是 | 纬度 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1399,17 +1277,21 @@ var data={
 	}
 };
 var jsonStr=JSON.stringify(data);
-uexBaiduMap.poiBoundSearch(jsonstr);
+uexBaiduMap.poiBoundSearch(jsonstr, function(data) {
+	alert(JSON.stringify(data));
+});
 ```
+
+`callbackFunction`的参数是JSON类型对象, 其格式同`poiSearchInCity`中的回调数据格式一致
+
 
 > ### busLineSearch 公交线路检索
 
-`uexBaiduMap.busLineSearch(json);`
+`uexBaiduMap.busLineSearch(json, callbackFunction);`
 
 **说明**
 
-根据公交线路编号在指定城市范围内搜索公交线路详情
-回调 [cbBusLineSearchResult](#cbBusLineSearchResult 公交线路搜索的回调方法 "cbBusLineSearchResult")
+根据公交线路编号在指定城市范围内搜索公交线路详情, 搜索完成后执行回调函数`callbackFunction`
 
 **参数**
 
@@ -1420,6 +1302,7 @@ var json={
 	busLineName:
 }
 ```
+
 各字段含义如下
 
 | 参数 | 是否必须 | 说明 |
@@ -1427,14 +1310,37 @@ var json={
 | city | 是 | 城市 |
 | busLineName | 是 | 公交名 |
 
-**平台支持**
+`callbackFunction`中的参数类型是JSON对象，格式如下：
 
-Android2.2+
-iOS6.0+
+```
+{
+	busLineName:,
+	busCompany:,
+	startTime:,
+	endTime:,
+	busStation:[
+		{
+			title:"史各庄(辛庄桥西)",
+			longitude:116.297604,
+			latitude:40.099629
+		}
+	]
+}
+```
 
-**版本支持**
+各字段含义如下
 
-3.0.0+
+| 参数 | 是否必须 | 说明 |
+|-----|-----|-----|
+| busLineName | 是 | 公交线路名称 |
+| busCompany | 是 | 公交线路所属公司 |
+| startTime | 是 | 首班时间 |
+| endTime | 是 | 末班时间 |
+| busStation | 是 | 站点信息列表 |
+| longitude | 是 | 站点的经度 |
+| latitude | 是 | 站点的纬度 |
+| title | 是 | 站点的名称 |
+
 
 **示例**
 
@@ -1444,7 +1350,9 @@ var data={
 	busLineName: "114"
 };
 var jsonStr=JSON.stringify(data);
-uexBaiduMap.busLineSearch(jsonStr);
+uexBaiduMap.busLineSearch(jsonStr, function(data) {
+	alert(JSON.stringify(data));
+});
 ```
 
 > ### removeBusLine 清除公交线路
@@ -1458,15 +1366,6 @@ uexBaiduMap.busLineSearch(jsonStr);
 **参数**
 
 无
-
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1486,14 +1385,6 @@ uexBaiduMap.removeBusLine();
 
 无
 
-**平台支持**
-
-Android2.2+
-iOS不支持
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1513,14 +1404,6 @@ uexBaiduMap.preBusLineNode();
 
 无
 
-**平台支持**
-
-Android2.2+
- iOS不支持
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1570,14 +1453,6 @@ var json={
 | longitude | 否 | 经度,必须与latitude合用 |
 | latitude | 否 | 纬度 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1612,15 +1487,6 @@ uexBaiduMap.searchRoutePlan(jsonStr);
 
 无
 
-**平台支持**
-
-Android2.2+
-iOS 不支持
-
-**版本支持**
-
-3.0.0+
-
 **示例**
 
 ```
@@ -1641,14 +1507,6 @@ iOS 不支持
 |-----|-----|-----|-----|
 | id | String | 是 | 线路id |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1668,14 +1526,6 @@ iOS6.0+
 
 无
 
-**平台支持**
-
-Android2.2+
-iOS6不支持
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1684,12 +1534,11 @@ iOS6不支持
 ```
 > ### geocode 地理编码 
 
-`uexBaiduMap.geocode(json)`
+`uexBaiduMap.geocode(json, callbackFunction)`
 
 **说明**
 
-根据地址获取经纬度信息
-回调 [cbGeoCodeResult](#cbGeoCodeResult 地理编码返回结果的回调方法 "地理编码返回结果的回调方法")
+根据地址获取经纬度信息, 执行完成后，回调`callbackFunction`.
 
 **参数**
 
@@ -1708,14 +1557,13 @@ var json={
 | city |是 | 城市 |
 | address | 是 | 地址 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
+`callbackFunction`的参数是JSON对象， 其数据格式如下：
+```
+{
+    longitude:,
+    latitude:
+}
+```
 
 **示例**
 
@@ -1725,17 +1573,19 @@ var data=
 	city: "北京",
 	address: "东长安街33号"
 };
-uexBaiduMap.geocode(jsonstr);
+
+uexBaiduMap.geocode(jsonstr), function(data) {
+	alert(JSON.stringify(data));
+};
 ```
 
 > ### reverseGeocode 反地理编码 
 
-`uexBaiduMap.reverseGeocode(json)`
+`uexBaiduMap.reverseGeocode(json, callbackFunction)`
 
 **说明**
 
-根据经纬度获取地址信息
-回调 [cbReverseGeoCodeResult](#cbReverseGeoCodeResult 反地理编码返回结果的回调方法 "反地理编码返回结果的回调方法")
+根据经纬度获取地址信息, 执行完成后回调`callbackFunction`.
 
 **参数**
 
@@ -1750,14 +1600,12 @@ json:(String类型) 必选经纬度该字符串为JSON格式。如下{longitude:
 | longitude | 是 | 经度 |
 | latitude |是 | 纬度 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
+`callbackFunction`的参数是JSON对象，其数据格式如下：
+```
+{
+	address://地理位置信息
+}
+```
 
 **示例**
 
@@ -1767,35 +1615,38 @@ var data={
 	latitude: "40.056957"
 };
 var jsonStr=JSON.stringify(data);
-uexBaiduMap.reverseGeocode(jsonStr);
+uexBaiduMap.reverseGeocode(jsonStr, function(data) {
+	alert(data.address);
+});
 ```
 
 > ### getCurrentLocation 获取当前位置 
 
-`uexBaiduMap.getCurrentLocation()`
+`uexBaiduMap.getCurrentLocation(callbackFunction)`
 
 **说明**
 
-获取当前的位置信息,仅定位一次 
-回调 [cbCurrentLocation](#cbCurrentLocation 获取到当前位置的回调方法 "获取到当前位置的回调方法")
+获取当前的位置信息,仅定位一次,执行完成后回调`callbackFunction`.
 
 **参数**
 
-无 
+`callbackFunction`函数的参数是JSON对象，其数据格式如下:
 
-**平台支持**
+```
+{
+    longitude:, //经度
+    latitude:,  //纬度
+    timestamp:  //时间，格式如"2014-11-2217:46:37"
+}
+```
 
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
 ```
- uexBaiduMap.getCurrentLocation(); 
+ uexBaiduMap.getCurrentLocation(function(data){
+	 alert(JSON.stringify(data));
+ }); 
 ```
 
 > ### startLocation 开始连续定位 
@@ -1810,14 +1661,6 @@ iOS6.0+
 
  无 
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1837,14 +1680,6 @@ iOS6.0+
 
  无 
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1866,15 +1701,6 @@ iOS6.0+
 |-----|-----|-----|-----|
 | type | Number | 是 | 显示或隐藏用户位置(0-隐藏,1-显示)|
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
-
 **示例**
 
 ```
@@ -1895,14 +1721,6 @@ iOS6.0+
 |-----|-----|-----|-----|
 | mode | Number | 是 |跟踪模式(0-----普通定位模式,1-----跟随模式,2-----罗盘模式|
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -1924,14 +1742,6 @@ iOS6.0+
 |-----|-----|-----|-----|
 | mode | Number | 是 |控件状态(0—隐藏,1—显示)|
 
-**平台支持**
-
-Android2.2+
-
-**版本支持**
-
-3.0.0+
-
 **示例**
 
 ```
@@ -1944,7 +1754,7 @@ uexBaiduMap.zoomControlsEnabled(0)
 
 **说明**
 
-通过经纬度计算两点之间的距离
+通过经纬度计算两点之间的距离，返回值是Number类型
 
 **参数**
 
@@ -1955,18 +1765,11 @@ uexBaiduMap.zoomControlsEnabled(0)
 | lat2 | Number | 是 |	第二个坐标纬度	|
 | lon2 | Number | 是 |	第二个坐标经度	|
 
-**平台支持**
-
-Android2.2+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
 ```
-uexBaiduMap.getDistance(lat1,lon1,lat2,lon2)
+var distance = uexBaiduMap.getDistance(lat1,lon1,lat2,lon2);
 ```
 
 ## 2.2、监听方法
@@ -1992,9 +1795,6 @@ var data={
 | longitude | 是 | 经度 |
 | latitude | 是 | 纬度 |
 
-**版本支持**
-
-3.0.0+
 
 > ### onMapDoubleClickListener 双击地图的监听方法
 
@@ -2004,9 +1804,6 @@ var data={
 
 同onMapClickListener
 
-**版本支持**
-
-3.0.0+
 
 > ### onMapLongClickListener 长按地图的监听方法 
 
@@ -2016,9 +1813,6 @@ var data={
 
 同onMapClickListener
 
-**版本支持**
-
-3.0.0+
 
 > ### onMapStatusChangeListener 地图状态改变的监听方法
 
@@ -2055,13 +1849,6 @@ var json = {
 }
 ```
 
-**平台支持**
-
-Android2.2+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -2080,9 +1867,6 @@ uexBaiduMap.onMapStatusChangeListener = function(data){
 |-----|-----|-----|-----|
 | markerId | Number | 是 |标注的ID|
 
-**版本支持**
-
-3.0.0+ 
 
 **示例**
 
@@ -2101,9 +1885,6 @@ uexBaiduMap.onMarkerClickListener = function(data){
 |-----|-----|-----|-----|
 | markerId | Number | 是 |标注的ID|
 
-**版本支持**
-
-3.0.0+ 
 
 **示例**
 
@@ -2125,10 +1906,6 @@ var data={
 	errorInfo://失败信息
 }
 ```
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -2160,10 +1937,6 @@ var data={
 | latitude | 是 | 纬度 |
 | timestamp | 是 | 时间戳 "2014-11-2217:46:37"格式|
 
-**版本支持**
-
-3.0.0+ 
-
 **示例**
 
 ```
@@ -2180,10 +1953,6 @@ uexBaiduMap.onReceiveLocation = function(data){
 
  id:(Number类型) 必选 线路规划id。
 
-**版本支持**
-
-3.0.0+ 
-
 > ### onZoomLevelChangeListener 缩放级别改变时,获取缩放级别和中心点的监听方法 
 
 `uexBaiduMap.onZoomLevelChangeListener(level,latitude,longitude)`
@@ -2196,10 +1965,6 @@ latitude:(Number类型) 必选 中心点纬度
 longitude:(Number类型) 必选 中心点经度
 ```
 
-**版本支持**
-
-3.0.0+ 
-
 **示例**
 
 ```
@@ -2208,259 +1973,17 @@ uexBaiduMap.onZoomLevelChangeListener = function(data){
 }
 ```
 
-## 2.3 回调方法
-> ### cbOpen 加载地图完成的回调方法
-
-`uexBaiduMap.cbOpen();`
-
-**参数**
-
-无 
-
-**版本支持**
-
-3.0.0+ 
-
-> ### cbCurrentLocation 获取到当前位置的回调方法
-
-`uexBaiduMap.cbCurrentLocation(data)` 
-
-**参数**
-
-```
-data:(String类型) 必选 位置信息该字符串为JSON格式:
-var data={
-	longitude:,
-	latitude:,
-	timestamp:
-}
-```
-
-各字段含义如下
-
-| 参数 | 是否必须 | 说明 |
-|-----|-----|-----|
-| longitude | 是 | 经度 |
-| latitude | 是 | 纬度 |
-| timestamp | 是 | 时间戳 "2014-11-2217:46:37"格式|
-
-**版本支持**
-
-3.0.0+
-
-**示例**
-
-```
-uexBaiduMap.cbCurrentLocation = function(data){
-	alert(data);
-}
-```
-
-> ### cbGeoCodeResult 地理编码返回结果的回调方法
-
-`uexBaiduMap.cbGeoCodeResult(data)`
-
-**参数**
-
-```
-data:(String类型) 必选 经纬度该字符串为JSON格式。
-var data={
-	longitude:,
-	latitude:
-}
-```
-
-各字段含义如下
-
-| 参数 | 是否必须 | 说明 |
-|-----|-----|-----|
-| longitude | 是 | 经度 |
-| latitude | 是 | 纬度 |
-
-**版本支持**
-
-3.0.0+ 
-
-**示例**
-
-```
-uexBaiduMap.cbGeoCodeResult = function(data){
-	alert(data);
-}
-```
-
-> ### cbReverseGeoCodeResult 反地理编码返回结果的回调方法
-
-`uexBaiduMap.cbReverseGeoCodeResult(data)`
-
-**参数**
-
-```
-data:(String类型) 必选 地址该字符串为JSON格式。
-var data={
-	address:
-}
-```
-
-**示例**
-
-```
-uexBaiduMap.cbReverseGeoCodeResult = function(data){
-	alert(data);
-}
-```
-
-**版本支持**
-
-3.0.0+ 
-
-> ### cbPoiSearchResult:poiSearchInCity、poiNearbySearch、poiBoundSearch的回调方法 
-
-`uexBaiduMap.cbPoiSearchResult(data)`
-
-**参数**
-
-```
-data:(String类型) 必选 POI列表信息。该字符串为JSON格式
-var data={
-	totalPoiNum:,
-	totalPageNum:,
-	currentPageNum:,
-	currentPageCapacity:,
-	poiInfo:[
-		{
-			uid:,
-			poiType:,
-			phoneNum:,
-			address:,
-			name:,
-			longitude:,
-			latitude:,
-			distance:,
-			city:,
-			postCode:
-		}
-	]
-}
-```
-
-各字段含义如下
-
-| 参数 | 是否必须 | 说明 |
-|-----|-----|-----|
-| poiInfo | 是 | POI信息集合 |
-| longitude | 是 | 经度 |
-| latitude | 是 | 纬度 |
-| distance | 是 | 距离 |
-| name | 是 | 名称 |
-| uid | 是 | 唯一标识符 |
-| address | 是 | 地址 |
-| city | 是 | 城市 |
-| phoneNum | 是 | 电话 |
-| postCode | 是 | 邮编 |
-| poiType | 是 | 类型(POI类型,0:普通点1:公交站2:公交线路3:地铁站4:地铁线路) |
-| totalPoiNum | 是 | 总结果数 |
-| totalPageNum | 是 | 总页数 |
-| currentPageNum | 是 | 当前页 |
-| currentPageCapacity | 是 | 当前页的poi结果数 |
-
-**版本支持**
-
-3.0.0+ 
-
-**示例**
-
-```
-uexBaiduMap.cbPoiSearchResult = function(data){
-	alert(data);
-}
-
-```
-
-> ### cbBusLineSearchResult 公交线路搜索的回调方法
-
-`uexBaiduMap.cbBusLineSearchResult(data)`
-
-**参数**
-
-```
-data:(String类型) 必选 公交线路的详细信息该字符串为JSON格式
-var data={
-	busLineName:,
-	busCompany:,
-	startTime:,
-	endTime:,
-	busStation:[
-		{
-			title:"史各庄(辛庄桥西)",
-			longitude:116.297604,
-			latitude:40.099629
-		}
-	]
-}
-```
-
-各字段含义如下
-
-| 参数 | 是否必须 | 说明 |
-|-----|-----|-----|
-| busLineName | 是 | 公交线路名称 |
-| busCompany | 是 | 公交线路所属公司 |
-| startTime | 是 | 首班时间 |
-| endTime | 是 | 末班时间 |
-| busStation | 是 | 站点信息列表 |
-| longitude | 是 | 站点的经度 |
-| latitude | 是 | 站点的纬度 |
-| title | 是 | 站点的名称 |
-
-**版本支持**
-
-3.0.0+ 
-
-**示例**
-
-```
-uexBaiduMap.cbBusLineSearchResult = function(data){
-	alert(data);
-}
-
-```
-
-> ### cbGetDistance 计算两点之间的距离的回调方法
-
-`uexBaiduMap.cbGetDistance(opId,dataType,data)`
-
-**参数**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
-| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data | String类型 | 必选 | 两点之间的距离,单位为米 |
-
-**版本支持**
-
-3.0.0+ 
-
-**示例**
-
-```
-uexBaiduMap.cbGetDistance = function(opCode,dataType,data){
-	alert(data);
-}
-
-```
-
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexBaiduMap-3.1.17`
+API版本:`uexBaiduMap-4.0.0`
 
-最近更新时间:`2016-4-22`
+最近更新时间:`2016-6-13`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入|
 | 3.1.17 | 修复removeMakersOverlay接口传不当参数会闪退的问题 |
 | 3.1.16 | 增加对多种类型参数的识别,支持3.3引擎 |
 | 3.0.15 | 修改插件,使其支持config配置APIKey |
@@ -2482,12 +2005,18 @@ API版本:`uexBaiduMap-3.1.17`
 
 ### Android
 
-API版本:`uexBaiduMap-3.2.32`
+API版本:`uexBaiduMap-4.0.0`
 
-最近更新时间:`2016-04-23`
+最近更新时间:`2016-06-13`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入|
+| 3.2.37 | 更新SDK,增加getCenter得到地图中心点方法 |
+| 3.2.36 | 优化了getDistance的算法，使用新版本SDK自带工具类DistanceUtil进行计算，使计算值更为精准 |
+| 3.2.35 | 更新SDK后appkey验证广播机制改变，由于onSDKReceiverError回调只为前端开发者所提供，所以使用Toast替代 |
+| 3.2.34 | 修复了getCurrentLocation必须open才能使用的问题;修复了地理编码、反地理编码必须open才能使用的问题 |
+| 3.2.33 | 更新SDK版本,将百度地图所有库导入 |
 | 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段,返回距离;修复了文档中cbGetDistance代码case说明不对的问题 |
 | 3.2.31 | 增加了,当不打开地图View时,也可以调用poi搜索功能(目前支持城市检索,周边检索,区域检索),修复了打开地图再关闭地图,搜索poi无效的问题 |
 | 3.2.30 | 修复了前端调用open方法时传入小数时抛出NumberFormatException的问题 |
