@@ -161,6 +161,7 @@ uexJPush.setTags(data, function(data) {
 `uexJPush.setAliasAndTags(json, callbackFunction)`
 
 **说明**
+
 同时设置别名与标签, 执行完成后回调`callbackFunction`
 
 **参数**
@@ -201,6 +202,7 @@ uexJPush.setAliasAndTags(data, function(data) {
 `uexJPush.getRegistrationID()`
 
 **说明**
+
 取得应用程序对应的 RegistrationID, 调用后同步返回结果, 返回值是`String`类型
 
 **参数**
@@ -251,14 +253,6 @@ var json={
 	notificationId:,//int 通知Id
 }
 ```
-
-**平台支持**
-
-Android 2.2+    
-
-**版本支持**
-
-Android 3.0.0+    
 
 **示例**
 
