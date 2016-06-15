@@ -10,6 +10,14 @@
  ![](/docImg/975/093141n2015r11c2vt&#40;2&#41;.png)  ![](/docImg/975/093145g2015m11b2se&#40;2&#41;.png) 
 ## 1.3、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=505_index)至插件详情页(插件测试用例与插件包已经提供)
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
+
 
 #2、 API预览
 
@@ -17,17 +25,21 @@
 
 > ###openPicker 打开照片选择器
 
-`uexImage.openPicker(param);`
+`uexImage.openPicker(param,cb);`
 
 **说明**
 
 * 打开一个可以选择本地相册图片的选择器,导出所选图片,并返回图片路径
 * 默认导出图片的格式为jpg
-* 相关 [onPickerClosed](#onPickerClosed 照片选择器被关闭的监听方法)照片选择器被关闭的监听方法
 
 **参数**
 
-param为json字符串,包含的参数如下
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| param | String | 否 | picker参数设置 |
+| cb | Function | 否 | picker被关闭的回调函数 |
+
+param为json字符串,包含的参数如下表
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 | 默认值 |
 | ----- | ----- | ----- | ----- | ----- | ----- |
@@ -37,18 +49,32 @@ param为json字符串,包含的参数如下
 | usePng| Boolean | 否| 用png格式导出图片 ,此参数为true时,quality参数无效 | false |
 |detailedInfo|Boolean | 否| 此参数为true时,回调中会包含图片的额外信息 | false |
 
-* png 无损且支持透明色,但文件体积比jpg大得多。
+* png 无损且支持透明色,但文件体积比jpg大。
 * 用户应按需求自行选择图片文件格式
 
-**平台支持**
 
-Android 2.2+ 
-iOS 7.0+ 
+**回调参数**
 
-**版本支持**
+回调函数cb拥有一个参数info.info是Object类型,包含的字段如下
 
-Android 3.0.0+ 
-iOS 3.0.0+ 
+| 参数名称 | 参数类型 | 是否必选 | 说明 | 
+| ----- | ----- | ----- | ----- | ----- |
+| isCancelled | Boolean | 是 | 选择器是否是由于点击取消而关闭|
+| detailedImageInfo | Array | 否 ,仅isCancelled为 false且openPicker有设置detailedInfo为true时才有此参数| 导出的图片的信息uexImageInfo结构构成的数组|
+| data | Array | 否 ,仅isCancelled为 false时有此参数| 导出的图片地址构成的数组|
+
+* 即使只选择一张图片 detailedImageInfo和imageInfo也是数组
+* uexImageInfo结构如下定义
+
+```
+var uexImageInfo={
+	localPath:,//String,必选,图片地址
+	timestamp:,//Number,可选,图片创建时间的10位时间戳 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
+	longitude:,//Number,可选,图片拍摄地点的经度 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
+	latitude:,//Number,可选,图片拍摄地点的纬度 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
+	altitude:,//Number,可选,图片拍摄地点的海拔 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
+}
+```
 
 **示例**
 
@@ -60,20 +86,36 @@ var data = {
 	detailedInfo:true
 }
 var json = JSON.stringify(data);
-uexImage.openPicker(json)
+uexImage.openPicker(json,function(info){
+	if(info.isCancelled){
+		alert("cancelled!");
+	}else{
+		alert(info.data);
+		if(info.detailedImageInfo){
+			alert(JSON.stringify(info.detailedImageInfo));
+		}
+	}
+});
+
 ```
 
 > ### openBrowser 打开图片浏览器
 
-`uexImage.openBrowser(param);`
+`uexImage.openBrowser(param,cb);`
 
 **说明**
 
 * 打开一个可以浏览图片的浏览器
-* 图片路径支持 wgt:// wgts:// res:// file:// http:// https:// 路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
-* 相关 [onBrowserClosed](#onBrowserClosed 图片浏览器被关闭的监听方法)图片浏览器被关闭的监听方法
+* 图片路径支持 wgt:// wgts:// res:// file:// http:// https:// 
+
 
 **参数**
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| param | String | 是 | browser参数设置 |
+| cb | Function | 否 | browser被关闭的回调函数 |
+
 
 param为json字符串,包含的参数如下
 
@@ -98,16 +140,10 @@ param为json字符串,包含的参数如下
 	desc:,//(String,可选) 为图片添加一段文字描述
 }
 ```
+**回调参数**
+	
+回调函数cb没有参数
 
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
 
 **示例**
 
@@ -135,39 +171,46 @@ var data ={
 		}]
 }
 var json=JSON.stringify(data);
-uexImage.openBrowser(json);
+uexImage.openBrowser(json,functiuon(){
+	alert("browser closed!");
+});
 
 ```
 ### openCropper 打开图片裁剪器
 
-`uexImage.openCropper(param);`
+`uexImage.openCropper(param,cb);`
 
 **说明**
 
 * 打开一个图片裁剪器,导出裁剪后的图片,并返回图片路径
 * 本API只有裁剪功能,裁剪后的图片大小即为所裁剪部分在原图中的大小
-* 相关 [onCropperClosed](#onCropperClosed 图片裁剪器被关闭的监听方法)图片裁剪器被关闭的监听方法
 
 **参数**
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| param | String | 否 | cropper参数设置 |
+| cb | Function | 否 | cropper被关闭的回调函数 |
+
 
 param为json字符串,包含的参数如下
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 | 默认值 |
 | ----- | ----- | ----- | ----- | ----- |
-| src | String | 否 | 图片路径 支持wgt:// wgts:// file:// res://| 无|
+| src | String | 否 | 图片路径 支持wgt:// wgts:// file:// res://,不传此参数时,会先打开系统相册让用户选择一张图片| 无|
 | quality | Number | 否 | JPG压缩质量 取值范围 0-1 越大表示质量越好|0.5|
 | usePng| Boolean | 否| 用png格式导出图片 ,此参数为true时,quality参数无效 | false |
 | mode | Number | 否 | 1- 正方型裁剪 2- 圆形裁剪(仅iOS支持圆形裁剪) 3- 自定义长宽比(仅Android) | 1 |
 
-**平台支持**
+**回调参数**
 
-Android 2.2+ 
-iOS 7.0+ 
+回调函数cb拥有一个参数info.info是Object类型,包含的字段如下
 
-**版本支持**
+| 参数名称 | 参数类型 | 是否必选 | 说明 | 
+| ----- | ----- | ----- | ----- | ----- |
+| isCancelled | Boolean | 是 | 选择器是否是由于点击取消而关闭|
+| data | String | 否 ,仅isCancelled为 false时有此参数| 裁剪后的图片地址|
 
-Android 3.0.0+ 
-iOS 3.0.0+ 
 
 **示例**
 
@@ -177,48 +220,64 @@ var data={
 	mode:2
 }
 var json=JSON.stringify(data);
-uexImage.openCropper(json);
+uexImage.openCropper(json,function(info){
+	if(info.isCancelled){
+		alert("cancelled!");
+	}else{
+		alert(info.data);
+	
+	}
+});
 ```
 
 >### saveToPhotoAlbum 储存到相册
 
-`uexImage.saveToPhotoAlbum(param);`
+`uexImage.saveToPhotoAlbum(param,cb);`
 
 **说明**
 
 * 将本地图片储存到系统相册
-* 相关 [cbSaveToPhotoAlbum](#cbSaveToPhotoAlbum 储存到相册的回调方法)储存到相册的回调方法
 
 **参数**
+
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| param | String | 是 | 储存参数设置 |
+| cb | Function | 否 | 储存的回调函数 |
 
 param为json字符串,包含的参数如下
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 | 
 | ----- | ----- | ----- | ----- | ----- |
 | localPath | String | 是 | 图片路径 支持res:// wgt:// wgts:// file://|
-| extraInfo |String|否|任意字符串,设置后会随cbSaveToPhotoAlbum传出|
 
-* extraInfo 可作唯一标识符用
 
-**平台支持**
+**回调参数**
 
-Android 2.2+ 
-iOS 7.0+ 
+回调函数cb拥有一个参数info.info是Object类型,包含的字段如下
 
-**版本支持**
+| 参数名称 | 参数类型 | 是否必选 | 说明 | 
+| ----- | ----- | ----- | ----- | ----- |
+| isSuccess | Boolean | 是 | 是否储存成功 true/false|
+| errorStr|String| 否| 仅isSuccess为false时有此参数,储存失败的错误原因|
 
-Android 3.0.0+ 
-iOS 3.0.0+ 
+
 
 **示例**
 
 ```
 var data={
 	localPath:"res://photo4.jpg",
-	extraInfo:"aaaaa"
 	}
 var json=JSON.stringify(data);
-uexImage.saveToPhotoAlbum(json);
+uexImage.saveToPhotoAlbum(json,function(info){
+	if(info.isSuccess){
+		alert("储存成功!");
+	}else{
+		alert("储存失败:" + info.errorStr);
+	}
+});
 ```
 >### clearOutputImages 清除由本插件导出的所有图片文件
 
@@ -228,26 +287,22 @@ uexImage.saveToPhotoAlbum(json);
 
 * 清除由本插件的openPicker、openCropper接口所生成的图片文件
 * 若您的APP有多个widget,则只会清除由当前widget所生成的图片文件
-* 相关 [cbClearOutputImages](#cbClearOutputImages 清除由本插件导出的所有图片文件的回调方法)清除由本插件导出的所有图片文件的回调方法
+
 
 **参数**
 
 无
 
-**平台支持**
+**返回值**
 
-Android 2.2+ 
-iOS 7.0+ 
+本方法有一个Boolean类型的返回值,代表清除操作是否成功
 
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
 
 **示例**
 
 ```
-uexImage.clearOutputImages();
+var ret = uexImage.clearOutputImages();
+alert(ret);
 ```
 
 >### setIpadPopEnable 设置iPad是否启用pop窗口
@@ -267,11 +322,7 @@ uexImage.clearOutputImages();
 
 **平台支持**
 
-iOS 7.0+ 
-
-**版本支持**
-
-iOS 3.0.4+ 
+仅 iOS 7.0+ 
 
 **示例**
 
@@ -279,197 +330,6 @@ iOS 3.0.4+
 uexImage.setIpadPopEnable(0);
 ```
 
-##2.2、 回调方法
-
->### cbSaveToPhotoAlbum 储存到相册的回调方法
-
-`uexImage.cbSaveToPhotoAlbum(param);`
-
-**说明**
-
-* 存储图片到相册后会调用此方法
-
-**参数**
-
- 
-
-param为json字符串,包含的参数如下
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| isSuccess | Boolean | 是 | 是否储存成功 true/false|
-| extraInfo |String|否|仅在saveToPhotoAlbum中设置后才会有此参数|
-| errorStr|String| 否| 仅isSuccess为false时有此参数,储存失败的错误原因|
-
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
-**示例**
-
-```
-window.uexOnload=function(type){
-	uexImage.cbSaveToPhotoAlbum=function(info){
-		alert(info);
-	}
-}
-```
->### cbClearOutputImages 清除由本插件导出的所有图片文件的回调方法
-
-`uexImage.cbClearOutputImages(param);`
-
-**说明**
-
-* 清除由本插件导出的所有图片文件后会调用此方法
-
-**参数**
-
- 
-
-param为json字符串,包含的参数如下
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| status | String | 是 | 成功返回"ok"|
-
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
-**示例**
-
-```
-window.uexOnload=function(type){
-	uexImage.cbClearOutputImages=function(info){
-		alert(info);
-	}
-}
-```
-##2.3、 监听方法
-
->###onPickerClosed 照片选择器被关闭的监听方法
-
-`uexImage.onPickerClosed(param);`
-
-**说明**
-
-* 照片选择器被关闭时,会回调此监听方法
-
-**参数**
-
-param为json字符串,包含的参数如下
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| isCancelled | Boolean | 是 | 选择器是否是由于点击取消而关闭|
-| detailedImageInfo | Array | 否 ,仅isCancelled为 false且openPicker有设置detailedInfo为true时才有此参数| 导出的图片的信息uexImageInfo结构构成的数组|
-| data | Array | 否 ,仅isCancelled为 false时有此参数| 导出的图片地址构成的数组|
-
-* 即使只选择一张图片 detailedImageInfo和imageInfo也是数组
-* uexImageInfo结构如下定义
-
-```
-var uexImageInfo={
-	localPath:,//String,必选,图片地址
-	timestamp:,//Number,可选,图片创建时间的10位时间戳 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
-	longitude:,//Number,可选,图片拍摄地点的经度 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
-	latitude:,//Number,可选,图片拍摄地点的纬度 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
-	altitude:,//Number,可选,图片拍摄地点的海拔 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
-}
-```
-
-**示例**
-
-```
-window.uexOnload=function(type){
-	uexImage.onPickerClosed=function(info){
-		alert(info);
-	}
-}
-
-```
-
->### onBrowserClosed 图片浏览器被关闭的监听方法
-
-`uexImage.onBrowserClosed();`
-
-**说明**
-
-* 当图片浏览器被关闭时,会回调此监听方法
-
-**参数**
-
-无
-
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
-**示例**
-
-```
-window.uexOnload=function(type){
-	uexImage.onBrowserClosed=function(){
-		alert("图片浏览器被关闭");
-	}
-}
-
-```
-
->###onCropperClosed 图片裁剪器被关闭的监听方法
-
-`uexImage.onCropperClosed(param);`
-
-**说明**
-
-* 照片选择器被关闭时,会回调此监听方法
-
-**参数**
-
-param为json字符串,包含的参数如下
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| isCancelled | Boolean | 是 | 选择器是否是由于点击取消而关闭|
-| data | String | 否 ,仅isCancelled为 false时有此参数| 裁剪后的图片地址|
-
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
-**示例**
-
-```
-window.uexOnload=function(type){
-	uexImage.onCropperClosed=function(info){
-		alert(info);
-	}
-}
-```
 
 # 3、更新历史
 
