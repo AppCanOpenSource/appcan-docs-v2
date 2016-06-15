@@ -14,7 +14,16 @@
 ##1.2、 开源源码
 [点击](http://plugin.appcan.cn/details.html?id=432_index)插件中心至插件详情页(测试用例与插件源码已经提供)
 
- 
+
+## 1.3、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。 
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.4、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。 
+
+
 #2、API概览
 ##2.1、方法
 
@@ -27,16 +36,6 @@
 ```
 无
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -53,14 +52,6 @@ uexJPush.init();
 无
 ```
 
-**平台支持**
-
-Android 2.2+    
-
-**版本支持**
-
-Android 3.0.0+    
-
 **示例**
 
 ```
@@ -76,14 +67,6 @@ uexJPush.stopPush();
 无
 ```
 
-**平台支持**
-
-Android 2.2+    
-
-**版本支持**
-
-Android 3.0.0+    
-
 **示例**
 
 ```
@@ -92,7 +75,11 @@ uexJPush.resumePush();
 
 >### setAlias   设置别名
 
-`uexJPush.setAlias(json)`
+`uexJPush.setAlias(json, callbackFunction)`
+
+**说明**
+
+设置别名, 操作完成后会回调`callbackFunction`
 
 **参数**
 
@@ -106,15 +93,14 @@ var json={
 	限制:alias 命名长度限制为 40 字节。(判断长度需采用UTF-8编码)
 ```
 
-**平台支持**
+`callbackFunction`的参数是JSON对象类型，格式如下：
 
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+```
+{
+    result://0-成功,其他-失败 具体失败代码解释见文末附录
+    alias://设置的别名
+};
+```
 
 **示例**
 
@@ -123,11 +109,18 @@ var params = {
 	alias:"alias22"
 };
 var data = JSON.stringify(params);
-uexJPush.setAlias(data);
+uexJPush.setAlias(data, function(data) {
+	alert(JSON.stringify(data));
+});
 ```
+
 >### setTags  设置标签
 
-`uexJPush.setTags(json)`
+`uexJPush.setTags(json, callbackFunction)`
+
+**说明**
+
+设置标签, 操作完成后会回调`callbackFunction`
 
 **参数**
 
@@ -141,15 +134,14 @@ var json={
 	限制:每个tag命名长度限制为 40 字节,最多支持设置 100 个 tag,但总长度不得超过1K字节。(判断长度需采用UTF-8编码)
 ```
 
-**平台支持**
+`callbackFunction`的参数是JSON对象类型，格式如下：
 
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+```
+{
+    result://0-成功,其他-失败 具体失败代码解释见文末附录
+    tags://设置的标签
+}
+```
 
 **示例**
 
@@ -159,12 +151,17 @@ var params = {
 	tags:tags
 };
 var data = JSON.stringify(params);
-uexJPush.setTags(data);
+uexJPush.setTags(data, function(data) {
+	alert(JSON.stringify(data));
+});
 ```
 
 >### setAliasAndTags  同时设置别名与标签
 
-`uexJPush.setAliasAndTags(json)`
+`uexJPush.setAliasAndTags(json, callbackFunction)`
+
+**说明**
+同时设置别名与标签, 执行完成后回调`callbackFunction`
 
 **参数**
 
@@ -174,16 +171,16 @@ var json={
 	tags:,//Set<String> 设置的标签
 	}
 ```
+     
+`callbackFunction`的参数是JSON对象类型，格式如下：
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+        
-
-**版本支持**
-
-Android 3.0.0+        
-iOS 3.0.0+        
+```
+{
+    result://0-成功,其他-失败 具体失败代码解释见文末附录
+    alias://设置的别名
+    tags://设置的标签
+};
+```
 
 **示例**
 
@@ -194,12 +191,17 @@ var params = {
 	tags:tags
 };
 var data = JSON.stringify(params);
-uexJPush.setAliasAndTags(data);
+uexJPush.setAliasAndTags(data, function(data) {
+	alert(JSON.stringify(data));
+});
 ```
 
 >### getRegistrationID 取得应用程序对应的 RegistrationID
 
 `uexJPush.getRegistrationID()`
+
+**说明**
+取得应用程序对应的 RegistrationID, 调用后同步返回结果, 返回值是`String`类型
 
 **参数**
 
@@ -207,20 +209,11 @@ uexJPush.setAliasAndTags(data);
 无
 ```
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+        
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
 **示例**
 
 ```
-uexJPush.getRegistrationID();
+var id = uexJPush.getRegistrationID();
+alert(id);
 ```
 
 >### clearAllNotifications 清除所有通知
@@ -280,28 +273,24 @@ uexJPush.clearNotificationById(data);
 
 >### getConnectionState 获取推送连接状态
 
-`uexJPush.getConnectionState()`
+`uexJPush.getConnectionState(callbackFunction)`
+
+**说明**
+获取推送连接状态，获取状态成功后回调`callbackFunction`
 
 **参数**
 
 ```
 无
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+        
-iOS 3.0.0+        
+`callbackFunction`的参数是`Number`类型， 0: 已连上， 1: 未连接
 
 **示例**
 
 ```
-uexJPush.getConnectionState();
+uexJPush.getConnectionState(function(data) {
+	alert(data);
+});
 ```
 
 >### addLocalNotification  添加一个本地通知
@@ -319,17 +308,7 @@ var json={
 	notificationId:,//int 设置本地通知的ID
 	broadCastTime:,//long 设置本地通知延迟触发时间,毫秒为单位,如设置10000为延迟10秒添加通知
 };
-```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+```  
 
 **示例**
 
@@ -358,16 +337,6 @@ var json={
 };
 ```
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
 **示例**
 
 ```
@@ -387,17 +356,7 @@ uexJPush.removeLocalNotification(data);
 
 ```
 无
-```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+``` 
 
 **示例**
 
@@ -414,16 +373,6 @@ uexJPush.clearLocalNotifications();
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 |badgeNumber|Number|是|要设置的badge值,非负整数|
-
-**平台支持**
-
-   
-iOS 6.0+    
-
-**版本支持**
-
- 
-iOS 3.0.4+    
 
 **示例**
 
@@ -450,16 +399,6 @@ uexJPush.setBadgeNumber(0);
 | ----- | ----- | ----- | ----- |
 |flag|Number|是|1-禁止  其他-允许|
 
-**平台支持**
-
-   
-iOS 6.0+    
-
-**版本支持**
-
- 
-iOS 3.0.5+    
-
 **示例**
 
 ```
@@ -468,195 +407,7 @@ uexJPush.disableLocalNotificationAlertView(1);
 
 ```
  
- 
-##2.3、回调方法
- ***
->### cbSetAlias  设置别名的回调方法
-
-`uexJPush.cbSetAlias(json)`
-
-**参数**
-
-```
-var json={
-	result://0-成功,其他-失败 具体失败代码解释见文末附录
-	alias://设置的别名
-};
-```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
-  
-```
-window.uexOnload=function(type){
-	
-	uexJPush.cbSetAlias=function(data){
-		alert(data);
-	}
-
-	...(其他回调或监听)
-}
-
-```
->### cbSetTags 设置标签的回调方法
-
-`uexJPush.cbSetTags(json)`
-
-**参数**
-
-```
-var json={
-	result://0-成功,其他-失败 具体失败代码解释见文末附录
-	tags://设置的标签
-};
-```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
-   
-```
-window.uexOnload=function(type){
-	
-	uexJPush.cbSetTags=function(data){
-		alert(data);
-	}
-
-	...(其他回调或监听)
-}
-
-```
-
->### cbSetAliasAndTags 同时设置别名和标签的回调方法
-
-`uexJPush.cbSetAliasAndTags(json)`
-
-**参数**
-
-```
-var json={
-	result://0-成功,其他-失败 具体失败代码解释见文末附录
-	alias://设置的别名
-	tags://设置的标签
-};
-```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
- 
-```
-window.uexOnload=function(type){
-	
-	uexJPush.cbSetAliasAndTags=function(data){
-		alert(data);
-	}
-
-	...(其他回调或监听)
-}
-
-```
->### cbGetRegistrationID  取得应用程序对应的RegistrationID的回调方法
-
-`uexJPush.cbGetRegistrationID(json)`
-
-**参数**
-
-```
-var json={
-	registrationID://String 应用程序对应的RegistrationID
-};
-```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
- 
-```
-window.uexOnload=function(type){
-	
-	uexJPush.cbGetRegistrationID=function(data){
-		alert(data);
-	}
-
-	...(其他回调或监听)
-}
-```
-
->### cbGetConnectionState  获取连接状态回调
-
-`uexJPush.cbGetConnectionState(json)`
-
-**参数**
-
-```
-var json={
-	result://0-已连接上,1-未连接
-};
-```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
-    
-```
-window.uexOnload=function(type){
-	
-	uexJPush.cbGetConnectionState=function(data){
-		alert(data);
-	}
-
-	...(其他回调或监听)
-}
-```
-
-##2.3、监听方法
+##2.2、监听方法
 
 >### onReceiveMessage 收到了自定义消息
 
@@ -670,16 +421,7 @@ var json={
 	extras:,// 对应 Portal 推送消息界面上的"可选设置"里的附加字段	
 };
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+ 
 
 **示例**
 
@@ -714,15 +456,6 @@ var json={
 	* Android无此参数,因为Android推送永远不会由APNs服务发出
 * iOS 3.0.5+的版本才能捕获本地通知
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -792,16 +525,7 @@ var json={
 	connect:,//0-已连接上,1-未连接
 };
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+ 
 
 **示例**
 
@@ -828,16 +552,6 @@ var json={
 	title:,//RegistrationID
 };
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -945,12 +659,13 @@ $UEXJPUSH_APS_ENVIRONMENT$ ----->推送证书类型   0-开发者证书(develope
 
 ### iOS
 
-API版本:`uexJPush-3.0.8`
+API版本:`uexJPush-4.0.0`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-6-15`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入|
 | 3.0.8 | 更新JPush SDK到2.1.5 |
 | 3.0.7 | 现在应用在后台时,点击推送,会正确的触发onReceiveNotificationOpen |
 | 3.0.6 | 修复root页面回调失效的bug |
@@ -963,12 +678,13 @@ API版本:`uexJPush-3.0.8`
 
 ### Android
 
-API版本:`uexJPush-3.0.14`
+API版本:`uexJPush-4.0.0`
 
-最近更新时间:`2016-05-12`
+最近更新时间:`2016-6-15`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入|
 | 3.0.14 | 修复了缺少配置GET_TASKS权限导致的部分机型程序崩溃问题;修复了数据库推送不自动清空的问题;升级SDK支持64位uid |
 | 3.0.13 | 优化了当应用程序正常退出后,依然可以收到推送(所有机型)；注:当用户手动清理内存(杀进程)后,收不到推送是正常现象;若想杀进程后依然收到推送,须手动将App配置进系统白名单 |
 | 3.0.12 | 修复了Manifest文件书写错误导致的应用崩溃的问题 |
