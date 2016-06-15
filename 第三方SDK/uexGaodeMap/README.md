@@ -35,6 +35,18 @@
 | -2 | 下载失败 | "已经存在列表中!" |
 | -3 | 下载失败 | "已经下载完成,请到已下载列表查看!" | 
 
+## 1.5、平台版本支持
+
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.6、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用。
+
+在后续版本中新添加的接口会在文档中额外说明。
+
 # 2、API概述 
 ## 2.1、方法:
 > ### open  打开地图
@@ -49,8 +61,12 @@
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
 ```
-var json = {
+var json = '{
     left:,//(可选) 左间距,默认0
     top:,//(可选) 上间距,默认0
     width:,//(可选) 地图宽度
@@ -59,18 +75,9 @@ var json = {
     longitude:,//(可选) 中心点经度
     latitude://(可选) 中心点纬度
     APIKey:,//(可选,仅iOS,仅IDE本地打包)设置高德的APIKey
-}
+}'
 ```
-
-**平台支持:**
-
-Android 2.2+        
-iOS 6.0+        
-
-**版本支持:**
-
-Android 3.0.0+        
-iOS 3.0.0+    
+ 
 
 **示例:**
 
@@ -84,8 +91,8 @@ iOS 3.0.0+
         longitude:114.402815,
         latitude:30.475798
     };
-    var data = JSON.stringify(params);
-    uexGaodeMap.open(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.open(json);
 ```
 
 > ###  close  关闭地图
@@ -96,17 +103,7 @@ iOS 3.0.0+
 
 ```
 无
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+```  
 
 **示例:**
 
@@ -119,21 +116,16 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     type://(必选)地图类型,1-标准地图,2-卫星地图,3-夜景地图
-}
+}'
 ```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例:**
 
@@ -141,8 +133,8 @@ iOS 3.0.0+
 var params = {
     type:1
 };
-var data = JSON.stringify(params);
-uexGaodeMap.setMapType(data);
+var json = JSON.stringify(params);
+uexGaodeMap.setMapType(json);
 ```
 
 > ### setTrafficEnabled  开启或关闭实时路况
@@ -151,21 +143,16 @@ uexGaodeMap.setMapType(data);
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     type://(必选) 0-关闭,1-开启
-}
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+}'
+``` 
 
 **示例:**
 
@@ -173,8 +160,8 @@ iOS 3.0.0+
     var params = {
         type:1
     };
-    var data = JSON.stringify(params);
-    uexGaodeMap.setTrafficEnabled(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setTrafficEnabled(json);
 ```
 
 > ### setCenter  设置地图中心点
@@ -183,22 +170,19 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     longitude:,//(必选)中心点经度
     latitude://(必选)中心点纬度
-}
+}'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+  
 
 **示例:**
 
@@ -207,8 +191,8 @@ iOS 3.0.0+
         longitude:114.402815,
         latitude:30.475798
     };
-    var data = JSON.stringify(params);
-    uexGaodeMap.setCenter(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setCenter(json);
 ```
 
 > ### setZoomLevel  设置地图缩放级别
@@ -217,21 +201,18 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     level://(必选)级别,范围(3,20)
-}
+}'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+ 
 
 **示例:**
 
@@ -239,8 +220,8 @@ iOS 3.0.0+
     var params = {
         level:15
         };
-    var data = JSON.stringify(params);
-    uexGaodeMap.setZoomLevel(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setZoomLevel(json);
 ```
 
 > ### zoomIn  放大一个地图级别
@@ -249,17 +230,7 @@ iOS 3.0.0+
 
 **参数:**
 
-无
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+无 
 
 **示例:**
 
@@ -274,16 +245,7 @@ iOS 3.0.0+
 **参数:**
 
 无
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+   
 
 **示例:**
 
@@ -297,21 +259,18 @@ uexGaodeMap.zoomOut();
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ````
-var json = {
+var json = '{
     angle://(必选)旋转角度,正北方向到地图方向逆时针旋转的角度,范围(0,360)。
-}
+}'
 ````
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+  
 
 **示例:**
 
@@ -319,8 +278,8 @@ iOS 3.0.0+
     var params = {
         angle:90
     };
-    var data = JSON.stringify(params);
-    uexGaodeMap.rotate(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.rotate(json);
 ```
 
 > ### overlook  倾斜地图
@@ -329,21 +288,17 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     angle://(必选)地图倾斜度,范围(0,45)。
-}
+}'
 ```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+ 
 
 **示例:**
 
@@ -351,8 +306,8 @@ iOS 3.0.0+
     var params = {
         angle:23
     };
-    var data = JSON.stringify(params);
-    uexGaodeMap.overlook(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.overlook(json);
 ```
 
 > ### setZoomEnable  开启或关闭手势缩放
@@ -361,21 +316,17 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     type://(必选) 0-关闭,1-开启
-}
+}'
 ```
-
-**平台支持:**
-
-Android 2.2+        
-iOS 6.0+        
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+  
 
 **示例:**
 
@@ -383,8 +334,8 @@ iOS 3.0.0+
     var params = {
         type:1
     };
-    var data = JSON.stringify(params);
-    uexGaodeMap.setZoomEnable(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setZoomEnable(json);
 ```
 
 > ###setRotateEnable 开启或关闭手势旋转及手势倾斜
@@ -393,21 +344,17 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     type://(必选) 0-关闭,1-开启
-}
+}'
 ```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+  
 
 **示例:**
 
@@ -415,8 +362,8 @@ iOS 3.0.0+
     var params = {
         type:1
     };
-    var data = JSON.stringify(params);
-    uexGaodeMap.setRotateEnable(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setRotateEnable(json);
 ```
 
 > ### setCompassEnable  开启或关闭指南针
@@ -425,21 +372,18 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     type://(必选) 0-关闭,1-开启
-}
+}'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+        
-iOS 3.0.0+    
+   
 
 **示例:**
 
@@ -447,8 +391,8 @@ iOS 3.0.0+
     var params = {
         type:1
     };
-    var data = JSON.stringify(params);
-    uexGaodeMap.setCompassEnable(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setCompassEnable(json);
 ```
 
 > ### setScrollEnable  开启或关闭手势移动
@@ -457,21 +401,18 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     type://(必选) 0-关闭,1-开启
-}
+}'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+ 
 
 **示例:**
 
@@ -479,8 +420,8 @@ iOS 3.0.0+
     var params = {
         type:1
     };
-    var data = JSON.stringify(params);
-    uexGaodeMap.setScrollEnable(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setScrollEnable(json);
 ```
 
 > ###  addMarkersOverlay  添加标注
@@ -489,8 +430,13 @@ iOS 3.0.0+
 
 **参数:**
 
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
 ```
-var json = [
+var json = '[
     {
         id:,//(必选) 唯一标识符
         longitude:,//(必选) 标注经度
@@ -501,18 +447,9 @@ var json = [
                 subTitle://(可选) 气泡子标题
         }
     }
-]
+]'
 ```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+   
 
 **示例:**
 
@@ -538,8 +475,8 @@ iOS 3.0.0+
             }
         }
     ];
-    var data = JSON.stringify(param);
-    uexGaodeMap.addMarkersOverlay(data);
+    var json = JSON.stringify(param);
+    uexGaodeMap.addMarkersOverlay(json);
 ```
 
 > ### setMarkerOverlay  修改标注
@@ -548,8 +485,12 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
 ```
-var json = {
+var json = '{
     id:,//(必选) 唯一标识符
     longitude:,//(可选) 标注经度
     latitude:,//(可选) 标注纬度
@@ -558,18 +499,10 @@ var json = {
         title:,//(必选) 气泡标题
         subTitle://(可选) 气泡子标题
     }
-}
+}'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+ 
 
 **示例:**
 
@@ -581,8 +514,8 @@ iOS 3.0.0+
             subTitle:"change-subTitle"
         }
     };
-    var data = JSON.stringify(makerInfo);
-    uexGaodeMap.setMarkerOverlay(data);
+    var json = JSON.stringify(makerInfo);
+    uexGaodeMap.setMarkerOverlay(json);
 ```
 
 > ### addPolylineOverlay  添加折线覆盖物
@@ -591,8 +524,13 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     id:,//(必选) 唯一标识符
     fillColor:,//(可选) 折线颜色
     lineWidth:,//(可选) 折线宽
@@ -602,18 +540,10 @@ var json = {
             latitude://(必选) 连接点纬度
         }
     ]
-}
+}'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+ 
 
 **示例:**
 
@@ -637,8 +567,8 @@ iOS 3.0.0+
             }
         ]
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.addPolylineOverlay(data);
+    var json = JSON.stringify(jsonstr);
+    uexGaodeMap.addPolylineOverlay(json);
 ```
 
 > ### removeOverlays  移除覆盖物
@@ -647,36 +577,38 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = []////(可选)覆盖物唯一标识符数组,不传时移除所有覆盖物。
+var json = '[]'////(可选)覆盖物唯一标识符数组,不传时移除所有覆盖物。
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+  
 
 **示例:**
 
 ```
  	var idarr = ["151"];
-    var data = JSON.stringify(idarr);
-    uexGaodeMap.removeOverlays(data);
+    var json = JSON.stringify(idarr);
+    uexGaodeMap.removeOverlays(json);
 ```
 
-> ### addArcOverlay  添加弧形覆盖物
+> ### addArcOverlay  添加弧形覆盖物,仅Android支持
 
 `uexGaodeMap.addArcOverlay(json)`
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     id:,//(必选) 唯一标识符
     strokeColor:,//(可选) 颜色
     lineWidth:,//(可选) 线宽
@@ -692,16 +624,10 @@ var json = {
         longitude:,//(必选) 经度
         latitude://(必选) 纬度
     }
-}
+}'
 ```
 
-**平台支持:**
 
-Android 2.2+    
-
-**版本支持:**
-
-Android 3.0.0+    
 
 **示例:**
 
@@ -723,8 +649,8 @@ Android 3.0.0+
             latitude:"30.375845"
         }
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.addArcOverlay(data);
+    var json = JSON.stringify(jsonstr);
+    uexGaodeMap.addArcOverlay(json);
 ```
 
 > ### addCircleOverlay  添加圆形覆盖物
@@ -733,8 +659,13 @@ Android 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     id:,//(必选) 唯一标识符
     longitude:,//(必选) 圆心经度
     latitude:,//(必选) 圆心纬度
@@ -742,18 +673,9 @@ var json = {
     fillColor:,//(可选) 填充颜色
     strokeColor:,//(可选) 边框颜色
     lineWidth://(可选) 边框线宽
-}
+}'
 ```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+ 
 
 **示例:**
 
@@ -767,8 +689,8 @@ iOS 3.0.0+
         strokeColor:"#990033",
         lineWidth:"4"
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.addCircleOverlay(data);
+    var json = JSON.stringify(jsonstr);
+    uexGaodeMap.addCircleOverlay(json);
 ```
 
 > ### addPolygonOverlay  添加多边形覆盖物
@@ -777,8 +699,13 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     id:,//(必选) 唯一标识符
     fillColor:,//(可选) 填充颜色
     strokeColor:,//(可选) 边框颜色
@@ -789,18 +716,10 @@ var json = {
             latitude://(必选) 顶点纬度
         }
     ]
-}
+}'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+  
 
 **示例:**
 
@@ -829,8 +748,8 @@ iOS 3.0.0+
             }
         ]
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.addPolygonOverlay(data);
+    var json = JSON.stringify(jsonstr);
+    uexGaodeMap.addPolygonOverlay(json);
 ```
 
 > ### addGroundOverlay  添加图片覆盖物
@@ -839,8 +758,13 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = {
+var json = '{
     id:,//(必选) 唯一标识符
     imageUrl:,//(必选) 图片地址
     transparency:,//(可选) 图片透明度(仅Android支持该参数)
@@ -850,23 +774,15 @@ var json = {
             latitude://(必选) 顶点纬度
         }
     ]
-}
+}'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+  
 
 **示例:**
 
 ```
-    示例1:
+    
     var jsonstr = {
         id:"155",
         imageUrl:"http://img0.bdstatic.com/img/image/9baf75d938553886ce515def29441ed31409109131.jpg",
@@ -882,8 +798,8 @@ iOS 3.0.0+
             }
         ]
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.addGroundOverlay(data);
+    var json = JSON.stringify(jsonstr);
+    uexGaodeMap.addGroundOverlay(json);
 ```
 
 > ### removeMarkersOverlays  移除标注
@@ -892,37 +808,39 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
+
 ```
-var json = []//(可选)标注唯一标识符数组,不传时移除所有标注。
+var json = '[]'//(可选)标注唯一标识符数组,不传时移除所有标注。
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例:**
 
 ```
    var params = ['10001'];
-    var data = JSON.stringify(params);
-    uexGaodeMap.removeMarkersOverlays(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.removeMarkersOverlays(json);
 ```
 
 > ### poiSearch  兴趣点搜索
 
-回调 [cbPoiSearch](#cbPoiSearch 兴趣点搜索的回调方法 "兴趣点搜索的回调方法")
-`uexGaodeMap.poiSearch(json)`
+
+`uexGaodeMap.poiSearch(json,function(data){})`
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+|  data   | json字符串 | 是 |  返回数据|
+
 ```
-var json = {
+传入参数格式为：
+var json = '{
     searchKey:,//(可选) 搜索关键字
     poiTypeSet:,//(可选) Poi兴趣点,searchKey和poiTypeSet必须至少包含其中的一个
     city:,//(可选) 城市,不传时表示全国范围内(iOS无效,默认全国范围内搜索)
@@ -961,18 +879,36 @@ var json = {
             }
         ]
 	}
-}
+}'
 ```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+```
+返回参数格式为：
+var data = '{
+    errorCode: 0, //错误码,0-成功,非0-失败
+    data: [//搜索结果集合
+        {
+            address:,//地址详情
+            cityCode:,//城市编码
+            cityName:,//城市名称
+            website:,//网址
+            email:,//邮箱
+            id:,//poiId
+            point: {//位置坐标
+                latitude:,//经度
+                longitude://纬度
+            },
+            postcode:,//邮编
+            provinceCode:,//省/自治区/直辖市/特别行政区编码
+            provinceName:,//省/自治区/直辖市/特别行政区名称
+            tel:,//电话号码
+            title:,//名称
+            typeDes:,//类型描述
+            distance://距离中心点的距离
+        }
+    ]
+}'
+```
+  
 
 **示例:**
 
@@ -982,8 +918,10 @@ iOS 3.0.0+
         city:"武汉",
         searchKey:"加油站"
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.poiSearch(data);
+     var json = JSON.stringify(jsonstr);
+    uexGaodeMap.poiSearch(json,function(data){
+     alert("callback:" + data);
+    });
 
     示例2:
     var jsonstr = {
@@ -1001,8 +939,10 @@ iOS 3.0.0+
             }
         }
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.poiSearch(data);
+     var json = JSON.stringify(jsonstr);
+    uexGaodeMap.poiSearch(json,function(data){
+     alert("callback:" + data);
+    });
 
     示例3:
     var jsonstr = {
@@ -1021,8 +961,10 @@ iOS 3.0.0+
             }
         }
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.poiSearch(data);
+     var json = JSON.stringify(jsonstr);
+    uexGaodeMap.poiSearch(json,function(data){
+     alert("callback:" + data);
+    });
 
     示例4:
     var jsonstr = {
@@ -1049,33 +991,39 @@ iOS 3.0.0+
             ]
         }
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.poiSearch(data);
+    var json = JSON.stringify(jsonstr);
+    uexGaodeMap.poiSearch(json,function(data){
+     alert("callback:" + data);
+    });
 ```
 
 > ### geocode  地理编码,通过地址获得经纬度信息
 
-回调 [cbGeocode](#cbGeocode 地理编码的回调方法 "地理编码的回调方法")
-`uexGaodeMap.geocode(json)`
+
+`uexGaodeMap.geocode(json,function(data){})`
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+|  data   | json字符串 | 是 |  返回数据|
+
 ```
-var json = {
+var json = '{
     city:,//(必选) 城市,不传时表示全国范围内
     address://(必选) 具体地址
-}
+}'
+```
+```
+var data = '{
+	longitude:,//当前位置经度
+	latitude:,//当前位置纬度
+	address:,//String  搜索的地址
+	city://String 搜索所在的城市
+}'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例:**
 
@@ -1084,33 +1032,38 @@ iOS 3.0.0+
         city:"武汉",
         address:"光谷软件园C6栋"
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.geocode(data);
+    var json = JSON.stringify(jsonstr);
+    uexGaodeMap.geocode(json,function(data){
+         alert("callback:" + data);
+    });
 ```
 
 > ### reverseGeocode  反地理编码,将经纬度转换为地址信息
 
-回调 [cbReverseGeocode](#cbReverseGeocode 反地理编码的回调方法 "反地理编码的回调方法")
-`uexGaodeMap.reverseGeocode(json)`
+
+`uexGaodeMap.reverseGeocode(json,function(data){})`
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+|  data   | json字符串 | 是 |  返回数据|
+
 ```
-var json = {
+var json = '{
     longitude:,//经度
     latitude://纬度
-}
+}'
+```
+```
+var data = '{
+	address:,//具体地址
+	latitude:,//Number 搜索的纬度
+	longitude://Number 搜索的经度
+}'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例:**
 
@@ -1119,35 +1072,40 @@ iOS 3.0.0+
         longitude:114.402815,
         latitude:30.475798
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.reverseGeocode(data);
+    var json = JSON.stringify(jsonstr);
+    uexGaodeMap.reverseGeocode(json,function(data){
+         alert("callback:" + data);
+    });
 ```
 
 > ### getCurrentLocation  获取当前位置
 
-回调 [cbGetCurrentLocation](#cbGetCurrentLocation 获取当前位置的回调方法 "获取当前位置的回调方法")
-`uexGaodeMap.getCurrentLocation()`
+
+`uexGaodeMap.getCurrentLocation(function(data){})`
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  data   | json字符串 | 是 |  返回数据|
+
 ```
-无
+var data = {
+    longitude:,//当前位置经度
+    latitude:,//当前位置纬度
+    timestamp://时间戳
+}
+
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+ 
 
 **示例:**
 
 ```
-    uexGaodeMap.getCurrentLocation();
+    uexGaodeMap.getCurrentLocation(function(data){
+         alert("callback:" + data);
+    });
 ```
 
 > ### startLocation  开始连续定位
@@ -1156,22 +1114,18 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
 ```
-var json = {(仅Android支持参数)
+var json = '{(仅Android支持参数)
     minTime:,//(可选) 位置变化通知时间,单位:毫秒, 默认2000
     minDistance://(可选) 位置变化通知距离,单位:米,默认10
-}
+}'
 ```
 
-**平台支持:**
 
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例:**
 
@@ -1180,8 +1134,8 @@ iOS 3.0.0+
         minTime:3000,
         minDistance:10
     };
-    var data = JSON.stringify(jsonstr);
-    uexGaodeMap.startLocation(data);
+    var json = JSON.stringify(jsonstr);
+    uexGaodeMap.startLocation(json);
 ```
 
 > ### stopLocation  停止连续定位
@@ -1194,15 +1148,7 @@ iOS 3.0.0+
 无
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+   
 
 **示例:**
 
@@ -1216,21 +1162,16 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
 ```
-var json = {
+var json = '{
     type://(必选) 0-隐藏,1-显示
-}
+}'
 ```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+ 
 
 **示例:**
 
@@ -1238,8 +1179,8 @@ iOS 3.0.0+
     var params = {
         type:1
     }
-    var data = JSON.stringify(params);
-    uexGaodeMap.setMyLocationEnable(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setMyLocationEnable(json);
 ```
 
 > ### setUserTrackingMode  设置连续定位模式
@@ -1248,23 +1189,19 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
 ```
-var json = {
+var json = '{
     type://(必选) 模式,1-只在第一次定位移动到地图中心点；
                        2-定位、移动到地图中心点并跟随；
                        3-定位、移动到地图中心点,跟踪并根据方向旋转地图。
-}
+}'
 ```
 
-**平台支持:**
 
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例:**
 
@@ -1272,8 +1209,8 @@ iOS 3.0.0+
     var params = {
         type:1
     }
-    var data = JSON.stringify(params);
-    uexGaodeMap.setUserTrackingMode(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setUserTrackingMode(json);
 ```
 > ### setScaleVisible  设置地图是否显示比例尺
 
@@ -1281,21 +1218,15 @@ iOS 3.0.0+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
 ```
-var json = {
+var json = '{
     visible://(必选) 是否显示,true-显示；false-隐藏。
-}
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.2+    
-iOS 3.0.1+     
+}'
+```  
 
 **示例:**
 
@@ -1303,8 +1234,8 @@ iOS 3.0.1+
   var params = {
         visible:true
     }
-    var data = JSON.stringify(params);
-    uexGaodeMap.setScaleVisible(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setScaleVisible(json);
 ```
 > ### setMyLocationButtonVisible设 置是否显示回到我的位置按钮
 
@@ -1314,20 +1245,16 @@ iOS 3.0.1+
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
 ```
-var json = {
+var json = '{
     visible://(必选) 是否显示,true-显示；false-隐藏。
-}
+}'
 ```
-
-**平台支持:**
-
-Android 2.2+    
    
-
-**版本支持:**
-
-Android 3.0.2+    
  
 
 **示例:**
@@ -1336,28 +1263,26 @@ Android 3.0.2+
     var params = {
         visible:true
     }
-    var data = JSON.stringify(params);
-    uexGaodeMap.setMyLocationButtonVisible(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setMyLocationButtonVisible(json);
 ```
-> ### setZoomVisible  设置是否显示放大缩小按钮
+> ### setZoomVisible  设置是否显示放大缩小按钮，仅支持Android
 
 `uexGaodeMap.setZoomVisible(json)`
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+
 ````
-var json = {
+var json = '{
     visible://(必选) 是否显示,true-显示；false-隐藏。
-}
+}'
 ````
 
-**平台支持:**
 
-Android 2.2+    
-
-**版本支持:**
-
-Android 3.0.2+    
 
 **示例:**
 
@@ -1365,8 +1290,8 @@ Android 3.0.2+
    var params = {
         visible:true
     }
-    var data = JSON.stringify(params);
-    uexGaodeMap.setZoomVisible(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.setZoomVisible(json);
 ```
 > ### clear  清除地图上所有的标注和覆盖物
 
@@ -1378,16 +1303,6 @@ Android 3.0.2+
 无
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.2+    
-iOS 3.0.1+
-
 **示例:**
 
 ```
@@ -1396,12 +1311,17 @@ iOS 3.0.1+
 
 > ### setCustomButton 设置自定义按钮
 
-`uexGaodeMap.setCustomButton(json)`
+`uexGaodeMap.setCustomButton(json,function(data){})`
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+|  data   | json字符串 | 是 |  返回数据|
+
 ```
-var json = {
+var json = '{
 	x:,//Number,必选 按钮横坐标
 	y:,//Number,必选 按钮纵坐标
 	width:,//Number,必选 按钮宽度
@@ -1411,25 +1331,20 @@ var json = {
 	title:,//String 可选 按钮文字 
 	titleColor:,// String 可选 按钮文字颜色
 	titleSize:,//Number 可选 按钮文字大小
-}
+}'
 ```
-
+```
+var data = '{
+	id:,//尝试设置的自定义按钮的唯一标识符
+	isSuccess:,// 设置是否成功 true/false,id已存在时,会返回false
+}'
+```
 **说明:**
 
 * 设置自定义按钮是全局的,设置之后在各个页面均可以直接调用[showCustomButtons](showCustomButtons 显示自定义按钮)
 * 每次地图重新open时,不会显示任何按钮,需要用户手动调用[showCustomButtons](showCustomButtons 显示自定义按钮)
 * x,y,width,height都是参考以地图左上角为原点的坐标系 单位为px 
-* 成功调用该API会触发 [cbSetCustomButton](cbSetCustomButton 设置自定义按钮的回调方法)回调
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.4+    
-iOS 3.0.4+
 
 **示例:**
 
@@ -1444,334 +1359,56 @@ var param={
 	width:35,
 	height:16
 }
-var jsonStr=JSON.stringify(param)
-uexGaodeMap.setCustomButton(jsonStr);
+var json =JSON.stringify(param)
+uexGaodeMap.setCustomButton(json,function(data){
+  alert("callback:" + data);
+});
 ```
 
 > ### deleteCustomButton 删除自定义按钮
 
-`uexGaodeMap.deleteCustomButton(id)`
+`uexGaodeMap.deleteCustomButton(id,function(data){})`
 
 **参数:**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | id | String | 是 | 需要删除的按钮的唯一标识符 |
+|  data   | json字符串 | 是 |  返回数据|
 
+```
+var data = '{
+	id:,//尝试删除的自定义按钮的唯一标识符
+	isSuccess:// 设置是否成功 true/false,id不存在时,会返回false
+}'
+```
 **说明:**
 
 * 删除自定义按钮是全局的
-* 如果被删除的按钮已经被显示,会先隐藏按钮再删除,但此次隐藏操作不触发[cbHideCustomButtons](cbHideCustomButtons 隐藏自定义按钮的回调方法)回调
-* 成功调用该API会触发[cbDeleteCustomButton](cbDeleteCustomButton 删除自定义按钮的回调方法)
+* 如果被删除的按钮已经被显示,会先隐藏按钮再删除
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.4+    
-iOS 3.0.4+
 
 **示例:**
 
 ```
-uexGaodeMap.deleteCustomButton("11");
+uexGaodeMap.deleteCustomButton("11",function(data){
+  alert("callback:" + data);
+});
 ```
 
 > ### showCustomButtons 显示自定义按钮
 
-`uexGaodeMap.showCustomButtons(ids)`
+`uexGaodeMap.showCustomButtons(ids,function(data){})`
 
 **参数:**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | ids | String | 是 | json字符串,内容是由需显示按钮的唯一标识符构成的数组 |
-
-**说明:**
-
-* 点击被显示的按钮会触发监听[onCustomButtonClick](onCustomButtonClick 自定义按钮被点击的监听)
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.4+    
-iOS 3.0.4+
-
-**示例:**
+|  data   | json字符串 | 是 |  返回数据|
 
 ```
-var ids=["11","12"];
-var jsonStr=JSON.stringify(ids);
-uexGaodeMap.showCustomButtons(jsonStr);
-```
-
-> ### hideCustomButtons 隐藏自定义按钮
-
-`uexGaodeMap.hideCustomButtons(ids)`
-
-**参数:**
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| ids | String | 否 | json字符串,内容是由需显示按钮的唯一标识符构成的数组 |
-
-**说明:**
-
-* ids不传时,会尝试隐藏所有自定义按钮
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.4+    
-iOS 3.0.4+
-
-**示例:**
-
-```
-var ids=["11","12"];
-var jsonStr=JSON.stringify(ids);
-uexGaodeMap.hideCustomButtons(jsonStr);
-```
-
-## 2.2 回调方法:
-
-> ### cbGetCurrentLocation 获取当前位置的回调方法
-
-`uexGaodeMap.cbGetCurrentLocation(json);`
-
-**参数:**
-
-```
-var json = {
-    longitude:,//当前位置经度
-    latitude:,//当前位置纬度
-    timestamp://时间戳
-}
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例:**
-
-```
-    uexGaodeMap.cbGetCurrentLocation = function(json) {
-        alert("cbGetCurrentLocation: "+json);
-    }
-```
-
-> ### cbGeocode 地理编码的回调方法
-
-`uexGaodeMap.cbGeocode(json);`
-
-**参数:**
-
-```
-var json = {
-	longitude:,//当前位置经度
-	latitude:,//当前位置纬度
-	address:,//String  搜索的地址
-	city://String 搜索所在的城市
-}
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例:**
-
-```
-    uexGaodeMap.cbGeocode = function(json) {
-        alert("cbGeocode: "+json);
-    }
-```
-
-> ### cbReverseGeocode 反地理编码的回调方法
-
-`uexGaodeMap.cbReverseGeocode(json);`
-
-**参数:**
-
-```
-var json = {
-	address:,//具体地址
-	latitude:,//Number 搜索的纬度
-	longitude://Number 搜索的经度
-}
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例:**
-
-```
-    uexGaodeMap.cbReverseGeocode = function(json) {
-        alert("cbReverseGeocode: "+json);
-    }
-```
-
-> ### cbPoiSearch 兴趣点搜索的回调方法
-
-`uexGaodeMap.cbPoiSearch(json);`
-
-**参数:**
-
-```
-var json = {
-    errorCode: 0, //错误码,0-成功,非0-失败
-    data: [//搜索结果集合
-        {
-            address:,//地址详情
-            cityCode:,//城市编码
-            cityName:,//城市名称
-            website:,//网址
-            email:,//邮箱
-            id:,//poiId
-            point: {//位置坐标
-                latitude:,//经度
-                longitude://纬度
-            },
-            postcode:,//邮编
-            provinceCode:,//省/自治区/直辖市/特别行政区编码
-            provinceName:,//省/自治区/直辖市/特别行政区名称
-            tel:,//电话号码
-            title:,//名称
-            typeDes:,//类型描述
-            distance://距离中心点的距离
-        }
-    ]
-}
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例:**
-
-```
-    uexGaodeMap.cbPoiSearch = function(json) {
-        alert("cbPoiSearch: "+json);
-    }
-```
-
-> ### cbSetCustomButton 设置自定义按钮的回调方法
-
-`uexGaodeMap.cbSetCustomButton(json);`
-
-**参数:**
-
-```
-var json = {
-	id:,//尝试设置的自定义按钮的唯一标识符
-	isSuccess:,// 设置是否成功 true/false
-}
-```
-
-**说明:**
-
-* id已存在时,会返回false
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.4+    
-iOS 3.0.4+    
-
-**示例:**
-
-```
-uexGaodeMap.cbSetCustomButton = function(json) {
- 	alert("cbSetCustomButton: "+json);
-}
-```
-
-> ### cbDeleteCustomButton 删除自定义按钮的回调方法
-
-`uexGaodeMap.cbDeleteCustomButton(json);`
-
-**参数:**
-
-```
-var json = {
-	id:,//尝试删除的自定义按钮的唯一标识符
-	isSuccess:// 设置是否成功 true/false
-}
-```
-
-**说明:**
-
-* id不存在时,会返回false
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.4+    
-iOS 3.0.4+    
-
-**示例:**
-
-```
-uexGaodeMap.cbDeleteCustomButton = function(json) {
- 	alert("cbDeleteCustomButton: "+json);
-}
-```
-
-> ### cbShowCustomButtons 显示自定义按钮的回调方法
-
-`uexGaodeMap.cbShowCustomButtons(json);`
-
-**参数:**
-
-```
-var json = {
+var data = {
 	successfulIds:,//list<string> 显示成功的按钮的唯一标识符数组
 	failedIds://list<string> 显示失败的按钮的唯一标识符数组
 }
@@ -1779,64 +1416,56 @@ var json = {
 
 **说明:**
 
+* 点击被显示的按钮会触发监听[onCustomButtonClick](onCustomButtonClick 自定义按钮被点击的监听)
 * 显示id不存在的按钮会失败
 * 显示已经显示的按钮会失败
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.4+    
-iOS 3.0.4+    
 
 **示例:**
 
 ```
-uexGaodeMap.cbShowCustomButtons = function(json) {
- 	alert("cbShowCustomButtons: "+json);
-}
+var ids=["11","12"];
+var jsonStr =JSON.stringify(ids);
+uexGaodeMap.showCustomButtons(jsonStr,function(data){
+    alert("callback:" + data);
+});
 ```
 
-> ### cbHideCustomButtons 隐藏自定义按钮的回调方法
+> ### hideCustomButtons 隐藏自定义按钮
 
-`uexGaodeMap.cbHideCustomButtons(json);`
+`uexGaodeMap.hideCustomButtons(ids,function(data){})`
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| ids | String | 否 | json字符串,内容是由需显示按钮的唯一标识符构成的数组 |
+|  data   | json字符串 | 是 |  返回数据|
+
 ```
-var json = {
+var data = {
 	successfulIds:,//list<string> 隐藏成功的按钮的唯一标识符数组
 	failedIds:,//list<string> 隐藏失败的按钮的唯一标识符数组
 }
 ```
-
 **说明:**
 
+* ids不传时,会尝试隐藏所有自定义按钮
 * 隐藏id不存在的按钮会失败
 * 隐藏已经隐藏的按钮会失败
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.4+    
-iOS 3.0.4+    
 
 **示例:**
 
 ```
-uexGaodeMap.cbHideCustomButtons = function(json) {
- 	alert("cbHideCustomButtons: "+json);
-}
+var ids=["11","12"];
+var jsonStr=JSON.stringify(ids);
+uexGaodeMap.hideCustomButtons(jsonStr,function(data){
+     alert("callback:" + data);
+});
 ```
 
-## 2.3、 监听方法:
+
+## 2.2、 监听方法:
 > ### onMapLoadedListener 地图加载完成的监听方法
 
 `uexGaodeMap.onMapLoadedListener();`
@@ -1847,15 +1476,7 @@ uexGaodeMap.cbHideCustomButtons = function(json) {
 无
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+   
 
 **示例:**
 
@@ -1877,15 +1498,7 @@ var json = {
 }
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+  
 
 **示例:**
 
@@ -1907,13 +1520,7 @@ var json = {
 }
 ```
 
-**平台支持:**
-
-Android 2.2+    
-
-**版本支持:**
-
-Android 3.0.0+    
+  
 
 **示例:**
 
@@ -1937,15 +1544,7 @@ var json = {
 }
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+   
 
 **示例:**
 
@@ -1968,15 +1567,7 @@ var json = {
 }
 ```
 
-**平台支持:**
-
-Android 2.2+
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.3+    
+   
 
 **示例:**
 
@@ -1999,15 +1590,7 @@ var json = {
 }
 ```
 
-**平台支持:**
-
-Android 2.2+
-iOS 6.0+   
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.2+    
+  
 
 **示例:**
 
@@ -2032,15 +1615,7 @@ iOS 3.0.2+
 * 总是回调给调用showCustomButtons显示此按钮的页面(例如,用户在A页面调用显示按钮α,在B页面调用显示按钮β,那么α的回调给A,β的回调给B)
 * 如果该页面已经被销毁,则回调不触发
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.4+    
-iOS 3.0.4+    
+ 
 
 **示例:**
 
@@ -2058,10 +1633,14 @@ uexGaodeMap.onCustomButtonClick = function(id) {
 
   开始下载,当前如果有正在下载的任务,添加到正在下载列表中。
 
-`uexGaodeMap.download(json)`
+`uexGaodeMap.download(json,function(data){})`
 
 **参数:**
 
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+|  data   | json字符串 | 是 |  返回数据|
 ```
 var json = [//数组
     {//city或province必须传一个,都传时只有city有效
@@ -2070,16 +1649,15 @@ var json = [//数组
     }
 ]
 ```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
+```
+var data = {
+    name:,//(必选) 省或城市名称
+    errorCode:,//(必选) 状态码,0-加入列表成功,非0-失败。
+    errorStr://(可选) 错误描述,errorCode非0时,该值有效。
+}
+```
+注:errorCode及errorStr详情参见附录[cbDownload Status](#1.4.2 cbDownload Status)
+ 
 
 **示例:**
 
@@ -2092,42 +1670,10 @@ iOS 3.0.2+
             province:'广东省'
         }
     ];
-    var data = JSON.stringify(params);
-    uexGaodeMap.download(data);
-```
-> ### cbDownload 开始下载的回调方法
-  
-`uexGaodeMap.cbDownload(json)`
-
-**参数:**
-
-```
-var json = {
-    name:,//(必选) 省或城市名称
-    errorCode:,//(必选) 状态码,0-加入列表成功,非0-失败。
-    errorStr://(可选) 错误描述,errorCode非0时,该值有效。
-}
-```
-注:errorCode及errorStr详情参见附录[cbDownload Status](#1.4.2 cbDownload Status)
-
-**平台支持:**
-
-```
-Android 2.2+    
-iOS 6.0+    
-```
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
-
-**示例:**
-
-```
-    uexGaodeMap.cbDownload = function(json) {
-        alert("cbDownload: "+json);
-    }
+    var json = JSON.stringify(params);
+    uexGaodeMap.download(json,function(data){
+        alert("callback:" + data);
+    });
 ```
 
 > ### onDownload 下载监听方法
@@ -2146,15 +1692,7 @@ var json = {
 ```
 注:status下载状态参见附录[Download Status](#1.4.1 Download Status)
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
+    
 
 **示例:**
 
@@ -2190,16 +1728,7 @@ iOS 3.0.2+
 ```
 var json = []//(必传) 省或城市名称数组
 ```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
+   
 
 **示例:**
 
@@ -2220,15 +1749,7 @@ iOS 3.0.2+
 var json = []//(必传) 省或城市名称数组
 ```
 
-**平台支持:**
 
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
 
 **示例:**
 
@@ -2241,39 +1762,16 @@ iOS 3.0.2+
 > ### getAvailableCityList 获取可下载离线地图的城市列表
   
 
-`uexGaodeMap.getAvailableCityList()`
+`uexGaodeMap.getAvailableCityList(function(data){})`
 
 **参数:**
 
-```
-无
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
- 
-
-**示例:**
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  data   | json字符串 | 是 |  返回数据|
 
 ```
-    uexGaodeMap.getAvailableCityList();
-```
-
-> ### cbGetAvailableCityList 获取可下载离线地图的城市列表的回调方法
-  
-`uexGaodeMap.cbGetAvailableCityList(json)`
-
-**参数:**
-
-```
-var json = [
+var data = [
     {
         city:,//(必选) 城市名称
         size:,//(必选) 包大小,单位字节
@@ -2282,59 +1780,31 @@ var json = [
 ]
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
+ 
+ 
 
 **示例:**
 
 ```
-    uexGaodeMap.cbGetAvailableCityList = function(json) {
-        alert("cbGetAvailableCityList: "+json);
-    }
+    uexGaodeMap.getAvailableCityList(function(data){
+      alert("callback:" + data);
+    });
 ```
+
+
 
 > ### getAvailableProvinceList 获取可下载离线地图的省和城市列表
 
-`uexGaodeMap.getAvailableProvinceList()`
+`uexGaodeMap.getAvailableProvinceList(function(data){})`
 
 **参数:**
 
-```
-无
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
-
-**示例:**
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  data   | json字符串 | 是 |  返回数据|
 
 ```
-    uexGaodeMap.getAvailableProvinceList();
-```
-
-> ### cbGetAvailableProvinceList 获取可下载离线地图的省和城市列表的回调方法
-  
-
-``uexGaodeMap.cbGetAvailableProvinceList(json)``
-
-**参数:**
-
-```
-var json = [
+var data = '[
     {
         cityList:[//(必选) 省包含的城市列表
             {
@@ -2349,63 +1819,34 @@ var json = [
         completeCode:,//(必选) 进度百分比
 
     }
-]
+]'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
+  
 
 **示例:**
 
 ```
-    uexGaodeMap.cbGetAvailableProvinceList = function(json) {
-        alert("cbGetAvailableProvinceList: "+json);
-    }
+    uexGaodeMap.getAvailableProvinceList(function(data){
+        alert("callback:" + data);
+    });
 ```
+
+
 
 > ### getDownloadList 获取已下载列表
   
 
-`uexGaodeMap.getDownloadList(json)`
+`uexGaodeMap.getDownloadList(function(data){})`
 
 **参数:**
 
-```
-无
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
-
-**示例:**
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  data   | json字符串 | 是 |  返回数据|
 
 ```
-    uexGaodeMap.getDownloadList();
-```
-
-> ### cbGetDownloadList 获取已下载列表的回调方法
-  
-
-`uexGaodeMap.cbGetDownloadList(json)`
-
-**参数:**
-
-```
-var json = [
+var data = '[
     {
         name:,//(必选) 省或城市名称
         type:,//(必选) 类型,1-城市,2-省
@@ -2413,96 +1854,66 @@ var json = [
         completeCode:,//(必选) 进度百分比
 
     }
-]
+]'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
+   
 
 **示例:**
 
 ```
-    uexGaodeMap.cbGetDownloadList = function(json) {
-        alert("cbGetDownloadList: "+json);
-    }
+    uexGaodeMap.getDownloadList(function(data){
+        alert("callback:" + data);
+    });
 ```
+
+
 
 > ### getDownloadingList 获取正在下载列表
   
 
-`uexGaodeMap.getDownloadingList(json)`
+`uexGaodeMap.getDownloadingList(function(data){})`
 
 **参数:**
 
-```
-无
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
-
-**示例:**
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  data   | json字符串 | 是 |  返回数据|
 
 ```
-    uexGaodeMap.getDownloadingList();
-```
-
-> ### cbGetDownloadingList 获取正在下载列表的回调方法
-  
-
-`uexGaodeMap.cbGetDownloadingList(json)`
-
-**参数:**
-
-```
-var json = [
+var data = '[
     {
         name:,//(必选) 省或城市名称
         type:,//(必选) 类型,1-城市,2-省
         size:,//(必选) 包大小,单位字节
         completeCode:,//(必选) 进度百分比
     }
-]
+]'
 ```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
+ 
 
 **示例:**
 
 ```
-    uexGaodeMap.cbGetDownloadingList = function(json) {
-        alert("cbGetDownloadingList: "+json);
-    }
+    uexGaodeMap.getDownloadingList(function(data){
+        alert("callback:" + data);
+    });
 ```
+
+
 
 > ### isUpdate 已下载的离线地图数据是否需要更新
   
 
-`uexGaodeMap.isUpdate(json)`
+`uexGaodeMap.isUpdate(json,function(data){})`
 
 **参数:**
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+|  data   | json字符串 | 是 |  返回数据|
 
 ```
 var json = {//city或province必须传一个,都传时只有city有效
@@ -2510,16 +1921,13 @@ var json = {//city或province必须传一个,都传时只有city有效
     province://(可选) 省或直辖市名称
 }
 ```
+```
+var data = {
+    name:,//(必选) 省或城市名称
+    result://(可选) 是否有更新,0-有更新,1-没有更新
+}
+```
 
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
 
 **示例:**
 
@@ -2529,107 +1937,60 @@ iOS 3.0.2+
             city:'武汉'
         }
     ];
-    var data = JSON.stringify(params);
-    uexGaodeMap.isUpdate(data);
+    var json = JSON.stringify(params);
+    uexGaodeMap.isUpdate(json,function(data){
+       alert("callback:" + data);
+    });
 ```
 
-> ### cbIsUpdate 已下载的离线地图数据是否需要更新的回调方法
-  
 
-`uexGaodeMap.cbIsUpdate(json)`
-
-**参数:**
-
-```
-var json = {
-    name:,//(必选) 省或城市名称
-    result://(可选) 是否有更新,0-有更新,1-没有更新
-}
-```
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
-
-**示例:**
-
-```
-    uexGaodeMap.cbIsUpdate = function(json) {
-        alert("cbIsUpdate: "+json);
-    }
-```
 
 > ### delete  删除已下载或者正在下载数据
 
-`uexGaodeMap.delete(json)`
+`uexGaodeMap.delete(json,function(data){})`
 
 **参数:**
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  json   | json字符串 | 是 |  传入参数|
+|  data   | json字符串 | 是 |  返回数据,仅支持Android|
 
 ```
 var json = []//(可选,仅Android) 省或城市名称数组
 
 ```
-
-注:
-
-* json不传时会清除所有数据；
-* 受iOS SDK所限制,iOS仅支持删除所有数据
-* iOS系统下若有传入参数json,则插件不会作任何处理
-
-**平台支持:**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持:**
-
-Android 3.0.3+    
-iOS 3.0.2+    
-
-**示例:**
-
 ```
-    var params = ["武汉"];
-    var data = JSON.stringify(params);
-    uexGaodeMap.delete(data);
-```
-
-> ### cbDelete 删除已下载或者正在下载数据的回调方法
-  
-
-`uexGaodeMap.cbDelete(json)`
-
-**参数:**
-
-```
-var json = {
+var data = {
     name:,//(必选) 省或城市名称
     errorCode:,//(必选) 状态码,0-删除成功,非0-失败。
     errorStr://(可选) 错误描述,errorCode非0时,该值有效。
 }
 ```
+注:
 
-**平台支持:**
-
-Android 2.2+    
-
-**版本支持:**
-
-Android 3.0.3+    
+* json不传时会清除所有数据；
+* 受iOS SDK所限制,iOS仅支持删除所有数据
+* iOS系统下若有传入参数json,则插件不会作任何处理
+   
 
 **示例:**
 
 ```
-    uexGaodeMap.cbDelete = function(json) {
-        alert("cbDelete: "+json);
-    }
+Android：
+    var params = ["武汉"];
+    var json = JSON.stringify(params);
+    uexGaodeMap.delete(json,function(data){
+    
+    });
+    
+iOS：
+    var params = ["武汉"];
+    var json = JSON.stringify(params);
+    uexGaodeMap.delete(json);
 ```
+
+
 # 4、附录
 ## 4.1、通过config.xml配置插件的方法
 
@@ -2669,12 +2030,13 @@ Android 3.0.3+
 
 ### iOS
 
-API版本:`uexGaodeMap-3.0.9`
+API版本:`uexGaodeMap-4.0.0`
 
-最近更新时间:`2015-12-16`
+最近更新时间:`2016-6-14`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持引擎4.0，函数入参 |
 | 3.0.9 | 添加IDE支持;可以通过接口设置APIKey;解决和高德导航冲突的问题 |
 | 3.0.8 | 修正一个可能会导致APP崩溃的bug |
 | 3.0.7 | AddCircleOverlay中 修改默认lineDash值为NO,当回调的json结构为String时,不再转义一次 |
@@ -2688,12 +2050,13 @@ API版本:`uexGaodeMap-3.0.9`
 
 ### Android
 
-API版本:`uexGaodeMap-3.0.13`
+API版本:`uexGaodeMap-4.0.0`
 
-最近更新时间:`2016-5-10`
+最近更新时间:`2016-6-14`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持引擎4.0，函数入参 |
 | 3.0.13 | open接口添加回调 |
 | 3.0.12 | 修复闪退的问题 |
 | 3.0.11 | 修复闪退的问题 |
