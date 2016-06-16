@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+        <meta name="viewport"
+        content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+	<link rel="stylesheet" href="css/ui-res.css">
+    <link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/zy_control.js">
+    </script>
+    <script src="js/zy_click.js">
+    </script>
+    <script type="text/javascript">
+        
+	function xmlHttpPost(){
+    
+        var url = document.getElementById('addd').value;
+        uexXmlHttpMgr.open(2, "POST", url, "");
+        var v1 = document.getElementById('addd1').value;
+        var v2 = document.getElementById('addd2').value;
+		uexXmlHttpMgr.setPostData(2, "0", "field", v1);
+		uexXmlHttpMgr.setPostData(2, "0", "field2", v2);
+		
+		uexXmlHttpMgr.setPostData(2, "1", "file", "res://test.pdf");
+
+
+        uexXmlHttpMgr.send(2,0,function(state,resStr,resCode,resInfo){
+                   document.getElementById('adre1').innerHTML  = "opCode:2<br/> state:" + state  + "<br/> result:" + resStr + "<br/>resCode:" + resCode + "<br/>resInfo:" + JSON.stringify(resInfo);
+                   },function(inProgress){
+                    document.getElementById('adre2').innerHTML =  "opCode:2; 上传进度:" + inProgress;
+                   });
+
+	}
+    
+	function xmlHttpGet(){
+		var url = document.getElementById('add').value;
+		uexXmlHttpMgr.open(1, "get", url, "");
+        uexXmlHttpMgr.setAppVerify(1,1);
+        var headers = {
+            myhead:"zzzzzz"
+        }
+        uexXmlHttpMgr.setHeaders(1,JSON.stringify(headers));
+        uexXmlHttpMgr.send(1,0,function(state,resStr,resCode,resInfo){
+                       			document.getElementById('adre').innerHTML  = "opCode:1" + "<br> state:" + state  + "<br> result:" + resStr + "<br/>resCode:" + resCode + "<br/>resInfo:" + JSON.stringify(resInfo);
+                       });
+		
+	}
+
+
+	function httpSuccess(opid,state,resStr,resCode,resInfo){
+		uexXmlHttpMgr.close(""+opid);
+		if(opid == 1){
+			document.getElementById('adre').innerHTML  = "opCode:" + opid + "<br> state:" + state  + "<br> result:" + resStr + "<br/>resCode:" + resCode + "<br/>resInfo:" + resInfo;
+		}else if(opid == 2){
+			document.getElementById('adre1').innerHTML  = "opCode:" + opid + "<br> state:" + state  + "<br> result:" + resStr + "<br/>resCode:" + resCode + "<br/>resInfo:" + resInfo;
+		}
+	}
+    
+    getCookie = function(){
+        var result = uexXmlHttpMgr.getCookie("http://192.168.1.4");
+        alert(result);
+    }
+
+	window.uexOnload = function(){
+
+	}
+		</script>
+  </head>
+<body class="um-vp " ontouchstart>
+	<div class="conbor">
+		<div class="consj">
+
+			<span>跨域异步请求接口测试：</span>
+			<span>1.GET</span>
+			<span>请求内容：(蝌蚪项目地址)</span>
+			<input class="textbox" type="text" id="add" value="http://192.168.1.4:45678/get?key1=value1&key2=value2&arr[]=aaa&arr[]=bbb&arr[]=ccc">
+			<input class="btn" type="button" value="取数据" onclick="xmlHttpGet();">
+			<span>请求结果：</span>
+            <div id="adre"><br/></div>
+
+			<span>2.POST</span>
+			<span>请求内容：(Discuz项目地址)</span>
+
+			地址：<input class="textbox" type="text" id="addd" value="http://192.168.1.4:45678/post">
+			数据一：<input class="textbox" type="text" id="addd1" value="dfdsfdsdfsd">
+			数据二：<input class="textbox" type="text" id="addd2" value="fdsfdfsfsdf">
+			<span id="sss"></span>
+			<input class="btn" type="button" value="发请求" onclick="xmlHttpPost();">
+
+			<span>请求结果：</span>
+			<div id="adre1"><br/></div>
+			<span>文件上传进度：</span>
+			<div id="adre2"><br/></div>
+			<br>
+            
+            <input class="btn" type="button" value="获取cookie" onclick="getCookie();">
+            
+		</div>
+	</div>
+</body>
+<script>
+
+</script>
+</html>
