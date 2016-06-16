@@ -33,7 +33,7 @@
     <script src="js/main.js">
     </script>
     <script type="text/javascript">
-        
+
              window.uexOnload = function() {
                  uexWidgetOne.cbError = function(opid,type,data){
                      alert(data);
@@ -73,11 +73,11 @@
         function closeMap(){
             uexGaodeMap.close();
         }
-            
+
             function openmap(){
                 var divTop = document.getElementById("topDiv").offsetTop + document.getElementById("topDiv").offsetHeight + 60;
-                var w = screen.availWidth-20;
-                var h = screen.availHeight-divTop;
+                var w = document.documentElement.clientWidth-20;
+                var h = document.documentElement.clientHeight/2;
                 var params = {
                     left:10,
                     top:divTop,
@@ -89,8 +89,8 @@
                 var data = JSON.stringify(params);
                 uexGaodeMap.open(data);
             }
-    
-    
+
+
     function setButtons(){
         for(var i=1;i<5;i++){
             var param={
@@ -104,10 +104,11 @@
                 height:16//必选
             }
             var jsonStr=JSON.stringify(param)
-            uexGaodeMap.setCustomButton(jsonStr);
+            var result=uexGaodeMap.setCustomButton(jsonStr);
+            alert("result:" + JSON.stringify(result));
         }
-        
-        
+
+
         var param={
             id:"20",//String 必选 按钮的唯一标识符
             bgImage:"res://button2.png",//String 必选 按钮背景图路径
@@ -117,7 +118,8 @@
             height:39//必选
         }
         var jsonStr=JSON.stringify(param)
-        uexGaodeMap.setCustomButton(jsonStr);
+        var result=uexGaodeMap.setCustomButton(jsonStr);
+        alert("result:" + JSON.stringify(result));
     }
     function deleteButtons(type){
         if(type == 1){
@@ -128,30 +130,36 @@
             uexGaodeMap.deleteCustomButton("12");
             uexGaodeMap.deleteCustomButton("14");
         }
-        uexGaodeMap.deleteCustomButton("20");
+        var result=uexGaodeMap.deleteCustomButton("20");
+        alert("callback:" + JSON.stringify(result));
     }
-    
+
     function showButtons(type){
         if(type == 1){
             var ids=["11","12","20"];
-            uexGaodeMap.showCustomButtons(JSON.stringify(ids));
+            var result=uexGaodeMap.showCustomButtons(JSON.stringify(ids));
+            alert("callback:" + JSON.stringify(result));
         }
         if(type == 2){
             var ids=["13","14","20"];
-            uexGaodeMap.showCustomButtons(JSON.stringify(ids));
+            var result=uexGaodeMap.showCustomButtons(JSON.stringify(ids));
+            alert("callback:" + JSON.stringify(result));
         }
     }
     function hideButtons(type){
         if(type == 1){
             var ids=["11","13","20"];
-            uexGaodeMap.hideCustomButtons(JSON.stringify(ids));
+            var result=uexGaodeMap.hideCustomButtons(JSON.stringify(ids));
+            alert("callback:" + JSON.stringify(result));
         }
         if(type == 2){
             var ids=["12","14","20"];
-            uexGaodeMap.hideCustomButtons(JSON.stringify(ids));
+            var result=uexGaodeMap.hideCustomButtons(JSON.stringify(ids));
+            alert("callback:" + JSON.stringify(result));
         }
         if(type == 3){
-            uexGaodeMap.hideCustomButtons();
+            var result=uexGaodeMap.hideCustomButtons();
+            alert("callback:" + JSON.stringify(result));
         }
     }
     </script>
@@ -170,15 +178,15 @@
      </div>
      <!--header结束--><!--content开始-->
      <div id="content" class="ub-f1 tx-l t-bla" style="">
-            
+
      <div class="conbor">
         <div class="consj" id="topDiv">
 
         <input type="button" value="打开" onclick="openmap();">
 
         <input type="button" value="关闭" onclick="closeMap();">
-            
-            
+
+
             <input type="button" value="设置按钮" onclick="setButtons();">
             <input type="button" value="删除按钮1" onclick="deleteButtons(1);">
             <input type="button" value="删除按钮2" onclick="deleteButtons(2);"><br>
@@ -187,14 +195,14 @@
             <input type="button" value="隐藏按钮1" onclick="hideButtons(1);">
             <input type="button" value="隐藏按钮2" onclick="hideButtons(2);">
             <input type="button" value="隐藏所有按钮" onclick="hideButtons(3);">
-         
-                
-        <p></p><br> 
-                
+
+
+        <p></p><br>
+
         </div>
       </div>
-        
-         
+
+
     </div>
     </div>
 </body>
