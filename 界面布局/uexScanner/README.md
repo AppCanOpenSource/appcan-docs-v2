@@ -89,7 +89,7 @@ uexScanner.setJsonData(jsonData);
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作ID,open失败时为1,正常时为0,失败时一般是用户禁止了APP摄像头权限 |
 | dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中CallbackdataType数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
+| data|JSONString | 是 | 扫描结果，摄像头打开失败时此参数无效。（code:扫描结果数据；type:条形码/二维码类型） |
 
 **平台支持:**
 
