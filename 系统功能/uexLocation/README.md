@@ -3,6 +3,7 @@
 定位插件
 ## 1.1、说明
 定位功能。同时使用GPS,GPRS,WIFI三种方式联合定位,取最先返回值。
+**注：**Android版本采用的坐标系为bd09(百度坐标系),iOS版本采用的坐标系为gcj02(中国国测局坐标系)。若需要统一坐标系,请将得到的坐标用[convertLocation](#convertLocation 转换坐标的方法 "convertLocation") 方法进行转换  
 ## 1.2、UI展示
 ![](http://newdocx.appcan.cn/docximg/160943n2015l6y16l.jpg)
 ## 1.3、开源源码
@@ -284,13 +285,12 @@ API版本:`uexLocation-3.0.26`
 
 ### Android
 
-API版本:`uexLocation-3.0.9`
+API版本:`uexLocation-3.0.8`
 
-最近更新时间:`2016-06-07`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.9 | 更新SDK版本到3.7.3;简化测试case |
 | 3.0.8 | 新增坐标系转换接口,支持wgs84,gcj02,bd09格式相互转换 |
 | 3.0.7 | 修复bug支持后台定位插件 |
 | 3.0.6 | sdk升级 |

@@ -471,6 +471,8 @@ uexJPush.disableLocalNotificationAlertView(1);
  
 ##2.3、回调方法
  ***
+ - 本插件为单例插件，用户可以在任意界面调用插件的接口，但回调始终传回给root页面（即root页面调用）。
+ 
 >### cbSetAlias  设置别名的回调方法
 
 `uexJPush.cbSetAlias(json)`
@@ -657,6 +659,7 @@ window.uexOnload=function(type){
 ```
 
 ##2.3、监听方法
+- 本插件为单例插件，用户可以在任意界面调用插件的接口，但回调始终传回给root页面（即root页面调用）。
 
 >### onReceiveMessage 收到了自定义消息
 
@@ -806,13 +809,19 @@ iOS 3.0.0+
 **示例**
 
 ```
-
 window.uexOnload=function(type){
-	
-	uexJPush.onReceiveConnectionChange=function(data){
-		alert(data);
-	}
-
+    uexJPush.onReceiveConnectionChange=function(data){
+    	var json = JSON.parse(data);
+        switch(json.connect)
+        {
+        	case '0':
+        	alert('已连接上');
+        	break;
+			case '1':
+        	alert('未连接');
+        	break;
+        }
+    }
 	...(其他回调或监听)
 }
 ```

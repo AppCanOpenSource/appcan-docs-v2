@@ -15,7 +15,7 @@
 
 * 在任何网页调用本插件,调用的是同一个插件实例;
 * 所有的API都是异步方法,不会直接返回值;
-* 所有的回调都会传到root页面(config.xml中配置的App起始页面)
+* 所有的回调都会传到“**root页面**”(config.xml中配置的App起始页面即为root页面)
 **以上内容非常重要**
 
 root页面收到回调后,可以通过uexWindow的相关方法传递到各个网页去,
@@ -29,7 +29,7 @@ uexWindow.evaluateMultiPopoverScript
 uexWindow.publishChannelNotification
 uexWindow.subscribeChannelNotification
 ````
-这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1390_1249) 内有描述，当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
+这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249) 内有描述，当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
  
 ##1.2、 UI展示
 暂无

@@ -99,8 +99,7 @@ iOS 6.0+
 **示例:**
 
 ```
-var jsonstr =
-'{
+var jsonstr ={
     "emojicons": "res://emojicons/emojicons.xml",
     "shares": "res://shares/shares.xml",
     "placeHold": "请输入内容",
@@ -114,7 +113,7 @@ var jsonstr =
     "sendBtnTextSize": "15.5",
     "sendBtnTextColor": "#FFF",
     "inputMode":1
-}';
+};
 uexChatKeyboard.open(jsonstr);
 ```
 >### close 关闭聊天输入 
@@ -158,7 +157,7 @@ uexChatKeyboard.close();
 **说明**
 
 获取输入工具条高度 
-通过回调[cbGetInputBarHeight](#getInputBarHeight 获取输入工具条高度)返回结果
+通过回调[cbGetInputBarHeight](#cbGetInputBarHeight 获取输入工具条高度的回调方法)返回结果
 
 **参数:**
 
@@ -244,7 +243,7 @@ uexChatKeyboard.changeWebViewFrame(600);
 
 >### cbGetInputBarHeight 获取输入工具条高度的回调方法
  
-`uexChatKeyboard.cnGetInputBarHeight(data);  `
+`uexChatKeyboard.cbGetInputBarHeight(data);  `
 
 **说明**
 
@@ -323,7 +322,7 @@ alert(data);
 
  
 
-`uexChatKeyboard. onShareMenuItem (data)  `
+`uexChatKeyboard.onShareMenuItem(data)  `
 
 **说明**
 
@@ -333,7 +332,7 @@ alert(data);
 
 |参数名称 | 参数类型| 是否必选|  说明 |
 | ----- | ----- | ----- | ----- |
-| data| Number | 是 | 享里各选项对应的位置 |
+| data| Number | 是 | 分享里各选项对应的位置 |
 
   
 **平台支持: ** 
@@ -359,7 +358,7 @@ alert(data);
 
 >### onVoiceAction 录音按钮的监听方法 
  
-`uexChatKeyboard. onVoiceAction (data) `
+`uexChatKeyboard.onVoiceAction(data) `
 
 **说明**
 
@@ -369,7 +368,7 @@ alert(data);
 
 **参数:**
 
-  
+ - JSON 字符串,内部字段： 
  
 ```
 var data={
@@ -394,7 +393,9 @@ iOS 6.0+
 
 ```
 uexChatKeyboard.onVoiceAction = function(data){
-    alert(data);
+var json = JSON.parse(data);
+alert(json.status);
+    //alert(data);
 }
 ```
 

@@ -443,7 +443,7 @@ uexWindow.evaluateMultiPopoverScript("", "multipop", "pop2", "alert('multipop')"
 | popName      | String | 是    | 名称                                       |
 | dataType     | Number | 是    | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入；2：既有url方式， 又有html内容方式 |
 | url          | String | 是    | url类型数据，支持“wgtroot://” 协议头，此协议头用于某些将项目部署在服务器上的appcan应用，在应用执行过程中 加载本地网页用。当dataType为0时，url支持相对路径、绝对路径。其中，当url以“wgtroot://” 协议开头时，支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件。 例如：当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页，如果在xxx.html页面中open一个窗口时，传入的data为“wgtroot://index.html" ,  那么本次open执行时，引擎将会到本应用沙箱目录的widget路径下去寻找此页面， 例如Android上找到的路径会是：file:///android_assert/widget/index.html 。 |
-| data         | String | 是    | data类型数据，用于当dataType为1时，把相应html的内容传进去。必如传入的是一个'<div>hello,world!</div>'|
+| data         | String | 是    | data类型数据，用于当dataType为1时，把相应html的内容传进去。必如传入的是一个`<div>hello,world!</div>`|
 | x            | Number | 是    | x坐标                                      |
 | y            | Number | 是    | y坐标                                      |
 | w            | Number | 是    | 宽度，为空时默认为window的宽度                       |
@@ -554,12 +554,9 @@ B.html
     window.uexOnload = function(type){
     if(!type){
     var s = window.getComputedStyle($$("content"), null);
-    uexWindow.preOpenStart();        uexWindow.openPopover("B1","0","B1.html","",0,int($
-    
-    $("header").offsetHeight),int(s.width),int(s.height),int(s.fontSize),"0");
-    uexWindow.openPopover("B2","0","B2.html","",0,int($$("header").offsetHeight),int(s.width),int
-    
-    (s.height),int(s.fontSize),"0");
+    uexWindow.preOpenStart();        
+	uexWindow.openPopover("B1","0","B1.html","",0,int($$("header").offsetHeight),int(s.width),int(s.height),int(s.fontSize),"0");
+    uexWindow.openPopover("B2","0","B2.html","",0,int($$("header").offsetHeight),int(s.width),int(s.height),int(s.fontSize),"0");
     uexWindow.preOpenFinish();
     }
     }
@@ -2067,7 +2064,71 @@ Android2.2+
 
 
 
+> ### hideStatusBar 隐藏状态栏
 
+`uexWindow.hideStatusBar()`
+
+**说明:**
+设置当前应用状态栏隐藏，一般使用场景非全屏（线上打包状态栏设置可选择）下，当前应用有状态栏
+
+**参数:**
+无
+
+**平台支持：**
+iOS7.0+
+
+**版本支持：**
+3.0.0+
+
+**示例**
+```
+uexWindow.hideStatusBar();
+```
+
+> ### showStatusBar 显示状态栏
+
+`uexWindow.showStatusBar()`
+
+**说明:**
+设置当前应用状态栏显示，一般使用场景非全屏（线上打包状态栏设置可选择）下，当前应用有状态栏
+
+**参数:**
+无
+
+**平台支持：**
+iOS7.0+
+
+**版本支持：**
+3.0.0+
+
+**示例**
+```
+uexWindow.showStatusBar();
+```
+> ### setStatusBarTitleColor 设置状态条上字体的颜色
+
+`uexWindow.setStatusBarTitleColor(color)`
+
+**说明:**
+设置状态条上字体的颜色
+
+**参数:**
+
+| 参数名称  | 参数类型   | 是否必选 | 说明                                       |
+| ----- | ------ | ---- | ---------------------------------------- |
+| color | Number | 是    | 状态条上字体的颜色，0为白色(iOS7以上为透明底,iOS7以下为黑底)， 1为黑色(iOS7以上为透明底,iOS7以下为白底) |
+
+**平台支持：**
+iOS6.0+
+
+**版本支持：**
+3.0.0+
+
+**示例：**
+
+```
+uexWindow.setStatusBarTitleColor(0);
+```
 
 > ### statusBarNotification 发送消息到状态栏
 
@@ -2095,30 +2156,7 @@ iOS6.0+
 ```
 uexWindow.statusBarNotification('title','msg');
 ```
-> ### setStatusBarTitleColor 设置状态条上字体的颜色
 
-`uexWindow.setStatusBarTitleColor(color)`
-
-**说明:**
-设置状态条上字体的颜色
-
-**参数:**
-
-| 参数名称  | 参数类型   | 是否必选 | 说明                                       |
-| ----- | ------ | ---- | ---------------------------------------- |
-| color | Number | 是    | 状态条上字体的颜色，0为白色(iOS7以上为透明底,iOS7以下为黑底)， 1为黑色(iOS7以上为透明底,iOS7以下为白底) |
-
-**平台支持：**
-iOS6.0+
-
-**版本支持：**
-3.0.0+
-
-**示例：**
-
-```
-uexWindow.setStatusBarTitleColor(0);
-```
 
 > ### share 调用系统分享
 
@@ -2795,7 +2833,27 @@ iOS6.0+
 ```
 uexWindow.hiddenBounceView(1);
 ```
+> ### topBounceViewRefresh 自动下拉刷新
 
+`uexWindow.topBounceViewRefresh()`
+
+**说明:**
+下拉刷新初始化完成后，调用接口可达到自动下拉刷新效果，调用一次仅刷新一次。
+
+**参数:**
+无
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.0.0+
+
+**示例**
+```
+uexWindow.topBounceViewRefresh();
+```
 
 
 
@@ -2946,26 +3004,7 @@ uexWindow.reload();
 
 ```
 
-> ### topBounceViewRefresh 自动下拉刷新
 
-`uexWindow.topBounceViewRefresh()`
-
-**说明:**
-下拉刷新初始化完成后，调用接口可达到自动下拉刷新效果，调用一次仅刷新一次。
-
-**参数:**
-无
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.0.0+
-
-**示例**
-
-`uexWindow.topBounceViewRefresh();`
 
 > ### createPluginViewContainer 创建插件容器
 
@@ -3144,45 +3183,7 @@ var params = {
         };
         uexWindow.setPageInContainer(JSON.stringify(params));
 ```
-> ### hideStatusBar 隐藏状态栏
 
-`uexWindow.hideStatusBar()`
-
-**说明:**
-隐藏状态栏
-
-**参数:**
-无
-
-**平台支持：**
-iOS7.0+
-
-**版本支持：**
-3.0.0+
-
-**示例**
-
-`uexWindow.hideStatusBar();`
-
-> ### showStatusBar 显示状态栏
-
-`uexWindow.showStatusBar()`
-
-**说明:**
-显示状态栏
-
-**参数:**
-无
-
-**平台支持：**
-iOS7.0+
-
-**版本支持：**
-3.0.0+
-
-**示例**
-
-`uexWindow.showStatusBar();`
 
 
 
@@ -3512,7 +3513,90 @@ iOS6.0+
 **版本支持：**
 3.0.0+
 
+> ### cbCreatePluginViewContainer 容器创建成功的回调方法
 
+`uexWindow.cbCreatePluginViewContainer (opId,dataType,data)`
+
+**参数:**
+
+| 参数名称     | 参数类型   | 是否必选 | 说明                            |
+| -------- | ------ | ---- | ----------------------------- |
+| opId     | Number | 是    | 创建成功的容器id                     |
+| dataType | Number | 是    | 参数类型详见CONSTANT中Callback方法数据类型 |
+| data     | String | 是    | 返回的数据，success 创建成功            |
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.1.0+
+
+**示例：**
+
+```
+window.uexOnload = function(type){
+       uexWindow.cbCreatePluginViewContainer = function(opId, dataType, data){
+			alert("cbCreatePluginViewContainer: " + data );
+	}
+}
+```
+> ### cbClosePluginViewContainer 容器关闭成功的回调方法
+
+`uexWindow.cbClosePluginViewContainer(opId,dataType,data)`
+
+**参数:**
+
+| 参数名称     | 参数类型   | 是否必选 | 说明                            |
+| -------- | ------ | ---- | ----------------------------- |
+| opId     | Number | 是    | 被关闭的容器id                      |
+| dataType | Number | 是    | 参数类型详见CONSTANT中Callback方法数据类型 |
+| data     | String | 是    | 返回的数据，success 容器关闭成功          |
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.1.0+
+
+**示例：**
+
+```
+window.uexOnload = function(type){
+       uexWindow.cbClosePluginViewContainer = function(opId, dataType, data){
+			alert("cbClosePluginViewContainer: " + data );
+	}
+}
+```
+> ### onPluginContainerPageChange容器页面切换回调
+
+`uexWindow.onPluginContainerPageChange(opId,dataType,data)`
+
+**参数:**
+
+| 参数名称     | 参数类型   | 是否必选 | 说明                            |
+| -------- | ------ | ---- | ----------------------------- |
+| opId     | Number | 是    | 页面切换的容器id                     |
+| dataType | Number | 是    | 参数类型详见CONSTANT中Callback方法数据类型 |
+| data     | Number | 是    | 容器当前显示页面的index                |
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.1.0+
+
+**示例：**
+
+```
+window.uexOnload = function(type){
+       uexWindow.onPluginContainerPageChange= function(opId, dataType, data){
+			alert("onPluginContainerPageChange: " + data );
+	}
+}
+```
 > ### cbSlidingWindowState 获取侧滑窗口显示情况的回调方法
 
 `uexWindow.cbSlidingWindowState(state)`
@@ -3529,6 +3613,7 @@ iOS6.0+
 
 **版本支持：**
 3.0.0+
+
 
 
 ## 2.5 监听方法
@@ -3851,90 +3936,7 @@ iOS6.0+
 
 
 
-> ### cbCreatePluginViewContainer 容器创建成功的回调方法
 
-`uexWindow.cbCreatePluginViewContainer (opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                            |
-| -------- | ------ | ---- | ----------------------------- |
-| opId     | Number | 是    | 创建成功的容器id                     |
-| dataType | Number | 是    | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data     | String | 是    | 返回的数据，success 创建成功            |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.1.0+
-
-**示例：**
-
-```
-window.uexOnload = function(type){
-       uexWindow.cbCreatePluginViewContainer = function(opId, dataType, data){
-			alert("cbCreatePluginViewContainer: " + data );
-	}
-}
-```
-> ### cbClosePluginViewContainer 容器关闭成功的回调方法
-
-`uexWindow.cbClosePluginViewContainer(opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                            |
-| -------- | ------ | ---- | ----------------------------- |
-| opId     | Number | 是    | 被关闭的容器id                      |
-| dataType | Number | 是    | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data     | String | 是    | 返回的数据，success 容器关闭成功          |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.1.0+
-
-**示例：**
-
-```
-window.uexOnload = function(type){
-       uexWindow.cbClosePluginViewContainer = function(opId, dataType, data){
-			alert("cbClosePluginViewContainer: " + data );
-	}
-}
-```
-> ### onPluginContainerPageChange容器页面切换回调
-
-`uexWindow.onPluginContainerPageChange(opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                            |
-| -------- | ------ | ---- | ----------------------------- |
-| opId     | Number | 是    | 页面切换的容器id                     |
-| dataType | Number | 是    | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data     | Number | 是    | 容器当前显示页面的index                |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.1.0+
-
-**示例：**
-
-```
-window.uexOnload = function(type){
-       uexWindow.onPluginContainerPageChange= function(opId, dataType, data){
-			alert("onPluginContainerPageChange: " + data );
-	}
-}
-```
 
 > ### onSlidingWindowStateChanged 侧滑菜单状态改变的监听方法
 

@@ -213,10 +213,10 @@ iOS 3.0.0+
 `uexTabBarWithPopMenu.onTabItemClick(json);`
 
 **参数:**
-
+- JSON 字符串,内部字段：
 ```
 var json = {
-    index://(必选) 索引
+    index://(必选) 索引  默认分别从 0 开始计数
 }
 ```
 
@@ -234,7 +234,9 @@ iOS 3.0.0+
 
 ```
     uexTabBarWithPopMenu.onTabItemClick = function(data){
-        alert(data);
+        alert("tabItemCallback:"+data);
+    	var obj = JSON.parse(data)        
+        alert(obj.index);
     }
 ```
 
@@ -243,10 +245,10 @@ iOS 3.0.0+
 `uexTabBarWithPopMenu.onPopMenuItemClick(json);`
 
 **参数:**
-
+- JSON 字符串,内部字段：
 ```
 var json = {
-    index://(必选) 索引
+    index://(必选) 索引  默认分别从 0 开始计数
 }
 ```
 
@@ -264,7 +266,9 @@ iOS 3.0.0+
 
 ```
     uexTabBarWithPopMenu.onPopMenuItemClick = function(data){
-        alert(data);
+        alert("PopMenuItemCallback:"+data);
+	    var obj = JSON.parse(data)        
+        alert(obj.index);
     }
 ```
 
