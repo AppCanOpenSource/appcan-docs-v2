@@ -413,7 +413,7 @@ uexContact.modifyItem("张三","13436827900","widgetone@3g2win.com");
 
 **说明:**
 
-添加联系人 回调方法[cbAddItem](#cbAddItem 添加联系人的回调方法)
+vCard方式添加联系人 回调方法[cbAddItem](#cbAddItem 添加联系人的回调方法)
 
 **参数:**
 
@@ -434,8 +434,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexContact.addItemWithVCard(`BEGIN:VCARD\nVERSION:3.0\nN:韩;超\nTEL:22334752\nEMAIL:zhuliang@ceair.com
-\nADR:;;绥宁路628号;;上海;200335\nORG:中国东方航空股有限公司\nTITLE:项目经理\nURL:mp.ceair.com\nNOTE:名\347\211\214二维码\nEND:VCARD`);
+uexContact.addItemWithVCard('BEGIN:VCARD\nVERSION:3.0\nN:韩;超\nTEL:22334752\nEMAIL:zhuliang@ceair.com\nADR:;;绥宁路628号;;上海;200335\nORG:中国东方航空股有限公司\nTITLE:项目经理\nURL:mp.ceair.com\nNOTE:名\347\211\214二维码\nEND:VCARD','');
 ```
 ## 2.2、回调方法
 
@@ -460,7 +459,7 @@ uexContact.addItemWithVCard(`BEGIN:VCARD\nVERSION:3.0\nN:韩;超\nTEL:22334752\n
 ```
 window.uexOnload = function(){
     uexContact.cbOpen = function(opCode, dataType, data) {
-        var obj = eval(`(` + data + `)`);
+        var obj = eval('('+ data + ')');
         alert(data);
    }
 }

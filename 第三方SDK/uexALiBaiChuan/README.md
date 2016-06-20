@@ -323,7 +323,7 @@ uexALiBaiChuan.openItemDetailPageByURL(JSON.stringify(params));
 `uexALiBaiChuan.cbInit(data)`
 
 **参数:**
-
+data为json对象
 ```
 var data ={
     status:,
@@ -362,7 +362,7 @@ window.uexOnload = function(){
 `uexALiBaiChuan.cbLogin(data)`
 
 **参数:**
-
+data为json对象
 ```
 var data ={
 
@@ -400,7 +400,7 @@ window.uexOnload = function(){
 `uexALiBaiChuan.cbLogout(data)`
 
 **参数:**
-
+data为json对象
 ```
 var data ={
 
@@ -455,8 +455,7 @@ window.uexOnload = function(){
           };
   uexALiBaiChuan.openItemDetailPageById(JSON.stringify(params));  
 ```
-这里教个省钱的测试方法，选中购买，到了付款界面退出，然后在去购物车找到这个订单，取消购买，
-看看是否能拿到钱了，果然有了，但是是显示订单失效，当然了，你取消了嘛
+这里有个省钱的测试方法，选中购买，到了付款界面退出，然后在去购物车找到这个订单，取消购买，看看是否能拿到钱，这里会显示有了，但是显示订单失效，原因是你取消了。
 ![image](./img/06.png)
 给你看看成功的订单，
 ![image](./img/07.png)

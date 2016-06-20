@@ -163,8 +163,8 @@ param 是JSON字符串
 
 ```
 var param = {
-    videoPath: //合成后视屏的路径, 当 status为0时存在
-    thumbPath: //缩略图的路径, 当 status为0时存在
+    videoPath: //合成后视屏的路径, 
+    thumbPath: //缩略图的路径,  
 }
 ```
 

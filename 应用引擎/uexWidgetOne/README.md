@@ -6,7 +6,7 @@
  
 ` uexWidgetOne.platformName`
 **说明:**
-同步获取系统名称，如Android，iOS等。
+同步获取系统名称，如android，iOS等。
 **平台支持：**
 Android2.2+
 iOS6.0+
