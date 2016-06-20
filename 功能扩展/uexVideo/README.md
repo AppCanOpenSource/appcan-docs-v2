@@ -9,6 +9,14 @@
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=194_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
+
 # 2、API概览
 
 ## 2.1、方法
@@ -28,14 +36,6 @@
 | path | String | 是 | 视频文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 | orientation | Number | 否 | 1:强制横屏,仅iOS有效 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -81,15 +81,6 @@ var param = {
 	* 此参数传true时showScaleButton会被强制设置为false,传入的参数将被忽略。
 	* 此参数传true时,width,height,x,y,scrollWithWeb 这5个参数无效。
 
-**系统支持**
-
-iOS 7.0+
-Android 2.3+
-
-**版本支持:**
-
-iOS 3.0.5+
-Android 3.0.6+
 
 **示例:**
 
@@ -121,16 +112,6 @@ uexVideo.openPlayer(JSON.stringify(param))
 **参数:**
 
 无
-
-**系统支持**
-
-iOS 7.0+
-Android 2.3+
-
-**版本支持:**
-
-iOS 3.0.5+
-Android 3.0.6+
 
 **示例:**
 
@@ -172,15 +153,7 @@ var param = {
  
  * 说明:bitRateType 视频录制时使用的采样率,采样率越高,视频越清晰,质量越高,视频文件越大。
 
-**系统支持**
 
-iOS 7.0+
-Android 2.3+
-
-**版本支持:**
-
-iOS 3.0.5+
-Android 3.0.6+
 
 **示例:**
 
@@ -207,9 +180,7 @@ uexVideo.record(JSON.stringify(params));
 | dataType| Number | 是 | 参数类型详见CONSTANT中[Callback](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "Callback")dataType数据类型 |
 | data | String | 是 | 视频路径 |
 
-**版本支持:**
 
-3.0.0+
 
 **示例**
 
@@ -239,15 +210,7 @@ var param = {
 }
 ```
 
-**系统支持**
 
-iOS 7.0+
-Android 2.3+
-
-**版本支持:**
-
-iOS 3.0.5+
-Android 3.0.6+
 
 **示例**
 
@@ -273,15 +236,7 @@ var param = {
 }
 ```
 
-**系统支持**
 
-iOS 7.0+
-Android 2.3+
-
-**版本支持:**
-
-iOS 3.0.5+
-Android 3.0.6+
 
 **示例**
 
@@ -313,15 +268,7 @@ var param = {
 | result| Number | 是 | 录制结果。 0-录制成功 1-用户取消录制 2-视频录制或者压缩过程发送错误 |
 | path| String | 否 | 仅录制成功时才会有此参数,录制压缩得到的视频文件路径 |
 
-**系统支持**
 
-iOS 7.0+
-Android 2.3+
-
-**版本支持:**
-
-iOS 3.0.5+
-Android 3.0.6+
 
 **示例**
 
@@ -345,13 +292,7 @@ window.uexOnload = function(){
 | ----- | ----- | ----- |
 | progress | Number | 压缩进度值,取值范围为0~1 |
 
-**系统支持**
 
-iOS 7.0+
-
-**版本支持:**
-
-iOS 3.0.5+
 
 **示例**
 
