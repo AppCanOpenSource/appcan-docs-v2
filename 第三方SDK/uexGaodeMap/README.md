@@ -1399,7 +1399,7 @@ alert("callback:" + JSON.stringify(result));
 
 > ### showCustomButtons 显示自定义按钮
 
-`uexGaodeMap.showCustomButtons(ids,function(data){})`
+`uexGaodeMap.showCustomButtons(ids)`
 
 **参数:**
 
@@ -1434,7 +1434,7 @@ alert("callback:" + JSON.stringify(result));
 
 > ### hideCustomButtons 隐藏自定义按钮
 
-`uexGaodeMap.hideCustomButtons(ids,function(data){})`
+`uexGaodeMap.hideCustomButtons(ids)`
 
 **参数:**
 
