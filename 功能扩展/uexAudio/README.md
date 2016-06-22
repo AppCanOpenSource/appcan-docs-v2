@@ -7,6 +7,16 @@
 ## 1.3、开源源码:
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=154_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。  
+
+
 # 2、API概览
 
 ## 2.1、方法
@@ -22,16 +32,7 @@
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path | String | 是 | 音频文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes音频文件路径wgt://,res://,file://,支持网络协议地址路径http://, https:// |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+| path | String | 是 | 音频文件路径,支持wgt://,res://,file://http://, https:// |
 
 **示例:**
 
@@ -52,15 +53,6 @@ uexAudio.open(url);
 | ----- | ----- | ----- | ----- |
 | repeats | Number | 是 | 重复次数,-1:无限循环,0:不循环 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
@@ -76,16 +68,7 @@ uexAudio.play(0);
 
 **参数:**
 
-  无
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+无
 
 **示例:**
 
@@ -102,16 +85,7 @@ uexAudio.pause();
 
 **参数:**
 
-  无
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-  3.0.0+
+无
 
 **示例:**
 
@@ -128,16 +102,7 @@ uexAudio.replay();
 
 **参数:**
 
-  无
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+无
 
 **示例:**
 
@@ -154,16 +119,7 @@ uexAudio.stop()
 
 **参数:**
 
-  无
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+无
 
 **示例:**
 
@@ -183,76 +139,12 @@ uexAudio.volumeUp()
 
   无
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
 uexAudio.volumeDown()
 ```
-> ### openPlayer  打开音乐播放器
 
-`uexAudio.openPlayer(paths,index)`
-
-**说明:**
-
-打开音乐播放器
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| paths | String | 是 | 要播放的所有音频路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes音频文件路径wgt://,res://,file://,以逗号分隔 |
-| index | Number | 是 | 索引 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-var paths=new Array("res://1.mp3","res://2.mp3") ;   
-uexAudio.openPlayer(paths,"0");
-```
-> ### closePlayer 关闭播放器
-
-`uexAudio.closePlayer()`
-
-**说明:**
-
-关闭播放器
-
-**参数:**
-
-  无
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-uexAudio.closePlayer();
-```
 > ### startBackgroundRecord 开始后台录音
 
 `uexAudio.startBackgroundRecord(mode,fileName)`
@@ -266,16 +158,8 @@ uexAudio.closePlayer();
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | mode | Number | 是 | 要录音格式,0:AMR格式,1:CAF格式,2:MP3格式。Android只支持AMR格式,MP3格式。 |
-| fileName | String | 是 | 文件名称,默认以当前时间作为文件名 |
+| fileName | String | 否 | 录音文件名称,不传时默认以当前时间作为文件名 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -284,59 +168,34 @@ uexAudio.startBackgroundRecord(1,document.getElementById('RecordName').value);
 ```
 > ### stopBackgroundRecord 停止后台录音
 
-`uexAudio.stopBackgroundRecord()`
+`uexAudio.stopBackgroundRecord(cb)`
 
 **说明:**
 
-停止后台录音 回调方法[cbBackgroundRecord](#cbBackgroundRecord  停止后台录音的回调方法)
-
-**参数:**
-
-  无
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-uexAudio.stopBackgroundRecord();
-``` 
-> ### record 打开录音界面
-
-`uexAudio.record(mode,fileName)`
-
-**说明:**
-
-打开录音界面 回调方法[cbRecord](#cbRecord  打开录音界面的回调方法 "cbRecord")
+停止后台录音 
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| mode | Number | 是 | 录音格式,0:AMR格式,1:CAF格式,2:MP3格式。Android只支持AMR格式,MP3格式。 |
-| fileName | String | 是 | 文件名称,默认以当前时间作为文件名 |
+| cb | Function | 是 | 录音结束后,会调用此回调函数 |
 
-**平台支持:**
+**回调参数**:
 
-Android2.2+
-iOS6.0+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| filePath | String | 是 | 录音文件的路径 |
 
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
 ```
-uexAudio.record(1,"20153343443")
-```
+uexAudio.stopBackgroundRecord(function(path){
+	alert(path);
+});
+``` 
+
+
 > ### openSoundPool 打开音效池
 
 `uexAudio.openSoundPool()`
@@ -348,15 +207,6 @@ uexAudio.record(1,"20153343443")
 **参数:**
 
   无
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -376,16 +226,8 @@ uexAudio.openSoundPool()；
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | soundID | Number | 是 | 唯一标识符 |
-| path | String | 是 | 音效文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes音频文件路径wgt://,res://,file://|
+| path | String | 是 | 音效文件路径,支持wgt://,res://,file://|
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -406,15 +248,6 @@ uexAudio.addSound(2,"res://1.mp3")
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 唯一标识符 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
@@ -434,15 +267,6 @@ uexAudio.playFromSoundPool(2)
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 唯一标识符 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
@@ -459,15 +283,6 @@ uexAudio.stopFromSoundPool(2)
 **参数:**
 
   无
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-  3.0.0+
 
 **示例:**
 
@@ -499,15 +314,6 @@ var params = {
 | ----- | ----- | ----- | ----- |
 | playMode | String | 是 | 播放模式:0为正常扩音器模式;1为听筒模式; |
 
-**平台支持:**
-
-Android2.2+
-
-**版本支持:**
-
-  Android 3.0.6+
-  
-
 **示例:**
 
 ```
@@ -534,14 +340,6 @@ uexAudio.setPlayMode(param)；
 | ----- | ----- | ----- | ----- |
 | params | String | 是 | 设置听筒感应开关,1为开启,0为关闭 |
 
-**平台支持:**
-
-Android2.2+
-
-**版本支持:**
-
-  Android 3.0.8+
-
 **示例:**
 
 ```
@@ -551,59 +349,8 @@ uexAudio.setProximityState('1');
 uexAudio.play(0);
 ```
 
-## 2.2、回调方法
-> ### cbRecord  打开录音界面的回调方法
+## 2.2、监听方法
 
-`uexAudio.cbRecord(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number | 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType | Number | 是 | 数据类型,详见[CONSTENT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTENT")中Callback dataType数据类型 |
-| data | String | 是 | 文件路径 |
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-function cbRecord (opId,dataType,data) {
-    alert(data);
-}
-window.uexOnload = function(){
-    uexAudio.cbRecord = cbRecord ;
-}
-```
-> ### cbBackgroundRecord  停止后台录音的回调方法
-
-`uexAudio.cbBackgroundRecord(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number | 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType | Number | 是 | 数据类型,详见[CONSTENT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTENT")中Callback dataType数据类型 |
-| data | String | 是 | 文件路径 |
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-function cbBackgroundRecord(opId,dataType,data) {
-    alert(data);
-}
-window.uexOnload = function(){
-    uexAudio.cbBackgroundRecord = cbBackgroundRecord;
-}
-```
 
 > ### onPlayFinished  播放完成后的监听方法
 
@@ -614,10 +361,6 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | loopTime | Number | 是 | 已播放次数 |
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
