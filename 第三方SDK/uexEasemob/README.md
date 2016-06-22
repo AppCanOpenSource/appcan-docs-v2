@@ -16,20 +16,26 @@
 * 在任何网页调用本插件,调用的是同一个插件实例;
 * 所有的API都是异步方法,不会直接返回值;
 * 所有的回调都会传到root页面(config.xml中配置的App起始页面)
+
 **以上内容非常重要**
 
 root页面收到回调后,可以通过uexWindow的相关方法传递到各个网页去,
 以下方法是您可能要用到的——
-````
- 传递给某个窗口
-uexWindow.evaluateScript;
-uexWindow.evaluatePopoverScript
-uexWindow.evaluateMultiPopoverScript
+
+ 传递给某个窗口:
+ 
+* uexWindow.evaluateScript;
+* uexWindow.evaluatePopoverScript
+* uexWindow.evaluateMultiPopoverScript
+
  传递给某些窗口:
-uexWindow.publishChannelNotification
-uexWindow.subscribeChannelNotification
-````
-这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1390_1249) 内有描述，当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
+ 
+* uexWindow.publishChannelNotification
+* uexWindow.subscribeChannelNotification
+
+这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1318_1249) 内有描述
+
+当然,也可[下载Demo](http://plugin.appcan.cn/details.html?id=406_index) 参考Demo内的调用。
  
 ##1.2、 UI展示
 暂无
@@ -48,12 +54,23 @@ Path Types
 | wgts:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ | 
 | wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ | 
 | file:///sdcard/ | /storage/emulated/0/ | 无 | 
- 
+
+## 1.5、平台版本支持
+
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.6、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用。
+
+在后续版本中新添加的接口会在文档中额外说明。 
 
 #2、API概述		
 ##2.1、Initialization
 ***
->### initEasemob(param)  初始化
+>### initEasemob(param,function(data){})  初始化
 
 param为json字符串
 
@@ -65,10 +82,48 @@ param为json字符串
 	isAutoAcceptGroupInvitation:,//可选参数 是否开启用户自动同意群邀请, 1-开启 2-关闭 默认为开启(此参数为3.0.22后新加入)
 };
 ```
+data为json字符串 
 
+```
+var data = "EaseMobSDK initialized successfully!" 或 "EaseMobSDK has already been initialized!"
+
+```
 	注:自动登录功能Android SDK 默认开启,iOS SDK默认关闭。
 	
->### login(param)   登录
+>### login(param,function(data){})   登录
+
+param为json字符串
+
+```
+var param = {
+	username:,//用户名
+	password:,//密码
+};
+
+```
+data为json对象 
+
+```
+var data = {
+	result:,//1-成功,2-失败
+	msg:,//提示信息
+};
+
+```
+
+>###logout(function(data){})   退出登录
+
+data为json对象 
+
+```
+var data = {
+	result:,//1-登出成功,2-登出失败
+	message:,//提示信息
+};
+
+```
+
+>###registerUser(param,function(data){})  注册
 
 param为json字符串
 
@@ -78,41 +133,16 @@ var param = {
 	password:,//密码
 };
 ```
-
->###cbLogin(param)  登陆回调
-
-param为json字符串
+data为json对象 
 
 ```
-var param = {
+var data = {
 	result:,//1-成功,2-失败
 	msg:,//提示信息
 };
-```
-
->###logout()   退出登录
-
->###registerUser(param)  注册
-
-param为json字符串
 
 ```
-var param = {
-	username:,//用户名
-	password:,//密码
-};
-```
 
->###cbRegisterUser(param) 注册回调
-
-param为json字符串
-
-```
-var param = {
-	result:,//1-成功,2-失败
-	msg:,//提示信息
-};
-```
 
 >###updateCurrentUserNickname(param)   更新当前用户的昵称
 
@@ -127,16 +157,12 @@ var param = {
 
 	注:此方法主要为了在苹果推送时能够推送昵称(nickname)而不是userid,一般可以在登陆成功后从自己服务器获取到个人信息,然后拿到nick更新到环信服务器。并且,在个人信息中如果更改个人的昵称,也要把环信服务器更新下nickname 防止显示差异。
 
->###getLoginInfo() 获取当前登陆信息(仅iOS可用)
+>###getLoginInfo(function(data){}) 获取当前登陆信息(仅iOS可用)
 
- 
-
->###cbGetLoginInfo(param 获取当前登陆信息的回调(仅iOS)
-
-param为json字符串
+data为json对象
 
 ```
- var param={
+ var data ={
  	
 	userInfo://当前登陆用户信息
 	isLoggedIn://当前是否已有登录用户  1-是 2-否
@@ -144,6 +170,9 @@ param为json字符串
 	isAutoLoginEnabled://是否自动登录  1-是 2-否
 };
 ```
+ 
+
+
 
 >###onConnected(); 已连接上
 >###onDisconnected(param) 链接断开
@@ -201,7 +230,6 @@ var param = {
 >###sendText(param) 发送文本消息及表情
 
 **说明:**
-
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -218,7 +246,6 @@ var param = {
 >###sendFile(param) 发送文件
 
 **说明:**
-
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -236,7 +263,6 @@ var param = {
 >###sendPicture(param)//发送图片
 
 **说明:**
-
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -254,7 +280,6 @@ var param = {
 >###sendLocationMsg(param)//发送地理位置信息
 
 **说明:**
-
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -273,7 +298,6 @@ var param = {
 >###sendVoice(param)//发送语音
 
 **说明:**
-
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -293,7 +317,6 @@ var param = {
 >###sendVideo(param) 发送视频
 
 **说明:**
-
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -313,7 +336,6 @@ var param = {
 >###sendCmdMessage(param) 发送透传消息
 
 **说明:**
-
 环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
@@ -345,7 +367,7 @@ var param = {
 
 * 受iOS后台机制所限,当应用在后台持续一段时间后,环信服务器与App的连接将会断开,此时showNotificationInBackgroud参数无效,需要走APNs通道才能收到新消息以及弹出提示通知。
 
->###getMessageById(param) 根据id获取消息记录 
+>###getMessageById(param,function(data){}) 根据id获取消息记录 
 
 param为json字符串
 
@@ -354,16 +376,14 @@ var param = {
 	msgId:,//消息ID
 };
 ```
-
->###cbGetMessageById(param) 得到一条消息记录 
-
-param为json字符串
+data为json对象
 
 ```
-var param = {
+var data = {
 	msg:,// EMMessage的json格式对象
 };
 ```
+
 
 >###sendHasReadResponseForMessage(param) 发送消息已读回执
 
@@ -394,7 +414,7 @@ var param ={
 
 ##2.3、Conversation
 ***
->###getConversationByName(param) 根据用户名获取conversation对象
+>###getConversationByName(param,function(data){}) 根据用户名获取conversation对象
 
 param为json字符串
 
@@ -404,18 +424,16 @@ var param = {
 	chatType:,//聊天类别 0 - 个人 1 - 群组(仅iOS需要,默认0)
 }
 ```
-
->###cbGetConversationByName(param) 回调
-
-param为json字符串
+data为json对象
 
 ```
-var param = {
+var data = {
 	conversation:,// EMConversation的json格式对象,格式见附录
 };
 ```
 
->###getMessageHistory(param) 获取聊天记录
+
+>###getMessageHistory(param,function(data){}) 获取聊天记录
 
 param为json字符串
 
@@ -427,18 +445,16 @@ var param = {
 	pagesize:,//分页大小,为0时获取所有消息,startMsgId可不传
 };
 ```
-
->###cbGetMessageHistory(param) 获取聊天记录回调
-
-param为json字符串
+data为json对象
 
 ```
-var param = {
+var data = {
 	messages:,//List<EMMessage>的json格式对象
 };
 ```
 
->###getUnreadMsgCount(param) 获取未读消息数量
+
+>###getUnreadMsgCount(param,function(data){}) 获取未读消息数量
 
 param为json字符串
 
@@ -448,13 +464,10 @@ var param = {
     chatType:,//聊天类别 0-单聊 1-群聊(仅iOS需要,默认0)
 };
 ```
-
->###cbGetUnreadMsgCount(param) 获取未读消息数量回调
-
-param为json字符串
+data为json对象
 
 ```
-var param = {
+var data = {
 	count:,//未读消息数
 };
 ```
@@ -473,7 +486,7 @@ var param = {
 >###resetAllUnreadMsgCount(); 所有未读消息数清零(仅Android可用)
 
 	
->###getMsgCount(param)获取消息总数(仅Android可用) 
+>###getMsgCount(param,function(data){})获取消息总数(仅Android可用) 
 
 param为json字符串
 
@@ -483,15 +496,14 @@ var param = {
 };
 ```
 
->###cbGetMsgCount(param) 获取消息总数回调(仅Android可用)
-
-param为json字符串
+data为json对象
 
 ```
-var param = {
+var data = {
 	msgCount:,//消息总数
 };
 ```
+
 
 >###clearConversation(param) 清空会话聊天记录(仅Android可用)
 
@@ -528,35 +540,33 @@ var param = {
 
 >###deleteAllConversation(); 删除所有会话记录(包括本地)
 
->###getChatterInfo(); 获取聊天对象信息
+>###getChatterInfo(function(data){}); 获取聊天对象信息
 
->###cbGetChatterInfo(param); 获取聊天对象信息回调
-
-	param为list<EMChatterInfo>,一个由EMChatterInfo结构组成的数组。
+data为list<EMChatterInfo>,一个由EMChatterInfo结构组成的数组。
 	
 * 包含所有好友和群组的聊天对象信息
 * EMChatterInfo结构说明见附录
 
->###getTotalUnreadMsgCount(); 获取总计未读消息数
 
->###cbGetTotalUnreadMsgCount(param); 获取总计未读消息数回调
+>###getTotalUnreadMsgCount(function(data){}); 获取总计未读消息数
 
-param为json字符串
+data为json对象
 
 ```
-var param ={
+var data ={
 	count:,//总计未读消息数
 };
 ```
 
->###getRecentChatters(); 获取近期聊天对象信息
->###cbGetRecentChatters(param);
 
-	param为list<EMChatterInfo>,一个由EMChatterInfo结构组成的数组。
+>###getRecentChatters(function(data){}); 获取近期聊天对象信息
+
+data为list<EMChatterInfo>,一个由EMChatterInfo结构组成的数组。
 	
 * 仅包含有聊天记录的聊天对象(包括非好友)
 * param已按lastMsg的时间戳排序,最后接收消息的时间越新,排序越靠前
 * EMChatterInfo结构说明见附录
+
 
 ##2.4、Friend
 ***
@@ -611,18 +621,18 @@ var param = {
 };
 ```
 
->###getContactUserNames();//获取好友列表
+>###getContactUserNames(function(data){});//获取好友列表
 
->###cbGetContactUserNames(param)//获取好友列表回调
-
-param为json字符串
+data为json对象
 
 ```
-var param = {
+var data = {
 	usernames:,//用户姓名字符串构成的数组	
 	
 };
 ```
+
+
 
 	
 
@@ -670,17 +680,17 @@ var param = {
 };
 ```
 
->###getBlackListUsernames();//获取黑名单列表
-
->###cbGetBlackListUsernames(param)//获取黑名单列表回调
-
-param为json字符串
+>###getBlackListUsernames(function(data){});//获取黑名单列表
+>
+data为json对象
 
 ```
-var param = {
+var data = {
 	usernames:,//List<String> json格式
 };
 ```
+
+
 
 >###addUserToBlackList(param)//把用户加入到黑名单
 
@@ -887,7 +897,7 @@ var param = {
 };
 ```
 
->###getGroupsFromServer(param)//从服务器获取自己加入的和创建的群聊列表
+>###getGroupsFromServer(param,function(data){})//从服务器获取自己加入的和创建的群聊列表
 
 param为json字符串
 
@@ -896,20 +906,18 @@ var param = {
 	loadCache://是否从本地加载缓存,(默认为false,从网络获取)
 };
 ```
-
->###cbGetGroupsFromServer(param)//从服务器获取自己加入的和创建的群聊列表回调
-
-param为json字符串
+data为json对象
 
 ```
-var param = {
+var data = {
 	result://0-成功,1-失败
 	grouplist://List<EMGroup> json格式
 	errorMsg:
 };
 ```
 
->###getAllPublicGroupsFromServer(param);//获取所有公开群列表
+
+>###getAllPublicGroupsFromServer(param,function(data){});//获取所有公开群列表
 
 param为json字符串
 
@@ -919,13 +927,10 @@ var param = {
 	cursor://获取公开群的cursor,首次调用传空即可
 };
 ```
-
->###cbGetAllPublicGroupsFromServer(param)//获取所有公开群列表回调
-
-param为json字符串
+data为json对象
 
 ```
-var param = {
+var data = {
 	result://0-成功,1-失败
 	grouplist:List< EMGroup> json格式 见附录
 	errorMsg:
@@ -933,7 +938,8 @@ var param = {
 };
 ```
 
->###getGroup(param)//获取群详情
+
+>###getGroup(param,function(data){})//获取群详情
 
 param为json字符串
 
@@ -943,16 +949,14 @@ var param = {
 	loadCache://是否从本地加载缓存,(默认为false,从网络获取)
 };
 ```
-
->###cbGetGroup(param)//获取群详情回调
-
-param为json字符串
+data为json对象
 
 ```
-var param = {
+var data = {
 	//EMGroup 对象json格式  
 };
 ```
+
 
 >###blockGroupMessage(param)//屏蔽群消息
 
@@ -1007,7 +1011,7 @@ var param = {
 };
 ```
 
->###getBlockedUsers(param)//获取群组的黑名单用户列表(iOS 3.0.22后支持)
+>###getBlockedUsers(param,function(data){})//获取群组的黑名单用户列表(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -1016,16 +1020,14 @@ var param = {
 	groupId:,// 
 };
 ```
-
->###cbGetBlockedUsers(param)//获取群组的黑名单用户列表回调(iOS 3.0.22后支持)
-
-param为json字符串
+data为json对象
 
 ```
-	var param = {
+	var data = {
 	usernames:,// List<String> json格式 
 };
 ```
+
 
 >###onGroupUpdateInfo(param)//群组信息更新的监听(仅iOS)
 
@@ -1039,10 +1041,8 @@ var param={
 
 * 每当添加/移除/更改角色/更改主题/更改群组信息之后,都会触发此回调
 
->###onDidJoinedGroup(param)//自动加入群组监听
+>###onDidJoinedGroup(param)//自动加入群组监听(3.0.22新增接口)
 
-**说明**
-(iOS 3.0.22新增接口)
 SDK自动同意了用户A的加B入群邀请后,用户B接收到该回调,需要initEasemob时设置isAutoAcceptGroupInvitation为TRUE
 
 param为json字符串
@@ -1055,10 +1055,8 @@ param为json字符串
     	message:,//邀请消息
 };
 ```
->###onReceiveGroupInvitation(param)//收到群组邀请监听
+>###onReceiveGroupInvitation(param)//收到群组邀请监听(iOS 3.0.22, Android 3.0.23新增接口)
 
-**说明**
-(iOS 3.0.22, Android 3.0.23新增接口)
 用户A邀请用户B入群,用户B接收到该回调
 
 param为json字符串
@@ -1071,10 +1069,8 @@ param为json字符串
 };
 ```
 
->###acceptJoinApplication(param)//批准入群申请, 需要Owner权限
+>###acceptJoinApplication(param)//批准入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
 
-**说明**
-(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
@@ -1084,10 +1080,8 @@ var param={
 };
 ```
 
->###declineJoinApplication(param)//拒绝入群申请, 需要Owner权限
+>###declineJoinApplication(param)//拒绝入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
 
-**说明**
-(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
@@ -1098,10 +1092,8 @@ var param={
 };
 ```
 
->###acceptInvitationFromGroup(param)//接受入群邀请
+>###acceptInvitationFromGroup(param)//接受入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
 
-**说明**
-(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
@@ -1111,10 +1103,8 @@ var param={
 };
 ```
 
->###declineInvitationFromGroup(param)//拒绝入群邀请
+>###declineInvitationFromGroup(param)//拒绝入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
 
-**说明**
-(iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
 ```
@@ -1171,19 +1161,18 @@ var param = {
 
 ##2.7、Apns(以下方法全部仅限iOS)
 ***
->###registerRemoteNotification();//注册Apns推送
+>###registerRemoteNotification(function(data){});//注册Apns推送
 
->### cbRegisterRemoteNotification(param);//回调
-
-param为json字符串
+data为json对象
 
 ```
- var param{
+ var data = {
  
 	result;//1-成功 2-失败
 	errorInfo;//注册失败时的错误信息
  };
 ```
+
 
  
 >###onApnsLaunch(param);
@@ -1192,14 +1181,12 @@ param为json字符串
 	param为此条推送的内容,json格式。
 
  
->###updatePushOptions(param);//设置apns全局属性
+>###updatePushOptions(param,function(data){});//设置apns全局属性
 
-**说明:**
-updatePushOptions全为可选参数,当传入空值时,即可通过回调获得当前apns全局属性
 param为json字符串
 
 ```
-var param{
+var param = {
 	nickname;//昵称
 	displayStyle;//推送显示类型 0-提示"您有一条新消息" 1- 显示详细消息内容 
 	noDisturbingStyle;//是否开启免打扰模式 0-全天免打扰 1-自定义时段免打扰 2- 关闭免打扰
@@ -1207,14 +1194,10 @@ var param{
 	noDisturbingEndH;//免打扰模式结束时间  小时(int)
 };
 ```
- 
-
->###cbUpdatePushOptions(param);//设置apns全局属性回调
-
-param为json字符串
+ data为json对象
 
 ```
-var param{
+var data = {
 	nickname;//昵称
 	displayStyle;//推送显示类型 0-提示"您有一条新消息" 1- 显示详细消息内容 
 	noDisturbingStyle;//是否开启免打扰模式 0-全天免打扰 1-自定义时段免打扰 2- 关闭免打扰
@@ -1223,30 +1206,30 @@ var param{
  };
 ```
 
+
+
  
+	说明:updatePushOptions全为可选参数,当传入空值时,即可通过回调获得当前apns全局属性
 	
-	
->###ignoreGroupPushNotification(param)://设置指定群组是否接收
+>###ignoreGroupPushNotification(param,function(data){})//设置指定群组是否接收
 
 param为json字符串
 
 ```
- var param{
+ var param = {
 	groupId;//指定的群组Id
 	isIgnore;//1-屏蔽  2-取消屏蔽
 };
 ```
-
- 
->###cbIgnoreGroupPushNotification(param)://设置指定群组是否接收回调
-
-param为json字符串
+data为json对象
 
 ```
-var param{
+var data = {
 	groupIds;//已屏蔽接收推送消息的群列表
 };
 ```
+ 
+
 
 #3、附录
 
@@ -1282,7 +1265,6 @@ key | 说明
 action | 具体命令 
 
 >###位置消息
-
 key | 说明         
 ----- | ----- 
 longitude | 经度
@@ -1359,13 +1341,13 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 ### iOS
 
-API版本:`uexEasemob-3.0.23`
+API版本:`uexEasemob-4.0.0`
 
-最近更新时间:`2016-5-17`
+最近更新时间:`2016-6-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.23 | 删除EaseUIResource.bundle内会引起上架失败的info.plist |
+| 4.0.0 | 支持引擎4.0，函数入参 |
 | 3.0.22 | initEasemob接口新增isAutoAcceptGroupInvitation参数；消息接口新增extObj参数以适配环信客服功能；group内新增群组加人的相关接口 |
 | 3.0.21 | 更新SDK到3.1.1 |
 | 3.0.20 | 修复加入公开群会失败的问题 |
@@ -1392,14 +1374,13 @@ API版本:`uexEasemob-3.0.23`
 
 ### Android
 
-API版本:`uexEasemob-3.0.25`
+API版本:`uexEasemob-4.0.0`
 
-最近更新时间:`2016-5-17`
+最近更新时间:`2016-6-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.25 | 修复获取群组信息时数据返回异常的问题 |
-| 3.0.24 | 创建群组时,Android支持initialWelcomeMessage参数 |
+| 4.0.0 | 支持引擎4.0，函数入参 |
 | 3.0.23 | 升级环信官方SDK到3.1.2, 同时添加客服功能 |
 | 3.0.22 | init只执行一次 |
 | 3.0.21 | 修改getRecentChatters |
@@ -1497,3 +1478,4 @@ API版本:`uexEasemob-3.0.25`
 **2015-04-17**
 - 初稿
 
+I
