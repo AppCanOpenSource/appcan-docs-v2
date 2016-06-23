@@ -12,9 +12,18 @@
 
 ## 1.3、插件截图
 
-![screenshot1](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/uexGestureUnlock/screenshots/screenshot1.jpg "screenshot1")
-![screenshot2](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/uexGestureUnlock/screenshots/screenshot2.jpg "screenshot2")
-![screenshot3](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/uexGestureUnlock/screenshots/screenshot3.jpg "screenshot3")
+![screenshot1](./screenshots/screenshot1.jpg "screenshot1")
+![screenshot2](./screenshots/screenshot2.jpg "screenshot2")
+![screenshot3](./screenshots/screenshot3.jpg "screenshot3")
+
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
+
 
 ***
 
@@ -29,26 +38,22 @@
 **说明**
 
 * 检测系统储存中是否存在已设置的手势密码
-* 会触发回调 [cbIsGestureCodeSet 检测是否已设置手势密码的回调方法](#cbIsGestureCodeSet 检测是否已设置手势密码的回调方法)
 
 **参数**
 
 无
 
-**平台支持**
+**返回值:**
 
-Android 2.2+ 
-iOS 7.0+ 
+Boolean类型,已设置手势密码时返回true,否则返回false
 
-**版本支持**
 
-Android 3.0.0+ 
-iOS 3.0.0+ 
 
 **示例**
 
 ```
-uexGestureUnlock.isGestureCodeSet();
+var ret = uexGestureUnlock.isGestureCodeSet();
+alert(ret);
 ```
 
 > ###resetGestureCode 重置手势密码
@@ -63,15 +68,7 @@ uexGestureUnlock.isGestureCodeSet();
 
 无
 
-**平台支持**
 
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
 
 **示例**
 
@@ -143,15 +140,6 @@ var params = {
 |backgroundImage|String|背景图的文件路径|无|图片不存在时不会显示,只支持file:// wgt:// res://|
 |iconImage|String|头像的文件路径|无|同上|
 
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
 
 **示例**
 
@@ -170,75 +158,93 @@ uexGestureUnlock.config(JSON.stringify(data));
 
 > ###verify 验证手势密码
 
-`uexGestureUnlock.verify();`
+`uexGestureUnlock.verify(cb);`
 
 **说明**
 
 * 打开插件页面进行验证手势密码操作
 * 验证过程中会会有监听[onEventOccur 插件事件发生的监听方法](#onEventOccur 插件事件发生的监听方法)
-* 验证过程结束会有回调[cbVerify 验证手势密码的回调方法](#cbVerify 验证手势密码的回调方法)
+
 
 **参数**
 
-无
+| 参数名称 | 参数类型  | 是否必选 |  说明 |
+| ----- | ----- | ----- | ----- |
+| cb | Function | 是 | 验证手势密码结束时,会调用此回调函数 | 
 
-**平台支持**
+**回调参数**
 
-Android 2.2+ 
-iOS 7.0+ 
+回调函数有一个Object类型的参数info
 
-**版本支持**
+```
+var info = {
+	isFinished:,//Boolean,必选,是否完成了手势密码验证
+	errorCode:,//Number,可选,仅isFinished为false时有此参数,验证未完成的错误代码
+	errorString:,//String,可选,仅isFinished为false时有此参数,验证未完成的错误描述
+}
+```
 
-Android 3.0.0+ 
-iOS 3.0.0+ 
 
 **示例**
 
 ```
-uexGestureUnlock.verify();
+uexGestureUnlock.verify(function(info){
+	alert(JSON.stringify(info));
+});
 ```
 
 > ###create 设置手势密码
 
-`uexGestureUnlock.create(params);`
+`uexGestureUnlock.create(config,cb);`
 
 **说明**
 
 * 打开插件页面,先验证手势密码,再进行设置手势密码的操作
 * 如果当前未设置手势密码,则会跳过验证手势密码的步骤
 * 验证过程中会会有监听[onEventOccur 插件事件发生的监听方法](#onEventOccur 插件事件发生的监听方法)
-* 验证过程结束会有回调[cbCreate 设置手势密码的回调方法](#cbCreate 设置手势密码的回调方法)
+
 
 **参数**
 
-```
-var params = {
-    isNeedVerifyBeforeCreate:
-}
-```
-各字段含义如下:
-
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| isNeedVerifyBeforeCreate | Boolean | 否 | 创建密码之前是否需要验证已经设置的手势密码,默认为true。当为false时,会强制跳过验证手势密码的步骤直接设置新密码 |
+| config | String | 是 | config是JSON字符串,表示设置手势密码的配置信息,如不需要配置,此参数传null  |
+| cb | Function | 是 | 设置手势密码结束时,会调用此回调函数 | 
 
-**平台支持**
 
-Android 2.2+ 
-iOS 7.0+ 
+```
+var config = {
+    isNeedVerifyBeforeCreate:,//Boolean,可选,创建密码之前是否需要验证已经设置的手势密码,默认为true。当为false时,会强制跳过验证手势密码的步骤直接设置新密码
+}
+```
 
-**版本支持**
+**回调参数**
 
-Android 3.0.0+ 
-iOS 3.0.0+ 
+回调函数有一个Object类型的参数info
+
+```
+var info = {
+	isFinished:,//Boolean,必选,是否完成了手势密码设置
+	errorCode:,//Number,可选,仅isFinished为false时有此参数,设置手势密码未完成的错误代码
+	errorString:,//String,可选,仅isFinished为false时有此参数,设置手势密码未完成的错误描述
+}
+```
+
+* errorCode详见[附录-uexGestureUnlockError 错误代码列表](#uexGestureUnlockError 错误代码列表)
+* 当且仅当isFinished回调为true时,会将用户设置的密码存入本地储存
+* 应用重启/覆盖升级不影响密码储存,但应用删除会清除掉密码记录
+
+
 
 **示例**
 
 ```
-        var data={
-            isNeedVerifyBeforeCreate:false
-        }
-        uexGestureUnlock.create(JSON.stringify(data));
+var data={
+	isNeedVerifyBeforeCreate:false
+}
+uexGestureUnlock.create(JSON.stringify(data),function(info){
+	alert(JSON.stringify(info));
+});
 ```
 
 > ###cancel 终止手势密码验证/设置过程
@@ -253,16 +259,6 @@ iOS 3.0.0+
 
 无
 
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
 **示例**
 
 ```
@@ -270,137 +266,8 @@ uexGestureUnlock.cancel();
 
 ```
 
-##2.2、 回调方法
 
->### cbIsGestureCodeSet 检测是否已设置手势密码的回调方法
-
-`uexGestureUnlock.cbIsGestureCodeSet(param);`
-
-**说明**
-
-检测是否已设置手势密码的回调方法
-
-**参数**
-
-param为json字符串
-
-```
-var param = {
-	result://Boolean,必选,是否已设置手势密码 true/false
-}
-```
-
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
-**示例**
-
-```
-window.uexOnload=function(type){
-	uexGestureUnlock.cbIsGestureCodeSet=function(info){
-		alert(info);
-	}
-}
-```
-
->### cbVerify 验证手势密码的回调方法
-
-`uexGestureUnlock.cbVerify(param);`
-
-**说明**
-
-验证手势密码的回调方法
-
-**参数**
-
- 
-
-param为json字符串
-
-```
-var param = {
-	isFinished:,//Boolean,必选,是否完成了手势密码验证
-	errorCode:,//Number,可选,仅isFinished为false时有此参数,验证未完成的错误代码
-	errorString:,//String,可选,仅isFinished为false时有此参数,验证未完成的错误描述
-}
-```
-
-* errorCode详见[附录-uexGestureUnlockError 错误代码列表](#uexGestureUnlockError 错误代码列表)
-
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
-**示例**
-
-```
-window.uexOnload=function(type){
-	uexGestureUnlock.cbVerify=function(info){
-		alert(info);
-	}
-}
-```
-
->### cbCreate 设置手势密码的回调方法
-
-`uexGestureUnlock.cbCreate(param);`
-
-**说明**
-
-* 设置手势密码的回调方法
-
-**参数**
-
- 
-
-param为json字符串
-
-```
-var param = {
-	isFinished:,//Boolean,必选,是否完成了手势密码设置
-	errorCode:,//Number,可选,仅isFinished为false时有此参数,设置手势密码未完成的错误代码
-	errorString:,//String,可选,仅isFinished为false时有此参数,设置手势密码未完成的错误描述
-}
-```
-
-* errorCode详见[附录-uexGestureUnlockError 错误代码列表](#uexGestureUnlockError 错误代码列表)
-* 当且仅当isFinished回调为true时,会将用户设置的密码存入本地储存
-* 应用重启/覆盖升级不影响密码储存,但应用删除会清除掉密码记录
-
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
-**示例**
-
-```
-window.uexOnload=function(type){
-	uexGestureUnlock.cbCreate=function(info){
-		alert(info);
-	}
-}
-```
-
-##2.3、 监听方法
+##2.2、 监听方法
 
 >###onEventOccur 插件事件发生的监听方法
 
