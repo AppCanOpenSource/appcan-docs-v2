@@ -10,6 +10,15 @@
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=452_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
+
 # 2、API概览
 
 ## 2.1、方法
@@ -36,6 +45,7 @@ var json = {
 2、在emojicons中放入表情以及删除的图片资源,表情的默认命名格式:
 ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
 3、在emojicons中创建emojicons.xml文件,格式如下:
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <emojicons delete="ace_emoji_delete.png ">
@@ -45,20 +55,12 @@ ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
    <string> ace_emoji_2.png</string>
 </emojicons>
 ```
+
 *   delete:删除对应的图片名；
 *   key:表情对应的文字；
 *   string:表情对应的图片名
     * 说明:表情目录、图片名以及配置文件名都可以自定义命名,但是必须保证配置文件中的图片名与资源图片对应。
 
-**平台支持**
-
-Android 2.2+
-iOS 6.1+
-
-**版本支持**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例**
 
@@ -85,15 +87,6 @@ uexInputTextFieldView.open(jsonStr);
 无
 ```
 
-**平台支持**
-
-Android 2.2+
-iOS 6.1+
-
-**版本支持**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例**
 
@@ -114,16 +107,6 @@ uexInputTextFieldView.close()
 ```
 无
 ```
-
-**平台支持**
-
-Android 2.2+
-iOS 6.1+
-
-**版本支持**
-
-Android 3.0.9+
-iOS 3.0.4+
 
 **示例**
 
@@ -147,11 +130,7 @@ uexInputTextFieldView.setInputFocused();
 
 **平台支持:**
 
-iOS6.0+
-
-**版本支持:**
-
-iOS 3.0.10+
+仅iOS
 
 **示例:**
 
@@ -175,14 +154,6 @@ uexInputTextFieldView.changeWebViewFrame(600);
 
 int类型
 
-**平台支持:** 
-
-Android 2.2+  
-iOS 6.0+  
-
-
-**版本支持:**  
-3.0.7+  
 
 **示例:**
 
@@ -208,15 +179,7 @@ var json = {
 }
 ```
 
-**平台支持**
 
-Android 2.2+
-iOS 6.1+
-
-**版本支持**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例**
 
@@ -240,15 +203,6 @@ emojiconsText:
 | 参数名称          | 参数类型   | 是否必选 | 说明      |
 | ------------- | ------ | ---- | ------- |
 | emojiconsText | String | 是    | 输入框里的内容 |
-
-**支持平台:**
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android 3.0.10+
-iOS 3.0.10+
 
 **示例:**
 
@@ -276,14 +230,7 @@ status:
 | ------ | ------ | ---- | ---------------- |
 | status | Number | 是    | 键盘状态  0-收起  1-弹出 |
 
-**支持平台:**
-Android2.2+    
-iOS6.0+
 
-**版本支持:**
-
-Android 3.0.10+
-iOS 3.0.10+
 
 **示例:**
 
