@@ -52,11 +52,19 @@ uexJPush.init();
 无
 ```
 
+**平台支持**  
+Android 2.2+
+
+**版本支持**  
+Android 3.0.0+
+
+
 **示例**
 
 ```
 uexJPush.stopPush();
 ```
+
 >### resumePush  恢复推送服务
 
 `uexJPush.resumePush()`
@@ -66,6 +74,13 @@ uexJPush.stopPush();
 ```
 无
 ```
+
+**平台支持**  
+Android 2.2+
+
+**版本支持**  
+Android 3.0.0+
+
 
 **示例**
 
@@ -254,6 +269,12 @@ var json={
 }
 ```
 
+**平台支持**  
+Android 2.2+
+
+**版本支持**  
+Android 3.0.0+
+
 **示例**
 
 ```
@@ -368,6 +389,12 @@ uexJPush.clearLocalNotifications();
 | ----- | ----- | ----- | ----- |
 |badgeNumber|Number|是|要设置的badge值,非负整数|
 
+**平台支持**  
+iOS 6.0+
+
+**版本支持**  
+iOS 3.0.4+
+
 **示例**
 
 ```
@@ -392,6 +419,13 @@ uexJPush.setBadgeNumber(0);
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 |flag|Number|是|1-禁止  其他-允许|
+
+**平台支持**  
+iOS 6.0+
+
+**版本支持**  
+iOS 3.0.4+
+
 
 **示例**
 
