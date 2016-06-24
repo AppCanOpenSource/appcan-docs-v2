@@ -1,13 +1,21 @@
 [TOC]
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 索引功能插件
 ## 1.1、说明
 索引功能插件。
 ## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/142421n2015e6u16t.jpg)
+
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=175_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
+有特殊版本要求的API会在文档中额外说明。  
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
 # 2、API概览
 
 ## 2.1、方法
@@ -22,7 +30,7 @@
 
 **参数:**
 
- 
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | x | Number | 是 | x坐标 |
@@ -35,18 +43,9 @@
 extras={
     textColor:,//可选参数,索引文字颜色
     indices:[],//可选参数,索引列表内容 String组成的数组
-    isScrollable,//可选参数,索引列表是否跟随网页滑动 true-跟随滑动 false-不跟随滑动(默认) 
-} 
+    isScrollable,//可选参数,索引列表是否跟随网页滑动 true-跟随滑动 false-不跟随滑动(默认)
+}
 ```
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -62,7 +61,7 @@ iOS6.0+
     var extras=JSON.stringify(data);
     uexIndexBar.open(x,y,width,height,extras);
 ```
-  
+
 
 > ### close 关闭索引列表
 
@@ -74,16 +73,7 @@ iOS6.0+
 
 **参数:**
 
-  无
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+无
 
 **示例:**
 
@@ -99,22 +89,12 @@ uexIndexBar.close();
 
 **参数:**
 
- 
+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作ID,在此函数中不起作用,可忽略 |
 | dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 索引值:a~z。|
- 
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -128,12 +108,13 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexIndexBar-3.0.7`
+API版本:`uexIndexBar-4.0.0`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-6-24`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 4.0插件 |
 | 3.0.7 | 添加IDE支持 |
 | 3.0.6 | 索引表可以设置是否随网页滑动 |
 | 3.0.5 | 索引文字支持配置颜色和内容 |
@@ -145,12 +126,13 @@ API版本:`uexIndexBar-3.0.7`
 
 ### Android
 
-API版本:`uexIndexBar-3.0.2`
+API版本:`uexIndexBar-4.0.0`
 
-最近更新时间:`2015-06-19`
+最近更新时间:`2016-6-24`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 4.0插件 |
 | 3.0.2 | 插件嵌入到WebView中 |
 | 3.0.1 | 索引文字支持配置颜色和内容 |
 | 3.0.0 | 索引功能插件 |
