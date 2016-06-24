@@ -10,6 +10,14 @@
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=189_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。 
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。 
+
 # 2、API概览
 ## 2.1、方法
 > ### createUDPSocket 创建UDP对象
@@ -18,7 +26,7 @@
 
 **说明:**
 
-创建UDP对象,同一id只能被创建一次,回调方法[cbCreateUDPSocket](#cbCreateUDPSocket 创建UDP对象的回调方法 "cbCreateUDPSocket")
+创建UDP对象,同一id只能被创建一次, 创建成功后返回`true`, 失改返回`false`
 
 **参数:**
 
@@ -34,19 +42,11 @@
 	* dataType == 1 时, 收到的数据会以base64编码后再返回给前端。前端传入的数据会先经过base64解码后再发送给服务器。
 	* dataType == 2 时, 收发的数据应该是以GBK编码的字符串。
 
-**平台支持:**
-
-  Android2.2+
-  iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
-    uexSocketMgr.createUDPSocket(1,45666);
+    var result = uexSocketMgr.createUDPSocket(1,45666);
+		alert(result);
 ```
 > ### createTCPSocket 创建TCP对象
 
@@ -54,7 +54,7 @@
 
 **说明:**
 
-创建TCP对象,同一id只能被创建一次,回调方法[cbCreateTCPSocket](#cbCreateTCPSocket 创建TCP对象的回调方法 "cbCreateTCPSocket")
+创建TCP对象,同一id只能被创建一次,创建成功后返回`true`, 失改返回`false`
 
 **参数:**
 
@@ -69,20 +69,12 @@
 	* dataType == 1 时, 收到的数据会以base64编码后再返回给前端。前端传入的数据会先经过base64解码后再发送给服务器。
 	* dataType == 2 时, 收发的数据应该是以GBK编码的字符串。
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
-uexSocketMgr.createTCPSocket(2);
+var result = uexSocketMgr.createTCPSocket(2);
 ```
+
 > ### closeSocket 关闭Socket对象
 
 `uexSocketMgr.closeSocket(id)`
@@ -98,16 +90,13 @@ uexSocketMgr.createTCPSocket(2);
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 唯一标识符 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
 
 **示例:**
 
 ```
 uexSocketMgr.closeSocket(1);
 ```
+
 > ### setTimeOut 设置超时时间
 
 `uexSocketMgr.setTimeOut(id,timeOut)`
@@ -124,14 +113,6 @@ uexSocketMgr.closeSocket(1);
 | id | Number | 是 | 唯一标识符 |
 | timeOut | Number | 是 | 超时时间 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -141,11 +122,11 @@ uexSocketMgr.setTimeOut(1, 30000);
 
 > ### setInetAddressAndPort 设置接收方的IP地址和端口
 
-`uexSocketMgr.setInetAddressAndPort(id,ip,port)`
+`uexSocketMgr.setInetAddressAndPort(id,ip,port, callbackFunction)`
 
 **说明:**
 
-设置接收方的IP地址和端口,回调方法[cbConnected](#cbConnected 设置接收方的IP地址和端口的回调方法 "cbConnected")
+设置接收方的IP地址和端口, 执行完成后回调`callbackFunction`。调用`setInetAddressAndPort`,会去连接对应的服务器，通过`callbackFunction`获取连接状态。
 
 **参数:**
 
@@ -155,29 +136,26 @@ uexSocketMgr.setTimeOut(1, 30000);
 | id | Number | 是 | 唯一标识符 |
 | ip | String | 是 | 接收方IP地址 |
 | port | Number | 是 | 接收方端口 |
+| callbackFunction | 函数 | 否 | 回调函数，用来返回业务数据 |
 
-**平台支持:**
+`callbackFunction`参数是Number类型，0: 连接成功，1: 连接失败
 
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
 ```
-uexSocketMgr.setInetAddressAndPort(1,"192.168.1.255",3001);
+uexSocketMgr.setInetAddressAndPort(1,"192.168.1.255",3001, function(data) {
+	alert(data);
+});
 ```
 
 > ### sendData 发送数据
 
-`uexSocketMgr.sendData(id,msg)`
+`uexSocketMgr.sendData(id,msg, callbackFunction)`
 
 **说明:**
 
-发送数据,回调方法[cbSendData](#cbSendData 发送数据的回调方法 "cbSendData")
+发送数据, 执行完成后回调`callbackFunction`。
 
 **参数:**
 
@@ -186,177 +164,30 @@ uexSocketMgr.setInetAddressAndPort(1,"192.168.1.255",3001);
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 唯一标识符 |
 | msg | String | 是 | 要发送的数据 |
+| callbackFunction | 函数 | 否 | 回调函数，用来返回业务数据 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+`callbackFunction`参数是Number类型，0: 发送成功，1: 发送失败
 
 **示例:**
 
 ```
-uexSocketMgr.sendData(1,"test");
+uexSocketMgr.sendData(1,"test", function(data) {
+	alert(data);
+});
 ```
 
-## 2.2、回调方法
-> ### cbCreateUDPSocket 创建UDP对象的回调方法
-
-`uexSocketMgr.cbCreateUDPSocket(opId,dataType,data)`
-
-**参数:**
-
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number | 是 | UDP对象的唯一标识符 |
-| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-	uexSocketMgr.cbCreateUDPSocket = function(opId,dataType,data){
-	    if(data == 0){
-	    	alert("创建UDP成功");
-	    }else{
-	    	alert("创建UDP失败");
-	    }
-	}
-```
-
-> ### cbCreateTCPSocket 创建TCP对象的回调方法
-
-`uexSocketMgr.cbCreateTCPSocket(opId,dataType,data)`
-
-**参数:**
-
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number | 是 | UDP对象的唯一标识符 |
-| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-	uexSocketMgr.cbCreateTCPSocket = function(opId,dataType,data){
-	    if(data == 0){
-	    	alert("创建TCP成功");
-	    }else{
-	    	alert("创建TCP失败");
-	    }
-	}
-```
-> ### cbSendData 发送数据的回调方法
-
-`uexSocketMgr.cbSendData(opId,dataType,data)`
-
-**参数:**
-
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number | 是 | UDP对象的唯一标识符 |
-| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-	uexSocketMgr.cbSendData = function(opId,dataType,data){
-	    if(data == 0){
-			alert("UDP发送成功");
-	    }else{
-			alert("UDP发送失败");
-	    }
-	}
-```
-> ### cbConnected 设置接收方的IP地址和端口的回调方法
-
-`uexSocketMgr.cbConnected(opId,dataType,data)`
-
-**参数:**
-
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number | 是 | UDP对象的唯一标识符 |
-| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-	uexSocketMgr.cbConnected = function(opId,dataType,data){
-		if(data == 0){
-			alert("opId:" + "设置对方的ip和端口成功");
-		}else{
-			alert("opId:" + "设置对方的ip和端口失败");
- 		}
-    }
-```
-## 2.3、监听方法
+## 2.2、监听方法
 > ### onData 接收数据的监听方法
 
 `uexSocketMgr.onData(opId,data)`
 
 **参数:**
 
- 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | UDP对象的唯一标识符 |
 | data | String | 是 | 接收到的数据,json字符串,格式为: {"host":"192.168.1.188","port":"3000","data":"接收到的消息"} |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -371,19 +202,9 @@ iOS6.0+
 
 **参数:**
 
- 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | UDP对象的唯一标识符 |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -397,12 +218,13 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexSocketMgr-3.0.7`
+API版本:`uexSocketMgr-4.0.0`
 
-最近更新时间:`2016-3-23`
+最近更新时间:`2016-6-23`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入|
 | 3.0.7 | 收发数据支持base64以及GBK编码 |
 | 3.0.6 | 添加IDE支持 |
 | 3.0.5 | 解决使用base64格式传输数据ios发送不成功的问题 |
@@ -414,12 +236,13 @@ API版本:`uexSocketMgr-3.0.7`
 
 ### Android
 
-API版本:`uexSocketMgr-3.0.5`
+API版本:`uexSocketMgr-4.0.0`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-6-23`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持function传入|
 | 3.0.5 | 添加创建连接时设置编码参数 |
 | 3.0.4 | 添加设置编码格式的接口 |
 | 3.0.3 | 修改直接点击发送DUP或发送TCP系统崩溃问题 |
