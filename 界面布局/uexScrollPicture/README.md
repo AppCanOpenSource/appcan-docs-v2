@@ -78,7 +78,7 @@ var param={
 uexScrollPicture.startAutoScroll(JSON.stringify(param));
 ```
 
->### startAutoScroll   停止图片轮播
+>### stopAutoScroll   停止图片轮播
 `uexScrollPicture.stopAutoScroll(param)`
 
 **说明**  
