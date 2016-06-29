@@ -7,7 +7,15 @@
  ![](/docImg/975/loading.png)  ![](/docImg/975/loading1&#40;1&#41;.png)
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=453_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+## 1.4、平台版本支持
 
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用。
 # 2、API概览
 
 ## 2.1、方法
@@ -24,7 +32,7 @@
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| jsonstr | String | 是 |json 格式的字符串数组,如下 |
+| jsonstr | String | 是 |json 格式的字符串,如下 |
 
 ```
  {  
@@ -42,17 +50,7 @@
 }
 ```
 
-**平台支持:**
 
-  
-Android 2.2+  
-iOS 6.0+
-
-**版本支持:**
-
-  
-Android 3.0.0+  
-iOS 3.0.0+
 
 **示例:**
 
@@ -79,23 +77,12 @@ uexLoadingView.open(jsonstr);
 
 **说明:**
 
-打开带有圆形加载动画的loading view. 同是会显示遮罩层。
+打开带有圆形加载动画的loading view. 同时会显示遮罩层。
 
 **参数**
 
 无
 
-**平台支持:**
-
-  
-Android 2.2+  
-iOS 6.0+
-
-**版本支持:**
-
-  
-Android 3.0.5+  
-iOS 3.0.0+
 
 **示例:**
 
@@ -115,17 +102,7 @@ uexLoadingView.openCircleLoading();
 
 无
 
-**平台支持:**
 
-  
-Android 2.2+  
-iOS 6.0+
-
-**版本支持:**
-
-  
-Android 3.0.0+  
-iOS 3.0.0+
 
 **示例:**
 
@@ -137,12 +114,13 @@ uexLoadingView.close();
 
 ### iOS
 
-API版本:`uexLoadingView-3.0.6`
+API版本:`uexLoadingView-4.0.0`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-6-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持引擎4.0，函数入参 |
 | 3.0.6 | 添加IDE支持 |
 | 3.0.5 | 修复openCircleLoading在ios7上背景不透明的BUG |
 | 3.0.4 | 新增openCircleLoading接口 |
@@ -153,12 +131,13 @@ API版本:`uexLoadingView-3.0.6`
 
 ### Android
 
-API版本:`uexLoadingView-3.0.6`
+API版本:`uexLoadingView-4.0.0`
 
-最近更新时间:`2015-03-12`
+最近更新时间:`2016-6-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持引擎4.0，函数入参 |
 | 3.0.6 | 解决空指针报错问题 |
 | 3.0.5 | 添加圆形loading 动画效果 |
 | 3.0.4 | 去掉插件中的ActivityGroup,配合引擎升级 |
