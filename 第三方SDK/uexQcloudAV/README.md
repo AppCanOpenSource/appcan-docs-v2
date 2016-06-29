@@ -9,6 +9,15 @@
 
 ##1.3、开源源码
 插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+## 1.4、平台版本支持
+
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用。
 #2、API概览
  ##2.1、方法
 
@@ -55,20 +64,6 @@ var params ={
 
  
 
-**平台支持:**
-
-  
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-  
-
-Android3.0.0+    
-iOS3.0.0+
-
 **示例:**
 
 ```
@@ -97,7 +92,7 @@ uexQcloudAV.open(data);
 
 **说明:**
 
-通过此方法进行视频播放操作,但不能启动播放功能,与start方法有区别。
+通过此方法进行视频播放操作。
 
 **参数:**
 
@@ -105,15 +100,7 @@ uexQcloudAV.open(data);
 无
 ```
 
-**平台支持:**
 
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
 
 **示例:**
 
@@ -133,16 +120,6 @@ uexQcloudAV.play();
 ```
 无
 ```
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
 
 **示例:**
 
@@ -164,15 +141,6 @@ uexQcloudAV.pause();
 无
 ```
 
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
 
 **示例:**
 
@@ -193,22 +161,12 @@ uexQcloudAV.stop();
 无
 ```
 
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
 **示例:**
 
 ```
 uexQcloudAV.close();
 ```
-> ### clear 清空缓存
+> ### clear 清空缓存(仅支持iOS)
 
 `uexQcloudAV.clear()`
 
@@ -222,15 +180,6 @@ uexQcloudAV.close();
 无
 ```
 
-**平台支持:**
-
-    
-iOS6.0+
-
-**版本支持:**
-
-  
-iOS3.0.0+
 
 **示例:**
 
@@ -240,30 +189,27 @@ uexQcloudAV.clear();
 
 > ### getCurrentTime 获取当前播放的时间
 
-`uexQcloudAV.getCurrentTime()`
+`  var info = uexQcloudAV.getCurrentTime()`
 
 **说明:**
 
 ```
-3.3之后的引擎该方法支持同步返回值,3.3以下通过cbGetCurrentTime回调
+获取当前播放的时间，支持同步返回值
 ```
 
 **参数:**
 
-**平台支持:**
 
-Android2.2+    
-iOS6.0+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| info | Number |  是  | 返回当前播放的时间 |
 
-**版本支持:**
 
-Android3.0.0+    
-iOS3.0.0+
 
 **示例:**
 
 ```
-var time=uexQcloudAV.getCurrentTime();
+var info = uexQcloudAV.getCurrentTime();
 alert(time);
 ```
 
@@ -279,15 +225,6 @@ alert(time);
 | ----- | ----- | ----- | ----- |
 | time | String | 否 | 跳转播放的时间点,以秒为单位 |
 
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
 
 **示例:**
 
@@ -295,37 +232,7 @@ iOS3.0.0+
 uexQcloudAV.seekTo("400");
 ```
 
-##2.2、回调方法
 
-> ### cbGetCurrentTime　播放时间的监听方法
-
-`uexQcloudAV.cbGetCurrentTime(data)`
-
-**参数:**
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| currentTime | Number | 是 | 播放的当前时间,以秒为单位 |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-**示例:**
-
-```
-window.uexOnload = function(){
-  uexQcloudAV.cbGetCurrentTime = function(data){
-     alert(data)；
-  }
-}
-```
 
 ## 2.3、监听方法
 
@@ -341,15 +248,7 @@ window.uexOnload = function(){
 | ----- | ----- | ----- | ----- |
 | data | Number | 是 | 播放器状态,请参考[PlayerState](#PlayerState) |
 
-**平台支持:**
 
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
 
 **示例:**
 
@@ -360,7 +259,7 @@ window.uexOnload = function(){
   }
 }
 ```
-> ### onNetworkStateChanged　切换网络的监听方法
+> ### onNetworkStateChanged　切换网络的监听方法(仅支持iOS)
 
 `uexQcloudAV.onNetworkStateChanged(data)`
 
@@ -370,7 +269,9 @@ window.uexOnload = function(){
 var data ={
     networkState: 
 }
-```
+
+ ```
+
 
 各字段含义如下:
 
@@ -378,15 +279,7 @@ var data ={
 | ----- | ----- | ----- | ----- |
 | networkState | Number | 是 | 网络状态,请参考[NetworkState](#NetworkState) |
 
-**平台支持:**
 
-iOS6.0+
-
-**版本支持:**
-
-  
-
-iOS3.0.0+
 
 **示例:**
 
@@ -396,28 +289,31 @@ window.uexOnload = function(){
      alert(data)；
   }
 }
+
 ```
 
 #3、更新历史 
 
 ### iOS
 
-API版本:`uexQcloudAV-3.0.0`
+API版本:`uexQcloudAV-4.0.0`
 
-最近更新时间:`2016-3-16`
+最近更新时间:`2016-6-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 |支持引擎4.0，函数入参 |
 | 3.0.0 | 视频直播插件 |
 
 ### Android
 
-API版本:`uexQcloudAV-3.3.0`
+API版本:`uexQcloudAV-4.0.0`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-6-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 |支持引擎4.0，函数入参 |
 | 3.3.0 | 腾讯云视频直播插件 |
 # 4、附录
 
@@ -438,12 +334,14 @@ API版本:`uexQcloudAV-3.3.0`
 
 |  value | 说明  |
 | ----- | ----- |
+| -1 | 播放错误 |
 | 0 | 初始化 |
 | 1 | 准备中 |
 | 2 | 缓冲 |
 | 3 | 播放 |
 | 4 | 暂停 |
 | 5 | 播放完毕 |
+
 
 ### NetworkState
 
