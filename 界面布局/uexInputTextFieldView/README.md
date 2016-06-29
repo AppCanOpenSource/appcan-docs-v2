@@ -114,29 +114,6 @@ uexInputTextFieldView.close()
 uexInputTextFieldView.setInputFocused();
 ```
 
-> ### changeWebViewFrame 改变webview的高度以适应弹出的键盘
-
-`uexInputTextFieldView.changeWebViewFrame(height)`
-
-**说明:**
-
-收到 onKeyBoardShow回调,并且status为1时调用这个方法传入当前div的高度,键盘会根据高度将评论内容推上去
-
-**参数:**
-
-| 参数名称   | 参数类型   | 是否必选 | 说明     |
-| ------ | ------ | ---- | ------ |
-| height | Number | 是    | div的高度 |
-
-**平台支持:**
-
-仅iOS
-
-**示例:**
-
-```
-uexInputTextFieldView.changeWebViewFrame(600);
-```
 
 >### getInputBarHeight 获取输入工具条高度 
 
