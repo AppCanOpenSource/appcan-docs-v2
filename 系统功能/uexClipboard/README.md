@@ -11,7 +11,15 @@
   
 ##1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=205_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+## 1.4、平台版本支持
 
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用。
 #2、API概览
 ##2.1、方法
 > ### copy 复制
@@ -28,14 +36,6 @@
 | ----- | ----- | ----- | ----- |
 | text | String | 是 | 内容 |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -44,66 +44,37 @@ uexClipboard.copy("复制内容");
 ```
 > ### getContent 获取内容
 
-`uexClipboard.getContent()`
+`var info = uexClipboard.getContent()`
 
 **说明:**
 
-获取剪切板的内容 回调方法[cbGetContent](#cbGetContent 获取内容的回调方法)
-
-**参数:**
-
-无
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-  3.0.0+
-
-**示例:**
-
-```
-uexClipboard.getContent();
-```
-##2.2、回调方法
-> ### cbGetContent 获取内容的回调方法
-
-`uexClipboard.cbGetContent(opId,dataType,data)`
+获取剪切板的内容,同步回调。
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 || dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data | String | 是 | 剪贴板上存放的文字 |
+| info | String | 是 | 返回剪贴板上存放的文字 |
 
-**版本支持:**
 
-3.0.0+
-
-**示例**
+**示例:**
 
 ```
-window.uexOnload = function() {
-  uexClipboard.cbGetContent = function(opCode, dataType, data) {
-  alert(data);
-}
-}
+var info = uexClipboard.getContent();
+alert(info);
 ```
+
 #3、更新历史
 
 ### iOS
 
-API版本:`uexClipboard-3.0.3`
+API版本:`uexClipboard-4.0.0`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-6-30`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持引擎4.0，函数入参 |
 | 3.0.3 | 添加IDE支持 |
 | 3.0.2 | 修复被复制的文本包含换行符会导致插件异常的bug |
 | 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
@@ -111,11 +82,12 @@ API版本:`uexClipboard-3.0.3`
 
 ### Android
 
-API版本:`uexClipboard-3.0.1`
+API版本:`uexClipboard-4.0.0`
 
-最近更新时间:`2015-06-19`
+最近更新时间:`2016-6-30`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持引擎4.0，函数入参 |
 | 3.0.1 | 换行符号处理 |
 | 3.0.0 | 剪切板功能插件 |
