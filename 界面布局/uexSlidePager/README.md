@@ -9,6 +9,14 @@ uexSlidePager滑动切换页面的相关功能...... 通过创建滑动页面,�
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=187_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
+
 # 2、API概览
 
 ## 2.1、方法
@@ -44,15 +52,6 @@ var option = {
 | ----- | ----- | ----- | ----- |
 | isShowIcon | Boolean | 否 | 是否显示页面底部图标,默认为true,若为false,则icons参数无效 |
 
-**平台支持:**
-
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
@@ -79,15 +78,6 @@ uexSlidePager.openSlidePager(topMargin, contents, icons, colors, JSON.stringify(
 
 无
 
-**平台支持:**
-
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
@@ -108,14 +98,6 @@ uexSlidePager.closeSlidePager()
 |-----|-----|-----|----- |
 |index|Number|是|索引|
 
-**平台支持:**
-
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -139,14 +121,6 @@ uexSlidePager.setCurrentPage(1)
 |-----|-----|-----|----- |
 |index|Number|是|索引|
 
-**平台支持:**
-
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -170,15 +144,6 @@ uexSlidePager.onPageClick = function(data){
 |参数名称|参数类型 | 是否必选|  说明 |
 |-----|-----|-----|----- |
 |color|String|是|颜色字符串|
-
-**平台支持:**
-
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
