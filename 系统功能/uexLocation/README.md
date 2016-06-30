@@ -73,7 +73,7 @@ uexLocation.openLocation(function(data) {
 | ----- | ----- | ----- | ----- |
 | inLatitude | Number | 是 | 纬度 |
 | inLongitude | Number | 是 | 经度 |
-| flag | Number | 是 | 返回地址类型,默认是地址名称。值为1时返回地址详情(JSON格式)|
+| flag | Number | 是 | 值为1时返回地址详情(JSON格式), 非 1 时返回地址名称|
 |callbackFunction|Function|是| 获取地址成功后的回调函数|
 
 回调函数中返回的数据是JSON对象(如果出错会返回ErrorCode)，格式如下:
