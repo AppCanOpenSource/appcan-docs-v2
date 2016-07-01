@@ -10,6 +10,15 @@ Apple Pay 支付插件
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=578_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持仅**iOS9.2+**操作系统,***不支持Android***。  
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
+
+
 # 2、API概览
 
 在进行插件调试之前,请先阅读[接入指引](#5、 接入指引)并按其步骤进行接入操作,否则无法进行支付操作。
@@ -46,15 +55,6 @@ var params = {
 | ----- | ----- | 
 | Number | 检测结果,是一个UexAppleCanMakePaymentStatus,详见[术语表-UexAppleCanMakePaymentStatus](#UexAppleCanMakePaymentStatus)|
 
-注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请用[cbCanMakePayment ](#cbCanMakePayment 检测是否可以进行ApplePay支付的回调方法 "cbCanMakePayment ")回调方法获取返回值。
-
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -106,15 +106,7 @@ var params = {
 | ----- | ----- | 
 | Number | 打开支付页面的结果,是一个UexApplePayStartPayResult,详见[术语表-UexApplePayStartPayResult](#UexApplePayStartPayResult)|
 
-注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请在[cbStartChinaUnionPay](#cbStartChinaUnionPay 进行银联ApplePay支付的回调方法 "cbStartChinaUnionPay")回调方法获取返回值。
 
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -232,15 +224,6 @@ var params = {
 | ----- | ----- | 
 | Number | 打开支付页面的结果,是一个UexApplePayStartPayResult,详见[术语表-UexApplePayStartPayResult](#UexApplePayStartPayResult)|
 
-注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请在cbStartPay回调方法获取返回值。
-
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -302,7 +285,7 @@ if (result != 0 ){
 
 **说明:**
 
-* 在onPaymentMethodChange 监听触发之后**必须**调用此方法,否则支付无法正常进行下去
+* 在onPaymentMethodChange 监听触发之后***必须***调用此方法,否则支付无法正常进行下去
 * 可以在此方法中更新此次订单的账单,实现诸如`信用卡具有额外折扣`等功能
 
 **参数:**
@@ -326,16 +309,6 @@ var params = {
 |  返回值类型 | 说明 |
 | ----- | ----- | 
 | Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口|
-
-注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请在onCommitError监听方法获取返回值。
-
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -375,7 +348,7 @@ if(!result){
 
 **说明:**
 
-* 在onShippingMethodChange 监听触发之后**必须**调用此方法,否则支付无法正常进行下去
+* 在onShippingMethodChange 监听触发之后***必须***调用此方法,否则支付无法正常进行下去
 * 可以在此方法中更新此次订单的账单,实现诸如`对不同的物流方式有不同的总价格`等功能
 
 **参数:**
@@ -400,15 +373,8 @@ var params = {
 | ----- | ----- | 
 | Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口|
 
-注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请在onCommitError监听方法获取返回值。
 
-**平台支持:**
 
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -448,7 +414,7 @@ if(!result){
 
 **说明:**
 
-* 在onShippingContactChange 监听触发之后**必须**调用此方法,否则支付无法正常进行下去
+* 在onShippingContactChange 监听触发之后***必须***调用此方法,否则支付无法正常进行下去
 * 可以在此方法中更新此次订单的账单和物流方式,实现诸如`对不同的地点提供不同的物流方式`等功能
 
 **参数:**
@@ -477,15 +443,6 @@ var params = {
 | ----- | ----- | 
 | Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口|
 
-注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请在onCommitError监听方法获取返回值。
-
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -522,7 +479,7 @@ if(!result){
 
 **说明:**
 
-* 在onPaymentAuthorized 监听触发之后**必须**调用此方法,告知系统订单支付结果,否则支付无法完成。
+* 在onPaymentAuthorized 监听触发之后***必须***调用此方法,告知系统订单支付结果,否则支付无法完成。
 
 **参数:**
 
@@ -546,15 +503,6 @@ var params = {
 | ----- | ----- | 
 | Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口|
 
-注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请在onCommitError监听方法获取返回值。
-
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -614,15 +562,7 @@ var params = {
 | ----- | ----- | 
 | Boolean | 是否添加按钮成功。若为false,一般为参数错误或者不完整引起|
 
-注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请在cbAddButton回调方法获取返回值。
 
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -671,15 +611,7 @@ var params = {
 | ----- | ----- | 
 | Boolean | 是否删除按钮成功。若为false,一般为参数错误或者不完整引起|
 
-注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请在cbRemoveButton回调方法获取返回值。
 
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -690,207 +622,7 @@ var data = {
 var suc = uexApplePay.removeButton(JSON.stringify(data));
 alert(suc)
 ```
-## 2.2、回调方法
 
-> ### cbCanMakePayment 检测是否可以进行ApplePay支付的回调方法
-
-`uexApplePay.cbCanMakePayment(params)`
-
-**说明:**
-
-* 在调用uexApplePay.canMakePayment接口后,总是会执行此方法异步返回结果。
-
-**参数:**
-
-params是JSON字符串
-
-```
-var params = {
-	status:,//
-};
-```
-
-各字段含义如下:
-
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| status | Number | 是 | 检测结果,是一个UexAppleCanMakePaymentStatus,详见[术语表-UexAppleCanMakePaymentStatus](#UexAppleCanMakePaymentStatus)|
-
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
-
-**示例:**
-
-```
-uexApplePay.cbCanMakePayment = function(info){
-	alert(info);
-}
-```
-
-> ### cbStartChinaUnionPay 进行银联ApplePay支付的回调方法
-
-`uexApplePay.cbStartChinaUnionPay(params)`
-
-**说明:**
-
-* 在调用uexApplePay.startChinaUnionPay接口后,总是会执行此方法异步返回结果。
-
-**参数:**
-
-params是JSON字符串
-
-```
-var params = {
-	result:,//
-};
-```
-
-各字段含义如下:
-
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| result | Number | 是 | 打开支付页面的结果,是一个UexApplePayStartPayResult,详见[术语表-UexApplePayStartPayResult](#UexApplePayStartPayResult)|
-
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
-
-**示例:**
-
-```
-uexApplePay.cbStartChinaUnionPay = function(info){
-	alert(info);
-}
-```
-
-> ### cbStartPay 进行ApplePay支付的回调方法
-
-`uexApplePay.cbStartPay(params)`
-
-**说明:**
-
-* 在调用uexApplePay.startPay接口后,总是会执行此方法异步返回结果。
-
-**参数:**
-
-params是JSON字符串
-
-```
-var params = {
-	result:,//
-};
-```
-
-各字段含义如下:
-
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| result | Number | 是 | 打开支付页面的结果,是一个UexApplePayStartPayResult,详见[术语表-UexApplePayStartPayResult](#UexApplePayStartPayResult)|
-
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
-
-**示例:**
-
-```
-uexApplePay.cbStartPay = function(info){
-	alert(info);
-}
-```
-
-> ### cbAddButton 添加ApplePay按钮的回调方法
-
-`uexApplePay.cbAddButton(params)`
-
-**说明:**
-
-* 在调用uexApplePay.addButton接口后,总是会执行此方法异步返回结果。
-
-**参数:**
-
-params是JSON字符串
-
-```
-var params = {
-	result:,//
-};
-```
-
-各字段含义如下:
-
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| result | Boolean | 是 | 操作是否成功。若为false,一般为参数错误或者不完整引起|
-
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
-
-**示例:**
-
-```
-uexApplePay.cbAddButton = function(info){
-	alert(info);
-}
-```
-
-> ### cbRemoveButton 移除ApplePay按钮的回调方法
-
-`uexApplePay.cbRemoveButton(params)`
-
-**说明:**
-
-* 在调用uexApplePay.removeButton接口后,总是会执行此方法异步返回结果。
-
-**参数:**
-
-params是JSON字符串
-
-```
-var params = {
-	result:,//
-};
-```
-
-各字段含义如下:
-
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| result | Boolean | 是 | 操作是否成功。若为false,一般为参数错误或者不完整引起|
-
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
-
-**示例:**
-
-```
-uexApplePay.cbRemoveButton = function(info){
-	alert(info);
-}
-```
 ## 2.2、监听方法
 
 > ### onChinaUnionPayFinish 银联ApplePay支付结束的监听方法
@@ -921,13 +653,6 @@ var params = {
 | errorInfo | String | 否 | 支付失败时会通过此字段返回失败的原因 |
 | otherInfo | String | 否 | 支付的额外信息会通过此字段返回, 此字段由银联SDK直接提供,请参考银联的相关文档|
 
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -944,7 +669,7 @@ uexApplePay.onChinaUnionPayFinish = function(info){
 **说明:**
 
 * 在调用uexApplePay.startPay接口后,当用户选择或者更改支付方式时,会触发此监听
-* **触发此监听之后,必须调用commitPaymentMethodChange来确认支付方式变化**
+* 触发此监听之后,***必须调用commitPaymentMethodChange来确认支付方式变化***
 
 **参数:**
 
@@ -968,13 +693,6 @@ var paymentMethod = {
 | displayName | String | 否 | 支付的展示名,仅在申请支付许可时才会有此字段 |
 | network | String | 否 | 支付网络,仅在申请支付许可时才会有此字段|
 
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -991,7 +709,7 @@ uexApplePay.onPaymentMethodChange = function(info){
 **说明:**
 
 * 在调用uexApplePay.startPay接口后,当用户选择或者更改物流联系人时,会触发此监听
-* **触发此监听之后,必须调用commitShippingContactChange来确认物流联系人变化**
+* 触发此监听之后,***必须调用commitShippingContactChange来确认物流联系人变化***
 
 **参数:**
 
@@ -1023,13 +741,7 @@ var contact = {
 * 以上4个主参数分别对应了UexApplePayContactRequiredFlag的4个枚举值
 * 以上参数均为可选参数,具体参数是否存在,取决于用户是否填入相应的信息。
 
-**平台支持:**
 
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -1046,7 +758,7 @@ uexApplePay.onShippingContactChange = function(info){
 **说明:**
 
 * 在调用uexApplePay.startPay接口后,当用户选择或者更改物流方式时,会触发此监听
-* **触发此监听之后,必须调用commitShippingMethodChange来确认物流方式变化**
+* 触发此监听之后,***必须调用commitShippingMethodChange来确认物流方式变化***
 
 **参数:**
 
@@ -1061,13 +773,6 @@ var param = {
 }
 ```
 
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -1084,7 +789,7 @@ uexApplePay.onShippingMethodChange = function(info){
 **说明:**
 
 * 在调用uexApplePay.startPay接口后,当用户确认进行支付时,会触发此监听
-* **触发此监听之后,必须调用commitAuthorizedResult来确认支付结果**
+* 触发此监听之后,***必须调用commitAuthorizedResult来确认支付结果***
 
 **参数:**
 
@@ -1125,13 +830,6 @@ var param = {
 	* 后台得到支付结果 返回给前端 
 	* 前端调用commitAuthorizedResult告诉插件支付结果,并展示给用户
 
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -1160,13 +858,6 @@ var param = {
  }
 ```
 
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
@@ -1195,14 +886,6 @@ var param = {
  }
 ```
 
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
-
 **示例:**
 
 ```
@@ -1229,14 +912,6 @@ var params = {
 	id:,//按钮的唯一标识符
 };
 ```
-
-**平台支持:**
-
-iOS 9.2+
-
-**版本支持:**
-
-iOS 3.2.0+
 
 **示例:**
 
