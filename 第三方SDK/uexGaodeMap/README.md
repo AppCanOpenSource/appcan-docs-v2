@@ -211,6 +211,35 @@ iOS 3.0.0+
     uexGaodeMap.setCenter(data);
 ```
 
+> ### getCenter  得到地图中心点
+
+`uexGaodeMap.getCenter()`
+
+**说明:**
+
+回调 [cbGetCenter](#cbGetCenter 得到地图中心点的回调方法 "cbGetCenter")
+
+**参数:**
+
+无
+
+**平台支持:**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持:**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例:**
+
+```
+    uexGaodeMap.getCenter();
+```
+
+
 > ### setZoomLevel  设置地图缩放级别
 
 `uexGaodeMap.setZoomLevel(json)`
@@ -1836,6 +1865,37 @@ uexGaodeMap.cbHideCustomButtons = function(json) {
 }
 ```
 
+> ### cbGetCenter 获取地图中心点的回调方法
+
+`uexGaodeMap.cbGetCenter(json);`
+
+**参数:**
+
+```
+var json = {
+    longitude:,//中心点经度
+    latitude:,//中心点纬度
+}
+```
+
+**平台支持:**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持:**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例:**
+
+```
+    uexGaodeMap.cbGetCenter = function(json) {
+        alert("cbGetCenter: "+json);
+    }
+```
+
 ## 2.3、 监听方法:
 > ### onMapLoadedListener 地图加载完成的监听方法
 
@@ -2688,12 +2748,13 @@ API版本:`uexGaodeMap-3.0.9`
 
 ### Android
 
-API版本:`uexGaodeMap-3.0.13`
+API版本:`uexGaodeMap-3.0.14`
 
-最近更新时间:`2016-5-10`
+最近更新时间:`2016-07-04`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.14 | 添加getCenter获取地图中心点接口 |
 | 3.0.13 | open接口添加回调 |
 | 3.0.12 | 修复闪退的问题 |
 | 3.0.11 | 修复闪退的问题 |
