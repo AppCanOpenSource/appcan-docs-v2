@@ -2,7 +2,7 @@
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 底部菜单栏插件
 ## 1.1、说明
-类似qq空间的底部导航菜单，生成一个应用底部导航菜单模块，开发者可自定义菜单各种样式
+类似qq空间的底部导航菜单,生成一个应用底部导航菜单模块,开发者可自定义菜单各种样式
 ## 1.2、UI展示
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=621_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
@@ -43,7 +43,7 @@ var json = {
         textSize:,//(可选) 字体大小,默认为13
         textNColor:,//(可选) 字体正常颜色,默认黑色
         textHColor:,//(可选) 字体高亮颜色,默认白色
-        bgColor:,//(可选) 弹出菜单的背景色，默认为透明背景色，可采用ARGB色彩模式即附加上Alpha（透明度）通道，对于 alpha，00 表示完全透明，ff 表示完全不透明，非00/ff为半透明。表达式顺序是“aabbggrr”如"#66ffffff"
+        bgColor:,//(可选) 弹出菜单的背景色,默认为透明背景色,可采用ARGB色彩模式即附加上Alpha(透明度)通道,对于 alpha,00 表示完全透明,ff 表示完全不透明,非00/ff为半透明。表达式顺序是"aabbggrr"如"#66ffffff"
         bottomDistance: //(可选)弹出菜单距离底部的距离,默认300
         data:[//(必选) 弹出菜单项数组
             {
@@ -213,7 +213,8 @@ iOS 3.0.0+
 `uexTabBarWithPopMenu.onTabItemClick(json);`
 
 **参数:**
-- JSON 字符串,内部字段：
+
+- JSON 字符串,内部字段:
 ```
 var json = {
     index://(必选) 索引  默认分别从 0 开始计数
@@ -245,7 +246,8 @@ iOS 3.0.0+
 `uexTabBarWithPopMenu.onPopMenuItemClick(json);`
 
 **参数:**
-- JSON 字符串,内部字段：
+
+- JSON 字符串,内部字段:
 ```
 var json = {
     index://(必选) 索引  默认分别从 0 开始计数

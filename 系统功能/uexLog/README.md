@@ -64,12 +64,13 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexLog-3.0.5`
+API版本:`uexLog-3.0.6`
 
-最近更新时间:`2016-1-11`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.6 | GCDAsyncUdpSocket库更换为framework |
 | 3.0.5 | GCDAsyncUdpSocket库更新 |
 | 3.0.4 | 添加IDE支持 |
 | 3.0.3 | 修复崩溃问题 |

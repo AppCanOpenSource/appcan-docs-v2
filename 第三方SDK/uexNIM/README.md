@@ -8,9 +8,8 @@ NIM(网易云信)插件
 群聊功能:提供了普通群 (Normal) 以及高级群 (Advanced) 两种形式的群聊功能。高级群拥有更多的权限操作,两种群聊形式在共有操作上保持了接口一致。推荐 APP 开发时只选择一种群类型进行开发。普通群和高级群在原则上是不能互相转换的,他们的群类型在创建时就已经确定；
 音视频通话:提供基于网络的点对点视频通话和语音通话功能,支持通话中音视频设备控制,并支持通话中实时音视频模式切换；
 
-
 > **使用前说明:**
->注:iOS3.0.2+版本必须在官网打包【引擎选择】选项，勾选只支持iOS8.0+的uexNIM定制引擎版本`sdksuit_3.XXX_NIM`（引擎已发布可选）
+>注:iOS3.0.2+版本必须在官网打包【引擎选择】选项,勾选只支持iOS8.0+的uexNIM定制引擎版本`sdksuit_3.XXX_NIM`(引擎已发布可选)
 
 本插件为单例插件 ——
 
@@ -32,7 +31,7 @@ uexWindow.evaluateMultiPopoverScript
  uexWindow.subscribeChannelNotification
 ````
 
-这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249) 内有描述，当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
+这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249) 内有描述,当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
 
 需要注意,对于Android 版插件,开发者需要在 config.xml中配置`appKey`和`packageName`。如下
 
@@ -141,7 +140,7 @@ param为json字符串
 
 ```
 var param = {
-	code:,//被踢下线code，见下表
+	code:,//被踢下线code,见下表
 };
 ```
 
@@ -172,7 +171,7 @@ var param = {
 
 ```
 var param = {
-	error:,失败错误码，成功为空
+	error:,失败错误码,成功为空
 };
 ```
 
@@ -186,10 +185,10 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionId:,//单聊时聊天人的userid, 群聊时groupid, 聊天室的id
 	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	content:,//文本内容
-	ext://扩展字段， Object类型
+	ext://扩展字段, Object类型
 };
 ```
 >###sendImage(param) 发送图片
@@ -198,11 +197,11 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionId:,//单聊时聊天人的userid, 群聊时groupid, 聊天室的id
 	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	filePath:,//图片文件路径
-	displayName：,//显示名称，非必须
-	ext://扩展字段， Object类型
+	displayName:,//显示名称,非必须
+	ext://扩展字段, Object类型
 };
 ```
 
@@ -212,12 +211,12 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionId:,//单聊时聊天人的userid, 群聊时groupid, 聊天室的id
 	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	title:,//位置的地址名
 	latitude:,
 	longitude:,
-	ext://扩展字段， Object类型
+	ext://扩展字段, Object类型
 
 };
 ```
@@ -228,10 +227,10 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionId:,//单聊时聊天人的userid, 群聊时groupid, 聊天室的id
 	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	filePath:,//语音文件路径
-	ext://扩展字段， Object类型
+	ext://扩展字段, Object类型
 };
 ```
 
@@ -241,11 +240,11 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionId:,//单聊时聊天人的userid, 群聊时groupid, 聊天室的id
 	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	filePath:,//视频文件路径
-	displayName：,//显示名称，非必须
-	ext://扩展字段， Object类型
+	displayName:,//显示名称,非必须
+	ext://扩展字段, Object类型
 };
 ```
 >###sendFile(param) 发送文件
@@ -254,11 +253,11 @@ param为json字符串
 
 ```
 var param = {
-	sessionId:,//单聊时聊天人的userid， 群聊时groupid， 聊天室的id
+	sessionId:,//单聊时聊天人的userid, 群聊时groupid, 聊天室的id
 	sessionType:,//0-单聊,1-群聊, 2- 聊天室
 	filePath:,//文件路径
-	displayName：,//显示名称，非必须
-	ext://扩展字段， Object类型
+	displayName:,//显示名称,非必须
+	ext://扩展字段, Object类型
 };
 ```
 
@@ -381,7 +380,7 @@ var param = {sessions:[{
 ```
 var param = {
 	sessionId:, //会话ID,如果当前session为team,则sessionId为teamId,如果是P2P则为对方帐号
-	sessionType:, //会话类型,当前仅支持P2P(单聊)和Team（群聊）
+	sessionType:, //会话类型,当前仅支持P2P(单聊)和Team(群聊)
 	messageId:,//起始查询消息的消息Id
 	limit:,//检索条数, 最大限制100条
 	startTime:,//起始时间,默认为0
@@ -451,7 +450,6 @@ var param = {
 >###stopPlay  停止播放音频
 
 该操作会触发回调cbCompletedPlayAudio。
-
 
 ##2.6、群组功能
 ***
@@ -674,7 +672,7 @@ var param = {
 
 ```
 var param = {
-	error:,//错误码，修改成功error为空。
+	error:,//错误码,修改成功error为空。
 };
 ```
 
@@ -789,7 +787,7 @@ var param = {
 
 ```
 var param = {
-	members:,//member组成的数组，member详细参数见下表
+	members:,//member组成的数组,member详细参数见下表
 	error:,//错误码,成功error为空
 };
 ```
@@ -878,7 +876,7 @@ var param = {
 除消息通道外,NIM SDK 还提供系统通知这种通道用于消息之外的通知分发。目前有两种类型:内置系统通知和自定义系统通知。
 
 内置:这是由 NIM SDK 预定义的通知类型,目前仅支持几种群操作的通知,如被邀请入群,SDK 负责这些通知的持久化。所有的内置系统通知都是通过onReceiveSystemNotification下发给 APP。为了保证整个程序逻辑的一致性,APP 需要针对不同类型的系统通知进行相应的操作。
-自定义系统通知：开发中....
+自定义系统通知:开发中....
 
 >###onReceiveSystemNotification内置系统通知监听
 
@@ -896,7 +894,6 @@ var param = {
 | targetID | 目标ID,群ID或者是用户ID |
 | postscript | 附言 , 仅iOS支持 | 
 | read | 是否已读 |
-
 
 >###fetchSystemNotifications(param)  获取本地存储的内置系统通知
 
@@ -932,9 +929,9 @@ var param = {
 ```
 >###sendCustomNotification(param)  发送自定义通知(客户端)
 
-除了内置系统通知外，NIM SDK 也额外提供了自定义系统给开发者，方便开发者进行业务逻辑的通知。这个通知既可以由客户端发起也可以由开发者服务器发起。
+除了内置系统通知外,NIM SDK 也额外提供了自定义系统给开发者,方便开发者进行业务逻辑的通知。这个通知既可以由客户端发起也可以由开发者服务器发起。
 
-注意：自定义通知和自定义消息的不同之处在于，自定义消息归属于网易云信的消息体系内，适用于会话，由 SDK 存储在消息数据库中，与网易云信的其他内建消息类型一同展现给用户。而自定义通知主要用于第三方的一些事件状态通知，SDK 不存储，也不解析这些通知。SDK 仅仅负责替第三方传递和通知这些事件，起到透传的作用。
+注意:自定义通知和自定义消息的不同之处在于,自定义消息归属于网易云信的消息体系内,适用于会话,由 SDK 存储在消息数据库中,与网易云信的其他内建消息类型一同展现给用户。而自定义通知主要用于第三方的一些事件状态通知,SDK 不存储,也不解析这些通知。SDK 仅仅负责替第三方传递和通知这些事件,起到透传的作用。
 
 ```
 var param = { 
@@ -943,12 +940,12 @@ var param = {
 	sendToOnlineUsersOnly:,//是否只发送给在线用户,默认为TRUE 如果这个值为FALSE,通知接受者如果在通知投递时不在线,那么他会在下次登录时收到这个通知。如果消息接受者是群,则只允许投递到当前在线的用户
 	content:,//透传的消息体内容
 	apnsContent:,//apns推送文案,默认为nil,用户可以设置当前通知的推送文案
-	shouldBeCounted:,//系统通知是否需要被计入苹果推送通知的未读计数,默认为TRUE。默认情况下，用户收到的自定义系统通知会在应用图标上累计未读。
-	apnsEnabled:,//消息是否需要苹果推送,默认为TRUE。将这个字段设为FALSE，消息将不再有苹果推送通知。
-	apnsWithPrefix:,//苹果推送是否需要带前缀(一般为昵称),默认为FALSE。将这个字段设为TRUE，推送消息将带有前缀(xx:)。
+	shouldBeCounted:,//系统通知是否需要被计入苹果推送通知的未读计数,默认为TRUE。默认情况下,用户收到的自定义系统通知会在应用图标上累计未读。
+	apnsEnabled:,//消息是否需要苹果推送,默认为TRUE。将这个字段设为FALSE,消息将不再有苹果推送通知。
+	apnsWithPrefix:,//苹果推送是否需要带前缀(一般为昵称),默认为FALSE。将这个字段设为TRUE,推送消息将带有前缀(xx:)。
 };
 ```
-客户端发起的自定义通知目前支持自定义如下字段:通知内容，推送文案(如果没有则不进行 APNS 推送)，是否只发给在线用户。最后一个字段的意义在于区分自定义通知的使用场景。sendToOnlineUsersOnly选择只发给在线用户，当目标用户不在线时这条通知会被云信服务器丢弃，这种实现比较适合发送即时通知，如正在输入。反之云信服务器会缓存当前通知(有上限)，并在目标用户上线后推送给目标用户。
+客户端发起的自定义通知目前支持自定义如下字段:通知内容,推送文案(如果没有则不进行 APNS 推送),是否只发给在线用户。最后一个字段的意义在于区分自定义通知的使用场景。sendToOnlineUsersOnly选择只发给在线用户,当目标用户不在线时这条通知会被云信服务器丢弃,这种实现比较适合发送即时通知,如正在输入。反之云信服务器会缓存当前通知(有上限),并在目标用户上线后推送给目标用户。
 >###cbSendCustomNotification(param)  发送自定义通知回调(客户端)
 
 ```
@@ -958,9 +955,9 @@ var param = {
 ```
 >###onReceiveCustomSystemNotification(param)  接受自定义通知监听
 
-除了内置系统通知外，NIM SDK 也额外提供了自定义系统给开发者，方便开发者进行业务逻辑的通知。这个通知既可以由客户端发起也可以由开发者服务器发起。
+除了内置系统通知外,NIM SDK 也额外提供了自定义系统给开发者,方便开发者进行业务逻辑的通知。这个通知既可以由客户端发起也可以由开发者服务器发起。
 
-注意：自定义通知和自定义消息的不同之处在于，自定义消息归属于网易云信的消息体系内，适用于会话，由 SDK 存储在消息数据库中，与网易云信的其他内建消息类型一同展现给用户。而自定义通知主要用于第三方的一些事件状态通知，SDK 不存储，也不解析这些通知。SDK 仅仅负责替第三方传递和通知这些事件，起到透传的作用。
+注意:自定义通知和自定义消息的不同之处在于,自定义消息归属于网易云信的消息体系内,适用于会话,由 SDK 存储在消息数据库中,与网易云信的其他内建消息类型一同展现给用户。而自定义通知主要用于第三方的一些事件状态通知,SDK 不存储,也不解析这些通知。SDK 仅仅负责替第三方传递和通知这些事件,起到透传的作用。
 
 ```
 var param = {
@@ -978,7 +975,7 @@ var param = {
 
 ##2.8、APNS 推送(以下方法全部仅限iOS)
 ***
-NIM SDK 提供全局 APNS 属性设置，用于设置免打扰时间和推送样式
+NIM SDK 提供全局 APNS 属性设置,用于设置免打扰时间和推送样式
 >### registerAPNS(param)  初始化
 >### cbRegisterAPNS(param)  初始化回调
 
@@ -1039,8 +1036,8 @@ var param = {
 	roomId:,//聊天室Id, 必须
 	nickName://用户在聊天室中的呢称
 	avatar: //头像url
-	extension:, //扩展字段，非必须。json对象类型，进入聊天室后展示用户信息的扩展字段，长度限制4K 
-	notifyExtension：， //通知的扩展字段, 非必须。json对象类型， 进入聊天室通知消息扩展字段，长度限制1K（进入聊天室后，聊天室成员都会收到一条通知消息）
+	extension:, //扩展字段,非必须。json对象类型,进入聊天室后展示用户信息的扩展字段,长度限制4K 
+	notifyExtension:, //通知的扩展字段, 非必须。json对象类型, 进入聊天室通知消息扩展字段,长度限制1K(进入聊天室后,聊天室成员都会收到一条通知消息)
 };
 ```
 
@@ -1054,23 +1051,23 @@ var param = {
 
 > ### exitChatRoom(param)  用户退出聊天室
 
-用户退出聊天室，该方法无回调
+用户退出聊天室,该方法无回调
 
 ```
 var param = {
-	roomId:,//聊天室Id， 必须
+	roomId:,//聊天室Id, 必须
 };
 ```
 
 > ### getChatRoomHistoryMsg(param)  获取聊天室历史消息
 
-聊天室支持获取云端消息记录的功能。以 startTime（单位毫秒） 为时间戳，拉取 limit 条消息。拉取到的消息中也包含成员操作的通知消息。
+聊天室支持获取云端消息记录的功能。以 startTime(单位毫秒) 为时间戳,拉取 limit 条消息。拉取到的消息中也包含成员操作的通知消息。
 
 ```
 var param = {
-	roomId:,//聊天室Id， 必须
-	startTime: //起始时间，非必须，默认为0
-	limit// 消息条数，非必须，默认为10
+	roomId:,//聊天室Id, 必须
+	startTime: //起始时间,非必须,默认为0
+	limit// 消息条数,非必须,默认为10
 };
 ```
 
@@ -1085,11 +1082,11 @@ var param = {
 
 > ### getChatRoomInfo(param)  获取聊天室信息
 
-聊天室支持获取云端消息记录的功能。以 startTime（单位毫秒） 为时间戳，拉取 limit 条消息。拉取到的消息中也包含成员操作的通知消息。
+聊天室支持获取云端消息记录的功能。以 startTime(单位毫秒) 为时间戳,拉取 limit 条消息。拉取到的消息中也包含成员操作的通知消息。
 
 ```
 var param = {
-	roomId:,//聊天室Id， 必须
+	roomId:,//聊天室Id, 必须
 };
 ```
 
@@ -1112,7 +1109,7 @@ data的结构为:
 	announcement: //公告, String
 	onLineUserCount: //当前在线人数, Number
 	broadcastUrl: //广播流url, String
-	extention: //扩展属性，Object
+	extention: //扩展属性,Object
 	
 }
 
@@ -1121,11 +1118,11 @@ data的结构为:
 > ### getChatRoomMembers 查询聊天室中的成员
 ```
 var param = {
-	roomId:,//聊天室Id， 必须
-	type: //类别，非必须，默认为0。type只会有三个值，即 0:聊天室在线的固定成员, 1: 聊天室临时成员, 2: 在线固定成员
-	time: //查询固定成员列表用ChatRoomMember.getUpdateTime, 查询游客列表用ChatRoomMember.getEnterTime，默认是0,会使用当前服务器最新时间开始查询，即第一页，单位毫秒
+	roomId:,//聊天室Id, 必须
+	type: //类别,非必须,默认为0。type只会有三个值,即 0:聊天室在线的固定成员, 1: 聊天室临时成员, 2: 在线固定成员
+	time: //查询固定成员列表用ChatRoomMember.getUpdateTime, 查询游客列表用ChatRoomMember.getEnterTime,默认是0,会使用当前服务器最新时间开始查询,即第一页,单位毫秒
 	userId:, //iOS以userId为瞄点进行查询
-	limit// 条数，非必须，默认为10， 最大100
+	limit// 条数,非必须,默认为10, 最大100
 };
 ```
 
@@ -1147,12 +1144,12 @@ data的结构为:
 		nick: //呢称, String
 		roomId: //聊天室id, String
 		updateTime: //更新时间, Number
-		isInBlackList: //是否在黑名单中，boolean
-		isMuted： //是否被禁言， boolean
-		isOnline：//是否在线， boolean
-		isValid：//是否有效, boolean, 仅Android支持
-		memberType：//成员类型, Number。 游客: -2, 受限用户: -1, 普通用户:0, 创建者:1, 管理员: 2
-		extention://进聊天室时提交的扩展字段，Object				
+		isInBlackList: //是否在黑名单中,boolean
+		isMuted: //是否被禁言, boolean
+		isOnline://是否在线, boolean
+		isValid://是否有效, boolean, 仅Android支持
+		memberType://成员类型, Number。 游客: -2, 受限用户: -1, 普通用户:0, 创建者:1, 管理员: 2
+		extention://进聊天室时提交的扩展字段,Object				
 	}
 ]
 ```
@@ -1163,8 +1160,8 @@ data的结构为:
 
 ```
 var param = {
-	roomId:,//聊天室Id， 必须
-	userIds://用户的account, 数组类型，必须, 数组长度最大20
+	roomId:,//聊天室Id, 必须
+	userIds://用户的account, 数组类型,必须, 数组长度最大20
 };
 ```
 
@@ -1185,7 +1182,7 @@ var param = {
 };
 ```
 |status| 说明|
-|------|------|
+|-----|-----|
 | 0 | 正在进入 |
 | 1 | 进入聊天室成功 |
 | 2 | 进入聊天室失败 |
@@ -1193,12 +1190,12 @@ var param = {
 
 > ### addUserToBlackList 加入/移出黑名单
 
-将用户加入或移出黑名单单。加入或移出黑名单时，都会收到聊天室通知消息
+将用户加入或移出黑名单单。加入或移出黑名单时,都会收到聊天室通知消息
 ```
 var param = {
 	roomId:,//聊天室id
 	userId:,//用户的帐号
-	isAdd:,//默认true, 即将用户加入黑名单，非必须。
+	isAdd:,//默认true, 即将用户加入黑名单,非必须。
 };
 ```
 
@@ -1212,13 +1209,13 @@ var param = {
 
 > ### muteUser 加入用户到禁言名单/取消某用户的禁言
 
-加入用户到禁言名单/取消某用户的禁言时，都会收到聊天室通知消息
+加入用户到禁言名单/取消某用户的禁言时,都会收到聊天室通知消息
 
 ```
 var param = {
 	roomId:,//聊天室id
 	userId:,//用户的帐号
-	isMute:,//默认true, 即将用户加入到禁言名单，非必须。
+	isMute:,//默认true, 即将用户加入到禁言名单,非必须。
 };
 ```
 
@@ -1238,7 +1235,7 @@ var param = {
 var param = {
 	roomId:,//聊天室id
 	userId:,//用户的帐号
-	isAdmin:,//默认true, 将用户设置为管理员，非必须。
+	isAdmin:,//默认true, 将用户设置为管理员,非必须。
 };
 ```
 
@@ -1252,13 +1249,13 @@ var param = {
 
 > ### setNormal 设置/移除普通成员
 
-即将游客变为固定成员中的普通成员身份。可以将游客设置为普通成员或者移除某个普通成员，将其变成游客
+即将游客变为固定成员中的普通成员身份。可以将游客设置为普通成员或者移除某个普通成员,将其变成游客
 
 ```
 var param = {
 	roomId:,//聊天室id
 	userId:,//用户的帐号
-	isNormal:,//默认true, 将用户设置为普通成员，非必须。
+	isNormal:,//默认true, 将用户设置为普通成员,非必须。
 };
 ```
 
@@ -1272,13 +1269,13 @@ var param = {
 
 > ### kickMemberFromChatRoom 从聊天室中移除某个用户
 
-踢出成员，仅管理员可以踢；如目标是管理员仅创建者可以踢。
+踢出成员,仅管理员可以踢；如目标是管理员仅创建者可以踢。
 
 ```
 var param = {
 	roomId:,//聊天室id
 	userId:,//用户的帐号
-	reason:,//原因，非必须。
+	reason:,//原因,非必须。
 };
 ```
 
@@ -1292,38 +1289,37 @@ var param = {
 
 > ### onChatRoomKickOutEvent 被踢出聊天室的监听
 
-当用户被主播或者管理员踢出聊天室、聊天室被关闭（被解散），会收到通知。注意：收到被踢出通知后，不需要再调用退出聊天室接口，SDK 会负责聊天室的退出工作。可以在踢出通知中做相关缓存的清理工作和界面操作。
+当用户被主播或者管理员踢出聊天室、聊天室被关闭(被解散),会收到通知。注意:收到被踢出通知后,不需要再调用退出聊天室接口,SDK 会负责聊天室的退出工作。可以在踢出通知中做相关缓存的清理工作和界面操作。
 
 返回数据
 
 ```
 var param = {
 	roomId:,//聊天室id
-	code:// 状态代码， Number
+	code:// 状态代码, Number
 };
 ```
 | code | 代码 | 
-|--------|------|
+|-----|-----|
 | 1 | 聊天室已经被解散|
 | 2 | 被管理员踢出|
 | 3 | 被其他端踢出|
 | 4 | 当前连接状态异常|
 | 5 | 被加黑了|
 
-
 ##2.10、用户资料托管
 ***
-网易云信提供了用户帐号资料管理。以下几个接口仅当选择云信托管用户资料时有效，如果开发者不希望云信获取自己的用户数据，则需自行维护用户资料。
+网易云信提供了用户帐号资料管理。以下几个接口仅当选择云信托管用户资料时有效,如果开发者不希望云信获取自己的用户数据,则需自行维护用户资料。
 
 >###userInfo(param) 获取本地用户资料
 
-用户资料除自己之外，不保证其他用户资料实时更新。其他用户数据更新时机为：
+用户资料除自己之外,不保证其他用户资料实时更新。其他用户数据更新时机为:
 
 * 调用fetchUserInfos:completion方法刷新用户
 * 收到此用户发来消息
-* 程序再次启动，此时会同步好友资料
+* 程序再次启动,此时会同步好友资料
 
-当用户资料更新时，会触发监听onUserInfoChanged。
+当用户资料更新时,会触发监听onUserInfoChanged。
 
 param为json字符串
 
@@ -1337,14 +1333,14 @@ var param = {
 ```
 var param = {
 	userId:,
-	alias:,//备注名，长度限制为128个字符
+	alias:,//备注名,长度限制为128个字符
 	notifyForNewMsg:,//是否需要消息提醒
 	isInMyBlackList:,//是否在黑名单中
 	userInfo:,//详细参数见下表
 }
 ```
 | 参数 | 参数详情 |
-| ------ | ------ |
+| ----- | ----- |
 | nickName | 用户昵称 |
 | avatarUrl | 用户头像 |
 | sign | 用户签名 |
@@ -1360,12 +1356,12 @@ param为json字符串
 
 ```
 var param = {
-	user:, //user对象， 对象类型
+	user:, //user对象, 对象类型
 }
 ```
 >###fetchUserInfos(param) 获取服务器用户资料
 
-此接口可以批量从服务器获取用户资料，出于用户体验和流量成本考虑，不建议应用频繁调用此接口。对于用户数据实时性要求不高的页面，应尽量调用读取本地缓存接口。当获取用户成功后，会触发监听onUserInfoChanged。
+此接口可以批量从服务器获取用户资料,出于用户体验和流量成本考虑,不建议应用频繁调用此接口。对于用户数据实时性要求不高的页面,应尽量调用读取本地缓存接口。当获取用户成功后,会触发监听onUserInfoChanged。
 
 param为json字符串
 
@@ -1391,14 +1387,14 @@ var param = {
 	nickname:,//用户昵称
 	avatar:,//用户头像
 	sign:,//用户签名
-	gender:,//用户性别 0:未知 ，1：男 ，2：女，
+	gender:,//用户性别 0:未知 ,1:男 ,2:女,
 	email:,//只支持合法邮箱
 	birth:,//用户生日yyyy-MM-dd
 	mobile:,//合法手机号
 	ex:,//拓展字段
 };
 ```
-当用户资料更新时，会触发回调：onUserInfoChanged
+当用户资料更新时,会触发回调:onUserInfoChanged
 
 	注:此方法主要为了在苹果推送时能够推送昵称(nickname)而不是userid,一般可以在登陆成功后从自己服务器获取到个人信息,然后拿到nick更新到网易云信服务器。并且,在个人信息中如果更改个人的昵称,也要把网易云信服务器更新下nickname 防止显示差异。
 	
@@ -1412,11 +1408,11 @@ var param = {
 
 ##2.11、用户关系托管
 ***
-网易云信提供了用户用户关系管理，以及对用户会话的消息设置。在云信中，不是好友也允许聊天。用户关系如果不托管给云信，开发者需要自己在应用服务器维护。
+网易云信提供了用户用户关系管理,以及对用户会话的消息设置。在云信中,不是好友也允许聊天。用户关系如果不托管给云信,开发者需要自己在应用服务器维护。
 >###myFriends   获取好友列表
 >###cbMyFriends(param)   获取好友列表回调
 
-好友列表有本地缓存，缓存会在手动/自动登录后与服务器自动进行同步更新。接口返回的是 User 列表。 User 封装了开发者向云信托管的好友ID，对此好友的会话设置（是否需要消息提醒，是否是拉黑用户等）, 以及用户的详细信息 UserInfo (需要将用户信息交给云信托管)。
+好友列表有本地缓存,缓存会在手动/自动登录后与服务器自动进行同步更新。接口返回的是 User 列表。 User 封装了开发者向云信托管的好友ID,对此好友的会话设置(是否需要消息提醒,是否是拉黑用户等), 以及用户的详细信息 UserInfo (需要将用户信息交给云信托管)。
 
 param为json字符串
 
@@ -1428,7 +1424,7 @@ var param = {
 >###requestFriend(param)   好友请求
 
 好友请求包括请求添加好友以及同意/拒绝好友请求两种；
-验证方式有不需要验证方式（一旦请求后双方直接互为好友）和需要验证的两种。
+验证方式有不需要验证方式(一旦请求后双方直接互为好友)和需要验证的两种。
 
 param为json字符串
 
@@ -1457,7 +1453,7 @@ var param = {
 ```
 >###deleteFriend(param)   删除好友
 
-解除成功后，会同时修改本地的缓存数据，并触发onFriendChanged
+解除成功后,会同时修改本地的缓存数据,并触发onFriendChanged
 
 param为json字符串
 ```
@@ -1476,8 +1472,8 @@ var param = {
 
 >###myBlackList(param)   获取黑名单成员列表
 
-云信中，黑名单和好友关系是互相独立的，即修改好友关系不会影响黑名单关系，同时，修改黑名单也不会对好友关系进行操作。
-黑名单列表有本地缓存，缓存会在手动/自动登录后与服务器自动进行同步更新。接口返回的是User 列表
+云信中,黑名单和好友关系是互相独立的,即修改好友关系不会影响黑名单关系,同时,修改黑名单也不会对好友关系进行操作。
+黑名单列表有本地缓存,缓存会在手动/自动登录后与服务器自动进行同步更新。接口返回的是User 列表
 
 >###cbMyBlackList(param)   获取黑名单成员列表回调
 
@@ -1490,7 +1486,7 @@ var param = {
 ```
 >###addToBlackList(param)   添加用户到黑名单
 
-拉黑成功后，会同时修改本地缓存，并触发回调onBlackListChanged
+拉黑成功后,会同时修改本地缓存,并触发回调onBlackListChanged
 
 param为json字符串
 
@@ -1509,7 +1505,7 @@ var param = {
 ```
 >###removeFromBlackBlackList(param)   将用户从黑名单移除
 
-移除成功后，会同时修改本地缓存，并触发回调onBlackListChanged
+移除成功后,会同时修改本地缓存,并触发回调onBlackListChanged
 
 param为json字符串
 
@@ -1528,7 +1524,7 @@ var param = {
 >###onBlackListChanged   用户黑名单更新监听
 >###isUserInBlackList(param)   将判断用户是否在自己的黑名单内
 
-此接口是根据本地缓存数据来判断是否拉黑的，在调用时请保证本地缓存是正确的(登录后有正常完成数据同步)。
+此接口是根据本地缓存数据来判断是否拉黑的,在调用时请保证本地缓存是正确的(登录后有正常完成数据同步)。
 
 param为json字符串
 
@@ -1548,9 +1544,9 @@ var param = {
 ```
 >###myMuteUserList   获取静音成员列表
 
-云信中，可以单独设置是否开启某个用户的消息提醒，即对某个用户静音。静音关系和好友关系是互相独立的，修改好友关系不会影响静音关系，同时，修改静音关系也不会对好友关系进行操作。
+云信中,可以单独设置是否开启某个用户的消息提醒,即对某个用户静音。静音关系和好友关系是互相独立的,修改好友关系不会影响静音关系,同时,修改静音关系也不会对好友关系进行操作。
 
-静音列表有本地缓存，缓存会在手动/自动登录后与服务器自动进行同步更新。接口返回的是 User 列表。 User 封装了开发者向云信托管的好友ID，对此好友的会话设置（是否需要消息提醒，是否是拉黑用户等）, 以及用户的详细信息 UserInfo (需要将用户信息交给云信托管)。
+静音列表有本地缓存,缓存会在手动/自动登录后与服务器自动进行同步更新。接口返回的是 User 列表。 User 封装了开发者向云信托管的好友ID,对此好友的会话设置(是否需要消息提醒,是否是拉黑用户等), 以及用户的详细信息 UserInfo (需要将用户信息交给云信托管)。
 >###cbMyMuteUserList(param)   获取静音成员列表回调
 
 param为json字符串
@@ -1563,7 +1559,7 @@ var param = {
 
 >###updateNotifyStateForUser(param)   设置消息提醒
 
-设置成功之后，同时更新本地缓存数据。
+设置成功之后,同时更新本地缓存数据。
 
 param为json字符串
 
@@ -1576,7 +1572,7 @@ var param = {
 
 >###cbUpdateNotifyStateForUser(param)   设置消息提醒回调
 
-设置成功之后，同时更新本地缓存数据。
+设置成功之后,同时更新本地缓存数据。
 
 param为json字符串
 
@@ -1588,7 +1584,7 @@ var param = {
 
 >###notifyForNewMsgForUser(param)   判断是否需要消息通知
 
-此接口是根据本地缓存数据来判断是否是拉黑的，在调用时请保证本地缓存是正确的(登录后有正常完成数据同步)。当设置成功后，会触发监听onUserInfoChanged
+此接口是根据本地缓存数据来判断是否是拉黑的,在调用时请保证本地缓存是正确的(登录后有正常完成数据同步)。当设置成功后,会触发监听onUserInfoChanged
 
 param为json字符串
 
@@ -1606,7 +1602,6 @@ var param = {
 	result:, //true,false
 };
 ```
-
 
 #3、附录
 >###iOS端状态码
@@ -1639,7 +1634,7 @@ var param = {
 | 22 | 开始写录制文件失败 |
 | 23 | 结束本地录制失败 |
 | 24 | 写录制文件失败 |
-| 25 | 空间不足，录制即将结束 |
+| 25 | 空间不足,录制即将结束 |
 | 聊天室错误码 |  |
 | 26 | 聊天室不存在 |
 
@@ -1692,7 +1687,7 @@ var param = {
 | 音视频通话/白板相关错误码 |  |
 | 9102 |  通道失效|
 | 9103 |  已经在他端对这个呼叫响应过了|
-| 11001 |  通话不可达，对方离线状态|
+| 11001 |  通话不可达,对方离线状态|
 | 聊天室相关错误码 |  |
 | 13001 |IM主连接状态异常  |
 | 13002 |  聊天室状态异常|
@@ -1718,9 +1713,9 @@ API版本:`uexNIM-3.0.2`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 网易云信(uexNIM)插件 for iOS |
-| 3.0.1 | 增加聊天室功能 |
 | 3.0.2 | 升级SDK到2.4.0-支持IPv6；打包需用仅支持iOS8.0+的引擎打包 |
+| 3.0.1 | 增加聊天室功能 |
+| 3.0.0 | 网易云信(uexNIM)插件 for iOS |
 
 ### Android
 
@@ -1730,8 +1725,7 @@ API版本:`uexNIM-3.0.1`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.1 | 添加聊天室,用户资料管理,用户关系管理和系统通知 |
 | 3.0.0 | 网易云信(uexNIM)插件 |
-| 3.0.1 | 添加聊天室，用户资料管理，用户关系管理和系统通知 |
-
 #5 文档更新记录
 

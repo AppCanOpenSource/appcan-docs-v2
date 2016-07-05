@@ -272,12 +272,13 @@ uexBackground.XXX = function(count){
 
 ### iOS
 
-API版本:`uexBackground-3.0.0`
+API版本:`uexBackground-3.3.1`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.3.1 | 修复一处循环引用的错误 |
 | 3.0.0 | uexBackground for iOS |
 
 ### Android

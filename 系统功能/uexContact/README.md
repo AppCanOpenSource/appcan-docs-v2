@@ -299,7 +299,6 @@ var option = {
 | isSearchNote | Boolean | 否 | true,false是否查询Note,默认为true(Android 推荐false) |
 | isSearchUrl | Boolean | 否 | true,false是否查询Url,默认为true(Android 推荐false) |
 
-
 **平台支持:**
 
 Android2.2+    
@@ -712,12 +711,13 @@ API版本:`uexContact-3.0.10`
 
 ### Android
 
-API版本:`uexContact-3.0.4`
+API版本:`uexContact-3.0.5`
 
-最近更新时间:`2016-4-22`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.5 | addItem接口支持多个号码的添加,以分号分隔 |
 | 3.0.4 | 新增search,modifyWithId,deleteWithId接口以及对应回调.优化查询逻辑 |
 | 3.0.3 | 修复执行过慢影响UI线程的问题,修正当增删改查存在的部分回调错误问题 |
 | 3.0.2 | 修复打开联系人后邮箱错乱的问题 |

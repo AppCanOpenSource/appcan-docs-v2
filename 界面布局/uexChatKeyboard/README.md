@@ -368,7 +368,7 @@ alert(data);
 
 **参数:**
 
- - JSON 字符串,内部字段： 
+ - JSON 字符串,内部字段: 
  
 ```
 var data={

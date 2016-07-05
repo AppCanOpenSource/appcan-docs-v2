@@ -18,6 +18,7 @@ Mob短信验证插件
 
 `uexMobSMS.init(params);`
   
+
 **说明:**
 
 该方法为注册appKey和appSecret,这一步必须最先执行。
@@ -30,11 +31,13 @@ Mob短信验证插件
 **(3)在应用信息栏中上传安装包文件。**
 
                
+
 **参数:**
-params为JSON格式，参见下方params列表
+
+params为JSON格式,参见下方params列表
 
 |  params参数值 | 是否必选  |说明 |
-| ------------ | ------------ | ------------|
+| ----- | ----- | -----|
 |  uexMobSMS_APPKey |必选   |在mob上注册并获取相应的App Key |
 |  uexMobSMS_APPSecret |  必选 |在mob上注册并获取相应的App Secret |
 
@@ -47,6 +50,7 @@ Android 2.2+
 
 3.3.0+
 引擎3.3.0+
+
 **示例:**
 
 ```
@@ -73,10 +77,11 @@ var params = {
                 
 
 **参数:**
-params为JSON格式，参见下方params列表
+
+params为JSON格式,参见下方params列表
 
 |  params参数值 | 是否必选  |说明 |
-| ------------ | ------------ | ------------|
+| ----- | ----- | -----|
 |  phoneNum |必选   |接收短信验证码的电话号码 |
 |  countryCode |  必选 |国家区域编码  |
  
@@ -90,6 +95,7 @@ Android 2.2+
 
 3.0.0+ 
 引擎3.3.0+
+
 **示例:**
 
 ```
@@ -110,10 +116,11 @@ uexMobSMS.sendCode(JSON.stringify(params));
 回调方法[cbCommitClick](#cbCommitClick  提交验证码的回调方法 "cbCommitClick")	
 
 **参数:**
-params为JSON格式，参见下方params列表
+
+params为JSON格式,参见下方params列表
 
 |  params参数值 | 是否必选  |说明 |
-| ------------ | ------------ | ------------|
+| ----- | ----- | -----|
 |  phoneNum |必选   |接收短信验证码的电话号码 |
 |  countryCode |  必选 |国家区域编码  |
 |  validCode |  必选 |从服务器获取的验证码  |

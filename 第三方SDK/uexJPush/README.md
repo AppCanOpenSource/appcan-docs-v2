@@ -471,7 +471,7 @@ uexJPush.disableLocalNotificationAlertView(1);
  
 ##2.3、回调方法
  ***
- - 本插件为单例插件，用户可以在任意界面调用插件的接口，但回调始终传回给root页面（即root页面调用）。
+ - 本插件为单例插件,用户可以在任意界面调用插件的接口,但回调始终传回给root页面(即root页面调用)。
  
 >### cbSetAlias  设置别名的回调方法
 
@@ -659,7 +659,7 @@ window.uexOnload=function(type){
 ```
 
 ##2.3、监听方法
-- 本插件为单例插件，用户可以在任意界面调用插件的接口，但回调始终传回给root页面（即root页面调用）。
+- 本插件为单例插件,用户可以在任意界面调用插件的接口,但回调始终传回给root页面(即root页面调用)。
 
 >### onReceiveMessage 收到了自定义消息
 
@@ -954,12 +954,13 @@ $UEXJPUSH_APS_ENVIRONMENT$ ----->推送证书类型   0-开发者证书(develope
 
 ### iOS
 
-API版本:`uexJPush-3.0.8`
+API版本:`uexJPush-3.0.9`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.9 | 更新JPush SDK到2.1.7 -支持IPv6 |
 | 3.0.8 | 更新JPush SDK到2.1.5 |
 | 3.0.7 | 现在应用在后台时,点击推送,会正确的触发onReceiveNotificationOpen |
 | 3.0.6 | 修复root页面回调失效的bug |
