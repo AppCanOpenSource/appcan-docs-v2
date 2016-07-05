@@ -31,15 +31,93 @@
     <script src="js/appcan.js"></script>
     <script src="js/appcan.control.js"></script>
     <script type="text/javascript">
-    window.uexOnload = function() {
-        uexTouchID.cbVerify=function(status,reason){
-            alert("status::"+status);
-            alert("reason::"+reason);
+
+
+/*
+ #define kLAErrorAuthenticationFailed                       -1
+ #define kLAErrorUserCancel                                 -2
+ #define kLAErrorUserFallback                               -3
+ #define kLAErrorSystemCancel                               -4
+ #define kLAErrorPasscodeNotSet                             -5
+ #define kLAErrorTouchIDNotAvailable                        -6
+ #define kLAErrorTouchIDNotEnrolled                         -7
+ #define kLAErrorTouchIDLockout                             -8
+ #define kLAErrorAppCancel                                  -9
+ #define kLAErrorInvalidContext                            -10
+ 
+ */
+
+
+    function errorInfo(code){
+        switch(code){
+            case 0:{
+                return "NoError";
+            }
+            case -1:{
+                return "AuthenticationFailed";
+            }
+            case -2:{
+                return "UserCancel";
+            }
+            case -3:{
+                return "UserFallback";
+            }
+            case -4:{
+                return "SystemCancel";
+            }
+            case -5:{
+                return "PasscodeNotSet";
+            }
+            case -6:{
+                return "TouchIDNotAvailable";
+            }
+            case -7:{
+                return "TouchIDNotEnrolled";
+            }
+            case -8:{
+                return "TouchIDLockout";
+            }
+            case -9:{
+                return "AppCancel";
+            }
+            case -10:{
+                return "InvalidContext";
+            }
+            default:{
+                return "UnknownError";
+            }
+            
         }
-        uexTouchID.verify("请通过TouchID指纹验证!");
     }
-    function verify(){
-        uexTouchID.verify("请通过TouchID指纹验证!");
+
+
+    function authenticate(){
+        var ret = uexTouchID.canAuthenticate();
+        if (ret != 0){
+            alert("TouchID Unavailable!errorInfo: " + errorInfo(ret) );
+            return;
+        }
+        //get mode
+        var radios = document.getElementsByName("mode");
+        var mode = 0;
+        for(var i = 0;i<radios.length;i++){
+            var radio = radios[i];
+            if(radio.checked){
+                mode = parseInt(radio.value);
+            }
+        }
+        uexTouchID.authenticate({
+                                    mode:mode,
+                                    hint:"AppCan需要验证您的指纹"
+                                  },
+                                  function(ret){
+                                    if(ret == 0){
+                                        alert("Authentication Succeed!");
+                                    }else{
+                                        alert("Authentication Failed!errorInfo:" + errorInfo(ret));
+                                    }
+                                  });
+
     }
 	</script>
 </head>
@@ -53,8 +131,10 @@
 	    <div id="content" class="ub-f1 tx-l t-bla" style="">
 	    <div class="conbor">
 			<div class="consj">
-
-                <input type="button" value="TouchID验证" onclick="verify();"/>
+                <span>Mode:</span>
+                <input type="radio" checked="checked" name="mode" value="0"/>默认<br/>
+                <input type="radio" name="mode" value="1"/>允许使用系统密码替代指纹验证
+                <input type="button" value="TouchID验证" onclick="authenticate();"/>
 	        </div>
 	    </div>
 	</div>
