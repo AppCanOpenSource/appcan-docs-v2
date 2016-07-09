@@ -46,13 +46,13 @@ uexCall.dial(number)
 ```
 uexCall.dial("10086");
 ```
-> ### faceTime   视频通话(仅支持iOS)
+> ### facetime   视频通话(仅支持iOS)
 
 `uexCall.faceTime(number)`
 
 **说明**
 
-调用faceTime进行视频通话
+调用facetime进行视频通话
 
 **参数**
 
@@ -64,7 +64,7 @@ uexCall.dial("10086");
 **示例**
 
 ```
-uexCall.faceTime("10086");
+uexCall.facetime("10086");
 ```
 
  
