@@ -5,13 +5,22 @@
 
 云知声插件
 
-##1.1、 说明
+## 1.1、 说明
 封装了云知声的相关功能:通过调用插件的相关接口,您可以轻松进行语音识别、语义识别以及语音合成等相关功能。
 
 * 对于个人开发者使用语音服务,需要经过云知声的授权,请到"http://dev.hivoice.cn" 注册成为云知声的开发者,并创建应用,在"我的应用"中获取 AppKey 和 Secret。使用该应用授权码可以帮助开发者监控语音识别服务的使用情况。
 
-##1.2、 当前版本插件下载
+## 1.2、 当前版本插件下载
 [点击]()至插件详情页(插件测试用例与插件包已经提供)
+
+
+## 1.3、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.4、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
 
 ***
 
@@ -40,17 +49,6 @@ var param = {
 	}
 
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
 **示例**
 
 ```
@@ -81,23 +79,12 @@ param是一个字典结构生成的json字符串,其key值如下表所示
 | rate                 | 录音采样率           | Number | 1-BANDWIDTH\_AUTO; 2-RATE\_8K; 3-RATE_16K; 详细说明见表末 | 3    |
 | languague            | 识别语言            | Number | 1-普通话 2-英语 3-粤语                          | 1    |
 | engine               | 识别领域选择          | Number | 1. “general”：通用识别，2. “poi”: 地名识别,3. “song”: 歌名识别,4. “movietv”：影视名识别,5. . “medical”: 医药领域识别 | 1    |
-| recognizationTimeout |                 |        |                                          |      |
-| needUnderstander     |                 |        |                                          |      |
+
 
 * 以上都是可选参数
 * 采样率意味着录音的质量
   * 对网络带宽要求 RATE\_16K≈2KB/秒,RATE\_8K≈1KB/秒。
   * 当设置成 BANDWIDTH_AUTO 时自动根据当前的网络环境切换到最佳的采样频率。
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+   
 
 **示例**
 
@@ -132,16 +119,6 @@ uexUnisound.updateRecognizerSettings();
 
 无
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
 **示例**
 
 ```
@@ -161,18 +138,7 @@ uexUnisound.start();
 * 本方法调用后,停止录音并等待语音理解结束,结束后会收到onEnd回调
 
 **参数**
-
 无
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -195,16 +161,6 @@ uexUnisound.stop();
 **参数**
 
 无
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -233,16 +189,6 @@ var param = {
 	text:,//需要语义理解的文本
 }
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -278,16 +224,7 @@ var param = {
 	text:,//需要语音合成的文本
 }
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+   
 
 **示例**
 
@@ -312,16 +249,6 @@ uexUnisound.speaking(JSON.stringify(data));
 
 无
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
 **示例**
 
 ```
@@ -330,140 +257,9 @@ uexUnisound.cancelSpeaking();
 
 ```
 
->### pauseSpeaking 暂停播放 
 
-`uexUnisound.pauseSpeaking()`
 
-**说明**
-
-暂停播放(仅IOS支持)
-
-* 仅暂停语音播放线程,合成线程会继续进行
-* 回调[cbPauseSpeaking](#cbPauseSpeaking 暂停播放的回调方法)
-
-**参数**
-
-无
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
-```
-
-uexUnisound.pauseSpeaking();
-
-```
-
->### resumeSpeaking 恢复播放
-
-`uexUnisound.resumeSpeaking()`
-
-**说明**
-
-恢复播放 (仅IOS支持)
-
-* 回调[cbResumeSpeaking](#cbResumeSpeaking 恢复播放的回调方法)
-
-**参数**
-
-无
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
-```
-
-uexUnisound.resumeSpeaking();
-
-```
-
-## 2.2、 回调方法
-
->### cbPauseSpeaking 暂停播放的回调方法
-
-`uexUnisound.cbPauseSpeaking()`
-
-**说明**
-
-暂停播放的回调方法(仅IOS支持)
-
-**参数**
-
-无
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
-```
-window.uexOnload = function(type){
-	uexUnisound.cbPauseSpeaking = function(){
-		alert("暂停播放");
-	}
-}
-
-```
-
->### cbResumeSpeaking 恢复播放的回调方法
-
-`uexUnisound.cbResumeSpeaking()`
-
-**说明**
-
-恢复播放的回调方法(仅IOS支持)
-
-**参数**
-
-无
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
-```
-window.uexOnload = function(type){
-	uexUnisound.cbResumeSpeaking = function(){
-		alert("恢复播放");
-	}
-}
-
-```
-
-##2.3、 监听方法
+##2.2、 监听方法
 
 >### onRecognizerStart 语音识别开始的监听方法
 
@@ -479,16 +275,6 @@ window.uexOnload = function(type){
 **参数**
 
 无
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -514,16 +300,7 @@ window.uexOnload = function(type){
 **参数**
 
 无
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
+ 
 
 **示例**
 
@@ -561,16 +338,6 @@ var param = {
 	isLast:,//Boolean 必选 是不是最后一次返回文字  true/false
 }
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -614,16 +381,6 @@ var param = {
 | -61002 | 录音异常          |
 | -62001 | 识别异常          |
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
 **示例**
 
 ```
@@ -646,16 +403,6 @@ window.uexOnload = function(type){
 **参数**
 
 无
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -689,16 +436,6 @@ var param = {
 	volume;//Number 必选 录音时的音量大小 0~100
 	}
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -736,16 +473,6 @@ var param = {
 * stringResult中包含更多更详细的信息
 * 一般使用,只需取responseText的值即可
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
 **示例**
 
 ```
@@ -768,16 +495,6 @@ window.uexOnload = function(type){
 **参数**
 
 无
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -802,16 +519,6 @@ window.uexOnload = function(type){
 
 无
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
 **示例**
 
 ```
@@ -834,16 +541,6 @@ window.uexOnload = function(type){
 **参数**
 
 无
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
@@ -875,16 +572,6 @@ var param = {
 	errorStr:,//String 可选 错误描述
 }
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
 
 **示例**
 
