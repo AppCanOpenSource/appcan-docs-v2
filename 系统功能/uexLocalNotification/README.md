@@ -1,4 +1,4 @@
- 
+
 [TOC]
 
 #1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
@@ -128,12 +128,15 @@ iOS6.0+
 	  uexLocalNotification.add("alarm_6", d, 1, "message body", "ok", "", "daily", "5",'{"key1":"value1","key2":"value2"}');
 	}
 	
-	function onActiveCallBack(notificationID,extras) {
-		alert("onActive:"+notificationID+"\nextras:"+extras);
+	function onActiveCallBack(notificationID,message,extras) {
+	alert("onActive:"+notificationID+"\nmessage:"+message+"\nextra:"+extras);
+	}
+	function onMessageCallBack(notificationID,message,extras) {
+	alert("onMessage:" + notID  +  "\nmessage:" + message+"\nextra:"+extras);
 	}
 	window.uexOnload = function(){
 		uexLocalNotification.onActive = onActiveCallBack;
-		uexLocalNotification.cbGetData = cbGetData;
+		uexLocalNotification.onMessage = onMessageCallBack;
 	}
         </script>
         </head>
@@ -157,12 +160,12 @@ iOS6.0+
 ```
 ## 2.2、监听方法
 
-> ### onActive		用户点击了通知监听		
-`uexLocalNotification.onActive(notificationID,extras)`
+> ### onActive		用户退到后台，点击了通知监听		
+`uexLocalNotification.onActive(notificationID,message,extras)`
 
 **说明:**
 
-注册通知	
+用户退到后台，点击了通知监听	
 				
 
 **参数:**
@@ -170,6 +173,39 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | notificationID | String类型| 是 |  通知的唯一标示符,取值范围[alarm_1,…,alarm_10]。 |
+|message | String | 是 | 通知内容,message为json字符串 |
+| extras | String | 否 | 额外的数据信息,extras为json字符串 |
+ 
+
+**平台支持:**
+
+					
+iOS6.0+		
+			
+
+**版本支持:**
+
+iOS 3.0.7+			
+		
+
+**示例:**
+
+见removeAll示例
+
+> ### onMessage		用户处于前台的通知监听		
+`uexLocalNotification.onMessage(notificationID,message,extras)`
+
+**说明:**
+
+用户处于前台的通知监听	
+				
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| notificationID | String类型| 是 |  通知的唯一标示符,取值范围[alarm_1,…,alarm_10]。 |
+|message | String | 是 | 通知内容,message为json字符串 |
 | extras | String | 否 | 额外的数据信息,extras为json字符串 |
  
 
@@ -191,12 +227,13 @@ iOS 3.0.7+
 
 ### iOS
 
-API版本:`uexLocalNotification-3.0.7`
+API版本:`uexLocalNotification-4.0.0`
 
-最近更新时间:`2016-1-27`
+最近更新时间:`2016-7-13`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持引擎4.0 |
 | 3.0.7 | 添加用户点击了通知的监听方法 |
 | 3.0.6 | 添加IDE支持 |
 | 3.0.5 | 删除info.plist |
@@ -208,12 +245,13 @@ API版本:`uexLocalNotification-3.0.7`
 
 ### Android
 
-API版本:`uexLocalNotification-3.0.9`
+API版本:`uexLocalNotification-4.0.0`
 
-最近更新时间:`2016-2-22`
+最近更新时间:`2016-7-13`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 支持引擎4.0 |
 | 3.0.9 | 修复删除指定本地通知失败的问题 |
 | 3.0.8 | 修复部分机型通知没有提示音的问题 |
 | 3.0.7 | 修复部分机型闪退的问题 |
