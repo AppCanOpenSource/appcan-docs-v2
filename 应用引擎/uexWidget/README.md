@@ -237,7 +237,7 @@ uexWidget.startApp(0,packageName,className,optInfo);
     android:versionName="1.0" >
     <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="18" ></uses>
+        android:targetSdkVersion="18" />
     
   <application
         android:allowBackup="true"
@@ -381,12 +381,26 @@ var extra='{data:"http://www.appcan.cn/"}';
 uexWidget.startApp(0, "com.tencent.mtt","com.tencent.mtt.MainActivity",optInfo,extra);
 
 ```
+4.指定用 系统浏览器（android） 打开链接：
+```
+       var value;
+	   appcan.ready(function() {
+       value = uexWidgetOne.platformName;
+function openth() {
+            if (value == "android") {
+                uexWidget.startApp("1", "android.intent.action.VIEW", '{"data":{"mimeType":"text/html","scheme":"http://www.appcan.cn"}}');
+            } else {
+                uexWidget.loadApp("http://www.appcan.cn", null, null);
+            }
 
+        }
+		})
+```
 > ### getOpenerInfo 获取widget的相关信息
 
   
   
- ` uexWidget.getOpenerInfo()`
+ ` uexWidget.getOpenerInfo();`
 **说明:**
   获取打开者传入此widget的相关信息。即调用startWidget时传入的info参数值。
 **参数:**
@@ -399,7 +413,7 @@ uexWidget.startApp(0, "com.tencent.mtt","com.tencent.mtt.MainActivity",optInfo,e
 **示例:**
 
 ```
- uexWidget.getOpenerInfo()
+ uexWidget.getOpenerInfo();
 
 ```
 
@@ -514,9 +528,9 @@ alert("收到推送消息");
   3.0.0+
   
 **示例:**
-
+```
   uexWidget.setPushInfo('user10001','姓名');
-  
+```  
 > ### setPushState 设置推送服务的状态
 
   
@@ -552,7 +566,7 @@ uexWidget.setPushState(0);
 
 
   
- ` uexWidget.getPushState()`
+ ` uexWidget.getPushState();`
  
 **说明:**
 
@@ -574,7 +588,7 @@ uexWidget.setPushState(0);
 **示例:**
 
 ```
-  uexWidget.getPushState()
+  uexWidget.getPushState();
 ```
   
 > ### isAppInstalled 是否安装某第三方应用
@@ -630,7 +644,7 @@ uexWidget.setPushState(0);
  
 **说明:**
 
-    关闭启动图。用于应用启动期间需要做页面跳转等逻辑。需要在config.xml 添加 `<removeloading>true</removeloading>`配置。 添加之后引擎不会关闭启动图，由前端调用此接口关闭，超时（时间为3秒）之后引擎才会关闭启动图。
+ 关闭启动图。用于应用启动期间需要做页面跳转等逻辑。需要在config.xml 添加 `<removeloading>true</removeloading>`配置。 添加之后引擎不会关闭启动图，由前端调用此接口关闭，超时（时间为3秒）之后引擎才会关闭启动图。
   
   
 **参数:**
@@ -639,13 +653,13 @@ uexWidget.setPushState(0);
   
 **平台支持:**
 
-  iOS 7.0+
-  Android2.2+
+iOS 7.0+
+Android2.2+
   
 **版本支持:**
 	
-	iOS 3.4.1+
-  	Android 3.2.0+
+iOS 3.4.1+
+Android 3.2.0+
   
 **示例:**
 
@@ -688,9 +702,9 @@ Android2.2+
 在子widget更新完成时调用可加载更新的html、js、css
 
 **参数**
-
+````
    appId：子widget对应的appId（必选）
-
+````
 **平台支持**
 
 Android 2.2+
@@ -709,7 +723,8 @@ uexWidget.reloadWidgetByAppId(sdk2015);
 > ### setKeyboardMode 设置键盘模式
 
 `uexWidget.setKeyboardMode(json)`
-  
+**说明**
+仅支持安卓平台，此设置在线云端打包已支持配置。选择键盘模式-“压缩模式”页面随键盘平移而平移（可解决键盘遮盖输入框），“平移模式”仅键盘平移，页面不移动。
 **参数:**
 
 ````

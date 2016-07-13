@@ -45,7 +45,7 @@ alert('系统版本为:' + uexWidgetOne.platformVersion);
 **示例:**
 
 ```
-alert('应用是否为iOS7风格:' + uexWidgetOne. iOS7Style)";
+alert('应用是否为iOS7风格:' + uexWidgetOne. iOS7Style);
 ```
 > ### isFullScreen 应用全屏判断
 
@@ -59,7 +59,7 @@ iOS6.0+
 **示例:**
 
 ```
-alert('应用是否为全屏:' + uexWidgetOne.isFullScreen)";
+alert('应用是否为全屏:' + uexWidgetOne.isFullScreen);
 ```
 #2、方法
 ##2.1、方法
@@ -88,7 +88,9 @@ uexWidgetOne.getPlatform();
 **说明:**
 退出程序
 **参数:**
+```
     flag:(Number类型) 可选  是否弹出关闭提示框，0-不弹，否则弹提示框。
+```
 **平台支持:**
 Android2.2+
 iOS6.0+

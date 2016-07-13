@@ -672,7 +672,7 @@ iOS6.0+
 
 ```
 uexWindow.openMultiPopover('{"content":[{"inPageName":"p1", "inUrl":"hidden.html","inData":""},{"inPageName":"p2", "inUrl":"hidden1.html","inData":""}]}',"sss",0,400,0,'','','',0,1);
-}
+
 ```
 
 > ### closeMultiPopover 关闭多页面浮动窗口

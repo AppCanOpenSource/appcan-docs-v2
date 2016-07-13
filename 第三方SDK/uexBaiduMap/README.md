@@ -253,6 +253,7 @@ Android2.2+
 uexBaiduMap.getCenter();
 ```
 
+
 > ### setZoomLevel 设置地图的比例级别
 
 `uexBaiduMap.setZoomLevel(zoomLevel)`
@@ -660,8 +661,7 @@ iOS6.0+
 **示例**
 
 ```
-var makerInfo =
-	{
+var makerInfo ={
 	makerInfo: {
 		bubble: {
 		bgImage: "res://btn.png",
@@ -669,11 +669,11 @@ var makerInfo =
 },
 		latitude: "39.021514",
 		longitude: "116.232323"
-		
+		}
 	};
 var jsonStr=JSON.stringify(makerInfo);
 var makerId = '10001';
-uexBaiduMap. setMarkerOverlay (makerId, jsonStr);
+uexBaiduMap.setMarkerOverlay(makerId, jsonStr);
  
 ```
 
@@ -2488,12 +2488,13 @@ uexBaiduMap.cbGetDistance = function(opCode,dataType,data){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| json | String类型 | 必选 | json字符串,详细字段见下方 |
+| json | String类型 | 必选 | json字符串，详细字段见下方 |
 
 json = {
 	"longitude":"114.402814999999995",   //中心点经度
 	"latitude":"30.475797932887406"      //中心点纬度
 }
+
 
 **版本支持**
 
@@ -2508,17 +2509,17 @@ uexBaiduMap.cbGetCenter = function(json){
 
 ```
 
+
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexBaiduMap-3.1.18`
+API版本:`uexBaiduMap-3.1.17`
 
-最近更新时间:`2016-7-5`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.1.18 | 升级SDK3.0.0-支持IPv6 |
 | 3.1.17 | 修复removeMakersOverlay接口传不当参数会闪退的问题 |
 | 3.1.16 | 增加对多种类型参数的识别,支持3.3引擎 |
 | 3.0.15 | 修改插件,使其支持config配置APIKey |
@@ -2540,16 +2541,15 @@ API版本:`uexBaiduMap-3.1.18`
 
 ### Android
 
-API版本:`uexBaiduMap-3.2.38`
+API版本:`uexBaiduMap-3.2.37`
 
-最近更新时间:`2016-7-5`
+最近更新时间:`2016-06-07`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.2.38 | 解决搜索结果总数被覆盖的问题 |
 | 3.2.37 | 更新SDK,增加getCenter得到地图中心点方法 |
-| 3.2.36 | 优化了getDistance的算法,使用新版本SDK自带工具类DistanceUtil进行计算,使计算值更为精准 |
-| 3.2.35 | 更新SDK后appkey验证广播机制改变,由于onSDKReceiverError回调只为前端开发者所提供,所以使用Toast替代 |
+| 3.2.36 | 优化了getDistance的算法，使用新版本SDK自带工具类DistanceUtil进行计算，使计算值更为精准 |
+| 3.2.35 | 更新SDK后appkey验证广播机制改变，由于onSDKReceiverError回调只为前端开发者所提供，所以使用Toast替代 |
 | 3.2.34 | 修复了getCurrentLocation必须open才能使用的问题;修复了地理编码、反地理编码必须open才能使用的问题 |
 | 3.2.33 | 更新SDK版本,将百度地图所有库导入 |
 | 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段,返回距离;修复了文档中cbGetDistance代码case说明不对的问题 |
