@@ -16,6 +16,16 @@ iOS 后台蓝牙功能须知
 ## 1.2、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=465_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.3、平台版本支持
+本插件的所有API默认支持**Android4.4+**和**iOS7.1+**操作系统。  
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.4、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
+
+
+
 # 2、API概览
 
 ## 2.1、方法
@@ -27,22 +37,14 @@ iOS 后台蓝牙功能须知
 **说明:**
 
 回调方法[cbInit](#cbInit 初始化的回调方法 "cbInit")
-* 所有的回调都会传给执行init()的页面,请务必不要关闭此页面；
-* 建议在root页面执行init()；
+
+* 请在root页面执行init()；
+* 本插件为单例插件,您可以在任意页面调用本插件的接口,但所有的回调均直接回调给root;
 
 **参数:**
 
  无
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -60,15 +62,7 @@ iOS 3.0.0+
 | ----- | ----- | ----- | ----- |
 | serviceUUIDs | Array | 否    | 由service的UUID字符串组成的数组。	serviceUUIDs不传时,插件会扫描所有蓝牙设备；否则,插件会只扫描包含数组中的指定service的蓝牙设备；iOS系统,在进行后台蓝牙设备扫描时,该参数必须,若前台扫描则该参数为可选。 |
 
-**平台支持:**
 
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -84,15 +78,6 @@ iOS 3.0.0+
 
 无
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -112,15 +97,7 @@ var param={
 };
 ```
 
-**平台支持:**
 
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -136,15 +113,7 @@ iOS 3.0.0+
 
 无
 
-**平台支持:**
 
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -164,15 +133,6 @@ var param={
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -193,16 +153,6 @@ var param={
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
 > ### readCharacteristic 读取Characteristic
@@ -222,15 +172,6 @@ var param={
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -253,15 +194,6 @@ var param={
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -282,16 +214,6 @@ var param={
 	descriptorUUID://descriptor的UUID
 }
 ```
-
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -315,17 +237,45 @@ var param={
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
+
+> ### setCharacteristicNotification 监听某一个Characteristic
+
+`uexBluetoothLE.setCharacteristicNotification(param)`
+
+**说明:**
+
+监听某一个Characteristic数据变化。监听方法[onCharacteristicChanged](#onCharacteristicChanged Characteristic内容改变的监听方法 "onCharacteristicChanged")
+
+**参数:**
+
+```
+var param={
+	serviceUUID:,//service的UUID
+	characteristicUUID:,//characteristic的UUID
+	enable://true 或false，开启或关闭监听
+}
+```
+
+
+> ### readRemoteRssi 读取rssi
+
+`uexBluetoothLE.readRemoteRssi()`
+
+**说明:**
+
+读取已连接设备的Rssi。监听方法[onReadRemoteRssi](#onReadRemoteRssi readRemoteRssi的监听方法)。
+
+**参数:**
+
+无
+
+
+
+
+
+
 
 ## 2.2、回调方法
 
@@ -341,15 +291,6 @@ var data={
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -374,15 +315,6 @@ var data={
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -409,15 +341,7 @@ var data={
 ```
 uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明)
 
-**平台支持:**
 
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -445,15 +369,7 @@ var data={
 ```
 uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
 
-**平台支持:**
 
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -480,15 +396,7 @@ var data={
 ```
 uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明)
 
-**平台支持:**
 
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -515,15 +423,6 @@ var data={
 ```
 uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明)
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -550,16 +449,6 @@ var data={
 ```
 uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
 ```
@@ -584,16 +473,6 @@ var data={
 }
 ```
 uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
-
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -627,16 +506,6 @@ var data={
 | address | String | 是    | Android的address参数传回的是设备的mac地址；iOS的address参数传回的是设备的UUID |
 | name    | String | 是    | 蓝牙设备名称                                   |
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
 ```
@@ -660,15 +529,6 @@ var data={
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -691,15 +551,6 @@ iOS 3.0.0+
 | ----- | ----- | ----- | ----- |
 | data | Json | 是    | uexBLECharacteristic的Json格式数据,uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明) |
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
@@ -711,6 +562,31 @@ iOS 3.0.0+
         alert("onCharacteristicChanged:" + data);
     }
 ```
+
+
+
+> ### onReadRemoteRssi readRemoteRssi的监听方法
+
+`uexBluetoothLE.onReadRemoteRssi(data)`
+
+**参数:**
+
+| 参数名称 | 参数类型   | 是否必选 | 说明        |
+| ---- | ------ | ---- | --------- |
+| data | Json对象 | 是    | rssi的相关数据 |
+
+
+**示例:**
+
+```
+    window.uexOnload = function(type){
+        uexBluetoothLE.onReadRemoteRssi = onReadRemoteRssi;
+    }
+    function onReadRemoteRssi(data){
+        alert("onCharacteristicChanged:" + data.rssi);
+    }
+```
+
 
 # 3、附录
 ## 3.1 uexBLEDescriptor结构说明
