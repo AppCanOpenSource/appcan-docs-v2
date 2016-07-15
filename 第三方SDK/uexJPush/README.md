@@ -471,6 +471,8 @@ uexJPush.disableLocalNotificationAlertView(1);
  
 ##2.3、回调方法
  ***
+ - 本插件为单例插件,用户可以在任意界面调用插件的接口,但回调始终传回给root页面(即root页面调用)。
+ 
 >### cbSetAlias  设置别名的回调方法
 
 `uexJPush.cbSetAlias(json)`
@@ -657,6 +659,7 @@ window.uexOnload=function(type){
 ```
 
 ##2.3、监听方法
+- 本插件为单例插件,用户可以在任意界面调用插件的接口,但回调始终传回给root页面(即root页面调用)。
 
 >### onReceiveMessage 收到了自定义消息
 
@@ -806,13 +809,19 @@ iOS 3.0.0+
 **示例**
 
 ```
-
 window.uexOnload=function(type){
-	
-	uexJPush.onReceiveConnectionChange=function(data){
-		alert(data);
-	}
-
+    uexJPush.onReceiveConnectionChange=function(data){
+    	var json = JSON.parse(data);
+        switch(json.connect)
+        {
+        	case '0':
+        	alert('已连接上');
+        	break;
+			case '1':
+        	alert('未连接');
+        	break;
+        }
+    }
 	...(其他回调或监听)
 }
 ```
@@ -945,12 +954,13 @@ $UEXJPUSH_APS_ENVIRONMENT$ ----->推送证书类型   0-开发者证书(develope
 
 ### iOS
 
-API版本:`uexJPush-3.0.8`
+API版本:`uexJPush-3.0.9`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.9 | 更新JPush SDK到2.1.7 -支持IPv6 |
 | 3.0.8 | 更新JPush SDK到2.1.5 |
 | 3.0.7 | 现在应用在后台时,点击推送,会正确的触发onReceiveNotificationOpen |
 | 3.0.6 | 修复root页面回调失效的bug |
@@ -963,12 +973,13 @@ API版本:`uexJPush-3.0.8`
 
 ### Android
 
-API版本:`uexJPush-3.0.13`
+API版本:`uexJPush-3.0.14`
 
-最近更新时间:`2016-05-09`
+最近更新时间:`2016-05-12`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.14 | 修复了缺少配置GET_TASKS权限导致的部分机型程序崩溃问题;修复了数据库推送不自动清空的问题;升级SDK支持64位uid |
 | 3.0.13 | 优化了当应用程序正常退出后,依然可以收到推送(所有机型)；注:当用户手动清理内存(杀进程)后,收不到推送是正常现象;若想杀进程后依然收到推送,须手动将App配置进系统白名单 |
 | 3.0.12 | 修复了Manifest文件书写错误导致的应用崩溃的问题 |
 | 3.0.11 | 设置中转广播接收器,用来在另一个进程中启动App,并转发广播 |

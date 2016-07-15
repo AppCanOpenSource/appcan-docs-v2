@@ -59,7 +59,8 @@ var params = {
     "pickBgImg": , //扫描区域边框图片, 可选
     "tipLabel": ,  //扫描区下部提示语,可选
     "title": ,//扫描界面顶部标题 (仅iOS支持),可选
-    "charset"//设置字符编码,可选
+    "charset": ,//设置字符编码,可选
+    "isGallery": ,//新增字段,用来控制是否显示右上角的从相册扫描功能,0表示不显示,非0或者不传表示显示
 }
 ```
 
@@ -75,8 +76,16 @@ iOS 6.0+
 **示例:**
 
 ```
-var jsonData = '{"lineImg":"res://line.png","pickBgImg":"res://pick_bg.png","tipLabel":"对准二维码/条形码,即可自动扫描","title":"扫一下"}';
-uexScanner.setJsonData(jsonData);
+
+var data = {
+            lineImg:"res://line.png",
+            pickBgImg:"res://pick_bg.png",
+            tipLabel:"对准二维码/条形码,即可自动扫描",
+            title:"扫一下",
+            isGallery:"0"
+        }; 
+uexScanner.setJsonData(JSON.stringify(data));
+
 ```
 ## 2.2、回调方法
 > ### cbOpen 扫描结果的回调方法
@@ -89,7 +98,7 @@ uexScanner.setJsonData(jsonData);
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作ID,open失败时为1,正常时为0,失败时一般是用户禁止了APP摄像头权限 |
 | dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中CallbackdataType数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
+| data|JSONString | 是 | 扫描结果,摄像头打开失败时此参数无效。(code:扫描结果数据；type:条形码/二维码类型) |
 
 **平台支持:**
 
@@ -115,12 +124,14 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexScanner-3.1.6`
+API版本:`uexScanner-3.1.8`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.1.8 | 解决相机权限受限APP闪退的问题 |
+| 3.1.7 | 修改为ios7.0以上调用系统库扫描 |
 | 3.1.6 | 修复横屏扫描时图像显示异常的BUG |
 | 3.1.5 | 添加可选参数charset,支持GBK编码的二维码 |
 | 3.1.4 | 重构:改用ZXing识别二维码;添加IDE支持 |
@@ -131,12 +142,15 @@ API版本:`uexScanner-3.1.6`
 
 ### Android
 
-API版本:`uexScanner-3.0.15`
+API版本:`uexScanner-3.0.18`
 
-最近更新时间:`2016-3-2`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.18 | 修复了在魅族MX5等手机在不允许camera权限时会挂掉的问题 |
+| 3.0.17 | 修复了当扫描线高度过小时,获取View的高度小于等于0造成的程序崩溃问题 |
+| 3.0.16 | 添加是否显示从相册选择按钮配置开关 |
 | 3.0.15 | 添加charset字段设置编码 |
 | 3.0.14 | 调整扫描框为正方形 |
 | 3.0.13 | 拍照权限被禁止情况处理 |

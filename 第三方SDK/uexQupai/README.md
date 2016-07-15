@@ -1,13 +1,13 @@
 [TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
-趣拍插件
+趣拍短视频插件
 ## 1.1、说明
 封装了趣拍精简版功能, 支持自定义视屏尺寸,码率,美颜效果等。
 
 ## 1.2、UI展示
  
 ## 1.3、开源源码
-插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=194_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=622_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
@@ -19,7 +19,7 @@
 
 **说明:**
 
-初始化拍摄的相关参数, 回调 [cbInit](#cbInit 初始化的回调方法 "初始化的回调方法")。需要注意的是,之所以需要`appKey`, `appSecret`, `space`这三个参数,是因为趣拍SDK中封装有上传文失件的功能,这三个参数在上传文件时会需要。但当前插件中没有封装这一功能,既使用户输入错误的`appKey`, `appSecret`, `space`,该插件的录制视屏功能同样可以使用,但是在使用时会有`授权失败`的提示。 所以建议开发者还是去趣拍[官网](http://vcs.qupai.me/)申请这三个参数
+初始化拍摄的相关参数, 回调 [cbInit](#cbInit 初始化的回调方法 "初始化的回调方法")。需要注意的是,之所以需要`appKey`, `appSecret`, `space`这三个参数,是因为趣拍SDK中封装有上传文失件的功能,这三个参数在上传文件时会需要。但当前插件中没有封装这一功能,既使用户输入错误的`appKey`, `appSecret`, `space`,该插件的录制视屏功能同样可以使用,但是在使用时会有`授权失败`的提示。 所以建议开发者还是去趣拍[官网](http://vcs.qupai.me/)申请这三个参数,申请详细步骤,见链接地址:[iOS地址](http://faq.vcs.qupai.me/123.html), [Android地址](http://faq.vcs.qupai.me/125.html).
 
 **参数:**
 
@@ -70,7 +70,7 @@ param为json字符串,包含的参数如下:
 | maxDuration | Number | 否 |视屏录制的时间长度,默认为8秒|
 | rate | Number | 否 |视屏的码率,码率越高,画面越清晰,合成越慢,默认是2000 * 1000|
 | width | Number | 否 |输出视屏的宽度, 不传默认为320|
-| height | Number | 否 |输出视屏的高度,不传默认为480, 推荐的视屏分辨率为 320*240, 640*480, 480*480, 640*360|
+| height | Number | 否 |输出视屏的高度,不传默认为480, 推荐的视屏分辨率为 320 X 240, 640 X 480, 480 X 480, 640 X 360|
 | cameraFrontOn | boolean | 否 |是否默认使用前置摄像头,默认为true|
 | openBeautySkin | boolean | 否 |是否开启美颜效果,默认为true|
 | beautySkinRate | Number | 否 |美颜比例,值为0-100, 默认为80|
@@ -88,9 +88,9 @@ iOS6.0+
 
 ```
 var params={
-            duration:10  //视频录制最大时间
-        }
-uexQupai.init(JSON.stringify(params));
+    maxDuration:10  //视频录制最大时间
+}
+uexQupai.config(JSON.stringify(params));
 ```
 
 > ### record 打开视频录制界面
@@ -163,8 +163,8 @@ param 是JSON字符串
 
 ```
 var param = {
-    videoPath: //合成后视屏的路径, 当 status为0时存在
-    thumbPath: //缩略图的路径, 当 status为0时存在
+    videoPath: //合成后视屏的路径, 
+    thumbPath: //缩略图的路径,  
 }
 ```
 
@@ -187,12 +187,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexQupai-3.0.0`
+API版本:`uexQupai-3.0.1`
 
-最近更新时间:`2016-4-13`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.1 | 修改参数,与安卓统一 |
 | 3.0.0 | 趣拍插件 |
 
 ### Android

@@ -207,12 +207,13 @@ window.uexOnload=function(type){
 
 ### iOS
 
-API版本:`uexSecurityKeyboard-3.0.0`
+API版本:`uexSecurityKeyboard-3.0.1`
 
-最近更新时间:`2016-02-30`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.1 | 修复一处与nblistview相冲突的问题 |
 | 3.0.0 | 带安全键盘的输入框插件 |
 
 ### Android

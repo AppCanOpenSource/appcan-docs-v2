@@ -29,7 +29,7 @@
 * 选择静态库工程的保存地址，点击create，建立一个静态库工程
 * 编辑EUExDemoPlugin这个target的Build Settings如下(**注2**):
 	* 将`Product Name`对应的值修改为 `uexDemoPlugin`(**注3**)
-	* *将`Pre-configuration Build Products Path` 修改为`$SRCROOT/uexDemoPlugin`(**注4**)*
+	* *将`Per-configuration Build Products Path` 修改为`$SRCROOT/uexDemoPlugin`(**注4**)*
 
 * *编辑EUExDemoPlugin这个target的Build Phases,找到`Copy Files`这个phase,清空其Subpath设置,移除下面列表中的.h文件*
 
@@ -37,12 +37,7 @@
 
 **注2**: 修改target的BuildSettings的方法如下图所示，选中工程主体-选择指定的target-选择BuildSettings-选中all,然后在右上角搜索框中搜索相应的键,双击编辑对应的值
   
-  <img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS1.png" alt="Brown and white cows in a field">  
+  ![image](./img/iOS1.png) 
 
 **注3**: 此处Product Name 的命名规则为 `uex + 插件名称`，之后出现的`uexDemoPlugin`亦是如此。
 
@@ -59,35 +54,20 @@
 **注1**:
 编辑Build Phases方法如下图所示:选中工程主体-选择target-选择Build Phases - 展开相应的Phase - 点击下方的按钮进行相应的操作
 
-  <img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS2.png" alt="Brown and white cows in a field">  
+  ![image](./img/iOS2.png)
  
  
 **注2**:
 编辑完成后应该如下图所示:
 
-  <img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS3.png" alt="Brown and white cows in a field">  
+  ![image](./img/iOS3.png) 
  
 
 ### 2.3 插件调试工程简介
 
 见下图，红框标注部分都是在插件开发调试中可能会用到的部分。
 
-  <img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS4.png" alt="Brown and white cows in a field">  
+  ![image](./img/iOS4.png)  
  
 
 
@@ -102,12 +82,7 @@
 
 * 在AppCan插件开发包中,打开`AppCan引擎头文件`文件夹，找到engineHeader，将此文件夹引入插件工程，如下图所示
 
-  <img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS5.png" alt="Brown and white cows in a field">  
+  ![image](./img/iOS5.png)  
  
 * 新建插件入口类EUExPlugin。如果你的插件静态库工程名就是EUExDemoPlugin，那么这个类应该已经自动生成了，此步可跳过。
 * 在EUExDemoPlugin这个类的头文件中引入`EUExBase.h` 并使得EUExDemoPlugin类继承自EUExBase
@@ -200,12 +175,7 @@ var helloWorld = function(){
 
 * 好了 让我们运行工程，点击按钮看一下效果吧！
 
-  <img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS6.png" alt="Brown and white cows in a field">  
+  ![image](./img/iOS6.png) 
  
 
 ####3.2.2 网页传值给原生环境
@@ -244,12 +214,7 @@ uexDemoPlugin.sendValue("aaa",12,true,["x","y"],{key:"value"});
 ```
 * 结果如下
 
-  <img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS7.png" alt="Brown and white cows in a field">  
+  ![image](./img/iOS7.png) 
  
 
 #####JaveScript-->OC传值的转换规则
@@ -304,12 +269,7 @@ uexDemoPlugin.sendJSONValue(JSON.stringify(json));
 ```
 * 结果如下
 
-  <img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS8.png" alt="Brown and white cows in a field">  
+  ![image](./img/iOS8.png)  
  
 
 可以看到JSON传值依旧遵循了[JaveScript-->OC传值的转换规则](#JaveScript—>OC传值的转换规则)
@@ -432,12 +392,7 @@ uexDemoPlugin.doCallback();
 
 * 调用接口后,控制台显示数据如下
 
-  <img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS9.png" alt="Brown and white cows in a field">  
+  ![image](./img/iOS9.png) 
  
 ##### 进一步封装回调方法
 
@@ -490,12 +445,7 @@ showDetails(obj,obj.key1,obj.key2,obj.key3.subKey);
 
 * 控制台显示的结果如下
 
-  <img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS10.png" alt="Brown and white cows in a field">  
+  ![image](./img/iOS10.png)  
 
 
 #####OC-->JavaScript同步返回值的转换规则
@@ -602,12 +552,7 @@ var removeView = function(){
 ```
 
 * 运行结果如下
-  <img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS11.gif" alt="Brown and white cows in a field">  
+ ![image](./img/iOS11.gif)  
  
 
 ####3.3.2在网页中展示一个viewController
@@ -703,12 +648,7 @@ uexDemoPlugin.onControllerClose = function(){
 ```
 
 * 结果如下
-<img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS12.gif" alt="Brown and white cows in a field"> 
+![image](./img/iOS12.gif) 
  
 
 
@@ -802,12 +742,7 @@ plugin.xml空白模板,是一个标准的xml文件
 	* 插件资源包`uexDemoPlugin.bundle`
 	* 插件配置文件`uexDemoPlugin.plist`
 * 全部拷贝工作完成后，`uexDemoPlugin`文件夹内的内容如下图所示
-<img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS14.png" alt="Brown and white cows in a field"> 
+![image](./img/iOS14.png)
  
 
 * 以上所有步骤均完成后，返回上级目录,压缩`uexDemoPlugin`文件夹,得到插件zip包。
@@ -837,12 +772,7 @@ plugin.xml空白模板,是一个标准的xml文件
 ####5.2.1 生成插件资源捆绑包的target
 
 * 选中插件静态库工程，然后点击菜单栏中的File - New - Target.. ,在弹出的对话框中选择OS X - Framework & Library - Bundle
-<img style="
-  background: #e8eae9;
-  border: 1px solid #c6c9cc;
-  float: center;
-  padding: 4px;
-" src="http://newdocx.appcan.cn/docImg/1291/iOS13.png" alt="Brown and white cows in a field"> 
+![image](./img/iOS13.png)
  
 * *product Name取名为uexDemoPluginBundle*,点击finish完成创建。
 * 修改此target的如下Build Settings

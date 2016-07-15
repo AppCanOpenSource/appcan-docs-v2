@@ -167,7 +167,7 @@ var param = {
     imgPath:,//地图略缩图的路径
       
       
-    //objectName 为"RC:CmdNtf"时(命令消息) 需要传以下参数
+    //objectName 为"RC:CmdMsg"时(命令消息) 需要传以下参数
     name:,//命令的名称
     data:,//命令的数据
       

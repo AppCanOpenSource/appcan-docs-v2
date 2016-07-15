@@ -74,6 +74,7 @@ Path Types
 | wgts:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
 | wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ |
 | file:///sdcard/ | /storage/emulated/0/ | 无 |
+
 #2、API概览 
 ## 2.1 方法:
 
@@ -471,12 +472,13 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexQQ-3.0.13`
+API版本:`uexQQ-3.0.14`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-5-17`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.14 | 修改回调逻辑,解决presentWindow收不到回调的问题 |
 | 3.0.13 | SDK更新为2.9.3(2015-11-03),新增注销授权、获取用户信息接口 |
 | 3.0.12 | 删去腾讯SDK中的info.plist,防止ERROR ITMS-90049 |
 | 3.0.11 | sdk版本升级至2.9.2 |
@@ -494,12 +496,13 @@ API版本:`uexQQ-3.0.13`
 
 ### Android
 
-API版本:`uexQQ-3.0.7`
+API版本:`uexQQ-3.0.8`
 
-最近更新时间:`2016-3-2`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.8 | 更新qq sdk |
 | 3.0.7 | 更新sdk,修正部分回调bug,(1,2)修正打开增量开关后,图片获取不到的问题,增加getUserInfo接口 |
 | 3.0.6 | 支持config.xml配置 |
 | 3.0.5 | 修复qq图文分享错误 |

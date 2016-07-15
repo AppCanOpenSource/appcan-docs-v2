@@ -60,7 +60,7 @@
             email:document.getElementById("email").value,
             birth:document.getElementById("birth").value,
             mobile:document.getElementById("mobile").value,
-            ex:document.getElementById("ex").value,
+            ext:document.getElementById("ext").value,
         }
         uexNIM.updateMyUserInfo(JSON.stringify(param));
     }
@@ -122,9 +122,9 @@
         uexNIM.updateNotifyStateForUser(JSON.stringify(param));
     }
     //[10.10]
-    function notifyForNewMsgForUser(){
+    function notifyForNewMsg(){
         var param={
-            userId:document.getElementById("notifyForNewMsgForUser_userId").value,
+            userId:document.getElementById("notifyForNewMsg_userId").value,
         }
         uexNIM.notifyForNewMsgForUser(JSON.stringify(param));
     }
@@ -171,7 +171,7 @@
              <div>email:</div><input class="textbox" type="text" id="email" value=""></input>
              <div>birth:</div><input class="textbox" type="text" id="birth" value=""></input>
              <div>mobile:</div><input class="textbox" type="text" id="mobile" value=""></input>
-             <div>ex:</div><input class="textbox" type="text" id="ex" value=""></input>
+             <div>ex:</div><input class="textbox" type="text" id="ext" value=""></input>
              <input class='btn' type='button' value='调用接口' onclick='updateMyUserInfo()'></input>
              
              <div> </div><span>myFriends</span>
@@ -210,9 +210,9 @@
              <div>notify:</div><input class="textbox" type="text" id="updateNotifyStateForUser_notify" value=""></input>
              <input class='btn' type='button' value='调用接口' onclick='updateNotifyStateForUser()'></input>
              
-             <div> </div><span>notifyForNewMsgForUser</span>
-             <div>userId:</div><input class="textbox" type="text" id="notifyForNewMsgForUser_userId" value="appcanuser2"></input>
-             <input class='btn' type='button' value='调用接口' onclick='notifyForNewMsgForUser()'></input>
+             <div> </div><span>notifyForNewMsg</span>
+             <div>userId:</div><input class="textbox" type="text" id="notifyForNewMsg_userId" value="appcanuser2"></input>
+             <input class='btn' type='button' value='调用接口' onclick='notifyForNewMsg()'></input>
              
              
         <div>======回调记录==========</div>

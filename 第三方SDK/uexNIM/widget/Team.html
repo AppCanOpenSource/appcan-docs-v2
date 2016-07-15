@@ -205,21 +205,14 @@
         uexNIM.dismissTeam(JSON.stringify(param));
     }
     //[6.22]
-    function updateNotifyStateForTeam(){
+    function updateNotifyState(){
         var param={
             teamId:document.getElementById("updateNotifyState_teamId").value,
             notify:document.getElementById("updateNotifyState_notify").value,
         }
-        uexNIM.updateNotifyStateForTeam(JSON.stringify(param));
+        uexNIM.updateNotifyState(JSON.stringify(param));
     }
     //[6.23]
-    function notifyForNewMsgForTeam(){
-        var param={
-            teamId:document.getElementById("notifyForNewMsgForTeam_teamId").value,
-        }
-        uexNIM.notifyForNewMsgForTeam(JSON.stringify(param));
-    }
-    //[6.24]
     function updateTeamCustomInfo(){
         var param={
             teamId:document.getElementById("updateTeamCustomInfo_teamId").value,
@@ -347,12 +340,16 @@
              <div>teamId:</div><input class="textbox" type="text" id="dismissTeam_teamId" value="3376270"></input>
              <input class='btn' type='button' value='调用接口' onclick='dismissTeam()'></input>
              
-             <div> </div><span>updateNotifyStateForTeam</span>
+             <div> </div><span>updateNotifyState</span>
              <div>teamId:</div><input class="textbox" type="text" id="updateNotifyState_teamId" value="3376270"></input>
              <div>notify:</div><input class="textbox" type="text" id="updateNotifyState_notify" value="1"></input>
-             <input class='btn' type='button' value='调用接口' onclick='updateNotifyStateForTeam()'></input>
+             <input class='btn' type='button' value='调用接口' onclick='updateNotifyState()'></input>
              
-
+             <div> </div><span>updateTeamCustomInfo</span>
+             <div>teamId:</div><input class="textbox" type="text" id="updateTeamCustomInfo_teamId" value="2490893"></input>
+             <div>info:</div><input class="textbox" type="text" id="updateTeamCustomInfo_info" value=""></input>
+             <input class='btn' type='button' value='调用接口' onclick='updateTeamCustomInfo()'></input>
+             
              
              
         <div>======回调区域==========</div>

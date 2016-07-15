@@ -240,7 +240,7 @@ iOS 3.0.0+
 
 **说明:**
 
-写入数据到Characteristic。回调方法[cbWriteCharacteristic](#cbWriteCharacteristic 写入数据到Characteristic的回调方法 "cbWriteCharacteristic")。监听方法[onCharacteristicChanged](#onCharacteristicChanged Characteristic内容改变的监听方法 "onCharacteristicChanged")
+写入数据到Characteristic。回调方法[cbWriteCharacteristicJson](#cbWriteCharacteristicJson 写入数据到Characteristic的回调方法)。监听方法[onCharacteristicChanged](#onCharacteristicChanged Characteristic内容改变的监听方法 "onCharacteristicChanged")
 用户需要将实际要写入的值先base64编码成String,再调用此方法.
 
 **参数:**
@@ -250,6 +250,36 @@ var param={
 	serviceUUID:,//service的UUID
 	characteristicUUID:,//characteristic的UUID
 	value://要写入的值
+}
+```
+
+**平台支持:**
+
+Android 4.3+
+iOS 7.1+
+
+**版本支持:**
+
+Android 3.0.0+
+iOS 3.0.0+
+
+**示例:**
+
+> ### setCharacteristicNotification 监听某一个Characteristic
+
+`uexBluetoothLE.setCharacteristicNotification(param)`
+
+**说明:**
+
+监听某一个Characteristic数据变化。监听方法[onCharacteristicChanged](#onCharacteristicChanged Characteristic内容改变的监听方法 "onCharacteristicChanged")
+
+**参数:**
+
+```
+var param={
+	serviceUUID:,//service的UUID
+	characteristicUUID:,//characteristic的UUID
+	enable://true 或false，开启或关闭监听
 }
 ```
 
@@ -326,6 +356,32 @@ Android 3.0.0+
 iOS 3.0.0+
 
 **示例:**
+
+> ### readRemoteRssi 读取rssi
+
+`uexBluetoothLE.readRemoteRssi()`
+
+**说明:**
+
+读取已连接设备的Rssi。监听方法[onReadRemoteRssi](#onReadRemoteRssi readRemoteRssi的监听方法)。
+
+**参数:**
+
+无
+
+**平台支持:**
+
+Android 4.3+
+iOS 7.1+
+
+**版本支持:**
+
+Android 3.0.0+
+iOS 3.0.0+
+
+**示例:**
+
+
 
 ## 2.2、回调方法
 
@@ -503,6 +559,7 @@ iOS 3.0.0+
 
 > ### cbWriteCharacteristic 写入数据到Characteristic的回调方法
 
+**已废弃，建议使用`cbWriteCharacteristicJson`方法**
 `uexBluetoothLE.cbWriteCharacteristic(data)`
 
 **参数:**
@@ -532,6 +589,41 @@ iOS 3.0.0+
         uexBluetoothLE.cbWriteCharacteristic = cbWriteCharacteristic;
     }
     function cbWriteCharacteristic(data){
+        alert("cbWriteCharacteristic:" + data);
+    }
+```
+
+> ### cbWriteCharacteristicJson 写入数据到Characteristic的回调方法
+
+`uexBluetoothLE.cbWriteCharacteristicJson(data)`
+
+**参数:**
+data是Json对象
+```
+var data={
+	resultCode://0-成功,1-失败
+	data:uexBLECharacteristic的Json格式
+}
+```
+uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明)
+
+**平台支持:**
+
+Android 4.3+
+iOS 7.1+
+
+**版本支持:**
+
+Android 3.0.0+
+iOS 3.0.0+
+
+**示例:**
+
+```
+    window.uexOnload = function(type){
+        uexBluetoothLE.cbWriteCharacteristicJson = cbWriteCharacteristicJson;
+    }
+    function cbWriteCharacteristicJson(data){
         alert("cbWriteCharacteristic:" + data);
     }
 ```
@@ -709,6 +801,37 @@ iOS 3.0.0+
     }
     function onCharacteristicChanged(data){
         alert("onCharacteristicChanged:" + data);
+    }
+```
+
+> ### onReadRemoteRssi readRemoteRssi的监听方法
+
+`uexBluetoothLE.onReadRemoteRssi(data)`
+
+**参数:**
+
+| 参数名称 | 参数类型   | 是否必选 | 说明        |
+| ---- | ------ | ---- | --------- |
+| data | Json对象 | 是    | rssi的相关数据 |
+
+**平台支持:**
+
+Android 4.3+
+iOS 7.1+
+
+**版本支持:**
+
+Android 3.0.0+
+iOS 3.0.0+
+
+**示例:**
+
+```
+    window.uexOnload = function(type){
+        uexBluetoothLE.onReadRemoteRssi = onReadRemoteRssi;
+    }
+    function onReadRemoteRssi(data){
+        alert("onCharacteristicChanged:" + data.rssi);
     }
 ```
 

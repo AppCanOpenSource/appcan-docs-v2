@@ -295,6 +295,66 @@ iOS6.0+
 uexXmlHttpMgr.setCertificate(1, "" , "default");
 ```
 
+> ### getCookie 获取指定url的cookie信息
+
+`uexXmlHttpMgr.getCookie(url)`
+
+**说明:**
+
+获取指定url的cookie信息,结果可以通过回调方法[cbGetCookie](# cbGetCookie 回调指定url的cookie信息)获取到。
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| url | String | 是 | 想要获取的cookie所属对应的url |
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+**版本支持:**
+
+Android: 3.0.13+
+iOS: 3.0.6+
+
+**示例:**
+
+```
+uexXmlHttpMgr.getCookie("http://www.baidu.com/");
+```
+
+> ### clearCookie 清空cookie信息
+
+`uexXmlHttpMgr.clearCookie()`
+
+**说明:**
+
+清空cookie信息
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| 无| | | |
+
+**平台支持:**
+
+Android 2.2+
+iOS 6.0+
+
+** 版本支持:**
+
+Android: 3.0.19+
+iOS: 3.0.8+
+
+** 示例:**
+
+```
+uexXmlHttpMgr.clearCookie()
+```
+
 ## 2.2、监听方法
 > ### onData 请求发送完成的监听方法
 
@@ -372,16 +432,63 @@ uexXmlHttpMgr.onPostProgress = function (inOpCode,inProgress){
     }
 }
 ```
+
+> ### cbGetCookie 回调指定url的cookie信息
+
+`uexXmlHttpMgr.cbGetCookie(opId,dataTpye,data)`
+
+**说明:**
+
+回调指定url的cookie信息
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId| Number| 是 | 下载对象的唯一标识符 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONTANT")中Callback方法dataType数据类型 |
+| data|String | 是 | 包含具体的cookie信息Json字符串,其中key为cookie的对应value就是cookie信息 |
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+** 版本支持:**
+
+Android: 3.0.13+
+iOS: 3.0.6+
+
+** 示例:**
+
+```
+uexXmlHttpMgr.cbGetCookie = function(opCode,dataType,data){
+    switch(dataType){
+    case cText:
+        alert("uex.cText");
+        break;
+    case cJson:
+        alert("cookie信息是:" + data);
+        break;
+    case cInt:
+        alert("uex.cInt");
+        break;
+    default:
+        alert("error");
+}
+```
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexXmlHttpMgr-3.0.15`
+API版本:`uexXmlHttpMgr-3.0.17`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.17 | setPostData支持Number类型的value;除assets-library下的路径的文件,插件不再对图片做额外处理 |
+| 3.0.16 | 用AFNetWorking重构 |
 | 3.0.15 | 添加IDE支持 |
 | 3.0.14 | 删除info.plist |
 | 3.0.13 | 添加国际化支持 |
