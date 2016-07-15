@@ -74,7 +74,7 @@ var param = '{
 
 ```
 var param = '<key3>3</key3><key1>value1</key1><key4>0</key4><key2><hehe>讨厌</hehe></key2><key5>1</key5><key5>2</key5><key5>3</key5>';
- uexJsonXmlTrans.json2xml(param,function(data){
+ uexJsonXmlTrans.xml2json(param,function(data){
     alert(JSON.stringify(data));
  });        
             
