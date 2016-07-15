@@ -455,7 +455,8 @@ function openth() {
   
 **参数:**
 
- 无
+|参数名称|参数类型 | 是否必选|  说明 |
+|------|-----|--------|------- |
  
 **平台支持:**
 
@@ -484,7 +485,6 @@ uexWidget.getPushInfo();
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |------|-----|--------|------- |
-|cbFunction|String|是| 回调函数方法名|
 
 **平台支持**:
   Android2.2+
@@ -496,7 +496,7 @@ uexWidget.getPushInfo();
 ```
 uexWidget.setPushNotifyCallback('pushCallback');
 
-function pushCallback(){
+function pushCallback(type){
 alert("收到推送消息");
 }
 
