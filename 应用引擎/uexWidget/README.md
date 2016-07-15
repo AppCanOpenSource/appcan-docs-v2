@@ -455,7 +455,9 @@ function openth() {
   
 **参数:**
 
- 无
+|参数名称|参数类型 | 是否必选|  说明 |
+|------|-----|--------|------- |
+|type|String|否| 想要获取的推送消息内容类型，0：具体的推送内容，1：包含推送标题等其他推送消息的JSON字符串，默认值为0 |
  
 **平台支持:**
 
@@ -484,7 +486,7 @@ uexWidget.getPushInfo();
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |------|-----|--------|------- |
-|cbFunction|String|是| 回调函数方法名|
+|cbFunction|String|是| 回调函数方法名，有回调参数，必选，即cbFunction(type)，type：string类型，表示应用的状态，0 未启动，1 启动/后台， 2 启动/前台 |
 
 **平台支持**:
   Android2.2+
@@ -496,7 +498,7 @@ uexWidget.getPushInfo();
 ```
 uexWidget.setPushNotifyCallback('pushCallback');
 
-function pushCallback(){
+function pushCallback(type){
 alert("收到推送消息");
 }
 
