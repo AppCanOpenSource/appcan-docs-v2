@@ -249,9 +249,9 @@ iOS 3.0.0+
     uexTabBarWithPopMenu.setItemChecked(data1);
 ```
 
-> ### setBadage 设置徽标
+> ### setBadge 设置徽标
 
-`uexTabBarWithPopMenu.setBadage(json)`
+`uexTabBarWithPopMenu.setBadge(json)`
 
 **说明:**
 
@@ -282,11 +282,11 @@ iOS 3.0.0+
         indexes:[0,1]
     };
     var data1 = JSON.stringify(param1);
-    uexTabBarWithPopMenu.setBadage(data1);
+    uexTabBarWithPopMenu.setBadge(data1);
 ```
-> ### removeBadage 移除徽标
+> ### removeBadge 移除徽标
 
-`uexTabBarWithPopMenu.removeBadage(json)`
+`uexTabBarWithPopMenu.removeBadge(json)`
 
 **说明:**
 
@@ -317,7 +317,7 @@ iOS 3.0.0+
         indexes:[0,1]
     };
     var data1 = JSON.stringify(param1);
-    uexTabBarWithPopMenu.removeBadage(data1);
+    uexTabBarWithPopMenu.removeBadge(data1);
 ```
 ## 2.2、监听方法
 
