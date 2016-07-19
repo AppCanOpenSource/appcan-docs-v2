@@ -152,64 +152,77 @@ Android 2.2+
 ## 2.2、回调方法
 > ###cbSendClick  获取验证码的回调方法
 
-` uexMobSMS.cbSendClick(state)`
+` uexMobSMS.cbSendClick(data)`
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| state | String | 是 | 获取验证码的状态描述 |
+data为JSON格式,参见下方params列表
+
+| 参数名称 | 类型 |说明 |
+| ----- | ----- | -----|
+|  status |Number | 0:代表发送成功， 1:代表失改 |
+|  errorCode | Number |错误码, status 为 1 时存在  |
+|  msg |  String |错误消息, status 为 1 时存在 （仅iOS有） |
+
+在`Android`平台上，SDK没有返回错误消息， `errorCode`所对应的错误消息请从[这里](http://wiki.mob.com/android-api-%E9%94%99%E8%AF%AF%E7%A0%81%E5%8F%82%E8%80%83/)查看。
 
 **版本支持:**
 
-3.0.0+
+3.0.1+
 
 **示例:**
 
 ```
-uexMobSMS.cbSendClick = function(state){
-           alert(state);
-     }
+uexMobSMS.cbSendClick = function(data){
+	alert(JSON.stringify(data));
+}
 ```
 > ###cbCommitClick  提交验证码的回调方法
 
-` uexMobSMS.cbCommitClick(state)`
+` uexMobSMS.cbCommitClick(data)`
 
 **参数:**
+data为JSON格式,参见下方params列表
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| state | String | 是 | 提交验证码的状态描述,验证失败打印错误信息|
+| 参数名称 | 类型 |说明 |
+| ----- | ----- | -----|
+|  status |Number | 0:代表发送成功, 1:代表失改 |
+|  errorCode |  Number |错误码, status 为 1 时存在  |
+|  msg |  String |错误消息, status 为 1 时存在 （仅iOS有） |
+
+在`Android`平台上，SDK没有返回错误消息， `errorCode`所对应的错误消息请从[这里](http://wiki.mob.com/android-api-%E9%94%99%E8%AF%AF%E7%A0%81%E5%8F%82%E8%80%83/)查看。
 
 **版本支持:**
 
-3.0.0+
+3.0.1+
 
 **示例:**
 
 ```
-uexMobSMS.cbCommitClick = function(state){
-          alert(state);
-    }
+uexMobSMS.cbCommitClick = function(data){
+	alert(JSON.stringify(data));
+}
 ```
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexMobSMS-3.0.0`
+API版本:`uexMobSMS-3.0.1`
 
-最近更新时间:`2016-01-12`
+最近更新时间:`2016-7-19`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.1 | 添加出错信息返回|
 | 3.0.0 | Mob短信验证插件 |
 
 ### Android
 
-API版本:`uexMobSMS-3.0.0`
+API版本:`uexMobSMS-3.0.1`
 
-最近更新时间:`2016-2-16`
+最近更新时间:`2016-7-19`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.1 | 添加出错信息返回|
 | 3.0.0 | uexMobSMS插件出新 |
