@@ -30,7 +30,7 @@
 
 **平台支持:**
 
-Android2.2+
+Android2.2+  
 iOS6.0+
 
 **版本支持:**
@@ -83,12 +83,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例:**
@@ -124,12 +124,12 @@ uexVideo.openPlayer(JSON.stringify(param))
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例:**
@@ -174,12 +174,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例:**
@@ -241,12 +241,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例**
@@ -275,12 +275,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例**
@@ -315,12 +315,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例**
@@ -361,29 +361,29 @@ uexVideo.onExportWithProgress = function(data){
 }
 ```
 
-> ### onCompletion 播放结束的监听方法
+> ### onPlayerFinish 播放结束的监听方法
   
-`uexVideo.onCompletion()`
+`uexVideo.onPlayerFinish()`
 
 **参数:**  
 无
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
-Android 3.0.6+
+iOS 3.0.5+  
+Android 3.0.8+
 
 **示例**
 
 ```
 
 window.uexOnload = function(){
-    uexVideo.onCompletion = function() {
+    uexVideo.onPlayerFinish = function() {
         alert("video completed!");
     };
 }
