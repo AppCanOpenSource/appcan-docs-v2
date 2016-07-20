@@ -117,7 +117,7 @@ uexMobSMS.sendCode(JSON.stringify(params));
 
 **参数:**
 
-data为JSON对象格式, 属性说明如下：
+params为JSON格式,参见下方params列表
 
 |  params参数值 | 是否必选  |说明 |
 | ----- | ----- | -----|
@@ -182,7 +182,8 @@ uexMobSMS.cbSendClick = function(data){
 ` uexMobSMS.cbCommitClick(data)`
 
 **参数:**
-data为JSON对象格式,参见下方params列表
+
+data为JSON对象格式, 属性说明如下：
 
 | 参数名称 | 类型 |说明 |
 | ----- | ----- | -----|
