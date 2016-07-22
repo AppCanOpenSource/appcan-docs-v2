@@ -319,10 +319,17 @@ window.uexOnload = function(){
 
 API版本:`uexCamera-3.0.3`
 
-最近更新时间:`2016-2-16`
+最近更新时间:`2016-7-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.10 | 修改removeViewCameraFromWindow接口无效以及自定义相机内存泄漏问题 |
+| 3.0.9 | 修改系统相机第一次拍照保存路径bug |
+| 3.0.8 | cbOpenViewCamera回调方法,返回的JSON中增加字段label,替换之前的location |
+| 3.0.7 | 创建bundle存储资源文件,适配国际化 |
+| 3.0.6 | 修改IDE |
+| 3.0.5 | 修改openViewCamera接口适配地址长度,修改openInternal崩溃bug,修改第一次切换镜头无效 |
+| 3.0.4 | 修改openViewCamera不传照片质量崩溃bug,修改changeFlashMode闪光灯接口 |
 | 3.0.3 | 插件改为arc,添加openInternal自定义相机接口,添加openViewCamera自定义view模式相机 |
 | 3.0.2 | 添加IDE支持 |
 | 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
