@@ -8,18 +8,28 @@
  
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=622_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+## 1.4、平台版本支持
 
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用。
+
+在后续版本中新添加的接口会在文档中额外说明。
 # 2、API概览
 
 ## 2.1、方法
 
 > ### init 初始化拍摄的相关参数
   
-`uexQupai.init(param)`
+`uexQupai.init(param,function(data){})`
 
 **说明:**
 
-初始化拍摄的相关参数, 回调 [cbInit](#cbInit 初始化的回调方法 "初始化的回调方法")。需要注意的是,之所以需要`appKey`, `appSecret`, `space`这三个参数,是因为趣拍SDK中封装有上传文失件的功能,这三个参数在上传文件时会需要。但当前插件中没有封装这一功能,既使用户输入错误的`appKey`, `appSecret`, `space`,该插件的录制视屏功能同样可以使用,但是在使用时会有`授权失败`的提示。 所以建议开发者还是去趣拍[官网](http://vcs.qupai.me/)申请这三个参数,申请详细步骤,见链接地址：[iOS地址](http://faq.vcs.qupai.me/123.html), [Android地址](http://faq.vcs.qupai.me/125.html).
+初始化拍摄的相关参数。需要注意的是,之所以需要`appKey`, `appSecret`, `space`这三个参数,是因为趣拍SDK中封装有上传文失件的功能,这三个参数在上传文件时会需要。但当前插件中没有封装这一功能,既使用户输入错误的`appKey`, `appSecret`, `space`,该插件的录制视屏功能同样可以使用,但是在使用时会有`授权失败`的提示。 所以建议开发者还是去趣拍[官网](http://vcs.qupai.me/)申请这三个参数,申请详细步骤,见链接地址:[iOS地址](http://faq.vcs.qupai.me/123.html), [Android地址](http://faq.vcs.qupai.me/125.html).
 
 **参数:**
 
@@ -30,25 +40,41 @@ param为json字符串,包含的参数如下:
 | appKey | String | 是 |在趣拍平台上为应用申请的appKey|
 | appSecret | String | 是 |在趣拍平台上为应用申请的appSecret|
 | space | String | 是 |在趣拍平台上为应用指定的空间|
+| data | JSON对象 | 是 |返回数据|
+data 是JSON对象
 
-**平台支持:**
+```
+var data = {
+    status: 0, //0代表成功,1 代表失败
+    error: //当合成失败(status为1时),返回错误码
+}
+```
 
-Android4.0+  
-iOS6.0+
+关于错误码的说明:
 
-**版本支持:**
+| 错误码 | 说明 |
+| ----- | ----- |
+| 1101 | Host(请求的域名) 未授权, 通常都是域名地址错误导致 |
+| 1102 | appSecret不正确 |
+| 1103 | bundleId不正确 |
+| 1104 | 包名和签名为空 |
+| 1105 | 包名或签名不正确 |
+| 1106 | 存储空间里的目录不正确 |
+| 1107 | AppKey不正确 |
 
-3.0.0+
+
 
 **示例:**
 
 ```
 var params = {
-    appKey: "206ad2ea1113d3e",
-    appSecret: "5a20f29cc65e4b7fbca31eecb6338589",
-    space: "fred"
-}
-uexQupai.init(JSON.stringify(params));
+            appKey: "206ad2ea1113d3e",
+            appSecret: "5a20f29cc65e4b7fbca31eecb6338589",
+            space: "fred"
+   }
+       uexQupai.init(JSON.stringify(params),function(data){
+             alert(JSON.stringify(data));
+  });
 
 ```
 
@@ -75,14 +101,6 @@ param为json字符串,包含的参数如下:
 | openBeautySkin | boolean | 否 |是否开启美颜效果,默认为true|
 | beautySkinRate | Number | 否 |美颜比例,值为0-100, 默认为80|
 
-**平台支持:**
-
-Android4.0+  
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
@@ -95,112 +113,56 @@ uexQupai.config(JSON.stringify(params));
 
 > ### record 打开视频录制界面
   
-`uexQupai.record()`
+`uexQupai.record(function(data){})`
 
 **说明:**
 
 打开视频录制界面
-回调 [cbRecord](#cbRecord 录制完成的回调方法 "录制完成的回调方法")
+
 
 **参数:**
 
-无
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| data | JSON对象 | 是 |返回数据|
 
-**平台支持:**
+data 是JSON对象
 
-Android4.0+  
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+```
+var data = {
+    videoPath: //合成后视屏的路径, 
+    thumbPath: //缩略图的路径,  
+}
+```
 
 **示例:**
 
 ```
-uexQupai.record();
+uexQupai.record(function(data){
+      alert(JSON.stringify(data));
+ });
 ```
 
-## 2.2、回调方法
-> ### cbInit 初始化的回调方法
-  
-`uexQupai.cbInit(param)`
-
-**参数:**
-
-param 是JSON字符串
-
-```
-var param = {
-    status: 0, //0代表成功,1 代表失败
-    error: //当合成失败(status为1时),返回错误码
-}
-```
-
-关于错误码的说明:
-
-| 错误码 | 说明 |
-| ----- | ----- |
-| 1101 | Host(请求的域名) 未授权, 通常都是域名地址错误导致 |
-| 1102 | appSecret不正确 |
-| 1103 | bundleId不正确 |
-| 1104 | 包名和签名为空 |
-| 1105 | 包名或签名不正确 |
-| 1106 | 存储空间里的目录不正确 |
-| 1107 | AppKey不正确 |
-
-**版本支持:**
-
-3.0.0+
-
-> ### cbRecord 录制完成的回调方法
-  
-`uexQupai.cbRecord(param)`
-
-**参数:**
-
-param 是JSON字符串
-
-```
-var param = {
-    videoPath: //合成后视屏的路径, 当 status为0时存在
-    thumbPath: //缩略图的路径, 当 status为0时存在
-}
-```
-
-**版本支持:**
-
-3.0.0+
-
-**示例**
-
-```
-function cbRecord (param){
-    alert(data);
-}
-window.uexOnload = function(){
-    uexQupai.cbRecord = cbRecord ;
-}
-```
 
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexQupai-3.0.0`
+API版本:`uexQupai-4.0.0`
 
-最近更新时间:`2016-4-13`
+最近更新时间:`2016-7-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 趣拍插件 |
+| 4.0.0 | 趣拍4.0插件 |
+
 
 ### Android
 
-API版本:`uexQupai-3.0.0`
+API版本:`uexQupai-4.0.0`
 
-最近更新时间:`2016-4-13`
+最近更新时间:`2016-7-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 趣拍插件 |
+| 4.0.0 | 趣拍4.0插件 |
