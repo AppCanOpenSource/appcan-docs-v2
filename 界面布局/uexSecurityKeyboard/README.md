@@ -46,7 +46,8 @@
          "x": ,
          "y": ,
          "width": ,
-         "height":
+         "height": ,
+         "isScrollWithWeb":
     }
 ```
 
@@ -61,6 +62,7 @@
 | y | Number | 是 | 输入框距屏幕顶部的距离 |
 | width | Number | 是 | 输入框的宽度 |
 | height | Number | 是 | 输入框的高度 |
+| isScrollWithWeb | bool | 否 | 是否随网页滚动，默认为false |
 
 **示例:**
 
@@ -72,7 +74,8 @@
         "x":100,
         "y":100,
         "width":250,
-        "height":50
+        "height":50,
+        "isScrollWithWeb":true
     };
     uexSecurityKeyboard.open(JSON.stringify(params));
 ```
@@ -157,7 +160,7 @@ var info = [//输入框数据列表
 
 API版本:`uexSecurityKeyboard-4.0.0`
 
-最近更新时间:`2016-06-29`
+最近更新时间:`2016-07-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
@@ -168,7 +171,7 @@ API版本:`uexSecurityKeyboard-4.0.0`
 
 API版本:`uexSecurityKeyboard-4.0.0`
 
-最近更新时间:`2016-06-29`
+最近更新时间:`2016-07-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
