@@ -325,7 +325,7 @@ var params ={
 | backgroundColor | String | 否 | listView的背景色,不传默认为透明 |
 | header | json | 否 | listView头部网页，固定位于listView的顶端，不随listView滚动 |
 | footer | json | 否 | listView底部网页，固定位于listView的底部，不随listView滚动 |
-| url | String | 是 | 网页地址，该网页中不能调用插件和引擎的任何方法，只能通过[clickHtmlElement](#clickHtmlElement 网页内元素的点击响应方法)和[onHtmlElementClick](#onHtmlElementClick 头部或底部网页元素被点击的监听方法)与主网页之间进行数据传递 |
+| url | String | 是 | 网页地址，该网页中不能调用插件和引擎的任何方法，只能通过[sendHtmlEvent](#sendHtmlEvent 头部或底部网页向主网页发送数据方法)和[onHtmlEvent](#onHtmlEvent 头部或底部网页元素被点击的监听方法)与主网页之间进行数据传递 |
 
 **平台支持:**
 
@@ -696,13 +696,13 @@ var data = JSON.stringify(params);
 uexNBListView.setRefreshStatusCompleted(data);
 ```
 
-> ### clickHtmlElement 网页内元素的点击响应方法
+> ### sendHtmlEvent 头部或底部网页向主网页发送数据方法
 
-`uexNBListView.clickHtmlElement(data);`
+`uexNBListView.sendHtmlEvent(data);`
 
 **说明:**
 
-listView头部或者底部网页内元素的点击响应方法，该方法只能在头部或者底部html内调用，其他网页内调用该方法无效。该方法主要实现头部网页或者底部网页和主网页(打开listView的网页)之间的交互。调用该方法传递任意字符型参数，该参数会原样通过监听方法[onHtmlElementClick](#onHtmlElementClick 头部或底部网页元素被点击的监听方法)传递给主网页。
+该方法只能在头部或者底部html内调用，其他网页内调用该方法无效。该方法主要实现头部网页或者底部网页和主网页(打开listView的网页)之间的交互。调用该方法传递任意字符型参数，该参数会原样通过监听方法[onHtmlEvent](#onHtmlEvent 主网页收到头部或底部网页发送的数据的监听方法)传递给主网页。
 
 **参数:**
 
@@ -723,7 +723,7 @@ iOS3.0.0+
 **示例:**
 
 ```
-uexNBListView.clickHtmlElement(data);
+uexNBListView.sendHtmlEvent(data);
 ```
 
 ## 2.2、回调方法
@@ -1087,15 +1087,15 @@ uexNBListView.onLeftClick = function(data){
 ```
 其中onLeftClick方法在id为txt的元素被点击时触发。
 
-> ### onHtmlElementClick 头部或底部网页元素被点击的监听方法
+> ### onHtmlEvent 主网页收到头部或底部网页发送的数据的监听方法
 
-`uexNBListView.onHtmlElementClick(data);`
+`uexNBListView.onHtmlEvent(data);`
 
 **参数:**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| data | String | 是 | 头部或底部网页通过[clickHtmlElement](#clickHtmlElement 网页内元素的点击响应方法)传递的参数 |
+| data | String | 是 | 头部或底部网页通过[sendHtmlEvent](#sendHtmlEvent 头部或底部网页向主网页发送数据方法)传递的参数 |
 
 **平台支持:**
 
@@ -1108,8 +1108,8 @@ Android3.0.1+
 **示例:**
 
 ```
-uexNBListView.onHtmlElementClick = function(data){
-	//alert("onHtmlElementClick->" + data);
+uexNBListView.onHtmlEvent = function(data){
+	//alert("onHtmlEvent->" + data);
 }
 ```
 
