@@ -148,7 +148,7 @@ API版本:`uexPopoverMenu-4.0.0`
 
 ### Android
 
-API版本:`uexPopoverMenu-3.0.0`
+API版本:`uexPopoverMenu-4.0.0`
 
 最近更新时间:`2015-7-28`
 
