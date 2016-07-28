@@ -9,18 +9,35 @@
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=573_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。 
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。 
+
+
 # 2、API概览
 
 ## 2.1、方法
 > ### openPopoverMenu 创建弹出框
 
-`uexPopoverMenu.openPopoverMenu(params)`  
+`uexPopoverMenu.openPopoverMenu(params, callbackFunction)`  
 
 **说明:**
 
 仿微信,创建弹出框,弹出框的宽和高自适应    
 
 **参数:**
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  params |JSON String | 是 |布局显示相关的配置|
+| callbackFunction | Function | 否 | 回调函数，点击某个菜单后触发|
+
+* `callbackFunction `的参数是`Number`类型，返回数值表示选中的行号,行号标识从0开始。
+* `params`参数的说明如下:
 
  ```
 var params = {
@@ -56,18 +73,6 @@ var params = {
 参数说明:
 icon参数和text参数必须成对出现,或者不传icon参数,示例如下。
 
-**平台支持:**
-
-Android 2.2+ 
-iOS 6.0+
-
-**版本支持:**
-
-  
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
 ```
@@ -98,7 +103,7 @@ var params = {
               }
             ]
 }
-uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
+uexPopoverMenu.openPopoverMenu(JSON.stringify(params), function(index){alert(index);});
              
 或者
   
@@ -125,55 +130,28 @@ var params = {
               }
             ]
 }
-uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
+uexPopoverMenu.openPopoverMenu(JSON.stringify(params), function(index){alert(index);});
 
 ```
 
-## 2.2、回调方法
-
-> ###  cbItemSelected 点击选中的回调方法   
-
-`uexPopoverMenu.cbItemSelected(selectRow)  `
-
-**参数:**
-
-   
-
-|参数名称|参数类型 | 是否必选|  说明 |
-|-----|-----|-----|----- |
-| selectRow | String  | 是 | 选中的行号,行号标识从0开始 |
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
-**示例:**
-
-```
-uexPopoverMenu.cbItemSelected = function(selectRow){
-    alert("select index "+selectRow);
-}
-
-```
 #3、更新历史
 
 ### iOS
 
-API版本:`uexPopoverMenu-3.0.0`
+API版本:`uexPopoverMenu-4.0.0`
 
-最近更新时间:`2015-2-2`
+最近更新时间:`2015-7-28`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 弹出框插件 |
+| 4.0.0 | 弹出框插件 |
 
 ### Android
 
 API版本:`uexPopoverMenu-3.0.0`
 
-最近更新时间:`2015-3-8`
+最近更新时间:`2015-7-28`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 弹出框插件 |
+| 4.0.0 | 弹出框插件4.0出新 |
