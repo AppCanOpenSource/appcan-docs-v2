@@ -28,15 +28,20 @@
 
 > ### edit 编辑图片
 
-`uexCamera360.edit(params);`
+`uexCamera360.edit(params,callbackFunction);`
 
 **说明**
 
 编辑图片,图片名称统一为当前时间的毫秒数。
 Android平台,开发者可设置编辑后的图片是否保存到相册或者自定义保存路径。
-iOS平台必须设置编辑后图片的保存路径。回调方法[cbEdit](#cbEdit 编辑图片的回调方法)
+iOS平台必须设置编辑后图片的保存路径。
 
 **参数**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| params | String | 是 | 要编辑的图片相关信息 |
+| callbackFunction | Function | 是 | 回调函数 |
 
 ```
 var params = {
@@ -56,6 +61,25 @@ var params = {
 | isSaveToGallery | Boolean | 否 | **仅Android支持**,是否保存到相册,默认为false。该值为true时,imgSavePath参数无效。若不传或传false时,imgSavePath必传。 |
 | imgSavePath | String | 是 | 编辑后的图片保存的文件夹目录 |
 
+**回调参数**
+
+回调函数有一个Object类型的参数info
+
+```
+var info = {
+    id:,
+    errorCode:,
+    saveFilePath:
+}
+```
+各字段含义如下:
+
+| 名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| id | String | 是 | 唯一标识符,与edit方法中的id对应 |
+| errorCode | Number | 是 | 错误码,详见[errorCode](#errorCode) |
+| saveFilePath | String | 是 | 编辑后图片的保存路径,只在errorCode为0时有效 |
+
 **返回值:**
 
 唯一标识符
@@ -71,7 +95,9 @@ var params = {
             imgSavePath:"wgt://"//编辑后的图片存储路径
         };
         var data = JSON.stringify(params);
-        uexCamera360.edit(data);
+        uexCamera360.edit(data, function(data){
+            alert("cbEditFun:" + JSON.stringify(data));
+        });
 ```
 
 > ### setAPIKey 设置APIKey
@@ -119,43 +145,6 @@ iOS 4.0.0+
         };
         var data = JSON.stringify(params);
         uexCamera360.setAPIKey(data);
-```
-
-## 2.2、回调方法
-
-> ### cbEdit 编辑图片的回调方法
-
-`uexCamera360.cbEdit(param);`
-
-**说明**
-
-编辑图片的回调方法
-
-**参数**
-
-```
-var param = {
-    id:,
-    errorCode:,
-    saveFilePath:
-}
-```
-各字段含义如下:
-
-| 名称 | 类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id | String | 是 | 唯一标识符,与edit方法中的id对应 |
-| errorCode | Number | 是 | 错误码,详见[errorCode](#errorCode) |
-| saveFilePath | String | 是 | 编辑后图片的保存路径,只在errorCode为0时有效 |
-
-**示例**
-
-```
-window.uexOnload=function(type){
-	uexCamera360.cbEdit=function(info){
-		alert(info);
-	}
-}
 ```
 
 # 3、附录
