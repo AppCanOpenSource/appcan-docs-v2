@@ -476,7 +476,7 @@ uexBaiduMap.setOverlookEnable(1);
 json:(String类型) 必选添加到地图的标注信息的集合。该字符串为JSON格式。如下:
 var json=[
 		{
-		id:,//(必选)唯一标识符 
+		id:,//(可选)唯一标识符 
 		longitude:,//(必选)经度 
 		latitude:,//(必选)纬度 
 		icon:,//(可选)标注图标路径,支持类型:"res://""http://" 
@@ -492,7 +492,7 @@ var json=[
 
 | 参数 | 参数类型 | 是否必选 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 唯一标识符 |
+| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | longitude | Number | 是 | 经度 |
 | latitude | Number | 是 | 纬度 |
 | icon | String | 否 | 标注图标路径,支持类型:"res://""http://" |
@@ -500,6 +500,9 @@ var json=[
 | title | String | 是 | 自定义弹出气泡标题 |
 | bgImage | String | 否 | 自定义弹出气泡背景图片,格式:res://btn.png |
 
+**返回值**
+
+返回id组成的一个数组，如果添加失败返回为空
 
 **示例**
 
@@ -535,7 +538,10 @@ var data = [
 		}
  ];
 var dataStr = JSON.stringify(data);
-uexBaiduMap.addMarkersOverlay(dataStr);
+var ids=uexBaiduMap.addMarkersOverlay(dataStr);
+if(!ids){
+	alert("添加失败");
+}
  
  
 ```
@@ -652,12 +658,15 @@ var dotInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 唯一标识符 |
+| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | fillColor | String | 是 | 圆点颜色,支持格式:"#000","#000000" |
 | radius | Number | 是 | 圆点半径,单位:像素 |
 | longitude | Number | 是 | 圆点经度 |
 | latitude | Number | 是 | 圆点纬度 |
 
+**返回值**
+
+返回id，如果添加失败返回为空
 
 **示例**
 
@@ -670,7 +679,10 @@ var dotInfo={
 	radius:"50"
 };
 var jsonStr=JSON.stringify(dotInfo);
-uexBaiduMap.addDotOverlay(jsonStr);
+var id=uexBaiduMap.addDotOverlay(jsonStr);
+if(!id){
+	alert("添加失败");
+}
 ```
 > ### addPolylineOverlay 添加折线覆盖物
 
@@ -706,13 +718,16 @@ var polylineInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 唯一标识符 |
+| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | fillColor | String | 是 | 折线颜色,支持格式:"#000","#000000" |
 | lineWidth | Number | 是 | 折线线宽,单位:像素 |
 | property | Array | 是 |连接点经纬度集合 |
 | longitude | Number | 是 | 连接点经度 |
 | latitude | Number | 是 | 连接点纬度 |
 
+**返回值**
+
+返回id，如果添加失败返回为空
 
 **示例**
 
@@ -739,7 +754,10 @@ var polylineInfo=
 		]
 	};
 var jsonStr=JSON.stringify(polylineInfo);
-uexBaiduMap.addPolylineOverlay(jsonStr);
+var id=uexBaiduMap.addPolylineOverlay(jsonStr);
+if(!id){
+	alert("添加失败");
+}
 ```
 
 > ### addArcOverlay 添加弧形覆盖物 
@@ -772,7 +790,7 @@ var arcInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 唯一标识符 |
+| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | strokeColor | String | 是 | 颜色,支持格式:"#000","#000000" |
 | lineWidth | Number | 是 | 线宽 |
 | startLongitude | Number | 是 | 起点经度 |
@@ -782,6 +800,9 @@ var arcInfo={
 | endLongitude | Number | 是 | 终点经度 |
 | endLatitude | Number | 是 | 终点纬度 |
 
+**返回值**
+
+返回id，如果添加失败返回为空
 
 **示例**
 
@@ -798,7 +819,10 @@ var data={
 	strokeColor:"#990033"
 };
 var jsonStr=JSON.stringify(data)
-uexBaiduMap.addArcOverlay(jsonStr); 
+var id=uexBaiduMap.addArcOverlay(jsonStr); 
+if(!id){
+	alert("添加失败");
+}
 ```
 
 > ### addCircleOverlay 添加圆形覆盖物 
@@ -827,7 +851,7 @@ var circleInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 唯一标识符 |
+| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | radius | Number | 是 | 半径,单位:米 |
 | fillColor | String | 是 | 填充颜色,支持格式:"#000","#000000" |
 | strokeColor | String | 是 | 边框颜色,支持格式:"#000","#000000" |
@@ -835,6 +859,9 @@ var circleInfo={
 | longitude | Number | 是 | 圆心经度 |
 | latitude | Number | 是 | 圆心纬度 |
 
+**返回值**
+
+返回id，如果添加失败返回为空
 
 **示例**
 
@@ -848,7 +875,10 @@ var data={
 	strokeColor:"#990033"
 };
 var jsonStr=JSON.stringify(data);
-uexBaiduMap.addCircleOverlay(jsonStr); 
+var id=uexBaiduMap.addCircleOverlay(jsonStr); 
+if(!id){
+	alert("添加失败");
+}
 ```
 
 > ### addPolygonOverlay 添加几何图形覆盖物 
@@ -882,7 +912,7 @@ var polygonInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 唯一标识符 |
+| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | fillColor | String | 是 | 填充颜色,支持格式:"#000","#000000" |
 | strokeColor | String | 是 | 边框颜色,支持格式:"#000","#000000" |
 | lineWidth | Number | 是 | 边框宽度 |
@@ -890,6 +920,9 @@ var polygonInfo={
 | longitude | Number | 是 | 连接点经度 |
 | latitude | Number | 是 | 连接点纬度 |
 
+**返回值**
+
+返回id，如果添加失败返回为空
 
 **示例**
 
@@ -919,7 +952,10 @@ var data={
 	strokeColor:"#990033"
 };
 var jsonStr=JSON.stringify(data)
-uexBaiduMap.addPolygonOverlay(jsonStr); 
+var id=uexBaiduMap.addPolygonOverlay(jsonStr); 
+if(!id){
+	alert("添加失败");
+}
 ```
  
 > ### addGroundOverlay 添加地形图图层覆盖物 
@@ -955,7 +991,7 @@ var groundInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 唯一标识符 |
+| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | imageUrl | String | 是 | 图片路径,支持格式:"http://","res://" |
 | transparency | Number | 是 | 透明度,范围:[0.0f,1.0f] |
 | property | Array | 是 | 地理位置数组,长度为2 |
@@ -964,6 +1000,9 @@ var groundInfo={
 | imageWidth | Number | 是(property数组长度为1时)否(property数组长度为2时) | 图片宽度,单位:米 |
 | imageHeight | Number | 否 | 图片高度,单位:米 |
 
+**返回值**
+
+返回id，如果添加失败返回为空
 
 **示例**
 
@@ -986,7 +1025,10 @@ var data={
 	transparency:"0.8"
 	};
 var jsonStr=JSON.stringify(data)
-uexBaiduMap.addGroundOverlay(jsonStr);
+var id=uexBaiduMap.addGroundOverlay(jsonStr);
+if(!id){
+	alert("添加失败");
+}
 ```
 > ### addTextOverlay 添加文字覆盖物 
 
@@ -1017,7 +1059,7 @@ var textInfo = {
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 唯一标识符 |
+| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | bgColor | String | 是 | 文字背景,支持格式:"#000","#000000" |
 | fontSize | Number | 是 | 字体大小 |
 | fontColor | String | 是 | 字体颜色,支持格式:"#000","#000000" |
@@ -1026,6 +1068,9 @@ var textInfo = {
 | latitude | Number | 是 | 纬度 |
 | rotate | Number | 否 | 文字旋转角度(逆时针),旋转角范围:-180~180,单位:度 |
 
+**返回值**
+
+返回id，如果添加失败返回为空
 
 **示例**
 
@@ -1040,7 +1085,10 @@ var data={
 	text: "baidu map"
 };
 var jsonStr=JSON.stringify(data);
-uexBaiduMap.addTextOverlay(jsonStr);
+var id=uexBaiduMap.addTextOverlay(jsonStr);
+if(!id){
+	alert("添加失败");
+}
 ```
 > ### removeMakersOverlay 移除标注 
 
@@ -1444,7 +1492,7 @@ var json={
 
 | 参数 | 是否必须 | 说明 |
 |-----|-----|-----|
-| id | 是 | 唯一标识符 |
+| id | 否 | 唯一标识符，不传时插件随机生成 |
 | type | 是 | 路线类型:0-驾车；1-公交；2-步行 |
 | start | 是 | 起点信息,JSON格式 |
 | end | 是 | 终点信息,JSON格式 |
@@ -1453,6 +1501,27 @@ var json={
 | longitude | 否 | 经度,必须与latitude合用 |
 | latitude | 否 | 纬度 |
 
+callbackFunction的参数是errorCode， 其数据含义如下：
+
+| 错误码 | 说明 |
+|-------|-----|
+| 0 | 检索结果正常返回 |
+| 1 | 检索词有岐义 |
+| 2 | 检索地址有岐义 |
+| 3 | 该城市不支持公交搜索 |
+| 4 | 不支持跨城市公交 |
+| 5 | 没有找到检索结果 |
+| 6 | 起终点太近 |
+| 7 | key错误 |
+| 8 | 网络连接错误 |
+| 9 | 网络连接超时 |
+| 10 | 还未完成鉴权，请在鉴权通过后重试 |
+| 11 | 室内图ID错误 |
+| 12 | 室内图检索楼层错误 |
+
+**返回值**
+
+返回id
 
 **示例**
 
@@ -1472,7 +1541,8 @@ var data = {
 	}
 };
 var jsonStr=JSON.stringify(data);
-uexBaiduMap.searchRoutePlan(jsonStr);
+var id=uexBaiduMap.searchRoutePlan(jsonStr);
+alert(id);
 ```
 
 > ### preRouteNode 显示上一个线路节点 
