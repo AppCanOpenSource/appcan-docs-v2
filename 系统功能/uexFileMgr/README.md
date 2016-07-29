@@ -34,36 +34,46 @@
 
 ## 2.1、方法
 
-> ### createFile 创建文件
+> ### create 创建文件
 
-`uexFileMgr.createFile(id,path)`
+`uexFileMgr.create(param)`
 
 **说明:**
 
-创建文件,同一id只能被创建一次
+创建文件
 
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 唯一标识符 |
-| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
+|  param | Object | 是 | 文件设置 |
+
+
+```
+var param = {
+    path:,//String,必选,文件路径.支持"wgt://","wgts://","wgts://"、"file://"协议
+}
+```
 
 **返回值:**
 
-Boolean类型,是否创建成功
+uexFile对象ID
+创建失败时返回null
 
 **示例:**
 
 ```
-var path = "wgt://data/test.txt";
-var ret = uexFileMgr.createFile('1', path);
-alert(ret);
+var file = uexFileMgr.create({
+	path:"wgt://data/1.txt"
+});
+if(!file){
+	alert("创建失败!");
+}
 ```
 
-> ### createDir 创建文件夹
+> ### mkdir 创建文件夹
 
-`uexFileMgr.createDir(id,dirPath)`
+`uexFileMgr.mkdir(param)`
 
 **说明:**
 
@@ -73,8 +83,14 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 唯一标识符 |
-| dirPath|String | 是 |文件夹路径,路径协议详见[附录-PathTypes](#PathTypes)  |
+|  param | Object | 是 | 文件夹设置 |
+
+
+```
+var param = {
+    path:,//String,必选,文件夹路径.支持"wgt://","wgts://","wgts://"、"file://"协议
+}
+```
 
 
 **返回值:**
@@ -84,38 +100,50 @@ Boolean类型,是否创建成功
 **示例:**
 
 ```
-var path = "wgt://data/test2/";
-var ret = uexFileMgr.createDir('20', path);
+var ret = uexFileMgr.mkdir({
+	path:"wgt://data/test/"
+});
 alert(ret);
 ```
 
-> ### openFile 打开文件
+> ### open 打开文件
 
-`uexFileMgr.openFile(id,path,mode)`
+`uexFileMgr.open(param)`
+
 
 **说明:**
 
 打开文件
 
-
-
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 唯一标识符 |
-| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
-| mode|String | 是 | 文件打开模式,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#File "CONSTANT")中FileOpenModes |
+|  param | Object | 是 | 文件设置 |
+
+
+```
+var param = {
+    path:,//String,必选,文件路径.支持"wgt://","wgts://"、"file://"协议
+    mode:,//Number,打开设置.设置flag为: 1-可读 2-可写 4-不存在时创建新文件 ,需要多个设置同时作用时,将flag值相加再传入.比如传3(=1+2),意味着可读且可写
+}
+```
 
 **返回值:**
 
-Boolean类型,是否打开成功
+uexFile对象ID
+打开失败时返回null
 
 **示例:**
 
 ```
-var ret = uexFileMgr.openFile(1,"res://reader.txt",1);
-alert(ret);
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+if(!file){
+	alert("打开失败!");
+}
 ```
 
 > ### deleteFileByPath 根据路径删除文件
@@ -155,7 +183,7 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 
 **返回值:**
 
@@ -166,7 +194,11 @@ Boolean类型,是否删除成功
 **示例:**
 
 ```
-var ret = uexFileMgr.deleteFileByID(1);
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+var ret = uexFileMgr.deleteFileByID(file);
 alert(ret);
 ```
 
@@ -182,7 +214,7 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id | Number | 是 | 文件的唯一标识符,与回调函数中的opId对应 |
+| id| String| 是 | uexFile对象ID |
 | path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 
 
@@ -197,7 +229,7 @@ var ret = uexFileMgr.isFileExistByPath(2,"wgt://data/test.txt");
 alert(ret);
 ```
 
-> ### isFileExistByID 根据id判断文件是否存在
+> ### isFileExistByID 根据FileID判断文件是否存在
 
 `uexFileMgr.isFileExistByID(id)`
 
@@ -209,7 +241,7 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 
 **返回值:**
 
@@ -218,7 +250,11 @@ Boolean类型,是否存在
 **示例:**
 
 ```
-var ret = uexFileMgr.isFileExistByID('2');
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+var ret = uexFileMgr.isFileExistByID(file);
 alert(ret);
 ```
 
@@ -234,7 +270,7 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
+| path|String | 是 | 文件路径,支持"wgt://","wgts://","res://","file://" 协议 |
 
 **返回值:**
 
@@ -247,33 +283,9 @@ var ret = uexFileMgr.getFileTypeByPath("wgt://data/test.txt");
 alert(ret);
 ```
 
-> ### getFileTypeByID 根据id获取文件类型
-
-`uexFileMgr.getFileTypeByID(id)`
-
-**说明:**
-
-根据id获取文件类型
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
-
-**返回值:**
-
-Number类型, -1:文件不存在或发生未知错误 0:文件 1:文件夹
-
-**示例:**
-
-```
-var ret = uexFileMgr.getFileTypeByID('4');
-alert(ret);
-```
 > ### explorer 文件管理器
 
-`uexFileMgr.explorer(folderPath,cb)`
+`uexFileMgr.explorer(folderPath,cbFunc)`
 
 **说明:**
 
@@ -283,11 +295,11 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| folderPath|String | 是 | 起始文件夹路径,路径协议详见[附录-PathTypes](#PathTypes) |
-| cb | Function| 是 | 文件浏览结束后,会调用此函数,函数参数说明见下|
+| folderPath|String | 是 | 起始文件夹路径,支持"wgt://","wgts://","res://","file://" 协议 |
+| cbFunc | Function| 是 | 文件浏览结束后,会调用此函数,函数参数说明见下|
 
 
-**回调参数:**
+**回调函数的参数:**
 
 |  参数名称 | 参数类型  |  说明 |
 | ----- | ----- | ----- |
@@ -315,7 +327,7 @@ uexFileMgr.explorer("/sdcard/widgetone",function(path){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
+| path|String | 是 | 文件路径,支持"wgt://","wgts://","res://","file://" 协议 |
 | cb | Function| 是 | 文件浏览结束后,会调用此函数,函数参数说明见下|
 
 **回调参数:**
@@ -344,7 +356,7 @@ uexFileMgr.multiExplorer("/sdcard/widgetone",function(paths){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 | len| Number| 是 |字节数 |
 
 **返回值:**
@@ -354,8 +366,11 @@ Boolean类型,是否定位成功
 **示例:**
 
 ```
-uexFileMgr.openFile('1', "wgt://test.txt", '1');
-var ret = uexFileMgr.seekFile('1', '1');
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+var ret = uexFileMgr.seekFile(file, '1');
 alert(ret);
 
 ```
@@ -372,7 +387,7 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 
 **返回值:**
 
@@ -381,7 +396,11 @@ Boolean类型,是否定位成功
 **示例:**
 
 ```
-uexFileMgr.openFile('1', "wgt://test.txt", '1');
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+uexFileMgr.openFile(file, "wgt://test.txt", '1');
 var ret = uexFileMgr.seekBeginOfFile('1');
 alert(ret);
 ```
@@ -398,7 +417,7 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 
 **返回值:**
 
@@ -407,9 +426,11 @@ Boolean类型,是否定位成功
 **示例:**
 
 ```
-
-uexFileMgr.openFile('1', "wgt://test.txt", '1');
-var ret = uexFileMgr.seekEndOfFile('1');
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+var ret = uexFileMgr.seekEndOfFile(file);
 alert(ret);
 ```
 
@@ -425,7 +446,7 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 | option | Number| 是 |写入设置(详见下) |
 | data| String| 是 |要写入的数据 |
 | cb | Function| 是 | 写入结束后,会调用此函数,函数参数说明见下|
@@ -452,8 +473,11 @@ alert(ret);
 **示例:**
 
 ```
-uexFileMgr.openFile('1', "wgt://test.txt", '1');
-uexFileMgr.writeFile('1', 0, "test",function(ret){
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+uexFileMgr.writeFile(file, 0, "test",function(ret){
 	alert(ret);
 });
 ```
@@ -470,7 +494,7 @@ uexFileMgr.writeFile('1', 0, "test",function(ret){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 | len| Number| 是 |字节数,传-1表示读取全部内容|
 | option | Number | 是 | 读取设置(详见下)|
 | cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
@@ -487,16 +511,28 @@ uexFileMgr.writeFile('1', 0, "test",function(ret){
 
 **回调参数:**
 
+```
+var cb = function(isSuccess,data){}
+```
 |  参数名称 | 参数类型  |  说明 |
 | ----- | ----- | ----- |
+| isSuccess| Boolean |  读取操作是否成功 |
 | data| String | 读取到的数据,读取失败时返回null |
 
 **示例:**
 
 ```
-uexFileMgr.openFile('1', "wgt://test.txt", '1');
-uexFileMgr.readFile('1', -1,0,function(data){
-	alert(data);
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+uexFileMgr.readFile(file, -1,0,function(isSuccess,data){
+	if(isSuccess){
+		alert(data);
+	}else{
+		alert("读取失败!");
+	}
+	
 });
 ```
 
@@ -512,17 +548,21 @@ uexFileMgr.readFile('1', -1,0,function(data){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 
 **返回值:**
 
 String类型,文件大小转成的字符串
+读取失败时返回null
 
 **示例:**
 
 ```
-uexFileMgr.openFile('1', "wgt://test.txt", '1');
-var size = uexFileMgr.getFileSize('1');
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+var size = uexFileMgr.getFileSize(file);
 alert(size);
 ```
 
@@ -538,7 +578,7 @@ alert(size);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 
 **返回值:**
 
@@ -548,8 +588,11 @@ String类型,文件路径
 **示例:**
 
 ```
-uexFileMgr.openFile('1', "wgt://test.txt", '1');
-var path = uexFileMgr.getFilePath('1');
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+var path = uexFileMgr.getFilePath(file);
 alert(path);
 ```
 > ### getFileRealPath 获取文件实际路径
@@ -574,7 +617,7 @@ String类型,文件绝对路径
 **示例:**
 
 ```
-uexFileMgr.getFileRealPath("wgt://data/test.txt", "cbName");
+uexFileMgr.getFileRealPath("wgt://data/test.txt");
 ```
 
 > ### closeFile 关闭文件
@@ -589,7 +632,7 @@ uexFileMgr.getFileRealPath("wgt://data/test.txt", "cbName");
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 
 **返回值:**
 
@@ -598,7 +641,11 @@ Boolean类型,是否关闭成功
 **示例:**
 
 ```
-var ret = uexFileMgr.closeFile(1);
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+var ret = uexFileMgr.closeFile(file);
 alert(ret);
 ```
 > ### getReaderOffset 获取文件偏移值
@@ -613,16 +660,20 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 
 **返回值:**
 
-Number类型,文件偏移值
-
+String类型,文件偏移值转成的string
+发送错误时返回null
 **示例:**
 
 ```
-    uexFileMgr.getReaderOffset(1);
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+uexFileMgr.getReaderOffset(file);
 ```
 
 > ### readPercent 读百分比对应位置的字符
@@ -637,22 +688,34 @@ Number类型,文件偏移值
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 | percent| Number| 是 | 百分比(不带百分号) |
 | len| Number| 是 | 字节数,读取百分比之后的字节长度 |
 | cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
 
 **回调参数:**
 
+```
+var cb = function(isSuccess,data){}
+```
 |  参数名称 | 参数类型  |  说明 |
 | ----- | ----- | ----- |
-| data| String | 读取到的数据,读取失败时为null |
+| isSuccess| Boolean |  读取操作是否成功 |
+| data| String | 读取到的数据,读取失败时返回null |
 
 **示例:**
 
 ```
-uexFileMgr.readPercent('1','20','3',function(data){
-	alert(data);
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+uexFileMgr.readPercent(file,20,3,function(isSuccess,data){
+	if(isSuccess){
+		alert(data);
+	}else{
+		alert("ERROR!");
+	}
 });
 ```
 
@@ -668,21 +731,34 @@ uexFileMgr.readPercent('1','20','3',function(data){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 | len| Number| 是 | 字节数 |
 | cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
 
 **回调参数:**
 
+```
+var cb = function(isSuccess,data){}
+```
 |  参数名称 | 参数类型  |  说明 |
 | ----- | ----- | ----- |
-| data| String | 读取到的数据,读取失败时为null |
+| isSuccess| Boolean |  读取操作是否成功 |
+| data| String | 读取到的数据,读取失败时返回null |
+
 
 **示例:**
 
 ```
-uexFileMgr.readNext('1', '20',function(data){
-	alert(data);
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+uexFileMgr.readNext(file, 20,function(isSuccess,data){
+	if(isSuccess){
+		alert(data);
+	}else{
+		alert("ERROR!");
+	}
 });
 ```
 
@@ -698,55 +774,83 @@ uexFileMgr.readNext('1', '20',function(data){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
+| id| String| 是 | uexFile对象ID |
 | len| Number| 是 | 字节数 |
 | cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
 
 **回调参数:**
 
+```
+var cb = function(isSuccess,data){}
+```
 |  参数名称 | 参数类型  |  说明 |
 | ----- | ----- | ----- |
-| data| String | 读取到的数据,读取失败时为null |
-
+| isSuccess| Boolean |  读取操作是否成功 |
+| data| String | 读取到的数据,读取失败时返回null |
 **示例:**
 
 ```
-uexFileMgr.readPre('1','20',function(data){
-	alert(data);
+var file = uexFileMgr.open({
+	path: "wgt://data/1.txt",
+	mode: 3
+});
+uexFileMgr.readPre(file,20,function(isSuccess,data){
+	if(isSuccess){
+		alert(data);
+	}else{
+		alert("ERROR!");
+	}
 });
 ```
 
-> ### openSecure 使用密码打开文件
+> ### openWithPassword 使用密码打开文件
 
-`uexFileMgr.openSecure(id,path,mode,key)`
+`uexFileMgr.openWithPassword(param)`
 
 **说明:**
 
 使用密码打开文件
 
+
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
-| path| String| 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
-| mode| Number| 是 | 文件打开模式,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#File "CONSTANT")中FileOpenModes |
-| key| String| 是 | 密码 |
+|  param | Object | 是 | 文件设置 |
+
+
+```
+var param = {
+    path:,//String,必选,文件路径.支持"wgt://","wgts://"、"file://"协议
+    password:,//String,必须,文件密码
+    mode:,//Number,打开设置,与open接口中的mode相同.
+}
+```
 
 **返回值:**
 
-Boolean类型,是否打开成功
+uexFile对象ID
+打开失败时返回null
 
 **示例:**
 
 ```
-var ret = uexFileMgr.openSecure('100', "wgt://secure.txt", '1', '123456');
-alert(ret);
+var file = uexFileMgr.openWithPassword({
+	path: "wgt://data/1.txt",
+	password: "123456",
+	mode: 3
+});
+if(!file){
+	alert("打开失败!");
+}
 ```
 
-> ### createSecure 使用密码创建文件
 
-`uexFileMgr.createSecure(id,path,key)`
+
+> ### createWithPassword 使用密码创建文件
+
+`uexFileMgr.createWithPassword(param)`
 
 **说明:**
 
@@ -756,19 +860,32 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
-| path| String| 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
-| key| String| 是 | 密码 |
+|  param | Object | 是 | 文件设置 |
+
+
+```
+var param = {
+    path:,//String,必选,文件路径.支持"wgt://","wgts://"、"file://"协议
+    password:,//String,必须,文件密码
+}
+```
 
 **返回值:**
 
-Boolean类型,是否创建成功
+uexFile对象ID
+创建失败时返回null
 
 **示例:**
 
 ```
-var ret = uexFileMgr.createSecure('100', "wgt://data/test.txt", '123456');
-alert ret;
+var file = uexFileMgr.createWithPassword({
+	path: "wgt://data/1.txt",
+	password: "123456",
+	mode: 3
+});
+if(!file){
+	alert("打开失败!");
+}
 ```
 
 > ### getFileCreateTime 获取文件或文件夹的创建时间
@@ -783,17 +900,18 @@ alert ret;
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| Number| 是 | 文件唯一标识符 |
-| path| String| 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
+| path| String| 是 | 文件路径,支持"wgt://","wgts://","wgts://","res://","file://" 协议|
 
 **返回值:**
 
-String类型,创建时间
+String类型,创建时间,`"yyyy-MM-dd HH:mm:ss"`格式
+获取失败时返回null
 
 **示例:**
 
 ```
-var timeStr = uexFileMgr.getFileCreateTime('33','wgt://test.txt');
+
+var timeStr = uexFileMgr.getFileCreateTime('wgt://test.txt');
 alert(timeStr);
 ```
 
@@ -928,13 +1046,17 @@ uexFileMgr.search(JSON.stringify(data),function(obj){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path | String| 是 | 文件夹路径,支持wgt://, wgts://, file://协议路径,路径协议详见[附录-PathTypes](#PathTypes)|
+| path | String| 是 | 文件夹路径,支持wgt://, wgts://, file://协议路径|
 
 
 
 **返回值:**
 
-Array<FileInfo>类型,此路径下所有文件的信息构成的数组,文件信息结构如下
+* path无效或者不是文件夹 返回null
+* 空文件夹 返回空数组
+* 正常情况  返回路径信息构成的数组Array<FileInfo>
+
+路径信息<FileInfo>结构定义如下
 
 ```
 var FileInfo = {
@@ -979,7 +1101,6 @@ var params = {
 
 |  字段名称 | 类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id | Number| 是 | 唯一标识符,与回调方法中id对应 |
 | path | String| 是 | 文件或文件夹路径,支持wgt://, wgts://, file://协议路径 ,路径协议详见[附录-PathTypes](#PathTypes) |
 | unit | String| 否 | 文件大小单位,默认为"B",取值范围参考[unit](#GetFileSizeUnit) |
 
@@ -992,7 +1113,6 @@ var params = {
 ```
 var resultObj = {
 	errorCode:,//Number, 0-获取成功 1-获取失败
-	id:,//Number,唯一标识符
 	unit,//String,文件大小单位
 	data,//Number,文件大小
 }
@@ -1004,7 +1124,6 @@ var resultObj = {
 
 ```
 var params = {
-	id:1,
  	path:"wgt://",
  	unit:"KB"
 }
@@ -1018,13 +1137,13 @@ uexFileMgr.getFileSizeByPath(data,function(info){
 });
 ```
 
-> ### copyFile 复制单个文件
+> ### copy 复制 
 
-`uexFileMgr.copyFile(opID, srcFilePath, objPath,cb);`
+`uexFileMgr.copy(param,cbFunc);`
 
 **说明:**
 
-复制单个文件
+复制文件或文件夹
 
 
 
@@ -1032,25 +1151,36 @@ uexFileMgr.getFileSizeByPath(data,function(info){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| opID | String| 是 | 复制文件任务id |
-| srcFilePath | String| 是 | 源文件路径,支持wgt://, wgts://, res://协议路径,路径协议详见[附录-PathTypes](#PathTypes)  |
-| objPath | String| 是 | 目标文件夹路径,支持wgt://, wgts://, res://协议路径,路径协议详见[附录-PathTypes](#PathTypes)  |
-| cb | Function| 是 | 操作结束后,会调用此函数,函数参数说明见下|
+| param| Object| 是 | 复制操作的参数,详见下 |
+| cbFunc | Function| 是 | 操作结束后,会调用此函数|
 
-**回调参数:**
+```
+var param = {
+    src:,//源文件或文件夹路径
+    target:,//目标文件夹路径
+}
 
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| result| Boolean | 是否复制成功 |
+var cbFunc = function(isSuccess){
+    //isSuccess是Boolean类型,为复制操作的结果
+}
+
+```
+
+* copy会将源文件或者文件夹，复制至目标文件夹内,**不会进行重命名操作**
 
 **示例:**
 
 ```
-var s = "res://1016.jpg";
-var o = "wgt://";
-uexFileMgr.copyFile('109',s,o,function(result){
-	alert(result);
-});
+`uexFileMgr.copy({
+	src: "wgt://test/1.txt",
+	target: "wgt://test2/" 
+},function(ret){
+	if(ret){
+		alert("复制成功");
+	}else{
+		alert("复制失败");
+	}
+});`
 ```
 
 
@@ -1059,69 +1189,23 @@ uexFileMgr.copyFile('109',s,o,function(result){
 
 ### iOS
 
-API版本:`uexFileMgr-3.0.25`
+API版本:`uexFileMgr-4.0.0`
 
-最近更新时间:`2016-5-10`
+最近更新时间:`2016-7-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.25 | 添加base64支持 |
-| 3.0.24 | 改用bundle方式引用资源,修复IDE插件文件浏览器图标丢失的bug |
-| 3.0.23 | 修改工程为ARC;修复在复用窗口中使用时回调丢失的bug |
-| 3.0.22 | 新增copyFile接口 |
-| 3.0.21 | 新增getFileSizeByPath接口 |
-| 3.0.20 | 修改能够直接返回到应用程序界面,而不能通过该页面返回到附件的父目录下 |
-| 3.0.19 | 添加IDE支持 |
-| 3.0.18 | 删除info.plist |
-| 3.0.17 | 添加国际化支持 |
-| 3.0.16 | getFileListByPath不再返回其子目录下的文件路径 |
-| 3.0.15 | 修复pptx和xlsx没有图标的问题 |
-| 3.0.14 | getFileRealPath可以设定回调方法 |
-| 3.0.13 | 新增getFileListByPath |
-| 3.0.12 | 新增方法uexFileMgr.search 搜索文件 |
-| 3.0.11 | 新增cbWriteFile回调方法,优化RC4加密 |
-| 3.0.10 | 解决多选文件打开浏览器显示空白问题 |
-| 3.0.9 | 新增方法uexFileMgr.renameFile 重命名文件 |
-| 3.0.8 | 修复uexFileMgr.multiExplorer(path)中path参数无效的BUG |
-| 3.0.7 | 修改创建时间接口的名称 |
-| 3.0.6 | 增加获取文件创建时间的新接口 |
-| 3.0.5 | 修改8.0以上系统崩溃问题 |
-| 3.0.4 | 适配文件浏览器横屏 |
-| 3.0.3 | 修复文件单选浏览器,文件多时无法滑动到底的BUG； 修复单选和多选浏览器状态栏标题不一致问题 |
-| 3.0.2 | 修复uexFileMgr.seekFile方法指定位置后 uexFileMgr.readNext方法还是从头读取的BUG |
-| 3.0.1 | 修复选择本地照片崩溃的bug |
-| 3.0.0 | 文件管理功能插件 |
+| 4.0.0 | 文件管理功能插件 |
 
 ### Android
 
-API版本:`uexFileMgr-3.0.21`
+API版本:`uexFileMgr-4.0.0`
 
-最近更新时间:`2016-5-17`
+最近更新时间:`2016-7-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.21 | 修正图片以Base64写入后打开失败的问题 |
-| 3.0.20 | 修正部分成功失败的状态回调返回的回调数据类型错误的问题 |
-| 3.0.19 | 修正readFile接口的option参数可以为空 |
-| 3.0.18 | 修复多选文件时会导致显示选择数量不正确的问题 |
-| 3.0.17 | 支持Base64读写 |
-| 3.0.16 | 修复拒绝服务漏洞的问题 |
-| 3.0.15 | 修改对文件的各种操作的opId支持非纯数字(与IOS保持一致) |
-| 3.0.14 | 修正getFileRealPath获取plugin子应用路径错误的问题 |
-| 3.0.13 | 新增复制文件的方法 |
-| 3.0.12 | 新增通过路径获取文件大小方法 |
-| 3.0.11 | 修改getFileRealPath指定回调名时,只回调一个参数(与ios统一)。 |
-| 3.0.10 | 新增文件搜索接口 |
-| 3.0.9 | 修复闪退的bug |
-| 3.0.8 | 国际化 |
-| 3.0.7 | 修改接口getFileRealPath,支持回调方法名称的传入 |
-| 3.0.6 | 新增getFileListByPath方法获取指定目录中的文件列表 |
-| 3.0.5 | 新增cbWriteFile回调方法 |
-| 3.0.4 | 添加重命名接口 |
-| 3.0.3 | 修复解析res://路径的getFileRealPath方法返回错误问题 |
-| 3.0.2 | 修复res://协议下获取真实路径不正确的问题 |
-| 3.0.1 | 新增获取文件或文件夹的创建时间 |
-| 3.0.0 | 文件管理功能插件 |
+| 4.0.0 | 文件管理功能插件 |
 
 
 # 4、附录
