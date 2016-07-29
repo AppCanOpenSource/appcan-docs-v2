@@ -204,7 +204,7 @@ alert(ret);
 
 > ### isFileExistByPath 根据路径判断文件是否存在
 
-`uexFileMgr.isFileExistByPath(id, path)`
+`uexFileMgr.isFileExistByPath(path)`
 
 **说明:**
 
@@ -214,7 +214,6 @@ alert(ret);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
 | path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 
 
@@ -225,7 +224,7 @@ Boolean类型,是否存在
 **示例:**
 
 ```
-var ret = uexFileMgr.isFileExistByPath(2,"wgt://data/test.txt");
+var ret = uexFileMgr.isFileExistByPath("wgt://data/test.txt");
 alert(ret);
 ```
 
