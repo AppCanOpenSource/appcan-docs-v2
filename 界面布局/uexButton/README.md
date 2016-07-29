@@ -87,7 +87,7 @@ var param = {
 
 > ### [close](#close)  移除按钮
 
-`uexButton.close(id)`
+`uexButton.close(buttonId)`
 
 **说明:**
 
@@ -97,33 +97,33 @@ var param = {
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |-----|-----|-----|----- |
-| id | Number | 是 | 按钮唯一标示符 |
+| buttonId | String | 是 | uexButton对象ID |
 
 **示例:**
 
 ```
-var id = 1001;
+var buttonId = "1001";
 
-uexButton.close(id);
+uexButton.close(buttonId);
 ```
 
 ## 2.2、监听方法
 
 > ### onClick 点击按钮的监听方法   
 
-`uexButton.onClick(id)  `
+`uexButton.onClick(buttonId)  `
 
 ** 参数:**    
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |-----|-----|-----|----- |
-| id | Number | 是 | 按钮唯一标示符 |
+| buttonId | String | 是 | uexButton对象ID |
 
 **示例:**
 
 ```
-uexButton.onClick = function(data){
-     alert("onClick" + data);
+uexButton.onClick = function(buttonId){
+     alert("onClick" + buttonId);
 }
 ```
 #3、更新历史
