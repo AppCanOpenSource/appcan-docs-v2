@@ -35,7 +35,6 @@
 
 ```
 var params = {
-    //"id": editId,
     "x":,  
     "y":,  
     "width":,  
@@ -51,7 +50,6 @@ var params = {
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id  | Number类型  |可选  | 唯一标识符  |
 | x  | Number类型  |必选   | x坐标  |
 | y  | Number类型  |必选   | y坐标  |
 | w  | Number类型  |必选   | 宽度  |
