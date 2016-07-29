@@ -20,53 +20,69 @@ Button插件
 # 2、API概览
 
 ## 2.1、方法
-> ### [open](#open)  创建按钮
+> ### [create](#create)  创建按钮
 
-`uexButton.open(id,x,y,width,height,jsonData)`  
+`var buttonId = uexButton.create(param)`  
 
 **说明:**
 
-创建按钮    
+创建按钮,同步返回    
 
 **参数:**
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |-----|-----|-----|----- |
-| id | Number | 是 | 按钮唯一标示符 |
+| param | Object | 是 | 对象信息 |
+```
+var param = {
+       x: ,
+       y: ,
+       width: ,
+       height: ,
+       data:{
+           title: ,
+           titleColor: ,
+           bgImage: ,
+           textSize:
+       }
+   }
+```
+**内部字段:**
+
+|内部字段|字段类型 | 是否必选|  说明 |
+|-----|-----|-----|----- |
 | x | Number | 是 | x坐标 |
 | y | Number | 是 | y坐标 |
 | width | Number | 是 | 宽 |
 | height | Number | 是 | 高 |
-| jsonData |String | 是 | 按钮内容 |
+| data |Object | 是 | 按钮数据 |
+| title |String | 是 | 按钮内容 |
+| titleColor |String | 是 | 按钮内容颜色 |
+| textSize |String | 是 | 按钮内容字号 |
+| bgImage |String | 是 | 按钮背景图的路径，支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
 
-* jsonData是json字符串,结构如下:
-自定义图片资源,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
+**返回值:**
 
-```
-jsonData={
-    title:,//按钮内容
-    titleColor:,//按钮内容颜色
-    textSize:,//按钮内容字号
-    bgImage:,//按钮背景图
-}
-```
+|返回值|返回值类型 | 是否必选|  说明 |
+|-----|-----|-----|----- |
+| buttonId | String | 是 | uexButton对象ID,创建失败时返回null |
 
 **示例:**
 
 ```
-var id = 1001;
-var x = 100;
-var y = 100;
-var width = 100;
-var height = 100;
-var data={
-    title:"AppCan",
-    titleColor:"#111111",
-    bgImage:"res://a1.png",
-    textSize:"18"
+var param = {
+        x:0,
+        y:300,
+        width:200,
+        height:90,
+        data:{
+           title:"AppCan",
+           titleColor:"#111111",
+           bgImage:"res://btn.png",
+           textSize:"18.789"
+        }
     }
-var jsonData = JSON.stringify(data);
-uexButton.open(id,x,y,width,height,jsonData);
+   var buttonId =  uexButton.create(param);
 ```
 
 > ### [close](#close)  移除按钮
@@ -116,25 +132,20 @@ uexButton.onClick = function(data){
 
 API版本:`uexButton-4.0.0`
 
-最近更新时间:`2016-6-24`
+最近更新时间:`2016-7-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 | 4.0.0 | 4.0 插件 |
-| 3.0.5 | 添加IDE支持 |
-| 3.0.4 | 修复uexButton动态库在低版本手机上无法调用的问题 |
-| 3.0.3 | 修复可以创建同一id按钮的BUG |
-| 3.0.2 | 添加设置字体大小,点击的回调方法改为onClick |
-| 3.0.1 | 创建一个Button插件 |
-| 3.0.0 | 系统按钮插件 |
+
 
 ### Android
 
 API版本:`uexButton-4.0.0`
 
-最近更新时间:`2016-6-24`
+最近更新时间:`2016-7-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 | 4.0.0 | 4.0 插件 |
-| 3.0.0 | 创建一个Button插件 |
+
