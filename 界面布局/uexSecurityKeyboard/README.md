@@ -34,13 +34,12 @@
 
 **说明:**
 
-该方法创建带安全键盘的输入框
+该方法创建带安全键盘的输入框，同步返回键盘的id。
 
 **参数:**
 
 ```
     var params = {
-         "id": ,
          "keyboardType": ,
          "keyboardDescription": ,
          "x": ,
@@ -55,7 +54,6 @@
 
 | 名称 | 类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id | String | 是 | 唯一标识符,与监听方法中的id对应 |
 | keyboardType | Number | 否 | 键盘类型,参考[KeyboardType](#KeyboardType) ,默认为0|
 | keyboardDescription | String | 否 | 键盘描述信息,如UI展示中显示在键盘顶部的文字描述"正益移动安全输入" |
 | x | Number | 是 | 输入框距屏幕左边缘的距离 |
@@ -68,7 +66,6 @@
 
 ```
     var params = {
-        "id":"1",
         "keyboardType":1,
         "keyboardDescription": "正益移动安全输入",
         "x":100,
@@ -77,7 +74,7 @@
         "height":50,
         "isScrollWithWeb":true
     };
-    uexSecurityKeyboard.open(JSON.stringify(params));
+    var keyboardId = uexSecurityKeyboard.open(JSON.stringify(params));
 ```
 
 > ### close 销毁带安全键盘的输入框
@@ -160,20 +157,18 @@ var info = [//输入框数据列表
 
 API版本:`uexSecurityKeyboard-4.0.0`
 
-最近更新时间:`2016-07-27`
+最近更新时间:`2016-07-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 | 4.0.0 | 支持引擎4.0，函数入参 |
-| 3.0.0 | 带安全键盘的输入框插件 |
 
 ### Android
 
 API版本:`uexSecurityKeyboard-4.0.0`
 
-最近更新时间:`2016-07-27`
+最近更新时间:`2016-07-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 | 4.0.0 | 支持引擎4.0，函数入参 |
-| 3.0.0 | 带安全键盘的输入框插件 |
