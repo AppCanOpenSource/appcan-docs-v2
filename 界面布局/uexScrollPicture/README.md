@@ -36,8 +36,23 @@ var param={
 	urls;//List<String> 的json字符串
 	viewId;//轮播图id
 };
-
 ```
+
+各字段含义如下:
+
+| 名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| interval | Number | 否 | 自动滚动的间隔时间,单位为毫秒,默认3000 |
+| anchor | Array | 否 | float数对[X,Y] 轮播图的左上角锚点的坐标，默认[0,0] |
+| height | Number | 是 | 轮播图高度 |
+| width | Number | 是 | 轮播图宽度 |
+| urls | Array | 是 | List<String> 的json字符串 |
+| viewId | String | 否 | 轮播图id |
+
+**返回值:**
+
+轮播图ID
+创建失败时返回null
 
 **示例**
 
@@ -180,5 +195,5 @@ API版本:`uexScrollPicture-4.0.0`
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 | 4.0.0 | 4.0插件|
-| 3.0.2 | .修复闪退的问题 |
+| 3.0.2 | 修复闪退的问题 |
 | 3.0.1 | 图片轮播图 |

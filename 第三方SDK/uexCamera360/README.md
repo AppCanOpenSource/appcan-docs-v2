@@ -14,6 +14,14 @@
 
 ![](/docImg/975/camera360.png)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。
+在后续版本中新添加的接口会在文档中额外说明。
+
 # 2、API
 
 ## 2.1、方法
@@ -43,20 +51,15 @@ var params = {
 
 | 名称 | 类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id | String | 是 | 唯一标识符,与回调方法中的id对应 |
+| id | String | 否 | 唯一标识符,与回调方法中的id对应 |
 | imgSrcPath | String | 否 | 要编辑的图片地址,不传或传空时,会打开系统图库,用户可选择一张照片编辑 |
 | isSaveToGallery | Boolean | 否 | **仅Android支持**,是否保存到相册,默认为false。该值为true时,imgSavePath参数无效。若不传或传false时,imgSavePath必传。 |
 | imgSavePath | String | 是 | 编辑后的图片保存的文件夹目录 |
 
-**平台支持**
+**返回值:**
 
-Android 4.0+    
-iOS 6.1+ 
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+ 
+唯一标识符
+打开失败时返回null
 
 **示例**
 
@@ -105,7 +108,7 @@ iOS 6.1+
 **版本支持**
 
   
-iOS 3.0.0+ 
+iOS 4.0.0+ 
 
 **示例**
 
@@ -145,16 +148,6 @@ var param = {
 | errorCode | Number | 是 | 错误码,详见[errorCode](#errorCode) |
 | saveFilePath | String | 是 | 编辑后图片的保存路径,只在errorCode为0时有效 |
 
-**平台支持**
-
-Android 4.0+    
-iOS 6.1+ 
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+ 
-
 **示例**
 
 ```
@@ -193,10 +186,11 @@ API版本:`uexCamera360-3.0.0`
 
 ### Android
 
-API版本:`uexCamera360-3.0.0`
+API版本:`uexCamera360-3.0.1`
 
-最近更新时间:`2015-12-30`
+最近更新时间:`2016-07-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 4.0插件 |
 | 3.0.0 | Camera360图片编辑插件 |
