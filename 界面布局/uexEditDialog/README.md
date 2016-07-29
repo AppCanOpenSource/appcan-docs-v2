@@ -10,22 +10,48 @@
 ## 1.3、开源源码:
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=170_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。 
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。 
+
 # 2、API概览
 
 ## 2.1、方法
-> ### open 打开自定义的输入框
+> ### create 创建自定义的输入框
 
-`uexEditDialog.open(id,x,y,w,h,fontSize,fontColor,inputType,inputHint,defaultText,maxNum)`
+`uexEditDialog.create(params)`
 
 **说明:**
 
-打开自定义的输入框
+打开自定义的输入框, 成功后返回输入框的id
 
 **参数:**
 
+参数`params`是一个JSON string, 格式如下：
+
+```
+var params = {
+    //"id": editId,
+    "x":,  
+    "y":,  
+    "width":,  
+    "height":,  
+    "fontSize":,  
+    "fontColor":,
+    "inputType":,
+    "inputHint":,
+    "defaultText":,
+    "maxNum":
+}
+```
+
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id  | Number类型  |必选   | 唯一标识符  |
+| id  | Number类型  |可选  | 唯一标识符  |
 | x  | Number类型  |必选   | x坐标  |
 | y  | Number类型  |必选   | y坐标  |
 | w  | Number类型  |必选   | 宽度  |
@@ -36,29 +62,32 @@
 | inputHint  | String类型  |必选   | 提示文字  |
 | defaultText  | String类型  |必选   | 默认显示文字  |
 | maxNum  | maxNum  |可选   | 最大字数,如果为0,或者缺省长度无限制,并且不回调uexEditDialog.onNum方法；  |
- 
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
 ```
-uexEditDialog.open(1, 0, 0, 200, 200, 16,"#ffff00", 0, "提示文字", "默认", 200);
+var params = {
+	"x": 0,
+	"y": 0,
+	"width": 150,
+	"height": 150,
+	"fontSize": 18,
+	"fontColor": "#ffff00",
+	"inputType": 0,
+	"inputHint": "提示文字",
+	"defaultText": "默认",
+	"maxNum": 200
+}
+uexEditDialog.create(JSON.stringify(params));
 ```
+
 > ### close 关闭编辑框
 
 `uexEditDialog.close(id)`
 
 **说明:**
 
-关闭编辑框
+关闭编辑框, 返回值为`boolean`类型，表示操作成功或失败。
 
 **参数:**
 
@@ -66,16 +95,6 @@ uexEditDialog.open(1, 0, 0, 200, 200, 16,"#ffff00", 0, "提示文字", "默认",
 | ----- | ----- | ----- | ----- |
 | id  | Number类型  |必选   | 输入框的唯一标识符  |
  
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
@@ -83,34 +102,34 @@ uexEditDialog.close(1);
 ```
 > ### insert 插入数据
 
-`uexEditDialog.inset(id,text)`
+`uexEditDialog.insetData(params)`
 
 **说明:**
 
 插入数据
 
 **参数:**
+参数`params`是一个JSON string, 格式如下：
+```
+var params = {
+    "id": 123444,
+    "text": "这是5个字"
+}
+```
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id  | Number类型  |必选   | 输入框的唯一标识符  |
 | text  | Number类型  |必选   | 要插入的数据  |
  
- 
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
+ **示例:**
 
 ```
-uexEditDialog.inset(1,"aaa")
+var data = {
+    "id": editId,
+    "text": "这是5个字"
+}
+uexEditDialog.insertData(JSON.stringify(data));
 ```
 > ### cleanAll 清除所有数据
 
@@ -118,37 +137,28 @@ uexEditDialog.inset(1,"aaa")
 
 **说明:**
 
-清除所有数据
+清除所有数据, 返回值为`boolean`类型，表示操作成功或失败
 
 **参数:**
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id  | Number类型  |必选   | 输入框的唯一标识符  |
- 
- 
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
 ```
 uexEditDialog.cleanAll(1)
 ```
+
 > ### getContent 获取编输入框内所有数据
 
 `uexEditDialog.getContent(id)`
 
 **说明:**
 
-获取编输入框内所有数据
+获取编辑输入框内所有数据
 
 **参数:**
 
@@ -157,53 +167,14 @@ uexEditDialog.cleanAll(1)
 | id  | Number类型  |必选   | 输入框的唯一标识符  |
  
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 
 ```
-uexEditDialog.getContent(1)
+var data = uexEditDialog.getContent(1)
 ```
-## 2.2、回调方法
-> ### cbOpen open的回调方法,打开输入框时被调用
-> ### cbClose 关闭输入框的回调方法
-> ### cbInsert 插入字符的回调方法
-> ### cbCleanAll 清除所有内容的回调方法
-> ### cbGetContent 获取内容的回调方法
 
-以上回调均为如下
-`uexEditDialog.cbXXX(id,dataType,data)`
-
-**参数:**
-
-|   参数名称|参数类型   | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id  | Number类型  |必选   | 打开输入框的id  |
-| dataType  | Number类型  |必选   | 返回uex.cInt类型。 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中CallbackDataTypes。  |
-| data  | Number类型  |必选   | 返回uex.cSuccess或uex.cFailed。 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中CallbackIntValues  |
  
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-function cbXXX(id,dataType,data) {
-    alert(data);
-}
-window.uexOnload = function(){
-    uexEditDialog.cbXXX = cbXXX;
-}
-```
 ## 2.2、监听方法
 
 > ### onNum 文本框字数改变时返回的剩余字数的回调函数
@@ -225,30 +196,28 @@ window.uexOnload = function(){
 
 ```
 uexEditDialog.onNum = function(opId, num){
-alert(num);
+	alert(num);
 };
 ```
+
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexEditDialog-3.0.2`
+API版本:`uexEditDialog-4.0.0`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-7-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.2 | 添加IDE支持 |
-| 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
-| 3.0.0 | 自定义编辑框功能插件 |
+| 4.0.0 | 自定义编辑框功能插件 |
 
 ### Android
 
-API版本:`uexEditDialog-3.0.1`
+API版本:`uexEditDialog-4.0.0`
 
-最近更新时间:`2015-11-06`
+最近更新时间:`2016-7-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.1 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.0 | 自定义编辑框功能插件 |
+| 4.0.0 | 自定义编辑框功能插件 |
