@@ -101,7 +101,7 @@ iOS7.0+
 **示例:**
 
 ```
-uexDownloaderMgr.download(1, "http://wallpaper.pocketdigi.com/upload/1/bigImage/1284565196.jpg", "wgt://data/down/1284565196.jpg",'1');
+uexDownloaderMgr.download(1, "http://wallpaper.pocketdigi.com/upload/1/bigImage/1284565196.jpg", "wgt://data/down/1284565196.jpg",1);
 ```
 
 > ### cancelDownload     取消下载
@@ -542,22 +542,11 @@ iOS6.0+
 
 ```
 uexDownloaderMgr.cbCreateDownloader = function(opCode,dataType,data){
-    switch(dataType){
-    case cText:
-        alert("uex.cText");
-        break;
-    case cJson:
-        alert("uex.cJson");
-        break;
-    case cInt:
         if(data == 0){
             alert("创建成功");
         }else{
             alert("创建失败");
         }
-        break;
-    default:
-        alert("error");
 }
 ```
 

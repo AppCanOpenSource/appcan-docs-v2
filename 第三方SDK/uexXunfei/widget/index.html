@@ -9,24 +9,24 @@
     <script type="text/javascript">
     function init(){
         var params = {
-            appID:"5683431e"
+            appID:"577df198"
         };
         var data = JSON.stringify(params);
         uexXunfei.init(data);
     }
 
     function initSpeaker(){
-        var params={
-            speed:"40",
-            volume:"80",
-        }
+        var params = {
+
+        };
         var data = JSON.stringify(params);
         uexXunfei.initSpeaker(data);
     }
 
     function startSpeaking(){
         var params = {
-            text:"保存录音文件，保存在sdk工作路径中，如未设置工作路径，则默认保存在library/cache下"
+            //text:"this is wuhan university of science and technology,college english test band four!"
+            text:"今天天气怎么样"
         };
         var data = JSON.stringify(params);
         uexXunfei.startSpeaking(data);
@@ -48,25 +48,20 @@
 
 
         window.uexOnload = function(type){
+            if(type == 0){
             uexXunfei.cbInit = cbInit;
-            uexXunfei.cbInitSpeaker = cbInitSpeaker;
             uexXunfei.onSpeakComplete = onSpeakComplete;
             uexXunfei.onSpeakBegin = onSpeakBegin;
             uexXunfei.onSpeakPaused = onSpeakPaused;
             uexXunfei.onSpeakResumed = onSpeakResumed;
-            uexXunfei.cbInitRecognizer = cbInitRecognizer;
             uexXunfei.onRecognizeError = onRecognizeError;
-            uexXunfei.onVolumeChanged = onVolumeChanged;
             uexXunfei.onBeginOfSpeech = onBeginOfSpeech;
             uexXunfei.onEndOfSpeech = onEndOfSpeech;
             uexXunfei.onRecognizeResult = onRecognizeResult;
+            }
         }
         function cbInit(info){
            alert('cbInit: '+info);
-       }
-
-       function cbInitSpeaker(info){
-           alert('cbInitSpeaker: '+info);
        }
 
        function onSpeakComplete(info){
@@ -84,17 +79,8 @@
        function onSpeakResumed(info){
            alert('onSpeakResumed: '+info);
        }
-
-       function cbInitRecognizer(info){
-           alert('cbInitRecognizer: '+info);
-       }
-
        function onRecognizeError(info){
            alert('onRecognizeError: '+info);
-       }
-
-       function onVolumeChanged(info){
-           alert('onVolumeChanged: '+info);
        }
 
        function onBeginOfSpeech(info){
@@ -103,15 +89,23 @@
 
        function onEndOfSpeech(info){
            alert('onEndOfSpeech: '+info);
+           content = '';
        }
-       
+       var content = '';
        function onRecognizeResult(info){
-           alert('onRecognizeResult: '+info);
-           var data=JSON.parse(info);
-           alert("data:"+data);
-           alert("text:"+data.text[0]);
-           alert(data.text[0].cw[0]);
-       }
+           //alert('onRecognizeResult:'+info);
+           var data = JSON.parse(info);
+           var infoArr = data.ws;
+           var isLast = data.ls;
+           for (var i=0,len=infoArr.length; i<len; i++)
+           {
+               var text = infoArr[i].cw[0].w;
+               content += text;
+           }
+           if(isLast){
+              alert(content);
+           }
+        }
 
     </script>
 </head>
@@ -120,18 +114,15 @@
 <div class="tit">uexXunfei</div>
 <div class="conbor">
     <div class="consj">
-        <input class='btn' type='button' value='BACK' onclick='uexWindow.windowBack();'>
         <input class='btn' type='button' value='init' onclick='init()'>
+
         <input class='btn' type='button' value='initSpeaker' onclick='initSpeaker()'>
+
         <input class='btn' type='button' value='startSpeaking' onclick='startSpeaking()'>
-        <input class='btn' type='button' value='stopSpeaking' onclick='uexXunfei.stopSpeaking()'>
-        <input class='btn' type='button' value='pauseSpeaking' onclick='uexXunfei.pauseSpeaking()'>
-        <input class='btn' type='button' value='resumeSpeaking' onclick='uexXunfei.resumeSpeaking()'>
 
         <input class='btn' type='button' value='initRecognizer' onclick='initRecognizer()'>
+
         <input class='btn' type='button' value='startListening' onclick='startListening()'>
-        <input class='btn' type='button' value='stopListening' onclick='uexXunfei.stopListening()'>
-        <input class='btn' type='button' value='cancelListening' onclick='uexXunfei.cancelListening()'>
 
 
     </div>

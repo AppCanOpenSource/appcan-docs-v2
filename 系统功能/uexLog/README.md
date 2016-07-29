@@ -33,31 +33,27 @@ iOS6.0+
 
 ```
 <!DOCTYPE HTML>
-            <html>
-            <head>
-            <meta http-equiv="Content-Type" content="text/html; <appcan>char<appcan>set=utf-8" />
-                <meta name="viewp<appcan>or<appcan>t" content="target-densitydpi=device-dpi, width=device-width,
-                    initial-scale=1.0, user-scalable=no" />
-                    <link rel="stylesheet" type="text/css" href="../css/index.css">
-                    <title>Log功能</title>
-                    <script type="text/javascript">
-                    </script>
-                    </head>
-                    <body>
-                    <div class="tit">Log功能</div>
-                    <div class="conb<appcan>or<appcan>">
-                        <div class="consj">
-                        <span>log内容:</span>
-                        <input class="textbox" id="log" type="text"
-                        value="我是log" >
-                        <span>发送Log:</span>
-                        <input class="btn" type="button" value="发送Log"
-                        
-                        onclick="uexLog.sendLog(document.getElementById(`log`).value);">
-                        </div>
-                        </div>
-                        </body>
-                        </html>
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width,initial-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="../css/index.css">
+         <title>Log功能</title>
+         <script type="text/javascript">
+         </script>
+</head>
+    <body>
+      <div class="tit">Log功能</div>
+        <div class="conbor">
+        <div class="consj">
+        <span>log内容:</span>
+<input class="textbox" id="log" type="text"value="我是log" >
+        <span>发送Log:</span>
+ <input class="btn" type="button" value="发送Log" onclick="uexLog.sendLog(document.getElementById(`log`).value);">
+         </div>
+         </div>
+ </body>
+ </html>
                     
 ```
 #3、更新历史

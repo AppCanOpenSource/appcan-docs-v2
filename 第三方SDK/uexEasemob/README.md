@@ -15,7 +15,7 @@
 
 * 在任何网页调用本插件,调用的是同一个插件实例;
 * 所有的API都是异步方法,不会直接返回值;
-* 所有的回调都会传到root页面(config.xml中配置的App起始页面)
+* 所有的回调都会传到"**root页面**"(config.xml中配置的App起始页面即为root页面)
 **以上内容非常重要**
 
 root页面收到回调后,可以通过uexWindow的相关方法传递到各个网页去,
@@ -29,7 +29,7 @@ uexWindow.evaluateMultiPopoverScript
 uexWindow.publishChannelNotification
 uexWindow.subscribeChannelNotification
 ````
-这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1390_1249) 内有描述，当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
+这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249) 内有描述,当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
  
 ##1.2、 UI展示
 暂无
@@ -1042,6 +1042,7 @@ var param={
 >###onDidJoinedGroup(param)//自动加入群组监听
 
 **说明**
+
 (iOS 3.0.22新增接口)
 SDK自动同意了用户A的加B入群邀请后,用户B接收到该回调,需要initEasemob时设置isAutoAcceptGroupInvitation为TRUE
 
@@ -1058,6 +1059,7 @@ param为json字符串
 >###onReceiveGroupInvitation(param)//收到群组邀请监听
 
 **说明**
+
 (iOS 3.0.22, Android 3.0.23新增接口)
 用户A邀请用户B入群,用户B接收到该回调
 
@@ -1074,6 +1076,7 @@ param为json字符串
 >###acceptJoinApplication(param)//批准入群申请, 需要Owner权限
 
 **说明**
+
 (iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
@@ -1087,6 +1090,7 @@ var param={
 >###declineJoinApplication(param)//拒绝入群申请, 需要Owner权限
 
 **说明**
+
 (iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
@@ -1101,6 +1105,7 @@ var param={
 >###acceptInvitationFromGroup(param)//接受入群邀请
 
 **说明**
+
 (iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
@@ -1114,6 +1119,7 @@ var param={
 >###declineInvitationFromGroup(param)//拒绝入群邀请
 
 **说明**
+
 (iOS 3.0.22, Android 3.0.23新增接口)
 param为json字符串
 
@@ -1195,6 +1201,7 @@ param为json字符串
 >###updatePushOptions(param);//设置apns全局属性
 
 **说明:**
+
 updatePushOptions全为可选参数,当传入空值时,即可通过回调获得当前apns全局属性
 param为json字符串
 
@@ -1359,12 +1366,13 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 
 ### iOS
 
-API版本:`uexEasemob-3.0.23`
+API版本:`uexEasemob-3.0.24`
 
-最近更新时间:`2016-5-17`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.24 | 升级SDK到3.1.3-支持IPv6 |
 | 3.0.23 | 删除EaseUIResource.bundle内会引起上架失败的info.plist |
 | 3.0.22 | initEasemob接口新增isAutoAcceptGroupInvitation参数；消息接口新增extObj参数以适配环信客服功能；group内新增群组加人的相关接口 |
 | 3.0.21 | 更新SDK到3.1.1 |

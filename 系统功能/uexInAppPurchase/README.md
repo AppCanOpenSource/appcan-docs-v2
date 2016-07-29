@@ -58,10 +58,9 @@ uexInAppPurchase.getProductList(JSON.stringify(params));
 `var info = uexInAppPurchase.canMakePay();`
  
 
-
 **说明:**
 
-该方法测试设备是否支持支付功能，支持同步返回。
+该方法测试设备是否支持支付功能,支持同步返回。
 
                
 
@@ -69,7 +68,7 @@ uexInAppPurchase.getProductList(JSON.stringify(params));
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| info| Number | 是 | 0表示设备允许内购，1设备禁止内购| 
+| info| Number | 是 | 0表示设备允许内购,1设备禁止内购| 
 
 **支持平台:**
 				
@@ -112,7 +111,7 @@ var params = {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | productID | String | 是 |某一产品ID,通过cbGetProductList获取| 
-| quantity | Number | 否 |购买的数量，默认为1 | 
+| quantity | Number | 否 |购买的数量,默认为1 | 
 | appStoreVerifyURL | bool | 是 |true为实际购买验证；false为沙盒测试 | 
 **支持平台:**
 				
@@ -253,9 +252,10 @@ var state ={
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| status | Number | 是 |发送产品请求的状态,0表示请求完成，1表示请求失败 | 
-| errorCode | Number | 否 |status为1才有，错误状态码 | 
-| errorDescription | String | 否 |status为1才有，错误状态的描述信息 | 
+| status | Number | 是 |发送产品请求的状态,0表示请求完成,1表示请求失败 | 
+| errorCode | Number | 否 |status为1才有,错误状态码 | 
+| errorDescription | String | 否 |status为1才有,错误状态的描述信息 | 
+
 **版本支持:**
 
 3.0.0+
@@ -278,6 +278,7 @@ window.uexOnload = function(){
 
  当进行购买动作时,要对购买的产品的有效性进行判断,即对purchase方法中产品信息的有效性进行监听
  
+
 **参数:**
 
 ```
@@ -289,7 +290,7 @@ var state ={
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| status | Number | 是 |购买产品的有效性,0表示产品有效，1表示产品无效 | 
+| status | Number | 是 |购买产品的有效性,0表示产品有效,1表示产品无效 | 
 | msg | String | 是 |产品有效返回"purchase start",产品无效返回"product is nil" | 
  
  
@@ -309,7 +310,6 @@ window.uexOnload = function(){
 }
 ```
 
-
 > ### onTransactionState 对产品交易状态和信息的监听方法
 
 `onTransactionState(state)`
@@ -317,7 +317,6 @@ window.uexOnload = function(){
 **说明:**
 
  当购买的产品为有效产品时,会将有效产品加入支付队列就形成一次购买请求,并且用户允许内购时,将会进行交易。该方法是对用户交易状态的监听。
-
 
 **参数:**
 
@@ -345,14 +344,14 @@ var state ={
 ```
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| state | Number | 是 |交易状态标识符，详细说明见下| 
+| status | Number | 是 |交易状态标识符,详细说明见下| 
 
- state字段含义如下:
+ status字段含义如下:
 
 |  value | 说明  |
 | ----- | ----- |
-| 0 | 通过验证，购买成功 |
-| 1 | 恢复成功 |
+| 0 | 通过验证,购买成功 |
+| 1 | 已经购买过该商品 |
 | 2 | 购买失败 |
 | 3 | 验证购买过程中发生错误 |
 | 4 | 验证购买过程中返回数据为空 |
@@ -371,7 +370,6 @@ window.uexOnload = function(){
     uexInAppPurchase.onTransactionState = onTransactionState;
 }
 ```
-
 
 > ### onRestoreState 对产品恢复购买的状态进行监听
 
@@ -393,9 +391,9 @@ var state ={
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| status | Number | 是 |恢复购买的状态,0表示恢复购买完成，1表示恢复购买失败 | 
-| errorCode | Number | 否 |status为1才有，错误状态码 | 
-| errorDescription | String | 否 |status为1才有，错误状态的描述信息 |  
+| status | Number | 是 |恢复购买的状态,0表示恢复购买完成,1表示恢复购买失败 | 
+| errorCode | Number | 否 |status为1才有,错误状态码 | 
+| errorDescription | String | 否 |status为1才有,错误状态的描述信息 |  
 
 **版本支持:**
 
@@ -478,7 +476,7 @@ API版本:`uexInAppPurchase-3.0.4`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.4 | 新增接口canMakePay，废弃无用监听 |
+| 3.0.4 | 新增接口canMakePay,废弃无用监听 |
 | 3.0.3 | 更新方法 |
 | 3.0.2 | 修复无法返回产品列表 |
 | 3.0.1 | 优化内购插件 |

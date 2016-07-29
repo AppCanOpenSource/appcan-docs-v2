@@ -11,7 +11,7 @@
 
 ## 1.3、开源源码
 
-插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=631_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
@@ -295,7 +295,13 @@ var params ={
     openType:,
     containerID:,
     containerIndex:,
-    backgroundColor:
+    backgroundColor:,
+    header:{
+        url:
+    },
+    footer:{
+        url:
+    }
 }
 ```
 
@@ -309,14 +315,17 @@ var params ={
 | width | Number | 是 | 宽 |
 | height | Number | 是 | 高 |
 | swipeMode | Number | 否 | 侧滑模式,参考[SwipeType](#SwipeType),默认3 |
-| offsetLeft | Number | 否 | 向左滑动时右侧布局显示的宽度,swipeMode支持左滑时必选。**建议和右侧布局的宽度一致**。 |
-| offsetRight | Number | 否 | 向右滑动时左侧布局显示的宽度,swipeMode支持右滑时必选。**建议和左侧布局的宽度一致**。 |
+| offsetLeft | Number | 否 | 向左滑动时右侧布局显示的宽度,swipeMode支持左滑时必选。 <br>**建议和右侧布局的宽度一致。** |
+| offsetRight | Number | 否 | 向右滑动时左侧布局显示的宽度,swipeMode支持右滑时必选。<br>  **建议和左侧布局的宽度一致**。 |
 | refreshMode | Number | 否 | 刷新模式,参考[RefreshMode](#RefreshMode),默认0 |
 | refreshTimeout | Number | 否 | 刷新超时时间,单位毫秒。在refreshMode非等于0有效,默认为3000 |
 | openType | Number | 否 | 打开方式,参考[OpenType](#OpenType) |
-| containerID | String | 否 | 只在openType为2时有效且必选,并且该容器已经通过uexWindow中的createPluginViewContainer方法创建成功。 |
+| containerID | String | 否 | 只在openType为2时有效且必选,并且该容器已经通过uexWindow中的 [createPluginViewContainer](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249#createPluginViewContainer 创建插件容器 "createPluginViewContainer")方法创建成功|
 | containerIndex | Number | 否 | 只在openType为2时有效且必选。指定该列表视图在容器中的索引 |
 | backgroundColor | String | 否 | listView的背景色,不传默认为透明 |
+| header | json | 否 | listView头部网页，固定位于listView的顶端，不随listView滚动 |
+| footer | json | 否 | listView底部网页，固定位于listView的底部，不随listView滚动 |
+| url | String | 是 | 网页地址，该网页中不能调用插件和引擎的任何方法，只能通过[sendHtmlEvent](#sendHtmlEvent 头部或底部网页向主网页发送数据方法)和[onHtmlEvent](#onHtmlEvent 头部或底部网页元素被点击的监听方法)与主网页之间进行数据传递 |
 
 **平台支持:**
 
@@ -407,11 +416,11 @@ var params ={
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| index | Number | 是 | 数据插入的位置索引,取值范围大于等于0,小于等于当前列表长度,若值大于当前列表长度则默认插入到列表末尾 |
+| index | Number | 是 | 数据插入的位置索引,取值范围大于等于0,小于等于当前列表长度,若值大于当前列表长度<br>则默认插入到列表末尾 |
 | dataList | Json数组 | 是 | 列表数据关键字 |
-| center | Json | 是 | 主布局数据,键值对,与相应的布局文件中的变量key对应,至少包含指定布局唯一标识符id键值对,详见示例 |
-| left | Json | 否 | 列表项向右滑动时,左侧布局数据,键值对,与相应的布局文件中的变量key对应,至少包含指定布局唯一标识符id键值对,详见示例 |
-| right | Json | 否 | 列表项向左滑动时,右侧布局数据,键值对,与相应的布局文件中的变量key对应,至少包含指定布局唯一标识符id键值对,详见示例 |
+| center | Json | 是 | 主布局数据,键值对,与相应的布局文件中的变量key对应,至少包含指定布局唯一标识符id<br>键值对,详见示例 |
+| left | Json | 否 | 列表项向右滑动时,左侧布局数据,键值对,与相应的布局文件中的变量key对应,至少包含<br>指定布局唯一标识符id键值对,详见示例 |
+| right | Json | 否 | 列表项向左滑动时,右侧布局数据,键值对,与相应的布局文件中的变量key对应,至少包含<br>指定布局唯一标识符id键值对,详见示例 |
 
 **平台支持:**
 
@@ -503,7 +512,7 @@ var params ={
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | listViewId | String | 是 | 唯一标识符 |
-| index | Number | 是 | 数据插入的位置索引,取值范围大于等于0,小于等于当前列表长度,若值大于当前列表长度则默认插入到列表末尾 |
+| index | Number | 是 | 数据插入的位置索引,取值范围大于等于0,小于等于当前列表长度,若值大于当前列表长度<br>则默认插入到列表末尾 |
 | data | Json | 是 | item数据关键字 |
 | center | Json | 否 | 主布局数据,键值对,此处不能指定布局id,只需传入要更新的数据即可 |
 | left | Json | 否 | 列表项向右滑动时,左侧布局数据,键值对 |
@@ -685,6 +694,36 @@ var params = {
 };
 var data = JSON.stringify(params);
 uexNBListView.setRefreshStatusCompleted(data);
+```
+
+> ### sendHtmlEvent 头部或底部网页向主网页发送数据方法
+
+`uexNBListView.sendHtmlEvent(data);`
+
+**说明:**
+
+该方法只能在头部或者底部html内调用，其他网页内调用该方法无效。该方法主要实现头部网页或者底部网页和主网页(打开listView的网页)之间的交互。调用该方法传递任意字符型参数，该参数会原样通过监听方法[onHtmlEvent](#onHtmlEvent 主网页收到头部或底部网页发送的数据的监听方法)传递给主网页。
+
+**参数:**
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| data | String | 是 | 需要传递给主网页的数据 |
+
+**平台支持:**
+
+Android2.2+    
+iOS6.0+
+
+**版本支持:**
+
+Android3.0.0+    
+iOS3.0.0+
+
+**示例:**
+
+```
+uexNBListView.sendHtmlEvent(data);
 ```
 
 ## 2.2、回调方法
@@ -1048,6 +1087,32 @@ uexNBListView.onLeftClick = function(data){
 ```
 其中onLeftClick方法在id为txt的元素被点击时触发。
 
+> ### onHtmlEvent 主网页收到头部或底部网页发送的数据的监听方法
+
+`uexNBListView.onHtmlEvent(data);`
+
+**参数:**
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| data | String | 是 | 头部或底部网页通过[sendHtmlEvent](#sendHtmlEvent 头部或底部网页向主网页发送数据方法)传递的参数 |
+
+**平台支持:**
+
+Android2.2+    
+
+**版本支持:**
+
+Android3.0.1+    
+
+**示例:**
+
+```
+uexNBListView.onHtmlEvent = function(data){
+	//alert("onHtmlEvent->" + data);
+}
+```
+
 # 3、更新历史
 
 ### iOS
@@ -1056,12 +1121,13 @@ uexNBListView.onLeftClick = function(data){
 
 ### Android
 
-API版本:`uexNBListView-3.0.0`
+API版本:`uexNBListView-3.0.1`
 
-最近更新时间:`2015-11-24`
+最近更新时间:`2016-7-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.1 | listview新增头部和底部html功能 |
 | 3.0.0 | 自定义布局列表功能插件 |
 # 4、附录
 
@@ -1123,7 +1189,7 @@ API版本:`uexNBListView-3.0.0`
 # 5、技术专题
 
 ### 数据载入方式
-ListView在使用过程中,需要优先调用initLayout初始化布局方法,布局在定义时需要指定哪些数据在列表中是动态的,然后在setItems,insert或者update接口时对应的传入相应的数据。举例如下:
+uexNBListView在使用过程中,需要优先调用initLayout初始化布局方法,布局在定义时需要指定哪些数据在列表中是动态的,然后在setItems,insert或者update接口时对应的传入相应的数据。举例如下:
 布局文件:
 
 ```
@@ -1170,7 +1236,8 @@ ListView在使用过程中,需要优先调用initLayout初始化布局方法,布
 ![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexNBListView/ScreenShoot/data.png)
 
 **注意事项**
->1. 需要动态更新的数据,必须唯一指定该元素的id,如上例中的linearlayout的id为content,text的id为text。
->2. 定义变量名时必须是形如${XXX},XXX表示自定义的名称,该名称不能再包含"$"、"{"和"}"符号,并且和传入数据时的key一一对应；
->3. 目前只支持部分属性的动态更新,详情请参考[附录](#VariableSupport),属性的取值范围及规则参考"自定义布局指引文档"中的各属性介绍。
+>  1、 需要动态更新的数据,必须唯一指定该元素的id,如上例中的linearlayout的id为content,text的id为text。
+>2.、定义变量名时必须是形如${XXX},XXX表示自定义的名称,该名称不能再包含"$"、"{"和"}"符号,并且和传入数据时的key一一对应；
+
+>3. 目前只支持部分属性的动态更新,详情请参考[附录](#VariableSupport),属性的取值范围及规则参考"[自定义布局指引文档](http://newdocx.appcan.cn/newdocx/docx?type=1788_975 "自定义布局指引文档")"中的各属性介绍。
 

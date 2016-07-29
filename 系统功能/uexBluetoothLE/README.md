@@ -57,7 +57,7 @@ iOS 3.0.0+
 **参数:**
 
 | 参数名称         | 参数类型  | 是否必选 | 说明                                       |
-| ----- | ----- | ----- | ----- |
+| ------------ | ----- | ---- | ---------------------------------------- |
 | serviceUUIDs | Array | 否    | 由service的UUID字符串组成的数组。	serviceUUIDs不传时,插件会扫描所有蓝牙设备；否则,插件会只扫描包含数组中的指定service的蓝牙设备；iOS系统,在进行后台蓝牙设备扫描时,该参数必须,若前台扫描则该参数为可选。 |
 
 **平台支持:**
@@ -240,7 +240,7 @@ iOS 3.0.0+
 
 **说明:**
 
-写入数据到Characteristic。回调方法[cbWriteCharacteristic](#cbWriteCharacteristic 写入数据到Characteristic的回调方法 "cbWriteCharacteristic")。监听方法[onCharacteristicChanged](#onCharacteristicChanged Characteristic内容改变的监听方法 "onCharacteristicChanged")
+写入数据到Characteristic。回调方法[cbWriteCharacteristicJson](#cbWriteCharacteristicJson 写入数据到Characteristic的回调方法)。监听方法[onCharacteristicChanged](#onCharacteristicChanged Characteristic内容改变的监听方法 "onCharacteristicChanged")
 用户需要将实际要写入的值先base64编码成String,再调用此方法.
 
 **参数:**
@@ -250,6 +250,36 @@ var param={
 	serviceUUID:,//service的UUID
 	characteristicUUID:,//characteristic的UUID
 	value://要写入的值
+}
+```
+
+**平台支持:**
+
+Android 4.3+
+iOS 7.1+
+
+**版本支持:**
+
+Android 3.0.0+
+iOS 3.0.0+
+
+**示例:**
+
+> ### setCharacteristicNotification 监听某一个Characteristic
+
+`uexBluetoothLE.setCharacteristicNotification(param)`
+
+**说明:**
+
+监听某一个Characteristic数据变化。监听方法[onCharacteristicChanged](#onCharacteristicChanged Characteristic内容改变的监听方法 "onCharacteristicChanged")
+
+**参数:**
+
+```
+var param={
+	serviceUUID:,//service的UUID
+	characteristicUUID:,//characteristic的UUID
+	enable://true 或false，开启或关闭监听
 }
 ```
 
@@ -326,6 +356,32 @@ Android 3.0.0+
 iOS 3.0.0+
 
 **示例:**
+
+> ### readRemoteRssi 读取rssi
+
+`uexBluetoothLE.readRemoteRssi()`
+
+**说明:**
+
+读取已连接设备的Rssi。监听方法[onReadRemoteRssi](#onReadRemoteRssi readRemoteRssi的监听方法)。
+
+**参数:**
+
+无
+
+**平台支持:**
+
+Android 4.3+
+iOS 7.1+
+
+**版本支持:**
+
+Android 3.0.0+
+iOS 3.0.0+
+
+**示例:**
+
+
 
 ## 2.2、回调方法
 
@@ -503,6 +559,7 @@ iOS 3.0.0+
 
 > ### cbWriteCharacteristic 写入数据到Characteristic的回调方法
 
+**已废弃，建议使用`cbWriteCharacteristicJson`方法**
 `uexBluetoothLE.cbWriteCharacteristic(data)`
 
 **参数:**
@@ -532,6 +589,41 @@ iOS 3.0.0+
         uexBluetoothLE.cbWriteCharacteristic = cbWriteCharacteristic;
     }
     function cbWriteCharacteristic(data){
+        alert("cbWriteCharacteristic:" + data);
+    }
+```
+
+> ### cbWriteCharacteristicJson 写入数据到Characteristic的回调方法
+
+`uexBluetoothLE.cbWriteCharacteristicJson(data)`
+
+**参数:**
+data是Json对象
+```
+var data={
+	resultCode://0-成功,1-失败
+	data:uexBLECharacteristic的Json格式
+}
+```
+uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明)
+
+**平台支持:**
+
+Android 4.3+
+iOS 7.1+
+
+**版本支持:**
+
+Android 3.0.0+
+iOS 3.0.0+
+
+**示例:**
+
+```
+    window.uexOnload = function(type){
+        uexBluetoothLE.cbWriteCharacteristicJson = cbWriteCharacteristicJson;
+    }
+    function cbWriteCharacteristicJson(data){
         alert("cbWriteCharacteristic:" + data);
     }
 ```
@@ -623,7 +715,7 @@ var data={
 各字段含义如下:
 
 | 参数名称    | 参数类型   | 是否必选 | 说明                                       |
-| ----- | ----- | ----- | ----- |
+| ------- | ------ | ---- | ---------------------------------------- |
 | address | String | 是    | Android的address参数传回的是设备的mac地址；iOS的address参数传回的是设备的UUID |
 | name    | String | 是    | 蓝牙设备名称                                   |
 
@@ -688,7 +780,7 @@ iOS 3.0.0+
 **参数:**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明                                       |
-| ----- | ----- | ----- | ----- |
+| ---- | ---- | ---- | ---------------------------------------- |
 | data | Json | 是    | uexBLECharacteristic的Json格式数据,uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明) |
 
 **平台支持:**
@@ -709,6 +801,37 @@ iOS 3.0.0+
     }
     function onCharacteristicChanged(data){
         alert("onCharacteristicChanged:" + data);
+    }
+```
+
+> ### onReadRemoteRssi readRemoteRssi的监听方法
+
+`uexBluetoothLE.onReadRemoteRssi(data)`
+
+**参数:**
+
+| 参数名称 | 参数类型   | 是否必选 | 说明        |
+| ---- | ------ | ---- | --------- |
+| data | Json对象 | 是    | rssi的相关数据 |
+
+**平台支持:**
+
+Android 4.3+
+iOS 7.1+
+
+**版本支持:**
+
+Android 3.0.0+
+iOS 3.0.0+
+
+**示例:**
+
+```
+    window.uexOnload = function(type){
+        uexBluetoothLE.onReadRemoteRssi = onReadRemoteRssi;
+    }
+    function onReadRemoteRssi(data){
+        alert("onCharacteristicChanged:" + data.rssi);
     }
 ```
 
@@ -745,7 +868,7 @@ iOS 3.0.0+
 ### 3.3.1 iOS权限说明
 
 | flag | desription                               |
-| ----- | ----- |
+| ---- | ---------------------------------------- |
 | 1    | Permits broadcasts of the characteristic value using a characteristic configuration descriptor. |
 | 2    | Permits reads of the characteristic value. |
 | 4    | Permits writes of the characteristic value, without a response. |
@@ -768,13 +891,13 @@ API版本:`uexBluetoothLE-3.0.4`
 
 最近更新时间:`2016-1-5`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.4 | 修复cbInit回调参数错误的bug |
-| 3.0.3 | 添加IDE支持 |
-| 3.0.2 | 修复一个会导致Characteristic写入失败的bug |
-| 3.0.1 | 修改读写的字符串均为为Base64编码 |
-| 3.0.0 | 低功耗蓝牙插件 for iOS |
+| 历史发布版本 | 更新内容                          |
+| ------ | ----------------------------- |
+| 3.0.4  | 修复cbInit回调参数错误的bug            |
+| 3.0.3  | 添加IDE支持                       |
+| 3.0.2  | 修复一个会导致Characteristic写入失败的bug |
+| 3.0.1  | 修改读写的字符串均为为Base64编码           |
+| 3.0.0  | 低功耗蓝牙插件 for iOS               |
 
 ### Android
 
@@ -782,10 +905,10 @@ API版本:`uexBluetoothLE-3.0.4`
 
 最近更新时间:`2016-2-16`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.4 | 修改回调函数名称与文档一致 |
-| 3.0.3 | 修正回调数据不正确的问题 |
-| 3.0.2 | init时自动调用开启蓝牙 |
-| 3.0.1 | js接口数据传输用Base64编码 |
-| 3.0.0 | 蓝牙BLE插件 |
+| 历史发布版本 | 更新内容              |
+| ------ | ----------------- |
+| 3.0.4  | 修改回调函数名称与文档一致     |
+| 3.0.3  | 修正回调数据不正确的问题      |
+| 3.0.2  | init时自动调用开启蓝牙     |
+| 3.0.1  | js接口数据传输用Base64编码 |
+| 3.0.0  | 蓝牙BLE插件           |

@@ -74,6 +74,7 @@ Path Types
 | wgts:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
 | wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ |
 | file:///sdcard/ | /storage/emulated/0/ | 无 |
+
 #2、API概览 
 ## 2.1 方法:
 
@@ -405,6 +406,41 @@ iOS6.0+
      uexQQ.shareImgTextToQZone(appId, json);
     }
 ```
+> ### getUserInfo 获取登录QQ的信息
+
+`uexQQ.getUserInfo(appId);`
+
+**说明:**
+
+    
+获取授权登录QQ的信息    
+回调 [cbGetUserInfo](#cbGetUserInfo  获取登录QQ信息的回调方法  "cbGetUserInfo")
+
+**参数:**
+
+    
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| appId| Number类型| 必选 | 在腾讯开放平台注册的应用appId |
+
+**平台支持:**
+
+Android2.2+                 
+iOS6.0+                     
+
+**版本支持:**
+
+3.0.7+                  
+
+**示例:**
+
+```
+  function getUserInfo(){
+     uexQQ.getUserInfo("222222");
+  }
+
+```
 ## 2.2 回调方法:
 > ### cbLogin  登录完成的回调方法           
 
@@ -416,7 +452,7 @@ iOS6.0+
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| appId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。 |
+| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。 |
 | dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型 |
 | data|String类型 | 必选 | 返回的数据|
 
@@ -440,7 +476,7 @@ iOS6.0+
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| appId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。 |
+| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。 |
 | dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型 |
 | data|String类型 | 必选 | 分享结果,详见CONSTANT中Callbackint类型数据 |
 
@@ -458,14 +494,58 @@ iOS6.0+
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| appId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。 |
+| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。 |
 | dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型 |
 | data|String类型 | 必选 | 安装结果,0-已安装,1-未安装 |
 
 **版本支持:**
 
     
-3.0.0+                                          
+3.0.0+      
+
+> ### cbGetUserInfo  获取登录QQ信息的回调方法           
+
+`uexQQ.cbGetUserInfo(opId,dataType,data);`
+
+**参数:**
+
+    
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| opId| Number类型| 必选 | 操作ID,此函数中不起作用,可忽略。 |
+| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型 |
+| data|JSON类型 | 必选 | 返回的数据为json对象|
+
+````
+ json格式数据如下:
+      {
+	"is_yellow_year_vip": "0",
+	"ret": 0,
+	"figureurl_qq_1":
+	"http://q.qlogo.cn/qqapp/222222/8C75BBE3DC6B0E9A64BD31449A3C8CB0/40",
+	"figureurl_qq_2":
+	"http://q.qlogo.cn/qqapp/222222/8C75BBE3DC6B0E9A64BD31449A3C8CB0/100",
+	"nickname": "小罗",
+	"yellow_vip_level": "0",
+	"msg": "",
+	"figureurl_1":
+	"http://qzapp.qlogo.cn/qzapp/222222/8C75BBE3DC6B0E9A64BD31449A3C8CB0/50",
+	"vip": "0",
+	"level": "0",
+	"figureurl_2":
+	"http://qzapp.qlogo.cn/qzapp/222222/8C75BBE3DC6B0E9A64BD31449A3C8CB0/100",
+	"is_yellow_vip": "0",
+	"gender": "男",
+	"figureurl":
+	"http://qzapp.qlogo.cn/qzapp/222222/8C75BBE3DC6B0E9A64BD31449A3C8CB0/30"
+      }
+````
+
+**版本支持:**
+
+    
+3.0.0+                          
 
 # 3、更新历史
 
@@ -495,12 +575,13 @@ API版本:`uexQQ-3.0.14`
 
 ### Android
 
-API版本:`uexQQ-3.0.7`
+API版本:`uexQQ-3.0.8`
 
-最近更新时间:`2016-3-2`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.8 | 更新qq sdk |
 | 3.0.7 | 更新sdk,修正部分回调bug,(1,2)修正打开增量开关后,图片获取不到的问题,增加getUserInfo接口 |
 | 3.0.6 | 支持config.xml配置 |
 | 3.0.5 | 修复qq图文分享错误 |

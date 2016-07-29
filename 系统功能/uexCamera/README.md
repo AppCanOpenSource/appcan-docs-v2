@@ -146,6 +146,7 @@ uexCamera.removeViewCameraFromWindow();
 
 通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。如果设置changeCameraPosition为前置摄像头则闪光灯无效。
 回调方法 [cbChangeFlashMode](#cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式 "cbChangeFlashMode")　
+
 **参数:**
 
 ````
@@ -253,8 +254,11 @@ window.uexOnload = function(){
 > ### cbOpenViewCamera　自定义相机View拍照成功的回调方法
 
 `uexCamera.cbOpenViewCamera(opId,dataType,data)`
+
 **说明:**
+
 返回拍照成功后图片的保存路径和之前传入的地理位置
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -294,8 +298,11 @@ window.uexOnload = function(){
 > ### cbChangeFlashMode　返回更改闪光灯模式成功后当前闪光灯的模式
 
 `uexCamera.cbChangeFlashMode(opId,dataType,data)`
+
 **说明:**
+
  0表示自动,1表示开启,2表示关闭,-1表示更改失败
+
 **参数:**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -349,12 +356,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexCamera-3.0.8`
+API版本:`uexCamera-4.0.0`
 
-最近更新时间:`2016-5-10`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.9 | 修改系统相机第一次拍照保存路径bug |
 | 3.0.8 | cbOpenViewCamera回调方法,返回的JSON中增加字段label,替换之前的location |
 | 3.0.7 | 创建bundle存储资源文件,适配国际化 |
 | 3.0.6 | 修改IDE |
