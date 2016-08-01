@@ -399,8 +399,7 @@ var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
 });
-uexFileMgr.openFile(file, "wgt://test.txt", '1');
-var ret = uexFileMgr.seekBeginOfFile('1');
+var ret = uexFileMgr.seekBeginOfFile(file);
 alert(ret);
 ```
 
@@ -596,7 +595,7 @@ alert(path);
 ```
 > ### getFileRealPath 获取文件实际路径
 
-`uexFileMgr.getFileRealPath(path, cbName)`
+`uexFileMgr.getFileRealPath(path)`
 
 **说明:**
 
