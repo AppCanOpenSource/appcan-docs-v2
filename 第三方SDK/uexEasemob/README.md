@@ -442,7 +442,7 @@ var param = {
 	username:,//单聊时聊天人的userName或者群聊时groupid
 	chatType:,//0-单聊,1-群聊
 	startMsgId:,//获取startMsgId之前的pagesize条消息
-	pagesize:,//分页大小,为0时获取所有消息,startMsgId可不传
+	pagesize:,//分页大小,为0时获取所有消息(iOS 3.0.21+不支持获取所有消息),startMsgId可不传
 };
 ```
 data为json对象
