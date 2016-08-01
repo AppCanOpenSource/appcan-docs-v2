@@ -1089,12 +1089,20 @@ uexNBListView.onLeftClick = function(data){
 
 > ### onHtmlEvent 主网页收到头部或底部网页发送的数据的监听方法
 
-`uexNBListView.onHtmlEvent(data);`
+`uexNBListView.onHtmlEvent(info);`
 
 **参数:**
+```
+var info = {
+    listViewId:,
+    data:
+}
+```
+各字段含义如下：
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
+| listViewId | String | 是 | listView的唯一标识符 |
 | data | String | 是 | 头部或底部网页通过[sendHtmlEvent](#sendHtmlEvent 头部或底部网页向主网页发送数据方法)传递的参数 |
 
 **平台支持:**
