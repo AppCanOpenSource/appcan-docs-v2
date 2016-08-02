@@ -502,7 +502,7 @@ var json=[
 
 **返回值**
 
-返回id组成的一个数组，如果添加失败返回为空
+返回marker对象组成的一个数组，如果添加失败返回为空
 
 **示例**
 
@@ -538,8 +538,8 @@ var data = [
 		}
  ];
 var dataStr = JSON.stringify(data);
-var ids=uexBaiduMap.addMarkersOverlay(dataStr);
-if(!ids){
+var markers=uexBaiduMap.addMarkersOverlay(dataStr);
+if(!markers){
 	alert("添加失败");
 }
  
@@ -547,7 +547,7 @@ if(!ids){
 ```
 > ### setMarkerOverlay 更新设置标注信息
 
-`uexBaiduMap.setMarkerOverlay(makerId,makerInfo);`
+`uexBaiduMap.setMarkerOverlay(marker,markerInfo);`
 
 **说明**
 
@@ -557,11 +557,11 @@ if(!ids){
 
 | 参数 | 参数类型 | 是否必选 | 说明 |
 |-----|-----|-----|-----|
-| makerId | String | 是 | 唯一标识符 |
-| makerInfo | String | 是 | 标注信息,json格式|
+| marker | Object | 是 | [addMarkersOverlay](# addMarkersOverlay 添加标注)接口返回的marker对象 |
+| markerInfo | String | 是 | 标注信息,json格式|
 
 ```
-var makerInfo={
+var markerInfo={
 	longitude:,//标注经度
 	latitude:,//标注纬度
 	icon://标注图标 
@@ -575,9 +575,9 @@ var makerInfo={
 **示例**
 
 ```
-var makerInfo =
+var markerInfo =
 	{
-	makerInfo: {
+	markerInfo: {
 		bubble: {
 		bgImage: "res://btn.png",
 		title: "这是标题"
@@ -586,32 +586,32 @@ var makerInfo =
 		longitude: "116.232323"
 		
 	};
-var jsonStr=JSON.stringify(makerInfo);
-var makerId = '10001';
-uexBaiduMap. setMarkerOverlay (makerId, jsonStr);
+var jsonStr=JSON.stringify(markerInfo);
+var marker = ;//addMarkersOverlay接口返回的marker对象
+uexBaiduMap. setMarkerOverlay (marker, jsonStr);
  
 ```
 
 > ### showBubble 显示标注气泡 
 
-`uexBaiduMap.showBubble(makerId);`
+`uexBaiduMap.showBubble(marker);`
 
 **说明**
 
-显示指定ID的标注气泡,地图上仅有一个标注气泡显示,其他标注气泡将被隐。
+显示指定标注气泡,地图上仅有一个标注气泡显示,其他标注气泡将被隐。
 
 **参数**
 
 | 参数 | 参数类型 | 是否必选 | 说明 |
 |-----|-----|-----|-----|
-| makerId | String | 是 | 唯一标识符 |
+| marker | Object | 是 | [addMarkersOverlay](# addMarkersOverlay 添加标注)接口返回的marker对象 |
 
 
 **示例**
 
 ```
-var makerId = '10001';
-uexBaiduMap. showBubble (makerId);
+var marker = ;//addMarkersOverlay接口返回的marker对象
+uexBaiduMap.showBubble (marker);
 ```
 > ### hideBubble 隐藏标注气泡 
 
@@ -630,7 +630,7 @@ uexBaiduMap. showBubble (makerId);
 **示例**
 
 ```
-uexBaiduMap. hideBubble();
+uexBaiduMap.hideBubble();
 ```
 > ### addDotOverlay 添加点覆盖物 
 
@@ -666,7 +666,7 @@ var dotInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
@@ -679,8 +679,8 @@ var dotInfo={
 	radius:"50"
 };
 var jsonStr=JSON.stringify(dotInfo);
-var id=uexBaiduMap.addDotOverlay(jsonStr);
-if(!id){
+var overlay=uexBaiduMap.addDotOverlay(jsonStr);
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -727,7 +727,7 @@ var polylineInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
@@ -754,8 +754,8 @@ var polylineInfo=
 		]
 	};
 var jsonStr=JSON.stringify(polylineInfo);
-var id=uexBaiduMap.addPolylineOverlay(jsonStr);
-if(!id){
+var overlay=uexBaiduMap.addPolylineOverlay(jsonStr);
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -802,7 +802,7 @@ var arcInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
@@ -819,8 +819,8 @@ var data={
 	strokeColor:"#990033"
 };
 var jsonStr=JSON.stringify(data)
-var id=uexBaiduMap.addArcOverlay(jsonStr); 
-if(!id){
+var overlay=uexBaiduMap.addArcOverlay(jsonStr); 
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -861,7 +861,7 @@ var circleInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
@@ -875,8 +875,8 @@ var data={
 	strokeColor:"#990033"
 };
 var jsonStr=JSON.stringify(data);
-var id=uexBaiduMap.addCircleOverlay(jsonStr); 
-if(!id){
+var overlay=uexBaiduMap.addCircleOverlay(jsonStr); 
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -922,7 +922,7 @@ var polygonInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
@@ -952,8 +952,8 @@ var data={
 	strokeColor:"#990033"
 };
 var jsonStr=JSON.stringify(data)
-var id=uexBaiduMap.addPolygonOverlay(jsonStr); 
-if(!id){
+var overlay=uexBaiduMap.addPolygonOverlay(jsonStr); 
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -1002,7 +1002,7 @@ var groundInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
@@ -1025,8 +1025,8 @@ var data={
 	transparency:"0.8"
 	};
 var jsonStr=JSON.stringify(data)
-var id=uexBaiduMap.addGroundOverlay(jsonStr);
-if(!id){
+var overlay=uexBaiduMap.addGroundOverlay(jsonStr);
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -1070,7 +1070,7 @@ var textInfo = {
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
@@ -1085,14 +1085,14 @@ var data={
 	text: "baidu map"
 };
 var jsonStr=JSON.stringify(data);
-var id=uexBaiduMap.addTextOverlay(jsonStr);
-if(!id){
+var overlay=uexBaiduMap.addTextOverlay(jsonStr);
+if(!overlay){
 	alert("添加失败");
 }
 ```
-> ### removeMakersOverlay 移除标注 
+> ### removemarkersOverlay 移除标注 
 
-`uexBaiduMap.removeMakersOverlay(ids);`
+`uexBaiduMap.removemarkersOverlay(markers);`
 
 **说明**
 
@@ -1102,19 +1102,19 @@ if(!id){
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| ids | String | 是 | 唯一标识符数组,json结构字符串 |
+| markers | String | 是 | marker对象组成的数组结构字符串,json结构字符串 |
 
 
 **示例**
 
 ```
- var ids='["150","151"]';
- uexBaiduMap.removeMakersOverlay(ids);
+ var markers ='[marker1, marker2]';
+ uexBaiduMap.removemarkersOverlay(markers);
 ```
 
 > ### removeOverlay 移除覆盖物 
 
-`uexBaiduMap.removeOverlay(id);`
+`uexBaiduMap.removeOverlay(overlay);`
 
 **说明**
 
@@ -1124,13 +1124,13 @@ if(!id){
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 唯一标识符 |
+| overlay | String | 是 | 添加覆盖物返回的overlay对象 |
 
 
 **示例**
 
 ```
- uexBaiduMap.removeMakersOverlay("150");
+ uexBaiduMap.removeOverlay(overlay);
 ```
 
 > ### poiSearchInCity 城市内检索 
@@ -1521,7 +1521,7 @@ callbackFunction的参数是errorCode， 其数据含义如下：
 
 **返回值**
 
-返回id
+成功返回这条路线规划对象，失败为空
 
 **示例**
 
@@ -1541,8 +1541,10 @@ var data = {
 	}
 };
 var jsonStr=JSON.stringify(data);
-var id=uexBaiduMap.searchRoutePlan(jsonStr);
-alert(id);
+var req=uexBaiduMap.searchRoutePlan(jsonStr);
+if(!req){
+	alert("规划失败");
+}
 ```
 
 > ### preRouteNode 显示上一个线路节点 
@@ -1565,7 +1567,7 @@ alert(id);
 
 > ### removeRoutePlan 清除线路规划 
 
-`uexBaiduMap.removeRoutePlan(id);` 
+`uexBaiduMap.removeRoutePlan(req);` 
 
 **说明**
 
@@ -1575,13 +1577,14 @@ alert(id);
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 线路id |
+| req | Object | 是 | 这条路线规划对象,由[searchRoutePlan](# searchRoutePlan 规划并显示路线)返回 |
 
 
 **示例**
 
 ```
- uexBaiduMap.removeRoutePlan("rp345");
+var req=...;//这条路线规划对象, searchRoutePlan返回
+ uexBaiduMap.removeRoutePlan(req);
 ```
 
 > ### nextRouteNode 显示下一个线路节点
@@ -2054,7 +2057,7 @@ API版本:`uexBaiduMap-4.0.0`
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 | 4.0.0 | 支持function传入|
-| 3.1.17 | 修复removeMakersOverlay接口传不当参数会闪退的问题 |
+| 3.1.17 | 修复removemarkersOverlay接口传不当参数会闪退的问题 |
 | 3.1.16 | 增加对多种类型参数的识别,支持3.3引擎 |
 | 3.0.15 | 修改插件,使其支持config配置APIKey |
 | 3.0.14 | 删去info.plist |
