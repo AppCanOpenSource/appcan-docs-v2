@@ -21,13 +21,13 @@
 # 2、API概览
 
 ## 2.1、方法
-> ### create 创建自定义的输入框
+> ### create 创建自定义的输入框对象
 
-`uexEditDialog.create(params)`
+` var editDialog = uexEditDialog.create(params)`
 
 **说明:**
 
-打开自定义的输入框, 成功后返回输入框的id
+创建自定义的输入框对象, 创建失败返回NULL。
 
 **参数:**
 
@@ -76,12 +76,12 @@ var params = {
 	"defaultText": "默认",
 	"maxNum": 200
 }
-uexEditDialog.create(JSON.stringify(params));
+var editDialog = uexEditDialog.create(JSON.stringify(params));
 ```
 
 > ### close 关闭编辑框
 
-`uexEditDialog.close(id)`
+`uexEditDialog.close(editDialog)`
 
 **说明:**
 
@@ -91,47 +91,36 @@ uexEditDialog.create(JSON.stringify(params));
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id  | Number类型  |必选   | 输入框的唯一标识符  |
+| editDialog  | Object  |必选   | 由create接口创建自定义的输入框对象  |
  
 **示例:**
 
 ```
-uexEditDialog.close(1);
+uexEditDialog.close(editDialog);
 ```
 > ### insert 插入数据
 
-`uexEditDialog.insetData(params)`
+`uexEditDialog.inset(editDialog,text)`
 
 **说明:**
 
 插入数据
 
 **参数:**
-参数`params`是一个JSON string, 格式如下：
-```
-var params = {
-    "id": 123444,
-    "text": "这是5个字"
-}
-```
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id  | Number类型  |必选   | 输入框的唯一标识符  |
-| text  | Number类型  |必选   | 要插入的数据  |
+| editDialog  | Object  |必选   | 由create接口创建自定义的输入框对象  |
+| text  | Sting类型  |必选   | 要插入的数据  |
  
  **示例:**
 
 ```
-var data = {
-    "id": editId,
-    "text": "这是5个字"
-}
-uexEditDialog.insertData(JSON.stringify(data));
+uexEditDialog.insertData(editDialog,"这是5个字");
 ```
 > ### cleanAll 清除所有数据
 
-`uexEditDialog.cleanAll(id)`
+`uexEditDialog.cleanAll(editDialog)`
 
 **说明:**
 
@@ -141,35 +130,35 @@ uexEditDialog.insertData(JSON.stringify(data));
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id  | Number类型  |必选   | 输入框的唯一标识符  |
+| editDialog  | Object  |必选   | 由create接口创建自定义的输入框对象  |
 
 
 **示例:**
 
 ```
-uexEditDialog.cleanAll(1)
+uexEditDialog.cleanAll(editDialog)
 ```
 
 > ### getContent 获取编输入框内所有数据
 
-`uexEditDialog.getContent(id)`
+`var data = uexEditDialog.getContent(editDialog)`
 
 **说明:**
 
-获取编辑输入框内所有数据
+获取编辑输入框内所有数据, 返回值data为`String`类型
 
 **参数:**
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id  | Number类型  |必选   | 输入框的唯一标识符  |
- 
+| editDialog  | Object  |必选   | 由create接口创建自定义的输入框对象  |
+
 
 
 **示例:**
 
 ```
-var data = uexEditDialog.getContent(1)
+var data = uexEditDialog.getContent(editDialog)
 ```
 
  
@@ -177,13 +166,13 @@ var data = uexEditDialog.getContent(1)
 
 > ### onNum 文本框字数改变时返回的剩余字数的回调函数
 
-`uexEditDialog.onNum(opId, num)`
+`uexEditDialog.onNum(editDialog, num)`
 
 **参数:**
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| opId  | Number类型  |必选   | 打开输入框的id  |
+| editDialog  | Object  |必选   | 由create接口创建自定义的输入框对象  |
 | num  | Number类型  |必选   | 剩余字数  |
 
 **版本支持:**
@@ -193,7 +182,7 @@ var data = uexEditDialog.getContent(1)
 **示例:**
 
 ```
-uexEditDialog.onNum = function(opId, num){
+uexEditDialog.onNum = function(editDialog, num){
 	alert(num);
 };
 ```
