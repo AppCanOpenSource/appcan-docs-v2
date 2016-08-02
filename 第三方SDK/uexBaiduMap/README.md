@@ -476,7 +476,6 @@ uexBaiduMap.setOverlookEnable(1);
 json:(String类型) 必选添加到地图的标注信息的集合。该字符串为JSON格式。如下:
 var json=[
 		{
-		id:,//(可选)唯一标识符 
 		longitude:,//(必选)经度 
 		latitude:,//(必选)纬度 
 		icon:,//(可选)标注图标路径,支持类型:"res://""http://" 
@@ -492,7 +491,6 @@ var json=[
 
 | 参数 | 参数类型 | 是否必选 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | longitude | Number | 是 | 经度 |
 | latitude | Number | 是 | 纬度 |
 | icon | String | 否 | 标注图标路径,支持类型:"res://""http://" |
@@ -502,14 +500,13 @@ var json=[
 
 **返回值**
 
-返回id组成的一个数组，如果添加失败返回为空
+返回marker对象组成的一个数组，如果添加失败返回为空
 
 **示例**
 
 ```
 var data = [
 		{
-		id:"10001",
 		longitude:"116.400244",
 		latitude:"39.963175",
 		icon:"http://www.iconpng.com/png/mapmarkers/marker_inside_azure.png",
@@ -518,7 +515,6 @@ var data = [
  	}
 		},
 		{
-		id:"10002",
 		longitude:"116.369199",
 		latitude:"39.942821",
 		bubble:{
@@ -527,7 +523,6 @@ var data = [
 			}
 },
 		{
-		id:"111",
 		longitude:"116.404",
 		latitude:"39.915",
 		icon:"http://www.iconpng.com/png/mapmarkers/marker_inside_azure.png",
@@ -538,8 +533,8 @@ var data = [
 		}
  ];
 var dataStr = JSON.stringify(data);
-var ids=uexBaiduMap.addMarkersOverlay(dataStr);
-if(!ids){
+var markers=uexBaiduMap.addMarkersOverlay(dataStr);
+if(!markers){
 	alert("添加失败");
 }
  
@@ -547,7 +542,7 @@ if(!ids){
 ```
 > ### setMarkerOverlay 更新设置标注信息
 
-`uexBaiduMap.setMarkerOverlay(makerId,makerInfo);`
+`uexBaiduMap.setMarkerOverlay(marker,markerInfo);`
 
 **说明**
 
@@ -557,11 +552,11 @@ if(!ids){
 
 | 参数 | 参数类型 | 是否必选 | 说明 |
 |-----|-----|-----|-----|
-| makerId | String | 是 | 唯一标识符 |
-| makerInfo | String | 是 | 标注信息,json格式|
+| marker | Object | 是 | [addMarkersOverlay](# addMarkersOverlay 添加标注)接口返回的marker对象 |
+| markerInfo | String | 是 | 标注信息,json格式|
 
 ```
-var makerInfo={
+var markerInfo={
 	longitude:,//标注经度
 	latitude:,//标注纬度
 	icon://标注图标 
@@ -575,9 +570,9 @@ var makerInfo={
 **示例**
 
 ```
-var makerInfo =
+var markerInfo =
 	{
-	makerInfo: {
+	markerInfo: {
 		bubble: {
 		bgImage: "res://btn.png",
 		title: "这是标题"
@@ -586,32 +581,32 @@ var makerInfo =
 		longitude: "116.232323"
 		
 	};
-var jsonStr=JSON.stringify(makerInfo);
-var makerId = '10001';
-uexBaiduMap. setMarkerOverlay (makerId, jsonStr);
+var jsonStr=JSON.stringify(markerInfo);
+var marker = ;//addMarkersOverlay接口返回的marker对象
+uexBaiduMap. setMarkerOverlay (marker, jsonStr);
  
 ```
 
 > ### showBubble 显示标注气泡 
 
-`uexBaiduMap.showBubble(makerId);`
+`uexBaiduMap.showBubble(marker);`
 
 **说明**
 
-显示指定ID的标注气泡,地图上仅有一个标注气泡显示,其他标注气泡将被隐。
+显示指定标注气泡,地图上仅有一个标注气泡显示,其他标注气泡将被隐。
 
 **参数**
 
 | 参数 | 参数类型 | 是否必选 | 说明 |
 |-----|-----|-----|-----|
-| makerId | String | 是 | 唯一标识符 |
+| marker | Object | 是 | [addMarkersOverlay](# addMarkersOverlay 添加标注)接口返回的marker对象 |
 
 
 **示例**
 
 ```
-var makerId = '10001';
-uexBaiduMap. showBubble (makerId);
+var marker = ;//addMarkersOverlay接口返回的marker对象
+uexBaiduMap.showBubble (marker);
 ```
 > ### hideBubble 隐藏标注气泡 
 
@@ -630,7 +625,7 @@ uexBaiduMap. showBubble (makerId);
 **示例**
 
 ```
-uexBaiduMap. hideBubble();
+uexBaiduMap.hideBubble();
 ```
 > ### addDotOverlay 添加点覆盖物 
 
@@ -645,7 +640,6 @@ uexBaiduMap. hideBubble();
 ```
 dotInfo:(String类型) 必选添加到地图上的圆点信息的集合。该字符串为JSON格式
 var dotInfo={
-	id:,
 	fillColor:,
 	radius:,
 	longitude:,
@@ -658,7 +652,6 @@ var dotInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | fillColor | String | 是 | 圆点颜色,支持格式:"#000","#000000" |
 | radius | Number | 是 | 圆点半径,单位:像素 |
 | longitude | Number | 是 | 圆点经度 |
@@ -666,21 +659,20 @@ var dotInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
 ```
 var dotInfo={
 	fillColor:"#990033",
-	id:"150",
 	longitude:"116.400244",
 	latitude:"39.963175",
 	radius:"50"
 };
 var jsonStr=JSON.stringify(dotInfo);
-var id=uexBaiduMap.addDotOverlay(jsonStr);
-if(!id){
+var overlay=uexBaiduMap.addDotOverlay(jsonStr);
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -697,7 +689,6 @@ if(!id){
 ```
 polylineInfo:(String类型) 必选添加到地图上的折线信息的集合。该字符串为JSON格式:
 var polylineInfo={
-	id:,
 	fillColor:,
 	lineWidth:,
 	property:
@@ -718,7 +709,6 @@ var polylineInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | fillColor | String | 是 | 折线颜色,支持格式:"#000","#000000" |
 | lineWidth | Number | 是 | 折线线宽,单位:像素 |
 | property | Array | 是 |连接点经纬度集合 |
@@ -727,7 +717,7 @@ var polylineInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
@@ -735,7 +725,6 @@ var polylineInfo={
 var polylineInfo=
 	{
 	fillColor:"#990033",
-	id:"151",
 	lineWidth:"10.0",
 	property:
 		[
@@ -754,8 +743,8 @@ var polylineInfo=
 		]
 	};
 var jsonStr=JSON.stringify(polylineInfo);
-var id=uexBaiduMap.addPolylineOverlay(jsonStr);
-if(!id){
+var overlay=uexBaiduMap.addPolylineOverlay(jsonStr);
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -774,7 +763,6 @@ if(!id){
 arcInfo:(String类型) 必选添加到地图上的弧形信息的集合。该字符串为JSON格式
 
 var arcInfo={
-	id:,
 	strokeColor:,
 	lineWidth:,
 	startLongitude:,
@@ -790,7 +778,6 @@ var arcInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | strokeColor | String | 是 | 颜色,支持格式:"#000","#000000" |
 | lineWidth | Number | 是 | 线宽 |
 | startLongitude | Number | 是 | 起点经度 |
@@ -802,7 +789,7 @@ var arcInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
@@ -812,15 +799,14 @@ var data={
 	centerLongitude:"116.369199",
 	endLatitude:"39.906965",
 	endLongitude:"116.401394",
-	id:"152",
 	lineWidth:"2.0",
 	startLatitude:"39.963175",
 	startLongitude:"116.400244",
 	strokeColor:"#990033"
 };
 var jsonStr=JSON.stringify(data)
-var id=uexBaiduMap.addArcOverlay(jsonStr); 
-if(!id){
+var overlay=uexBaiduMap.addArcOverlay(jsonStr); 
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -837,7 +823,6 @@ if(!id){
 ```
 circleInfo:(String类型) 必选添加到地图上的圆形覆盖物信息的集合。该字符串为JSON格式
 var circleInfo={
-	id:,
 	longitude:,
 	latitude:,
 	radius:"1000",
@@ -851,7 +836,6 @@ var circleInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | radius | Number | 是 | 半径,单位:米 |
 | fillColor | String | 是 | 填充颜色,支持格式:"#000","#000000" |
 | strokeColor | String | 是 | 边框颜色,支持格式:"#000","#000000" |
@@ -861,22 +845,22 @@ var circleInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
 ```
 var data={
 	fillColor:"#4169E1",
-	id:"153",latitude:"39.915",
+	latitude:"39.915",
 	lineWidth:"4",
 	longitude:"116.404",
 	radius:"1000",
 	strokeColor:"#990033"
 };
 var jsonStr=JSON.stringify(data);
-var id=uexBaiduMap.addCircleOverlay(jsonStr); 
-if(!id){
+var overlay=uexBaiduMap.addCircleOverlay(jsonStr); 
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -894,7 +878,6 @@ if(!id){
 ```
 polygonInfo:(String类型) 必选添加到地图上的集合图形信息的集合。该字符串为JSON格式:
 var polygonInfo={
-	id:,
 	fillColor:,
 	strokeColor:,
 	lineWidth:,
@@ -912,7 +895,6 @@ var polygonInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | fillColor | String | 是 | 填充颜色,支持格式:"#000","#000000" |
 | strokeColor | String | 是 | 边框颜色,支持格式:"#000","#000000" |
 | lineWidth | Number | 是 | 边框宽度 |
@@ -922,14 +904,13 @@ var polygonInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
 ```
 var data={
 	fillColor:"#990033",
-	id:"154",
 	lineWidth:"2.0",
 	property:[
 		{
@@ -952,8 +933,8 @@ var data={
 	strokeColor:"#990033"
 };
 var jsonStr=JSON.stringify(data)
-var id=uexBaiduMap.addPolygonOverlay(jsonStr); 
-if(!id){
+var overlay=uexBaiduMap.addPolygonOverlay(jsonStr); 
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -972,7 +953,6 @@ if(!id){
 groundInfo:(String类型) 必选添加到地图上的地形图图层信息的集合。该字符串为JSON格式
 
 var groundInfo={
-	id:,
 	imageUrl:,
 	transparency:,
 	imageWidth:,
@@ -991,7 +971,6 @@ var groundInfo={
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | imageUrl | String | 是 | 图片路径,支持格式:"http://","res://" |
 | transparency | Number | 是 | 透明度,范围:[0.0f,1.0f] |
 | property | Array | 是 | 地理位置数组,长度为2 |
@@ -1002,13 +981,12 @@ var groundInfo={
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
 ```
 var data={
-	id:"155",
 	imageHeight:"5000",
 	imageUrl:"http://img0.bdstatic.com/img/image/9baf75d938553886ce515def29441ed31409109131.jpg",
 	imageWidth:"10000",
@@ -1025,8 +1003,8 @@ var data={
 	transparency:"0.8"
 	};
 var jsonStr=JSON.stringify(data)
-var id=uexBaiduMap.addGroundOverlay(jsonStr);
-if(!id){
+var overlay=uexBaiduMap.addGroundOverlay(jsonStr);
+if(!overlay){
 	alert("添加失败");
 }
 ```
@@ -1044,7 +1022,6 @@ if(!id){
 textInfo:(String类型) 必选添加到地图上的文字覆盖物信息的集合。该字符串为JSON格式
 
 var textInfo = {
-	id:,
 	bgColor:,
 	fontSize:,
 	fontColor:,
@@ -1059,7 +1036,6 @@ var textInfo = {
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 否 | 唯一标识符，不传时插件随机生成 |
 | bgColor | String | 是 | 文字背景,支持格式:"#000","#000000" |
 | fontSize | Number | 是 | 字体大小 |
 | fontColor | String | 是 | 字体颜色,支持格式:"#000","#000000" |
@@ -1070,7 +1046,7 @@ var textInfo = {
 
 **返回值**
 
-返回id，如果添加失败返回为空
+返回overlay覆盖物对象，如果添加失败返回为空
 
 **示例**
 
@@ -1078,21 +1054,20 @@ var textInfo = {
 var data={
 	bgColor: "#FFFF00",
 	fontSize: "24",
-	id: "156",
 	longitude: "116.400244",
 	latitude: "39.963175",
 	rotate: "-30",
 	text: "baidu map"
 };
 var jsonStr=JSON.stringify(data);
-var id=uexBaiduMap.addTextOverlay(jsonStr);
-if(!id){
+var overlay=uexBaiduMap.addTextOverlay(jsonStr);
+if(!overlay){
 	alert("添加失败");
 }
 ```
-> ### removeMakersOverlay 移除标注 
+> ### removemarkersOverlay 移除标注 
 
-`uexBaiduMap.removeMakersOverlay(ids);`
+`uexBaiduMap.removemarkersOverlay(markers);`
 
 **说明**
 
@@ -1102,19 +1077,19 @@ if(!id){
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| ids | String | 是 | 唯一标识符数组,json结构字符串 |
+| markers | String | 是 | marker对象组成的数组结构字符串,json结构字符串 |
 
 
 **示例**
 
 ```
- var ids='["150","151"]';
- uexBaiduMap.removeMakersOverlay(ids);
+ var markers ='[marker1, marker2]';
+ uexBaiduMap.removemarkersOverlay(markers);
 ```
 
 > ### removeOverlay 移除覆盖物 
 
-`uexBaiduMap.removeOverlay(id);`
+`uexBaiduMap.removeOverlay(overlay);`
 
 **说明**
 
@@ -1124,13 +1099,13 @@ if(!id){
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 唯一标识符 |
+| overlay | String | 是 | 添加覆盖物返回的overlay对象 |
 
 
 **示例**
 
 ```
- uexBaiduMap.removeMakersOverlay("150");
+ uexBaiduMap.removeOverlay(overlay);
 ```
 
 > ### poiSearchInCity 城市内检索 
@@ -1472,7 +1447,6 @@ uexBaiduMap.nextBusLineNode();
 ```
 json:(String类型) 必选规划路线所需要的信息。该字符串为JSON格式。
 var json={
-	id:,
 	type:,
 	start:{
 		city:,
@@ -1492,7 +1466,6 @@ var json={
 
 | 参数 | 是否必须 | 说明 |
 |-----|-----|-----|
-| id | 否 | 唯一标识符，不传时插件随机生成 |
 | type | 是 | 路线类型:0-驾车；1-公交；2-步行 |
 | start | 是 | 起点信息,JSON格式 |
 | end | 是 | 终点信息,JSON格式 |
@@ -1521,13 +1494,12 @@ callbackFunction的参数是errorCode， 其数据含义如下：
 
 **返回值**
 
-返回id
+成功返回这条路线规划对象，失败为空
 
 **示例**
 
 ```
 var data = {
-	id: "rp345",
 	type: "0",
 	start: {
 		city: "北京",
@@ -1541,8 +1513,10 @@ var data = {
 	}
 };
 var jsonStr=JSON.stringify(data);
-var id=uexBaiduMap.searchRoutePlan(jsonStr);
-alert(id);
+var req=uexBaiduMap.searchRoutePlan(jsonStr);
+if(!req){
+	alert("规划失败");
+}
 ```
 
 > ### preRouteNode 显示上一个线路节点 
@@ -1565,7 +1539,7 @@ alert(id);
 
 > ### removeRoutePlan 清除线路规划 
 
-`uexBaiduMap.removeRoutePlan(id);` 
+`uexBaiduMap.removeRoutePlan(req);` 
 
 **说明**
 
@@ -1575,13 +1549,14 @@ alert(id);
 
 | 参数 | 参数类型 | 是否必须 | 说明 |
 |-----|-----|-----|-----|
-| id | String | 是 | 线路id |
+| req | Object | 是 | 这条路线规划对象,由[searchRoutePlan](# searchRoutePlan 规划并显示路线)返回 |
 
 
 **示例**
 
 ```
- uexBaiduMap.removeRoutePlan("rp345");
+var req=...;//这条路线规划对象, searchRoutePlan返回
+ uexBaiduMap.removeRoutePlan(req);
 ```
 
 > ### nextRouteNode 显示下一个线路节点
@@ -2054,7 +2029,7 @@ API版本:`uexBaiduMap-4.0.0`
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 | 4.0.0 | 支持function传入|
-| 3.1.17 | 修复removeMakersOverlay接口传不当参数会闪退的问题 |
+| 3.1.17 | 修复removemarkersOverlay接口传不当参数会闪退的问题 |
 | 3.1.16 | 增加对多种类型参数的识别,支持3.3引擎 |
 | 3.0.15 | 修改插件,使其支持config配置APIKey |
 | 3.0.14 | 删去info.plist |
