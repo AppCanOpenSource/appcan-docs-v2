@@ -5,9 +5,9 @@
 ## 1.1、说明
 
 > 文件路径包括:`wgt://...`,`res://...`,`wgts://...`,`file://...`,`http://...`,`https://...`
-其中: `wgt://...`对应widget的沙盒根路径,可读可写
+> 其中: `wgt://...`对应widget的沙盒根路径,可读可写
 	`res://...`对应widget目录下的wgtRes路径,只可读不可写
-	
+
 关于文件路径的使用,可调用uexFileMgr.getFileRealPath接口获得文件真实路径作为参考
 
 ## 1.2、UI展示
@@ -44,9 +44,9 @@
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-|  param | Object | 是 | 文件设置 |
+| 参数名称  | 参数类型   | 是否必选 | 说明   |
+| ----- | ------ | ---- | ---- |
+| param | Object | 是    | 文件设置 |
 
 
 ```
@@ -81,9 +81,9 @@ if(!file){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-|  param | Object | 是 | 文件夹设置 |
+| 参数名称  | 参数类型   | 是否必选 | 说明    |
+| ----- | ------ | ---- | ----- |
+| param | Object | 是    | 文件夹设置 |
 
 
 ```
@@ -117,9 +117,9 @@ alert(ret);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-|  param | Object | 是 | 文件设置 |
+| 参数名称  | 参数类型   | 是否必选 | 说明   |
+| ----- | ------ | ---- | ---- |
+| param | Object | 是    | 文件设置 |
 
 
 ```
@@ -156,9 +156,9 @@ if(!file){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
+| 参数名称 | 参数类型   | 是否必选 | 说明                                    |
+| ---- | ------ | ---- | ------------------------------------- |
+| path | String | 是    | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 
 **返回值:**
 
@@ -181,9 +181,9 @@ alert(ret);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明          |
+| ---- | ------ | ---- | ----------- |
+| id   | String | 是    | uexFile对象ID |
 
 **返回值:**
 
@@ -212,9 +212,9 @@ alert(ret);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
+| 参数名称 | 参数类型   | 是否必选 | 说明                                    |
+| ---- | ------ | ---- | ------------------------------------- |
+| path | String | 是    | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 
 
 **返回值:**
@@ -238,9 +238,9 @@ alert(ret);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明          |
+| ---- | ------ | ---- | ----------- |
+| id   | String | 是    | uexFile对象ID |
 
 **返回值:**
 
@@ -267,9 +267,9 @@ alert(ret);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,支持"wgt://","wgts://","res://","file://" 协议 |
+| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| path | String | 是    | 文件路径,支持"wgt://","wgts://","res://","file://" 协议 |
 
 **返回值:**
 
@@ -292,17 +292,17 @@ alert(ret);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| folderPath|String | 是 | 起始文件夹路径,支持"wgt://","wgts://","res://","file://" 协议 |
-| cbFunc | Function| 是 | 文件浏览结束后,会调用此函数,函数参数说明见下|
+| 参数名称       | 参数类型     | 是否必选 | 说明                                       |
+| ---------- | -------- | ---- | ---------------------------------------- |
+| folderPath | String   | 是    | 起始文件夹路径,支持"wgt://","wgts://","res://","file://" 协议 |
+| cbFunc     | Function | 是    | 文件浏览结束后,会调用此函数,函数参数说明见下                  |
 
 
 **回调函数的参数:**
 
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| path|String | 用户选择的文件的路径;若用户取消选择,则path为null |
+| 参数名称 | 参数类型   | 说明                            |
+| ---- | ------ | ----------------------------- |
+| path | String | 用户选择的文件的路径;若用户取消选择,则path为null |
 
 
 
@@ -324,16 +324,16 @@ uexFileMgr.explorer("/sdcard/widgetone",function(path){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| path|String | 是 | 文件路径,支持"wgt://","wgts://","res://","file://" 协议 |
-| cb | Function| 是 | 文件浏览结束后,会调用此函数,函数参数说明见下|
+| 参数名称 | 参数类型     | 是否必选 | 说明                                       |
+| ---- | -------- | ---- | ---------------------------------------- |
+| path | String   | 是    | 文件路径,支持"wgt://","wgts://","res://","file://" 协议 |
+| cb   | Function | 是    | 文件浏览结束后,会调用此函数,函数参数说明见下                  |
 
 **回调参数:**
 
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| paths|Array | 用户选择的文件的路径构成的数组;若用户取消选择,则path为空数组 |
+| 参数名称  | 参数类型  | 说明                                |
+| ----- | ----- | --------------------------------- |
+| paths | Array | 用户选择的文件的路径构成的数组;若用户取消选择,则path为空数组 |
 
 **示例:**
 
@@ -353,10 +353,10 @@ uexFileMgr.multiExplorer("/sdcard/widgetone",function(paths){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
-| len| Number| 是 |字节数 |
+| 参数名称 | 参数类型   | 是否必选 | 说明          |
+| ---- | ------ | ---- | ----------- |
+| id   | String | 是    | uexFile对象ID |
+| len  | Number | 是    | 字节数         |
 
 **返回值:**
 
@@ -384,9 +384,9 @@ alert(ret);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明          |
+| ---- | ------ | ---- | ----------- |
+| id   | String | 是    | uexFile对象ID |
 
 **返回值:**
 
@@ -413,9 +413,9 @@ alert(ret);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明          |
+| ---- | ------ | ---- | ----------- |
+| id   | String | 是    | uexFile对象ID |
 
 **返回值:**
 
@@ -442,28 +442,28 @@ alert(ret);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
-| option | Number| 是 |写入设置(详见下) |
-| data| String| 是 |要写入的数据 |
-| cb | Function| 是 | 写入结束后,会调用此函数,函数参数说明见下|
+| 参数名称   | 参数类型     | 是否必选 | 说明                    |
+| ------ | -------- | ---- | --------------------- |
+| id     | String   | 是    | uexFile对象ID           |
+| option | Number   | 是    | 写入设置(详见下)             |
+| data   | String   | 是    | 要写入的数据                |
+| cb     | Function | 是    | 写入结束后,会调用此函数,函数参数说明见下 |
 
 * uexFileWritingOption是一个枚举值,将所需设置对应的flag传入即可。
 * 同时需要多种设置时,应将设置对应的flag相加后再传入。比如 option传3 (= 1+2) 意味着先进行base64解码,再追加写入.
 * 不需要这些额外设置时,option请传0
 
-| flag | 含义 | 解释 |
-| ----- | ----- | ----- | 
-| 1 | Append | 包含此flag时,数据会追加写入到指定的文件|
-| 2 | Base64Decode | 包含此flag时,插件会先对传入的字符串进行base64解码,然后将解码后的数据写入文件|
+| flag | 含义           | 解释                                       |
+| ---- | ------------ | ---------------------------------------- |
+| 1    | Append       | 包含此flag时,数据会追加写入到指定的文件                   |
+| 2    | Base64Decode | 包含此flag时,插件会先对传入的字符串进行base64解码,然后将解码后的数据写入文件 |
 
 
 **回调参数:**
 
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| ret| Boolean | 写入是否成功 |
+| 参数名称 | 参数类型    | 说明     |
+| ---- | ------- | ------ |
+| ret  | Boolean | 写入是否成功 |
 
 
 
@@ -490,42 +490,42 @@ uexFileMgr.writeFile(file, 0, "test",function(ret){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
-| len| Number| 是 |字节数,传-1表示读取全部内容|
-| option | Number | 是 | 读取设置(详见下)|
-| cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
+| 参数名称   | 参数类型     | 是否必选 | 说明                    |
+| ------ | -------- | ---- | --------------------- |
+| id     | String   | 是    | uexFile对象ID           |
+| len    | Number   | 是    | 字节数,传-1表示读取全部内容       |
+| option | Number   | 是    | 读取设置(详见下)             |
+| cb     | Function | 是    | 读取结束后,会调用此函数,函数参数说明见下 |
 
 * uexFileReadingOption是一个枚举值,将所需设置对应的flag传入即可。
 * 同时需要多种设置时,应将设置对应的flag相加后再传入。
 * 不需要这些额外设置时,option请传0
 
-| flag | 含义 | 解释 |
-| ----- | ----- | ----- | 
-| 1 | Base64Encode | 包含此flag时,插件会对读取到的数据先进行base64编码,再传回给前端|
+| flag | 含义           | 解释                                    |
+| ---- | ------------ | ------------------------------------- |
+| 1    | Base64Encode | 包含此flag时,插件会对读取到的数据先进行base64编码,再传回给前端 |
 
 * 不需要这些额外设置时,option请传0
 
 **回调参数:**
 
 ```
-var cb = function(isSuccess,data){}
+var cb = function(error,data){}
 ```
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| isSuccess| Boolean |  读取操作是否成功 |
-| data| String | 读取到的数据,读取失败时返回null |
+| 参数名称  |  参数类型  | 说明                    |
+| ----- | :----: | --------------------- |
+| error |  ---   | 读取操作是否成功，(!error)表示成功 |
+| data  | String | 读取到的数据,读取失败时返回null    |
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
 });
-uexFileMgr.readFile(file, -1,0,function(isSuccess,data){
-	if(isSuccess){
+uexFileMgr.readFile(file, -1,0,function(error,data){
+	if(!error){
 		alert(data);
 	}else{
 		alert("读取失败!");
@@ -544,9 +544,9 @@ uexFileMgr.readFile(file, -1,0,function(isSuccess,data){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明          |
+| ---- | ------ | ---- | ----------- |
+| id   | String | 是    | uexFile对象ID |
 
 **返回值:**
 
@@ -574,9 +574,9 @@ alert(size);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明          |
+| ---- | ------ | ---- | ----------- |
+| id   | String | 是    | uexFile对象ID |
 
 **返回值:**
 
@@ -603,9 +603,9 @@ alert(path);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| path| String| 是 | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
+| 参数名称 | 参数类型   | 是否必选 | 说明                                    |
+| ---- | ------ | ---- | ------------------------------------- |
+| path | String | 是    | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
 
 **返回值:**
 
@@ -628,9 +628,9 @@ uexFileMgr.getFileRealPath("wgt://data/test.txt");
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明          |
+| ---- | ------ | ---- | ----------- |
+| id   | String | 是    | uexFile对象ID |
 
 **返回值:**
 
@@ -656,9 +656,9 @@ alert(ret);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明          |
+| ---- | ------ | ---- | ----------- |
+| id   | String | 是    | uexFile对象ID |
 
 **返回值:**
 
@@ -666,7 +666,7 @@ String类型,文件偏移值转成的string
 发送错误时返回null
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
@@ -684,32 +684,32 @@ uexFileMgr.getReaderOffset(file);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
-| percent| Number| 是 | 百分比(不带百分号) |
-| len| Number| 是 | 字节数,读取百分比之后的字节长度 |
-| cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
+| 参数名称    | 参数类型     | 是否必选 | 说明                    |
+| ------- | -------- | ---- | --------------------- |
+| id      | String   | 是    | uexFile对象ID           |
+| percent | Number   | 是    | 百分比(不带百分号)            |
+| len     | Number   | 是    | 字节数,读取百分比之后的字节长度      |
+| cb      | Function | 是    | 读取结束后,会调用此函数,函数参数说明见下 |
 
 **回调参数:**
 
+```javascript
+var cb = function(error,data){}
 ```
-var cb = function(isSuccess,data){}
-```
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| isSuccess| Boolean |  读取操作是否成功 |
-| data| String | 读取到的数据,读取失败时返回null |
+| 参数名称  |  参数类型  | 说明                    |
+| ----- | :----: | --------------------- |
+| error |  ---   | 读取操作是否成功，(!error)表示成功 |
+| data  | String | 读取到的数据,读取失败时返回null    |
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
 });
-uexFileMgr.readPercent(file,20,3,function(isSuccess,data){
-	if(isSuccess){
+uexFileMgr.readPercent(file,20,3,function(error,data){
+	if(!error){
 		alert(data);
 	}else{
 		alert("ERROR!");
@@ -727,32 +727,32 @@ uexFileMgr.readPercent(file,20,3,function(isSuccess,data){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
-| len| Number| 是 | 字节数 |
-| cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
+| 参数名称 | 参数类型     | 是否必选 | 说明                    |
+| ---- | -------- | :--: | --------------------- |
+| id   | String   |  是   | uexFile对象ID           |
+| len  | Number   |  是   | 字节数                   |
+| cb   | Function |  是   | 读取结束后,会调用此函数,函数参数说明见下 |
 
 **回调参数:**
 
+```javascript
+var cb = function(error,data){}
 ```
-var cb = function(isSuccess,data){}
-```
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| isSuccess| Boolean |  读取操作是否成功 |
-| data| String | 读取到的数据,读取失败时返回null |
+| 参数名称  |  参数类型  | 说明                    |
+| ----- | :----: | --------------------- |
+| error |  ---   | 读取操作是否成功,(!error)表示成功 |
+| data  | String | 读取到的数据,读取失败时返回null    |
 
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
 });
-uexFileMgr.readNext(file, 20,function(isSuccess,data){
-	if(isSuccess){
+uexFileMgr.readNext(file, 20,function(error,data){
+	if(!error){
 		alert(data);
 	}else{
 		alert("ERROR!");
@@ -770,30 +770,30 @@ uexFileMgr.readNext(file, 20,function(isSuccess,data){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id| String| 是 | uexFile对象ID |
-| len| Number| 是 | 字节数 |
-| cb | Function| 是 | 读取结束后,会调用此函数,函数参数说明见下|
+| 参数名称 | 参数类型     | 是否必选 | 说明                    |
+| ---- | -------- | ---- | --------------------- |
+| id   | String   | 是    | uexFile对象ID           |
+| len  | Number   | 是    | 字节数                   |
+| cb   | Function | 是    | 读取结束后,会调用此函数,函数参数说明见下 |
 
 **回调参数:**
 
+```javascript
+var cb = function(error,data){}
 ```
-var cb = function(isSuccess,data){}
-```
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| isSuccess| Boolean |  读取操作是否成功 |
-| data| String | 读取到的数据,读取失败时返回null |
+| 参数名称  |  参数类型  | 说明                    |
+| ----- | :----: | --------------------- |
+| error |  ---   | 读取操作是否成功 (!error)表示成功 |
+| data  | String | 读取到的数据,读取失败时返回null    |
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
 });
-uexFileMgr.readPre(file,20,function(isSuccess,data){
-	if(isSuccess){
+uexFileMgr.readPre(file,20,function(error,data){
+	if(!error){
 		alert(data);
 	}else{
 		alert("ERROR!");
@@ -813,9 +813,9 @@ uexFileMgr.readPre(file,20,function(isSuccess,data){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-|  param | Object | 是 | 文件设置 |
+| 参数名称  | 参数类型   | 是否必选 | 说明   |
+| ----- | ------ | ---- | ---- |
+| param | Object | 是    | 文件设置 |
 
 
 ```
@@ -856,9 +856,9 @@ if(!file){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-|  param | Object | 是 | 文件设置 |
+| 参数名称  | 参数类型   | 是否必选 | 说明   |
+| ----- | ------ | ---- | ---- |
+| param | Object | 是    | 文件设置 |
 
 
 ```
@@ -896,9 +896,9 @@ if(!file){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| path| String| 是 | 文件路径,支持"wgt://","wgts://","wgts://","res://","file://" 协议|
+| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| path | String | 是    | 文件路径,支持"wgt://","wgts://","wgts://","res://","file://" 协议 |
 
 **返回值:**
 
@@ -923,10 +923,10 @@ alert(timeStr);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| param| String| 是 | param是字典结构json字符串,详情见下 |
-| cb | Function| 是 | 重命名结束后,会调用此函数,函数参数说明见下|
+| 参数名称  | 参数类型     | 是否必选 | 说明                     |
+| ----- | -------- | ---- | ---------------------- |
+| param | String   | 是    | param是字典结构json字符串,详情见下 |
+| cb    | Function | 是    | 重命名结束后,会调用此函数,函数参数说明见下 |
 
 ```
 var param = {
@@ -937,11 +937,11 @@ var param = {
 
 **回调参数:**
 
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| resultObj| Object | 重命名操作结果 |
+| 参数名称      | 参数类型   | 说明      |
+| --------- | ------ | ------- |
+| resultObj | Object | 重命名操作结果 |
 
-```
+```javascript
 var resultObj = {
 	result:,//Number,必选.重命名成功时为1,失败时为0
 }
@@ -951,7 +951,7 @@ var resultObj = {
 
 **示例:**
 
-```
+```javascript
 var data = {
 	oldFilePath:"wgt://1.txt",
 	newFilePath:"wgt://2.txt"
@@ -977,10 +977,10 @@ uexFileMgr.renameFile(JSON.stringify(data),function(obj){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| param| String| 是 | param是字典结构json字符串,详情见下 |
-| cb | Function| 是 | 搜索操作结束后,会调用此函数,函数参数说明见下|
+| 参数名称  | 参数类型     | 是否必选 | 说明                      |
+| ----- | -------- | ---- | ----------------------- |
+| param | String   | 是    | param是字典结构json字符串,详情见下  |
+| cb    | Function | 是    | 搜索操作结束后,会调用此函数,函数参数说明见下 |
 
 ```
 var param = {
@@ -991,19 +991,19 @@ var param = {
 	}
 ```
 
-|option|说明|
-|-----|-----|
-|1|匹配文件夹 也搜索符合条件的文件夹(有设置suffixes时,此项设置失效)|
-|2|精确匹配 只搜索文件名恰为keyword的文件|
-|4|递归搜索 搜索目标文件夹及其子文件夹|
+| option | 说明                                     |
+| ------ | -------------------------------------- |
+| 1      | 匹配文件夹 也搜索符合条件的文件夹(有设置suffixes时,此项设置失效) |
+| 2      | 精确匹配 只搜索文件名恰为keyword的文件                |
+| 4      | 递归搜索 搜索目标文件夹及其子文件夹                     |
 
 * 需要多项option时 请将各option值相加再传入。比如传5 (=4+1),表示既递归搜索,又匹配文件夹
 
 **回调参数:**
 
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| resultObj| Object | 搜索操作结果 |
+| 参数名称      | 参数类型   | 说明     |
+| --------- | ------ | ------ |
+| resultObj | Object | 搜索操作结果 |
 
 ```
 var resultObj = {
@@ -1042,9 +1042,9 @@ uexFileMgr.search(JSON.stringify(data),function(obj){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| path | String| 是 | 文件夹路径,支持wgt://, wgts://, file://协议路径|
+| 参数名称 | 参数类型   | 是否必选 | 说明                                   |
+| ---- | ------ | ---- | ------------------------------------ |
+| path | String | 是    | 文件夹路径,支持wgt://, wgts://, file://协议路径 |
 
 
 
@@ -1082,10 +1082,10 @@ alert(result);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| param| String| 是 | param是字典结构json字符串,详情见下 |
-| cb | Function| 是 | 操作结束后,会调用此函数,函数参数说明见下|
+| 参数名称  | 参数类型     | 是否必选 | 说明                     |
+| ----- | -------- | ---- | ---------------------- |
+| param | String   | 是    | param是字典结构json字符串,详情见下 |
+| cb    | Function | 是    | 操作结束后,会调用此函数,函数参数说明见下  |
 
 
 ```
@@ -1097,16 +1097,16 @@ var params = {
 ```
 各字段含义如下:
 
-|  字段名称 | 类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| path | String| 是 | 文件或文件夹路径,支持wgt://, wgts://, file://协议路径 ,路径协议详见[附录-PathTypes](#PathTypes) |
-| unit | String| 否 | 文件大小单位,默认为"B",取值范围参考[unit](#GetFileSizeUnit) |
+| 字段名称 | 类型     | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| path | String | 是    | 文件或文件夹路径,支持wgt://, wgts://, file://协议路径 ,路径协议详见[附录-PathTypes](#PathTypes) |
+| unit | String | 否    | 文件大小单位,默认为"B",取值范围参考[unit](#GetFileSizeUnit) |
 
 **回调参数:**
 
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| resultObj| Object | 搜索操作结果 |
+| 参数名称      | 参数类型   | 说明     |
+| --------- | ------ | ------ |
+| resultObj | Object | 搜索操作结果 |
 
 ```
 var resultObj = {
@@ -1147,38 +1147,37 @@ uexFileMgr.getFileSizeByPath(data,function(info){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| param| Object| 是 | 复制操作的参数,详见下 |
-| cbFunc | Function| 是 | 操作结束后,会调用此函数|
+| 参数名称   | 参数类型     | 是否必选 | 说明           |
+| ------ | -------- | ---- | ------------ |
+| param  | Object   | 是    | 复制操作的参数,详见下  |
+| cbFunc | Function | 是    | 操作结束后,会调用此函数 |
 
-```
+```javascript
 var param = {
     src:,//源文件或文件夹路径
     target:,//目标文件夹路径
 }
 
-var cbFunc = function(isSuccess){
-    //isSuccess是Boolean类型,为复制操作的结果
+var cbFunc = function(error){
+    //error,为复制操作的结果,(!error 表示复制成功)
 }
-
 ```
 
 * copy会将源文件或者文件夹，复制至目标文件夹内,**不会进行重命名操作**
 
 **示例:**
 
-```
-`uexFileMgr.copy({
+```javascript
+uexFileMgr.copy({
 	src: "wgt://test/1.txt",
 	target: "wgt://test2/" 
-},function(ret){
-	if(ret){
+},function(error){
+	if(!error){
 		alert("复制成功");
 	}else{
 		alert("复制失败");
 	}
-});`
+});
 ```
 
 
@@ -1191,9 +1190,9 @@ API版本:`uexFileMgr-4.0.0`
 
 最近更新时间:`2016-7-29`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 文件管理功能插件 |
+| 历史发布版本 | 更新内容     |
+| ------ | -------- |
+| 4.0.0  | 文件管理功能插件 |
 
 ### Android
 
@@ -1201,37 +1200,37 @@ API版本:`uexFileMgr-4.0.0`
 
 最近更新时间:`2016-7-29`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 文件管理功能插件 |
+| 历史发布版本 | 更新内容     |
+| ------ | -------- |
+| 4.0.0  | 文件管理功能插件 |
 
 
 # 4、附录
 
 ### GetFileSizeErrorCode
 
-|  errorCode | 说明 |
-| ----- | ----- |
-| 0 | 获取成功|
-| -1 | 无参数错误 |
-| -2 | 当前路径文件或文件夹不存在 |
-| -3 | 未知错误 |
+| errorCode | 说明            |
+| --------- | ------------- |
+| 0         | 获取成功          |
+| -1        | 无参数错误         |
+| -2        | 当前路径文件或文件夹不存在 |
+| -3        | 未知错误          |
 
 ### GetFileSizeUnit
 
-| value | 说明 |
-| ----- | ----- |
-| B | 字节|
-| KB | 1KB = 1024B |
-| MB | 1MB = 1024KB |
-| GB | 1GB = 1024MB |
+| value | 说明           |
+| ----- | ------------ |
+| B     | 字节           |
+| KB    | 1KB = 1024B  |
+| MB    | 1MB = 1024KB |
+| GB    | 1GB = 1024MB |
 
 ### PathTypes
 
-|  协议头 |  Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径  |
-| ------------ | ------------ | ------------ |
-| res:// |widget/wgtRes/   |widget/wgtRes   |
-| wgt:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/  | /Documents/apps/xxx(widgetAppId)/ |
-| wgts:// |  /storage/emulated/0/widgetone/widgets/ |  /Documents/widgets/ |
-| file:///sdcard/ | /storage/emulated/0/  | 绝对路径  |
+| 协议头             | Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径                           |
+| --------------- | ---------------------------------------- | --------------------------------- |
+| res://          | widget/wgtRes/                           | widget/wgtRes                     |
+| wgt://          | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
+| wgts://         | /storage/emulated/0/widgetone/widgets/   | /Documents/widgets/               |
+| file:///sdcard/ | /storage/emulated/0/                     | 绝对路径                              |
 
