@@ -38,13 +38,13 @@
 **参数:**
 
 
-| 参数名称   | 参数类型   | 是否必选 | 说明    |
-| ------ | ------ | ---- | ----- |
-| dbName | String | 是    | 数据库名称 |
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| dbName | String | 是 | 数据库名称 |
 
-**返回结果**
+**返回值:**
 
-该函数同步返回执行结果，执行结果是`JSON对象`类型。结果不为null即为打开成功，后续接口传入此对象进行操作，开发者不需要关心里面的数据结构。
+该函数同步返回`DB Object`。结果不为null即为打开成功，后续接口传入此对象进行操作，开发者不需要关心里面的数据结构。
 
 **示例:**
 
@@ -62,13 +62,13 @@ Sql语句的执行,对数据库数据的增删改。执行完成后回调`callba
 **参数:**
 
 
-| 参数名称             | 参数类型   | 是否必选 | 说明            |
-| ---------------- | ------ | ---- | ------------- |
-| db               | JSON对象 | 是    | open接口同步返回的对象 |
-| sql              | String | 是    | 要执行的sql语句     |
-| callbackFunction | 函数     | 否    | 回调函数，返回执行的结果  |
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| db | DB Object | 是 | open接口同步返回的对象 |
+| sql | String | 是 | 要执行的sql语句 |
+| callbackFunction | 函数 | 否 | 回调函数，返回执行的结果 |
 
-`callbackFunction`的参数是bool类型。表示是否失败。 true:失败， false:成功
+`callbackFunction`的参数是Error对象,非空时表示失败,为空是表示成功。
 
 
 **示例:**
@@ -91,13 +91,13 @@ Sql语句的查询,对数据库中数据的查询。
 
 ** 参数:**
 
-| 参数名称             | 参数类型   | 是否必选 | 说明            |
-| ---------------- | ------ | ---- | ------------- |
-| db               | JSON   | 是    | open接口同步返回的对象 |
-| sql              | String | 否    | 要查询的sql语句     |
-| callbackFunction | 函数     | 否    | 回调函数，返回执行的结果  |
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| db | DB Object | 是 | open接口同步返回的对象 |
+| sql | String | 否 | 要查询的sql语句 |
+| callbackFunction | 函数 | 否 | 回调函数，返回执行的结果 |
 
-`select`执行成功后，`callbackFunction`函数返回的数据第一个是否失败:false为成功，true 为失败、第二个是JSON对象 。
+`select`执行成功后，`callbackFunction`函数返回的数据第一个参数是Error对象,非空时表示失败,为空是表示成功,第二个是数组对象,为select得到的结果。
 
 
 **示例:**
@@ -113,7 +113,7 @@ uexDataBaseMgr.select(db,sql, function (error,data) {
 });
 ```
 
-> ### transaction　事务的执行
+> ### transactionEx　事务的执行
 
 `uexDataBaseMgr.transactionEx(db,func, callbackFunction)`
 
@@ -123,13 +123,13 @@ uexDataBaseMgr.select(db,sql, function (error,data) {
 
 ** 参数:**
 
-| 参数名称             | 参数类型     | 是否必选 | 说明            |
-| ---------------- | -------- | ---- | ------------- |
-| db               | JSON     | 是    | open接口同步返回的对象 |
-| func             | Function | 否    | 可选在事务中执行的函数   |
-| callbackFunction | 函数       | 否    | 回调函数，返回执行的结果  |
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| db | DB Object | 是 | open接口同步返回的对象 |
+| func | Function | 是 | 可选在事务中执行的函数 |
+| callbackFunction | Function | 否 | 回调函数，返回执行的结果 |
 
-`callbackFunction` 参数是BOOL类型， false: 成功， true:失败
+`callbackFunction` 参数是是Error对象,非空时表示失败,为空是表示成功
 
 
 **示例:**
@@ -140,7 +140,9 @@ function inFunc(){
     uexDataBaseMgr.sql(db,sql);
 }
 uexDataBaseMgr.transactionEx(db,inFunc, function(error) {
-    alert(error);
+	if(!error){
+		alert("transaction success!");
+	}
 });
 ```
 
@@ -148,16 +150,20 @@ uexDataBaseMgr.transactionEx(db,inFunc, function(error) {
 
 `uexDataBaseMgr.close(db)`
 
-** 说明:**
+**说明:**
 
-关闭数据库, 同步返回结果。 true为成功, false 为失败
+关闭数据库.
+
 
 **参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明            |
-| ---- | ---- | ---- | ------------- |
-| db   | JSON | 是    | open对象同步返回的对象 |
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| db | DB Object | 是 | open对象同步返回的对象 |
 
+**返回值:**
+
+返回值为Boolean类型,表示关闭的结果,true为成功, false 为失败
 
 **示例:**
 
@@ -172,25 +178,20 @@ alert(result);
 
 API版本:`uexDataBaseMgr-4.0.0`
 
-最近更新时间:`2016-6-15`
+最近更新时间:`2016-8-2`
 
-| 历史发布版本 | 更新内容                              |
-| ------ | --------------------------------- |
-| 4.0.0  | 支持function传入                      |
-| 3.0.5  | 修复数据包含特殊字符时回调结果错误的问题              |
-| 3.0.4  | 添加IDE支持                           |
-| 3.0.3  | 重新解决uexDataBaseMgr插件IDE包创建表格失败的问题 |
-| 3.0.2  | 解决uexDataBaseMgr插件IDE包创建表格失败的问题   |
-| 3.0.1  | 使用新版Xcode重新编译,支持arm64             |
-| 3.0.0  | 数据库功能插件                           |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.0 | 数据库功能插件 |
+
 
 ### Android
 
 API版本:`uexDataBaseMgr-4.0.0`
 
-最近更新时间:`2016-6-15`
+最近更新时间:`2016-8-2`
 
-| 历史发布版本 | 更新内容         |
-| ------ | ------------ |
-| 4.0.0  | 支持function传入 |
-| 3.0.0  | 数据库功能插件      |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.0 | 数据库功能插件 |
+
