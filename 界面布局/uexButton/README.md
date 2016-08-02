@@ -22,7 +22,7 @@ Button插件
 ## 2.1、方法
 > ### [create](#create)  创建按钮
 
-`var buttonId = uexButton.create(param)`  
+`var btnObj = uexButton.create(param)`  
 
 **说明:**
 
@@ -63,9 +63,9 @@ var param = {
 
 **返回值:**
 
-|返回值|返回值类型 | 是否必选|  说明 |
-|-----|-----|-----|----- |
-| buttonId | String | 是 | uexButton对象ID,创建失败时返回null |
+|返回值|返回值类型 |  说明 |
+|-----|-----|----- |
+| btnObj | Object |  创建成功，返回button, 失败时返回null |
 
 **示例:**
 
@@ -82,12 +82,12 @@ var param = {
            textSize:"18.789"
         }
     }
-   var buttonId =  uexButton.create(param);
+   var btnOjb =  uexButton.create(param);
 ```
 
 > ### [close](#close)  移除按钮
 
-`uexButton.close(buttonId)`
+`uexButton.close(btnOjb)`
 
 **说明:**
 
@@ -97,14 +97,13 @@ var param = {
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |-----|-----|-----|----- |
-| buttonId | String | 是 | uexButton对象ID |
+| btnOjb | Object | 是 | create方法返回的button对象 |
 
 **示例:**
 
 ```
-var buttonId = "1001";
-
-uexButton.close(buttonId);
+var btnObj = uexButton.create(param);
+uexButton.close(btnObj);
 ```
 
 ## 2.2、监听方法
