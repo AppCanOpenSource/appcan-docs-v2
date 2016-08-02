@@ -34,7 +34,7 @@
 
 **说明:**
 
-该方法创建带安全键盘的输入框，同步返回键盘的id。
+创建带安全键盘的输入框对象，创建失败时返回null。
 
 **参数:**
 
@@ -74,12 +74,12 @@
         "height":50,
         "isScrollWithWeb":true
     };
-    var keyboardId = uexSecurityKeyboard.open(JSON.stringify(params));
+    var securityKeyboard = uexSecurityKeyboard.open(JSON.stringify(params));
 ```
 
 > ### close 销毁带安全键盘的输入框
 
-`uexSecurityKeyboard.close(params);`
+`uexSecurityKeyboard.close(securityKeyboard);`
 
 **说明:**
 
@@ -87,25 +87,24 @@
 
 **参数:**
 
-```
-    var params = []//(可选) 输入框id数组,不传时,销毁全部输入框
-```
+| 名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| securityKeyboard | Object | 否 |由create接口创建的输入框对象，不传关闭所有输入框对象 |
 
 
 **示例:**
 
 ```
-    var params = ["1"];
-    uexSecurityKeyboard.close(JSON.stringify(params));
+    uexSecurityKeyboard.close(securityKeyboard);
 ```
 
-> ### getContent 获取输入框中的内容
+> ### getData 获取输入框中的内容
 
-`var info = uexSecurityKeyboard.getContent(params);`
+`var content = uexSecurityKeyboard.getContent(securityKeyboard);`
 
 **说明:**
 
-获取输入框中的内容,支持同步回调。
+获取输入框对象中的内容,支持同步回调。
 
 **参数:**
 
@@ -114,30 +113,15 @@
 
 | 名称 | 类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| params | json字符串数组 | 否 | 输入框id数组,不传时,获取全部输入框中的内容 |
-| info | json对象 | 否 | 返回数据 |
-| id | String | 是 | 唯一标识符,与open方法中的id对应 |
-| content | String | 否 | 输入的内容,仅当传入的id标识的输入框已打开的有效 |
-```
-var info = [//输入框数据列表
-    {
-        id:,
-        content:
-    }
-]
-```
+| securityKeyboard | Object | 是 |由create接口创建的输入框对象 |
+| content | String | 是 | 输入框对象的内容 |
+
 
 **示例:**
 
 ```
-   //获取id为1的输入框内容
-   var params = '["1"]';
-   var info = uexSecurityKeyboard.getContent(params);
-   alert(JSON.stringfy(info));
-   
-   //获取所有输入框中的内容
-   var info = uexSecurityKeyboard.getContent();
-   alert(JSON.stringfy(info)); 
+   var content = uexSecurityKeyboard.getContent(securityKeyboard)
+  
 ```
 
 
