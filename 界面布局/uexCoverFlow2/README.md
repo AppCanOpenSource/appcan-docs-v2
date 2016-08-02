@@ -8,90 +8,77 @@ CoverFlow 功能,封装的HTML5代码片段,通过配合的样式和JS对象 ,�
  ![](http://newdocx.appcan.cn/docximg/140050b2015n6c16e.png)
 ## 1.3、开源源码:
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=163_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+## 1.4、平台版本支持
 
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用。
+
+在后续版本中新添加的接口会在文档中额外说明。
 # 2、API概览
 
 ## 2.1、方法
-> ### setJsonData 设置数据
 
-`uexCoverFlow2.setJsonData(json,img)`
+> ### create 打开视图
+
+`uexCoverFlow2.create(params)`
 
 **说明:**
 
-必须先设置数据才能打开界面
+创建视图对象
+
+**返回值:**
+
+返回视图对象 创建失败时返回null
+
 
 **参数:**
+params为json对象
 
-|   参数名称|参数类型   | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| json  | String类型  |必选   | json数据  |
-| img  | img  |必选   | 默认图片路径,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes  |
- 
-````
-  json 格式为:  '{"id":"500","selectColor":"#FFFFFF","alpha":"0.2","data":  [{"title":"10","imageUrl":"res://***.png"},  {"title":"20","imageUrl":"res://xxx.png"}]}';
-  
-````
+```
+var params = {                                    
+      "x": ,
+      "y": ,
+      "width": ,
+      "height": ,
+      "isScrollWithWeb": ,
+      "placeholderImage": ,
+      "imageUrl":[]
+  };
+```
 各字段含义如下:
 
-|参数|是否必须|说明|
-|-----|-----|-----|
-|id|是|唯一标识符|
-|data|是|数据|
-|imageUrl|是|图片地址,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
- 
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-var jsonStr = '{"id":"' + id + '","data":[{"title":"123","imageUrl":"http://www.cmkjz.com/uploads/allimg/100116/0134423.jpg"},{"title":"456","imageUrl":"http://82238.com/uploads/allimg/110519/2-110519130404.jpg"},{"title":"789","imageUrl":"http://www.qqhead.com/UploadFiles/2010-04/2010458740103062.gif"},{"title":"000","imageUrl":"http://a4.att.hudong.com/06/63/01300001216886130487639263274.jpg"}]}';
-uexCoverFlow2.setJsonData(jsonStr, "res://Default.png");
-```
-> ### open 打开视图
-
-`uexCoverFlow2.open(id,x,y,width,height,addToWebView)`
-
-**说明:**
-
-打开视图
-
-**参数:**
-
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id  | Number类型  |必选   | 唯一标识符  |
-| x  | Number类型  |必选   | x坐标  |
-| y  | Number类型  |必选   | y坐标  |
-| width  | Number类型  |必选   | 宽  |
-| height  | Number类型  |必选   | 高  |
-| addToWebView  | Number类型  |可选   | 是否添加到webview跟随webview滚动.0正常打开,不跟随.1为添加到webview,跟随滚动  |
- 
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
+| x  | Number  |必选   | x坐标  |
+| y  | Number  |必选   | y坐标  |
+| width  | Number  |必选   | 宽  |
+| height  | Number  |必选   | 高  
+| isScrollWithWeb | bool  | 可选   | 是否随网页滚动，默认为false  |
+| placeholderImage | String  | 必选   | 默认图片路径,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes  |
+| imageUrl | Array  | 必选   | 网络路径  |
 
 **示例:**
 
 ```
-uexCoverFlow2.open("510", "20", "200", "240", "250","0");
+var params = {                                    
+      "x": 0,
+      "y": 150,
+      "width":screen.availWidth,
+      "height":200,
+      "isScrollWithWeb":true,
+      "placeholderImage":"res://uexCoverFlow2_tupian.png",
+      "imageUrl":["http://img3.duitang.com/uploads/item/201411/08/20141108002929_dV5Ba.thumb.700_0.jpeg","http://82238.com/uploads/allimg/110519/2-110519130404.jpg","http://www.qqhead.com/UploadFiles/2010-04/2010458740103062.gif","http://a4.att.hudong.com/06/63/01300001216886130487639263274.jpg"]
+  };
+var coverFlow = uexCoverFlow2.create(params);
 ```
 > ### close 关闭视图
 
-`uexCoverFlow2.close(id)`
+`uexCoverFlow2.close(coverFlow)`
 
 **说明:**
 
@@ -101,36 +88,25 @@ uexCoverFlow2.open("510", "20", "200", "240", "250","0");
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id  | Number类型  |必选   | 唯一标识符  |
+| coverFlow  | Object  |可选   | 由create接口创建的视图对象，不传关闭所有视图对象  |
  
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持:**
-
-3.0.0+
-
 **示例:**
 
 ```
-var idarr = ["500", "510"]; //  var idarr = ["500"];
-uexCoverFlow2.close(idarr);
+uexCoverFlow2.close(coverFlow);
 ```
 ##2.2监听方法
 
 > ### onItemSelected 点击item的监听方法
 
 `
-uexCoverFlow2.onItemSelected(id,index)`
+uexCoverFlow2.onItemSelected(coverFlow,index)`
 
 **参数:**
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| id  | Number类型  |必选   | 唯一标识符  |
+| coverFlow  | Object  |必选   | 由create接口创建的视图对象  |
 | index  | Number类型  |必选   | 索引  |
  
 
@@ -142,8 +118,8 @@ uexCoverFlow2.onItemSelected(id,index)`
 
 ```
 window.uexOnload = function(){
-  uexCoverFlow2.onItemSelected = function(opId, index){
-  alert("opId:" + opId + "index:" + index)
+  uexCoverFlow2.onItemSelected = function(coverFlow, index){
+  alert("coverFlow:" + coverFlow + "index:" + index)
  }
 }
 ```
@@ -151,12 +127,13 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexCoverFlow2-3.0.3`
+API版本:`uexCoverFlow2-4.0.0`
 
-最近更新时间:`2015-12-07`
+最近更新时间:`2016-8-02`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 插件4.0 |
 | 3.0.3 | 修改View可以跟随网页滑动 |
 | 3.0.2 | 使用新版Xcode重新编译,支持arm64 |
 | 3.0.1 | 去掉图片底部的标题栏 |
@@ -164,12 +141,13 @@ API版本:`uexCoverFlow2-3.0.3`
 
 ### Android
 
-API版本:`uexCoverFlow2-3.0.7`
+API版本:`uexCoverFlow2-4.0.0`
 
-最近更新时间:`2015-12-07`
+最近更新时间:`2016-8-02`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 插件4.0 |
 | 3.0.7 | open接口添加跟随webview滚动参数,部分逻辑优化 |
 | 3.0.6 | 去掉插件中的ActivityGroup,配合引擎升级 |
 | 3.0.5 | 修复open接口传入小数时异常的问题 |
