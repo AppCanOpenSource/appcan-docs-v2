@@ -34,7 +34,6 @@ var param={
 	height;//轮播图高度
 	width;//轮播图宽度
 	urls;//List<String> 的json字符串
-	viewId;//轮播图id
 };
 ```
 
@@ -47,12 +46,10 @@ var param={
 | height | Number | 是 | 轮播图高度 |
 | width | Number | 是 | 轮播图宽度 |
 | urls | Array | 是 | List<String> 的json字符串 |
-| viewId | String | 否 | 轮播图id |
 
 **返回值:**
 
-轮播图ID
-创建失败时返回null
+创建成功返回轮播图对象view，创建失败时返回null
 
 **示例**
 
@@ -62,10 +59,12 @@ var param={
 	anchor:["0", "0"],
 	height:400,
 	width:1080,
-	urls:["res://1-1.jpg","res://1-2.jpg","res://1-3.jpg","res://1-4.jpg"],
-	viewId:1
+	urls:["res://1-1.jpg","res://1-2.jpg","res://1-3.jpg","res://1-4.jpg"]
 };
-uexScrollPicture.createNewScrollPicture(JSON.stringify(param));
+var view1=uexScrollPicture.createNewScrollPicture(JSON.stringify(param));
+if(!view1){
+	alert("创建轮播图失败");
+}
 
 ```
 
@@ -80,7 +79,7 @@ uexScrollPicture.createNewScrollPicture(JSON.stringify(param));
 
 ```
 var param={
-	viewId;//轮播图id
+	view;//轮播图对象
 };
 ```
 
@@ -88,7 +87,7 @@ var param={
 
 ```
 var param={
-	viewId:1
+	view:...//createNewScrollPicture接口返回的对象
 };
 uexScrollPicture.startAutoScroll(JSON.stringify(param));
 ```
@@ -102,7 +101,7 @@ uexScrollPicture.startAutoScroll(JSON.stringify(param));
 **参数**
 ```
 var param={
-	viewId;//轮播图id
+	view;//轮播图对象
 };
 ```
 
@@ -110,7 +109,7 @@ var param={
 
 ```
 var param={
-	viewId:1
+	view:...//createNewScrollPicture接口返回的对象
 };
 uexScrollPicture.stopAutoScroll(JSON.stringify(param));
 ```
@@ -124,7 +123,7 @@ uexScrollPicture.stopAutoScroll(JSON.stringify(param));
 **参数**
 ```
 var param={
-	viewId;//轮播图id
+	view;//轮播图对象
 };
 ```
 
@@ -132,7 +131,7 @@ var param={
 
 ```
 var param={
-	viewId:1
+	view:...//createNewScrollPicture接口返回的对象
 };
 uexScrollPicture.removeView(JSON.stringify(param));
 ```
@@ -152,7 +151,7 @@ uexScrollPicture.removeView(JSON.stringify(param));
 ```
 var param={
 	index:,//第几个图片被点击,从0开始
-	viewId://轮播图id
+	view://轮播图对象
 }
 ```
  
