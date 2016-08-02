@@ -100,7 +100,7 @@ uexEditDialog.close(editDialog);
 ```
 > ### insert 插入数据
 
-`uexEditDialog.inset(editDialog,text)`
+`uexEditDialog.insert(editDialog,text)`
 
 **说明:**
 
@@ -116,7 +116,7 @@ uexEditDialog.close(editDialog);
  **示例:**
 
 ```
-uexEditDialog.insertData(editDialog,"这是5个字");
+uexEditDialog.insert(editDialog,"这是5个字");
 ```
 > ### cleanAll 清除所有数据
 
