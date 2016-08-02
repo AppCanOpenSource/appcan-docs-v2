@@ -104,7 +104,7 @@ uexEditDialog.close(editDialog);
 
 **说明:**
 
-插入数据
+插入数据，插入成功后返回true, 失败返回false
 
 **参数:**
 
