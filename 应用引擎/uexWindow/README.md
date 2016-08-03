@@ -1,4 +1,4 @@
- 
+
 [TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 
@@ -30,27 +30,27 @@ AppCan平台中，维护了一个窗口堆栈，每个窗口以唯一的窗口�
 
 > ### open 打开窗口
 
-`uexWindow.open(windName,dataType,data,animID,w,h,flag,animDuration,extras)`
+`uexWindow.open(params)`
 
 **说明:**
 打开一个新窗口，如果窗口名字相同，则会覆盖相同窗口名字的页面内容。
 
 **参数:**
 
+`params`为JSON对象，里面字段如下
+
 
 | 参数名称         | 参数类型   | 是否必选 | 说明                                       |
-| ------------ | ------ | ---- | ---------------------------------------- |
-| windName     | String | 是    | 窗口名字，可为空，不能为"root"，若已经打开过该名字的窗口，则直接跳转至该窗口。 |
-| dataType     | Number | 是    | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入        |
-| data         | String | 是    | url或html数据，支持“wgtroot://” 协议头，此协议头用于某些将项目部署在服务器上 的appcan应用，在应用执行过程中加载本地网页用。当dataType为0时，url支持相对路径、 绝对路径。其中，当url以“wgtroot://” 协议开头时，支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件。  例如：当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页，如果在xxx.html页面中open一个窗口时，传入的data为“wgtroot://index.html", 那么本次open执行时，引擎将会到本应用沙箱目录的widget路径下去寻找此页面， 例如Android上找到的路径会是：file:///android_assert/widget/index.html 当dataType为1时，把相应html的内容传进去（不建议） |
-| animationID  | Number | 是    | 动画ID，详见术语表-[WindowAnimationId 窗口动画Id](http://newdocx.appcan.cn/newdocx/docx?type=978_975) |
-| w            | Number | 是    | 窗口宽度，请传0                                 |
-| h            | Number | 是    | 窗口高度，请传0                                 |
-| flag         | Number | 是    | 窗口标记，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
-| animDuration | Number | 否    | 动画持续时长，单位为毫秒，默认为260毫秒                    |
-| extras | String | 否 | 扩展参数，设置值时，animDuration参数必传，json格式如下
+| ------------ | ------ | :--: | ---------------------------------------- |
+| name         | String |  是   | 窗口名字，可为空，不能为"root"，若已经打开过该名字的窗口，则直接跳转至该窗口。 |
+| dataType     | Number |  否   | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入，默认为0   |
+| data         | String |  是   | url或html数据，支持“wgtroot://” 协议头，此协议头用于某些将项目部署在服务器上 的appcan应用，在应用执行过程中加载本地网页用。当dataType为0时，url支持相对路径、 绝对路径。其中，当url以“wgtroot://” 协议开头时，支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件。  例如：当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页，如果在xxx.html页面中open一个窗口时，传入的data为“wgtroot://index.html", 那么本次open执行时，引擎将会到本应用沙箱目录的widget路径下去寻找此页面， 例如Android上找到的路径会是：file:///android_assert/widget/index.html 当dataType为1时，把相应html的内容传进去（不建议） |
+| animID       | Number |  是   | 动画ID，详见术语表-[WindowAnimationId 窗口动画Id](http://newdocx.appcan.cn/newdocx/docx?type=978_975) |
+| flag         | Number |  是   | 窗口标记，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
+| animDuration | Number |  否   | 动画持续时长，单位为毫秒，默认为260毫秒                    |
+| extras       | String |  否   | 扩展参数，设置值时，animDuration参数必传，json格式如下      |
 
-```
+```javascript
 var extras = {
 	extraInfo:{//网页配置
 		opaque:,//Boolean 可选 页面是否透明，默认false
@@ -72,12 +72,17 @@ iOS6.0+
 
 **版本支持：**
 
-3.0.0+
+4.0.0+
 
 **示例:**
 
-```
-uexWindow.open('dd', '0', 'index.html', 1, '', '', 0, 500);
+```javascript
+uexWindow.open({
+    windName:"test",
+    data:"index.html",
+    animationID:2,
+    flag:1024
+});
 ```
 
 > ### openPresentWindow 打开一个位于最上层的window
@@ -443,7 +448,7 @@ uexWindow.evaluateMultiPopoverScript("", "multipop", "pop2", "alert('multipop')"
 | popName      | String | 是    | 名称                                       |
 | dataType     | Number | 是    | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入；2：既有url方式， 又有html内容方式 |
 | url          | String | 是    | url类型数据，支持“wgtroot://” 协议头，此协议头用于某些将项目部署在服务器上的appcan应用，在应用执行过程中 加载本地网页用。当dataType为0时，url支持相对路径、绝对路径。其中，当url以“wgtroot://” 协议开头时，支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件。 例如：当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页，如果在xxx.html页面中open一个窗口时，传入的data为“wgtroot://index.html" ,  那么本次open执行时，引擎将会到本应用沙箱目录的widget路径下去寻找此页面， 例如Android上找到的路径会是：file:///android_assert/widget/index.html 。 |
-| data         | String | 是    | data类型数据，用于当dataType为1时，把相应html的内容传进去。必如传入的是一个'<div>hello,world!</div>'|
+| data         | String | 是    | data类型数据，用于当dataType为1时，把相应html的内容传进去。必如传入的是一个'<div>hello,world!</div>' |
 | x            | Number | 是    | x坐标                                      |
 | y            | Number | 是    | y坐标                                      |
 | w            | Number | 是    | 宽度，为空时默认为window的宽度                       |
@@ -3759,8 +3764,8 @@ function onBounceStateChange(type, state){
 **参数:**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                               |
-| ---- | ------ | ---- | -------------------------------- |
-| data | String | 是    | 消息，postGlobalNotification发送的消息数据 |
+| ---- | ------ | :--: | -------------------------------- |
+| data | String |  是   | 消息，postGlobalNotification发送的消息数据 |
 
 **平台支持：**
 Android2.2+
@@ -4010,4 +4015,3 @@ uexWindow.onSlidingWindowStateChanged=function(state){
 * uex.cWindowAnimationBounceFromTop = 107//同上，但页面从顶端弹入
 * uex.cWindowAnimationBounceFromRight = 108//同上，但页面从右侧端弹入
 * uex.cWindowAnimationBounceFromBottom = 109//同上，但页面从底端弹入
-   
