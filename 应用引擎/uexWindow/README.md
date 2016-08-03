@@ -1201,29 +1201,28 @@ uexWindow.toggleSlidingWindow(paramStr);
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                                       |
 | ---- | ------ | ---- | ---------------------------------------- |
-| json | String | 是    | 侧滑窗口信息。该字符串为JSON格式。如下： {leftSliding: {width:240,url:"uexWindow_left.html"},rightSliding: {width:240,url:"uexWindow_left.html"}} |
+| json | JSON对象 | 是    | 侧滑窗口信息。该字符串为JSON格式。如下： {leftSliding: {width:240,url:"uexWindow_left.html"},rightSliding: {width:240,url:"uexWindow_left.html"}} |
 
 `json`字符串中各字段含义如下:
 
-| 参数  |  参数类型 |是否必须|说明
-| ------------ | ------------ |------------ |
- |leftSliding|String|是|左侧侧滑窗口
-|rightSliding|String|是|右侧侧滑窗口
-|width|Number|是|侧滑窗口宽度
-|url|String|是|url类型数据
+| 参数           | 参数类型   | 是否必选 | 说明      |
+| ------------ | ------ | ---- | ------- |
+| leftSliding  | String | 是    | 左侧侧滑窗口  |
+| rightSliding | String | 是    | 右侧侧滑窗口  |
+| width        | Number | 是    | 侧滑窗口宽度  |
+| url          | String | 是    | url类型数据 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+
 
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
-var params = { 
-leftSliding:{
+```javascript
+uexWindow.setSlidingWindow({ 
+	leftSliding:{
         width:240,
         url:"uexWindow_left.html"
     },
@@ -1231,9 +1230,7 @@ leftSliding:{
         width:240,
         url:"uexWindow_left.html"
     } 
- }; 
- var paramStr = JSON.stringify(params);
- uexWindow.setSlidingWindow(paramStr);
+ });
 ```
 
 > ### setSlidingWindowEnabled 设置侧滑窗口是否可用
@@ -1241,6 +1238,7 @@ leftSliding:{
 `uexWindow.setSlidingWindowEnabled(enable)`
 
 **说明:**
+
 设置侧滑窗口是否可用
 
 **参数:**
@@ -1249,16 +1247,13 @@ leftSliding:{
 | ------ | ------ | ---- | --------------- |
 | enable | Number | 是    | 是否可用，0：不可用，1：可用 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 uexWindow.setSlidingWindowEnabled(1);
 ```
 
@@ -1267,6 +1262,7 @@ uexWindow.setSlidingWindowEnabled(1);
 `uexWindow.setMultilPopoverFlippingEnbaled(enable)`
 
 **说明:**  
+
 设置控件是否响应滑动事件,**该接口需要在Multipopover的子页面中调用**
 
 **参数:**
@@ -1275,18 +1271,14 @@ uexWindow.setSlidingWindowEnabled(1);
 | ------ | ------ | ---- | ---------------------------------- |
 | enable | Number | 是    | 滑动手势开关，0：允许滑动手势切换子页面，1：禁止滑动手势切换子页面 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 uexWindow.setMultilPopoverFlippingEnbaled(1);
-
 ```
 
 
@@ -1295,6 +1287,7 @@ uexWindow.setMultilPopoverFlippingEnbaled(1);
 `uexWindow.postGlobalNotification(content)`
 
 **说明:**
+
 发送全局消息，用于窗口之间的通信，调用该方法时，所有打开（通过调用uexWindow的open和openPopover方法）的窗口只要注册过[onGlobalNotification](#onGlobalNotification 全局消息的监听方法 "onGlobalNotification")，都会被调用。
 
 **参数:**
@@ -1303,17 +1296,16 @@ uexWindow.setMultilPopoverFlippingEnbaled(1);
 | ------- | ------ | ---- | ----- |
 | content | String | 是    | 发送的内容 |
 
-**平台支持：**
-Android2.2+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
+
 这里一共涉及到3个网页，index.html，index1.html，index2.html，其中在index2.html中发送全局消息。代码如下：
 index.html
 
-```
+```html
 <!DOCTYPE html>
     <html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
     <head>
@@ -1348,11 +1340,10 @@ index.html
     }
     </script>
     </html>
-
 ```
 index1.html
 
-```
+```html
 <!DOCTYPE html>
     <html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
     <head>
@@ -1387,11 +1378,10 @@ index1.html
     }
     </script>
     </html>
-
 ```
 index2.html
 
-```
+```html
 <!DOCTYPE html>
     <html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
     <head>
@@ -1427,6 +1417,7 @@ index2.html
 `uexWindow.subscribeChannelNotification(channelId,functionName)`
 
 **说明:**
+
 窗口之间的通信，可以通过发布/订阅模式来实现。窗口调用此接口订阅频道监听，当在另一窗口调用[publishChannelNotification](#publishChannelNotification 发布消息通知 "publishChannelNotification")或[publishChannelNotificationForJson](#publishChannelNotificationForJson 发布Json类型消息通知 "publishChannelNotificationForJson")时，对应此频道的回调方法将被调用，并传入相应的参数。
 
 **参数:**
@@ -1436,19 +1427,16 @@ index2.html
 | channelId    | String | 是    | 频道唯一标识符 |
 | functionName | String | 是    | 回调方法名称  |
 
-**平台支持：**
-
-Android2.2+
-iOS 6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
+
 这里一共涉及到3个网页，index.html，index1.html，index2.html，其中在index2.html中发送全局消息。代码如下：
 index.html
 
-```
+```html
 <!DOCTYPE html>
     <html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
     <head>
@@ -1484,11 +1472,10 @@ index.html
     }
     </script>
     </html>
-
 ```
 index1.html
 
-```
+```html
 <!DOCTYPE html>
     <html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
     <head>
@@ -1524,11 +1511,10 @@ index1.html
     }
     </script>
     </html>
-
 ```
 index2.html
 
-```
+```html
 <!DOCTYPE html>
     <html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
     <head>
@@ -1560,14 +1546,13 @@ index2.html
     }
     </script>
     </html>
-
 ```
 > ### publishChannelNotification 发布消息通知
 
-
-
 `uexWindow.publishChannelNotification(channelId,content)`
+
 **说明:**
+
 发布消息通知，此频道的所有订阅者，将收到消息，回调函数将被调用，并传入相应的参数.
 
 **参数:**
@@ -1577,11 +1562,10 @@ index2.html
 | channelId | String | 是    | 频道唯一标识符 |
 | content   | String | 是    | 发布的内容   |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 ```
@@ -1590,10 +1574,9 @@ uexWindow.publishChannelNotification("No1","channel 1 test just!");
 ```
 > ### publishChannelNotificationForJson 发布Json类型消息通知
 
-
-
 `uexWindow.publishChannelNotificationForJson(channelId,content)`
 **说明:**
+
 发布消息通知，此频道的所有订阅者，将收到消息，回调函数将被调用，并传入相应的参数.
 
 **参数:**
@@ -1603,19 +1586,17 @@ uexWindow.publishChannelNotification("No1","channel 1 test just!");
 | channelId | String | 是    | 频道唯一标识符     |
 | content   | String | 是    | 发送Json类型的内容 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
-```
+```javascript
 var json = ｛
       key ：value
 ｝
 uexWindow.publishChannelNotificationForJson("No1",JSON.stringify(json));
-
 ```
 
 > ### getState 获取当前窗口处于前台还是后台
@@ -1623,70 +1604,59 @@ uexWindow.publishChannelNotificationForJson("No1",JSON.stringify(json));
 `uexWindow.getState()`
 
 **说明:**
+
 获取当前窗口处于前台还是后台
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 uexWindow.getState()
 ```
 > ### getHeight 获取window的高度
 
-`uexWindow.getHeight(jsonStr)`
+`uexWindow.getHeight()`
 
 **参数:**  
+
 无
 
 **示例:**
 
-```
+```javascript
  var height=uexWindow.getHeight();
  console.log("height: "+height);
- 
 ```
-
-**平台支持：**
-
-Android 2.2+  
-iOS 6.0+
 
 **版本支持：**
 
-3.2.0+
+4.0.0+
 
 > ### getWidth 获取window的宽度
 
-`uexWindow.getWidth(jsonStr)`
+`uexWindow.getWidth()`
 
 **参数:**  
+
 无
 
 **示例:**
 
-```
+```javascript
  var width=uexWindow.getWidth();
  console.log("width: "+ width);
- 
 ```
-
-**平台支持：**
-
-Android 2.2+  
-iOS 6.0+
 
 **版本支持：**
 
-3.2.0+
+4.0.0+
 
 > ### getUrlQuery 获取加载页面时传入的参数
 
