@@ -34,6 +34,7 @@ AppCan平台中，维护了一个窗口堆栈，每个窗口以唯一的窗口�
 `uexWindow.open(params)`
 
 **说明:**
+
 打开一个新窗口，如果窗口名字相同，则会覆盖相同窗口名字的页面内容。
 
 **参数:**
@@ -114,7 +115,9 @@ uexWindow.openPresentWindow({
 `uexWindow.close(params)`
 
 **说明:**
+
 关闭当前窗口，若为浮动窗口直接关闭，若为主窗口，则同时会关闭在其上打开的所有浮动窗口
+
 **参数:**
 
 `params`为JSON对象，字段如下
@@ -125,6 +128,7 @@ uexWindow.openPresentWindow({
 | animDuration | Number | 否    | 动画持续时长，单位为毫秒，默认为260毫秒      |
 
 **版本支持：**
+
 4.0.0+
 
 **示例:**
@@ -140,12 +144,15 @@ uexWindow.close({
 `uexWindow.forward()`
 
 **说明:**
+
 仅在主窗口起作用，针对通过a标签跳转的网页，支持加密网页。
 
 **参数:**
+
 无
 
 **版本支持：**
+
 4.0.0+
 
 > ### back 返回上一个页面
@@ -153,12 +160,15 @@ uexWindow.close({
 `uexWindow.back()`
 
 **说明:**
+
 支持加密网页的back，仅在主窗口起作用。在手机的webkit中，存在一个Bug，当A.html跳转到B.html,B.html跳转到C.html，那么，用自带的history.back(),从C返回到B，B再返回的话，会返回到C，即陷入死循环。
 
 **参数:**
+
 无
 
 **版本支持：**
+
 4.0.0+
 
 > ### pageForward 前进到下一个页面
@@ -166,12 +176,15 @@ uexWindow.close({
 `uexWindow.pageForward()`
 
 **说明:**
+
 不支持含加密网页的forward，支持在主窗口和浮动窗口中调用
 
 **参数:**
+
 无
 
 **版本支持：**
+
 4.0.0+
 
 > ### pageBack 返回上一个页面
@@ -179,12 +192,15 @@ uexWindow.close({
 `uexWindow.pageBack()`
 
 **说明:**
+
 不支持含加密网页的back，支持在主窗口和浮动窗口中调用。
 
 **参数:**
+
 无
 
 **版本支持：**
+
 4.0.0+
 
 > ### windowForward 前进到下一个窗口
@@ -192,6 +208,7 @@ uexWindow.close({
 `uexWindow.windowForward(params)`
 
 **说明:**
+
 在多窗口机制中，前进到下一个window。
 
 **参数:**
@@ -204,6 +221,7 @@ params 为JSON对象，字段如下：
 | animDuration | Number |  否   | 动画持续时长，单位为毫秒，默认为260毫秒                    |
 
 **版本支持：**
+
 4.0.0+
 
 > ### windowBack 返回到上一个窗口
@@ -211,6 +229,7 @@ params 为JSON对象，字段如下：
 `uexWindow.windowBack(params)`
 
 **说明:**
+
 在多窗口机制中，用于返回上一个window，比如在A window中uexWindow.open了B window，那么在B window中返回A window就可使用此方法。
 
 **参数:**
@@ -224,12 +243,15 @@ params为JSON对象，字段如下：
 
 
 **版本支持：**
+
 4.0.0+
+
 > ### setWindowFrame 移动当前窗口位置
 
 `uexWindow.setWindowFrame(params)`
 
 **说明:**
+
 移动当前Window相对屏幕的位置
 
 **参数:**
@@ -296,6 +318,7 @@ uexWindow.openSlibing({
 `uexWindow.closeSlibing(type)`
 
 **说明:**
+
 关闭一个兄弟窗口
 
 **参数:**
@@ -318,6 +341,7 @@ uexWindow.closeSlibing(2);
 `uexWindow.showSlibing(type)`
 
 **说明:**
+
 显示open过的兄弟窗口
 
 **参数:**
@@ -326,12 +350,9 @@ uexWindow.closeSlibing(2);
 | ---- | ------ | ---- | --------------- |
 | type | Number | 是    | 窗口的类型，1-头部；2-底部 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 ```
@@ -341,111 +362,127 @@ uexWindow.showSlibing(1)
 
 > ### evaluateScript 执行js脚本
 
-`uexWindow.evaluateScript(windName,type,js)`
+`uexWindow.evaluateScrip(params)`
 
 **说明:**
+
 执行js脚本
 
 **参数:**
 
-| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
-| -------- | ------ | ---- | ---------------------------------------- |
-| windName | String | 是    | 窗口名称，默认空为当前窗口（可以是主窗口、root窗口、浮动窗口）        |
-| type     | Number | 是    | 窗口的类型，uex.cWindowTypeNormal，uex.cWindowTypeTop 或uex.cWindowTypeBottom，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Types "CONSTANT")中WindowTypes |
-| js       | String | 是    | js脚本内容                                   |
+`params`为JSON对象，各字段如下：
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
+| ---- | ------ | :--: | ---------------------------------------- |
+| name | String |  是   | 窗口名称，默认空为当前窗口（可以是主窗口、root窗口、浮动窗口）        |
+| type | Number |  是   | 窗口的类型，uex.cWindowTypeNormal，uex.cWindowTypeTop 或uex.cWindowTypeBottom，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Types "CONSTANT")中WindowTypes |
+| js   | String |  是   | js脚本内容                                   |
 
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
-uexWindow.evaluateScript("", 0, "alert('执行去吧！！');");
+```javascript
+uexWindow.evaluateScript({
+  name:"root", 
+  type:0, 
+  js:"alert('执行去吧！！');"
+});
 ```
 
 > ### evaluatePopoverScript 在浮动窗口中执行js脚本
 
-`uexWindow.evaluatePopoverScript(windName,popName,js)`
+`uexWindow.evaluatePopoverScript(params)`
 
 **说明:**
+
 在浮动窗口中执行js脚本
 
 **参数:**
 
-| 参数名称     | 参数类型   | 是否必选 | 说明                           |
-| -------- | ------ | ---- | ---------------------------- |
-| windName | String | 是    | 窗口名称，默认空为当前窗口（只能为主窗口、root窗口） |
-| popName  | String | 是    | 浮动窗口名称                       |
-| js       | String | 是    | js脚本内容                       |
+`params`为JSON对象，各字段如下：
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+| 参数名称       | 参数类型   | 是否必选 | 说明                           |
+| ---------- | ------ | :--: | ---------------------------- |
+| windowName | String |  是   | 窗口名称，默认空为当前窗口（只能为主窗口、root窗口） |
+| popName    | String |  是   | 浮动窗口名称                       |
+| js         | String |  是   | js脚本内容                       |
 
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
-uexWindow.evaluatePopoverScript("", "sss", "alert('执行去吧！！');");
+```javascript
+uexWindow.evaluatePopoverScript({
+  windowName:"root", 
+  popName:"sss", 
+  js:"alert('执行去吧！！');"
+});
 ```
 > ### evaluateMultiPopoverScript 在多页面浮动窗口中执行js脚本
 
-`uexWindow.evaluateMultiPopoverScript(windName,popName,inPageName,js)`
+`uexWindow.evaluateMultiPopoverScript(params)`
 
 **说明:**
+
 在多页面浮动窗口中执行js脚本
 
 **参数:**
 
+params 为JSON对象，个字段如下：
+
 | 参数名称       | 参数类型   | 是否必选 | 说明           |
 | ---------- | ------ | ---- | ------------ |
-| windName   | String | 是    | 窗口名称，默认为当前窗口 |
+| windowName | String | 是    | 窗口名称，默认为当前窗口 |
 | popName    | String | 是    | 浮动窗口名称       |
-| inPageName | String | 是    | 单页面窗口的名字     |
+| pageName   | String | 是    | 单页面窗口的名字     |
 | js         | String | 是    | js脚本内容       |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
-uexWindow.evaluateMultiPopoverScript("", "multipop", "pop2", "alert('multipop')");
+```javascript
+uexWindow.evaluateMultiPopoverScript({
+  windowName:"root", 
+  popName:"multipop", 
+  pageName:"pop2", 
+  js:"alert('multipop')"
+});
 ```
 
 > ### openPopover 打开浮动窗口
 
-`uexWindow.openPopover(popName,dataType,url,data,x,y,w,h,fontSize,flag,bottomMargin,extraInfo)`
+`uexWindow.openPopover(params)`
 
 **说明:**
+
 打开浮动窗口，如果浮动窗口名字相同，则会覆盖相同浮动窗口名字的页面内容。
 
 **参数:**
 
+params为JSON对象，各字段如下：
+
 | 参数名称         | 参数类型   | 是否必选 | 说明                                       |
-| ------------ | ------ | ---- | ---------------------------------------- |
-| popName      | String | 是    | 名称                                       |
-| dataType     | Number | 是    | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入；2：既有url方式， 又有html内容方式 |
-| url          | String | 是    | url类型数据，支持“wgtroot://” 协议头，此协议头用于某些将项目部署在服务器上的appcan应用，在应用执行过程中 加载本地网页用。当dataType为0时，url支持相对路径、绝对路径。其中，当url以“wgtroot://” 协议开头时，支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件。 例如：当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页，如果在xxx.html页面中open一个窗口时，传入的data为“wgtroot://index.html" ,  那么本次open执行时，引擎将会到本应用沙箱目录的widget路径下去寻找此页面， 例如Android上找到的路径会是：file:///android_assert/widget/index.html 。 |
-| data         | String | 是    | data类型数据，用于当dataType为1时，把相应html的内容传进去。必如传入的是一个'<div>hello,world!</div>' |
-| x            | Number | 是    | x坐标                                      |
-| y            | Number | 是    | y坐标                                      |
-| w            | Number | 是    | 宽度，为空时默认为window的宽度                       |
-| h            | Number | 是    | 高度，为空时默认为window的高度                       |
-| fontSize     | Number | 是    | 字体大小                                     |
-| flag         | Number | 是    | 浮动窗口标记，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
-| bottomMargin | Number | 否    | 浮动窗口相对父窗口底部的距离。当值不等于0时，h参数无效。            |
-| extraInfo    | String | 否    | 设置值时，bottomMargin参数必传，json格式如下： {"extraInfo":{"opaque":"true","bgColor":"#011","delayTime":"250"}} |
+| ------------ | ------ | :--: | ---------------------------------------- |
+| name         | String |  是   | 名称                                       |
+| dataType     | Number |  否   | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入；2：既有url方式， 又有html内容方式。默认为0 |
+| url          | String |  是   | url类型数据，支持“wgtroot://” 协议头，此协议头用于某些将项目部署在服务器上的appcan应用，在应用执行过程中 加载本地网页用。当dataType为0时，url支持相对路径、绝对路径。其中，当url以“wgtroot://” 协议开头时，支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件。 例如：当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页，如果在xxx.html页面中open一个窗口时，传入的data为“wgtroot://index.html" ,  那么本次open执行时，引擎将会到本应用沙箱目录的widget路径下去寻找此页面， 例如Android上找到的路径会是：file:///android_assert/widget/index.html 。 |
+| data         | String |  否   | data类型数据，用于当dataType为1时，把相应html的内容传进去。必如传入的是一个'<div>hello,world!</div>' |
+| x            | Number |  否   | x坐标，默认为0                                 |
+| y            | Number |  否   | y坐标，默认为0                                 |
+| w            | Number |  否   | 宽度，为空时默认为window的宽度                       |
+| h            | Number |  否   | 高度，为空时默认为window的高度                       |
+| fontSize     | Number |  否   | 字体大小                                     |
+| flag         | Number |  否   | 浮动窗口标记，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
+| bottomMargin | Number |  否   | 浮动窗口相对父窗口底部的距离。当值不等于0时，h参数无效。            |
+| extraInfo    | String |  否   | 设置值时，bottomMargin参数必传，json格式如下： {"extraInfo":{"opaque":"true","bgColor":"#011","delayTime":"250"}} |
 
 关于`extraInfo`中字段的说明如下：
 
@@ -457,17 +494,20 @@ uexWindow.evaluateMultiPopoverScript("", "multipop", "pop2", "alert('multipop')"
 | delayTime | 可选   | 延迟打开窗口，单位为毫秒，避免父窗口在uexOnload中打开浮动窗口产生卡顿。 设置值时，bottomMargin参数必传 |
 | hardware  | 可选   | 是否开启硬件加速，0:关闭，1:开启（仅Android）             |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
-uexWindow.openPopover("sss",0,"hidden.html","",400,0,'','','',0,100);
+```javascript
+uexWindow.openPopover({
+  name:"sss",
+  url:"hidden.html",
+  x:400,
+  y:0,
+  bottomMargin:100
+});
 ```
 
 > ### closePopover 关闭浮动窗口
