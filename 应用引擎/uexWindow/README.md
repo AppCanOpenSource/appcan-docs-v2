@@ -1663,110 +1663,114 @@ uexWindow.getState()
 `uexWindow.getUrlQuery()`
 
 **说明:**
-获取加载页面时传入的参数, 其回调函数是[cbGetUrlQuery](#cbGetUrlQuery 获取参数时的回调方法 "cbGetUrlQuery")
+
+获取加载页面时传入的参数, 
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+**返回值：**
+
+String类型
 
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
-uexWindow.getUrlQuery();
+```javascript
+var result=uexWindow.getUrlQuery();
 ```
 > ### getSlidingWindowState 获取侧滑窗口显示情况
 
 `uexWindow.getSlidingWindowState()`
 
-**说明:**
-获取侧滑窗口显示情况,回调方法[cbSlidingWindowState](#cbSlidingWindowState 获取侧滑窗口显示情况的回调方法 "cbSlidingWindowState")
-
 **参数:**
-```
-无
-```
 
-**平台支持：**
-   Android2.2+
-   iOS6.0+
+无
+
+**返回值：**
+
+Number类型，返回的显示情况，0：左侧菜单显示；1：主界面显示；2：右侧菜单显示
 
 **版本支持：**
 3.0.0+
 
 **示例：**
 
-```
-uexWindow.getSlidingWindowState();
+```javascript
+var state=uexWindow.getSlidingWindowState();
 ```
 ## 2.2、系统UI类方法
 
 > ### alert 弹出alert对话框
 
-`uexWindow.alert(title,message,buttonLable)`
+`uexWindow.alert(json)`
 
 **说明:**
+
 弹出只有一个确定按钮的对话框
 
 **参数:**
 
-| 参数名称        | 参数类型   | 是否必选 | 说明        |
-| ----------- | ------ | ---- | --------- |
-| title       | String | 是    | 标题        |
-| message     | String | 是    | 内容        |
-| buttonLable | String | 是    | 显示在按钮上的文字 |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
+| 参数名称        | 参数类型   | 是否必选 | 说明                |
+| ----------- | ------ | ---- | ----------------- |
+| title       | String | 是    | 标题                |
+| message     | String | 是    | 内容                |
+| buttonLable | String | 否    | 显示在按钮上的文字，默认为“确定” |
 
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
-uexWindow.alert("提示","alert框测试","OK");
+```javascript
+uexWindow.alert({
+  title:"提示",
+  message:"alert框测试",
+  buttonLable:"OK"
+});
 ```
 
 > ### confirm 弹出confirm对话框
 
-`uexWindow.confirm(title,message,buttonLable)`
+`uexWindow.confirm(json)`
 
 **说明:**
+
 弹出至少包含一个至多包含3个按钮的对话框
 
 **参数:**
 
-| 参数名称        | 参数类型   | 是否必选 | 说明           |
-| ----------- | ------ | ---- | ------------ |
-| title       | String | 是    | 标题           |
-| message     | String | 是    | 内容           |
-| buttonLable | Array  | 是    | 显示在按钮上的文字的集合 |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
+| 参数名称        | 参数类型   | 是否必选 | 说明                   |
+| ----------- | ------ | ---- | -------------------- |
+| title       | String | 是    | 标题                   |
+| message     | String | 是    | 内容                   |
+| buttonLable | String | 是    | 显示在按钮上的文字的集合，中间以逗号隔开 |
 
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
-uexWindow.confirm("警告","确定退出么？","OK,Cancel");
+```javascript
+uexWindow.confirm({
+  title:"警告",
+  message:"确定退出么？",
+  buttonLable:"OK,Cancel"
+});
 ```
 
 > ### prompt 弹出prompt对话框
 
-`uexWindow.prompt(title,message,defaultValue,buttonLable,hint)`
+`uexWindow.prompt(json)`
 
 **说明:**
+
 弹出包含两个按钮且带输入框的对话框
 
 **参数:**
@@ -1778,24 +1782,27 @@ uexWindow.confirm("警告","确定退出么？","OK,Cancel");
 | defaultValue | String | 是    | 输入框默认文字，不需要时请传空字符串`""`       |
 | buttonLable  | String | 是    | 显示在按钮上的文字的集合 ,多个按钮之间用逗号`,`分隔 |
 | hint         | String | 否    | 输入框中的提示文字，在输入框中内容为空时显示       |
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
-uexWindow.prompt("提示","请输入内容：","","OK,Cancel");
+```javascript
+uexWindow.prompt({
+  title:"提示",
+  message:"请输入内容：",
+  defalutValue:"",
+  buttonLable:"OK,Cancel"
+});
 ```
 
 > ### toast 弹出消息提示框
 
-`uexWindow.toast(type,location,msg,duration)`
+`uexWindow.toast(json)`
 
 **说明:**
+
 弹出消息提示框，常见的用于获取网络数据，在请求过程中给个加载提示，数据加载完成时关闭提示。
 
 **参数:**
@@ -1807,17 +1814,19 @@ uexWindow.prompt("提示","请输入内容：","","OK,Cancel");
 | msg      | Number | 是    | 消息                                       |
 | duration | Number | 是    | 显示时间，单位为毫秒，非正整数时，提示框一直存在，不会自动关闭          |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
-uexWindow.toast(1,5,"正在加载...",0);
+```javascript
+uexWindow.toast({
+  type:1,
+  location:5,
+  msg:"正在加载...",
+  duration:0
+});
 ```
 
 > ### closeToast 关闭消息提示框
@@ -1825,25 +1834,24 @@ uexWindow.toast(1,5,"正在加载...",0);
 `uexWindow.closeToast()`
 
 **说明:**
+
 关闭消息提示框
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
-```
+```javascript
 uexWindow.closeToast()
 ```
 > ### createProgressDialog 创建全局对话框
 
-`uexWindow.createProgressDialog(title,msg,canCancel)`
+`uexWindow.createProgressDialog(json)`
 
 **说明:**
 
@@ -1851,27 +1859,25 @@ uexWindow.closeToast()
 
 **参数:**
 
-| 参数名称 | 参数类型  | 是否必选  |  说明 |
-| -------- | --------- | --------- | ----- |
-| title | String | 是 | 标题,传空字符串时没有标题，如''
-| msg | String | 是 | 内容 |
-| canCancel | Number | 否 | 是否可以取消，即点击屏幕上除对话框以外的任何地方，或者点击返回键，对话框是否消失。 0-可以取消，1-不能取消。设置为1时，该对话框只能在通过调 用destroyProgressDialog取消，否则会一直显示。默认可以取消 |
-
-**平台支持：**  
-
-iOS 6.0+
-Android 4.0+  
+| 参数名称      | 参数类型   | 是否必选 | 说明                                       |
+| --------- | ------ | ---- | ---------------------------------------- |
+| title     | String | 是    | 标题,传空字符串时没有标题，如”“                        |
+| msg       | String | 是    | 内容                                       |
+| canCancel | Number | 否    | 是否可以取消，即点击屏幕上除对话框以外的任何地方，或者点击返回键，对话框是否消失。 0-可以取消，1-不能取消。设置为1时，该对话框只能在通过调 用destroyProgressDialog取消，否则会一直显示。默认可以取消 |
 
 
 **版本支持：** 
 
-iOS 3.2.0+ 
-Android 3.0.0+  
+4.0.0+   
 
 **示例：**  
 
-```
-uexWindow.createProgressDialog('','正在加载,请稍候...',0);
+```javascript
+uexWindow.createProgressDialog({
+  title:'',
+  msg:'正在加载,请稍候...',
+  canCancel:0
+});
 ```
 
 > ### destroyProgressDialog 销毁全局对话框
@@ -1879,50 +1885,55 @@ uexWindow.createProgressDialog('','正在加载,请稍候...',0);
 `uexWindow.destroyProgressDialog()`
 
 **说明:**
+
 销毁全局对话框
 
 **参数:**
+
 无
-
-**平台支持：**  
-
-iOS 6.0+
-Android 4.0+  
 
 
 **版本支持：** 
 
-iOS 3.2.0+ 
-Android 3.0.0+ 
+4.0.0+
 
 **示例：**
-```
-uexWindow.destroyProgressDialog()
+```javascript
+uexWindow.destroyProgressDialog();
 ```
 > ### actionSheet 弹出菜单列表
 
-`uexWindow.actionSheet(title,cancel,buttonLables)`
+`uexWindow.actionSheet(json,callback)`
 
 **说明:**
 从界面底部弹出按钮列表, 其回调接口是[cbActionSheet ](#cbactionsheet 弹出菜单列表的回调方法 "cbactionsheet")
 
 **参数:**
 
-| 参数名称        | 参数类型   | 是否必选 | 说明          |
-| ----------- | ------ | ---- | ----------- |
-| title       | String | 是    | 标题          |
-| cancel      | String | 是    | 显示在取消按钮上的文本 |
-| buttonLable | Array  | 是    | 按钮列表文字      |
+`json`为JSON对象，各字段如下：
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+| 参数名称    | 参数类型   | 是否必选 | 说明             |
+| ------- | ------ | ---- | -------------- |
+| title   | String | 是    | 标题             |
+| cancel  | String | 是    | 显示在取消按钮上的文本    |
+| buttons | Array  | 是    | 按钮列表文字，多个以逗号隔开 |
+
+`callback`为Function类型，参数为用户点击的按钮索引
+
 **版本支持：**
-3.0.0+
+
+4.0.0+
+
 **示例:**
 
-```
-uexWindow.actionSheet("菜单","Cancel","Opt1,Opt2,Opt3,Opt4,Opt5,Opt6");
+```javascript
+uexWindow.actionSheet({
+  title:"菜单",
+  cancel:"Cancel",
+  buttons:"Opt1,Opt2,Opt3,Opt4,Opt5,Opt6"
+},function(index){
+  alert("点击了第"+(index+1)+"个按钮";
+});
 ```
 
 ## 2.3、系统control类方法
