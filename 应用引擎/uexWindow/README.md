@@ -23,8 +23,9 @@ AppCan平台中，维护了一个窗口堆栈，每个窗口以唯一的窗口�
 ## 1.5 窗口侧边栏菜单效果(抽屉效果)
 　 调用setSlidingWindow接口实现侧边栏菜单效果。手势滑动实现侧边栏菜单的打开和关闭功能。相关接口：setSlidingWindowEnabled，toggleSlidingWindow
 
-
 # 2、API概览
+
+以下接口默认支持Android 4.0，iOS 6.0 以上(包含)操作系统。特殊情况会单独进行说明。
 
 ## 2.1、窗口类方法
 
@@ -65,11 +66,6 @@ var extras = {
 		 
 ```
 
-**平台支持：**
-
-Android2.2+
-iOS6.0+
-
 **版本支持：**
 
 4.0.0+
@@ -87,7 +83,7 @@ uexWindow.open({
 
 > ### openPresentWindow 打开一个位于最上层的window
 
-`uexWindow.openPresentWindow(windName,dataType,data,animID,w,h,flag,animDuration,extras)`
+`uexWindow.openPresentWindow(params)`
 
 **说明:**
 
@@ -97,45 +93,46 @@ uexWindow.open({
 
 与`uexWindow.open()`一致
 
-**平台支持：**
-
-Android2.2+
-iOS 6.0+
-
 **版本支持：**
 
-3.3.1+
+4.0.0+
 
 **示例:**
 
 ```javascript
-uexWindow.openPresentWindow('dd', '0', 'index.html', 1, '', '', 0, 500);
+uexWindow.openPresentWindow({
+    windName:"test",
+    data:"index.html",
+    animationID:2,
+    flag:1024
+});
 ```
 
 
 > ### close 关闭窗口
 
-`uexWindow.close(animID,animDuration)`
+`uexWindow.close(params)`
 
 **说明:**
 关闭当前窗口，若为浮动窗口直接关闭，若为主窗口，则同时会关闭在其上打开的所有浮动窗口
 **参数:**
+
+`params`为JSON对象，字段如下
 
 | 参数名称         | 参数类型   | 是否必选 | 说明                         |
 | ------------ | ------ | ---- | -------------------------- |
 | animID       | Number | 否    | 为空时无动画，-1时代表Open时指定动画的方向动画 |
 | animDuration | Number | 否    | 动画持续时长，单位为毫秒，默认为260毫秒      |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+4.0.0+
 
 **示例:**
-```
-uexWindow.close(-1, 1000);
+```javascript
+uexWindow.close({
+  animID:-1,
+  animDuration:300
+});
 ```
 
 > ### forward 前进到下一个页面
