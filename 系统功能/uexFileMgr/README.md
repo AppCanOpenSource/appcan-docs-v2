@@ -49,7 +49,7 @@
 | param | Object | 是    | 文件设置 |
 
 
-```
+```javascript
 var param = {
     path:,//String,必选,文件路径.支持"wgt://","wgts://","wgts://"、"file://"协议
 }
@@ -57,12 +57,12 @@ var param = {
 
 **返回值:**
 
-uexFile对象ID
+uexFile对象 file
 创建失败时返回null
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.create({
 	path:"wgt://data/1.txt"
 });
@@ -86,7 +86,7 @@ if(!file){
 | param | Object | 是    | 文件夹设置 |
 
 
-```
+```javascript
 var param = {
     path:,//String,必选,文件夹路径.支持"wgt://","wgts://","wgts://"、"file://"协议
 }
@@ -99,7 +99,7 @@ Boolean类型,是否创建成功
 
 **示例:**
 
-```
+```javascript
 var ret = uexFileMgr.mkdir({
 	path:"wgt://data/test/"
 });
@@ -122,7 +122,7 @@ alert(ret);
 | param | Object | 是    | 文件设置 |
 
 
-```
+```javascript
 var param = {
     path:,//String,必选,文件路径.支持"wgt://","wgts://"、"file://"协议
     mode:,//Number,打开设置.设置flag为: 1-可读 2-可写 4-不存在时创建新文件 ,需要多个设置同时作用时,将flag值相加再传入.比如传3(=1+2),意味着可读且可写
@@ -131,12 +131,12 @@ var param = {
 
 **返回值:**
 
-uexFile对象ID
+uexFile对象file
 打开失败时返回null
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
@@ -166,39 +166,8 @@ Boolean类型,是否删除成功
 
 **示例:**
 
-```
+```javascript
 var ret = uexFileMgr.deleteFileByPath("wgt://data/test.txt");
-alert(ret);
-```
-
-> ### deleteFileByID 根据id删除文件
-
-`uexFileMgr.deleteFileByID(id)`
-
-**说明:**
-
-根据id删除文件
-
-**参数:**
-
-| 参数名称 | 参数类型   | 是否必选 | 说明          |
-| ---- | ------ | ---- | ----------- |
-| id   | String | 是    | uexFile对象ID |
-
-**返回值:**
-
-Boolean类型,是否删除成功
-
-
-
-**示例:**
-
-```
-var file = uexFileMgr.open({
-	path: "wgt://data/1.txt",
-	mode: 3
-});
-var ret = uexFileMgr.deleteFileByID(file);
 alert(ret);
 ```
 
@@ -223,37 +192,8 @@ Boolean类型,是否存在
 
 **示例:**
 
-```
+```javascript
 var ret = uexFileMgr.isFileExistByPath("wgt://data/test.txt");
-alert(ret);
-```
-
-> ### isFileExistByID 根据FileID判断文件是否存在
-
-`uexFileMgr.isFileExistByID(id)`
-
-**说明:**
-
-根据id判断文件是否存在
-
-**参数:**
-
-| 参数名称 | 参数类型   | 是否必选 | 说明          |
-| ---- | ------ | ---- | ----------- |
-| id   | String | 是    | uexFile对象ID |
-
-**返回值:**
-
-Boolean类型,是否存在
-
-**示例:**
-
-```
-var file = uexFileMgr.open({
-	path: "wgt://data/1.txt",
-	mode: 3
-});
-var ret = uexFileMgr.isFileExistByID(file);
 alert(ret);
 ```
 
@@ -277,7 +217,7 @@ Number类型, -1:文件不存在或发生未知错误 0:文件 1:文件夹
 
 **示例:**
 
-```
+```javascript
 var ret = uexFileMgr.getFileTypeByPath("wgt://data/test.txt");
 alert(ret);
 ```
@@ -308,7 +248,7 @@ alert(ret);
 
 **示例:**
 
-```
+```javascript
 uexFileMgr.explorer("/sdcard/widgetone",function(path){
 	alert(path);
 });
@@ -337,7 +277,7 @@ uexFileMgr.explorer("/sdcard/widgetone",function(path){
 
 **示例:**
 
-```
+```javascript
 uexFileMgr.multiExplorer("/sdcard/widgetone",function(paths){
 	alert(paths);
 });
@@ -345,7 +285,7 @@ uexFileMgr.multiExplorer("/sdcard/widgetone",function(paths){
 
 > ### seekFile 定位到文件某一位置
 
-`uexFileMgr.seekFile(id,len)`
+`uexFileMgr.seekFile(file,len)`
 
 **说明:**
 
@@ -353,10 +293,10 @@ uexFileMgr.multiExplorer("/sdcard/widgetone",function(paths){
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明          |
-| ---- | ------ | ---- | ----------- |
-| id   | String | 是    | uexFile对象ID |
-| len  | Number | 是    | 字节数         |
+| 参数名称 | 参数类型   | 是否必选 | 说明            |
+| ---- | ------ | ---- | ------------- |
+| file | String | 是    | uexFile对象file |
+| len  | Number | 是    | 字节数           |
 
 **返回值:**
 
@@ -364,19 +304,18 @@ Boolean类型,是否定位成功
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
 });
 var ret = uexFileMgr.seekFile(file, '1');
 alert(ret);
-
 ```
 
 > ### seekBeginOfFile 定位到起始位置
 
-`uexFileMgr.seekBeginOfFile(id)`
+`uexFileMgr.seekBeginOfFile(file)`
 
 **说明:**
 
@@ -384,9 +323,9 @@ alert(ret);
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明          |
-| ---- | ------ | ---- | ----------- |
-| id   | String | 是    | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明            |
+| ---- | ------ | ---- | ------------- |
+| file | String | 是    | uexFile对象file |
 
 **返回值:**
 
@@ -394,7 +333,7 @@ Boolean类型,是否定位成功
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
@@ -405,7 +344,7 @@ alert(ret);
 
 > ### seekEndOfFile 定位到结束位置
 
-`uexFileMgr.seekEndOfFile(id)`
+`uexFileMgr.seekEndOfFile(file)`
 
 **说明:**
 
@@ -413,9 +352,9 @@ alert(ret);
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明          |
-| ---- | ------ | ---- | ----------- |
-| id   | String | 是    | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明            |
+| ---- | ------ | ---- | ------------- |
+| file | String | 是    | uexFile对象file |
 
 **返回值:**
 
@@ -423,7 +362,7 @@ Boolean类型,是否定位成功
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
@@ -434,7 +373,7 @@ alert(ret);
 
 > ### writeFile 写文件
 
-`uexFileMgr.writeFile(id,option ,data,cb)`
+`uexFileMgr.writeFile(file,option ,data,cb)`
 
 **说明:**
 
@@ -444,7 +383,7 @@ alert(ret);
 
 | 参数名称   | 参数类型     | 是否必选 | 说明                    |
 | ------ | -------- | ---- | --------------------- |
-| id     | String   | 是    | uexFile对象ID           |
+| file   | String   | 是    | uexFile对象file         |
 | option | Number   | 是    | 写入设置(详见下)             |
 | data   | String   | 是    | 要写入的数据                |
 | cb     | Function | 是    | 写入结束后,会调用此函数,函数参数说明见下 |
@@ -470,7 +409,7 @@ alert(ret);
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
@@ -482,7 +421,7 @@ uexFileMgr.writeFile(file, 0, "test",function(ret){
 
 > ### readFile 读文件
 
-`uexFileMgr.readFile(id,len,option,cb)`
+`uexFileMgr.readFile(file,len,option,cb)`
 
 **说明:**
 
@@ -492,7 +431,7 @@ uexFileMgr.writeFile(file, 0, "test",function(ret){
 
 | 参数名称   | 参数类型     | 是否必选 | 说明                    |
 | ------ | -------- | ---- | --------------------- |
-| id     | String   | 是    | uexFile对象ID           |
+| file   | String   | 是    | uexFile对象file         |
 | len    | Number   | 是    | 字节数,传-1表示读取全部内容       |
 | option | Number   | 是    | 读取设置(详见下)             |
 | cb     | Function | 是    | 读取结束后,会调用此函数,函数参数说明见下 |
@@ -536,7 +475,7 @@ uexFileMgr.readFile(file, -1,0,function(error,data){
 
 > ### getFileSize 获取文件大小
 
-`uexFileMgr.getFileSize(id)`
+`uexFileMgr.getFileSize(file)`
 
 **说明:**
 
@@ -544,9 +483,9 @@ uexFileMgr.readFile(file, -1,0,function(error,data){
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明          |
-| ---- | ------ | ---- | ----------- |
-| id   | String | 是    | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明            |
+| ---- | ------ | ---- | ------------- |
+| file | String | 是    | uexFile对象file |
 
 **返回值:**
 
@@ -555,7 +494,7 @@ String类型,文件大小转成的字符串
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
@@ -566,7 +505,7 @@ alert(size);
 
 > ### getFilePath 获取文件路径
 
-`uexFileMgr.getFilePath(id)`
+`uexFileMgr.getFilePath(file)`
 
 **说明:**
 
@@ -574,9 +513,9 @@ alert(size);
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明          |
-| ---- | ------ | ---- | ----------- |
-| id   | String | 是    | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明            |
+| ---- | ------ | ---- | ------------- |
+| file | String | 是    | uexFile对象file |
 
 **返回值:**
 
@@ -585,7 +524,7 @@ String类型,文件路径
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
@@ -614,13 +553,13 @@ String类型,文件绝对路径
 
 **示例:**
 
-```
+```javascript
 uexFileMgr.getFileRealPath("wgt://data/test.txt");
 ```
 
 > ### closeFile 关闭文件
 
-`uexFileMgr.closeFile(id)`
+`uexFileMgr.closeFile(file)`
 
 **说明:**
 
@@ -628,9 +567,9 @@ uexFileMgr.getFileRealPath("wgt://data/test.txt");
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明          |
-| ---- | ------ | ---- | ----------- |
-| id   | String | 是    | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明            |
+| ---- | ------ | ---- | ------------- |
+| file | String | 是    | uexFile对象file |
 
 **返回值:**
 
@@ -638,7 +577,7 @@ Boolean类型,是否关闭成功
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
@@ -648,7 +587,7 @@ alert(ret);
 ```
 > ### getReaderOffset 获取文件偏移值
 
-`uexFileMgr.getReaderOffset(id)`
+`uexFileMgr.getReaderOffset(file)`
 
 **说明:**
 
@@ -656,9 +595,9 @@ alert(ret);
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明          |
-| ---- | ------ | ---- | ----------- |
-| id   | String | 是    | uexFile对象ID |
+| 参数名称 | 参数类型   | 是否必选 | 说明            |
+| ---- | ------ | ---- | ------------- |
+| file | String | 是    | uexFile对象file |
 
 **返回值:**
 
@@ -676,7 +615,7 @@ uexFileMgr.getReaderOffset(file);
 
 > ### readPercent 读百分比对应位置的字符
 
-`uexFileMgr.readPercent(id,percent,len,cb)`
+`uexFileMgr.readPercent(file,percent,len,cb)`
 
 **说明:**
 
@@ -686,7 +625,7 @@ uexFileMgr.getReaderOffset(file);
 
 | 参数名称    | 参数类型     | 是否必选 | 说明                    |
 | ------- | -------- | ---- | --------------------- |
-| id      | String   | 是    | uexFile对象ID           |
+| file    | String   | 是    | uexFile对象file         |
 | percent | Number   | 是    | 百分比(不带百分号)            |
 | len     | Number   | 是    | 字节数,读取百分比之后的字节长度      |
 | cb      | Function | 是    | 读取结束后,会调用此函数,函数参数说明见下 |
@@ -719,7 +658,7 @@ uexFileMgr.readPercent(file,20,3,function(error,data){
 
 > ### readNext 读取下一页字符
 
-`uexFileMgr.readNext(id,len,cb)`
+`uexFileMgr.readNext(file,len,cb)`
 
 **说明:**
 
@@ -729,7 +668,7 @@ uexFileMgr.readPercent(file,20,3,function(error,data){
 
 | 参数名称 | 参数类型     | 是否必选 | 说明                    |
 | ---- | -------- | :--: | --------------------- |
-| id   | String   |  是   | uexFile对象ID           |
+| file | String   |  是   | uexFile对象file         |
 | len  | Number   |  是   | 字节数                   |
 | cb   | Function |  是   | 读取结束后,会调用此函数,函数参数说明见下 |
 
@@ -762,7 +701,7 @@ uexFileMgr.readNext(file, 20,function(error,data){
 
 > ### readPre 读取上一页字符
 
-`uexFileMgr.readPre(id,len,cb)`
+`uexFileMgr.readPre(file,len,cb)`
 
 **说明:**
 
@@ -772,7 +711,7 @@ uexFileMgr.readNext(file, 20,function(error,data){
 
 | 参数名称 | 参数类型     | 是否必选 | 说明                    |
 | ---- | -------- | ---- | --------------------- |
-| id   | String   | 是    | uexFile对象ID           |
+| file | String   | 是    | uexFile对象file         |
 | len  | Number   | 是    | 字节数                   |
 | cb   | Function | 是    | 读取结束后,会调用此函数,函数参数说明见下 |
 
@@ -818,7 +757,7 @@ uexFileMgr.readPre(file,20,function(error,data){
 | param | Object | 是    | 文件设置 |
 
 
-```
+```javascript
 var param = {
     path:,//String,必选,文件路径.支持"wgt://","wgts://"、"file://"协议
     password:,//String,必须,文件密码
@@ -828,12 +767,12 @@ var param = {
 
 **返回值:**
 
-uexFile对象ID
+uexFile对象file
 打开失败时返回null
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.openWithPassword({
 	path: "wgt://data/1.txt",
 	password: "123456",
@@ -861,7 +800,7 @@ if(!file){
 | param | Object | 是    | 文件设置 |
 
 
-```
+```javascript
 var param = {
     path:,//String,必选,文件路径.支持"wgt://","wgts://"、"file://"协议
     password:,//String,必须,文件密码
@@ -870,12 +809,12 @@ var param = {
 
 **返回值:**
 
-uexFile对象ID
+uexFile对象file
 创建失败时返回null
 
 **示例:**
 
-```
+```javascript
 var file = uexFileMgr.createWithPassword({
 	path: "wgt://data/1.txt",
 	password: "123456",
@@ -888,7 +827,7 @@ if(!file){
 
 > ### getFileCreateTime 获取文件或文件夹的创建时间
 
-`uexFileMgr.getFileCreateTime(id,path)`
+`uexFileMgr.getFileCreateTime(file,path)`
 
 **说明:**
 
@@ -907,7 +846,7 @@ String类型,创建时间,`"yyyy-MM-dd HH:mm:ss"`格式
 
 **示例:**
 
-```
+```javascript
 
 var timeStr = uexFileMgr.getFileCreateTime('wgt://test.txt');
 alert(timeStr);
@@ -928,7 +867,7 @@ alert(timeStr);
 | param | String   | 是    | param是字典结构json字符串,详情见下 |
 | cb    | Function | 是    | 重命名结束后,会调用此函数,函数参数说明见下 |
 
-```
+```javascript
 var param = {
 	oldFilePath:,//必选 String 重命名前的文件路径
 	newFilePath:,//必选 String 重命名后的文件路径
@@ -982,7 +921,7 @@ uexFileMgr.renameFile(JSON.stringify(data),function(obj){
 | param | String   | 是    | param是字典结构json字符串,详情见下  |
 | cb    | Function | 是    | 搜索操作结束后,会调用此函数,函数参数说明见下 |
 
-```
+```javascript
 var param = {
 	path:,//必选,String,目标文件夹路径
 	option:,//可选 Number  搜索设置 见下 不传默认为0
@@ -1005,7 +944,7 @@ var param = {
 | --------- | ------ | ------ |
 | resultObj | Object | 搜索操作结果 |
 
-```
+```javascript
 var resultObj = {
 	isSuccess:,//Boolean,必选.是否搜索成功
 	result:,//Array,搜索成功时才有此参数.所有符合条件的路径构成的数组;若没有路径符合搜索条件,则为一个空数组
@@ -1014,7 +953,7 @@ var resultObj = {
 
 **示例:**
 
-```
+```javascript
 var data={
 	path:"res://",
 	option:5,
@@ -1088,9 +1027,8 @@ alert(result);
 | cb    | Function | 是    | 操作结束后,会调用此函数,函数参数说明见下  |
 
 
-```
+```javascript
 var params = {
-    id:,
     path:,
     unit:
 }
@@ -1108,19 +1046,18 @@ var params = {
 | --------- | ------ | ------ |
 | resultObj | Object | 搜索操作结果 |
 
-```
+```javascript
 var resultObj = {
 	errorCode:,//Number, 0-获取成功 1-获取失败
 	unit,//String,文件大小单位
 	data,//Number,文件大小
 }
-
 ```
 
 
 **示例:**
 
-```
+```javascript
 var params = {
  	path:"wgt://",
  	unit:"KB"
