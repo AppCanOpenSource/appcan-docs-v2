@@ -433,7 +433,7 @@ uexWindow.evaluatePopoverScript({
 
 **参数:**
 
-params 为JSON对象，个字段如下：
+`params` 为JSON对象，个字段如下：
 
 | 参数名称       | 参数类型   | 是否必选 | 说明           |
 | ---------- | ------ | ---- | ------------ |
@@ -467,7 +467,7 @@ uexWindow.evaluateMultiPopoverScript({
 
 **参数:**
 
-params为JSON对象，各字段如下：
+`params`为JSON对象，各字段如下：
 
 | 参数名称         | 参数类型   | 是否必选 | 说明                                       |
 | ------------ | ------ | :--: | ---------------------------------------- |
@@ -515,6 +515,7 @@ uexWindow.openPopover({
 `uexWindow.closePopover(popName)`
 
 **说明:**
+
 关闭浮动窗口
 
 **参数:**
@@ -523,13 +524,13 @@ uexWindow.openPopover({
 | ------- | ------ | ---- | ---- |
 | popName | String | 是    | 名称   |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
 **版本支持：**
-3.0.0+
+
+4.0.0+
+
 **示例:**
-```
+
+```javascript
 uexWindow.closePopover('sss')
 ```
 
@@ -538,22 +539,22 @@ uexWindow.closePopover('sss')
 `uexWindow.preOpenStart()`
 
 **说明:**
-  popOver的预加载必须要与uexWindow.open中的flag：uex.cWiondowFlagPreOpen=64配合使用，即open时有此flag方可对应使用预加载。开始popOver(浮动窗口)的预加载。即一个窗口中需要有多个浮动窗口，可以让这些浮动窗口预先加载出来。其执行过程：A窗口打开B窗口，B窗口中需要预加载多个浮动窗口。那么A窗口中执行uexWindow.open时，其flag参数需要：uex.cWiondowFlagPreOpenreOpen=64配合使用，即open时有此flag，B窗口方可使用预加载。此时在B窗口中，会等所有预加载的浮动窗口都加载完毕（不包括异步获取网络数据），方才显示B窗口。预加载的浮动窗口的开启函数，即uexWindow.openPopover，需要放置于uexWindow.preOpenStart和uexWindow.preOpenFinish之间。
+
+popOver的预加载必须要与uexWindow.open中的flag：uex.cWiondowFlagPreOpen=64配合使用，即open时有此flag方可对应使用预加载。开始popOver(浮动窗口)的预加载。即一个窗口中需要有多个浮动窗口，可以让这些浮动窗口预先加载出来。其执行过程：A窗口打开B窗口，B窗口中需要预加载多个浮动窗口。那么A窗口中执行uexWindow.open时，其flag参数需要：uex.cWiondowFlagPreOpenreOpen=64配合使用，即open时有此flag，B窗口方可使用预加载。此时在B窗口中，会等所有预加载的浮动窗口都加载完毕（不包括异步获取网络数据），方才显示B窗口。预加载的浮动窗口的开启函数，即uexWindow.openPopover，需要放置于uexWindow.preOpenStart和uexWindow.preOpenFinish之间。
 
 **参数:**
+
   无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
+
 在A窗口中，首先open窗口B，在B窗口中，预加载多个浮动窗口：A.html
 
-```
+```html
     <!DOCTYPE html>
     <html>
     <head>
@@ -571,11 +572,10 @@ iOS6.0+
     </body>
     </html>
     
-
 ```
 B.html
 
-```
+```html
 <!DOCTYPE html>
     <html>
     <head>
@@ -599,7 +599,6 @@ B.html
     }
     </script>
     </html>
-
 ```
 
 > ### preOpenFinish 结束浮动窗口的预加载
@@ -607,75 +606,83 @@ B.html
 `uexWindow.preOpenFinish()`
 
 **说明:**
+
 结束浮动窗口的预加载
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
+```javascript
 uexWindow.preOpenFinish()
 ```
 
 > ### setPopoverFrame 更改浮动窗口的位置和大小
 
-`uexWindow.setPopoverFrame(popName,x,y,w,h)`
+`uexWindow.setPopoverFrame(params)`
 
 **说明:**
+
 更改浮动窗口的位置和大小
 
 **参数:**
 
-| 参数名称    | 参数类型   | 是否必选 | 说明                 |
-| ------- | ------ | ---- | ------------------ |
-| popName | String | 是    | 名称                 |
-| x       | Number | 是    | x坐标                |
-| y       | Number | 是    | y坐标                |
-| w       | Number | 是    | 宽度，为空时默认为window的宽度 |
-| h       | Number | 是    | 高度，为空时默认为window的高度 |
+`params`为JSON对象，各字段如下：
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+| 参数名称 | 参数类型   | 是否必选 | 说明                 |
+| ---- | ------ | ---- | ------------------ |
+| name | String | 是    | 名称                 |
+| x    | Number | 是    | x坐标                |
+| y    | Number | 是    | y坐标                |
+| w    | Number | 是    | 宽度，为空时默认为window的宽度 |
+| h    | Number | 是    | 高度，为空时默认为window的高度 |
 
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
-```
-uexWindow.setPopoverFrame('sss',500,200,400,400);
+```javascript
+uexWindow.setPopoverFrame({
+  name:'sss',
+  x:500,
+  y:200,
+  w:400,
+  h:400
+});
 ```
 
 > ### openMultiPopover 打开多页面浮动窗口
 
-`uexWindow.openMultiPopover(content,popName,dataType,x,y,w,h,fontSize,flag,indexSelected,extraInfo)`
+`uexWindow.openMultiPopover(params)`
 
 **说明:**
+
 在当前window打开一个多页面浮动窗口,页面之间滑动切换，设置是否支持滑动参照[setMultilPopoverFlippingEnbaled](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249#setMultilPopoverFlippingEnbaled 设置控件是否响应滑动事件 "setMultilPopoverFlippingEnbaled")
 
 **参数:**
 
+`params`为JSON对象，各字段如下
+
 | 参数名称          | 参数类型   | 是否必选 | 说明                                       |
-| ------------- | ------ | ---- | ---------------------------------------- |
-| content       | String | 是    | 多页面窗口数据格式为json。不可为空。 json格式如下：    '{"content":[{"inPageName":"p1","inUrl":"xxx1.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}, {"inPageName":"p2","inUrl":"xxx2.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}]}' |
-| popName       | String | 是    | 浮动窗口名称                                   |
-| dataType      | Number | 是    | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入；2：既有url方式， 又有html内容方式 |
-| x             | Number | 是    | x坐标                                      |
-| y             | Number | 是    | y坐标                                      |
-| w             | Number | 是    | 宽度，为空时默认为window的宽度                       |
-| h             | Number | 是    | 高度，为空时默认为window的高度                       |
-| fontSize      | Number | 是    | 字体大小                                     |
-| flag          | Number | 是    | 浮动窗口标记，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
-| indexSelected | Number | 是    | 默认打开的页面索引，默认为0                           |
-| extraInfo     | String | 否    | 扩展参数，json格式如下：{"extraInfo":{"opaque":"true","bgColor":"#011", "delayTime":"250"}} |
+| ------------- | ------ | :--: | ---------------------------------------- |
+| content       | JSON对象 |  是   | 多页面窗口数据格式为json。不可为空。 json格式如下：    '{"content":[{"inPageName":"p1","inUrl":"xxx1.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}, {"inPageName":"p2","inUrl":"xxx2.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}]}' |
+| name          | String |  是   | 浮动窗口名称                                   |
+| dataType      | Number |  否   | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入；2：既有url方式， 又有html内容方式，默认为0 |
+| x             | Number |  是   | x坐标                                      |
+| y             | Number |  是   | y坐标                                      |
+| w             | Number |  是   | 宽度，为空时默认为window的宽度                       |
+| h             | Number |  是   | 高度，为空时默认为window的高度                       |
+| fontSize      | Number |  是   | 字体大小                                     |
+| flag          | Number |  是   | 浮动窗口标记，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
+| indexSelected | Number |  是   | 默认打开的页面索引，默认为0                           |
+| extraInfo     | String |  否   | 扩展参数，json格式如下：{"extraInfo":{"opaque":"true","bgColor":"#011", "delayTime":"250"}} |
 
 `content json`中各字段的说明：
 
@@ -707,9 +714,29 @@ iOS6.0+
 **示例:**
 [实例下载](/docAttach/1249/打开多浮动窗口通用适配case  &#40;1&#41;.zip "实例下载")，建议采用JSSDK封装接口方法，参考[appcan.frame.open](http://newdocx.appcan.cn/newdocx/docx?type=1260_1254 "appcan.frame.open")和[appcan.window.openMultiPopover](http://newdocx.appcan.cn/newdocx/docx?type=1259_1254 "appcan.window.openMultiPopover")
 
-```
-uexWindow.openMultiPopover('{"content":[{"inPageName":"p1", "inUrl":"hidden.html","inData":""},{"inPageName":"p2", "inUrl":"hidden1.html","inData":""}]}',"sss",0,400,0,'','','',0,1);
-}
+```javascript
+uexWindow.openMultiPopover({
+	{
+  		"content":[
+  			{
+  				"inPageName":"p1", 
+  				"inUrl":"hidden.html",
+  				"inData":""
+			},									
+            {
+  				"inPageName":"p2", 
+  				"inUrl":"hidden1.html",
+  				"inData":""
+			}
+       ]
+    },
+	name:"sss",
+	dataType:0,
+   	x:400,
+    y:0,
+    flag:0,
+    indexSelected:1
+});
 ```
 
 > ### closeMultiPopover 关闭多页面浮动窗口
@@ -717,6 +744,7 @@ uexWindow.openMultiPopover('{"content":[{"inPageName":"p1", "inUrl":"hidden.html
 `uexWindow.closeMultiPopover(popName)`
 
 **说明:**
+
 关闭多页面浮动窗口
 
 **参数:**
@@ -725,74 +753,79 @@ uexWindow.openMultiPopover('{"content":[{"inPageName":"p1", "inUrl":"hidden.html
 | ------- | ------ | ---- | ---- |
 | popName | String | 是    | 名称   |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
-uexWindow.closeMultiPopover('sss')
+```javascript
+uexWindow.closeMultiPopover('sss');
 ```
 
 > ### setSelectedPopOverInMultiWindow 设置多页面浮动窗口跳转到的子页面窗口的索引
 
-`uexWindow.setSelectedPopOverInMultiWindow(popName, indexPage)`
+`uexWindow.setSelectedPopOverInMultiWindow(params)`
 
 **说明:**
+
 设置多页面浮动窗口跳转到的子页面窗口的索引
 
 **参数:**
 
-| 参数名称      | 参数类型   | 是否必选 | 说明     |
-| --------- | ------ | ---- | ------ |
-| popName   | String | 是    | 浮动窗口名称 |
-| indexPage | Number | 是    | 索引     |
+`params`是JSON对象，各字段如下
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+| 参数名称  | 参数类型   | 是否必选 | 说明     |
+| ----- | ------ | :--: | ------ |
+| name  | String |  是   | 浮动窗口名称 |
+| index | Number |  是   | 索引     |
 
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
-```
-uexWindow.setSelectedPopOverInMultiWindow('sss', 0);
+```javascript
+uexWindow.setSelectedPopOverInMultiWindow({
+  name:'sss', 
+  index:0
+});
 ```
 
 > ### setMultiPopoverFrame 更改多页面浮动窗口的位置和大小
 
-`uexWindow.setMultiPopoverFrame(popName,x,y,w,h)`
+`uexWindow.setMultiPopoverFrame(params)`
 
 **说明:**
+
 更改多页面浮动窗口的位置和大小
 
 **参数:**
 
-| 参数名称    | 参数类型   | 是否必选 | 说明                 |
-| ------- | ------ | ---- | ------------------ |
-| popName | String | 是    | 浮动窗口名称             |
-| x       | Number | 是    | x坐标                |
-| y       | Number | 是    | y坐标                |
-| w       | Number | 是    | 宽度，为空时默认为window的宽度 |
-| h       | Number | 是    | 高度，为空时默认为window的高度 |
+`params` 为JSON对象,各字段如下
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+| 参数名称    | 参数类型   | 是否必选 | 说明                 |
+| ------- | ------ | :--: | ------------------ |
+| popName | String |  是   | 浮动窗口名称             |
+| x       | Number |  否   | x坐标，默认为0           |
+| y       | Number |  否   | y坐标，默认为0           |
+| w       | Number |  否   | 宽度，为空时默认为window的宽度 |
+| h       | Number |  否   | 高度，为空时默认为window的高度 |
 
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
-uexWindow.setMultiPopoverFrame("multipop", "10", "10", "600", "600");
-
+```javascript
+uexWindow.setMultiPopoverFrame(
+  name:"multipop", 
+  x:"10", 
+  y:"10", 
+  w:"600", 
+  y:"600"
+);
 ```
 
 > ### bringToFront 置顶当前浮动窗口
@@ -800,23 +833,23 @@ uexWindow.setMultiPopoverFrame("multipop", "10", "10", "600", "600");
 `uexWindow.bringToFront()`
 
 **说明:**
+
 置顶当前浮动窗口
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
+
 主窗口A中打开浮动窗口B1,B2,B3，代码如下：
 A.html
 
-```
+```html
 <!DOCTYPE html>
     <html>
     <head>
@@ -853,11 +886,10 @@ A.html
     </div>
     </body>
     </html>
-
 ```
 B1.html
 
-```
+```html
 <!DOCTYPE HTML>
     <html>
     <head>
@@ -889,21 +921,20 @@ B1.html
 `uexWindow.sendToBack()`
 
 **说明:**
+
 置底当前浮动窗口
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
+```javascript
 uexWindow.sendToBack()
 ```
 
@@ -912,6 +943,7 @@ uexWindow.sendToBack()
 `uexWindow.insertAbove(name)`
 
 **说明:**
+
 将当前浮动窗口插入到指定浮动窗口之上
 
 **参数:**
@@ -920,16 +952,13 @@ uexWindow.sendToBack()
 | ---- | ------ | ---- | --------- |
 | name | String | 是    | 目标浮动窗口的名称 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
+```javascript
 uexWindow.insertAbove('pop2');
 ```
 
@@ -939,6 +968,7 @@ uexWindow.insertAbove('pop2');
 `uexWindow.insertBelow(name)`
 
 **说明:**
+
 将当前浮动窗口插入到指定浮动窗口之下
 
 **参数:**
@@ -947,15 +977,12 @@ uexWindow.insertAbove('pop2');
 | ---- | ------ | ---- | --------- |
 | name | String | 是    | 目标浮动窗口的名称 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
-```
+```javascript
 uexWindow.insertBelow('pop2');
 ```
 
@@ -964,6 +991,7 @@ uexWindow.insertBelow('pop2');
 `uexWindow.bringPopoverToFront(name)`
 
 **说明:**
+
 置顶指定浮动窗口，只在主窗口中有效
 
 **参数:**
@@ -972,16 +1000,13 @@ uexWindow.insertBelow('pop2');
 | ---- | ------ | ---- | --------- |
 | name | String | 是    | 目标浮动窗口的名称 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
+```javascript
 uexWindow.bringPopoverToFront("pop1");
 ```
 
@@ -991,6 +1016,7 @@ uexWindow.bringPopoverToFront("pop1");
 `uexWindow.sendPopoverToBack(name)`
 
 **说明:**
+
 置底指定浮动窗口，只在主窗口中有效
 
 **参数:**
@@ -999,16 +1025,13 @@ uexWindow.bringPopoverToFront("pop1");
 | ---- | ------ | ---- | --------- |
 | name | String | 是    | 目标浮动窗口的名称 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
+```javascript
 uexWindow.sendPopoverToBack("pop1");
 ```
 
@@ -1017,6 +1040,7 @@ uexWindow.sendPopoverToBack("pop1");
 `uexWindow.insertPopoverAbovePopover(nameA,nameB)`
 
 **说明:**
+
 将浮动窗口A插入到浮动窗口B之上，只在主窗口中有效
 
 **参数:**
@@ -1026,15 +1050,12 @@ uexWindow.sendPopoverToBack("pop1");
 | nameA | String | 是    | 指定浮动窗口A的名称 |
 | nameB | String | 是    | 指定浮动窗口B的名称 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
-```
+```javascript
 uexWindow.insertPopoverAbovePopover("pop1","pop3");
 ```
 
@@ -1045,6 +1066,7 @@ uexWindow.insertPopoverAbovePopover("pop1","pop3");
 `uexWindow.insertPopoverBelowPopover(nameA,nameB)`
 
 **说明:**
+
 将浮动窗口A插入到浮动窗口B之下，只在主窗口中有效
 
 **参数:**
@@ -1054,15 +1076,12 @@ uexWindow.insertPopoverAbovePopover("pop1","pop3");
 | nameA | String | 是    | 指定浮动窗口A的名称 |
 | nameB | String | 是    | 指定浮动窗口B的名称 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
-```
+```javascript
 uexWindow.insertPopoverBelowPopover("pop1","pop3");
 ```
 
@@ -1082,15 +1101,12 @@ uexWindow.insertPopoverBelowPopover("pop1","pop3");
 | nameA | String | 是    | 指定窗口A的名称 |
 | nameB | String | 是    | 指定窗口B的名称 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
-```
+```javascript
 uexWindow.insertWindowAboveWindow("pop1","pop3");
 ```
 
@@ -1099,6 +1115,7 @@ uexWindow.insertWindowAboveWindow("pop1","pop3");
 `uexWindow.insertWindowBelowWindow(nameA,nameB)`
 
 **说明:**
+
 将指定窗口A插入到另一窗口B之下，该接口仅对显示在屏幕上且不被隐藏的window起作用。（即open该window时，flag传入的是256）
 
 **参数:**
@@ -1108,16 +1125,13 @@ uexWindow.insertWindowAboveWindow("pop1","pop3");
 | nameA | String | 是    | 指定窗口A的名称 |
 | nameB | String | 是    | 指定窗口B的名称 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
+```javascript
 uexWindow.insertWindowBelowWindow("pop1","pop3");
 ```
 
@@ -1126,6 +1140,7 @@ uexWindow.insertWindowBelowWindow("pop1","pop3");
 `uexWindow.setWindowHidden(visible)`
 
 **说明:**
+
 设置当前窗口显示和隐藏，该接口仅对显示在屏幕上且不被隐藏的window起作用。（即open该window时，flag传入的是256）
 
 **参数:**
@@ -1134,16 +1149,13 @@ uexWindow.insertWindowBelowWindow("pop1","pop3");
 | ------- | ------ | ---- | --------------- |
 | visible | Number | 是    | 显示或隐藏，0-显示；1-隐藏 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
+```javascript
 uexWindow.setWindowHidden(1);
 ```
 
@@ -1152,6 +1164,7 @@ uexWindow.setWindowHidden(1);
 `uexWindow.toggleSlidingWindow(json)`
 
 **说明:**
+
 打开侧滑窗口
 
 **参数:**
@@ -1160,16 +1173,13 @@ uexWindow.setWindowHidden(1);
 | ---- | ------ | ---- | ---------------------------------------- |
 | json | String | 是    | 该字符串为JSON格式。如下mark: (String类型) 必选 左右侧窗口标识，0：左侧，1：右侧，reload: 可选 是否重新加载，1：重新加载 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 var params  = {
     mark:0,
     reload:1
@@ -1177,7 +1187,6 @@ var params  = {
  
 var paramStr = JSON.stringify(params);
 uexWindow.toggleSlidingWindow(paramStr);
-
 ```
 
 > ### setSlidingWindow 设置侧滑窗口
@@ -1185,6 +1194,7 @@ uexWindow.toggleSlidingWindow(paramStr);
 `uexWindow.setSlidingWindow(json)`
 
 **说明:**
+
 设置侧滑窗口
 
 **参数:**
