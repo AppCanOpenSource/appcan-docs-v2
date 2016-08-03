@@ -1611,6 +1611,10 @@ uexWindow.publishChannelNotificationForJson("No1",JSON.stringify(json));
 
 无
 
+**返回值：**
+
+Number类型，0：前台；1：后台
+
 **版本支持：**
 
 4.0.0+
@@ -1737,7 +1741,7 @@ uexWindow.alert({
 
 > ### confirm 弹出confirm对话框
 
-`uexWindow.confirm(json)`
+`uexWindow.confirm(json,callback)`
 
 **说明:**
 
@@ -1745,11 +1749,15 @@ uexWindow.alert({
 
 **参数:**
 
+`json`为JSON对象，各字段如下
+
 | 参数名称        | 参数类型   | 是否必选 | 说明                   |
 | ----------- | ------ | ---- | -------------------- |
 | title       | String | 是    | 标题                   |
 | message     | String | 是    | 内容                   |
 | buttonLable | String | 是    | 显示在按钮上的文字的集合，中间以逗号隔开 |
+
+callback为Function类型，参数为用户点击的按钮索引
 
 **版本支持：**
 
@@ -1762,18 +1770,22 @@ uexWindow.confirm({
   title:"警告",
   message:"确定退出么？",
   buttonLable:"OK,Cancel"
+},function(index){
+  
 });
 ```
 
 > ### prompt 弹出prompt对话框
 
-`uexWindow.prompt(json)`
+`uexWindow.prompt(json,callback)`
 
 **说明:**
 
 弹出包含两个按钮且带输入框的对话框
 
 **参数:**
+
+`json`为JSON对象，各字段如下
 
 | 参数名称         | 参数类型   | 是否必选 | 说明                           |
 | ------------ | ------ | ---- | ---------------------------- |
@@ -1782,6 +1794,13 @@ uexWindow.confirm({
 | defaultValue | String | 是    | 输入框默认文字，不需要时请传空字符串`""`       |
 | buttonLable  | String | 是    | 显示在按钮上的文字的集合 ,多个按钮之间用逗号`,`分隔 |
 | hint         | String | 否    | 输入框中的提示文字，在输入框中内容为空时显示       |
+`callback`为Function类型，参数如下：
+
+| 参数名称  | 参数类型   | 说明     |
+| ----- | ------ | ------ |
+| index | Number | 索引     |
+| data  | String | 输入框中的值 |
+
 **版本支持：**
 
 4.0.0+
@@ -1794,6 +1813,8 @@ uexWindow.prompt({
   message:"请输入内容：",
   defalutValue:"",
   buttonLable:"OK,Cancel"
+},function(index,data){
+  
 });
 ```
 
@@ -1906,7 +1927,7 @@ uexWindow.destroyProgressDialog();
 `uexWindow.actionSheet(json,callback)`
 
 **说明:**
-从界面底部弹出按钮列表, 其回调接口是[cbActionSheet ](#cbactionsheet 弹出菜单列表的回调方法 "cbactionsheet")
+从界面底部弹出按钮列表,
 
 **参数:**
 
@@ -1942,6 +1963,7 @@ uexWindow.actionSheet({
 `uexWindow.setOrientation(orientation)`
 
 **说明:**
+
 设置屏幕方向
 
 **参数:**
@@ -1950,18 +1972,14 @@ uexWindow.actionSheet({
 | ----------- | ------ | ---- | ---------------------------------------- |
 | orientation | Number | 是    | 1：竖屏，home键在屏幕下方；    2：横屏，home键在屏幕右边；4：竖屏，home键在屏幕上方；  8：横屏，home键在屏幕左边；   15：随系统设置自动转屏。 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 uexWindow.setOrientation(1);
-
 ```
 
 > ### setWindowScrollbarVisible 设置滚动条的显示和隐藏
@@ -1977,16 +1995,13 @@ uexWindow.setOrientation(1);
 | ------- | ---- | ---- | ---------------------- |
 | visible | Bool | 是    | 显示或隐藏，true-显示；false-隐藏 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
+```html
 <!DOCTYPE html>
     <html>
     <head>
@@ -2011,14 +2026,14 @@ iOS6.0+
     </div>
     </body>
     </html>
-
 ```
 > ### setReportKey 设置当前页面是否拦截某个按键
 
 `uexWindow.setReportKey(keyCode,enable)`
 
 **说明:**
-设置当前页面是否拦截某个按键
+
+设置当前页面是否拦截某个按键，仅Android
 
 **参数:**
 
@@ -2027,16 +2042,13 @@ iOS6.0+
 | keyCode | Number | 是    | 要拦截的键值,0-返回键，1-菜单键 |
 | enable  | Number | 是    | 是否拦截,0-不拦截，1-拦截    |
 
-**平台支持：**
-Android2.2+
-
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
+```javascript
 uexWindow.setReportKey(1,1)
 ```
 > ### showSoftKeyboard 弹出软键盘
@@ -2044,38 +2056,38 @@ uexWindow.setReportKey(1,1)
 `uexWindow.showSoftKeyboard()`
 
 **说明:**
+
 弹出Android设备软键盘
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 > ### hideSoftKeyboard 关闭软键盘
 
 `uexWindow.hideSoftKeyboard() `
 
 **说明:**
+
 关闭Android设备软键盘
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-
 **版本支持：**
-3.1.0+
+4.0.0+
 
 > ### setSwipeRate 设置左右手势的灵敏度
 
 `uexWindow.setSwipeRate(rate)`
 
 **说明:**
+
 设置左右手势的灵敏度
 
 **参数:**
@@ -2084,15 +2096,9 @@ Android2.2+
 | ---- | ------ | ---- | --------- |
 | rate | Number | 是    | 灵敏度，大于等于1 |
 
-**平台支持：**
-Android2.2+
-
 **版本支持：**
-3.0.0+
 
-
-
-
+4.0.0+
 
 > ### statusBarNotification 发送消息到状态栏
 
@@ -2108,16 +2114,13 @@ Android2.2+
 | title | String | 是    | 标题   |
 | msg   | String | 是    | 消息   |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 uexWindow.statusBarNotification('title','msg');
 ```
 > ### setStatusBarTitleColor 设置状态条上字体的颜色
@@ -2125,7 +2128,8 @@ uexWindow.statusBarNotification('title','msg');
 `uexWindow.setStatusBarTitleColor(color)`
 
 **说明:**
-设置状态条上字体的颜色
+
+设置状态条上字体的颜色,仅iOS
 
 **参数:**
 
@@ -2133,11 +2137,9 @@ uexWindow.statusBarNotification('title','msg');
 | ----- | ------ | ---- | ---------------------------------------- |
 | color | Number | 是    | 状态条上字体的颜色，0为白色(iOS7以上为透明底,iOS7以下为黑底)， 1为黑色(iOS7以上为透明底,iOS7以下为白底) |
 
-**平台支持：**
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2150,6 +2152,7 @@ uexWindow.setStatusBarTitleColor(0);
 `uexWindow.share(jsonStr)`
 
 **说明:**  
+
 调用系统的分享框
 
 **参数:**  
@@ -2174,23 +2177,18 @@ jsonStr是JSON字符串，容许的字段如下表所示**(以下均为可选参
 
 **平台支持：**
 
-iOS6.0+
-注：6.0+的系统就可以调起此接口分享内容到系统应用，但在8.0之后才允许分享至第三方应用。
-
-Android 2.3+
+注：iOS6.0+的系统就可以调起此接口分享内容到系统应用，但在8.0之后才允许分享至第三方应用。
 
 **版本支持：**
 
-iOS 3.2.0+
-
-Android 3.2.3+
+4.0.0+
 
 **示例**
 
 
 Android直接分享多张图片到微信朋友圈: 
 
-```
+```JavaScript
 function share() {
  	var imgs = ["/sdcard/DCIM/123.jpg","/sdcard/DCIM/119.jpg","/sdcard/DCIM/504.jpg"];
  	var params  = {
@@ -2205,7 +2203,7 @@ function share() {
 
 iOS 分享多张图片至微信
 
-```
+```JavaScript
 function share(){
  	var param = {
  	imgPaths:["res://photo1t.jpg","res://photo2t.jpg"]
@@ -2226,25 +2224,20 @@ function share(){
 
 params是JSON字符串,具体结构如下
 
-```
+```JavaScript
 var params = {
 	loadingImagePath:,//String,必选 启动图路径,只支持"res://","wgt://"协议,当此字段传空字符串("")时,代表取消自定义启动图，网络地址图片优先建议下载到本地来设置启动图路径；
 	loadingImageTime:,//Number,当loadingImagePath非空时必选 启动图持续时间,单位毫秒
 }
 ```
 
-**平台支持：**
-
-Android2.2+
-iOS7.0+
-
 **版本支持：**
 
-3.4.1+
+4.0.0+
 
 **示例：**
 
-```
+```JavaScript
 var params  = {
 	loadingImagePath:"file:///sdcard/startup_file.jpg",
 	loadingImageTime:3000
@@ -2252,7 +2245,6 @@ var params  = {
  
 var paramStr = JSON.stringify(params);
 uexWindow.setLoadingImagePath(paramStr);
-
 ```
 
 > ### setAutorotateEnable 设置窗口是否跟随设备自动旋转
@@ -2269,19 +2261,13 @@ uexWindow.setLoadingImagePath(paramStr);
 | ------ | ------ | ---- | --------------- |
 | enable | Number | 是    | 是否跟随，0：跟随；1：不跟随 |
 
-
-**平台支持：**
-
-Android2.2+  
-iOS6.0+
-
 **版本支持：**
 
-3.0.0+
+4.0.0+
 
 **示例：**
 
-```
+```JavaScript
 uexWindow.setAutorotateEnable(1);
 ```
 
@@ -2290,7 +2276,7 @@ uexWindow.setAutorotateEnable(1);
 `uexWindow.setHardwareEnable(flag)`
 
 **说明:**
-开启或关闭当前window的硬件加速，用于解决网页闪屏的问题。如果需要打开window时就是关闭状态，请参考uexWindow.open
+开启或关闭当前window的硬件加速，用于解决网页闪屏的问题。如果需要打开window时就是关闭状态，请参考uexWindow.open，仅Android
 
 **参数:**
 
@@ -2298,14 +2284,9 @@ uexWindow.setAutorotateEnable(1);
 | ---- | ------ | ---- | -------------- |
 | flag | Number | 是    | 是否开启，0：关闭；1：开启 |
 
-
-**平台支持：**
-
-Android4.0+
-
 **版本支持：**
 
-3.2.0+
+4.0.0+
 
 **示例：**
 
@@ -2318,7 +2299,8 @@ uexWindow.setHardwareEnable(1);
 `uexWindow.setPopHardwareEnable(name,flag)`
 
 **说明:**
-开启或关闭当前popover的硬件加速，用于解决网页闪屏的问题，打开popover后调用。如果需要打开popover时就是关闭状态，请参考uexWindow.openPopover
+
+开启或关闭当前popover的硬件加速，用于解决网页闪屏的问题，打开popover后调用。如果需要打开popover时就是关闭状态，请参考uexWindow.openPopover，仅Android
 
 **参数:**
 
@@ -2327,12 +2309,8 @@ uexWindow.setHardwareEnable(1);
 | flag | Number | 是    | 是否开启，0：关闭；1：开启 |
 | name | String | 是    | popover的name   |
 
-
-**平台支持：**
-Android4.0+
-
 **版本支持：**
-3.2.0+
+4.0.0+
 
 **示例：**
 
@@ -2344,17 +2322,16 @@ uexWindow.setPopHardwareEnable(‘content’,1);
 `uexWindow.beginAnimition()`
 
 **说明:**
+
 开始设置动画的相关参数，仅对浮动窗口有效
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2367,6 +2344,7 @@ uexWindow.beginAnimition()`
 `uexWindow.setAnimitionDelay(delay)`
 
 **说明:**
+
 设置动画延迟执行时间，仅对浮动窗口有效
 
 **参数:**
@@ -2375,12 +2353,9 @@ uexWindow.beginAnimition()`
 | ----- | ------ | ---- | ------------------- |
 | delay | Number | 否    | 延迟执行的时间(单位：毫秒)，默认为0 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 ```
@@ -2392,6 +2367,7 @@ uexWindow.setAnimitionDelay(200)
 `uexWindow.setAnimitionDuration(duration)`
 
 **说明:**
+
 设置动画持续时间，仅对浮动窗口有效
 
 **参数:**
@@ -2400,12 +2376,9 @@ uexWindow.setAnimitionDelay(200)
 | -------- | ------ | ---- | ------------------ |
 | duration | Number | 否    | 持续时间(单位：毫秒)，默认为260 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2418,6 +2391,7 @@ uexWindow.setAnimitionDuration(4000);
 `uexWindow.setAnimitionCurve(curve)`
 
 **说明:**
+
 设置动画曲线类型，仅对浮动窗口有效
 
 **参数:**
@@ -2426,12 +2400,9 @@ uexWindow.setAnimitionDuration(4000);
 | ----- | ------ | ---- | ---------------------------------------- |
 | curve | Number | 否    | 动画曲线类型，默认为0。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window AnimCurveType "CONSTANT")中WindowAnimCurveType |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2444,6 +2415,7 @@ uexWindow.setAnimitionCurve(1);
 `uexWindow.setAnimitionRepeatCount(count)`
 
 **说明:**
+
 设置动画重复次数，仅对浮动窗口有效
 
 **参数:**
@@ -2452,12 +2424,9 @@ uexWindow.setAnimitionCurve(1);
 | ----- | ------ | ---- | --------- |
 | count | Number | 否    | 重复次数，默认为0 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2470,6 +2439,7 @@ uexWindow.setAnimitionRepeatCount(0);
 `uexWindow.setAnimitionAutoReverse(isReverse)`
 
 **说明:**
+
 设置动画结束后自动恢复位置和状态，仅对浮动窗口有效
 
 **参数:**
@@ -2478,12 +2448,9 @@ uexWindow.setAnimitionRepeatCount(0);
 | --------- | ------ | ---- | -------------------- |
 | isReverse | Number | 否    | 是否恢复。0-不恢复；1-恢复。默认为0 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2496,6 +2463,7 @@ uexWindow.setAnimitionAutoReverse(1);
 `uexWindow.makeTranslation(toX,toY,toZ)`
 
 **说明:**
+
 设置移动动画，仅对浮动窗口有效
 
 **参数:**
@@ -2506,12 +2474,9 @@ uexWindow.setAnimitionAutoReverse(1);
 | toY  | Number | 是    | 相对于当前位置的y轴方向上的平移距离，int型整数，负数或正数 |
 | toZ  | Number | 是    | 相对于当前位置的z轴方向上的平移距离，int型整数，负数或正数 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2524,6 +2489,7 @@ uexWindow.makeTranslation(100,0,0);
 `uexWindow.makeScale(toX,toY,toZ)`
 
 **说明:**
+
 设置伸缩动画，仅对浮动窗口有效
 
 **参数:**
@@ -2534,12 +2500,9 @@ uexWindow.makeTranslation(100,0,0);
 | toY  | Number | 是    | 相对于当前大小的y轴方向上的放大倍率，大于0的float型数据 |
 | toZ  | Number | 是    | 相对于当前大小的z轴方向上的放大倍率，大于0的float型数据 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2565,12 +2528,9 @@ uexWindow.makeScale(2,1,1);
 | toY     | Number | 是    | 是否绕Y轴旋转。0为false，1为true |
 | toZ     | Number | 是    | 是否绕Z轴旋转。0为false，1为true |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2583,6 +2543,7 @@ uexWindow.makeRotate(90, 1, 0, 1);
 `uexWindow.makeAlpha(alpha)`
 
 **说明:**
+
 设置透明度动画，仅对浮动窗口有效
 
 **参数:**
@@ -2591,12 +2552,8 @@ uexWindow.makeRotate(90, 1, 0, 1);
 | ----- | ------ | ---- | ----------------------------- |
 | alpha | Number | 是    | 相对于当前alpha的值，0.0到1.0的float型数据 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+4.0.0+
 
 **示例：**
 ```
@@ -2608,17 +2565,16 @@ uexWindow.makeAlpha(0.5);
 `uexWindow.commitAnimition()`
 
 **说明:**
+
 提交动画设置并开始执行动画，仅对浮动窗口有效，所有参数的设置仅一次有效，动画完了后将清除。
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2631,17 +2587,20 @@ uexWindow.commitAnimition();
 `uexWindow.getBounce()`
 
 **说明:**
+
 获取网页弹动状态
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+**返回值：**
+
+Number类型，1：支持，0：不支持
 
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2654,6 +2613,7 @@ uexWindow.getBounce();
 `uexWindow.setBounce(flag)`
 
 **说明:**
+
 设置是否支持网页弹动
 
 **参数:**
@@ -2662,12 +2622,9 @@ uexWindow.getBounce();
 | ---- | ------ | ---- | ---------- |
 | flag | Number | 是    | 1：支持；0：不支持 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 ```
@@ -2679,6 +2636,7 @@ uexWindow.setBounce(1);
 `uexWindow.notifyBounceEvent(type,status)`
 
 **说明:**
+
 注册接收弹动事件
 
 **参数:**
@@ -2688,12 +2646,9 @@ uexWindow.setBounce(1);
 | type   | Number | 是    | 弹动的位置，0：顶端弹动；1：底部弹动                  |
 | status | Number | 是    | 是否调用onBounceStateChange方法，0：不调用；1-调用 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2703,9 +2658,10 @@ uexWindow.notifyBounceEvent(1,1);
 
 > ### showBounceView 显示弹动效果
 
-`uexWindow.showBounceView(type,color,flag)`
+`uexWindow.showBounceView(json)`
 
 **说明:**
+
 显示弹动效果
 
 **参数:**
@@ -2716,17 +2672,18 @@ uexWindow.notifyBounceEvent(1,1);
 | color | String | 是    | 弹动显示部位的颜色值，内容不超过一屏时底部弹动内容不显示 |
 | flag  | String | 是    | 是否显示内容，1：显示；0：不显示            |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
-uexWindow.showBounceView("1","rgba(15, 155, 155, 100)", 1);
+```javascript
+uexWindow.showBounceView({
+  type:"1",
+  color:"rgba(15, 155, 155, 100)", 
+  flag:1
+});
 ```
 
 > ### resetBounceView 设置弹动效果结束后显示的网页
@@ -2734,6 +2691,7 @@ uexWindow.showBounceView("1","rgba(15, 155, 155, 100)", 1);
 `uexWindow.resetBounceView(type)`
 
 **说明:**
+
 设置弹动效果结束后显示的网页，一般在onBounceStateChange监听方法中调用该方法
 
 **参数:**
@@ -2742,12 +2700,9 @@ uexWindow.showBounceView("1","rgba(15, 155, 155, 100)", 1);
 | ---- | ------ | ---- | --------------- |
 | type | Number | 是    | 弹动的位置，0：顶端；1：底部 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
@@ -2767,7 +2722,7 @@ uexWindow.resetBounceView("1");
 | 参数名称   | 参数类型   | 是否必选 | 说明                  |
 | ------ | ------ | ---- | ------------------- |
 | type   | Number | 是    | 弹动的位置，0：顶端弹动；1：底部弹动 |
-| status | String | 是    | json格式的字符串          |
+| status | String | 是    | json                |
 
 status中字段的说明
 
@@ -2781,17 +2736,21 @@ status中字段的说明
 | loadingText         | 是    | 拖动超过刷新临界线并且释放拖动，进入刷新状态时显示的文字,如：“加载中，请稍等” |
 | loadingImagePath    | 否    | 等待状态loading小图标的路径，只支持res:// 格式（该字段为定制需求，默认无效） |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
-var json='{"textColor":"#000","imagePath":"res://refesh_icon.png","levelText":"更新日期","pullToReloadText":"拖动到底部","releaseToReloadText":"释放回原处","loadingText":"更新中..."}';
+```javascript
+var json={
+  "textColor":"#000",
+  "imagePath":"res://refesh_icon.png",
+  "levelText":"更新日期",
+  "pullToReloadText":"拖动到底部",
+  "releaseToReloadText":"释放回原处",
+  "loadingText":"更新中..."
+};
 uexWindow.setBounceParams(0, json);
 ```
 
@@ -2800,6 +2759,7 @@ uexWindow.setBounceParams(0, json);
 `uexWindow.hiddenBounceView(type)`
 
 **说明:**
+
 隐藏弹动效果
 
 **参数:**
@@ -2808,26 +2768,15 @@ uexWindow.setBounceParams(0, json);
 | ---- | ------ | ---- | ----------------- |
 | type | Number | 是    | 弹动显示的部位，0：顶端；1：底部 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
 ```
-uexWindow.hiddenBounceView(1);
+uexWindow.hiddenBounceView(1); 
 ```
-
-
-
-
-
-
-
- 
 
 
 > ### setIsSupportSlideCallback 设置网页是否支持滑动的相关监听方法
@@ -2838,26 +2787,22 @@ uexWindow.hiddenBounceView(1);
 因为网页在超过一屏的时候滑动会频繁回调，频繁回调会造成一定情况下的网页卡顿，因此增加该接口，默认屏蔽网页的滑动监听回调，若需要回调，则需要调用该接口。注意：若设置为支持滑动监听，则4.4以下系统手机会出偶现横竖屏切换之后滑动监听不生效的问题。滑动监听包括[onSlipedUpward](#onSlipedUpward 上滑的监听方法，内容超过一屏时有效)，[onSlipedDownward](#onSlipedDownward 下滑的监听方法，内容超过一屏时有效)，[onSlipedUpEdge](#onSlipedUpEdge 滑到顶部的监听方法，内容超过一屏时有效)，[onSlipedDownEdge](#onSlipedDownEdge 滑到底部的监听方法，内容超过一屏时有效)
 
 **参数:**
-```
+```javascript
 var param = {
     isSupport://(必选)true:支持；false:不支持。默认为false。
 }
 ```
 
-**平台支持：**
-   Android2.2+
-   iOS6.0+
-
 **版本支持：**
-Android 2015_10_16_01+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 var param = {
     isSupport:false
 };
-uexWindow.setIsSupportSlideCallback(JSON.stringify(param));
+uexWindow.setIsSupportSlideCallback(param);
 ```
 
 > ### setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法
@@ -2865,29 +2810,27 @@ uexWindow.setIsSupportSlideCallback(JSON.stringify(param));
 `uexWindow.setIsSupportSwipeCallback(param)`
 
 **说明:**
+
 左右滑动监听包括[onSwipeRight](#onSwipeRight 向右滑动的监听方法)，[onSwipeLeft](#onSwipeLeft 向左滑动的监听方法)，
 
 **参数:**
-```
+```javascript
 var param = {
     isSupport:true(支持)；false(不支持)。必选，默认为false。
 }
 ```
 
-**平台支持：**
-   Android2.2+
-   iOS6.0+
-
 **版本支持：**
-   3.3.2+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 var param = {
     isSupport:false
 };
-uexWindow.setIsSupportSwipeCallback(JSON.stringify(param));
+uexWindow.setIsSupportSwipeCallback(param);
 ```
 
 > ### disturbLongPressGesture 阻碍当前网页长按手势
@@ -2924,15 +2867,9 @@ Android：
 * flag == 1 阻碍长按手势
 * flag == 2 与1相同，阻碍长按手势
 
-**平台支持：**
-
-Android2.2+
-iOS9.0+
-
 **版本支持：**
 
-Android 3.3_160429_01+
-iOS 3.2_20151021+
+4.0.0+
 
 
 **示例：**
@@ -2941,8 +2878,6 @@ iOS 3.2_20151021+
 uexWindow.disturbLongPressGesture(1);
 ```
 
-
-
 > ### reload 重载当前页面
 
 `uexWindow.reload();`
@@ -2950,19 +2885,14 @@ uexWindow.disturbLongPressGesture(1);
 **说明**
 
 无
-​     
+
 **参数**
 
 无
 
-**平台支持**
-
-Android 2.2+  
-iOS 5.1.1+
-
 **版本支持**
 
-3.1.0+
+4.0.0+
 
 **示例**
 
@@ -2976,35 +2906,38 @@ uexWindow.reload();
 `uexWindow.topBounceViewRefresh()`
 
 **说明:**
+
 下拉刷新初始化完成后，调用接口可达到自动下拉刷新效果，调用一次仅刷新一次。
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例**
 
-`uexWindow.topBounceViewRefresh();`
+```
+uexWindow.topBounceViewRefresh();
+```
 
 > ### createPluginViewContainer 创建插件容器
 
 `uexWindow.createPluginViewContainer(jsonStr);`
 
 **说明:**
+
 创建插件容器，供插件将页面填充进去
+
 **参数:**
 
 | 参数名称    | 参数类型 | 是否必选 | 说明         |
 | ------- | ---- | ---- | ---------- |
 | jsonStr | json | 是    | 创建的插件容器的信息 |
 
-```
+```javascript
 var jsonStr  = {
             id:,//容器id
             x: ,//容器位置x坐标
@@ -3014,15 +2947,12 @@ var jsonStr  = {
         };	 
 ```
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.1.0+
+
+4.0.0+
 
 **示例:**
-```
+```javascript
         var params = {
             "id":"998",
             "x": 100,
@@ -3038,7 +2968,9 @@ iOS6.0+
 `uexWindow.closePluginViewContainer(jsonStr);`
 
 **说明:**
+
 关闭插件容器
+
 **参数:**
 
 | 参数名称    | 参数类型 | 是否必选 | 说明         |
@@ -3051,12 +2983,9 @@ iOS6.0+
         };	 
 ```
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.1.0+
+
+4.0.0+
 
 **示例:**
 ```
@@ -3072,6 +3001,7 @@ iOS6.0+
 `uexWindow.showPluginViewContainer(jsonStr);`
 
 **说明:**
+
 显示隐藏的插件容器
 
 **参数:**
@@ -3080,20 +3010,18 @@ iOS6.0+
 | ------- | ---- | ---- | ---------- |
 | jsonStr | json | 是    | 显示的插件容器的信息 |
 
-```
+```javascript
         var jsonStr = {
             id : //容器id
         };	 
 ```
 
-**平台支持：**
-Android2.2+
-
 **版本支持：**
-3.1.0+
+
+4.0.0+
 
 **示例:**
-```
+```javascript
         var params = {
             "id":"998"
         };
@@ -3106,7 +3034,9 @@ Android2.2+
 `uexWindow.hidePluginViewContainer(jsonStr);`
 
 **说明:**
+
 隐藏插件容器
+
 **参数:**
 
 | 参数名称    | 参数类型 | 是否必选 | 说明         |
@@ -3119,14 +3049,12 @@ Android2.2+
         };	 
 ```
 
-**平台支持：**
-Android2.2+
-
 **版本支持：**
-3.1.0+
+
+4.0.0+
 
 **示例:**
-```
+```javascript
         var params = {
             "id":"998"
         };
@@ -3154,36 +3082,32 @@ var jsonStr = {
         };	 
 ```
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.1.0+
+4.0.0+
 
 **示例:**
-```
+```javascript
 var params = {
             id :"998"
             index : 1
         };
-        uexWindow.setPageInContainer(JSON.stringify(params));
+uexWindow.setPageInContainer(JSON.stringify(params));
 ```
 > ### hideStatusBar 隐藏状态栏
 
 `uexWindow.hideStatusBar()`
 
 **说明:**
+
 隐藏状态栏
 
 **参数:**
+
 无
 
-**平台支持：**
-iOS7.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例**
 
@@ -3194,16 +3118,16 @@ iOS7.0+
 `uexWindow.showStatusBar()`
 
 **说明:**
+
 显示状态栏
 
 **参数:**
+
 无
 
-**平台支持：**
-iOS7.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例**
 
@@ -3226,33 +3150,25 @@ iOS7.0+
 jsonStr是JSON字符串，具体格式如下
 
 
-```
+```javascript
 var jsonStr = {
 	enable: ,//Number,必选。传0表示禁止手势侧滑关闭，传1表示允许手势侧滑关闭
-};	 
+};	  
 ```
 
 **示例:**
 
-```
+```JavaScript
  var params  = {
  		enable:0,
  		};
  var paramStr = JSON.stringify(params);
  uexWindow.setSwipeCloseEnable(paramStr);
-
 ```
-
-**平台支持：**
-
-Android 2.2+
-iOS 6.0+
 
 **版本支持：**
 
-3.2.0+
-
-
+4.0.0+
 
 > ### putLocalData 存放本地数据
 
@@ -3263,6 +3179,7 @@ iOS 6.0+
 持久化存储数据，App被卸载时，数据会被清空。如果需要永久存储数据，请使用文件存储。
 
 **参数:**  
+
 `key`:String 类型  
 
 `value`:String 类型
@@ -3273,14 +3190,9 @@ iOS 6.0+
  uexWindow.putLocalData('name'，'appcan');
 ```
 
-**平台支持：**
-
-Android 2.2+  
-iOS 6.0+
-
 **版本支持：**
 
-3.3.0+
+4.0.0+
 
 > ### getLocalData 获取本地存储的数据
 
@@ -3291,6 +3203,7 @@ iOS 6.0+
 持久化存储数据，App被卸载时，数据会被清空。如果需要永久存储数据，请使用文件存储。
 
 **参数:**  
+
 `key`:String 类型  
 
 **示例:**
@@ -3300,48 +3213,13 @@ var name=uexWindow.getLocalData('name');
 console.log(name);
 ```
 
-**平台支持：**
-
-Android 2.2+  
-iOS 6.0+
-
 **版本支持：**
 
-3.3.0+
+4.0.0+
 
 
 
 ## 2.4 回调方法
-
-> ### cbConfirm 弹出confirm对话框的回调方法
-
-`uexWindow.cbConfirm(opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
-| -------- | ------ | ---- | ---------------------------------------- |
-| opId     | Number | 是    | 操作ID，此方法中不起作用                            |
-| dataType | Number | 是    | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data     | Number | 是    | 返回的数据，用户点击的按钮索引                          |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.0.0+
-
-**示例：**  
-
-```  
-function cbConfirm(opId, dataType, data){
-        alert('选择了' + data);
-}
-window.uexOnload = function(type){
-        uexWindow.cbConfirm = cbConfirm;
-}
-```
 
 
 > ### cbPrompt 弹出prompt对话框的回调方法
