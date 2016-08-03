@@ -145,12 +145,8 @@ uexWindow.close({
 **参数:**
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+4.0.0+
 
 > ### back 返回上一个页面
 
@@ -162,12 +158,8 @@ iOS6.0+
 **参数:**
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+4.0.0+
 
 > ### pageForward 前进到下一个页面
 
@@ -178,11 +170,9 @@ iOS6.0+
 
 **参数:**
 无
-**平台支持：**
-Android2.2+
-iOS6.0+
+
 **版本支持：**
-3.0.0+
+4.0.0+
 
 > ### pageBack 返回上一个页面
 
@@ -193,108 +183,113 @@ iOS6.0+
 
 **参数:**
 无
-**平台支持：**
-Android2.2+
-iOS6.0+
 
 **版本支持：**
-3.0.0+
+4.0.0+
 
 > ### windowForward 前进到下一个窗口
 
-`uexWindow.windowForward(animID,animDuration)`
+`uexWindow.windowForward(params)`
 
 **说明:**
 在多窗口机制中，前进到下一个window。
 
 **参数:**
 
-| 参数名称         | 参数类型   | 是否必选 | 说明                                       |
-| ------------ | ------ | ---- | ---------------------------------------- |
-| animID       | Number | 否    | 动画ID，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window AnimiID "CONSTANT")中WindowAnimiID |
-| animDuration | Number | 否    | 动画持续时长，单位为毫秒，默认为260毫秒                    |
+params 为JSON对象，字段如下：
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+| 参数名称         | 参数类型   | 是否必选 | 说明                                       |
+| ------------ | ------ | :--: | ---------------------------------------- |
+| animID       | Number |  否   | 动画ID，详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window AnimiID "CONSTANT")中WindowAnimiID |
+| animDuration | Number |  否   | 动画持续时长，单位为毫秒，默认为260毫秒                    |
 
 **版本支持：**
-3.0.0+
+4.0.0+
 
 > ### windowBack 返回到上一个窗口
 
-`uexWindow.windowBack(inAnimitionID,inAnimDuration)`
+`uexWindow.windowBack(params)`
 
 **说明:**
-在多窗口机制中，用于返回上一个window，比如在Awindow中uexWindow.open了Bwindow，那么在Bwindow中返回Awindow就可使用此方法。
+在多窗口机制中，用于返回上一个window，比如在A window中uexWindow.open了B window，那么在B window中返回A window就可使用此方法。
 
 **参数:**
 
-| 参数名称           | 参数类型   | 是否必选 | 说明                   |
-| -------------- | ------ | ---- | -------------------- |
-| inAnimitionID  | Number | 否    | 动画ID                 |
-| inAnimDuration | Number | 否    | 动画持续时长，单位为毫秒，默认250毫秒 |
+params为JSON对象，字段如下：
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+| 参数名称         | 参数类型   | 是否必选 | 说明                   |
+| ------------ | ------ | :--: | -------------------- |
+| animID       | Number |  否   | 动画ID                 |
+| animDuration | Number |  否   | 动画持续时长，单位为毫秒，默认250毫秒 |
+
+
 **版本支持：**
-3.0.0+
+4.0.0+
 > ### setWindowFrame 移动当前窗口位置
 
-`uexWindow.setWindowFrame(x,y,animDuration)`
+`uexWindow.setWindowFrame(params)`
 
 **说明:**
 移动当前Window相对屏幕的位置
 
 **参数:**
 
-| 参数名称         | 参数类型   | 是否必选 | 说明                    |
-| ------------ | ------ | ---- | --------------------- |
-| x            | Number | 是    | x坐标                   |
-| y            | Number | 是    | y坐标                   |
-| animDuration | Number | 否    | 动画持续时长，单位为毫秒，默认为260毫秒 |
+`params`为JSON对象，各字段如下：
 
-**平台支持：**
-Android2.2+
-iOS6.0+
+| 参数名称         | 参数类型   | 是否必选 | 说明                    |
+| ------------ | ------ | :--: | --------------------- |
+| x            | Number |  是   | x坐标                   |
+| y            | Number |  是   | y坐标                   |
+| animDuration | Number |  否   | 动画持续时长，单位为毫秒，默认为260毫秒 |
+
 **版本支持：**
-3.0.0+
+
+4.0.0+
+
 **示例:**
 
-```
-uexWindow.setWindowFrame(200,200,1000)
+```javascript
+uexWindow.setWindowFrame({
+  x:200,
+  y:200,
+  animDuration:1000
+});
 ```
 
 > ### openSlibing 打开一个兄弟窗口
 
-`uexWindow.openSlibing(type,dataType,url,data,w,h)`
+`uexWindow.openSlibing(params)`
 
 **说明:**
+
 打开一个兄弟窗口
 
 **参数:**
 
 | 参数名称     | 参数类型    | 是否必选 | 说明                                       |
-| -------- | ------- | ---- | ---------------------------------------- |
-| type     | Number  | 是    | 窗口的类型，1-头部；2-底部                          |
-| dataType | (String | 是    | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入； 2：既有url方式，又有html内容方式 |
-| url      | Number  | 是    | 窗口路径                                     |
-| data     | String  | 是    | 数据，可为空                                   |
-| w        | Number  | 是    | 该参数无效，实际宽度为屏幕宽度，请传""                     |
-| h        | Number  | 是    | 窗口高度，支持百分数，默认为屏幕高度                       |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
+| -------- | ------- | :--: | ---------------------------------------- |
+| type     | Number  |  是   | 窗口的类型，1-头部；2-底部                          |
+| dataType | (String |  是   | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入； 2：既有url方式，又有html内容方式 |
+| url      | Number  |  是   | 窗口路径                                     |
+| data     | String  |  是   | 数据，可为空                                   |
+| w        | Number  |  是   | 该参数无效，实际宽度为屏幕宽度，请传""                     |
+| h        | Number  |  是   | 窗口高度，支持百分数，默认为屏幕高度                       |
 
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
-uexWindow.openSlibing(1, "0", "nav.html", "", "", 75);
+```javascript
+uexWindow.openSlibing({
+  type:1, 
+  dataType:"0", 
+  url:"nav.html", 
+  data"", 
+  w:"", 
+  h:75
+});
 ```
 > ### closeSlibing 关闭一个兄弟窗口
 
@@ -309,12 +304,9 @@ uexWindow.openSlibing(1, "0", "nav.html", "", "", 75);
 | ---- | ------ | ---- | --------------- |
 | type | Number | 是    | 窗口的类型，1-头部；2-底部 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 ```
