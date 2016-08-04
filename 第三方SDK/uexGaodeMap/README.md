@@ -426,19 +426,18 @@ var json = '{
 
 > ###  addMarkersOverlay  添加标注
 
-`uexGaodeMap.addMarkersOverlay(json)`
+` var markers = uexGaodeMap.addMarkersOverlay(markerInfos)`
 
 **参数:**
 
 
 | 参数名称 | 参数类型    | 是否必选 | 说明   |
 | ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
-
+| markerInfos | json字符串 | 是    | 传入参数,标注信息组成的数组结构字符串 |
+| markers | Array | 是    | 返回数据,是由marker对象组成的一个数组,如果添加失败返回为空 |
 ```
-var json = '[
+var markerInfos = '[
     {
-        id:,//(必选) 唯一标识符
         longitude:,//(必选) 标注经度
         latitude:,//(必选) 标注纬度
         icon:,//(可选) 标注图标
@@ -456,7 +455,6 @@ var json = '[
 ```
     var param = [
         {
-            id:10001,
             longitude:114.402965,
             latitude:30.475845,
             icon:"http://www.iconpng.com/png/mapmarkers/marker_inside_azure.png",
@@ -466,7 +464,6 @@ var json = '[
             }
         },
         {
-            id:10002,
             longitude:114.409308,
             latitude:30.476229,
             bubble:{
@@ -475,23 +472,23 @@ var json = '[
             }
         }
     ];
-    var json = JSON.stringify(param);
-    uexGaodeMap.addMarkersOverlay(json);
+    var markerInfos = JSON.stringify(param);
+    var markers = uexGaodeMap.addMarkersOverlay(markerInfos);
 ```
 
-> ### setMarkerOverlay  修改标注
+> ### updateMarkerOverLay  修改标注
 
-`uexGaodeMap.setMarkerOverlay(json)`
+`uexGaodeMap.updateMarkerOverLay(marker,markerInfo)`
 
 **参数:**
 
 | 参数名称 | 参数类型    | 是否必选 | 说明   |
 | ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
+| marker | Object | 是    | addMarkersOverlay接口返回的marker对象 |
+| markerInfo | String | 是    | 标注信息,json格式 |
 
 ```
-var json = '{
-    id:,//(必选) 唯一标识符
+var markerInfo = '{
     longitude:,//(可选) 标注经度
     latitude:,//(可选) 标注纬度
     icon:,//(可选) 标注图标
@@ -507,31 +504,31 @@ var json = '{
 **示例:**
 
 ```
-    var makerInfo = {
-        id:10002,
+    var params = {
         bubble:{
             title:"change-title",
             subTitle:"change-subTitle"
         }
     };
-    var json = JSON.stringify(makerInfo);
-    uexGaodeMap.setMarkerOverlay(json);
+    var makerInfo = JSON.stringify(params);
+    var marker = ;//addMarkersOverlay接口返回的marker对象
+    uexGaodeMap.setMarkerOverlay(marker,makerInfo);
 ```
 
 > ### addPolylineOverlay  添加折线覆盖物
 
-`uexGaodeMap.addPolylineOverlay(json)`
+` var overlay = uexGaodeMap.addPolylineOverlay(polylineInfo)`
 
 **参数:**
 
 | 参数名称 | 参数类型    | 是否必选 | 说明   |
 | ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
+| polylineInfo | json字符串 | 是    | 传入参数,折线覆盖物信息 |
+| overlay | Object | 是    | 返回overlay覆盖物对象，如果添加失败返回为空 |
 
 
 ```
-var json = '{
-    id:,//(必选) 唯一标识符
+var polylineInfo = '{
     fillColor:,//(可选) 折线颜色
     lineWidth:,//(可选) 折线宽
     property:[//(必选) 数据
@@ -548,8 +545,7 @@ var json = '{
 **示例:**
 
 ```
-    var jsonstr = {
-        id:"151",
+    var json = {
         fillColor:"#f00",
         lineWidth:"10.0",
         property:[
@@ -567,23 +563,23 @@ var json = '{
             }
         ]
     };
-    var json = JSON.stringify(jsonstr);
-    uexGaodeMap.addPolylineOverlay(json);
+    var polylineInfo = JSON.stringify(json);
+    var overlay = uexGaodeMap.addPolylineOverlay(polylineInfo);
 ```
 
 > ### removeOverlays  移除覆盖物
 
-`uexGaodeMap.removeOverlays(json)`
+`uexGaodeMap.removeOverlays(overlays)`
 
 **参数:**
 
 | 参数名称 | 参数类型    | 是否必选 | 说明   |
 | ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
+| overlays | json字符串 | 可选    | overlay对象组成的数组结构字符串,json结构字符串,不传时移除所有覆盖物 |
 
 
 ```
-var json = '[]'////(可选)覆盖物唯一标识符数组,不传时移除所有覆盖物。
+var overlays = '[]';
 ```
 
   
@@ -591,25 +587,23 @@ var json = '[]'////(可选)覆盖物唯一标识符数组,不传时移除所有�
 **示例:**
 
 ```
- 	var idarr = ["151"];
-    var json = JSON.stringify(idarr);
-    uexGaodeMap.removeOverlays(json);
+ 	var overlays = '[overlay1,overlay2]';
+   uexGaodeMap.removeOverlays(overlays);
 ```
 
 > ### addArcOverlay  添加弧形覆盖物,仅Android支持
 
-`uexGaodeMap.addArcOverlay(json)`
+`var overlay = uexGaodeMap.addArcOverlay(arcInfo)`
 
 **参数:**
 
 | 参数名称 | 参数类型    | 是否必选 | 说明   |
 | ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
-
+| arcInfo | json字符串 | 是    | 传入参数，弧形覆盖物信息 |
+| overlay | Object | 是    | 返回overlay覆盖物对象，如果添加失败返回为空 |
 
 ```
-var json = '{
-    id:,//(必选) 唯一标识符
+var arcInfo = '{
     strokeColor:,//(可选) 颜色
     lineWidth:,//(可选) 线宽
     start:{//(必选) 起点数据
@@ -632,8 +626,7 @@ var json = '{
 **示例:**
 
 ```
-    var jsonstr = {
-        id:"152",
+    var json = {
         strokeColor:"#f00",
         lineWidth:"12.0",
         start:{
@@ -649,24 +642,23 @@ var json = '{
             latitude:"30.375845"
         }
     };
-    var json = JSON.stringify(jsonstr);
-    uexGaodeMap.addArcOverlay(json);
+    var arcInfo = JSON.stringify(json);
+    var overlay = uexGaodeMap.addArcOverlay(arcInfo);
 ```
 
 > ### addCircleOverlay  添加圆形覆盖物
 
-`uexGaodeMap.addCircleOverlay(json)`
+`var overlay = uexGaodeMap.addCircleOverlay(circleInfo)`
 
 **参数:**
 
 | 参数名称 | 参数类型    | 是否必选 | 说明   |
 | ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
-
+| circleInfo | json字符串 | 是    | 传入参数,圆形覆盖物信息 |
+| overlay | Object | 是    | 返回overlay覆盖物对象，如果添加失败返回为空 |
 
 ```
-var json = '{
-    id:,//(必选) 唯一标识符
+var circleInfo = '{
     longitude:,//(必选) 圆心经度
     latitude:,//(必选) 圆心纬度
     radius:,//(必选) 半径
@@ -680,8 +672,7 @@ var json = '{
 **示例:**
 
 ```
-    var jsonstr = {
-        id:"153",
+    var json = {
         longitude:"114.402965",
         latitude:"30.375845",
         radius:"1000",
@@ -689,24 +680,23 @@ var json = '{
         strokeColor:"#990033",
         lineWidth:"4"
     };
-    var json = JSON.stringify(jsonstr);
-    uexGaodeMap.addCircleOverlay(json);
+    var circleInfo = JSON.stringify(json);
+    var overlay = uexGaodeMap.addCircleOverlay(circleInfo);
 ```
 
 > ### addPolygonOverlay  添加多边形覆盖物
 
-`uexGaodeMap.addPolygonOverlay(json)`
+`var overlay = uexGaodeMap.addPolygonOverlay(polygonInfo)`
 
 **参数:**
 
 | 参数名称 | 参数类型    | 是否必选 | 说明   |
 | ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
-
+| polygonInfo | json字符串 | 是    | 传入参数,多边形覆盖物信息 |
+| overlay | Object | 是    | 返回overlay覆盖物对象，如果添加失败返回为空 |
 
 ```
 var json = '{
-    id:,//(必选) 唯一标识符
     fillColor:,//(可选) 填充颜色
     strokeColor:,//(可选) 边框颜色
     lineWidth:,//(可选) 边框线宽
@@ -724,8 +714,7 @@ var json = '{
 **示例:**
 
 ```
-    var jsonstr = {
-        id:"154",
+    var json = {
         fillColor:"#990033",
         strokeColor:"#990033",
         lineWidth:"2.0",
@@ -748,24 +737,23 @@ var json = '{
             }
         ]
     };
-    var json = JSON.stringify(jsonstr);
-    uexGaodeMap.addPolygonOverlay(json);
+    var polygonInfo = JSON.stringify(json);
+    var overlay = uexGaodeMap.addPolygonOverlay(polygonInfo);
 ```
 
 > ### addGroundOverlay  添加图片覆盖物
 
-`uexGaodeMap.addGroundOverlay(json)`
+`var overlay = uexGaodeMap.addGroundOverlay(groundInfo)`
 
 **参数:**
 
 | 参数名称 | 参数类型    | 是否必选 | 说明   |
 | ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
-
+| groundInfo | json字符串 | 是    | 传入参数,图片覆盖物信息 |
+| overlay | Object | 是    | 返回overlay覆盖物对象，如果添加失败返回为空 |
 
 ```
-var json = '{
-    id:,//(必选) 唯一标识符
+var groundInfo = '{
     imageUrl:,//(必选) 图片地址
     transparency:,//(可选) 图片透明度(仅Android支持该参数)
     property:[//(必选) 数据,数组长度为2,第一个元素表示西南角的经纬度,第二个表示东北角的经纬度；
@@ -783,9 +771,8 @@ var json = '{
 
 ```
     
-    var jsonstr = {
-        id:"155",
-        imageUrl:"http://img0.bdstatic.com/img/image/9baf75d938553886ce515def29441ed31409109131.jpg",
+    var json = {
+               imageUrl:"http://img0.bdstatic.com/img/image/9baf75d938553886ce515def29441ed31409109131.jpg",
         transparency:"0.5",
         property:[
             {
@@ -798,32 +785,32 @@ var json = '{
             }
         ]
     };
-    var json = JSON.stringify(jsonstr);
-    uexGaodeMap.addGroundOverlay(json);
+    var groundInfo = JSON.stringify(json);
+    uexGaodeMap.addGroundOverlay(groundInfo);
 ```
 
 > ### removeMarkersOverlays  移除标注
 
-`uexGaodeMap.removeMarkersOverlays(json)`
+`uexGaodeMap.removeMarkersOverlays(markers)`
 
 **参数:**
 
 | 参数名称 | 参数类型    | 是否必选 | 说明   |
 | ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
+| markers | json字符串 |  否   | 传入参数,marker对象组成的数组结构字符串,json结构字符串,不传时移除所有标注 |
 
 
 ```
-var json = '[]'//(可选)标注唯一标识符数组,不传时移除所有标注。
+var markers = '[]';
 ```
 
 
 **示例:**
 
 ```javascript
-   var params = ['10001'];
-    var json = JSON.stringify(params);
-    uexGaodeMap.removeMarkersOverlays(json);
+   var params = [marker1,marker2];
+    var markers = JSON.stringify(params);
+    uexGaodeMap.removeMarkersOverlays(markers);
 ```
 
 > ### poiSearch  兴趣点搜索
@@ -1310,36 +1297,28 @@ var json = '{
 
 > ### setCustomButton 设置自定义按钮
 
-`uexGaodeMap.setCustomButton(json)`
+`var button = uexGaodeMap.setCustomButton(buttonInfo)`
 
 **参数:**
 
 | 参数名称 | 参数类型    | 是否必选 | 说明   |
 | ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
-| data | json对象  | 是    | 返回数据 |
+| buttonInfo | json字符串 | 是    | 传入参数,自定义按钮信息 |
+| button | Object  | 是    | 返回自定义按钮对象，如果设置失败返回为空 |
 
 ```javascript
-var json = {
+var buttonInfo = '{
 	x:,//Number,必选 按钮横坐标
 	y:,//Number,必选 按钮纵坐标
 	width:,//Number,必选 按钮宽度
 	height:,//Number,必选 按钮高度
-	id:,//String,必选 按钮的唯一标识符
 	bgImage:,//String,必选 按钮背景图路径 
 	title:,//String 可选 按钮文字 
 	titleColor:,// String 可选 按钮文字颜色
 	titleSize:,//Number 可选 按钮文字大小
-}
+}'
 ```
-**返回值**
 
-```javascript
-var data = {
-	id:,//尝试设置的自定义按钮的唯一标识符
-	isSuccess:,// 设置是否成功 true/false,id已存在时,会返回false
-}
-```
 **说明:**
 
 * 设置自定义按钮是全局的,设置之后在各个页面均可以直接调用[showCustomButtons](showCustomButtons 显示自定义按钮)
@@ -1351,7 +1330,6 @@ var data = {
 
 ```javascript
 var param={
-	id:"11",
 	bgImage:"res://button1.png",
 	title:"title",
 	titleColor:"#F00",
@@ -1360,30 +1338,22 @@ var param={
 	width:35,
 	height:16
 }
-var json =JSON.stringify(param)
-var result=uexGaodeMap.setCustomButton(json);
-alert("result:" + JSON.stringify(result));
+var buttonInfo =JSON.stringify(param)
+var button = uexGaodeMap.setCustomButton(buttonInfo);
 ```
 
 > ### deleteCustomButton 删除自定义按钮
 
-`uexGaodeMap.deleteCustomButton(id)`
+`var result = uexGaodeMap.deleteCustomButton(button)`
 
 **参数:**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明            |
 | ---- | ------ | ---- | ------------- |
-| id   | String | 是    | 需要删除的按钮的唯一标识符 |
-| data | json对象 | 是    | 返回数据          |
+| button | Object  | 是    | 由setCustomButton返回自定义按钮对象 |
+| result | bool  | 是    | true为删除成功，false为删除失败|
 
-**返回值**
 
-```
-var data = '{
-	id:,//尝试删除的自定义按钮的唯一标识符
-	isSuccess:// 设置是否成功 true/false,id不存在时,会返回false
-}'
-```
 **说明:**
 
 * 删除自定义按钮是全局的
@@ -1393,19 +1363,18 @@ var data = '{
 **示例:**
 
 ```javascript
-var result=uexGaodeMap.deleteCustomButton("11");
-alert("callback:" + JSON.stringify(result));
+var result = uexGaodeMap.deleteCustomButton(button);
 ```
 
 > ### showCustomButtons 显示自定义按钮
 
-`uexGaodeMap.showCustomButtons(ids)`
+`var data = uexGaodeMap.showCustomButtons(buttons)`
 
 **参数:**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                           |
 | ---- | ------ | ---- | ---------------------------- |
-| ids  | String | 是    | json字符串,内容是由需显示按钮的唯一标识符构成的数组 |
+| buttons  | String | 是    | json字符串,内容是由需显示自定义按钮对象构成的数组类型的字符串 |
 | data | json对象 | 是    | 返回数据                         |
 
 **返回值**
@@ -1426,21 +1395,20 @@ var data = {
 **示例:**
 
 ```javascript
-var ids=["11","12"];
-var jsonStr =JSON.stringify(ids);
-var result=uexGaodeMap.showCustomButtons(JSON.stringify(ids));
-alert("callback:" + JSON.stringify(result));
+var buttons='[button1,button2]';
+var data = uexGaodeMap.showCustomButtons(buttons);
+alert("callback:" + JSON.stringify(data));
 ```
 
 > ### hideCustomButtons 隐藏自定义按钮
 
-`uexGaodeMap.hideCustomButtons(ids)`
+`var data = uexGaodeMap.hideCustomButtons(buttons)`
 
 **参数:**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                           |
 | ---- | ------ | ---- | ---------------------------- |
-| ids  | String | 否    | json字符串,内容是由需显示按钮的唯一标识符构成的数组 |
+| buttons  | String | 否    | json字符串,内容是由需隐藏自定义按钮对象构成的数组类型的字符串 |
 | data | json对象 | 是    | 返回数据                         |
 
 **返回值：**
@@ -1453,18 +1421,17 @@ var data = {
 ```
 **说明:**
 
-* ids不传时,会尝试隐藏所有自定义按钮
-* 隐藏id不存在的按钮会失败
+* buttons不传时,会尝试隐藏所有自定义按钮
+* 隐藏不存在的按钮会失败
 * 隐藏已经隐藏的按钮会失败
 
 
 **示例:**
 
 ```javascript
-var ids=["11","12"];
-var jsonStr=JSON.stringify(ids);
-var result=uexGaodeMap.hideCustomButtons(JSON.stringify(ids));
-alert("callback:" + JSON.stringify(result));
+var buttons='[button1,button2]';
+var data = uexGaodeMap.hideCustomButtons(buttons);
+alert("callback:" + JSON.stringify(data));
 ```
 
 
@@ -1497,7 +1464,7 @@ alert("callback:" + JSON.stringify(result));
 
 ```
 var json = {
-    id://被点击的标注的id
+    id://被点击的标注对象
 }
 ```
 
@@ -1519,7 +1486,7 @@ var json = {
 
 ```
 var json = {
-    id://被点击的气泡所属标注的id
+    id://被点击的气泡所属标注对象
 }
 ```
 
@@ -1605,13 +1572,13 @@ var json = {
 
 > ### onCustomButtonClick 自定义按钮被点击的监听方法
 
-`uexGaodeMap.onCustomButtonClick(id);`
+`uexGaodeMap.onCustomButtonClick(button);`
 
 **参数:**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明              |
 | ---- | ------ | ---- | --------------- |
-| id   | String | 是    | 被点击的自定义按钮的唯一标识符 |
+| button   | String | 是    | 被点击的自定义按钮对象 |
 
 **说明:**
 
