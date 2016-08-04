@@ -69,7 +69,7 @@ var params ={
 
 ```
 var params = {
- 	listViewId:0,
+ 	listViewId:"0",
  	layout:{
  		center:["res://case1/layout_item1.xml","res://case1/layout_item2.xml"],
  		left:["res://case1/layout_left.xml"],
@@ -229,11 +229,11 @@ setItems接口数据传入方式:
 
 ```
 var params = {
- 	listViewId:0,
+ 	listViewId:"0",
  	dataList:[
  		{
  		center:{
- 			"type1":1,//指定布局id,这里对应initLayout接口的layout_item1布局,该布局文件定义了layoutType的属性值为${type1},则需要在这里通过type1关键字指定布局id。值1和layout_item1布局文件中的layoutId属性值一致。
+ 			"type1":"1",//指定布局id,这里对应initLayout接口的layout_item1布局,该布局文件定义了layoutType的属性值为${type1},则需要在这里通过type1关键字指定布局id。值1和layout_item1布局文件中的layoutId属性值一致。
  			//以下键值对中键是与layout_item1布局文件中定义的变量值(形如:${变量值})对应,值即是相对应的属性值。
  			"text1" : "测试1",
  			"text2" : "测试2",
@@ -259,7 +259,7 @@ var params = {
  	},
  		{
  		center:{
- 			"layoutId":2,
+ 			"layoutId":"2",
  			"content_bg":"#ff0000",
  			"left_pic":"res://case1/BaDongQian.jpg"
  		},
@@ -350,7 +350,7 @@ var params ={
 
 ```
 var params = {
- 	listViewId:0,
+ 	listViewId:"0",
  	left: 0,
  	top: 0,
  	width:800,
@@ -436,12 +436,12 @@ var params ={
 
 ```
 var params = {
-	listViewId:0,
+	listViewId:"0",
 	index:1,
 	dataList:[
  		{
  			center:{
- 			"type1":1,
+ 			"type1":"1",
  			"text1" : "add1",
  			"text2" : "add2",
  			"text3" : "add3",
@@ -466,7 +466,7 @@ var params = {
  		},
  		{
  			center:{
- 				"layoutId":2,
+ 				"layoutId":"2",
  				"content_bg":"#00ff00",
  				"left_pic":"res://case1/BaDongQian.jpg"
  			},
@@ -533,7 +533,7 @@ var params ={
 
 ```
 var params = {
-	listViewId:0,
+	listViewId:"0",
 	index:0,
 	data:{
 		center:{
@@ -583,7 +583,7 @@ var params ={
 
 ```
 var params = {
-	listViewId:0,
+	listViewId:"0",
 	indexes:[0,1]
 };
 var data = JSON.stringify(params, function(errorCode){
@@ -612,7 +612,7 @@ var params ={
 
 ```
 var params = {
-	listViewId:0
+	listViewId:"0"
 };
 var data = JSON.stringify(params);
 uexNBListView.show(data);
@@ -638,7 +638,7 @@ var params ={
 
 ```
 var params = {
-	listViewId:0
+	listViewId:"0"
 };
 var data = JSON.stringify(params);
 uexNBListView.hide(data);
@@ -664,7 +664,7 @@ var params = {
 
 ```
 var params = {
-	listViewId:0
+	listViewId:"0"
 };
 var data = JSON.stringify(params);
 uexNBListView.setRefreshStatusCompleted(data);
