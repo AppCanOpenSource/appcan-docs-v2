@@ -1731,7 +1731,7 @@ var state=uexWindow.getSlidingWindowState();
 | ----------- | ------ | ---- | ----------------- |
 | title       | String | 是    | 标题                |
 | message     | String | 是    | 内容                |
-| buttonLable | String | 否    | 显示在按钮上的文字，默认为“确定” |
+| buttonLabel | String | 否    | 显示在按钮上的文字，默认为“确定” |
 
 **版本支持：**
 
@@ -1743,7 +1743,7 @@ var state=uexWindow.getSlidingWindowState();
 uexWindow.alert({
   title:"提示",
   message:"alert框测试",
-  buttonLable:"OK"
+  buttonLabel:"OK"
 });
 ```
 
@@ -1763,7 +1763,7 @@ uexWindow.alert({
 | ----------- | ------ | ---- | -------------------- |
 | title       | String | 是    | 标题                   |
 | message     | String | 是    | 内容                   |
-| buttonLable | String | 是    | 显示在按钮上的文字的集合，中间以逗号隔开 |
+| buttonLabel | String | 是    | 显示在按钮上的文字的集合，中间以逗号隔开 |
 
 callback为Function类型，参数为用户点击的按钮索引
 
@@ -1777,7 +1777,7 @@ callback为Function类型，参数为用户点击的按钮索引
 uexWindow.confirm({
   title:"警告",
   message:"确定退出么？",
-  buttonLable:"OK,Cancel"
+  buttonLabel:"OK,Cancel"
 },function(index){
   
 });
@@ -1800,7 +1800,7 @@ uexWindow.confirm({
 | title        | String | 是    | 标题                           |
 | message      | String | 是    | 对话框内容，不需要时请传空字符串`""`         |
 | defaultValue | String | 是    | 输入框默认文字，不需要时请传空字符串`""`       |
-| buttonLable  | String | 是    | 显示在按钮上的文字的集合 ,多个按钮之间用逗号`,`分隔 |
+| buttonLabel  | String | 是    | 显示在按钮上的文字的集合 ,多个按钮之间用逗号`,`分隔 |
 | hint         | String | 否    | 输入框中的提示文字，在输入框中内容为空时显示       |
 `callback`为Function类型，参数如下：
 
