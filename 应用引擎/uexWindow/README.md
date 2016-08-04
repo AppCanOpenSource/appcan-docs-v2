@@ -812,13 +812,13 @@ uexWindow.setSelectedPopOverInMultiWindow({
 
 `params` 为JSON对象,各字段如下
 
-| 参数名称    | 参数类型   | 是否必选 | 说明                 |
-| ------- | ------ | :--: | ------------------ |
-| popName | String |  是   | 浮动窗口名称             |
-| x       | Number |  否   | x坐标，默认为0           |
-| y       | Number |  否   | y坐标，默认为0           |
-| w       | Number |  否   | 宽度，为空时默认为window的宽度 |
-| h       | Number |  否   | 高度，为空时默认为window的高度 |
+| 参数名称 | 参数类型   | 是否必选 | 说明                 |
+| ---- | ------ | :--: | ------------------ |
+| name | String |  是   | 浮动窗口名称             |
+| x    | Number |  否   | x坐标，默认为0           |
+| y    | Number |  否   | y坐标，默认为0           |
+| w    | Number |  否   | 宽度，为空时默认为window的宽度 |
+| h    | Number |  否   | 高度，为空时默认为window的高度 |
 
 **版本支持：**
 
