@@ -183,6 +183,10 @@ uexWindow.close({
 
 无
 
+**返回值：**
+
+Bool类型，true表示成功，false为失败
+
 **版本支持：**
 
 4.0.0+
@@ -198,6 +202,10 @@ uexWindow.close({
 **参数:**
 
 无
+
+**返回值：**
+
+Bool类型，true表示成功，false为失败
 
 **版本支持：**
 
@@ -2951,6 +2959,10 @@ var jsonStr  = {
 
 4.0.0+
 
+**返回值：**
+
+Bool类型，true表示成功，false表示失败
+
 **示例:**
 ```javascript
         var params = {
@@ -2960,7 +2972,7 @@ var jsonStr  = {
             "w":1200,
             "h":1600 
         };
-        uexWindow.createPluginViewContainer(JSON.stringify(params));
+        var result=uexWindow.createPluginViewContainer(JSON.stringify(params));
 ```
 
 > ### closePluginViewContainer 关闭插件容器
@@ -2987,12 +2999,16 @@ var jsonStr  = {
 
 4.0.0+
 
+**返回值：**
+
+Bool类型，true表示成功，false表示失败
+
 **示例:**
-```
-        var params = {
-            "id":"998"
-        };
-        uexWindow.closePluginViewContainer(JSON.stringify(params));
+```javascript
+var params = {
+    "id":"998"
+};
+var result=uexWindow.closePluginViewContainer(JSON.stringify(params));
 ```
 
 
@@ -3221,135 +3237,6 @@ console.log(name);
 
 ## 2.4 回调方法
 
-
-> ### cbPrompt 弹出prompt对话框的回调方法
-
-`uexWindow.cbPrompt(opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
-| -------- | ------ | ---- | ---------------------------------------- |
-| opId     | Number | 是    | 操作ID，此方法中不起作用                            |
-| dataType | Number | 是    | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data     | String | 是    | 返回用户点击对话框上的按钮索引及输入框中的值,json格式为 {"num":"0","value":"xxx"} |
-
-`data`中各字段含义如下:
-
-| 参数    | 是否必须 | 说明     |
-| ----- | ---- | ------ |
-| num   | 是    | 索引     |
-| value | 是    | 输入框中的值 |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.0.0+
-
-**示例：**
-
-```
-
-function cbPrompt(opId, dataType, data){
-    alert(data);
-}
-window.uexOnload = function(type){
-    uexWindow.cbPrompt = cbPrompt;
-}
-```
-
-> ### cbActionSheet 弹出菜单列表的回调方法
-
-`uexWindow.cbActionSheet(opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
-| -------- | ------ | ---- | ---------------------------------------- |
-| opId     | Number | 是    | 操作ID，此方法中不起作用                            |
-| dataType | Number | 是    | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data     | Number | 是    | 返回的数据，用户点击的按钮索引                          |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.0.0+
-
-**示例：**
-
-```
-function actionSheet(){
-    uexWindow.actionSheet("菜单","Cancel","Opt1,Opt2,Opt3,Opt4,Opt5,Opt6");
-}
-function cbActionSheet(opId, dataType, data){
-    alert(data);
-}
-window.uexOnload = function(type){
-    uexWindow.cbActionSheet = cbActionSheet;
-}
-```
-
-> ### cbGetState 获取窗口是否处于前台的回调方法
-
-`uexWindow.cbGetState(opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
-| -------- | ------ | ---- | ---------------------------------------- |
-| opId     | Number | 是    | 操作ID，此方法中不起作用                            |
-| dataType | Number | 是    | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data     | Number | 是    | 返回的数据，0：前台；1：后台                          |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.0.0+
-
-> ### cbPageBack 返回到上一个页面的回调方法
-
-`uexWindow.cbPageBack(opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
-| -------- | ------ | ---- | ---------------------------------------- |
-| opId     | Number | 是    | 操作ID，此方法中不起作用                            |
-| dataType | Number | 是    | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data     | Number | 是    | 返回结果，0：成功；1：失败                           |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.0.0+
-
-> ### cbPageForward 前进到下一个页面的回调方法
-
-`uexWindow.cbPageForward(opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
-| -------- | ------ | ---- | ---------------------------------------- |
-| opId     | Number | 是    | 操作ID，此方法中不起作用                            |
-| dataType | Number | 是    | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data     | Number | 是    | 返回结果，0：成功；1：失败                           |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.0.0+
-
 > ### cbOpenMultiPopover 打开多页面浮动窗口的回调方法
 
 `uexWindow.cbOpenMultiPopover(opId,dataType,data)`
@@ -3369,69 +3256,9 @@ data字符串中各字段含义如下：
 | multiPopName          | 是    | 多页面浮动窗口的名字 |
 | multiPopSelectedIndex | 是    | 子页面窗口索引    |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
 
-> ### cbGetUrlQuery 获取参数时的回调方法
-
-`uexWindow.cbGetUrlQuery(opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
-| -------- | ------ | ---- | ---------------------------------------- |
-| opId     | Number | 是    | 操作ID，此方法中不起作用                            |
-| dataType | Number | 是    | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data     | Number | 是    | 返回的数据                                    |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.0.0+
-
-
-> ### cbBounceState 获取网页弹动状态的回调方法
-
-`uexWindow.cbBounceState(opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
-| -------- | ------ | ---- | ---------------------------------------- |
-| opId     | Number | 是    | 操作ID，此方法中不起作用                            |
-| dataType | Number | 是    | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
-| data     | Number | 是    | 0：关闭；1：开启                                |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.0.0+
-
-
-> ### cbSlidingWindowState 获取侧滑窗口显示情况的回调方法
-
-`uexWindow.cbSlidingWindowState(state)`
-
-**参数:**
-
-| 参数名称  | 参数类型   | 是否必选 | 说明                                |
-| ----- | ------ | ---- | --------------------------------- |
-| state | Number | 是    | 返回的显示情况，0：左侧菜单显示；1：主界面显示；2：右侧菜单显示 |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.0.0+
+4.0.0+
 
 
 ## 2.5 监听方法
@@ -3446,12 +3273,9 @@ iOS6.0+
 | ---- | ------ | ---- | ---------------------------------------- |
 | type | Number | 是    | 当前加载完毕View的类型。0:主窗口或者浮动窗口(即代表自己);1:上个slibing;2:下个slibing |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例**
 ```
@@ -3465,18 +3289,16 @@ window.uexOnload = function(type){
 `uexWindow.onSlipedUpward()`
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例**
 
-```
+```javascript
 uexWindow.onSlipedUpward = function(){
     console.log('onSlipedUpward');
 }
@@ -3487,16 +3309,15 @@ uexWindow.onSlipedUpward = function(){
 `uexWindow.onSlipedDownward()`
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例**
+
 类似onSlipedUpward
 
 > ### onSlipedUpEdge 滑到顶部的监听方法，内容超过一屏时有效
@@ -3504,16 +3325,15 @@ iOS6.0+
 `uexWindow.onSlipedUpEdge()`
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例**
+
 类似onSlipedUpward
 
 > ### onSlipedDownEdge 滑到底部的监听方法，内容超过一屏时有效
@@ -3521,16 +3341,15 @@ iOS6.0+
 `uexWindow.onSlipedDownEdge()`
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例**
+
 类似onSlipedUpward
 
 > ### onAnimationFinish 动画执行完成的监听方法，只对浮动窗口有效
@@ -3540,16 +3359,13 @@ iOS6.0+
 **参数:**
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例:**
 
-```
+```javascript
 uexWindow.onAnimationFinish = onAnimationFinish;
 function onAnimationFinish() {
     uexWindow.alert("应用名称","动画完毕","ok");
@@ -3561,18 +3377,16 @@ function onAnimationFinish() {
 `uexWindow.onSetWindowFrameFinish()`
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 window.uexOnload = function(type){
     uexWindow.onSetWindowFrameFinish = onSetWindowFrameFinish;
 }
@@ -3586,18 +3400,16 @@ function onSetWindowFrameFinish(){
 `uexWindow.onSwipeRight()`
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 uexWindow.onSwipeRight = function(){
     console.log('onSwipeRight');
 }
@@ -3608,14 +3420,12 @@ uexWindow.onSwipeRight = function(){
 `uexWindow.onSwipeLeft()`
 
 **参数:**
+
 无
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 > ### onBounceStateChange 弹动状态改变的监听方法
 
@@ -3628,15 +3438,12 @@ iOS6.0+
 | type  | Number | 是    | 对应的部位值，0：网页顶端；1：网页底部           |
 | state | Number | 是    | 状态值，0：滑动事件开始；1：刷新事件开始；2：滑动事件结束 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例**
-```
+```javascript
 uexWindow.onBounceStateChange = onBounceStateChange;
 
 function onBounceStateChange(type, state){
@@ -3665,16 +3472,13 @@ function onBounceStateChange(type, state){
 | ---- | ------ | :--: | -------------------------------- |
 | data | String |  是   | 消息，postGlobalNotification发送的消息数据 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
  **示例：**
 
-```
+```javascript
 window.uexOnload = function(type){
     uexWindow.onGlobalNotification = onGlobalNotification;
 }
@@ -3694,14 +3498,13 @@ function onGlobalNotification(ret){
 | ------- | ------ | ---- | ---------------- |
 | keyCode | String | 是    | 按键的值，0:返回键;1:菜单键 |
 
-**平台支持：**
-Android2.2+
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
  **示例：**
 
-```
+```javascript
 uexWindow.onKeyPressed =function(keyCode){
     console.log(keyCode);
 }
@@ -3717,16 +3520,13 @@ uexWindow.onKeyPressed =function(keyCode){
 | ----- | ------ | ---- | ----------------- |
 | state | String | 是    | 状态值，0:回到前台;1:压入后台 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 uexWindow.onStateChange=function(state){
     console.log(state);
 }
@@ -3744,72 +3544,11 @@ uexWindow.onStateChange=function(state){
 | name | String | 是    | 浮动窗口的名称                                  |
 | url  | String | 是    | 浮动窗口的url；当浮动窗口加载的是本地网页时，url返回网页的绝对路径（file:// 开头）当浮动窗口加载的是网络上的网页时，url返回网址（http:// 开头） |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.0.0+
+
+4.0.0+
 
 
-
-
-> ### cbCreatePluginViewContainer 容器创建成功的回调方法
-
-`uexWindow.cbCreatePluginViewContainer (opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                            |
-| -------- | ------ | ---- | ----------------------------- |
-| opId     | Number | 是    | 创建成功的容器id                     |
-| dataType | Number | 是    | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data     | String | 是    | 返回的数据，success 创建成功            |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.1.0+
-
-**示例：**
-
-```
-window.uexOnload = function(type){
-       uexWindow.cbCreatePluginViewContainer = function(opId, dataType, data){
-			alert("cbCreatePluginViewContainer: " + data );
-	}
-}
-```
-> ### cbClosePluginViewContainer 容器关闭成功的回调方法
-
-`uexWindow.cbClosePluginViewContainer(opId,dataType,data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明                            |
-| -------- | ------ | ---- | ----------------------------- |
-| opId     | Number | 是    | 被关闭的容器id                      |
-| dataType | Number | 是    | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data     | String | 是    | 返回的数据，success 容器关闭成功          |
-
-**平台支持：**
-Android2.2+
-iOS6.0+
-
-**版本支持：**
-3.1.0+
-
-**示例：**
-
-```
-window.uexOnload = function(type){
-       uexWindow.cbClosePluginViewContainer = function(opId, dataType, data){
-			alert("cbClosePluginViewContainer: " + data );
-	}
-}
-```
 > ### onPluginContainerPageChange容器页面切换回调
 
 `uexWindow.onPluginContainerPageChange(opId,dataType,data)`
@@ -3822,18 +3561,15 @@ window.uexOnload = function(type){
 | dataType | Number | 是    | 参数类型详见CONSTANT中Callback方法数据类型 |
 | data     | Number | 是    | 容器当前显示页面的index                |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.1.0+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 window.uexOnload = function(type){
-       uexWindow.onPluginContainerPageChange= function(opId, dataType, data){
+    uexWindow.onPluginContainerPageChange= function(opId, dataType, data){
 			alert("onPluginContainerPageChange: " + data );
 	}
 }
@@ -3849,16 +3585,13 @@ window.uexOnload = function(type){
 | ----- | ------ | ---- | --------------------------------- |
 | state | Number | 是    | 返回的显示情况，0：左侧菜单显示；1：主界面显示；2：右侧菜单显示 |
 
-**平台支持：**
-Android2.2+
-iOS6.0+
-
 **版本支持：**
-3.3.2+
+
+4.0.0+
 
 **示例：**
 
-```
+```javascript
 uexWindow.onSlidingWindowStateChanged=function(state){
     console.log(state);
 }
@@ -3867,8 +3600,6 @@ uexWindow.onSlidingWindowStateChanged=function(state){
 #3 术语表
 
 >### WindowAnimationId 窗口动画Id
-
-
 
 > **基础动画**
 
