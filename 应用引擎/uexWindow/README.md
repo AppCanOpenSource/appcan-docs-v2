@@ -1192,9 +1192,7 @@ var params  = {
     mark:0,
     reload:1
 };
- 
-var paramStr = JSON.stringify(params);
-uexWindow.toggleSlidingWindow(paramStr);
+uexWindow.toggleSlidingWindow(params);
 ```
 
 > ### setSlidingWindow 设置侧滑窗口
@@ -1213,12 +1211,14 @@ uexWindow.toggleSlidingWindow(paramStr);
 
 `json`字符串中各字段含义如下:
 
-| 参数           | 参数类型   | 是否必选 | 说明      |
-| ------------ | ------ | ---- | ------- |
-| leftSliding  | String | 是    | 左侧侧滑窗口  |
-| rightSliding | String | 是    | 右侧侧滑窗口  |
-| width        | Number | 是    | 侧滑窗口宽度  |
-| url          | String | 是    | url类型数据 |
+| 参数           | 参数类型   | 是否必选 | 说明                      |
+| ------------ | ------ | ---- | ----------------------- |
+| leftSliding  | Json   | 是    | 左侧侧滑窗口                  |
+| rightSliding | Json   | 是    | 右侧侧滑窗口                  |
+| width        | Number | 是    | 侧滑窗口宽度                  |
+| url          | String | 是    | url类型数据                 |
+| animationId  | Number | 否    | 取值为1时为侧边栏缩放效果，同时请设置bg参数 |
+| bg           | String | 否    | 设置背景                    |
 
 
 
@@ -1237,7 +1237,9 @@ uexWindow.setSlidingWindow({
     rightSliding:{
         width:240,
         url:"uexWindow_left.html"
-    } 
+    },
+  	animationId:1,
+  	bg:"res://bg.jpg"
  });
 ```
 
