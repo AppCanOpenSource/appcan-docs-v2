@@ -100,7 +100,7 @@
 
 > ### getData 获取输入框中的内容
 
-`var content = uexSecurityKeyboard.getContent(securityKeyboard);`
+`var content = uexSecurityKeyboard.getData(securityKeyboard);`
 
 **说明:**
 
@@ -120,7 +120,7 @@
 **示例:**
 
 ```
-   var content = uexSecurityKeyboard.getContent(securityKeyboard)
+   var content = uexSecurityKeyboard.getData(securityKeyboard)
   
 ```
 
