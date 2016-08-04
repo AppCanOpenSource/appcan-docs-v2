@@ -476,9 +476,9 @@ var markerInfos = '[
     var markers = uexGaodeMap.addMarkersOverlay(markerInfos);
 ```
 
-> ### setMarkerOverlay  修改标注
+> ### updateMarkerOverLay  修改标注
 
-`uexGaodeMap.setMarkerOverlay(marker,markerInfo)`
+`uexGaodeMap.updateMarkerOverLay(marker,markerInfo)`
 
 **参数:**
 
