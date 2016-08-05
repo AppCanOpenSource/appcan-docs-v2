@@ -76,10 +76,10 @@ var params = {
  		right:["res://case1/layout_right.xml"]
  	}
 };
-var data = JSON.stringify(params, function(errorCode){
+var data = JSON.stringify(params);
+uexNBListView.initLayout(data, function(errorCode){
     alert(errorCode);
 });
-uexNBListView.initLayout(data);
 ```
 
 > ### setItems 设置列表数据
@@ -274,10 +274,10 @@ var params = {
  	}
 	]
 };
-var data = JSON.stringify(params, function(errorCode){
+var data = JSON.stringify(params);
+uexNBListView.setItems(data, function(errorCode){
     alert(errorCode);
 });
-uexNBListView.setItems(data);
 ```
 
 > ### open 打开自定义布局列表
@@ -360,10 +360,10 @@ var params = {
  	swipeMode:3,
  	refreshMode:0
  };
- var data = JSON.stringify(params, function(errorCode){
+ var data = JSON.stringify(params);
+ uexNBListView.open(data, function(errorCode){
     alert(errorCode);
- });
- uexNBListView.open(data);
+});
 ```
 
 > ### close 关闭自定义布局列表
@@ -481,10 +481,10 @@ var params = {
  		}
  	]
  };
- var data = JSON.stringify(params, function(errorCode){
+ var data = JSON.stringify(params);
+ uexNBListView.insert(data, function(errorCode){
     alert(errorCode);
- });
- uexNBListView.insert(data);
+});
 ```
 
 > ### update 更新数据
@@ -541,10 +541,10 @@ var params = {
 			}
 		}
 	};
-var data = JSON.stringify(params, function(errorCode){
+var data = JSON.stringify(params);
+uexNBListView.update(data, function(errorCode){
     alert(errorCode);
 });
-uexNBListView.update(data);
 ```
 
 > ### delete 删除数据
@@ -586,10 +586,10 @@ var params = {
 	listViewId:"0",
 	indexes:[0,1]
 };
-var data = JSON.stringify(params, function(errorCode){
+var data = JSON.stringify(params);
+uexNBListView.delete(data, function(errorCode){
     alert(errorCode);
 });
-uexNBListView.delete(data);
 ```
 
 > ### show 显示自定义列表
