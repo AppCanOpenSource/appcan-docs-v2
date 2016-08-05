@@ -125,10 +125,20 @@ var result=uexWidget.removeWidget(“12345”);
 
 **回调参数：**
 
-| 参数名称  | 参数类型   | 是否必选 | 说明                     |
-| ----- | ------ | ---- | ---------------------- |
-| error | Json对象 | 是    | error 为对象，!error表示请求成功 |
-| data  | Number | 是    | /0- 需要更新 1- 不需要更新      |
+| 参数名称  | 参数类型   | 是否必选 | 说明                             |
+| ----- | ------ | ---- | ------------------------------ |
+| error | Json对象 | 是    | error 为对象，!error表示请求成功         |
+| data  | Json对象 | 是    | data.result : 0- 需要更新 1- 不需要更新 |
+
+**data 参数：**
+
+| 参数名称    | 参数类型     | 是否必选 | 说明               |
+| ------- | -------- | ---- | ---------------- |
+| result  | Number类型 | 是    | 0- 需要更新 1- 不需要更新 |
+| name    | String类型 | 是    |                  |
+| size    | String类型 | 是    |                  |
+| url     | String类型 | 是    |                  |
+| version | String类型 | 是    |                  |
 
 **版本支持:**
 
@@ -140,7 +150,7 @@ var result=uexWidget.removeWidget(“12345”);
 uexWidget.checkUpdate(function(error,data){
   	//error 为对象，!error表示请求成功
   	if(!error){
-      if(data==0){
+      if(data.result==0){
         //需要更新
       }else{
         //不需要更新
