@@ -3,15 +3,17 @@
 系统全局对象
 ## 1.1、属性  
 > ### platformName 系统名称
- 
+
 ` uexWidgetOne.platformName`
+
 **说明:**
+
 同步获取系统名称，如Android，iOS等。
-**平台支持：**
-Android2.2+
-iOS6.0+
+
 **版本支持:**
- 3.0.0+
+
+4.0.0+
+
 **示例:**
 
 ```
@@ -19,15 +21,17 @@ alert('系统为:' + uexWidgetOne.platformName);
 ```
 
 > ### platformVersion 系统版本
-  
+
 `uexWidgetOne.platformVersion`
+
 **说明:**
+
 同步获取系统版本，如2.3.4，4.3.1等。
-**平台支持:**
-Android2.2+
-iOS6.0+
+
 **版本支持:**
-3.0.0+
+
+4.0.0+
+
 **示例:**
 
 ```
@@ -36,12 +40,19 @@ alert('系统版本为:' + uexWidgetOne.platformVersion);
 > ### iOS7Style 应用iOS7风格判断
 
 `uexWidgetOne.iOS7Style`
+
 **说明:**
+
 判断当前应用是否为iOS7风格.0为非iOS7风格,1为iOS7风格.
+
 **平台支持:**
+
  iOS6.0+
+
 **版本支持:**
-3.0.0+
+
+4.0.0+
+
 **示例:**
 
 ```
@@ -51,11 +62,17 @@ alert('应用是否为iOS7风格:' + uexWidgetOne. iOS7Style)";
 
 ` uexWidgetOne.isFullScreen`
 **说明:**
+
 判断当前应用是否为全屏.0非全屏(显示状态栏),1是全屏(不显示状态栏).
+
 **平台支持:**
+
 iOS6.0+
+
 **版本支持:**
-3.0.0+
+
+4.0.0+
+
 **示例:**
 
 ```
@@ -66,17 +83,25 @@ alert('应用是否为全屏:' + uexWidgetOne.isFullScreen)";
 
 
 > ### getPlatform 获取平台信息
- 
+
 `uexWidgetOne.getPlatform()`
+
 **说明:**
+
  获取平台信息
+
 **参数:**
+
 无
-**平台支持:**
-Android2.2+
-iOS6.0+
+
+**返回值：**
+
+Number类型，0为iOS，1为Android
+
 **版本支持:**
+
 3.0.0+
+
 **示例:**
 
 ```
@@ -85,15 +110,18 @@ uexWidgetOne.getPlatform();
 > ### exit 退出
 
 `uexWidgetOne.exit(flag)`
+
 **说明:**
+
 退出程序
+
 **参数:**
+
     flag:(Number类型) 可选  是否弹出关闭提示框，0-不弹，否则弹提示框。
-**平台支持:**
-Android2.2+
-iOS6.0+
 **版本支持:**
+
 3.0.0+
+
 **示例:**
 
 ```
@@ -102,19 +130,35 @@ uexWidgetOne.exit(0);
 > ### getCurrentWidgetInfo 获取当前widget信息
 
 ` uexWidgetOne.getCurrentWidgetInfo()`
+
 **说明:**
+
 获取当前widget信息
+
 **参数:**
+
 无
-**平台支持:**
-Android2.2+
-iOS6.0+
+
+**返回值：**
+
+Json对象，各参数如下：
+
+|  参数名称   |  参数类型  |   说明    |
+| :-----: | :----: | :-----: |
+|  appId  | String |         |
+| version | String |         |
+|  name   | String |         |
+|  icon   | String | icon的路径 |
+
 **版本支持:**
- 3.0.0+
+
+4.0.0+
+
 **示例:**
 
-```
-uexWidgetOne.getCurrentWidgetInfo();
+```javascript
+var widgetInfo=uexWidgetOne.getCurrentWidgetInfo();
+console.log(widgetInfo.name)
 ```
 > ### cleanCache 清除缓存
 
@@ -269,7 +313,7 @@ data:(Number类型) 必选  回调当前widget相关信息，json数据格式```
 
 **示例:**
 
-```
+​```
 function cbGetCurrentWidgetInfo(opId,dataType,data){
     var obj = eval('('+data+')');
     alert(obj.widgetId);//获取当前APP的一些信息，比如应用ID之类的数据
@@ -277,7 +321,7 @@ function cbGetCurrentWidgetInfo(opId,dataType,data){
 window.uexOnload = function() {
      uexWidgetOne.cbGetCurrentWidgetInfo = cbGetCurrentWidgetInfo;
 }
-```
+​```
 
 > ### cbCleanCache 清除缓存的回调方法
 
@@ -297,7 +341,7 @@ data:(Number类型) 必选  返回uex.cSuccess或者uex.cFailed，详见CONSTANT
 
 **示例:**
 
-```
+​```
 function cbCleanCache(opId,dataType,data){
   if(data == 0){
     alert("清除成功！");
@@ -308,7 +352,7 @@ function cbCleanCache(opId,dataType,data){
 window.uexOnload = function() {
 uexWidgetOne.cbCleanCache = cbCleanCache;
 }
-```
+​```
 
 > ### cbGetMainWidgetId 获取主widget的appId的回调方法
 
@@ -352,11 +396,12 @@ errorInfo:(String类型) 必选  错误信息````
 3.0.0+
 
 **示例:**
-```
+​```
 function cbError(opId,dataType,data){
     alert(data);
 }
 window.uexOnload = function() {
 uexWidgetOne.cbError = cbError;
 }
-```
+​```
+````
