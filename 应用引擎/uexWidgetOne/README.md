@@ -167,9 +167,6 @@ console.log(widgetInfo.name)
 清除当前应用的缓存，仅主widget调用此接口有效。
 **参数:**
  无
-**平台支持:**
- Android2.2+
-iOS6.0+
 **版本支持:**
  3.0.0+
 **示例:**
@@ -180,19 +177,27 @@ uexWidgetOne.cleanCache();
 > ### getMainWidgetId 获取主widget的appId
 
 `uexWidgetOne.getMainWidgetId()`
+
 **说明:**
+
 获取主widget的appId
+
 **参数:**
+
 无
-**平台支持:**
-Android2.2+
-iOS6.0+
+
+**返回值：**
+
+String类型
+
 **版本支持:**
-3.0.0+
+
+4.0.0+
+
 **示例:**
 
-```
-uexWidgetOne.getMainWidgetId();
+```javascript
+var appId=uexWidgetOne.getMainWidgetId();
 ```
 
 
@@ -266,120 +271,6 @@ alert("engine version code:" + uexWidgetOne.getEngineVersionCode());
 
 
 ##2.2、回调方法
-> ### cbGetPlatform 获取平台信息的回调方法
-
-`uexWidgetOne.cbGetPlatform(opId,dataType,data)`
-
-**参数:**
-
-````
-opId:(Number类型) 必选  操作ID，在此函数中不起作用，可忽略
-dataType:(Number类型) 必选  参数类型详见CONSTANT中Callback方法数据类型
-data:(Number类型) 必选  返回当前手机平台的类型，详见CONSTANT中PlatformInfo
-````
-
-**版本支持:**
-
-3.0.0+
-
-**示例：**
-
-```
-function cbGetPlatform(opId,dataType,data){
-    if(data == 0){
-      alert("iOS");
-    }else if(data == 1){
-      alert("Android");    }
-    }
-window.uexOnload = function() {
-    uexWidgetOne.cbGetPlatform = cbGetPlatform;
-}
-```
-
-> ### cbGetCurrentWidgetInfo 获取当前widget信息的回调方法
-
-`uexWidgetOne.cbGetCurrentWidgetInfo(opId,dataType,data)`
-
-**参数:**
-
-````
-opId:(Number类型) 必选  操作ID，在此函数中不起作用，可忽略
-dataType:(Number类型) 必选  参数类型详见CONSTANT中Callback方法数据类型
-data:(Number类型) 必选  回调当前widget相关信息，json数据格式````
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-​```
-function cbGetCurrentWidgetInfo(opId,dataType,data){
-    var obj = eval('('+data+')');
-    alert(obj.widgetId);//获取当前APP的一些信息，比如应用ID之类的数据
-}
-window.uexOnload = function() {
-     uexWidgetOne.cbGetCurrentWidgetInfo = cbGetCurrentWidgetInfo;
-}
-​```
-
-> ### cbCleanCache 清除缓存的回调方法
-
-`uexWidgetOne.cbCleanCache(opId,dataType,data)`
-
-**参数:**
-
-````
-opId:(Number类型) 必选  操作ID，在此函数中不起作用，可忽略
-dataType:(Number类型) 必选  参数类型详见CONSTANT中Callback方法数据类型
-data:(Number类型) 必选  返回uex.cSuccess或者uex.cFailed，详见CONSTANT中Callbackint类型数据
-````
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-​```
-function cbCleanCache(opId,dataType,data){
-  if(data == 0){
-    alert("清除成功！");
-  }else{
-    alert("非主widget不能清除Cache！");
-    }
-}
-window.uexOnload = function() {
-uexWidgetOne.cbCleanCache = cbCleanCache;
-}
-​```
-
-> ### cbGetMainWidgetId 获取主widget的appId的回调方法
-
-`uexWidgetOne.cbGetMainWidgetId(opId,dataType,data)`
-
-**参数:**
-
-````
-opId:(Number类型) 必选  操作ID，在此函数中不起作用，可忽略
-dataType:(Number类型) 必选  参数类型详见CONSTANT中Callback方法数据类型
-data:(Number类型) 必选  返回主widget的appId````
-
-**版本支持:**
-
-3.0.0+
-
-**示例:**
-
-```
-function cbGetMainWidgetId(opId,dataType,data){
-    alert("主widgetId 为："+data);
-}
-window.uexOnload = function() {
-    uexWidgetOne.cbGetMainWidgetId = cbGetMainWidgetId;
-}
-```
-
 > ### cbError 出现异常时的回调方法
 
 `uexWidgetOne.cbError(opId,errorCode,errorInfo)`
