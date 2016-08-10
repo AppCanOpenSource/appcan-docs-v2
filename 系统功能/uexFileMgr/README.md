@@ -940,30 +940,30 @@ var param = {
 
 **回调参数:**
 
-| 参数名称      | 参数类型   | 说明     |
-| --------- | ------ | ------ |
-| resultObj | Object | 搜索操作结果 |
-
 ```javascript
-var resultObj = {
-	isSuccess:,//Boolean,必选.是否搜索成功
-	result:,//Array,搜索成功时才有此参数.所有符合条件的路径构成的数组;若没有路径符合搜索条件,则为一个空数组
+var cb = function(error,result){
 }
 ```
+
+| 参数名称      | 参数类型   | 说明     |
+| --------- | ------ | ------ |
+| error | Number | error为零表示操作成功,非零时表示操作失败. |
+| result | Array | 搜索操作结果,所有符合条件的路径构成的数组;若没有路径符合搜索条件,则为一个空数组|
+
 
 **示例:**
 
 ```javascript
-var data={
+var data = {
 	path:"res://",
 	option:5,
 	keywords:["name1","name2","name3"],
 	suffixes:["txt","xml"]
 	}
 
-uexFileMgr.search(JSON.stringify(data),function(obj){
-	if(obj.isSuccess){
-		alert(obj.result);
+uexFileMgr.search(JSON.stringify(data),function(err,result){
+	if(!err){
+		alert(result);
 	}else{
 		alert("搜索失败!");
 	}

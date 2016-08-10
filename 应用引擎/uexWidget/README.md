@@ -13,7 +13,7 @@
 
 > ### startWidget 加载一个widget 
 
-`uexWidget.startWidget(json)`
+`uexWidget.startWidget(data,cb)`
 
 **说明:**
 
@@ -21,15 +21,17 @@
 
 **参数:**
 
+data为Object类型,包含要加载的widget的一些信息,各字段含义如下
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | appId | String | 是 | 子widget的appId |
 | animId | String | 是 | 子widget载入时的动画id,详见CONSTANT中WindowAnimiID |
-| funcName | String | 是 | 方法名，子widget结束时将String型的任意字符回调给该方法，可为空。 注意：只在主窗口中有效，浮动窗口中无效 |
-| info | String | 是 | 传给子widget的信息 |
+| funcName | String | 否 | 方法名，子widget结束时将String型的任意字符回调给该方法，可为空。 注意：只在主窗口中有效，浮动窗口中无效 |
+| info | String | 否 | 传给子widget的信息 |
 | animDuration | String | 否 | 动画持续时长，单位为毫秒，默认200毫秒 |
 
+cb为加载widget的回调函数,拥有一个Number类型的参数error,error为0表示加载成功,非0时表示加载失败
 
 
 **返回值：**
@@ -39,12 +41,18 @@ Bool类型，true表示成功，false表示失败
 **示例:**
 
 ```javascript
-var result=uexWidget.startWidget({
+var data = {
   appId:'12345',
   animId:'1',
   funcName:'widgetDidFinish',
   info:'open a widget',
   animDuration:300
+}
+
+uexWidget.startWidget(data,function(error){
+	if(!error){
+		alert("加载成功!");
+	}
 });
 ```
 

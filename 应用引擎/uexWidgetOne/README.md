@@ -4,16 +4,11 @@
 ## 1.1、属性  
 > ### platformName 系统名称
 
-` uexWidgetOne.platformName`
+`uexWidgetOne.platformName`
 
 **说明:**
 
-同步获取系统名称，如Android，iOS等。
-
-**版本支持:**
-
-4.0.0+
-
+系统名称，值为`Android`或者`iOS`
 **示例:**
 
 ```
@@ -26,61 +21,38 @@ alert('系统为:' + uexWidgetOne.platformName);
 
 **说明:**
 
-同步获取系统版本，如2.3.4，4.3.1等。
-
-**版本支持:**
-
-4.0.0+
+系统版本，如2.3.4，4.3.1等。
 
 **示例:**
 
 ```
 alert('系统版本为:' + uexWidgetOne.platformVersion);
 ```
-> ### iOS7Style 应用iOS7风格判断
 
-`uexWidgetOne.iOS7Style`
-
-**说明:**
-
-判断当前应用是否为iOS7风格.0为非iOS7风格,1为iOS7风格.
-
-**平台支持:**
-
- iOS6.0+
-
-**版本支持:**
-
-4.0.0+
-
-**示例:**
-
-```
-alert('应用是否为iOS7风格:' + uexWidgetOne. iOS7Style)";
-```
 > ### isFullScreen 应用全屏判断
 
-` uexWidgetOne.isFullScreen`
+`uexWidgetOne.isFullScreen`
+
 **说明:**
 
 判断当前应用是否为全屏.0非全屏(显示状态栏),1是全屏(不显示状态栏).
-
-**平台支持:**
-
-iOS6.0+
-
-**版本支持:**
-
-4.0.0+
 
 **示例:**
 
 ```
 alert('应用是否为全屏:' + uexWidgetOne.isFullScreen)";
 ```
-#2、方法
-##2.1、方法
 
+
+#2、方法
+
+* 以下的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统
+* 以下的所有API默认在引擎版本**4.0.0+**可用.
+* 特殊情况会单独进行说明.
+
+
+
+##2.1、方法
 
 > ### getPlatform 获取平台信息
 
@@ -117,10 +89,7 @@ uexWidgetOne.getPlatform();
 
 **参数:**
 
-    flag:(Number类型) 可选  是否弹出关闭提示框，0-不弹，否则弹提示框。
-**版本支持:**
-
-3.0.0+
+flag:(Number类型) 可选  是否弹出关闭提示框，0-不弹，否则弹提示框。
 
 **示例:**
 
@@ -129,7 +98,7 @@ uexWidgetOne.exit(0);
 ```
 > ### getCurrentWidgetInfo 获取当前widget信息
 
-` uexWidgetOne.getCurrentWidgetInfo()`
+`uexWidgetOne.getCurrentWidgetInfo()`
 
 **说明:**
 
@@ -143,16 +112,13 @@ uexWidgetOne.exit(0);
 
 Json对象，各参数如下：
 
-|  参数名称   |  参数类型  |   说明    |
-| :-----: | :----: | :-----: |
-|  appId  | String |         |
-| version | String |         |
-|  name   | String |         |
-|  icon   | String | icon的路径 |
+ | 参数名称 | 参数类型 | 说明 | 
+ | ----- | ----- | ----- | 
+ | appId | String | | 
+ | version | String | | 
+ | name | String | | 
+ | icon | String | icon的路径 | 
 
-**版本支持:**
-
-4.0.0+
 
 **示例:**
 
@@ -163,17 +129,17 @@ console.log(widgetInfo.name)
 > ### cleanCache 清除缓存
 
 `uexWidgetOne.cleanCache()`
+
 **说明:**
-清除当前应用的缓存，仅主widget调用此接口有效。
-**参数:**
- 无
-**版本支持:**
- 3.0.0+
+
+清除当前应用的网页缓存，仅主widget调用此接口有效。
+
 **示例:**
 
 ```
 uexWidgetOne.cleanCache();
 ```
+
 > ### getMainWidgetId 获取主widget的appId
 
 `uexWidgetOne.getMainWidgetId()`
@@ -189,10 +155,6 @@ uexWidgetOne.cleanCache();
 **返回值：**
 
 String类型
-
-**版本支持:**
-
-4.0.0+
 
 **示例:**
 
@@ -216,15 +178,6 @@ var appId=uexWidgetOne.getMainWidgetId();
 **返回值:**
 
 返回值是String类型的字符串,代表当前的引擎版本。比如"3.4.0"
-
-**平台支持:**
-
-Android2.2+
-iOS7.0+
-
-**版本支持:**
-
-3.4.0+
 
 **示例:**
 
@@ -254,15 +207,6 @@ alert("engine version:" + uexWidgetOne.getEngineVersion());
 	"3.16.13" => 31613
 
 
-**平台支持:**
-
-Android2.2+
-iOS7.0+
-
-**版本支持:**
-
-3.4.0+
-
 **示例:**
 
 ```
@@ -279,12 +223,9 @@ alert("engine version code:" + uexWidgetOne.getEngineVersionCode());
 
 ````
 opId:(Number类型) 必选  操作ID，在此函数中不起作用，可忽略
-errorCode:(Number类型) 必选  错误代码详见ErrorCode
+errorCode:(Number类型) 必选  错误代码
 errorInfo:(String类型) 必选  错误信息````
 
-**版本支持:**
-
-3.0.0+
 
 **示例:**
 ​```
