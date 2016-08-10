@@ -30,7 +30,7 @@
 
 **平台支持:**
 
-Android2.2+
+Android2.2+  
 iOS6.0+
 
 **版本支持:**
@@ -83,12 +83,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例:**
@@ -124,12 +124,12 @@ uexVideo.openPlayer(JSON.stringify(param))
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例:**
@@ -174,12 +174,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例:**
@@ -241,12 +241,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例**
@@ -275,12 +275,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例**
@@ -315,12 +315,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例**
@@ -361,6 +361,34 @@ uexVideo.onExportWithProgress = function(data){
 }
 ```
 
+> ### onPlayerFinish 播放结束的监听方法
+  
+`uexVideo.onPlayerFinish()`
+
+**参数:**  
+无
+
+**系统支持**
+
+iOS 7.0+  
+Android 2.3+
+
+**版本支持:**
+
+iOS 3.0.5+  
+Android 3.0.8+
+
+**示例**
+
+```
+
+window.uexOnload = function(){
+    uexVideo.onPlayerFinish = function() {
+        alert("video completed!");
+    };
+}
+```
+
 # 3、更新历史
 
 ### iOS
@@ -382,12 +410,13 @@ API版本:`uexVideo-3.0.7`
 
 ### Android
 
-API版本:`uexVideo-3.0.7`
+API版本:`uexVideo-3.0.8`
 
-最近更新时间:`2016-7-5`
+最近更新时间:`2016-7-19`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.8 | 新增播放完毕后的监听方法 |
 | 3.0.7 | 修正拼写错误 |
 | 3.0.6 | 优化视屏录制接口和视屏播放接口 |
 | 3.0.5 | 新增接口,实现自定义视频界面的大小和位置,支持扩展全屏,部分代码优化 |

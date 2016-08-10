@@ -1,4 +1,4 @@
- 
+
 [TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 
@@ -443,7 +443,7 @@ uexWindow.evaluateMultiPopoverScript("", "multipop", "pop2", "alert('multipop')"
 | popName      | String | 是    | 名称                                       |
 | dataType     | Number | 是    | 窗口载入的数据的类型，0：url方式载入；1：html内容方式载入；2：既有url方式， 又有html内容方式 |
 | url          | String | 是    | url类型数据，支持“wgtroot://” 协议头，此协议头用于某些将项目部署在服务器上的appcan应用，在应用执行过程中 加载本地网页用。当dataType为0时，url支持相对路径、绝对路径。其中，当url以“wgtroot://” 协议开头时，支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件。 例如：当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页，如果在xxx.html页面中open一个窗口时，传入的data为“wgtroot://index.html" ,  那么本次open执行时，引擎将会到本应用沙箱目录的widget路径下去寻找此页面， 例如Android上找到的路径会是：file:///android_assert/widget/index.html 。 |
-| data         | String | 是    | data类型数据，用于当dataType为1时，把相应html的内容传进去。必如传入的是一个`<div>hello,world!</div>`|
+| data         | String | 是    | data类型数据，用于当dataType为1时，把相应html的内容传进去。必如传入的是一个`<div>hello,world!</div>` |
 | x            | Number | 是    | x坐标                                      |
 | y            | Number | 是    | y坐标                                      |
 | w            | Number | 是    | 宽度，为空时默认为window的宽度                       |
@@ -2176,7 +2176,7 @@ jsonStr是JSON字符串，容许的字段如下表所示**(以下均为可选参
 | title       | String  | Android     | 标题                                      |
 | subject     | String  | Android     | 子标题                                     |
 | text        | String  | Android iOS | 文本内容                                    |
-| imgPath     | String  | Android iOS | 单张图片的路径，支持file和wgt协议，图片需要先存到本地          |
+| imgPath     | String  | Android iOS | 单张图片的路径，支持file://,res://和wgt://协议       |
 | imgPaths    | Array   | Android iOS | 多张图片路径，由imgPath构成的数组                    |
 | packageName | String  | Android     | 包名。可与className搭配直接分享到某个应用。type传0时不需要传此项 |
 | className   | String  | Android     | 可与packageName搭配直接分享到某个应用。type传0时不需要传此项  |
@@ -2860,7 +2860,7 @@ uexWindow.topBounceViewRefresh();
 
 
 
- 
+
 
 
 > ### setIsSupportSlideCallback 设置网页是否支持滑动的相关监听方法
@@ -4012,4 +4012,3 @@ uexWindow.onSlidingWindowStateChanged=function(state){
 * uex.cWindowAnimationBounceFromTop = 107//同上，但页面从顶端弹入
 * uex.cWindowAnimationBounceFromRight = 108//同上，但页面从右侧端弹入
 * uex.cWindowAnimationBounceFromBottom = 109//同上，但页面从底端弹入
-   

@@ -474,6 +474,7 @@ public class ViewDataVO implements Serializable{
     public static void onActivityPause(Context context)
     public static void onActivityStop(Context context)
     public static void onActivityDestroy(Context context)
+    public static void onActivityNewIntent(Context context, Intent intent)
 ````
 
   使用方式：
