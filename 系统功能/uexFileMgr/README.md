@@ -1063,6 +1063,39 @@ var o = "wgt://";
 uexFileMgr.copyFile('109',s,o);
 ```
 
+> ### getFileHashValue 获取文件哈希值
+
+`uexFileMgr.getFileHashValue(data)`
+
+**说明:**
+获取文件的哈希值
+
+**参数:**
+data:(JSON字符串) 必选 文件路径及算法:
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ------------ | ------------ | ------------ | ------------ |
+| path | String | 是 | 文件路径，协议详见CONSTANT中PathTypes |
+| algorithm | String | 是 | 文件算法，例如：MD5、SHA-1 |
+
+**平台支持:**
+Android2.2+
+iOS6.0+
+
+**版本支持:**
+3.0.22+
+
+**示例:**
+
+````
+var data = {
+    path: "res://biaoge.xls",
+    algorithm: "SHA-1"
+};
+uexFileMgr.getFileHashValue(JSON.stringify(data));
+````
+
+
 ## 2.2、回调方法
 
 > ### cbCreateFile 创建文件的回调方法
@@ -2002,6 +2035,33 @@ Androd 3.0.13+
 		    alert("opCode:"+opCode+",dataType:"+dataType+",data"+data);
 		    
 		}
+```
+
+> ### cbGetFileHashValue 获取文件哈希值的回调方法
+
+`uexFileMgr.cbGetFileHashValue(opId,dataType,data)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| --------- | ---------- | --------- | ----- |
+| opId | Number | 是 | 唯一标识符 |
+| dataType | Number | 是 | 详见CONSTANT中Callback方法数据类型 |
+| data | String | 是 | 文件的哈希值 |
+
+**平台支持:**
+Android2.2+
+iOS6.0+
+
+**版本支持:**
+3.0.22+
+
+**示例:**
+
+```
+uexFileMgr.cbGetFileHashValue=function(opId,dataType,data){
+    alert("cbGetFileHashValue data "+data);
+}
 ```
 
 # 3、更新历史
