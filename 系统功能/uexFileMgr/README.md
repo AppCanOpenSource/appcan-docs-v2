@@ -125,7 +125,7 @@ alert(ret);
 ```javascript
 var param = {
     path:,//String,必选,文件路径.支持"wgt://","wgts://"、"file://"协议
-    mode:,//Number,打开设置.设置flag为: 1-可读 2-可写 4-不存在时创建新文件 ,需要多个设置同时作用时,将flag值相加再传入.比如传3(=1+2),意味着可读且可写
+    mode:,//Number,打开设置.设置flag为: 1-可读 2-可写 4-不存在时创建新文件
 }
 ```
 
