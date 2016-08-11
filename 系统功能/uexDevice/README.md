@@ -87,14 +87,14 @@
 | ----- | ----- | ----- |
 | String | 是 | 设备信息 |
 
-* 在3.3+引擎版本下,此方法具有返回值,可以直接获得所需的设备信息
+
 
 
 **示例:**
 
 ```
  var systemVersion = uexDevice.getInfo('1');//获取系统版本
- alert(systemVersion);//限3.3+引擎
+ alert(systemVersion);
 ```
 > ### screenCapture 屏幕截图
 
@@ -111,14 +111,31 @@
 | ----- | ----- | ----- | ----- |
 | quality | Number | 是 | 图片压缩质量,取值范围[0,1] 为0时压缩率最大|
 |callbackFunction|	函数|	必选|	回调函数，用来获取相关业务数据|
+**回调参数:**
 
+```javascript
+var callbackFunction = function(error,data){
+}
+```
 
+| 参数名称 | 参数类型 | 说明 |
+| ----- | ----- | ----- |
+| error | Number | 为0时表示成功,非0时表示失败|
+| data | Object |返回数据，形式见下 |
+```
+var data = { 
+   savePath: ,//String，屏幕截图的路径，error非零为空字符串
+}
+```
 **示例:**
 
 ```
-    uexDevice.screenCapture(0.8, function(data) {
-        alert(data.savePath);
-    });//获取屏幕截图
+    uexDevice.screenCapture(0.8,function(error,data){
+          if (!error) {
+              alert('截屏成功:' + data.savePath);
+          } else {
+              alert('截屏失败');
+  }
 ```
 
 > ### setVolume 调整音量 
@@ -161,7 +178,7 @@
 | ----- | ----- | ----- |
 | Number | 是 | 系统音量值,取值范围[0,1],为1时音量最大 |
 
-* 在3.3+引擎版本下,此方法具有返回值,可以直接获得系统音量值。
+
 
 
 **示例:**
@@ -284,12 +301,20 @@ var params = {
 | setting | String | 是 | 功能名称,详情请参考[功能](#Settings) |
 |callbackFunction|	函数|	必选|	回调函数，用来获取相关业务数据|
 
-callbackFunction 函数的参数是JSON对象类型，格式如下
+**回调参数:**
 
+```javascript
+var callbackFunction = function(error,data){
+}
 ```
-{
-    "setting":"GPS",
-    "isEnable":false
+
+| 参数名称 | 参数类型 | 说明 |
+| ----- | ----- | ----- |
+| error | Number | 为0时表示成功,非0时表示失败|
+| data | Object |返回数据，形式见下 |
+```
+var data = { 
+   setting: ,//String，功能名称,详情请参考附录
 }
 ```
 
@@ -301,8 +326,11 @@ var params = {
  	setting:"GPS"//位置服务功能
 };
 var data = JSON.stringify(params);
-uexDevice.isFunctionEnable(data, function(data) {
-    alert(JSON.stringify(data));
+uexDevice.isFunctionEnable(data, function(error,data) {
+   if (!error) {
+           alert('已开启:' + data.setting);
+       } else {
+           alert('未开启');
 });
 ```
 
@@ -312,7 +340,7 @@ uexDevice.isFunctionEnable(data, function(data) {
 
 **说明:**
 
-打开设置界面
+打开设置界面,iOS统一打开系统设置里App的页面
 
 **参数:**
 
@@ -329,12 +357,20 @@ var params = {
 | setting | String | 否 | 功能名称,详情请参考[功能](#Settings),不传时打开设置入口界面 |
 |callbackFunction|	函数|	必选|	回调函数，用来获取相关业务数据|
 
-callbackFunction 函数的参数是JSON对象类型，格式如下
+**回调参数:**
 
+```javascript
+var callbackFunction = function(error,data){
+}
 ```
-{
-    "setting":"GPS",
-    "errorCode":0 // 0 表示成功 
+
+| 参数名称 | 参数类型 | 说明 |
+| ----- | ----- | ----- |
+| error | Number | 为0时表示成功,非0时表示失败|
+| data | Object |返回数据，形式见下 |
+```
+var data = { 
+   setting: ,//String，功能名称,详情请参考附录
 }
 ```
 
@@ -342,11 +378,14 @@ callbackFunction 函数的参数是JSON对象类型，格式如下
 
 ```
 var params = {
-    setting:"GPS"//位置服务功能
+ 	setting:"GPS"//位置服务功能
 };
 var data = JSON.stringify(params);
-uexDevice.openSetting(data, function(data) {
-    alert(JSON.stringify(data));
+uexDevice.isFunctionEnable(data, function(error,data) {
+   if (!error) {
+           alert('打开成功:' + data.setting);
+       } else {
+           alert('打开失败');
 });
 ```
 
