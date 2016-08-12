@@ -119,15 +119,15 @@ uexDataBaseMgr.select(db,sql, function (error,data) {
 
 **说明:**
 
-事务的执行, 执行完成后回调`callbackFunction`
+事务的执行, 执行完成后回调`callbackFunction`，不支持select相关的语句
 
 ** 参数:**
 
-| 参数名称             | 参数类型      | 是否必选 | 说明            |
-| ---------------- | --------- | ---- | ------------- |
-| db               | DB Object | 是    | open接口同步返回的对象 |
-| func             | Function  | 是    | 可选在事务中执行的函数   |
-| callbackFunction | Function  | 否    | 回调函数，返回执行的结果  |
+| 参数名称             | 参数类型      | 是否必选 | 说明              |
+| ---------------- | --------- | ---- | --------------- |
+| db               | DB Object | 是    | open接口同步返回的对象   |
+| sqls             | String类型  | 是    | sql语句数组的Json字符串 |
+| callbackFunction | Function  | 否    | 回调函数，返回执行的结果    |
 
 `callbackFunction` 参数是是Number 类型的error,为0表示成功，其他表示失败
 
@@ -135,14 +135,14 @@ uexDataBaseMgr.select(db,sql, function (error,data) {
 **示例:**
 
 ```javascript
-function inFunc(){
-    var sql = "DELETE FROM testTable WHERE _id = 1";
-    uexDataBaseMgr.sql(db,sql);
-}
-uexDataBaseMgr.transactionEx(db,inFunc, function(error) {
-	if(!error){
-		alert("transaction success!");
-	}
+var sqls=[
+    "DROP TABLE testTable",
+    "CREATE TABLE testTable (_id INTEGER PRIMARY KEY,name TEXT)",
+    "INSERT INTO testTable (name) VALUES ('this is a case')",
+    "UPDATE testTable SET name='这是更改' WHERE _id = 1"
+];
+uexDataBaseMgr.transactionEx(db,JSON.stringify(sqls), function(error) {
+    alert("transaction result:"+error);
 });
 ```
 
