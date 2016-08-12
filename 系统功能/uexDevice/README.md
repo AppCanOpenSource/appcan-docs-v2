@@ -624,12 +624,16 @@ uexDevice.cbOpenSetting = function(data){
 
 `uexDevice.onOrientationChange(mode)`
 
+**说明:**
+
+该监听方法需要注册在主窗口中，注册在浮动窗口中无效。
+
 **参数:**
 
  
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| mode | Number | 是 | 屏幕方向,1-正竖屏；2-左横屏；4-倒竖屏；8-右横屏。 |
+| mode | Number | 是 | 屏幕方向,1-正竖屏；2-左横屏。 |
 
 **平台支持:**
 
@@ -650,11 +654,7 @@ iOS6.0+
 		alert("正竖屏");
 	}else if(mode == 2){
 		alert("左横屏");
-	}else if(mode == 4){
- 		alert("倒竖屏");
- 	}else if(mode == 8){
- 		alert("右横屏");
- 	}
+	}
 };
 ```
 
