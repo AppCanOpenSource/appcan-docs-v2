@@ -374,7 +374,7 @@ var params = {
  	setting:"GPS"//位置服务功能
 };
 var data = JSON.stringify(params);
-uexDevice.isFunctionEnable(data, function(error,data) {
+uexDevice.openSetting(data, function(error,data) {
    if (!error) {
            alert('打开成功:' + data.setting);
        } else {
