@@ -100,7 +100,7 @@ var cb = function(fileSize,percent,status){}
 | ----- | ----- | ----- | ----- |
 | fileSize | Number | 是 | 要下载的文件大小 |
 | percent | Number | 是 | 下载进度百分比 取值为0~100 |
-| status | Number | 是 | 下载状态 0-下载中 1-下载完成 2-下载发送错误 |
+| status | Number | 是 | 下载状态 0-下载中 1-下载完成 2-下载发生错误 |
 
 
 
