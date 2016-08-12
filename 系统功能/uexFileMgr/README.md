@@ -874,17 +874,19 @@ var param = {
 }
 ```
 
+
+
 **回调参数:**
+
+```javascript
+var cb = function(error){
+	//...
+}
+```
 
 | 参数名称 | 参数类型 | 说明 |
 | ----- | ----- | ----- |
-| resultObj | Object | 重命名操作结果 |
-
-```javascript
-var resultObj = {
-	result:,//Number,必选.重命名成功时为1,失败时为0
-}
-```
+| error | Number | 重命名操作结果,为零表示成功 非0时表示失败 |
 
 
 
@@ -896,8 +898,8 @@ var data = {
 	newFilePath:"wgt://2.txt"
 }
 
-uexFileMgr.renameFile(JSON.stringify(data),function(obj){
-	if(obj.result == 1){
+uexFileMgr.renameFile(JSON.stringify(data),function(err){
+	if(!err){
 		alert("重命名成功!");
 	}else{
 		alert("重命名失败!");
@@ -1042,13 +1044,20 @@ var params = {
 
 **回调参数:**
 
+```javascript
+var cb = function(error,info){
+	//...
+}
+
+```
+
 | 参数名称 | 参数类型 | 说明 |
 | ----- | ----- | ----- |
-| resultObj | Object | 搜索操作结果 |
+| error | Number | 为零表示操作成功,非零时表示操作失败 |
+| info | Object | 操作获取到的结果 |
 
 ```javascript
-var resultObj = {
-	errorCode:,//Number, 0-获取成功 1-获取失败
+var info = {
 	unit,//String,文件大小单位
 	data,//Number,文件大小
 }
@@ -1063,8 +1072,8 @@ var params = {
  	unit:"KB"
 }
 var data = JSON.stringify(params);
-uexFileMgr.getFileSizeByPath(data,function(info){
-	if(info.errorCode == 0){
+uexFileMgr.getFileSizeByPath(data,function(err,info){
+	if(!err){
 		alert(info.data);
 	}else{
 		alert("ERROR!");
