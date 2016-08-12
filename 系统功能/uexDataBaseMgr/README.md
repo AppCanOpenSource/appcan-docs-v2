@@ -115,7 +115,7 @@ uexDataBaseMgr.select(db,sql, function (error,data) {
 
 > ### transactionEx　事务的执行
 
-`uexDataBaseMgr.transactionEx(db,func, callbackFunction)`
+`uexDataBaseMgr.transactionEx(db,sqls, callbackFunction)`
 
 **说明:**
 
