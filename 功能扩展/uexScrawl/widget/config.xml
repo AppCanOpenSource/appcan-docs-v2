@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<widget widgetId="" appId="11352882" channelCode="000" height="480" sreensize="3.5" version="00.00.0002" width="320"> 
+<!--
+  ~ Copyright (c) 2016.  The AppCan Open Source Project.
+  ~
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU Lesser General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU Lesser General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU Lesser General Public License
+  ~  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~
+  ~
+  -->
+
+<widget widgetId="" appId="11352882" channelCode="000" height="480" sreensize="3.5" version="00.00.0002" width="320">
   <name>uexBaiduMap</name>  
   <author email="3g2win@mail.com">3g2win</author>  
   <icon src="icon.png"/>  

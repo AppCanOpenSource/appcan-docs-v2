@@ -4,7 +4,7 @@
  涂鸦插件
 ##1.1、说明
  打开画板进行涂鸦,可以选择画笔的颜色、透明度和粗细,并且可以进行撤销、清屏和保存等相关操作,点击保存后返回相关图片存储地址。 
-  
+
  Android 插件需要引擎3.3版本以上。企业版打包环境需要支持Gradle才能打包。
 
 ##1.2、UI展示
@@ -16,7 +16,7 @@
 
 > ### open 打开画板
 
-`uexScrawl.open(params)`
+`uexScrawl.open(params,callback)`
 
 **说明:**
 
@@ -24,7 +24,7 @@
 
 **参数:**
 
-```
+```javascript
 var params ={
     src:,
 }
@@ -32,71 +32,47 @@ var params ={
 
 各字段含义如下:
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| src | String | 是 | 传入的图片路径 |
+| 参数名称 | 参数类型   | 是否必选 | 说明      |
+| ---- | ------ | ---- | ------- |
+| src  | String | 是    | 传入的图片路径 |
 
- 
+**回调参数：**
 
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android 3.0.0+    
-iOS3.0.0+
-
-**示例:**
-
-```
-var params = {
-           "src":"res://jingse.png"
-       };
-uexScrawl.open(JSON.stringify(params));
-```
-
-##2.2、回调方法
-> ### cbSave　进入涂鸦界面点击保存的回调方法
-
-`uexScrawl.cbSave(data)`
-
-**参数:**
-
- ```
-var data ={
-    savePath: 
+```javascript
+var callback=function(error,result){
+	  
 }
 ```
 
 各字段含义如下:
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| savePath | String | 是 | 涂鸦后图片的保存路径 |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
+| 参数名称   | 参数类型   | 说明           |
+| ------ | ------ | ------------ |
+| error  | Number | 0表示成功，其他表示失败 |
+| result | String | 编辑后图片的路径     |
 
 **版本支持:**
 
-Android3.0.0+    
-iOS3.0.0+
+Android 4.0.0+    
+
+iOS 4.0.0+
 
 **示例:**
 
-```
-window.uexOnload = function(){
-  uexScrawl.cbSave = function( data){
-     alert(data)；
-  }
-}
+```javascript
+var params = {
+    "src":"res://jingse.png"
+};
+uexScrawl.open(params,function(error,result){
+  	if(!error){
+      alert(result);
+  	}else{
+      alert("Error!")
+  	}
+});
 ```
 
-#3、更新历史 
+#2、更新历史 
 
 ### iOS
 
@@ -104,10 +80,10 @@ API版本:`uexScrawl-3.0.1`
 
 最近更新时间:`2016-5-10`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.1 | 修复点击保存按钮无法关闭窗口的问题 |
-| 3.0.0 | 涂鸦功能插件 |
+| 历史发布版本 | 更新内容              |
+| ------ | ----------------- |
+| 3.0.1  | 修复点击保存按钮无法关闭窗口的问题 |
+| 3.0.0  | 涂鸦功能插件            |
 
 ### Android
 
@@ -116,5 +92,5 @@ API版本:`uexScrawl-3.0.0`
 最近更新时间:`2016-4-11`
 
 | 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.0 | 涂鸦插件 |
+| ------ | ---- |
+| 3.0.0  | 涂鸦插件 |
