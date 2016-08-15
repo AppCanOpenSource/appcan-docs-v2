@@ -287,7 +287,7 @@ param为json字符串
 var param = {
 	username:,//单聊时聊天人的userid或者群聊时groupid
 	chatType:,//0-单聊,1-群聊
-	locationAddress:,//图片文件路径
+	locationAddress:,//地理位置信息
 	latitude:,
 	longitude:,
 	ext:,//扩展属性(可选参数,String)
