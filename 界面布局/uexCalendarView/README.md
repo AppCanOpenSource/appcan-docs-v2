@@ -34,10 +34,10 @@
 
 ```
 var json = {
-x:,//view距离当前网页顶部的距离(px)
-y:,//view距离当前网页左边框的距离(px)
-w:,//view宽度(px)
-h:,//view高度(px)
+	x:,//view距离当前网页顶部的距离(px)
+	y:,//view距离当前网页左边框的距离(px)
+	w:,//view宽度(px)
+	h:,//view高度(px)
 }
 ```
 
@@ -47,13 +47,12 @@ h:,//view高度(px)
 ```
 var data ={
     x:0,
-y:0,
+	y:0,
     w:300,
-h:300
+	h:300
 };
 var jsonStr = JSON.stringify(data)
 uexCalendarView.open(jsonStr);
-
 ```
 
 >###close  关闭日历
@@ -136,7 +135,7 @@ var json = {
 
 ```
 uexCalendarView.onItemClick = function(jsonString){
-alert(jsonString);
+	alert(jsonString);
 }
 ```
 
@@ -148,15 +147,15 @@ API版本:`uexCalendarView-4.0.0`
 
 最近更新时间:`2016-6-24`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 4.0插件 |
-| 3.0.5 | 修复uexCalendarView切换年份时触发click事件的bug |
-| 3.0.4 | 修复uexCalendarView切换月份时执行click事件的bug |
-| 3.0.3 | 添加IDE支持 |
-| 3.0.2 | 删除info.plist |
-| 3.0.1 | 添加国际化支持 |
-| 3.0.0 | 日历插件 |
+| 历史发布版本 | 更新内容                                |
+| ------ | ----------------------------------- |
+| 4.0.0  | 4.0插件                               |
+| 3.0.5  | 修复uexCalendarView切换年份时触发click事件的bug |
+| 3.0.4  | 修复uexCalendarView切换月份时执行click事件的bug |
+| 3.0.3  | 添加IDE支持                             |
+| 3.0.2  | 删除info.plist                        |
+| 3.0.1  | 添加国际化支持                             |
+| 3.0.0  | 日历插件                                |
 
 ### Android
 
@@ -164,10 +163,10 @@ API版本:`uexCalendarView-4.0.0`
 
 最近更新时间:`2016-6-24`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 4.0插件 |
-| 3.0.3 | 修复month拼写错误的问题 |
-| 3.0.2 | 国际化 |
-| 3.0.1 | 修复日历界面弹动的问题 |
-| 3.0.0 | 日历插件 |
+| 历史发布版本 | 更新内容           |
+| ------ | -------------- |
+| 4.0.0  | 4.0插件          |
+| 3.0.3  | 修复month拼写错误的问题 |
+| 3.0.2  | 国际化            |
+| 3.0.1  | 修复日历界面弹动的问题    |
+| 3.0.0  | 日历插件           |

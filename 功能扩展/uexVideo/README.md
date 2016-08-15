@@ -31,10 +31,10 @@
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| path | String | 是 | 视频文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
-| orientation | Number | 否 | 1:强制横屏,仅iOS有效 |
+| 参数名称        | 参数类型   | 是否必选 | 说明                                       |
+| ----------- | ------ | ---- | ---------------------------------------- |
+| path        | String | 是    | 视频文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| orientation | Number | 否    | 1:强制横屏,仅iOS有效                            |
 
 
 **示例:**
@@ -76,10 +76,10 @@ var param = {
 ```
 
 * forceFullScreen参数说明
-	* 此参数传true时播放器会默认进入全屏状态,**且不能切换回普通状态**。
-	* 此参数传true时showCloseButton会被强制设置为true,传入的参数将被忽略。
-	* 此参数传true时showScaleButton会被强制设置为false,传入的参数将被忽略。
-	* 此参数传true时,width,height,x,y,scrollWithWeb 这5个参数无效。
+  * 此参数传true时播放器会默认进入全屏状态,**且不能切换回普通状态**。
+  * 此参数传true时showCloseButton会被强制设置为true,传入的参数将被忽略。
+  * 此参数传true时showScaleButton会被强制设置为false,传入的参数将被忽略。
+  * 此参数传true时,width,height,x,y,scrollWithWeb 这5个参数无效。
 
 
 **示例:**
@@ -103,7 +103,7 @@ uexVideo.openPlayer(JSON.stringify(param))
 
 > ### closePlayer 关闭视频播放器
 
-`uexVideo.getPlayerInfo()`
+`uexVideo.closePlayer()`
 
 **说明:**
 
@@ -117,20 +117,15 @@ uexVideo.openPlayer(JSON.stringify(param))
 
 ```
 uexVideo.closePlayer();
-
 ```
 
 > ### record 打开视频录制界面
-  
+
 `uexVideo.record(params)`
 
 **说明:**
 
- 打开视频录制界面
-  
-  <del>回调 [cbRecord](#cbRecord 录制完成的回调方法)</del>**已废弃**
-  
-回调 [onRecordFinish](#onRecordFinish 录制结束的回调方法)
+ 打开视频录制界面,监听方法 [onRecordFinish](#onRecordFinish 录制结束的回调方法)
 
 **参数:**
 
@@ -144,14 +139,14 @@ var param = {
 }
 ```
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| maxDuration | Number | 否 | 视频录制最大时间,单位s(秒) |
-| qualityType | Number | 否 | 视频分辨率类型,**取值为0,1,2,默认为0**。0:1920x1080, 1:1280x720, 2:640x480|
-| bitRateType | Number | 否 | 视频录制时采样率类型,**取值为0, 1, 2, 默认为0**, 0: 高采样率, 1: 中采样率, 2: 低采样率|
-| fileType | String | 否 | 输出的视频文件格式,**默认为`mp4`**。Android 平台上支持的的视频文件格式有:`mp4`、`3gp`; IOS支持的压缩视频文件格式有:`mp4`,`mov`|
- 
- * 说明:bitRateType 视频录制时使用的采样率,采样率越高,视频越清晰,质量越高,视频文件越大。
+| 参数名称        | 参数类型   | 是否必选 | 说明                                       |
+| ----------- | ------ | ---- | ---------------------------------------- |
+| maxDuration | Number | 否    | 视频录制最大时间,单位s(秒)                          |
+| qualityType | Number | 否    | 视频分辨率类型,**取值为0,1,2,默认为0**。0:1920x1080, 1:1280x720, 2:640x480 |
+| bitRateType | Number | 否    | 视频录制时采样率类型,**取值为0, 1, 2, 默认为0**, 0: 高采样率, 1: 中采样率, 2: 低采样率 |
+| fileType    | String | 否    | 输出的视频文件格式,**默认为`mp4`**。Android 平台上支持的的视频文件格式有:`mp4`、`3gp`; IOS支持的压缩视频文件格式有:`mp4`,`mov` |
+
+* 说明:bitRateType 视频录制时使用的采样率,采样率越高,视频越清晰,质量越高,视频文件越大。
 
 
 
@@ -167,36 +162,10 @@ var params = {
 uexVideo.record(JSON.stringify(params));
 ```
 
-## 2.2、回调方法
-> ### <del>cbRecord 录制完成的回调方法</del>(此方法已废弃,请使用[onRecordFinish](#onRecordFinish 录制结束的回调方法))
-  
-`uexVideo.cbRecord(opId,dataTpye,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中[Callback](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "Callback")dataType数据类型 |
-| data | String | 是 | 视频路径 |
-
-
-
-**示例**
-
-```
-function cbRecord (opId,dataType,data){
-    alert(data);
-}
-window.uexOnload = function(){
-    uexVideo.cbRecord = cbRecord ;
-}
-```
-
-## 2.3、监听方法
+## 2.2、监听方法
 
 > ### onPlayerClose 播放器被关闭时的监听方法
-  
+
 `uexVideo.onPlayerClose(param)`
 
 **参数:**
@@ -223,7 +192,7 @@ window.uexOnload = function(){
 ```
 
 > ### onPlayerStatusChange 播放器状态改变的监听方法
-  
+
 `uexVideo.onPlayerStatusChange(param)`
 
 **参数:**
@@ -249,7 +218,7 @@ window.uexOnload = function(){
 ```
 
 > ### onRecordFinish 录制结束的监听方法
-  
+
 `uexVideo.onRecordFinish(param)`
 
 **参数:**
@@ -263,10 +232,10 @@ var param = {
 }
 ```
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| result| Number | 是 | 录制结果。 0-录制成功 1-用户取消录制 2-视频录制或者压缩过程发送错误 |
-| path| String | 否 | 仅录制成功时才会有此参数,录制压缩得到的视频文件路径 |
+| 参数名称   | 参数类型   | 是否必选 | 说明                                     |
+| ------ | ------ | ---- | -------------------------------------- |
+| result | Number | 是    | 录制结果。 0-录制成功 1-用户取消录制 2-视频录制或者压缩过程发送错误 |
+| path   | String | 否    | 仅录制成功时才会有此参数,录制压缩得到的视频文件路径             |
 
 
 
@@ -288,8 +257,8 @@ window.uexOnload = function(){
 
 **参数:**
 
-|  参数名称 | 参数类型    |  说明 |
-| ----- | ----- | ----- |
+| 参数名称     | 参数类型   | 说明             |
+| -------- | ------ | -------------- |
 | progress | Number | 压缩进度值,取值范围为0~1 |
 
 
@@ -310,15 +279,15 @@ API版本:`uexVideo-3.0.6`
 
 最近更新时间:`2016-5-10`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.6 | 现在在强制全屏模式下,一定会显示关闭按钮 |
-| 3.0.5 | 优化视频播放和录制,部分接口进行了重做 |
-| 3.0.4 | 改用bundle方式引入资源;支持IDE |
-| 3.0.3 | 重新编译,支持arm64 |
-| 3.0.2 | 支持arm64 |
-| 3.0.1 | 更换动画效果,修复在6.1.2上的显示问题 |
-| 3.0.0 | 视频功能插件 |
+| 历史发布版本 | 更新内容                  |
+| ------ | --------------------- |
+| 3.0.6  | 现在在强制全屏模式下,一定会显示关闭按钮  |
+| 3.0.5  | 优化视频播放和录制,部分接口进行了重做   |
+| 3.0.4  | 改用bundle方式引入资源;支持IDE  |
+| 3.0.3  | 重新编译,支持arm64          |
+| 3.0.2  | 支持arm64               |
+| 3.0.1  | 更换动画效果,修复在6.1.2上的显示问题 |
+| 3.0.0  | 视频功能插件                |
 
 ### Android
 
@@ -326,12 +295,12 @@ API版本:`uexVideo-3.0.6`
 
 最近更新时间:`2016-3-23`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.6 | 优化视屏录制接口和视屏播放接口 |
-| 3.0.5 | 新增接口,实现自定义视频界面的大小和位置,支持扩展全屏,部分代码优化 |
-| 3.0.4 | 删除无用资源 |
-| 3.0.3 | 修复不支持wgt协议的问题 |
-| 3.0.2 | 修复录制视频时模糊问题 |
-| 3.0.1 | 修复res路径解析出错问题 |
-| 3.0.0 | 视频功能插件 |
+| 历史发布版本 | 更新内容                               |
+| ------ | ---------------------------------- |
+| 3.0.6  | 优化视屏录制接口和视屏播放接口                    |
+| 3.0.5  | 新增接口,实现自定义视频界面的大小和位置,支持扩展全屏,部分代码优化 |
+| 3.0.4  | 删除无用资源                             |
+| 3.0.3  | 修复不支持wgt协议的问题                      |
+| 3.0.2  | 修复录制视频时模糊问题                        |
+| 3.0.1  | 修复res路径解析出错问题                      |
+| 3.0.0  | 视频功能插件                             |

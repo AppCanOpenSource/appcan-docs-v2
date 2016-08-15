@@ -34,20 +34,27 @@
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-|  param | Object | 是 | 上传对象的设置 |
+| 参数名称  | 参数类型   | 是否必选 | 说明      |
+| ----- | ------ | ---- | ------- |
+| param | Object | 是    | 上传对象的设置 |
 
 ```
 var param = {
-	url:,//String,必选.要上传的服务器地址
-	type:,//Number,可选.uploader类型, 0: 一般上传对象 1: 全局上传对象 2: 后台上传对象.此参数不传时默认为0.
+	url:,
+	type:
 }
 ```
 
+各字段含义如下：
+
+| 字段名称 | 类型     | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| url  | String | 是    | 要上传的服务器地址                                |
+| type | Number | 否    | uploader类型, 0: 一般上传对象 1: 全局上传对象 2: 后台上传对象.此参数不传时默认为0. |
+
 * type:
-	* 全局上传对象在当前网页关闭时不会停止上传
-	* 后台上传对象是全局上传对象,且当应用处于后台时,仍然可以进行上传
+  * 全局上传对象在当前网页关闭时不会停止上传
+  * 后台上传对象是全局上传对象,且当应用处于后台时,仍然可以进行上传
 
 
 **返回值:**
@@ -57,9 +64,9 @@ var param = {
 
 **示例:**
 
-```
-var uploader = uexUploaderMgr.creater({
-	   url: "http://192.168.1.4:45678/post",
+```javascript
+var uploader = uexUploaderMgr.create({
+	  url: "http://192.168.1.4:45678/post",
       type: 1
 });
 if(!uploader){
@@ -77,9 +84,9 @@ if(!uploader){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-|  uploader | Uploader | 是 | 由[create](# create 创建上传对象)接口创建的上传对象 |
+| 参数名称     | 参数类型     | 是否必选 | 说明                                  |
+| -------- | -------- | ---- | ----------------------------------- |
+| uploader | Uploader | 是    | 由[create](# create 创建上传对象)接口创建的上传对象 |
 
 **返回值:**
 
@@ -104,10 +111,10 @@ alert(ret);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-|  uploader | Uploader | 是 | 由[create](# create 创建上传对象)接口创建的上传对象 |
-| json | JSON字符串 | 是 | 请求头信息 |
+| 参数名称     | 参数类型     | 是否必选 | 说明                                  |
+| -------- | -------- | ---- | ----------------------------------- |
+| uploader | Uploader | 是    | 由[create](# create 创建上传对象)接口创建的上传对象 |
+| json     | JSON字符串  | 是    | 请求头信息                               |
 
 **返回值:**
 
@@ -132,34 +139,34 @@ alert(ret);
 
 **参数:**
 
- 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-|  uploader | Uploader | 是 | 由[create](# create 创建上传对象)接口创建的上传对象 |
-| filePath | String | 是 | 需要上传的文件路径。支持`wgt://`,`res://`,`file://` |
-| field | String | 是 | 文件数据所在的field |
-| quality | Number | 是 | 类型如果为图片,表示是否需要压缩及压缩质量。 0:不压缩 1:高质量压缩 2:中质量压缩 3:低质量压缩|
-| maxWidth | Number | 是 | 类型如果为图片,图片按尺寸等比压缩的最大宽度 |
-| cb | Function | 是 | 文件上传中的信息会通过此函数回调|
+
+| 参数名称     | 参数类型     | 是否必选 | 说明                                       |
+| -------- | -------- | ---- | ---------------------------------------- |
+| uploader | Uploader | 是    | 由[create](# create 创建上传对象)接口创建的上传对象      |
+| filePath | String   | 是    | 需要上传的文件路径。支持`wgt://`,`res://`,`file://`  |
+| field    | String   | 是    | 文件数据所在的field                             |
+| quality  | Number   | 是    | 类型如果为图片,表示是否需要压缩及压缩质量。 0:不压缩 1:高质量压缩 2:中质量压缩 3:低质量压缩 |
+| maxWidth | Number   | 是    | 类型如果为图片,图片按尺寸等比压缩的最大宽度                   |
+| cb       | Function | 是    | 文件上传中的信息会通过此函数回调                         |
 
 
 
 **回调参数:**
 
-```
+```javascript
 cb = function(packageSize, percent, responseString, status){}
 ```
 
-|  参数名称 | 参数类型  |  说明 |
-| ----- | ----- | ----- |
-| packageSize| Number | 上传包的总大小,单位:字节 |
-| percent| Number |  上传的百分比|
-| resonseString| String |  服务器的response|
-| status| Number | 上传的状态,0-上传中 1-上传成功 2-上传失败|
+| 参数名称          | 参数类型   | 说明                        |
+| ------------- | ------ | ------------------------- |
+| packageSize   | Number | 上传包的总大小,单位:字节             |
+| percent       | Number | 上传的百分比                    |
+| resonseString | String | 服务器的response              |
+| status        | Number | 上传的状态,0-上传中 1-上传成功 2-上传失败 |
 
 **示例:**
 
-```
+```javascript
 var uploader = ...//之前创建的上传对象
 uexUploaderMgr.uploadFile(uploader,"res://uexCoverFlow2_tupian.png","imageField",1,640,function(packageSize, percent, responseString, status){
 	switch (status) {
@@ -184,9 +191,9 @@ API版本:`uexUploaderMgr-4.0.0`
 
 最近更新时间:`2016-7-29`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 上传功能插件 |
+| 历史发布版本 | 更新内容   |
+| ------ | ------ |
+| 4.0.0  | 上传功能插件 |
 
 ### Android
 
@@ -194,6 +201,6 @@ API版本:`uexUploaderMgr-4.0.0`
 
 最近更新时间:`2016-7-29`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 上传功能插件 |
+| 历史发布版本 | 更新内容   |
+| ------ | ------ |
+| 4.0.0  | 上传功能插件 |

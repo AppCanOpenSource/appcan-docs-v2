@@ -5,7 +5,7 @@ ActionSheet插件
 自定义ActionSheet原生UI界面,通过调用open接口传入资源文件,配置参数,使其效果更能满足应用的需求和ui设计
 ## 1.2、UI展示
 ![](http://plugin.appcan.cn/pluginimg/162850y2015o8u11og.jpg)![](http://plugin.appcan.cn/pluginimg/170136f2015b8u11na.jpg)![](http://plugin.appcan.cn/pluginimg/170127y2015d8y11kf.jpg)![](http://plugin.appcan.cn/pluginimg/165111f2015o8w11la.jpg)
- 
+
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=417_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
@@ -24,7 +24,7 @@ ActionSheet插件
 
 ## 2.1、方法
 
-> ### [open](#open) 打开菜单
+> ### open 打开菜单
 
 `uexActionSheet.open(x,y,width,height,jsonData)`
 
@@ -35,18 +35,18 @@ ActionSheet插件
 
 **参数:**
 
-|参数名称|参数类型 | 是否必选|  说明 |
-|-----|-----|-----|----- |
-| x | Number | 是 | x坐标 |
-| y | Number | 是 | y坐标(已失效,请传0) |
-| width | Number | 是 | 宽度 |
-|height|Number|是|高度(已失效,请传0)|
-|jsonData|String|是|按钮内容|
+| 参数名称     | 参数类型   | 是否必选 | 说明           |
+| -------- | ------ | ---- | ------------ |
+| x        | Number | 是    | x坐标          |
+| y        | Number | 是    | y坐标(已失效,请传0) |
+| width    | Number | 是    | 宽度           |
+| height   | Number | 是    | 高度(已失效,请传0)  |
+| jsonData | String | 是    | 按钮内容         |
 
 * 现在插件会自动在屏幕底部生成
 * 现在插件高度会根据按钮内容自动计算获取
 * jsonData是json字符串,结构如下:
-自定义图片资源,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
+  自定义图片资源,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
 
 ```
 jsonData{
@@ -122,17 +122,17 @@ uexActionSheet.open(x,y,width,height,JsonData);
 
 ## 2.2、监听方法
 
-> ###  [onClickItem](#onClickItem) 点击item的监听方法
+> ###  onClickItem 点击item的监听方法
 
 `uexActionSheet.onClickItem(index)	`	
 
 **参数:**
 
- 
-|参数名称|参数类型 | 是否必选|  说明 |
-|-----|-----|-----|----- |
-| index | Number | 必选 |索引 |
- 
+
+| 参数名称  | 参数类型   | 是否必选 | 说明   |
+| ----- | ------ | ---- | ---- |
+| index | Number | 必选   | 索引   |
+
 
 
 
@@ -151,17 +151,17 @@ API版本:`uexActionSheet-4.0.0`
 
 最近更新时间:`2016-6-24`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 支持引擎4.0，函数入参 |
-| 3.0.7 | 添加IDE支持 |
-| 3.0.6 | 修正textNColor不能正常识别的bug |
-| 3.0.5 | 增加颜色边框 |
-| 3.0.4 | 修复ActionSheet框和底部间存在间隙 |
-| 3.0.3 | 解决uexActionSheet"取消"按钮字体正常与高亮颜色无法设置问题 |
-| 3.0.2 | 解决字体颜色,高亮颜色无法设置的问题 |
-| 3.0.1 | 修复uexActionSheet打不开问题 |
-| 3.0.0 | ActionSheet插件 |
+| 历史发布版本 | 更新内容                                  |
+| ------ | ------------------------------------- |
+| 4.0.0  | 支持引擎4.0，函数入参                          |
+| 3.0.7  | 添加IDE支持                               |
+| 3.0.6  | 修正textNColor不能正常识别的bug                |
+| 3.0.5  | 增加颜色边框                                |
+| 3.0.4  | 修复ActionSheet框和底部间存在间隙                |
+| 3.0.3  | 解决uexActionSheet"取消"按钮字体正常与高亮颜色无法设置问题 |
+| 3.0.2  | 解决字体颜色,高亮颜色无法设置的问题                    |
+| 3.0.1  | 修复uexActionSheet打不开问题                 |
+| 3.0.0  | ActionSheet插件                         |
 
 ### Android
 
@@ -169,10 +169,10 @@ API版本:`uexActionSheet-4.0.0`
 
 最近更新时间:`2016-6-24`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 支持引擎4.0，函数入参 |
-| 3.0.3 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.2 | 修复背景图片太大时,列表太高的问题 |
-| 3.0.1 | 修改设置的字体高亮颜色不生效的问题 |
-| 3.0.0 | ActionSheet插件 |
+| 历史发布版本 | 更新内容                       |
+| ------ | -------------------------- |
+| 4.0.0  | 支持引擎4.0，函数入参               |
+| 3.0.3  | 去掉插件中的ActivityGroup,配合引擎升级 |
+| 3.0.2  | 修复背景图片太大时,列表太高的问题          |
+| 3.0.1  | 修改设置的字体高亮颜色不生效的问题          |
+| 3.0.0  | ActionSheet插件              |

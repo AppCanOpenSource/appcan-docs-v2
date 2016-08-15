@@ -20,7 +20,7 @@ Button插件
 # 2、API概览
 
 ## 2.1、方法
-> ### [create](#create)  创建按钮
+> ### create  创建按钮
 
 `var btnObj = uexButton.create(param)`  
 
@@ -30,9 +30,9 @@ Button插件
 
 **参数:**
 
-|参数名称|参数类型 | 是否必选|  说明 |
-|-----|-----|-----|----- |
-| param | Object | 是 | 对象信息 |
+| 参数名称  | 参数类型   | 是否必选 | 说明   |
+| ----- | ------ | ---- | ---- |
+| param | Object | 是    | 对象信息 |
 ```
 var param = {
        x: ,
@@ -49,23 +49,23 @@ var param = {
 ```
 **内部字段:**
 
-|内部字段|字段类型 | 是否必选|  说明 |
-|-----|-----|-----|----- |
-| x | Number | 是 | x坐标 |
-| y | Number | 是 | y坐标 |
-| width | Number | 是 | 宽 |
-| height | Number | 是 | 高 |
-| data |Object | 是 | 按钮数据 |
-| title |String | 是 | 按钮内容 |
-| titleColor |String | 是 | 按钮内容颜色 |
-| textSize |String | 是 | 按钮内容字号 |
-| bgImage |String | 是 | 按钮背景图的路径，支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
+| 内部字段       | 字段类型   | 是否必选 | 说明                                       |
+| ---------- | ------ | ---- | ---------------------------------------- |
+| x          | Number | 是    | x坐标                                      |
+| y          | Number | 是    | y坐标                                      |
+| width      | Number | 是    | 宽                                        |
+| height     | Number | 是    | 高                                        |
+| data       | Object | 是    | 按钮数据                                     |
+| title      | String | 是    | 按钮内容                                     |
+| titleColor | String | 是    | 按钮内容颜色                                   |
+| textSize   | String | 是    | 按钮内容字号                                   |
+| bgImage    | String | 是    | 按钮背景图的路径，支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 
 **返回值:**
 
-|返回值|返回值类型 |  说明 |
-|-----|-----|----- |
-| btnObj | Object |  创建成功，返回button, 失败时返回null |
+| 返回值    | 返回值类型  | 说明                       |
+| ------ | ------ | ------------------------ |
+| btnObj | Object | 创建成功，返回button, 失败时返回null |
 
 **示例:**
 
@@ -85,7 +85,7 @@ var param = {
    var btnOjb =  uexButton.create(param);
 ```
 
-> ### [close](#close)  移除按钮
+> ### close  移除按钮
 
 `uexButton.close(btnOjb)`
 
@@ -95,9 +95,9 @@ var param = {
 
 **参数:**
 
-|参数名称|参数类型 | 是否必选|  说明 |
-|-----|-----|-----|----- |
-| btnOjb | Object | 是 | create方法返回的button对象 |
+| 参数名称   | 参数类型   | 是否必选 | 说明                  |
+| ------ | ------ | ---- | ------------------- |
+| btnOjb | Object | 是    | create方法返回的button对象 |
 
 **示例:**
 
@@ -110,19 +110,19 @@ uexButton.close(btnObj);
 
 > ### onClick 点击按钮的监听方法   
 
-`uexButton.onClick(buttonId)  `
+`uexButton.onClick(button)  `
 
-** 参数:**    
+**参数:**    
 
-|参数名称|参数类型 | 是否必选|  说明 |
-|-----|-----|-----|----- |
-| buttonId | String | 是 | uexButton对象ID |
+| 参数名称   | 参数类型   | 是否必选 | 说明          |
+| ------ | ------ | ---- | ----------- |
+| button | String | 是    | uexButton对象 |
 
 **示例:**
 
 ```
-uexButton.onClick = function(buttonId){
-     alert("onClick" + buttonId);
+uexButton.onClick = function(button){
+     alert("onClick" + button);
 }
 ```
 #3、更新历史
@@ -133,9 +133,9 @@ API版本:`uexButton-4.0.0`
 
 最近更新时间:`2016-7-29`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 4.0 插件 |
+| 历史发布版本 | 更新内容   |
+| ------ | ------ |
+| 4.0.0  | 4.0 插件 |
 
 
 ### Android
@@ -144,7 +144,7 @@ API版本:`uexButton-4.0.0`
 
 最近更新时间:`2016-7-29`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 4.0 插件 |
+| 历史发布版本 | 更新内容   |
+| ------ | ------ |
+| 4.0.0  | 4.0 插件 |
 

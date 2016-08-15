@@ -39,7 +39,7 @@
 
 * 需要在config.xml中配置后台权限 app才能在后台运行。具体配置方法见[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置APP后台权限)。
 * **不当的后台权限配置可能会影响上架AppStore!**
-	
+
 
 **参数**
 
@@ -113,7 +113,7 @@ iOS 7.0+
 var result = uexBackground.stop();
 ```
 
-###addTimer 设置一个定时器
+> ### addTimer 设置一个定时器
 
 `uexBackground.addTimer(param)`
 
@@ -145,7 +145,7 @@ Boolean 是否add成功
 
 * 参数缺失/不正确会返回false;
 * 没有正在运行的后台JS会返回false;
-	* 因此,建议在uexBackground.onLoad()中去设置第一个timer ;
+  * 因此,建议在uexBackground.onLoad()中去设置第一个timer ;
 * 使用已有的id/functionName会返回false;
 
 **平台支持:**
@@ -169,7 +169,7 @@ var param = {
 var result = uexBackground.addTimer(JSON.stringify(param));
 ```
 
-###cancelTimer 取消定时器
+> ### cancelTimer 取消定时器
 
 `uexBackground.cancelTimer(param)`
 
@@ -209,7 +209,7 @@ var result = uexBackground.cancelTimer(JSON.stringify(param));
 
 **重要:以下监听方法均需要在后台的JS文件中声明并使用!**
 
-###onLoad 后台JS开始运行的监听方法
+> ### onLoad 后台JS开始运行的监听方法
 
 `uexBackground.onLoad()`
 
@@ -238,7 +238,7 @@ uexBackground.onLoad = function(){
 }
 ```
 
-###XXX 定时器的监听方法
+> ### XXX 定时器的监听方法
 
 `uexBackground.XXX()`
 
@@ -276,9 +276,9 @@ API版本:`uexBackground-3.0.0`
 
 最近更新时间:`2016-3-21`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.0 | uexBackground for iOS |
+| 历史发布版本 | 更新内容                  |
+| ------ | --------------------- |
+| 3.0.0  | uexBackground for iOS |
 
 ### Android
 
@@ -286,6 +286,6 @@ API版本:`uexBackground-3.3.0`
 
 最近更新时间:`2016-3-21`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.3.0 | 后台运行插件 |
+| 历史发布版本 | 更新内容   |
+| ------ | ------ |
+| 3.3.0  | 后台运行插件 |

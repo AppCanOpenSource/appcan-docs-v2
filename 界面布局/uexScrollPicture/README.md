@@ -20,6 +20,7 @@
 # 2.API概览  
 ##2.1、方法  
 >### createNewScrollPicture   新建一个轮播图
+
 `uexScrollPicture.createNewScrollPicture(param)`
 
 **说明**  
@@ -39,13 +40,13 @@ var param={
 
 各字段含义如下:
 
-| 名称 | 类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| interval | Number | 否 | 自动滚动的间隔时间,单位为毫秒,默认3000 |
-| anchor | Array | 否 | float数对[X,Y] 轮播图的左上角锚点的坐标，默认[0,0] |
-| height | Number | 是 | 轮播图高度 |
-| width | Number | 是 | 轮播图宽度 |
-| urls | Array | 是 | List<String> 的json字符串 |
+| 名称       | 类型     | 是否必选 | 说明                                |
+| -------- | ------ | ---- | --------------------------------- |
+| interval | Number | 否    | 自动滚动的间隔时间,单位为毫秒,默认3000            |
+| anchor   | Array  | 否    | float数对[X,Y] 轮播图的左上角锚点的坐标，默认[0,0] |
+| height   | Number | 是    | 轮播图高度                             |
+| width    | Number | 是    | 轮播图宽度                             |
+| urls     | Array  | 是    | List<String> 的json字符串             |
 
 **返回值:**
 
@@ -93,7 +94,7 @@ uexScrollPicture.startAutoScroll(JSON.stringify(param));
 ```
 
 >### stopAutoScroll   停止图片轮播
-`uexScrollPicture.stopAutoScroll(param)`
+>`uexScrollPicture.stopAutoScroll(param)`
 
 **说明**  
 停止图片轮播
@@ -115,7 +116,7 @@ uexScrollPicture.stopAutoScroll(JSON.stringify(param));
 ```
 
 >### removeView   删除view
-`uexScrollPicture.removeView(param)`
+>`uexScrollPicture.removeView(param)`
 
 **说明**  
 删除view
@@ -154,7 +155,7 @@ var param={
 	view://轮播图对象
 }
 ```
- 
+
 
 **示例**
 
@@ -177,22 +178,22 @@ API版本:`uexScrollPicture-4.0.0`
 
 最近更新时间:`2016-6-24`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 4.0插件|
-| 3.0.4 | 修复手滑动的时候下面轮播点不变的bug;修改为不自动轮播、轮播点颜色 |
-| 3.0.3 | 修复回调可能会被错误触发的bug |
-| 3.0.2 | 添加IDE支持 |
-| 3.0.1 | 图片支持网络路径 |
-| 3.0.0 | 轮播图(ScrollPicture)插件 for iOS |
+| 历史发布版本 | 更新内容                               |
+| ------ | ---------------------------------- |
+| 4.0.0  | 4.0插件                              |
+| 3.0.4  | 修复手滑动的时候下面轮播点不变的bug;修改为不自动轮播、轮播点颜色 |
+| 3.0.3  | 修复回调可能会被错误触发的bug                   |
+| 3.0.2  | 添加IDE支持                            |
+| 3.0.1  | 图片支持网络路径                           |
+| 3.0.0  | 轮播图(ScrollPicture)插件 for iOS       |
 
 ### Android
 API版本:`uexScrollPicture-4.0.0`
 
 最近更新时间:`2016-6-24`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 4.0插件|
-| 3.0.2 | 修复闪退的问题 |
-| 3.0.1 | 图片轮播图 |
+| 历史发布版本 | 更新内容    |
+| ------ | ------- |
+| 4.0.0  | 4.0插件   |
+| 3.0.2  | 修复闪退的问题 |
+| 3.0.1  | 图片轮播图   |
