@@ -79,7 +79,7 @@ var jsonData = {
   key3:true,
   key4:["item1","item2"]
 }
-uexDemo.fun2(JSON.stringify(jsonData));
+uexDemo.fun2(jsonData);
 ```
 
 ### fun3 示例3
@@ -117,10 +117,10 @@ var jsonData = {
 
 **回调参数:**
 
-| 参数名称  | 参数类型   | 说明   |
-| ----- | ------ | ---- |
-| error | Number | 错误码  |
-| data  | String | 相关数据 |
+| 参数名称  | 参数类型   | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功，非0表示失败 |
+| data  | String | 相关数据         |
 
 **返回值:**
 
@@ -135,11 +135,11 @@ var jsonData = {
   key3:true,
   key4:["item1","item2"]
 }
-var demoObject = uexDemo.fun3(JSON.stringify(jsonData),function(error,data){
+var demoObject = uexDemo.fun3(jsonData,function(error,data){
   if(!error){
-    alert(data);
+    alert("成功，数据为:" + data);
   }else{
-    alert(error);
+    alert("失败，错误码为:" + error);
   }
 });
 alert(demoObject);
