@@ -211,7 +211,7 @@ var data = {
 
 > ### getScreenBrightness 获取屏幕亮度
 
-`uexDevice.getScreenBrightness(brightness)`
+`uexDevice.getScreenBrightness()`
 
 **说明:**
 
@@ -226,9 +226,6 @@ var data = {
 | 参数类型   | 是否必选 | 说明                       |
 | ------ | ---- | ------------------------ |
 | Number | 是    | 屏幕亮度值,取值范围[0,1],为1时屏幕最亮。 |
-
-* 在3.3+引擎版本下,此方法具有返回值,可以直接获得屏幕亮度值。
-
 
 **示例:**
 

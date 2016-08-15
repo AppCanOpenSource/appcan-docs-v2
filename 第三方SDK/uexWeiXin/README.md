@@ -11,7 +11,7 @@
 * IDE不建议测试使用,原因:IDE涉及证书和包名问题!　
 * 安卓微信插件在使用时,调用接口时只需填写对应的参数,直接在线勾选插件使用；`注意:安卓偶尔收不到回调的问题要设置接收回调窗口setCallbackWindowName方法`。
 * iOS微信插件在使用在微信支付或分享过程中,App用过uexWeiXin插件打开微信客户端进行支付,支付过程完成后,微信客户端通过应用自定义的UrlScheme返回到本App,并传回支付结果时,需要配置UrlScheme值
- 
+
 
 **通过config.xml配置插件的方法,iOS微信插件可直接在官网公共插件里直接勾选使用**,示例配置代码如下: 
 
@@ -23,7 +23,7 @@
  其中'wxf14d58cec986585b'改成您自己申请到的微信appId
 
 iOS 9 以后,为了预防APP通过非正常渠道获取用户的某些隐私信息,Apple启用了URLScheme白名单机制。
-	
+​	
 * **为了正常使用插件的所有功能还需要配置URLScheme白名单**([什么是URLScheme白名单](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=29503&extra=))
 * 配置白名单方法请参考[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置urlScheme白名单)
 * uexWeiXin需要进白名单添加的URLScheme如下
@@ -38,22 +38,22 @@ iOS 9 以后,为了预防APP通过非正常渠道获取用户的某些隐私信�
 
 ## 1.3 开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=195_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
- 
+
 ## 1.4 术语表
 -----
 Path Types
 
-| 协议头 | Android对应路径(其中"/sdcard/"等同于"/storage/emulated/0/") | iOS对应路径 |
-| ----- | ----- | ----- |
-| res:// | widget/wgtRes/ | widget/wgtRes |
-| wgts:// | /storage/emulated/0/widgetone/apps/xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
-| wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ |
-| file:///sdcard/ | /storage/emulated/0/ | 无 |
+| 协议头             | Android对应路径(其中"/sdcard/"等同于"/storage/emulated/0/") | iOS对应路径                           |
+| --------------- | ---------------------------------------- | --------------------------------- |
+| res://          | widget/wgtRes/                           | widget/wgtRes                     |
+| wgts://         | /storage/emulated/0/widgetone/apps/xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
+| wgts://         | /storage/emulated/0/widgetone/widgets/   | /Documents/widgets/               |
+| file:///sdcard/ | /storage/emulated/0/                     | 无                                 |
 
 ## 1.5 错误返回码说明
 前端收到的回调中的错误返回码errCode可查看下方链接获取详细信息
 [微信官方全局返回码说明地址](http://mp.weixin.qq.com/wiki/17/fa4e1434e57290788bde25603fa2fcbd.html)
- 
+
  
 
 ## 1.6、接口有效性
@@ -69,8 +69,8 @@ Path Types
 有特殊版本要求的API会在文档中额外说明。
 
 # 2、API概览
-   
-## 2.1 方法:
+
+## 2.1 方法
 
 > ### registerApp 用户授权
 
@@ -80,18 +80,14 @@ Path Types
 
 必须先向微信终端注册本应用才可以进行其他操作
 
-                 
-
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| appID| String类型| 必选 | 到微信开发者登记页面进行登记并设置相关信息后将获得appID|
-| info | Number类型| 必选 | 0-成功,1-失败|
- 
-**示例:**
+| 参数名称  | 参数类型     | 是否必选 | 说明                             |
+| ----- | -------- | ---- | ------------------------------ |
+| appID | String类型 | 必选   | 到微信开发者登记页面进行登记并设置相关信息后将获得appID |
+| info  | Number类型 | 必选   | 0-成功,1-失败                      |
 
-     
+**示例:**
 
 ```
 var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
@@ -103,23 +99,23 @@ var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 
 **说明:**
 
- 
+
 必须先向微信客户端注册本应用才可以进行该操作
-       
-     
+​       
+​     
 
 **参数:**
 
  
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| scope| String类型| 必选 |应用授权作用域.  注:授权作用域(scope)代表用户授权给第三方的接口权限, 第三方应用需要向微信开放平台申请使用相应scope的权限后, 使用文档所述方式让用户进行授权,经过用户授权, 获取到相应access_token后方可对接口进行调用.一般为snsapi_userinfo   |
-| state|String类型 | 可选 | 注:用于保持请求和回调的状态,授权请求后原样带回给第三方。 该参数可用于防止csrf攻击(跨站请求伪造攻击), 建议第三方带上该参数,可设置为简单的随机数加session进行校验|
-| data | Number类型| 必选 | 授权结果:0——-成功,-2——-用户取消,-4——-用户拒绝|         
+| 参数名称  | 参数类型     | 是否必选 | 说明                                       |
+| ----- | -------- | ---- | ---------------------------------------- |
+| scope | String类型 | 必选   | 应用授权作用域.  注:授权作用域(scope)代表用户授权给第三方的接口权限, 第三方应用需要向微信开放平台申请使用相应scope的权限后, 使用文档所述方式让用户进行授权,经过用户授权, 获取到相应access_token后方可对接口进行调用.一般为snsapi_userinfo |
+| state | String类型 | 可选   | 注:用于保持请求和回调的状态,授权请求后原样带回给第三方。 该参数可用于防止csrf攻击(跨站请求伪造攻击), 建议第三方带上该参数,可设置为简单的随机数加session进行校验 |
+| data  | Number类型 | 必选   | 授权结果:0——-成功,-2——-用户取消,-4——-用户拒绝          |
 
 
-     
+​     
 
 **示例:**
 
@@ -142,11 +138,11 @@ var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| secret| String类型| 必选 | 应用密钥AppSecret,在微信开放平台提交应用审核通过后获得|
-| grant_type|String类型 | 必选 | 根据微信SDK要求,填authorization_code(固定值)       |
-| data|Json类型 | 必选 | 返回的数据     |
+| 参数名称       | 参数类型     | 是否必选 | 说明                                 |
+| ---------- | -------- | ---- | ---------------------------------- |
+| secret     | String类型 | 必选   | 应用密钥AppSecret,在微信开放平台提交应用审核通过后获得   |
+| grant_type | String类型 | 必选   | 根据微信SDK要求,填authorization_code(固定值) |
+| data       | Json类型   | 必选   | 返回的数据                              |
 
 格式如下:
 ```
@@ -161,7 +157,7 @@ var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 各字段说明:            
  ![](http://newdocx.appcan.cn/docximg/110320f2015r3p16x.png)
 图_uexWeiXin_3.0     
- 
+
 
 **示例:**
 
@@ -184,11 +180,11 @@ var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| access_token| String类型| 必选 | 调用接口凭证|
-| openid|String类型 | 必选 | 普通用户标识,对该公众帐号唯一      |
-| data|Number类型 | 必选 | 0-----(有效),1-----(无效)         |
+| 参数名称         | 参数类型     | 是否必选 | 说明                    |
+| ------------ | -------- | ---- | --------------------- |
+| access_token | String类型 | 必选   | 调用接口凭证                |
+| openid       | String类型 | 必选   | 普通用户标识,对该公众帐号唯一       |
+| data         | Number类型 | 必选   | 0-----(有效),1-----(无效) |
 
  
 
@@ -213,11 +209,11 @@ var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| grant_type| String类型| 必选 | 填refresh_token(固定值) |
-| refresh_token|String类型 | 必选 |      |
-| data|Json类型 | 必选 | 返回的数据      |
+| 参数名称          | 参数类型     | 是否必选 | 说明                  |
+| ------------- | -------- | ---- | ------------------- |
+| grant_type    | String类型 | 必选   | 填refresh_token(固定值) |
+| refresh_token | String类型 | 必选   |                     |
+| data          | Json类型   | 必选   | 返回的数据               |
 
  正确返回格式:
 ```
@@ -233,7 +229,7 @@ var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
  ![](http://newdocx.appcan.cn/docximg/110655t2015f3i16k.png)
       图_uexWeiXin_3.0   
 
- 
+
 
 **示例:**
 
@@ -252,16 +248,16 @@ var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 **说明:**
 
 获取授权用户的个人信息其中access_token和openid从getWeiXinLoginAccessToken的返回数据获取.若调用getWeiXinLoginRefreshAccessToken方法,则从getWeiXinLoginRefreshAccessToken的返回数据获取
-  
+
   
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| access_token| String类型| 必选 | 调用接口凭证|
-| openid|String类型 | 必选 | 普通用户标识,对该公众帐号唯一      |
-| data|Json类型 | 必选 | 返回的数据      |
+| 参数名称         | 参数类型     | 是否必选 | 说明              |
+| ------------ | -------- | ---- | --------------- |
+| access_token | String类型 | 必选   | 调用接口凭证          |
+| openid       | String类型 | 必选   | 普通用户标识,对该公众帐号唯一 |
+| data         | Json类型   | 必选   | 返回的数据           |
 
 data的格式: 
 
@@ -305,13 +301,13 @@ data的格式:
 
 检查微信是否已安装   
 
-       
+​       
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| info| Number类型| 必选 | 0表示已安装，1表示未安装|
+| 参数名称 | 参数类型     | 是否必选 | 说明            |
+| ---- | -------- | ---- | ------------- |
+| info | Number类型 | 必选   | 0表示已安装，1表示未安装 |
 
 
 
@@ -333,9 +329,9 @@ var info = uexWeiXin.isWXAppInstalled()
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| data|String类型 | 必选 | 微信安装地址    |
+| 参数名称 | 参数类型     | 是否必选 | 说明     |
+| ---- | -------- | ---- | ------ |
+| data | String类型 | 必选   | 微信安装地址 |
 
 
 
@@ -355,13 +351,13 @@ uexWeiXin.getWXAppInstallUrl(function(data) {
 **说明:**
 
 判断API是否被支持
-   
+
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| data| Number类型| 必选 | 0表示支持，1表示不支持|
+| 参数名称 | 参数类型     | 是否必选 | 说明           |
+| ---- | -------- | ---- | ------------ |
+| data | Number类型 | 必选   | 0表示支持，1表示不支持 |
 
  
 
@@ -380,13 +376,13 @@ alert("callback:" + JSON.stringify(data));
 **说明:**
 
 获取SDK的版本号
-     
+​     
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| data|String类型 | 必选 | SDK版本号   |
+| 参数名称 | 参数类型     | 是否必选 | 说明     |
+| ---- | -------- | ---- | ------ |
+| data | String类型 | 必选   | SDK版本号 |
 
 
 
@@ -409,10 +405,10 @@ uexWeiXin.getApiVersion(function(data){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| data|Number类型 | 必选 | 0表示打开成功，1表示打开失败   |
- 
+| 参数名称 | 参数类型     | 是否必选 | 说明              |
+| ---- | -------- | ---- | --------------- |
+| data | Number类型 | 必选   | 0表示打开成功，1表示打开失败 |
+
 
 **示例:**
 
@@ -433,14 +429,14 @@ uexWeiXin.openWXApp(function(data){
 **说明:**
 
 分享文本内容到微信   
-     
+​     
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonData| String类型| 必选 | 分享的文本内容|
-| data|Number类型 | 必选 | 返回的错误码,0-成功,非0-失败. |
+| 参数名称     | 参数类型     | 是否必选 | 说明                 |
+| -------- | -------- | ---- | ------------------ |
+| jsonData | String类型 | 必选   | 分享的文本内容            |
+| data     | Number类型 | 必选   | 返回的错误码,0-成功,非0-失败. |
 
 ```
 {
@@ -471,15 +467,15 @@ uexWeiXin.openWXApp(function(data){
 **说明:**
 
 分享图片到微信
-      
-  
+​      
+
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonData| String类型| 必选 | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type|
-| data|Number类型 | 必选 | 返回的错误码,0-成功,非0-失败.       |
+| 参数名称     | 参数类型     | 是否必选 | 说明                                       |
+| -------- | -------- | ---- | ---------------------------------------- |
+| jsonData | String类型 | 必选   | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type |
+| data     | Number类型 | 必选   | 返回的错误码,0-成功,非0-失败.                       |
 
 ```
 jsonData {
@@ -513,10 +509,10 @@ jsonData {
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonData| String类型| 必选 | 分享的文本内容,JSON格式|
-| data|Number类型 | 必选 | 返回的错误码,0-成功,非0-失败.       |
+| 参数名称     | 参数类型     | 是否必选 | 说明                 |
+| -------- | -------- | ---- | ------------------ |
+| jsonData | String类型 | 必选   | 分享的文本内容,JSON格式     |
+| data     | Number类型 | 必选   | 返回的错误码,0-成功,非0-失败. |
 ```
 var json = {
     thumbImg:,//(必选)缩略图地址Url(大小必须小于32k)
@@ -527,11 +523,11 @@ var json = {
 }
 ```
 ![](http://newdocx.appcan.cn/docximg/174228b2015w0k14h.png)
- 
 
 
 
- 
+
+
 
 
 **示例:**
@@ -556,9 +552,9 @@ uexWeiXin.shareLinkContent(JsonData,function(data){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| info|Number类型 | 必选 | 是否支持支付功能,0-支持,1-不支持。       |
+| 参数名称 | 参数类型     | 是否必选 | 说明                   |
+| ---- | -------- | ---- | -------------------- |
+| info | Number类型 | 必选   | 是否支持支付功能,0-支持,1-不支持。 |
 
 
 
@@ -567,7 +563,7 @@ uexWeiXin.shareLinkContent(JsonData,function(data){
 ```
   var info = uexWeiXin.isSupportPay()
 
-``` 
+```
 
 > ### getPrepayId 生成预支付订单
 
@@ -576,13 +572,13 @@ uexWeiXin.shareLinkContent(JsonData,function(data){
 **说明:**
 
 生成预支付订单 
- 
+
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| json|json字符串 | 必选 | 请求参数|
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| json | json字符串 | 必选   | 请求参数 |
 | data|json格式数据 | 必选 | 返回参数，参数详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果"
        |
 请求参数说明及生成办法详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"请求参数" 
@@ -611,7 +607,7 @@ var json = {
 ```
 
 
- 
+
 
 **示例:**
 
@@ -654,9 +650,9 @@ uexWeiXin.getPrepayId(data1,function(data){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| json|json字符串 | 必选 | 请求参数|
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| json | json字符串 | 必选   | 请求参数 |
 | data|json格式数据 | 必选 | 返回参数,参数说明及生成办法详见微信开放平台文档[调起支付接口](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口")参数说明中的"返回结果"
 |
 请求参数说明及生成办法详见微信开放平台文档[调起支付接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口参数说明")中的"请求参数" 
@@ -713,11 +709,11 @@ var json = {
 ```
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| scope | String | 是 | 应用授权作用域,可传多个,用英文逗号隔开。详情请参考[授权域说明](https://open.weixin.qq.com/cgi-bin/showdocument?action=doc&id=open1419317851&t=0.009076760848984122#scope) |
-| state | String | 否 | 用于保持请求和回调的状态,授权请求后原样带回给第三方。该参数可用于防止csrf攻击(跨站请求伪造攻击),建议第三方带上该参数,可设置为简单的随机数加session进行校验 |
-| data|json字符串 | 必选 | 返回数据|
+| 参数名称  | 参数类型    | 是否必选 | 说明                                       |
+| ----- | ------- | ---- | ---------------------------------------- |
+| scope | String  | 是    | 应用授权作用域,可传多个,用英文逗号隔开。详情请参考[授权域说明](https://open.weixin.qq.com/cgi-bin/showdocument?action=doc&id=open1419317851&t=0.009076760848984122#scope) |
+| state | String  | 否    | 用于保持请求和回调的状态,授权请求后原样带回给第三方。该参数可用于防止csrf攻击(跨站请求伪造攻击),建议第三方带上该参数,可设置为简单的随机数加session进行校验 |
+| data  | json字符串 | 必选   | 返回数据                                     |
 ```
 返回数据格式:
 var data = {
@@ -731,13 +727,13 @@ var data = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| errCode| Number| 是 | 0:用户同意；-4:用户拒绝授权；-2:用户取消 |
-| code| String | 否 | 用户换取access_token的code,仅在errCode为0时有效 |
-| country| String | 是 | 微信用户当前国家信息 |
-| language| String | 是 | 微信客户端当前语言 |
-| state| String | 否 | 第三方程序发送时用来标识其请求的唯一性的标志,由login接口传入,由微信终端回传,state字符串长度不能超过1K。仅在errCode为0时有效 |
+| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
+| -------- | ------ | ---- | ---------------------------------------- |
+| errCode  | Number | 是    | 0:用户同意；-4:用户拒绝授权；-2:用户取消                 |
+| code     | String | 否    | 用户换取access_token的code,仅在errCode为0时有效     |
+| country  | String | 是    | 微信用户当前国家信息                               |
+| language | String | 是    | 微信客户端当前语言                                |
+| state    | String | 否    | 第三方程序发送时用来标识其请求的唯一性的标志,由login接口传入,由微信终端回传,state字符串长度不能超过1K。仅在errCode为0时有效 |
 
 
 **示例:**
@@ -772,12 +768,12 @@ var json = {
 ```
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| secret | String | 是 | 应用密钥AppSecret,在微信开放平台提交应用审核通过后获得 |
-| code | String | 是 | 调用login接口时获得的code |
-| grant_type | String | 是 | 填authorization_code |
-| data|json字符串 | 必选 | 返回数据|
+| 参数名称       | 参数类型    | 是否必选 | 说明                               |
+| ---------- | ------- | ---- | -------------------------------- |
+| secret     | String  | 是    | 应用密钥AppSecret,在微信开放平台提交应用审核通过后获得 |
+| code       | String  | 是    | 调用login接口时获得的code                |
+| grant_type | String  | 是    | 填authorization_code              |
+| data       | json字符串 | 必选   | 返回数据                             |
 
 
 ```
@@ -794,14 +790,14 @@ var data = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| access_token| String| 是 | 接口调用凭证 |
-| expires_in| Number | 是 | access_token接口调用凭证超时时间,单位(秒) |
-| refresh_token| String | 是 | 用户刷新access_token |
-| openid| String | 是 | 授权用户唯一标识 |
-| scope| String | 是 | 用户授权的作用域,使用逗号(,)分隔 |
-| unionid| String | 否 | 只有在用户将公众号绑定到微信开放平台帐号后,才会出现该字段。 |
+| 参数名称          | 参数类型   | 是否必选 | 说明                             |
+| ------------- | ------ | ---- | ------------------------------ |
+| access_token  | String | 是    | 接口调用凭证                         |
+| expires_in    | Number | 是    | access_token接口调用凭证超时时间,单位(秒)   |
+| refresh_token | String | 是    | 用户刷新access_token               |
+| openid        | String | 是    | 授权用户唯一标识                       |
+| scope         | String | 是    | 用户授权的作用域,使用逗号(,)分隔             |
+| unionid       | String | 否    | 只有在用户将公众号绑定到微信开放平台帐号后,才会出现该字段。 |
 
 **示例:**
 
@@ -835,11 +831,11 @@ var json = {
 ```
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| grant_type | String | 是 | 填refresh_token |
-| refresh_token | String | 是 | 调用getLoginAccessToken接口时获得的refresh_token |
-| data|json字符串 | 必选 | 返回数据|
+| 参数名称          | 参数类型    | 是否必选 | 说明                                       |
+| ------------- | ------- | ---- | ---------------------------------------- |
+| grant_type    | String  | 是    | 填refresh_token                           |
+| refresh_token | String  | 是    | 调用getLoginAccessToken接口时获得的refresh_token |
+| data          | json字符串 | 必选   | 返回数据                                     |
 ```
 返回数据格式:
 var data = {
@@ -853,13 +849,13 @@ var data = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| access_token| String| 是 | 接口调用凭证 |
-| expires_in| Number | 是 | access_token接口调用凭证超时时间,单位(秒) |
-| refresh_token| String | 是 | 用户刷新access_token |
-| openid| String | 是 | 授权用户唯一标识 |
-| scope| String | 是 | 用户授权的作用域,使用逗号(,)分隔 |
+| 参数名称          | 参数类型   | 是否必选 | 说明                           |
+| ------------- | ------ | ---- | ---------------------------- |
+| access_token  | String | 是    | 接口调用凭证                       |
+| expires_in    | Number | 是    | access_token接口调用凭证超时时间,单位(秒) |
+| refresh_token | String | 是    | 用户刷新access_token             |
+| openid        | String | 是    | 授权用户唯一标识                     |
+| scope         | String | 是    | 用户授权的作用域,使用逗号(,)分隔           |
 
 
 **示例:**
@@ -893,11 +889,11 @@ var json = {
 ```
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| access_token | String | 是 | 调用接口凭证 |
-| openid | String | 是 | 普通用户标识,通过调用getLoginAccessToken或者getLoginRefreshAccessToken可获得该唯一标识符 |
-| data|json字符串 | 必选 | 返回数据|
+| 参数名称         | 参数类型    | 是否必选 | 说明                                       |
+| ------------ | ------- | ---- | ---------------------------------------- |
+| access_token | String  | 是    | 调用接口凭证                                   |
+| openid       | String  | 是    | 普通用户标识,通过调用getLoginAccessToken或者getLoginRefreshAccessToken可获得该唯一标识符 |
+| data         | json字符串 | 必选   | 返回数据                                     |
 ```
 var data = {
     errcode: 0
@@ -907,10 +903,10 @@ var data = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| errcode| Number| 是 | 返回码,0:有效。非0:无效。返回码参考[返回码说明](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318634&token=&lang=zh_CN) |
-| errmsg| String | 是 | 返回码文字描述 |
+| 参数名称    | 参数类型   | 是否必选 | 说明                                       |
+| ------- | ------ | ---- | ---------------------------------------- |
+| errcode | Number | 是    | 返回码,0:有效。非0:无效。返回码参考[返回码说明](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318634&token=&lang=zh_CN) |
+| errmsg  | String | 是    | 返回码文字描述                                  |
 
 
 **示例:**
@@ -944,11 +940,11 @@ var json = {
 ```
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| access_token | String | 是 | 调用接口凭证 |
-| openid | String | 是 | 普通用户标识,通过调用getLoginAccessToken,getLoginRefreshAccessToken或者getLoginUnionID可获得该唯一标识符 |
-| data|json字符串 | 必选 | 返回数据|
+| 参数名称         | 参数类型    | 是否必选 | 说明                                       |
+| ------------ | ------- | ---- | ---------------------------------------- |
+| access_token | String  | 是    | 调用接口凭证                                   |
+| openid       | String  | 是    | 普通用户标识,通过调用getLoginAccessToken,getLoginRefreshAccessToken或者getLoginUnionID可获得该唯一标识符 |
+| data         | json字符串 | 必选   | 返回数据                                     |
 ```
 返回数据:
 var data = {
@@ -967,18 +963,18 @@ var data = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| openid| String| 是 | 普通用户的标识,对当前开发者帐号唯一 |
-| nickname | String | 是 | 普通用户昵称 |
-| sex | String | 是 | 普通用户性别,1为男性,2为女性 |
-| language | String | 是 | 微信客户端当前语言 |
-| city | String | 是 | 普通用户个人资料填写的城市 |
-| province | String | 是 | 普通用户个人资料填写的省份 |
-| country | String | 是 | 国家,如中国为CN |
-| headimgurl | String | 是 | 用户头像,最后一个数值代表正方形头像大小(有0、46、64、96、132数值可选,0代表640*640正方形头像),用户没有头像时该项为空 |
-| privilege | String | 是 | 用户特权信息,json数组,如微信沃卡用户为(chinaunicom) |
-| unionid | String | 是 | 用户统一标识。针对一个微信开放平台帐号下的应用,同一用户的unionid是唯一的。 |
+| 参数名称       | 参数类型   | 是否必选 | 说明                                       |
+| ---------- | ------ | ---- | ---------------------------------------- |
+| openid     | String | 是    | 普通用户的标识,对当前开发者帐号唯一                       |
+| nickname   | String | 是    | 普通用户昵称                                   |
+| sex        | String | 是    | 普通用户性别,1为男性,2为女性                         |
+| language   | String | 是    | 微信客户端当前语言                                |
+| city       | String | 是    | 普通用户个人资料填写的城市                            |
+| province   | String | 是    | 普通用户个人资料填写的省份                            |
+| country    | String | 是    | 国家,如中国为CN                                |
+| headimgurl | String | 是    | 用户头像,最后一个数值代表正方形头像大小(有0、46、64、96、132数值可选,0代表640*640正方形头像),用户没有头像时该项为空 |
+| privilege  | String | 是    | 用户特权信息,json数组,如微信沃卡用户为(chinaunicom)      |
+| unionid    | String | 是    | 用户统一标识。针对一个微信开放平台帐号下的应用,同一用户的unionid是唯一的。 |
 
 **示例:**
 
@@ -1010,18 +1006,9 @@ var json = {
 ```
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| windowName | String | 是 | 窗口名称,此处窗口为主窗口名称,若在起始页,则窗口名称为"root" |
-
-**支持平台:**
-Android 2.2+  
-iOS 6.0+
-
-**版本支持:**
-
-Android 3.1.32+  
-iOS 3.0.18+ 
+| 参数名称       | 参数类型   | 是否必选 | 说明                                 |
+| ---------- | ------ | ---- | ---------------------------------- |
+| windowName | String | 是    | 窗口名称,此处窗口为主窗口名称,若在起始页,则窗口名称为"root" |
 
 **示例:**
 
@@ -1065,29 +1052,29 @@ API版本:`uexWeiXin-4.0.0`
 
 最近更新时间:`2016-6-7`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 支持引擎4.0,函数入参 |
-| 3.0.20 | 修复getWeiXinLoginAccessToken失败的bug |
-| 3.0.19 | 修复getWeiXinLoginAccessToken失败的bug |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+| 4.0.0  | 支持引擎4.0,函数入参                             |
+| 3.0.20 | 修复getWeiXinLoginAccessToken失败的bug        |
+| 3.0.19 | 修复getWeiXinLoginAccessToken失败的bug        |
 | 3.0.18 | 修改回调方式,支持setCallbackWindowName接口;部分支持IDE |
-| 3.0.17 | 新增一版微信登陆相关接口 |
-| 3.0.16 | 微信分享纯图片添加可选参数title |
-| 3.0.15 | uexWeiXin.cbStartPay 回调结构修正 |
+| 3.0.17 | 新增一版微信登陆相关接口                             |
+| 3.0.16 | 微信分享纯图片添加可选参数title                       |
+| 3.0.15 | uexWeiXin.cbStartPay 回调结构修正              |
 | 3.0.14 | 新增接口getPrepayId和startPay及相应回调,以支持V3 V4支付 |
-| 3.0.13 | 增加微信授权登录的五个接口以及相对应的回 调方法 |
-| 3.0.12 | 支持arm64 |
+| 3.0.13 | 增加微信授权登录的五个接口以及相对应的回 调方法                 |
+| 3.0.12 | 支持arm64                                  |
 | 3.0.11 | 修改shareLinkContent,shareImageContent,shareTextContent三个接口的回调 |
 | 3.0.10 | 增加shareLinkContent,shareImageContent,shareTextContent三个接口 |
-| 3.0.9 | 修复获取预支付订单失败的问题 |
-| 3.0.8 | 调整微信支付接口 |
-| 3.0.7 | 修复微信分享回调只是返回0的bug |
-| 3.0.6 | 统一回调方法名 |
-| 3.0.5 | 统一回调参数 |
-| 3.0.4 | 添加分享成功回调 |
-| 3.0.2 | 修正微信分享HTTP图片失败的bug |
-| 3.0.1 | 修正微信分享照片失败的bug |
-| 3.0.0 | 微信分享功能插件 |
+| 3.0.9  | 修复获取预支付订单失败的问题                           |
+| 3.0.8  | 调整微信支付接口                                 |
+| 3.0.7  | 修复微信分享回调只是返回0的bug                        |
+| 3.0.6  | 统一回调方法名                                  |
+| 3.0.5  | 统一回调参数                                   |
+| 3.0.4  | 添加分享成功回调                                 |
+| 3.0.2  | 修正微信分享HTTP图片失败的bug                       |
+| 3.0.1  | 修正微信分享照片失败的bug                           |
+| 3.0.0  | 微信分享功能插件                                 |
 
 ### Android
 
@@ -1095,42 +1082,42 @@ API版本:`uexWeiXin-4.0.0`
 
 最近更新时间:`2016-6-7`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 支持引擎4.0,函数入参 |
-| 3.1.35 | 更新SDK,优化代码逻辑；文档中增加错误返回码说明 |
-| 3.1.34 | 支持https |
-| 3.1.33 | 修复和完善抛出异常的捕获 |
-| 3.1.32 | 新增setCallbackWindowName接口,解决偶尔收不到回调的问题 |
-| 3.1.31 | 更新微信登陆相关接口 |
-| 3.0.30 | 修复微信支付返回时偶尔没有回调的问题 |
-| 3.0.29 | 微信支付sdk升级 |
-| 3.0.28 | 修正链接分享时图片本来已经比较小 不需要缩略导致的问题 |
-| 3.0.27 | 修复分享回调时应用奔溃退出的问题 |
-| 3.0.26 | 修改回调方法 |
-| 3.0.25 | 新添加微信登陆功能 |
-| 3.0.24 | 修改分享文本、分享图片、分享链接回调接口参数 |
-| 3.0.23 | 结合后台修复插件需要定制出包的问题 |
-| 3.0.22 | 修复在Popover中微信分享失败问题 |
-| 3.0.21 | 新增分享文本、分享图片、分享链接接口 |
-| 3.0.20 | 插件包增加src目录文件,用于解决回调的定制问题 |
-| 3.0.19 | 修复分享图片不支持wgt路径协议的问题 |
-| 3.0.18 | 修复分享完成回调时奔溃的问题 |
-| 3.0.17 | 修复分享完成回调时网页未恢复的问题 |
-| 3.0.16 | 修改AndroidManifest文件中微信相关activity注册信息 |
-| 3.0.15 | 更新插件中引擎jar包 |
-| 3.0.14 | 修复支付完成回调时网页未恢复的问题 |
-| 3.0.13 | 新增接口generatePrepayID和sendPay |
-| 3.0.12 | 修复微信支付完成后没有回调的问题 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+| 4.0.0  | 支持引擎4.0,函数入参                             |
+| 3.1.35 | 更新SDK,优化代码逻辑；文档中增加错误返回码说明                |
+| 3.1.34 | 支持https                                  |
+| 3.1.33 | 修复和完善抛出异常的捕获                             |
+| 3.1.32 | 新增setCallbackWindowName接口,解决偶尔收不到回调的问题   |
+| 3.1.31 | 更新微信登陆相关接口                               |
+| 3.0.30 | 修复微信支付返回时偶尔没有回调的问题                       |
+| 3.0.29 | 微信支付sdk升级                                |
+| 3.0.28 | 修正链接分享时图片本来已经比较小 不需要缩略导致的问题              |
+| 3.0.27 | 修复分享回调时应用奔溃退出的问题                         |
+| 3.0.26 | 修改回调方法                                   |
+| 3.0.25 | 新添加微信登陆功能                                |
+| 3.0.24 | 修改分享文本、分享图片、分享链接回调接口参数                   |
+| 3.0.23 | 结合后台修复插件需要定制出包的问题                        |
+| 3.0.22 | 修复在Popover中微信分享失败问题                      |
+| 3.0.21 | 新增分享文本、分享图片、分享链接接口                       |
+| 3.0.20 | 插件包增加src目录文件,用于解决回调的定制问题                 |
+| 3.0.19 | 修复分享图片不支持wgt路径协议的问题                      |
+| 3.0.18 | 修复分享完成回调时奔溃的问题                           |
+| 3.0.17 | 修复分享完成回调时网页未恢复的问题                        |
+| 3.0.16 | 修改AndroidManifest文件中微信相关activity注册信息     |
+| 3.0.15 | 更新插件中引擎jar包                              |
+| 3.0.14 | 修复支付完成回调时网页未恢复的问题                        |
+| 3.0.13 | 新增接口generatePrepayID和sendPay             |
+| 3.0.12 | 修复微信支付完成后没有回调的问题                         |
 | 3.0.11 | 修改cbIsWXAppInstalled回调方法参数,已安装返回0,未安装返回1 |
-| 3.0.10 | 修改mainfest添加微信activity |
-| 3.0.9 | 添加cbSendTextContent和cbSendImageContent回调 |
-| 3.0.8 | 添加注册回调cbRegisterApp |
-| 3.0.7 | 添加架包 |
-| 3.0.6 | 处理分享图片问题 |
-| 3.0.5 | 修复扶贫基金会中的回调兼容问题 |
-| 3.0.4 | 处理微信返回值问题 |
-| 3.0.3 | 修复微信不能生成订单问题 |
-| 3.0.2 | 修复配置问题 |
-| 3.0.1 | 修复微信资源问题 |
-| 3.0.0 | 微信分享功能插件 |
+| 3.0.10 | 修改mainfest添加微信activity                   |
+| 3.0.9  | 添加cbSendTextContent和cbSendImageContent回调 |
+| 3.0.8  | 添加注册回调cbRegisterApp                      |
+| 3.0.7  | 添加架包                                     |
+| 3.0.6  | 处理分享图片问题                                 |
+| 3.0.5  | 修复扶贫基金会中的回调兼容问题                          |
+| 3.0.4  | 处理微信返回值问题                                |
+| 3.0.3  | 修复微信不能生成订单问题                             |
+| 3.0.2  | 修复配置问题                                   |
+| 3.0.1  | 修复微信资源问题                                 |
+| 3.0.0  | 微信分享功能插件                                 |
