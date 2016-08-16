@@ -58,7 +58,7 @@ var params ={
 | width | Number | 是 | 宽度 |
 | height | Number | 是 | 高度 |
 | data | Array | 是 | 视频资源数组,至少一个 |
-| desc|String|是|对视频的描述,如"高清","标清"等,用于切换视频清晰度的显示按钮
+| desc | String | 是 | 对视频的描述,如"高清","标清"等,用于切换视频清晰度的显示按钮 |
 | videoType | Number | 是 | 视频类型,请参考[VideoType](#VideoType) |
 | url | String | 是 | 播放路径,对应实时转码的链接地址,如需加密,则需填写加密后的播放地址,[ 具体请参考](http://www.qcloud.com/doc/product/267/直播码防盗链使用方法) |
 
