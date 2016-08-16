@@ -1,5 +1,5 @@
 [TOC]
-# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
 定位插件
 ## 1.1、说明
 定位功能。同时使用GPS,GPRS,WIFI三种方式联合定位,取最先返回值。
