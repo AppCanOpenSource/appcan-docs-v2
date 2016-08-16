@@ -21,28 +21,6 @@
 
 ## 2.1、方法
 
-> ### <del>open 打开视频播放界面</del> 本接口已废弃,请使用[openPlayer 打开视频播放器](#openPlayer 打开视频播放器)
-
-`uexVideo.open(path,orientation)`
-
-**说明:**
-
-打开视频播放界面
-
-**参数:**
-
-| 参数名称        | 参数类型   | 是否必选 | 说明                                       |
-| ----------- | ------ | ---- | ---------------------------------------- |
-| path        | String | 是    | 视频文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
-| orientation | Number | 否    | 1:强制横屏,仅iOS有效                            |
-
-
-**示例:**
-
-```
-uexVideo.open("res://1.mp4")
-```
-
 > ### openPlayer 打开视频播放器
 
 `uexVideo.openPlayer(param)`
@@ -132,10 +110,10 @@ uexVideo.closePlayer();
 param 是JSON字符串
 ```
 var param = {
-	maxDuration:,//
-	qualityType:,//
-	bitRateType:,//
-	fileType:,//
+	maxDuration:,
+	qualityType:,
+	bitRateType:,
+	fileType:
 }
 ```
 
@@ -261,9 +239,11 @@ window.uexOnload = function(){
 | -------- | ------ | -------------- |
 | progress | Number | 压缩进度值,取值范围为0~1 |
 
+**平台支持:**
 
+iOS7.0+
 
-**示例**
+**示例:**
 
 ```
 uexVideo.onExportWithProgress = function(data){

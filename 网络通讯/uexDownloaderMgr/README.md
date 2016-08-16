@@ -185,7 +185,7 @@ uexDownloaderMgr.closeDownloader(downloader);
 | --------- | ------ | ---- | ------- |
 | serverURL | String | 是    | 服务器下载地址 |
 
-**返回值**
+**返回值:**
 
 返回值info是JSON Object类型,形式如下：
 

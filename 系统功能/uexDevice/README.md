@@ -83,11 +83,7 @@
 
 **返回值:**
 
-| 参数类型   | 是否必选 | 说明   |
-| ------ | ---- | ---- |
-| String | 是    | 设备信息 |
-
-
+String类型对应设备信息。
 
 
 **示例:**
@@ -107,10 +103,10 @@
 **参数:**
 
 
-| 参数名称             | 参数类型   | 是否必选 | 说明                        |
-| ---------------- | ------ | ---- | ------------------------- |
-| quality          | Number | 是    | 图片压缩质量,取值范围[0,1] 为0时压缩率最大 |
-| callbackFunction | 函数     | 必选   | 回调函数，用来获取相关业务数据           |
+| 参数名称             | 参数类型     | 是否必选 | 说明                        |
+| ---------------- | -------- | ---- | ------------------------- |
+| quality          | Number   | 是    | 图片压缩质量,取值范围[0,1] 为0时压缩率最大 |
+| callbackFunction | Function | 是    | 回调函数，用来获取相关业务数据           |
 **回调参数:**
 
 ```javascript
@@ -149,11 +145,9 @@ var data = {
 **参数:**
 
 
-| 参数名称   | 参数类型   | 是否必选 | 说明                      |
-| ------ | ------ | ---- | ----------------------- |
-| volume | Number | 是    | 音量大小,取值范围[0,1] 为1时音量为最大 |
-
-
+| 参数名称   | 参数类型   | 是否必选 | 说明                    |
+| ------ | ------ | ---- | --------------------- |
+| volume | Number | 是    | 音量大小,取值范围0~1 为1时音量为最大 |
 
 **示例:**
 
@@ -174,9 +168,9 @@ var data = {
 
 **返回值:**
 
-| 参数类型   | 是否必选 | 说明                      |
-| ------ | ---- | ----------------------- |
-| Number | 是    | 系统音量值,取值范围[0,1],为1时音量最大 |
+| 参数类型   | 是否必选 | 说明                    |
+| ------ | ---- | --------------------- |
+| Number | 是    | 系统音量值,取值范围0~1,为1时音量最大 |
 
 
 
@@ -209,31 +203,6 @@ var data = {
     uexDevice.setScreenAlwaysBright(1);//设置屏幕常亮
 ```
 
-> ### getScreenBrightness 获取屏幕亮度
-
-`uexDevice.getScreenBrightness()`
-
-**说明:**
-
-获取屏幕亮度值
-
-**参数:**
-
-无
-
-**返回值:**
-
-| 参数类型   | 是否必选 | 说明                       |
-| ------ | ---- | ------------------------ |
-| Number | 是    | 屏幕亮度值,取值范围[0,1],为1时屏幕最亮。 |
-
-**示例:**
-
-```
- var brightness = uexDevice.getScreenBrightness();//获取屏幕亮度
- alert(brightness);
-```
-
 > ### setScreenBrightness 调整屏幕亮度
 
 `uexDevice.setScreenBrightness(brightness)`
@@ -254,6 +223,31 @@ var data = {
 
 ```
     uexDevice.setScreenBrightness(0.5);//设置屏幕亮度
+```
+
+> ### getScreenBrightness 获取屏幕亮度
+
+`uexDevice.getScreenBrightness()`
+
+**说明:**
+
+获取屏幕亮度值
+
+**参数:**
+
+无
+
+**返回值:**
+
+| 参数类型   | 是否必选 | 说明                     |
+| ------ | ---- | ---------------------- |
+| Number | 是    | 屏幕亮度值,取值范围0~1,为1时屏幕最亮。 |
+
+**示例:**
+
+```
+ var brightness = uexDevice.getScreenBrightness();//获取屏幕亮度
+ alert(brightness);
 ```
 
 > ### openWiFiInterface 打开WIFI设置页
@@ -301,13 +295,13 @@ var params = {
 **回调参数:**
 
 ```javascript
-var callbackFunction = function(error){
+var callbackFunction = function(data){
 }
 ```
 
-| 参数名称  | 参数类型   | 说明               |
-| ----- | ------ | :--------------- |
-| error | Number | 为0时表示开启，非0时表示未开启 |
+| 参数名称 | 参数类型    | 说明              |
+| ---- | ------- | :-------------- |
+| data | Boolean | true开启，false未开启 |
 
 **示例:**
 
@@ -316,8 +310,8 @@ var params = {
  	setting:"GPS"//位置服务功能
 };
 var data = JSON.stringify(params);
-uexDevice.isFunctionEnable(data, function(error) {
-   if (!error) {
+uexDevice.isFunctionEnable(data, function(data) {
+   if (data) {
            alert('已开启');
        } else {
            alert('未开启');
@@ -326,7 +320,7 @@ uexDevice.isFunctionEnable(data, function(error) {
 
 > ### openSetting 打开设置界面
 
-`uexDevice.openSetting(params, callbackFunction)`
+`uexDevice.openSetting(params)`
 
 **说明:**
 
@@ -342,27 +336,9 @@ var params = {
 
 各字段含义如下:
 
-| 字段名称             | 类型     | 是否必选 | 说明                                    |
-| ---------------- | ------ | ---- | ------------------------------------- |
-| setting          | String | 否    | 功能名称,详情请参考[功能](#Settings),不传时打开设置入口界面 |
-| callbackFunction | 函数     | 必选   | 回调函数，用来获取相关业务数据                       |
-
-**回调参数:**
-
-```javascript
-var callbackFunction = function(error,data){
-}
-```
-
-| 参数名称  | 参数类型   | 说明              |
-| ----- | ------ | --------------- |
-| error | Number | 为0时表示成功,非0时表示失败 |
-| data  | Object | 返回数据，形式见下       |
-```
-var data = { 
-   setting: ,//String，功能名称,详情请参考附录
-}
-```
+| 字段名称    | 类型     | 是否必选 | 说明                                    |
+| ------- | ------ | ---- | ------------------------------------- |
+| setting | String | 否    | 功能名称,详情请参考[功能](#Settings),不传时打开设置入口界面 |
 
 **示例:**
 
@@ -371,12 +347,7 @@ var params = {
  	setting:"GPS"//位置服务功能
 };
 var data = JSON.stringify(params);
-uexDevice.openSetting(data, function(error,data) {
-   if (!error) {
-           alert('打开成功:' + data.setting);
-       } else {
-           alert('打开失败');
-});
+uexDevice.openSetting(data);
 ```
 
 

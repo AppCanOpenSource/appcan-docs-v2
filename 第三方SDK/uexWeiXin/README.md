@@ -93,223 +93,19 @@ Path Types
 var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 ```
 
-> ### weiXinLogin 微信授权登录
-
-`uexWeiXin.weiXinLogin(scope,state,function(data){})`
-
-**说明:**
-
-
-必须先向微信客户端注册本应用才可以进行该操作
-​       
-​     
-
-**参数:**
-
- 
-
-| 参数名称  | 参数类型     | 是否必选 | 说明                                       |
-| ----- | -------- | ---- | ---------------------------------------- |
-| scope | String类型 | 必选   | 应用授权作用域.  注:授权作用域(scope)代表用户授权给第三方的接口权限, 第三方应用需要向微信开放平台申请使用相应scope的权限后, 使用文档所述方式让用户进行授权,经过用户授权, 获取到相应access_token后方可对接口进行调用.一般为snsapi_userinfo |
-| state | String类型 | 可选   | 注:用于保持请求和回调的状态,授权请求后原样带回给第三方。 该参数可用于防止csrf攻击(跨站请求伪造攻击), 建议第三方带上该参数,可设置为简单的随机数加session进行校验 |
-| data  | Number类型 | 必选   | 授权结果:0——-成功,-2——-用户取消,-4——-用户拒绝          |
-
-
-​     
-
-**示例:**
-
-```
- uexWeiXin.weiXinLogin('snsapi_userinfo,snsapi_base','0744',function(data){
-            alert("callback:"+ JSON.stringify(data));
-        });
-
-
-```
-
-> ### getWeiXinLoginAccessToken 获取微信登录accessToken
-
-`uexWeiXin.getWeiXinLoginAccessToken(secret,grant_type,,function(data){})`
-
-**说明:**
-
-获取微信登录accessToken   
-
-
-**参数:**
-
-| 参数名称       | 参数类型     | 是否必选 | 说明                                 |
-| ---------- | -------- | ---- | ---------------------------------- |
-| secret     | String类型 | 必选   | 应用密钥AppSecret,在微信开放平台提交应用审核通过后获得   |
-| grant_type | String类型 | 必选   | 根据微信SDK要求,填authorization_code(固定值) |
-| data       | Json类型   | 必选   | 返回的数据                              |
-
-格式如下:
-```
-{ 
-"access_token":"ACCESS_TOKEN", 
-"expires_in":7200, 
-"refresh_token":"REFRESH_TOKEN",
-"openid":"OPENID", 
-"scope":"SCOPE" 
-}
-```
-各字段说明:            
- ![](http://newdocx.appcan.cn/docximg/110320f2015r3p16x.png)
-图_uexWeiXin_3.0     
-
-
-**示例:**
-
-```
-  uexWeiXin.getWeiXinLoginAccessToken('db426a9829e4b49a0dcac7b4162da6b6','authorization_code',function(data){
-            alert("callback:"+ JSON.stringify(data));
-        });
-
-
-```
-
-> ### getWeiXinLoginCheckAccessToken 检验accessToken是否有效
-
-`uexWeiXin.getWeiXinLoginCheckAccessToken(access_token,openid,function(data){})`
-
-**说明:**
-
-用于检验通过uexWeiXin.getWeiXinLoginAccessToken()方法获取的accessToken是否还在有效期内(目前为2个小时)其中access_token和openid从getWeiXinLoginAccessToken的返回数据获取.
-
-
-**参数:**
-
-| 参数名称         | 参数类型     | 是否必选 | 说明                    |
-| ------------ | -------- | ---- | --------------------- |
-| access_token | String类型 | 必选   | 调用接口凭证                |
-| openid       | String类型 | 必选   | 普通用户标识,对该公众帐号唯一       |
-| data         | Number类型 | 必选   | 0-----(有效),1-----(无效) |
-
- 
-
-**示例:**
-
-```
-  uexWeiXin.getWeiXinLoginCheckAccessToken(accessToken,openid,function(data){
-            alert("callback:"+ JSON.stringify(data));
-        }); 
-
-
-```
-
-> ### getWeiXinLoginRefreshAccessToken 获取微信登录的刷新或续期access_token
-
-`uexWeiXin.getWeiXinLoginRefreshAccessToken(grant_type,refresh_token,function(data){})`
-
-**说明:**
-
-当access_token超时后,可以使用refresh_token进行刷新其中refresh_token从getWeiXinLoginAccessToken的返回数据获取.   
-
-
-**参数:**
-
-| 参数名称          | 参数类型     | 是否必选 | 说明                  |
-| ------------- | -------- | ---- | ------------------- |
-| grant_type    | String类型 | 必选   | 填refresh_token(固定值) |
-| refresh_token | String类型 | 必选   |                     |
-| data          | Json类型   | 必选   | 返回的数据               |
-
- 正确返回格式:
-```
-{ 
-    "access_token":"ACCESS_TOKEN", 
-    "expires_in":7200, 
-    "refresh_token":"REFRESH_TOKEN", 
-    "openid":"OPENID", 
-    "scope":"SCOPE" 
-} 
-```
-各字段说明见:
- ![](http://newdocx.appcan.cn/docximg/110655t2015f3i16k.png)
-      图_uexWeiXin_3.0   
-
-
-
-**示例:**
-
-```
-  uexWeiXin.getWeiXinLoginRefreshAccessToken('refresh_token',refreshToken,function(data){
-            alert("callback:"+ JSON.stringify(data));
-        });
-
-
-```
-
-> ### getWeiXinLoginUnionID 获取用户个人信息
-
-`uexWeiXin.getWeiXinLoginUnionID(access_token,openid,function(data){})`
-
-**说明:**
-
-获取授权用户的个人信息其中access_token和openid从getWeiXinLoginAccessToken的返回数据获取.若调用getWeiXinLoginRefreshAccessToken方法,则从getWeiXinLoginRefreshAccessToken的返回数据获取
-
-  
-
-**参数:**
-
-| 参数名称         | 参数类型     | 是否必选 | 说明              |
-| ------------ | -------- | ---- | --------------- |
-| access_token | String类型 | 必选   | 调用接口凭证          |
-| openid       | String类型 | 必选   | 普通用户标识,对该公众帐号唯一 |
-| data         | Json类型   | 必选   | 返回的数据           |
-
-data的格式: 
-
-```
-{
-    "openid": "OPENID", 
-    "nickname": "NICKNAME", 
-    "sex": 1, 
-    "province": "PROVINCE", 
-    "city": "CITY", 
-    "country": "COUNTRY", 
-    "headimgurl": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/0", 
-    "privilege": [
-        "PRIVILEGE1", 
-        "PRIVILEGE2"
-    ], 
-    "unionid": " o6_bmasdasdsad6_2sgVt7hMZOPfL"
-}
-```
-
-各字段说明:    
- ![](http://newdocx.appcan.cn/docximg/110725r2015e3y16g.png)
-
-
-
-**示例:**
-
-```
- uexWeiXin.getWeiXinLoginUnionID(accessToken,openid,function(data){
-            alert("callback:"+ JSON.stringify(data));
-        });  
-
-
-```
-
 > ### isWXAppInstalled 检查微信是否已安装
 
 `var info = uexWeiXin.isWXAppInstalled()`
 
 **说明:**
 
-检查微信是否已安装   
-
-​       
+检查微信是否已安装 
 
 **参数:**
 
 | 参数名称 | 参数类型     | 是否必选 | 说明            |
 | ---- | -------- | ---- | ------------- |
 | info | Number类型 | 必选   | 0表示已安装，1表示未安装 |
-
-
 
 **示例:**
 
@@ -567,7 +363,7 @@ uexWeiXin.shareLinkContent(JsonData,function(data){
 
 > ### getPrepayId 生成预支付订单
 
-`uexWeiXin.getPrepayId(json,,function(data){})`
+`uexWeiXin.getPrepayId(json,function(data){})`
 
 **说明:**
 
@@ -576,11 +372,11 @@ uexWeiXin.shareLinkContent(JsonData,function(data){
 
 **参数:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| json | json字符串 | 必选   | 请求参数 |
-| data|json格式数据 | 必选 | 返回参数，参数详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果"
-       |
+| 参数名称 | 参数类型     | 是否必选 | 说明                                       |
+| ---- | -------- | ---- | ---------------------------------------- |
+| json | json字符串  | 必选   | 请求参数                                     |
+| data | json格式数据 | 必选   | 返回参数，参数详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果" |
+
 请求参数说明及生成办法详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"请求参数" 
 
 ```
@@ -772,7 +568,7 @@ var json = {
 | ---------- | ------- | ---- | -------------------------------- |
 | secret     | String  | 是    | 应用密钥AppSecret,在微信开放平台提交应用审核通过后获得 |
 | code       | String  | 是    | 调用login接口时获得的code                |
-| grant_type | String  | 是    | 填authorization_code              |
+| grant_type | String  | 是    | 填"authorization_code"            |
 | data       | json字符串 | 必选   | 返回数据                             |
 
 
@@ -873,7 +669,7 @@ var data = {
 
 > ### getLoginCheckAccessToken 检验access_token是否有效
 
-`uexWeiXin.getLoginCheckAccessToken(json,,function(data){})`
+`uexWeiXin.getLoginCheckAccessToken(json,function(data){})`
 
 **说明:**
 

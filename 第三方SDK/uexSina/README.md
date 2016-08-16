@@ -7,7 +7,7 @@
 调用新浪分享文字,图片。
 
 **iOS 9 以后,为了预防APP通过非正常渠道获取用户的某些隐私信息,Apple启用了URLScheme白名单机制。**
-    
+​    
 * **为了正常使用插件的所有功能还需要配置URLScheme白名单**([什么是URLScheme白名单](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=29503&extra=))
 * 配置白名单方法请参考[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置urlScheme白名单)
 * uexSina需要进白名单添加的URLScheme如下
@@ -32,7 +32,7 @@
 
 ## 1.2 UI展示
  ![](http://newdocx.appcan.cn/docximg/164911i2015y6i16c.png)
- 
+
 ## 1.3 开源源码:
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=186_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
@@ -40,12 +40,12 @@
 -----
 Path Types
 
-|  协议头 |  Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径  |
-| ----- | ----- | ----- |
-| res:// |widget/wgtRes/   |widget/wgtRes   |
-|  wgts:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/  |  /Documents/apps/xxx(widgetAppId)/ |
-|  wgts:// |  /storage/emulated/0/widgetone/widgets/ |  /Documents/widgets/ |
-|  file:///sdcard/ | /storage/emulated/0/  | 无  |
+| 协议头             | Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径                           |
+| --------------- | ---------------------------------------- | --------------------------------- |
+| res://          | widget/wgtRes/                           | widget/wgtRes                     |
+| wgts://         | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
+| wgts://         | /storage/emulated/0/widgetone/widgets/   | /Documents/widgets/               |
+| file:///sdcard/ | /storage/emulated/0/                     | 无                                 |
 
 ## 1.5、平台版本支持
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
@@ -69,12 +69,12 @@ Path Types
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| appKey| String类型| 必选 | 通过开放平台注册的appKey,appKey申请点击跳转   |
-| appSecret|String类型 | 必选 | 通过开放平台注册的appSecret |
-| registerURL|String类型 | 必选 | 通过开放平台注册的registerURL|
-| callbackFunction|函数 | 必选 | 回调函数，用来获取相关业务数据|
+| 参数名称             | 参数类型     | 是否必选 | 说明                           |
+| ---------------- | -------- | ---- | ---------------------------- |
+| appKey           | String类型 | 必选   | 通过开放平台注册的appKey,appKey申请点击跳转 |
+| appSecret        | String类型 | 必选   | 通过开放平台注册的appSecret           |
+| registerURL      | String类型 | 必选   | 通过开放平台注册的registerURL         |
+| callbackFunction | 函数       | 必选   | 回调函数，用来获取相关业务数据              |
 
 callbackFunction 参数是JSON对象, 其数据格式如下：
 
@@ -106,11 +106,11 @@ uexSina.registerApp(appKey,appSecret,registerUrl, function(data) {
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| appKey| String类型| 必选 | 通过开放平台注册的appKey,appKey申请点击跳转   |
-| registerURL|String类型 | 必选 | 通过开放平台注册的registerURL |
-| callbackFunction|函数 | 必选 | 回调函数，用来获取相关业务数据|
+| 参数名称             | 参数类型     | 是否必选 | 说明                           |
+| ---------------- | -------- | ---- | ---------------------------- |
+| appKey           | String类型 | 必选   | 通过开放平台注册的appKey,appKey申请点击跳转 |
+| registerURL      | String类型 | 必选   | 通过开放平台注册的registerURL         |
+| callbackFunction | 函数       | 必选   | 回调函数，用来获取相关业务数据              |
 
 登录成功后，回调函数的数据格式如下（如果失败返回ErrorCode）:
 ```
@@ -137,9 +137,9 @@ uexSina.registerApp(appKey,appSecret,registerUrl, function(data) {
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| callbackFunction|函数 | 必选 | 回调函数，用来获取相关业务数据|
+| 参数名称             | 参数类型 | 是否必选 | 说明              |
+| ---------------- | ---- | ---- | --------------- |
+| callbackFunction | 函数   | 必选   | 回调函数，用来获取相关业务数据 |
 
 回调函数的参数类型是JSON 对象，包含用户的基本信息。
 
@@ -162,9 +162,9 @@ uexSina.getUserInfo(commonCallback);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| callbackFunction|函数 | 必选 | 回调函数，返回退出是否成功的状态|
+| 参数名称             | 参数类型 | 是否必选 | 说明               |
+| ---------------- | ---- | ---- | ---------------- |
+| callbackFunction | 函数   | 必选   | 回调函数，返回退出是否成功的状态 |
 
 
 **示例:**
@@ -184,10 +184,10 @@ uexSina.logout(function(data) {
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| txt| String类型| 必选 | 文本内容   |
-| callbackFunction|函数 | 必选 | 回调函数，返回分享是否成功的状态|
+| 参数名称             | 参数类型     | 是否必选 | 说明               |
+| ---------------- | -------- | ---- | ---------------- |
+| txt              | String类型 | 必选   | 文本内容             |
+| callbackFunction | 函数       | 必选   | 回调函数，返回分享是否成功的状态 |
 
 
 **示例:**
@@ -208,16 +208,16 @@ uexSina.sendTextContent(txt, function(data) {
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| imagePath| String类型| 必选 | 图片路径,路径协议详见CONSTANT中PathTypes。   |
-| txt|String类型 | 必选 | 文本内容 |
-| callbackFunction|函数 | 必选 | 回调函数，返回分享是否成功的状态|
+| 参数名称             | 参数类型     | 是否必选 | 说明                             |
+| ---------------- | -------- | ---- | ------------------------------ |
+| imagePath        | String类型 | 必选   | 图片路径,路径协议详见CONSTANT中PathTypes。 |
+| txt              | String类型 | 必选   | 文本内容                           |
+| callbackFunction | 函数       | 必选   | 回调函数，返回分享是否成功的状态               |
 
 **示例:**
 ```
 var content = "中国最大的移动中间平台AppCan对新浪微博分享的图片支持测试";
-var realImgPath = "res://sotower.png";//http:// 本地
+var realImgPath = "res://sotower.png";
 uexSina.sendImageContent(realImgPath, content,function(data) {
     alert(data); // data: 0 成功， 1 失败
 });
@@ -231,17 +231,17 @@ API版本:`uexSina-4.0.0`
 
 最近更新时间:`2016-06-06`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 支持function传入 |
-| 3.0.7 | uexSina添加分享图片可以分享网络图片的功能 |
-| 3.0.6 | 替换SinaSDK3.1.1,重写授权登陆相关接口；新增login、logout、getUserInfo接口 |
-| 3.0.5 | 注册回调方法名统一修改为uexSina.cbRegisterApp |
-| 3.0.4 | 增加新浪授权登录 |
-| 3.0.3 | 取消用户新浪微博对appcan的自动关注 |
-| 3.0.2 | 统一回调方法名,统一回调参数 |
-| 3.0.1 | 添加uexSina.registerCallBack成功的回调,修复点击分享黑屏的bug |
-| 3.0.0 | 新浪分享功能插件 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+| 4.0.0  | 支持function传入                             |
+| 3.0.7  | uexSina添加分享图片可以分享网络图片的功能                 |
+| 3.0.6  | 替换SinaSDK3.1.1,重写授权登陆相关接口；新增login、logout、getUserInfo接口 |
+| 3.0.5  | 注册回调方法名统一修改为uexSina.cbRegisterApp        |
+| 3.0.4  | 增加新浪授权登录                                 |
+| 3.0.3  | 取消用户新浪微博对appcan的自动关注                     |
+| 3.0.2  | 统一回调方法名,统一回调参数                           |
+| 3.0.1  | 添加uexSina.registerCallBack成功的回调,修复点击分享黑屏的bug |
+| 3.0.0  | 新浪分享功能插件                                 |
 
 ### Android
 
@@ -249,20 +249,20 @@ API版本:`uexSina-4.0.0`
 
 最近更新时间:`2016-06-06`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 支持function传入 |
-| 3.0.13 | 修复registerApp回调不执行的问题 |
-| 3.0.12 | 修复图片路径读取的问题 |
-| 3.0.11 | 修复了分享图片不能读取wgts://格式的文件问题 |
-| 3.0.10 | cbRegisterApp回调openId和token |
-| 3.0.9 | 添加login, getUserInfo, logout接口 |
-| 3.0.8 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.7 | 新增login登陆接口接口 |
-| 3.0.6 | 修改uexSina插件中的代码错误 |
-| 3.0.5 | 修改uexSina插件中registerCallBack和cbShare回调方法返回值:成功为0,失败为1 |
-| 3.0.4 | 修复分享图片时路径解析错误问题 |
-| 3.0.3 | 修复适配3.0新引擎的问题 |
-| 3.0.2 | 修复回调数据与文档不一致的问题 |
-| 3.0.1 | 修复插件配置问题 |
-| 3.0.0 | 新浪分享功能插件 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+| 4.0.0  | 支持function传入                             |
+| 3.0.13 | 修复registerApp回调不执行的问题                    |
+| 3.0.12 | 修复图片路径读取的问题                              |
+| 3.0.11 | 修复了分享图片不能读取wgts://格式的文件问题                |
+| 3.0.10 | cbRegisterApp回调openId和token              |
+| 3.0.9  | 添加login, getUserInfo, logout接口           |
+| 3.0.8  | 去掉插件中的ActivityGroup,配合引擎升级               |
+| 3.0.7  | 新增login登陆接口接口                            |
+| 3.0.6  | 修改uexSina插件中的代码错误                        |
+| 3.0.5  | 修改uexSina插件中registerCallBack和cbShare回调方法返回值:成功为0,失败为1 |
+| 3.0.4  | 修复分享图片时路径解析错误问题                          |
+| 3.0.3  | 修复适配3.0新引擎的问题                            |
+| 3.0.2  | 修复回调数据与文档不一致的问题                          |
+| 3.0.1  | 修复插件配置问题                                 |
+| 3.0.0  | 新浪分享功能插件                                 |
