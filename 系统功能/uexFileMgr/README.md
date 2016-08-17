@@ -51,9 +51,15 @@
 
 ```javascript
 var param = {
-    path:,//String,必选,文件路径.支持"wgt://","wgts://"、"file://"协议
+    path:
 }
 ```
+
+各字段含义如下:
+
+| 字段名称 | 类型     | 是否必选 | 说明                                    |
+| ---- | ------ | ---- | ------------------------------------- |
+| path | String | 是    | 文件路径.支持"wgt://","wgts://"、"file://"协议 |
 
 **返回值:**
 
@@ -88,10 +94,15 @@ if(!file){
 
 ```javascript
 var param = {
-    path:,//String,必选,文件夹路径.支持"wgt://","wgts://"、"file://"协议
+    path:
 }
 ```
 
+各字段含义如下：
+
+| 字段名称 | 类型     | 是否必选 | 说明                                     |
+| ---- | ------ | ---- | -------------------------------------- |
+| path | String | 是    | 文件夹路径.支持"wgt://","wgts://"、"file://"协议 |
 
 **返回值:**
 
@@ -124,10 +135,17 @@ alert(ret);
 
 ```javascript
 var param = {
-    path:,//String,必选,文件路径.支持"wgt://","wgts://"、"file://"协议
-    mode:,//Number,打开设置.设置flag为: 1-可读 2-可读可写 4-不存在时创建新文件
+    path:,
+    mode:
 }
 ```
+
+各字段含义如下：
+
+| 字段名称 | 类型     | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| path | String | 是    | 文件路径.支持"wgt://","wgts://"、"file://"协议    |
+| mode | Number | 是    | 打开设置，1-可读 2-可写 4-不存在时创建新文件，可累加，如1+2 = 3表示可读可写。 |
 
 **返回值:**
 
@@ -238,13 +256,11 @@ alert(ret);
 | cbFunc     | Function | 是    | 文件浏览结束后,会调用此函数,函数参数说明见下                  |
 
 
-**回调函数的参数:**
+**回调参数:**
 
 | 参数名称 | 参数类型   | 说明                            |
 | ---- | ------ | ----------------------------- |
 | path | String | 用户选择的文件的路径;若用户取消选择,则path为null |
-
-
 
 **示例:**
 
@@ -300,7 +316,7 @@ uexFileMgr.multiExplorer("/sdcard/widgetone",function(paths){
 
 **返回值:**
 
-Boolean类型,是否定位成功
+Number类型文件偏移值，-1表示定位失败。
 
 **示例:**
 
@@ -329,7 +345,7 @@ alert(ret);
 
 **返回值:**
 
-Boolean类型,是否定位成功
+Number类型文件偏移值，-1表示定位失败。
 
 **示例:**
 
@@ -358,7 +374,7 @@ alert(ret);
 
 **返回值:**
 
-Boolean类型,是否定位成功
+Number类型文件偏移值，-1表示定位失败。
 
 **示例:**
 
@@ -373,7 +389,7 @@ alert(ret);
 
 > ### writeFile 写文件
 
-`uexFileMgr.writeFile(file,option ,data,cb)`
+`uexFileMgr.writeFile(file,flag,data,cb)`
 
 **说明:**
 
@@ -381,16 +397,16 @@ alert(ret);
 
 **参数:**
 
-| 参数名称   | 参数类型     | 是否必选 | 说明                    |
-| ------ | -------- | ---- | --------------------- |
-| file   | String   | 是    | uexFile对象file         |
-| option | Number   | 是    | 写入设置(详见下)             |
-| data   | String   | 是    | 要写入的数据                |
-| cb     | Function | 是    | 写入结束后,会调用此函数,函数参数说明见下 |
+| 参数名称 | 参数类型     | 是否必选 | 说明                    |
+| ---- | -------- | ---- | --------------------- |
+| file | String   | 是    | uexFile对象file         |
+| flag | Number   | 是    | 写入设置(详见下)             |
+| data | String   | 是    | 要写入的数据                |
+| cb   | Function | 是    | 写入结束后,会调用此函数,函数参数说明见下 |
 
-* uexFileWritingOption是一个枚举值,将所需设置对应的flag传入即可。
-* 同时需要多种设置时,应将设置对应的flag相加后再传入。比如 option传3 (= 1+2) 意味着先进行base64解码,再追加写入.
-* 不需要这些额外设置时,option请传0
+* flag是一个枚举值,将所需设置对应的值传入即可。
+* 可累加，比如 flag传3 (= 1+2) 表示先进行base64解码,再追加写入.
+* 不需要这些额外设置时,flag请传0
 
 | flag | 含义           | 解释                                       |
 | ---- | ------------ | ---------------------------------------- |
@@ -403,8 +419,6 @@ alert(ret);
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
 | error | Number | 为0时表示成功,非0时表示失败 |
-
-
 
 
 **示例:**
@@ -421,7 +435,7 @@ uexFileMgr.writeFile(file, 0, "test",function(err){
 
 > ### readFile 读文件
 
-`uexFileMgr.readFile(file,len,option,cb)`
+`uexFileMgr.readFile(file,len,flag,cb)`
 
 **说明:**
 
@@ -429,26 +443,24 @@ uexFileMgr.writeFile(file, 0, "test",function(err){
 
 **参数:**
 
-| 参数名称   | 参数类型     | 是否必选 | 说明                    |
-| ------ | -------- | ---- | --------------------- |
-| file   | String   | 是    | uexFile对象file         |
-| len    | Number   | 是    | 字节数,传-1表示读取全部内容       |
-| option | Number   | 是    | 读取设置(详见下)             |
-| cb     | Function | 是    | 读取结束后,会调用此函数,函数参数说明见下 |
+| 参数名称 | 参数类型     | 是否必选 | 说明                    |
+| ---- | -------- | ---- | --------------------- |
+| file | String   | 是    | uexFile对象file         |
+| len  | Number   | 是    | 字节数,传-1表示读取全部内容       |
+| flag | Number   | 是    | 读取设置(详见下)             |
+| flag | Function | 是    | 读取结束后,会调用此函数,函数参数说明见下 |
 
-* uexFileReadingOption是一个枚举值,将所需设置对应的flag传入即可。
+* flag是一个枚举值,将所需设置对应的值传入即可。
 * 同时需要多种设置时,应将设置对应的flag相加后再传入。
-* 不需要这些额外设置时,option请传0
+* 不需要这些额外设置时,flag请传0。
 
 | flag | 含义           | 解释                                    |
 | ---- | ------------ | ------------------------------------- |
 | 1    | Base64Encode | 包含此flag时,插件会对读取到的数据先进行base64编码,再传回给前端 |
 
-* 不需要这些额外设置时,option请传0
-
 **回调参数:**
 
-```
+```javascript
 var cb = function(error,data){}
 ```
 | 参数名称  | 参数类型   | 说明                 |
@@ -489,8 +501,7 @@ uexFileMgr.readFile(file, -1,0,function(error,data){
 
 **返回值:**
 
-String类型,文件大小转成的字符串
-读取失败时返回null
+Number类型文件大小，读取失败时返回-1。
 
 **示例:**
 
@@ -542,9 +553,9 @@ alert(path);
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明                                    |
-| ---- | ------ | ---- | ------------------------------------- |
-| path | String | 是    | 文件路径,路径协议详见[附录-PathTypes](#PathTypes) |
+| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| path | String | 是    | 文件路径,支持"wgt://","wgts://","res://","file://" 协议 |
 
 **返回值:**
 
@@ -554,7 +565,8 @@ String类型,文件绝对路径
 **示例:**
 
 ```javascript
-uexFileMgr.getFileRealPath("wgt://data/test.txt");
+var realPath = uexFileMgr.getFileRealPath("wgt://data/test.txt");
+alert(realPath);
 ```
 
 > ### closeFile 关闭文件
@@ -601,8 +613,8 @@ alert(ret);
 
 **返回值:**
 
-String类型,文件偏移值转成的string
-发送错误时返回null
+Number类型文件偏移值
+获取失败时返回-1
 **示例:**
 
 ```javascript
@@ -610,7 +622,8 @@ var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
 });
-uexFileMgr.getReaderOffset(file);
+var offset = uexFileMgr.getReaderOffset(file);
+alert(offset);
 ```
 
 > ### readPercent 读百分比对应位置的字符
@@ -748,8 +761,6 @@ uexFileMgr.readPre(file,20,function(error,data){
 
 使用密码打开文件
 
-
-
 **参数:**
 
 | 参数名称  | 参数类型   | 是否必选 | 说明   |
@@ -759,11 +770,19 @@ uexFileMgr.readPre(file,20,function(error,data){
 
 ```javascript
 var param = {
-    path:,//String,必选,文件路径.支持"wgt://","wgts://"、"file://"协议
-    password:,//String,必须,文件密码
-    mode:,//Number,打开设置,与open接口中的mode相同.
+    path:,
+    password:,
+    mode:
 }
 ```
+
+各字段含义如下:
+
+| 字段名称     | 类型     | 是否必选 | 说明                                       |
+| -------- | ------ | ---- | ---------------------------------------- |
+| path     | String | 是    | 文件路径.支持"wgt://","wgts://"、"file://"协议    |
+| password | String | 是    | 文件密码                                     |
+| mode     | Number | 是    | 打开设置，1-可读 2-可写 4-不存在时创建新文件，可累加，如1+2 = 3表示可读可写。 |
 
 **返回值:**
 
@@ -802,10 +821,15 @@ if(!file){
 
 ```javascript
 var param = {
-    path:,//String,必选,文件路径.支持"wgt://","wgts://"、"file://"协议
-    password:,//String,必须,文件密码
+    path:,
+    password:
 }
 ```
+
+| 字段名称     | 类型     | 是否必选 | 说明                                    |
+| -------- | ------ | ---- | ------------------------------------- |
+| path     | String | 是    | 文件路径.支持"wgt://","wgts://"、"file://"协议 |
+| password | String | 是    | 文件密码                                  |
 
 **返回值:**
 
@@ -821,13 +845,13 @@ var file = uexFileMgr.createWithPassword({
 	mode: 3
 });
 if(!file){
-	alert("打开失败!");
+	alert("创建失败!");
 }
 ```
 
 > ### getFileCreateTime 获取文件或文件夹的创建时间
 
-`uexFileMgr.getFileCreateTime(file,path)`
+`uexFileMgr.getFileCreateTime(path)`
 
 **说明:**
 
@@ -837,7 +861,7 @@ if(!file){
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                                       |
 | ---- | ------ | ---- | ---------------------------------------- |
-| path | String | 是    | 文件路径,支持"wgt://","wgts://","wgts://","res://","file://" 协议 |
+| path | String | 是    | 文件路径,支持"wgt://","wgts://","res://","file://" 协议 |
 
 **返回值:**
 
@@ -847,7 +871,6 @@ String类型,创建时间,`"yyyy-MM-dd HH:mm:ss"`格式
 **示例:**
 
 ```javascript
-
 var timeStr = uexFileMgr.getFileCreateTime('wgt://test.txt');
 alert(timeStr);
 ```
@@ -869,17 +892,23 @@ alert(timeStr);
 
 ```javascript
 var param = {
-	oldFilePath:,//必选 String 重命名前的文件路径
-	newFilePath:,//必选 String 重命名后的文件路径
+	oldFilePath:,
+	newFilePath:
 }
 ```
+
+各字段含义如下：
+
+| 字段名称        | 类型     | 是否必选 | 说明        |
+| ----------- | ------ | ---- | --------- |
+| oldFilePath | String | 是    | 重命名前的文件路径 |
+| newFilePath | String | 是    | 重命名后的文件路径 |
 
 **回调参数:**
 
 
 ```javascript
 var cb = function(error){
-	//...
 }
 ```
 
@@ -924,20 +953,31 @@ uexFileMgr.renameFile(JSON.stringify(data),function(err){
 
 ```javascript
 var param = {
-	path:,//必选,String,目标文件夹路径
-	option:,//可选 Number  搜索设置 见下 不传默认为0
-	keywords:[]//可选 要搜索的文件名关键字 不传时搜索所有
-	suffixes:[]//可选 要搜索的文件后缀名 不传时搜索所有
-	}
+	path:,
+	flag:,
+	keywords:[],
+	suffixes:[]
+}
 ```
 
-| option | 说明                                     |
-| ------ | -------------------------------------- |
-| 1      | 匹配文件夹 也搜索符合条件的文件夹(有设置suffixes时,此项设置失效) |
-| 2      | 精确匹配 只搜索文件名恰为keyword的文件                |
-| 4      | 递归搜索 搜索目标文件夹及其子文件夹                     |
+各字段含义如下：
 
-* 需要多项option时 请将各option值相加再传入。比如传5 (=4+1),表示既递归搜索,又匹配文件夹
+| 字段名称     | 类型   | 是否必选   | 说明                 |
+| -------- | ---- | ------ | ------------------ |
+| path     | 是    | String | 目标文件夹路径            |
+| flag     | 否    | Number | 搜索设置 见下 不传默认为0     |
+| keywords | 否    | Array  | 要搜索的文件名关键字 不传时搜索所有 |
+| 否        | 否    | Array  | 要搜索的文件后缀名 不传时搜索所有  |
+
+
+
+| flag | 说明                                     |
+| ---- | -------------------------------------- |
+| 1    | 匹配文件夹 也搜索符合条件的文件夹(有设置suffixes时,此项设置失效) |
+| 2    | 精确匹配 只搜索文件名恰为keyword的文件                |
+| 4    | 递归搜索 搜索目标文件夹及其子文件夹                     |
+
+* 需要多项设置时 请将各flag值相加再传入。比如传5 (=4+1),表示既递归搜索,又匹配文件夹
 
 **回调参数:**
 
@@ -957,7 +997,7 @@ var cb = function(error,result){
 ```javascript
 var data = {
 	path:"res://",
-	option:5,
+	flag:5,
 	keywords:["name1","name2","name3"],
 	suffixes:["txt","xml"]
 	}
@@ -986,23 +1026,27 @@ uexFileMgr.search(JSON.stringify(data),function(err,result){
 | ---- | ------ | ---- | ------------------------------------ |
 | path | String | 是    | 文件夹路径,支持wgt://, wgts://, file://协议路径 |
 
-
-
 **返回值:**
 
 * path无效或者不是文件夹 返回null
 * 空文件夹 返回空数组
-* 正常情况  返回路径信息构成的数组Array<FileInfo>
+* 正常情况  返回路径信息构成的数组Array，路径信息结构定义如下
 
-路径信息<FileInfo>结构定义如下
-
-```
-var FileInfo = {
-	fileName:,//String,文件名
-	filePath:,//String,文件路径
-	fileType:,//Number,类型。0-文件 1-文件夹 
+```javascript
+var fileInfo = {
+	fileName:,
+	filePath:,
+	fileType:
 }
 ```
+
+各字段含义如下：
+
+| 字段名称     | 类型     | 说明            |
+| -------- | ------ | ------------- |
+| fileName | String | 文件名           |
+| filePath | String | 文件路径          |
+| fileType | Number | 类型。0-文件 1-文件夹 |
 
 **示例:**
 
@@ -1038,7 +1082,7 @@ var params = {
 
 | 字段名称 | 类型     | 是否必选 | 说明                                       |
 | ---- | ------ | ---- | ---------------------------------------- |
-| path | String | 是    | 文件或文件夹路径,支持wgt://, wgts://, file://协议路径 ,路径协议详见[附录-PathTypes](#PathTypes) |
+| path | String | 是    | 文件或文件夹路径,支持wgt://, wgts://, file://协议路径,参考[协议](#PathTypes) |
 | unit | String | 否    | 文件大小单位,默认为"B",取值范围参考[unit](#GetFileSizeUnit) |
 
 **回调参数:**
@@ -1046,21 +1090,19 @@ var params = {
 
 ```javascript
 var cb = function(error,info){
-	//...
 }
-
 ```
 
 | 参数名称  | 参数类型   | 说明                 |
 | ----- | ------ | ------------------ |
-| error | Number | 为零表示操作成功,非零时表示操作失败 |
+| error | Number | 为0表示操作成功,非0时表示操作失败 |
 | info  | Object | 操作获取到的结果           |
 
 
 ```javascript
 var info = {
-	unit,//String,文件大小单位
-	data,//Number,文件大小
+	unit:,//String,文件大小单位
+	data://Number,文件大小
 }
 ```
 
@@ -1090,8 +1132,6 @@ uexFileMgr.getFileSizeByPath(data,function(err,info){
 
 复制文件或文件夹
 
-
-
 **参数:**
 
 | 参数名称   | 参数类型     | 是否必选 | 说明           |
@@ -1101,16 +1141,30 @@ uexFileMgr.getFileSizeByPath(data,function(err,info){
 
 ```javascript
 var param = {
-    src:,//源文件或文件夹路径
-    target:,//目标文件夹路径
-}
-
-var cbFunc = function(error){
-    //error,为0表示复制成功,非0表示复制失败
+    src:,
+    target:
 }
 ```
 
+各字段含义如下：
+
+| 字段名称   | 类型     | 是否必选 | 说明        |
+| ------ | ------ | ---- | --------- |
+| src    | String | 是    | 源文件或文件夹路径 |
+| target | String | 是    | 目标文件夹路径   |
+
 * copy会将源文件或者文件夹，复制至目标文件夹内,**不会进行重命名操作**
+
+**回调参数:**
+
+```javascript
+var cbFunc = function(error){
+}
+```
+
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 为0表示复制成功,非0表示复制失败 |
 
 **示例:**
 
