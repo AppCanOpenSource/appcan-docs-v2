@@ -120,7 +120,7 @@ var callbackFunction = function(error,data){
 | data  | Object | 返回数据，形式见下       |
 ```
 var data = { 
-   savePath: ,//String，屏幕截图的路径，error非零为空字符串
+   savePath://String，屏幕截图的路径，error非零为空字符串
 }
 ```
 **示例:**
@@ -168,11 +168,7 @@ var data = {
 
 **返回值:**
 
-| 参数类型   | 是否必选 | 说明                    |
-| ------ | ---- | --------------------- |
-| Number | 是    | 系统音量值,取值范围0~1,为1时音量最大 |
-
-
+Number类型音量值
 
 
 **示例:**
@@ -239,9 +235,7 @@ var data = {
 
 **返回值:**
 
-| 参数类型   | 是否必选 | 说明                     |
-| ------ | ---- | ---------------------- |
-| Number | 是    | 屏幕亮度值,取值范围0~1,为1时屏幕最亮。 |
+Number类型屏幕亮度值
 
 **示例:**
 
@@ -428,4 +422,5 @@ API版本:`uexDevice-4.0.0`
 | GPS          | GPS功能        |
 | BLUETOOTH    | 蓝牙功能         |
 | NOTIFICATION | 推送通知设置(仅iOS) |
+| CAMERA       | 摄像头权限是否开启    |
 
