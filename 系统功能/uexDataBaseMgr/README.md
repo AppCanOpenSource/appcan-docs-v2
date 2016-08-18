@@ -50,6 +50,9 @@
 
 ```javascript
 var db = uexDataBaseMgr.open("uexDB");
+if(!db){
+  alert("打开失败!");
+}
 ```
 
 > ### sql Sql语句的执行
@@ -66,9 +69,17 @@ Sql语句的执行,对数据库数据的增删改。执行完成后回调`callba
 | ---------------- | --------- | ---- | ------------- |
 | db               | DB Object | 是    | open接口同步返回的对象 |
 | sql              | String    | 是    | 要执行的sql语句     |
-| callbackFunction | 函数        | 否    | 回调函数，返回执行的结果  |
+| callbackFunction | Function  | 否    | 回调函数，返回执行的结果  |
 
-`callbackFunction`的参数是类型为Number的Error,0表示成功,其他表示失败。
+**回调参数:**
+
+```javascript
+var callbackFunction = function(error){}
+```
+
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 执行结果，0表示成功,非0表示失败 |
 
 
 **示例:**
@@ -97,7 +108,17 @@ Sql语句的查询,对数据库中数据的查询。
 | sql              | String    | 否    | 要查询的sql语句     |
 | callbackFunction | 函数        | 否    | 回调函数，返回执行的结果  |
 
-`select`执行成功后，`callbackFunction`函数返回的数据第一个参数是Number 类型的 error,0表示成功，其他表示失败,第二个是数组对象,为select得到的结果。
+**回调参数:**
+
+```javascript
+var callbackFunction = function(error, data){
+}
+```
+
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 执行结果，0表示成功,非0表示失败 |
+| data  | Array  | 查询结果              |
 
 
 **示例:**
@@ -126,11 +147,18 @@ uexDataBaseMgr.select(db,sql, function (error,data) {
 | 参数名称             | 参数类型      | 是否必选 | 说明              |
 | ---------------- | --------- | ---- | --------------- |
 | db               | DB Object | 是    | open接口同步返回的对象   |
-| sqls             | String类型  | 是    | sql语句数组的Json字符串 |
+| sqls             | String    | 是    | sql语句数组的Json字符串 |
 | callbackFunction | Function  | 否    | 回调函数，返回执行的结果    |
 
-`callbackFunction` 参数是是Number 类型的error,为0表示成功，其他表示失败
+**回调参数:**
 
+```javascript
+var callbackFunction = function(error){}
+```
+
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 执行结果，0表示成功,非0表示失败 |
 
 **示例:**
 
