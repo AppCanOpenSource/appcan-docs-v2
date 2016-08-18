@@ -1579,9 +1579,9 @@ var data=
 	address: "东长安街33号"
 };
 
-uexBaiduMap.geocode(jsonstr), function(data) {
+uexBaiduMap.geocode(jsonstr, function(data) {
 	alert(JSON.stringify(data));
-};
+});
 ```
 
 > ### reverseGeocode 反地理编码 
