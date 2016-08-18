@@ -119,42 +119,31 @@ var info = uexWeiXin.isWXAppInstalled();
 alert(info);
 ```
 
-> ### isWXAppSupportApi 判断API是否被支持
+> ### isWXAppSupportApi 判断当前微信的版本是否支持OpenApi
 
-`uexWeiXin.isWXAppSupportApi(cbFun)`
+`var info =uexWeiXin.isWXAppSupportApi()`
 
 **说明:**
 
-判断API是否被支持，仅iOS支持
+判断当前微信的版本是否支持OpenApi，仅iOS支持
 
 
 **参数:**
 
-| 参数名称  | 参数类型     | 是否必选 | 说明   |
-| ----- | -------- | ---- | ---- |
-| cbFun | Function | 是    | 回调函数 |
+无
 
-**回调参数:**
+**返回值:**
 
-```javascript
-var cbFun = function(data){}
-```
+Boolean类型，判断当前微信的版本是否支持OpenApi，true-支持，false-不支持。
 
-| 参数名称 | 参数类型    | 说明                |
-| ---- | ------- | ----------------- |
-| data | Boolean | true-支持，false-不支持 |
 
 **示例:**
 
-```javascript
-uexWeiXin.isWXAppSupportApi(function(data){
-    if(data){
-      alert("支持");
-    }else{
-      alert("不支持");
-    }
-})
 ```
+var info = uexWeiXin.isWXAppSupportApi();
+alert(info);
+```
+
 
 > ### isSupportPay 判断是否支持支付功能
 
