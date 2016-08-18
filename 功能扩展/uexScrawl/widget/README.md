@@ -1,4 +1,0 @@
-appcan-ios
-==========
-
-appcan-ios

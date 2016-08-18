@@ -152,7 +152,7 @@ uexChatKeyboard.close();
 
 **返回值：**
 
-int类型
+Number类型
 
 **示例:**
 
@@ -196,7 +196,7 @@ var result=uexChatKeyboard.getInputBarHeight();
 
 **平台支持:**
 
-仅iOS
+iOS7.0+
 
 
 **示例:**
@@ -217,11 +217,7 @@ uexChatKeyboard.changeWebViewFrame(600);
 
 | 参数名称 | 参数类型   | 是否必选 | 说明   |
 | ---- | ------ | ---- | ---- |
-| name | String | 是    |      |
-
-**平台支持:**
-
-Android,iOS
+| name | String | 是    | 好友昵称 |
 
 
 **示例:**
@@ -261,8 +257,6 @@ alert(data);
 
 >### onShareMenuItem 点击分享里选项的监听方法 
 
- 
-
 `uexChatKeyboard. onShareMenuItem (data)  `
 
 **说明**
@@ -291,9 +285,7 @@ alert(data);
 
 **说明**
 
- 
-
-录音按钮的监听方法 
+ 录音按钮的监听方法 
 
 **参数:**
 
