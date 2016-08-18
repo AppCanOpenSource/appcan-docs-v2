@@ -102,7 +102,7 @@ alert(info);
 
 **说明:**
 
-检查微信是否已安装 
+检查微信是否已安装
 
 **参数:**
 
@@ -125,7 +125,7 @@ alert(info);
 
 **说明:**
 
-判断API是否被支持
+判断API是否被支持，仅iOS支持
 
 
 **参数:**
@@ -187,7 +187,7 @@ Boolean类型，是否支持支付功能，true-支持，false-不支持。
 
 **说明:**
 
-获取微信itunes的安装地址 
+获取微信itunes的安装地址, 仅iOS支持
 
 **参数:**
 
@@ -221,7 +221,7 @@ uexWeiXin.getWXAppInstallUrl(function(data) {
 
 **说明:**
 
-获取SDK的版本号
+获取SDK的版本号, 仅iOS支持
 
 **参数:**
 
@@ -253,7 +253,7 @@ uexWeiXin.getApiVersion(function(data){
 
 **说明:**
 
-打开微信
+打开微信, 仅iOS支持
 
 **参数:**
 
