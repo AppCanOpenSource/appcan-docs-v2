@@ -92,7 +92,7 @@ uexLocation.openLocation("bd09",function(error) {
 | callbackFunction | Function | 是    | 获取地址成功后的回调函数，形式见下: |
 
 ```javascript
-var = params = {
+var params = {
    latitude: ,
    longitude: ,
    type: ,
@@ -115,10 +115,10 @@ var = params = {
 var callbackFunction = function(error, data){}
 ```
 
-| 参数名称  | 类型          | 说明                 |
-| ----- | ----------- | ------------------ |
-| error | Number      | 0表示获取成功，非0表示获取失败   |
-| data  | Json Object | 获取成功时的具体地址信息，形式见下: |
+| 参数名称  | 类型     | 说明                                       |
+| ----- | ------ | ---------------------------------------- |
+| error | Number | 0表示获取成功，非0表示获取失败                         |
+| data  | Json   | 获取成功时的具体地址信息，flag非1时，返回地址名称字符串；为1时，返回Json对象，形式见下: |
 
 ```javascript
 var data = {
