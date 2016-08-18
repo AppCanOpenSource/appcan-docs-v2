@@ -255,13 +255,14 @@ param为json字符串,包含的参数如下
 
 **回调参数**
 
-回调函数cb拥有一个参数info.info是Object类型,包含的字段如下
+回调函数cb拥有2个参数
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| isSuccess | Boolean | 是 | 是否储存成功 true/false|
-| errorStr|String| 否| 仅isSuccess为false时有此参数,储存失败的错误原因|
-
+```javascript
+var cb = function(error,errorInfo){
+	//error是Number类型,为0表示储存成功,非0表示储存失败
+	//errorInfo是String类型,为储存失败的错误信息.储存成功时,errorInfo为null.
+}
+```
 
 
 **示例**
@@ -271,11 +272,11 @@ var data={
 	localPath:"res://photo4.jpg",
 	}
 var json=JSON.stringify(data);
-uexImage.saveToPhotoAlbum(json,function(info){
-	if(info.isSuccess){
+uexImage.saveToPhotoAlbum(json,function(err,errStr){
+	if(!err){
 		alert("储存成功!");
 	}else{
-		alert("储存失败:" + info.errorStr);
+		alert("储存失败:" + errStr);
 	}
 });
 ```
