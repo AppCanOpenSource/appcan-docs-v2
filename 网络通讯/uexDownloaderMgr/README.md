@@ -63,7 +63,7 @@ if(!downloader){
 
 **示例:**
 
-```
+```javascript
 var downloader = ...//由create接口创建的下载对象
 var headJson = '{"Content-type":"application/json;charset=utf-8"}';
 uexDownloaderMgr.setHeaders(downloader, headJson);
@@ -137,7 +137,7 @@ uexDownloaderMgr.download(downloader,
 | 参数名称      | 参数类型   | 是否必选 | 说明                                       |
 | --------- | ------ | ---- | ---------------------------------------- |
 | serverURL | String | 是    | 服务器下载地址                                  |
-| clearMode | String | 否    | 默认为0。0-只取消此次下载任务,不清除已经下载的临时文件。 1-取消此次下载任务并清除已经下载的临时文件 |
+| clearMode | Number | 否    | 默认为0。0-只取消此次下载任务,不清除已经下载的临时文件。 1-取消此次下载任务并清除已经下载的临时文件 |
 
 ​    
 
