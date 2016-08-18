@@ -29,10 +29,10 @@
 
 **参数:**
 
-| 参数名称             | 参数类型     | 是否必选 | 说明                |
-| ---------------- | -------- | ---- | ----------------- |
-| type | String | 否    |指定坐标系类型，"wgs84":采用世界标准经纬度坐标;"bd09":采用百度地图的经纬度坐标;"gcj02":采用高德地图的经纬度坐标。不传，iOS默认返回高德地图的经纬度坐标，Android默认返回百度地图的经纬度坐标  |
-| callBackFunction | Function | 是    | 回调函数，返回打开定位功能是否成功 |
+| 参数名称             | 参数类型     | 是否必选 | 说明                                       |
+| ---------------- | -------- | ---- | ---------------------------------------- |
+| type             | String   | 否    | 指定坐标系类型，"wgs84":采用世界标准经纬度坐标;"bd09":采用百度地图的经纬度坐标;"gcj02":采用高德地图的经纬度坐标。不传，iOS默认返回高德地图的经纬度坐标，Android默认返回百度地图的经纬度坐标 |
+| callBackFunction | Function | 是    | 回调函数，返回打开定位功能是否成功                        |
 
 **回调参数:**
 
@@ -86,28 +86,42 @@ uexLocation.openLocation("bd09",function(error) {
 
 **参数:**
 
-```
+| 参数名称             | 参数类型     | 是否必选 | 说明                 |
+| ---------------- | -------- | ---- | ------------------ |
+| params           | Object   | 是    | 接口所需数据             |
+| callbackFunction | Function | 是    | 获取地址成功后的回调函数，形式见下: |
+
+```javascript
 var = params = {
    latitude: ,
    longitude: ,
    type: ,
    flag:
 }
-
 ```
 
-| 参数名称             | 参数类型     | 是否必选 | 说明                              |
-| ---------------- | -------- | ---- | ------------------------------- |
-| latitude       | Number   | 是    | 纬度                              |
-| longitude      | Number   | 是    | 经度                              |
-| type      | String   | 否    | 指定传入经纬度所采用坐标系类型，"wgs84":采用世界标准经纬度坐标;"bd09":采用百度地图的经纬度坐标;"gcj02":采用高德地图的经纬度坐标。不传，iOS默认采用世界标准的经纬度坐标，Android默认采用百度地图的经纬度坐标                               |
-| flag             | Number   | 是    | 值为1时返回地址详情(JSON格式), 非 1 时返回地址名称 |
-| callbackFunction | Function | 是    | 获取地址成功后的回调函数                    |
+各字段含义如下：
 
-回调函数中返回的数据是JSON对象(如果出错会返回ErrorCode)，格式如下:
+| 参数名称      | 参数类型   | 是否必选 | 说明                                       |
+| --------- | ------ | ---- | ---------------------------------------- |
+| latitude  | Number | 是    | 纬度                                       |
+| longitude | Number | 是    | 经度                                       |
+| type      | String | 否    | 指定传入经纬度所采用坐标系类型，"wgs84":采用世界标准经纬度坐标;"bd09":采用百度地图的经纬度坐标;"gcj02":采用高德地图的经纬度坐标。不传，iOS默认采用世界标准的经纬度坐标，Android默认采用百度地图的经纬度坐标 |
+| flag      | Number | 是    | 值为1时返回地址详情(JSON格式), 非 1 时返回地址名称          |
 
+**回调参数:**
+
+```javascript
+var callbackFunction = function(error, data){}
 ```
-{
+
+| 参数名称  | 类型          | 说明                 |
+| ----- | ----------- | ------------------ |
+| error | Number      | 0表示获取成功，非0表示获取失败   |
+| data  | Json Object | 获取成功时的具体地址信息，形式见下: |
+
+```javascript
+var data = {
     "formatted_address": "北京市海淀区海淀中街15号",
     "location": {
         "lat": 39.983197,
@@ -123,11 +137,17 @@ var = params = {
 }
 ```
 
+
+
 **示例:**
 
-```
-    var callbackFunction = function (data) {
-      alert(JSON.stringify(data));
+```javascript
+    var callbackFunction = function (error, data) {
+      if(!error){
+        alert(JSON.stringify(data));
+      }else{
+        alert(error);
+      }
     }
     var params = {
             latitude: "30.475798",
@@ -148,6 +168,10 @@ var = params = {
 
 **参数:**
 
+| 参数名称   | 参数类型 | 是否必选 | 说明         |
+| ------ | ---- | ---- | ---------- |
+| params | Json | 是    | 相关数据，形式见下: |
+
 ```
 var params ={
     latitude:,
@@ -156,14 +180,6 @@ var params ={
     to:
 }
 ```
-```
-同步返回结果:
-data = {
-    latitude:,
-    longitude:
-}
-```
-
 各字段含义如下:
 
 | 参数名称      | 参数类型   | 是否必选 | 说明                        |
@@ -173,9 +189,20 @@ data = {
 | from      | String | 是    | 源坐标类型,具体含义请参考[附录](#4、附录)  |
 | to        | String | 是    | 目的坐标类型,具体含义请参考[附录](#4、附录) |
 
-**示例:**
+**返回值:**
+
+Json对象，表示转换完成后的位置信息，形式如下：
 
 ```
+var data = {
+    latitude:,
+    longitude:
+}
+```
+
+**示例:**
+
+```javascript
 var params = {
      latitude:30.595997,
      longitude:114.312047,
@@ -183,7 +210,7 @@ var params = {
      to:"bd09"
  };
 var data = uexLocation.convertLocation(JSON.stringify(params));
-var obj = JSON.parse(data)
+var obj = JSON.parse(data);
 alert(obj.latitude+","+obj.longitude);//同步返回json字符串
 //alert(data);                  
 ```
