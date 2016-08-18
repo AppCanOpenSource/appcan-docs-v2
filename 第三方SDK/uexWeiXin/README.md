@@ -489,7 +489,7 @@ var cbFun = function(data){}
 
 | 参数名称 | 类型      | 说明                                       |
 | ---- | ------- | ---------------------------------------- |
-| data | Json字符串 | 返回参数，参数详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果" |
+| data | Object | 返回参数，参数详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果" |
 
 
 **示例:**
