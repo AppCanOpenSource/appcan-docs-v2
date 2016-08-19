@@ -28,30 +28,48 @@
 **说明:**
 
 打开视频播放器,查看视频播放状态触发[onPlayerStatusChange](#onPlayerStatusChange 播放器状态改变的监听方法 "onPlayerStatusChange")
-在播放器被关闭时会触发监听[onPlayerClosed 播放器被关闭时的监听方法](#onPlayerClosed 播放器被关闭时的监听方法)
+在播放器被关闭时会触发监听[onPlayerClosed](#onPlayerClosed 播放器被关闭时的监听方法)
 
 * 注意,一个网页内只允许存在一个视频播放器,
 * 如果已经打开了一个视频播放器,那么在打开新的播放器之前,会关闭已经打开的播放器,同时触发onPlayerClosed监听
 
 **参数:**
 
-param是JSON字符串,详细字段解释见下:路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes 
+| 参数名称  | 参数类型    | 是否必选 | 说明           |
+| ----- | ------- | ---- | ------------ |
+| param | JSON字符串 | 是    | 接口所需数据，形式见下： |
 
-```
+```javascript
 var param = {
-	src:,//String,必选。播放文件路径。 支持本地路径wgt://,res://,file://和网络路径http://,https://
-	startTime:,//Number,可选。视频开始播放时间,单位为s(秒)。默认为0。
-	autoStart:,//Boolean,可选。是否自动开始。默认为false。
-	forceFullScreen:,//Boolean,可选。是否强制全屏,详见下方说明*。默认为false。
-	showCloseButton:,//Boolean,可选。是否显示关闭按钮,用户可以通过点击此按钮关闭播放器。默认为false。
-	showScaleButton:,//Boolean,可选。是否显示缩放按钮,用户可以通过点击此按钮切换全屏/非全屏模式。默认为true。
-	width:,//Number,可选。播放器宽度,单位px。默认为屏幕宽度。
-	height:,//Number,可选。播放器高度,单位px。默认为屏幕高度。
-	x:,//Number,可选。播放器左边距,单位px。默认为0。
-	y:,//Number,可选。播放器上边距,单位px。默认为0。
- 	scrollWithWeb:,//Boolean,可选。普通状态下播放器是否跟随网页滑动。默认为true。
+	src:,
+	startTime:,
+	autoStart:,
+	forceFullScreen:,
+	showCloseButton:,
+	showScaleButton:,
+	width:,
+	height:,
+	x:,
+	y:,
+ 	scrollWithWeb:,
 }
 ```
+
+各字段含义如下：
+
+| 字段名称            | 类型      | 是否必选 | 说明                                       |
+| --------------- | ------- | ---- | ---------------------------------------- |
+| src             | String  | 是    | 播放文件路径。 支持本地路径wgt://,res://,file://和网络路径http://,https:// |
+| startTime       | Number  | 否    | 视频开始播放时间,单位为s(秒)。默认为0。                   |
+| autoStart       | Boolean | 否    | 是否自动开始。默认为false。                         |
+| forceFullScreen | Boolean | 否    | 是否强制全屏,详见下方说明。默认为false。                  |
+| showCloseButton | Boolean | 否    | 是否显示关闭按钮,用户可以通过点击此按钮关闭播放器。默认为false。      |
+| showScaleButton | Boolean | 否    | 是否显示缩放按钮,用户可以通过点击此按钮切换全屏/非全屏模式。默认为true。  |
+| width           | Number  | 否    | 播放器宽度,单位px。默认为屏幕宽度。                      |
+| height          | Number  | 否    | 播放器高度,单位px。默认为屏幕高度。                      |
+| x               | Number  | 否    | 播放器左边距,单位px。默认为0。                        |
+| y               | Number  | 否    | 播放器上边距,单位px。默认为0。                        |
+| scrollWithWeb   | Boolean | 否    | 普通状态下播放器是否跟随网页滑动。默认为true。                |
 
 * forceFullScreen参数说明
   * 此参数传true时播放器会默认进入全屏状态,**且不能切换回普通状态**。
@@ -107,8 +125,11 @@ uexVideo.closePlayer();
 
 **参数:**
 
-param 是JSON字符串
-```
+| 参数名称   | 参数类型    | 是否必选 | 说明           |
+| ------ | ------- | ---- | ------------ |
+| params | JSON字符串 | 是    | 接口所需数据，形式见下： |
+
+```javascript
 var param = {
 	maxDuration:,
 	qualityType:,
@@ -117,12 +138,14 @@ var param = {
 }
 ```
 
+各字段含义如下：
+
 | 参数名称        | 参数类型   | 是否必选 | 说明                                       |
 | ----------- | ------ | ---- | ---------------------------------------- |
 | maxDuration | Number | 否    | 视频录制最大时间,单位s(秒)                          |
 | qualityType | Number | 否    | 视频分辨率类型,**取值为0,1,2,默认为0**。0:1920x1080, 1:1280x720, 2:640x480 |
 | bitRateType | Number | 否    | 视频录制时采样率类型,**取值为0, 1, 2, 默认为0**, 0: 高采样率, 1: 中采样率, 2: 低采样率 |
-| fileType    | String | 否    | 输出的视频文件格式,**默认为`mp4`**。Android 平台上支持的的视频文件格式有:`mp4`、`3gp`; IOS支持的压缩视频文件格式有:`mp4`,`mov` |
+| fileType    | String | 否    | 输出的视频文件格式,**默认为mp4**。Android 平台上支持的的视频文件格式有:`mp4`、`3gp`; IOS支持的压缩视频文件格式有:`mp4`,`mov` |
 
 * 说明:bitRateType 视频录制时使用的采样率,采样率越高,视频越清晰,质量越高,视频文件越大。
 
@@ -130,7 +153,7 @@ var param = {
 
 **示例:**
 
-```
+```javascript
 var params = {
  	maxDuration:15,
  	qualityType:1,
@@ -144,20 +167,25 @@ uexVideo.record(JSON.stringify(params));
 
 > ### onPlayerClose 播放器被关闭时的监听方法
 
-`uexVideo.onPlayerClose(param)`
+`uexVideo.onPlayerClose(info)`
 
 **参数:**
 
-param 是JSON字符串
+info是JSON字符串
 
 ```
-var param = {
-	src://String,必选。视频文件路径。
-	currentTime:,// Number,必选。被关闭时视频正在播放的时间。
+var info = {
+	src:,
+	currentTime:
 }
 ```
 
+各字段含义如下：
 
+| 字段名称        | 类型     | 说明             |
+| ----------- | ------ | -------------- |
+| src         | String | 视频文件路径         |
+| currentTime | Number | 被关闭时视频正在播放的时间。 |
 
 **示例**
 
@@ -171,19 +199,21 @@ window.uexOnload = function(){
 
 > ### onPlayerStatusChange 播放器状态改变的监听方法
 
-`uexVideo.onPlayerStatusChange(param)`
+`uexVideo.onPlayerStatusChange(info)`
 
 **参数:**
 
 param 是JSON字符串
 
 ```
-var param = {
-	status://Number,必选。播放器状态  0-暂停中 1-缓冲中 2-播放中 3-发生错误。
+var info = {
+	status:
 }
 ```
 
-
+| 字段名称   | 类型     | 说明                               |
+| ------ | ------ | -------------------------------- |
+| status | Number | 播放器状态  0-暂停中 1-缓冲中 2-播放中 3-发生错误。 |
 
 **示例**
 
@@ -197,23 +227,23 @@ window.uexOnload = function(){
 
 > ### onRecordFinish 录制结束的监听方法
 
-`uexVideo.onRecordFinish(param)`
+`uexVideo.onRecordFinish(info)`
 
 **参数:**
 
 param 是JSON字符串
 
 ```
-var param = {
-	result://
-	path://
+var info = {
+	result:，
+	path:
 }
 ```
 
-| 参数名称   | 参数类型   | 是否必选 | 说明                                     |
-| ------ | ------ | ---- | -------------------------------------- |
-| result | Number | 是    | 录制结果。 0-录制成功 1-用户取消录制 2-视频录制或者压缩过程发送错误 |
-| path   | String | 否    | 仅录制成功时才会有此参数,录制压缩得到的视频文件路径             |
+| 字段名称   | 类型     | 说明                                     |
+| ------ | ------ | -------------------------------------- |
+| result | Number | 录制结果。 0-录制成功 1-用户取消录制 2-视频录制或者压缩过程发送错误 |
+| path   | String | 仅录制成功时才会有此参数,录制压缩得到的视频文件路径             |
 
 
 
@@ -228,7 +258,7 @@ window.uexOnload = function(){
 }
 ```
 
-> ### onExportWithProgress 视频压缩进度的监听方法(仅iOS)
+> ### onExportWithProgress 视频压缩进度的监听方法
 
 此接口仅限iOS,可以用于等待压缩时的UI展示。
 `uexVideo.onExportWithProgress(progress)`
@@ -246,8 +276,8 @@ iOS7.0+
 **示例:**
 
 ```
-uexVideo.onExportWithProgress = function(data){
- 	console.log(data);
+uexVideo.onExportWithProgress = function(progress){
+ 	console.log(progress);
 }
 ```
 
