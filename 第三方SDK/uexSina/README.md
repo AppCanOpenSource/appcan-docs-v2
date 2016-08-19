@@ -112,7 +112,18 @@ uexSina.registerApp(appKey,appSecret,registerUrl, function(data) {
 | registerURL      | String类型 | 必选   | 通过开放平台注册的registerURL         |
 | callbackFunction | 函数       | 必选   | 回调函数，用来获取相关业务数据              |
 
-登录成功后，回调函数的数据格式如下（如果失败返回ErrorCode）:
+**回调参数:**
+
+```javascript
+var callbackFunction = function(error, data){}
+
+```
+
+| 参数名称  | 类型     | 说明                                       |
+| ----- | ------ | ---------------------------------------- |
+| error | Number | 0表示获取成功，非0表示获取失败                         |
+| data  | JSON对象   |error非0返回NULL;error为0,其数据格式如下:  |
+
 ```
 {
     "uid": "1820127523",
@@ -125,7 +136,16 @@ uexSina.registerApp(appKey,appSecret,registerUrl, function(data) {
 
 **示例:**
 
-见sendImageContent方法示例 
+```
+var appKey = "4072168403";
+var registerUrl = "http://www.dotlink.com";
+uexSina.login(appKey,registerUrl,function(error,data){
+     if(!error){
+     alert(JSON.stringify(data));
+     }
+});
+``` 
+
 
 > ### getUserInfo 获取用户基本信息
 
