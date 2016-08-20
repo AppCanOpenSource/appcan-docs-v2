@@ -34,20 +34,30 @@
 
 **参数**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| param | String | 否 | picker参数设置 |
-| cb | Function | 否 | picker被关闭的回调函数 |
+| 参数名称  | 参数类型     | 是否必选 | 说明             |
+| ----- | -------- | ---- | -------------- |
+| param | String   | 否    | picker参数设置     |
+| cb    | Function | 否    | picker被关闭的回调函数 |
 
-param为json字符串,包含的参数如下表
+```javascript
+var param = {
+  min:,
+  max:,
+  quality:,
+  usePng:,
+  detailedInfo
+}
+```
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 默认值 |
-| ----- | ----- | ----- | ----- | ----- | ----- |
-| min | Number | 否 | 最小选择数量 ,传0表示无限制| 1 | 
-| max | Number | 否 | 最大选择数量 ,传0表示无限制| 0 | 
-| quality | Number | 否 | JPG压缩质量 取值范围 0-1 越大表示质量越好|0.5|
-| usePng| Boolean | 否| 用png格式导出图片 ,此参数为true时,quality参数无效 | false |
-|detailedInfo|Boolean | 否| 此参数为true时,回调中会包含图片的额外信息 | false |
+各字段含义如下：
+
+| 参数名称         | 参数类型    | 是否必选 | 说明                                | 默认值   |
+| ------------ | ------- | ---- | --------------------------------- | ----- |
+| min          | Number  | 否    | 最小选择数量 ,传0表示无限制                   | 1     |
+| max          | Number  | 否    | 最大选择数量 ,传0表示无限制                   | 0     |
+| quality      | Number  | 否    | JPG压缩质量 取值范围 0-1 越大表示质量越好         | 0.5   |
+| usePng       | Boolean | 否    | 用png格式导出图片 ,此参数为true时,quality参数无效 | false |
+| detailedInfo | Boolean | 否    | 此参数为true时,回调中会包含图片的额外信息           | false |
 
 * png 无损且支持透明色,但文件体积比jpg大。
 * 用户应按需求自行选择图片文件格式
@@ -55,13 +65,30 @@ param为json字符串,包含的参数如下表
 
 **回调参数**
 
-回调函数cb拥有一个参数info.info是Object类型,包含的字段如下
+```javascript
+var cb = function(info){
+}
+```
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| isCancelled | Boolean | 是 | 选择器是否是由于点击取消而关闭|
-| detailedImageInfo | Array | 否 ,仅isCancelled为 false且openPicker有设置detailedInfo为true时才有此参数| 导出的图片的信息uexImageInfo结构构成的数组|
-| data | Array | 否 ,仅isCancelled为 false时有此参数| 导出的图片地址构成的数组|
+| 参数名称 | 类型     | 说明            |
+| ---- | ------ | ------------- |
+| info | Object | 返回的数据信息，形式见下： |
+
+```javascript
+var info = {
+  isCancelled:,
+  detailedImageInfo:,
+  data:
+}
+```
+
+各字段含义如下:
+
+| 参数名称              | 参数类型    | 是否必选                                     | 说明                          |
+| ----------------- | ------- | ---------------------------------------- | --------------------------- |
+| isCancelled       | Boolean | 是                                        | 选择器是否是由于点击取消而关闭             |
+| detailedImageInfo | Array   | 否 ,仅isCancelled为 false且openPicker有设置detailedInfo为true时才有此参数 | 导出的图片的信息uexImageInfo结构构成的数组 |
+| data              | Array   | 否 ,仅isCancelled为 false时有此参数              | 导出的图片地址构成的数组                |
 
 * 即使只选择一张图片 detailedImageInfo和imageInfo也是数组
 * uexImageInfo结构如下定义
@@ -96,7 +123,6 @@ uexImage.openPicker(json,function(info){
 		}
 	}
 });
-
 ```
 
 > ### openBrowser 打开图片浏览器
@@ -111,27 +137,37 @@ uexImage.openPicker(json,function(info){
 
 **参数**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| param | String | 是 | browser参数设置 |
-| cb | Function | 否 | browser被关闭的回调函数 |
+| 参数名称  | 参数类型     | 是否必选 | 说明              |
+| ----- | -------- | ---- | --------------- |
+| param | String   | 是    | browser参数设置     |
+| cb    | Function | 否    | browser被关闭的回调函数 |
 
+```javascript
+var param = {
+  	displayActionButton:,
+	displayNavArrows:,
+	enableGrid:,
+	startOnGrid:,
+	startIndex:,
+	data:[]
+}
+```
 
-param为json字符串,包含的参数如下
+各字段含义如下:
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 默认值 |
-| ----- | ----- | ----- | ----- | ----- |
-| displayActionButton | Boolean | 否 | 显示分享按钮|false|
-| displayNavArrows| Boolean | 否 |显示切换箭头(仅iOS支持此参数)| false|
-| enableGrid | Boolean | 否 | 允许九宫格视图 | true |
-| startOnGrid | Boolean | 否 | 以九宫格视图起始 | false |
-| startIndex | Number | 否 | 非负整数 起始图片位置 | 0 |
-| data | Array | 是 | 图片资源构成的数组 | 无 |
+| 参数名称                | 参数类型    | 是否必选 | 说明                | 默认值   |
+| ------------------- | ------- | ---- | ----------------- | ----- |
+| displayActionButton | Boolean | 否    | 显示分享按钮            | false |
+| displayNavArrows    | Boolean | 否    | 显示切换箭头(仅iOS支持此参数) | false |
+| enableGrid          | Boolean | 否    | 允许九宫格视图           | true  |
+| startOnGrid         | Boolean | 否    | 以九宫格视图起始          | false |
+| startIndex          | Number  | 否    | 非负整数 起始图片位置       | 0     |
+| data                | Array   | 是    | 图片资源构成的数组         | 无     |
 
 * 即使只浏览一张图片 data也必须是数组
-* data内的元素可以是 字符串 或者是 字典 格式
-	* 传字符串时,此字符串应为图片资源路径
-	* 传字典时, 结构如下
+* data内的元素可以是 字符串 或者是 Json对象 格式
+  * 传字符串时,此字符串应为图片资源路径
+  * 传Json对象时, 结构如下
 
 ```
 {
@@ -141,13 +177,13 @@ param为json字符串,包含的参数如下
 }
 ```
 **回调参数**
-	
+​	
 回调函数cb没有参数
 
 
 **示例**
 
-```
+```javascript
 var data ={
 	displayActionButton:true,
 	displayNavArrows:true,
@@ -174,7 +210,6 @@ var json=JSON.stringify(data);
 uexImage.openBrowser(json,functiuon(){
 	alert("browser closed!");
 });
-
 ```
 > ### openCropper 打开图片裁剪器
 
@@ -187,29 +222,52 @@ uexImage.openBrowser(json,functiuon(){
 
 **参数**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| param | String | 否 | cropper参数设置 |
-| cb | Function | 否 | cropper被关闭的回调函数 |
+| 参数名称  | 参数类型     | 是否必选 | 说明              |
+| ----- | -------- | ---- | --------------- |
+| param | String   | 否    | cropper参数设置     |
+| cb    | Function | 否    | cropper被关闭的回调函数 |
 
+```
+var param = {
+  	src:,
+  	quality:,
+  	usePng:,
+	mode:2
+}
+```
 
-param为json字符串,包含的参数如下
+各字段含义如下：
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 默认值 |
-| ----- | ----- | ----- | ----- | ----- |
-| src | String | 否 | 图片路径 支持wgt:// wgts:// file:// res://,不传此参数时,会先打开系统相册让用户选择一张图片| 无|
-| quality | Number | 否 | JPG压缩质量 取值范围 0-1 越大表示质量越好|0.5|
-| usePng| Boolean | 否| 用png格式导出图片 ,此参数为true时,quality参数无效 | false |
-| mode | Number | 否 | 1- 正方型裁剪 2- 圆形裁剪(仅iOS支持圆形裁剪) 3- 自定义长宽比(仅Android) | 1 |
+| 参数名称    | 参数类型    | 是否必选 | 说明                                       | 默认值   |
+| ------- | ------- | ---- | ---------------------------------------- | ----- |
+| src     | String  | 否    | 图片路径 支持wgt:// wgts:// file:// res://,不传此参数时,会先打开系统相册让用户选择一张图片 | 无     |
+| quality | Number  | 否    | JPG压缩质量 取值范围 0-1 越大表示质量越好                | 0.5   |
+| usePng  | Boolean | 否    | 用png格式导出图片 ,此参数为true时,quality参数无效        | false |
+| mode    | Number  | 否    | 1- 正方型裁剪 2- 圆形裁剪(仅iOS支持圆形裁剪) 3- 自定义长宽比(仅Android) | 1     |
 
 **回调参数**
 
-回调函数cb拥有一个参数info.info是Object类型,包含的字段如下
+```
+var cb = function(info){}
+```
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| isCancelled | Boolean | 是 | 选择器是否是由于点击取消而关闭|
-| data | String | 否 ,仅isCancelled为 false时有此参数| 裁剪后的图片地址|
+| 参数名称 | 类型     | 说明             |
+| ---- | ------ | -------------- |
+| info | Object | 返回图片相关信息，形式见下: |
+
+```
+var info = {
+  isCancelled:,
+  data:
+}
+```
+
+各字段含义如下：
+
+| 参数名称        | 参数类型    | 是否必选                        | 说明              |
+| ----------- | ------- | --------------------------- | --------------- |
+| isCancelled | Boolean | 是                           | 选择器是否是由于点击取消而关闭 |
+| data        | String  | 否 ,仅isCancelled为 false时有此参数 | 裁剪后的图片地址        |
 
 
 **示例**
@@ -241,26 +299,29 @@ uexImage.openCropper(json,function(info){
 **参数**
 
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| param | String | 是 | 储存参数设置 |
-| cb | Function | 否 | 储存的回调函数 |
+| 参数名称  | 参数类型     | 是否必选 | 说明      |
+| ----- | -------- | ---- | ------- |
+| param | String   | 是    | 储存参数设置  |
+| cb    | Function | 否    | 储存的回调函数 |
 
 param为json字符串,包含的参数如下
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| localPath | String | 是 | 图片路径 支持res:// wgt:// wgts:// file://|
+| 参数名称      | 参数类型   | 是否必选 | 说明                                   |
+| --------- | ------ | ---- | ------------------------------------ |
+| localPath | String | 是    | 图片路径 支持res:// wgt:// wgts:// file:// |
 
 
 **回调参数**
 
-回调函数cb拥有一个参数info.info是Object类型,包含的字段如下
+```javascript
+var cb = function(error,errorInfo){
+}
+```
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| isSuccess | Boolean | 是 | 是否储存成功 true/false|
-| errorStr|String| 否| 仅isSuccess为false时有此参数,储存失败的错误原因|
+| 参数名称      | 参数类型   | 是否必选 | 说明                             |
+| --------- | ------ | ---- | ------------------------------ |
+| error     | Number | 是    | 为0表示储存成功,非0表示储存失败              |
+| errorInfo | String | 否    | 储存失败的错误信息.储存成功时,errorInfo为null |
 
 
 
@@ -271,11 +332,11 @@ var data={
 	localPath:"res://photo4.jpg",
 	}
 var json=JSON.stringify(data);
-uexImage.saveToPhotoAlbum(json,function(info){
-	if(info.isSuccess){
+uexImage.saveToPhotoAlbum(json,function(err,errStr){
+	if(!err){
 		alert("储存成功!");
 	}else{
-		alert("储存失败:" + info.errorStr);
+		alert("储存失败:" + errStr);
 	}
 });
 ```
@@ -316,9 +377,9 @@ alert(ret);
 
 **参数**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| ----- | ----- | ----- | ----- | ----- |
-| flag | Number | 是 | 为0时表示禁用pop窗口,非0时表示启用pop窗口|
+| 参数名称 | 参数类型   | 是否必选 | 说明                        |
+| ---- | ------ | ---- | ------------------------- |
+| flag | Number | 是    | 为0时表示禁用pop窗口,非0时表示启用pop窗口 |
 
 **平台支持**
 
@@ -339,19 +400,19 @@ API版本:`uexImage-3.0.10`
 
 最近更新时间:`2016-5-10`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.10 | 修复在4/4s机型上裁剪接口闪退的问题 |
-| 3.0.9 | 修复openPicker接口在选择相册界面滑动时可能会产生重影的问题 |
-| 3.0.8 | openPicker接口打开相册时,默认滑动至最底端,以显示最新拍摄的照片 |
-| 3.0.7 | 修复7.x系统上一个导致卡死的bug;修复iPhone包在iPad上运行时的崩溃bug |
-| 3.0.6 | 修复pick图片方向不正确的bug |
-| 3.0.5 | 添加IDE支持 |
-| 3.0.4 | 新增接口setIpadPopEnable |
-| 3.0.3 | 删去资源包中多余的info.plist |
-| 3.0.2 | 修复armv7环境会编译失败的bug |
-| 3.0.1 | 修复openCropper没有国际化的问题 |
-| 3.0.0 | uexImage 发布 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+| 3.0.10 | 修复在4/4s机型上裁剪接口闪退的问题                      |
+| 3.0.9  | 修复openPicker接口在选择相册界面滑动时可能会产生重影的问题       |
+| 3.0.8  | openPicker接口打开相册时,默认滑动至最底端,以显示最新拍摄的照片    |
+| 3.0.7  | 修复7.x系统上一个导致卡死的bug;修复iPhone包在iPad上运行时的崩溃bug |
+| 3.0.6  | 修复pick图片方向不正确的bug                        |
+| 3.0.5  | 添加IDE支持                                  |
+| 3.0.4  | 新增接口setIpadPopEnable                     |
+| 3.0.3  | 删去资源包中多余的info.plist                      |
+| 3.0.2  | 修复armv7环境会编译失败的bug                       |
+| 3.0.1  | 修复openCropper没有国际化的问题                    |
+| 3.0.0  | uexImage 发布                              |
 
 ### Android
 
@@ -359,22 +420,22 @@ API版本:`uexImage-3.0.16`
 
 最近更新时间:`2016-5-17`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.16 | 当进行图片方形裁剪时,固定图片的尺寸 |
+| 历史发布版本 | 更新内容                                |
+| ------ | ----------------------------------- |
+| 3.0.16 | 当进行图片方形裁剪时,固定图片的尺寸                  |
 | 3.0.15 | 优化选择图片时quality为1时的处理逻辑,防止图片质量会有细微差别 |
-| 3.0.14 | 修复三星等机型Exif导致图片显示方向不正确的问题 |
-| 3.0.13 | 优化图片选择器按照图片修改时间排序 |
-| 3.0.12 | 更换图片加载中资源文件 |
-| 3.0.11 | 优化图片剪裁功能,优化图片选择器倒序加载图片 |
-| 3.0.10 | 针对保存图片到相册接口,修复开启增量更新时的res协议路径的bug |
-| 3.0.9 | 修复开启增量更新时的res协议路径的bug |
-| 3.0.8 | 修复单张图片在图片浏览器上title不正确的问题,优化裁剪后图片的命名 |
-| 3.0.7 | 修复在华为GEM-730L上裁剪图片时显示为圆形的问题 |
-| 3.0.6 | 优化图片目录加载慢,内存占用高,图片预览时的屏幕适配问题 |
-| 3.0.5 | 更换头部的UI背景 |
-| 3.0.4 | 修复在华为机型的图片裁剪闪退的问题,与iOS同步图片剪裁器 |
-| 3.0.3 | 修复在某些机型上图片裁剪失败的问题 |
-| 3.0.2 | 修复图片压缩质量错误问题 |
-| 3.0.1 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.0 | uexImage 发布 |
+| 3.0.14 | 修复三星等机型Exif导致图片显示方向不正确的问题           |
+| 3.0.13 | 优化图片选择器按照图片修改时间排序                   |
+| 3.0.12 | 更换图片加载中资源文件                         |
+| 3.0.11 | 优化图片剪裁功能,优化图片选择器倒序加载图片              |
+| 3.0.10 | 针对保存图片到相册接口,修复开启增量更新时的res协议路径的bug   |
+| 3.0.9  | 修复开启增量更新时的res协议路径的bug               |
+| 3.0.8  | 修复单张图片在图片浏览器上title不正确的问题,优化裁剪后图片的命名 |
+| 3.0.7  | 修复在华为GEM-730L上裁剪图片时显示为圆形的问题         |
+| 3.0.6  | 优化图片目录加载慢,内存占用高,图片预览时的屏幕适配问题        |
+| 3.0.5  | 更换头部的UI背景                           |
+| 3.0.4  | 修复在华为机型的图片裁剪闪退的问题,与iOS同步图片剪裁器       |
+| 3.0.3  | 修复在某些机型上图片裁剪失败的问题                   |
+| 3.0.2  | 修复图片压缩质量错误问题                        |
+| 3.0.1  | 去掉插件中的ActivityGroup,配合引擎升级          |
+| 3.0.0  | uexImage 发布                         |

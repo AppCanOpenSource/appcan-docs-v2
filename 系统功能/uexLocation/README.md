@@ -1,5 +1,5 @@
 [TOC]
-# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
 定位插件
 ## 1.1、说明
 定位功能。同时使用GPS,GPRS,WIFI三种方式联合定位,取最先返回值。
@@ -21,17 +21,18 @@
 ## 2.1、方法
 > ### openLocation 打开定位功能,监听并返回设备所在地经纬度信息
 
-`uexLocation.openLocation(callBackFunction)`
+`uexLocation.openLocation(type,callBackFunction)`
 
 **说明:**
 
-位置信息将通过手机GPS、WIFI或移动网络信号获取。成功打开定位功能时会执行回调方法,成功获取到位置信息时通过[onChange](#onChange 设备位置变化的监听方法 "onChange")回调方法返回。
+位置信息将通过手机GPS、WIFI或移动网络信号获取。成功打开定位功能时会执行回调方法,成功获取到位置信息时通过[onChange](#onChange 设备位置变化的监听方法 "onChange")回调方法返回，并通过type指定采用何种坐标系返回。
 
 **参数:**
 
-| 参数名称             | 参数类型     | 是否必选 | 说明                |
-| ---------------- | -------- | ---- | ----------------- |
-| callBackFunction | Function | 是    | 回调函数，返回打开定位功能是否成功 |
+| 参数名称             | 参数类型     | 是否必选 | 说明                                       |
+| ---------------- | -------- | ---- | ---------------------------------------- |
+| type             | String   | 否    | 指定坐标系类型，"wgs84":采用世界标准经纬度坐标;"bd09":采用百度地图的经纬度坐标;"gcj02":采用高德地图的经纬度坐标。不传，iOS默认返回高德地图的经纬度坐标，Android默认返回百度地图的经纬度坐标 |
+| callBackFunction | Function | 是    | 回调函数，返回打开定位功能是否成功                        |
 
 **回调参数:**
 
@@ -47,7 +48,7 @@ var callBackFunction = function(error){
 **示例:**
 
 ```javascript
-uexLocation.openLocation(function(error) {
+uexLocation.openLocation("bd09",function(error) {
     if(!error){
       alert("打开成功");
     }else{
@@ -76,27 +77,51 @@ uexLocation.openLocation(function(error) {
     uexLocation.closeLocation();
 ```
 
-> ### getAddress 获取经纬度对应的具体地址信息
+> ### getAddressByType 获取经纬度对应的具体地址信息
 
-`uexLocation.getAddress(inLatitude,inLongitude,flag, callbackFunction)`
+`uexLocation.getAddressByType(params, callbackFunction)`
 
 **说明:**
-根据经纬度获取对应的地址信息，执行完成后会回调传入的函数`callbackFunction`
+根据经纬度获取对应的地址信息，并通过type指定传入经纬度所采用坐标系类型，执行完成后会回调传入的函数`callbackFunction`
 
 **参数:**
 
+| 参数名称             | 参数类型     | 是否必选 | 说明                 |
+| ---------------- | -------- | ---- | ------------------ |
+| params           | Object   | 是    | 接口所需数据             |
+| callbackFunction | Function | 是    | 获取地址成功后的回调函数，形式见下: |
 
-| 参数名称             | 参数类型     | 是否必选 | 说明                              |
-| ---------------- | -------- | ---- | ------------------------------- |
-| inLatitude       | Number   | 是    | 纬度                              |
-| inLongitude      | Number   | 是    | 经度                              |
-| flag             | Number   | 是    | 值为1时返回地址详情(JSON格式), 非 1 时返回地址名称 |
-| callbackFunction | Function | 是    | 获取地址成功后的回调函数                    |
-
-回调函数中返回的数据是JSON对象(如果出错会返回ErrorCode)，格式如下:
-
+```javascript
+var params = {
+   latitude: ,
+   longitude: ,
+   type: ,
+   flag:
+}
 ```
-{
+
+各字段含义如下：
+
+| 参数名称      | 参数类型   | 是否必选 | 说明                                       |
+| --------- | ------ | ---- | ---------------------------------------- |
+| latitude  | Number | 是    | 纬度                                       |
+| longitude | Number | 是    | 经度                                       |
+| type      | String | 否    | 指定传入经纬度所采用坐标系类型，"wgs84":采用世界标准经纬度坐标;"bd09":采用百度地图的经纬度坐标;"gcj02":采用高德地图的经纬度坐标。不传，iOS默认采用世界标准的经纬度坐标，Android默认采用百度地图的经纬度坐标 |
+| flag      | Number | 是    | 值为1时返回地址详情(JSON格式), 非 1 时返回地址名称          |
+
+**回调参数:**
+
+```javascript
+var callbackFunction = function(error, data){}
+```
+
+| 参数名称  | 类型     | 说明                                       |
+| ----- | ------ | ---------------------------------------- |
+| error | Number | 0表示获取成功，非0表示获取失败                         |
+| data  | Json   | 获取成功时的具体地址信息，flag非1时，返回地址名称字符串；为1时，返回Json对象，形式见下: |
+
+```javascript
+var data = {
     "formatted_address": "北京市海淀区海淀中街15号",
     "location": {
         "lat": 39.983197,
@@ -112,13 +137,25 @@ uexLocation.openLocation(function(error) {
 }
 ```
 
+
+
 **示例:**
 
-```
-    var callbackFunction = function (data) {
-      alert(JSON.stringify(data));
+```javascript
+    var callbackFunction = function (error, data) {
+      if(!error){
+        alert(JSON.stringify(data));
+      }else{
+        alert(error);
+      }
     }
-    uexLocation.getAddress("30.475798", "114.402815"，1，callbackFunction);
+    var params = {
+            latitude: "30.475798",
+            longitude: "114.402815",
+            type:"gcj02",
+            flag:2
+    };
+    uexLocation.getAddressByType(params,callbackFunction);
 ```
 
 > ### convertLocation 转换坐标的方法
@@ -131,6 +168,10 @@ uexLocation.openLocation(function(error) {
 
 **参数:**
 
+| 参数名称   | 参数类型 | 是否必选 | 说明         |
+| ------ | ---- | ---- | ---------- |
+| params | Json | 是    | 相关数据，形式见下: |
+
 ```
 var params ={
     latitude:,
@@ -139,14 +180,6 @@ var params ={
     to:
 }
 ```
-```
-同步返回结果:
-data = {
-    latitude:,
-    longitude:
-}
-```
-
 各字段含义如下:
 
 | 参数名称      | 参数类型   | 是否必选 | 说明                        |
@@ -156,9 +189,20 @@ data = {
 | from      | String | 是    | 源坐标类型,具体含义请参考[附录](#4、附录)  |
 | to        | String | 是    | 目的坐标类型,具体含义请参考[附录](#4、附录) |
 
-**示例:**
+**返回值:**
+
+Json对象，表示转换完成后的位置信息，形式如下：
 
 ```
+var data = {
+    latitude:,
+    longitude:
+}
+```
+
+**示例:**
+
+```javascript
 var params = {
      latitude:30.595997,
      longitude:114.312047,
@@ -166,7 +210,7 @@ var params = {
      to:"bd09"
  };
 var data = uexLocation.convertLocation(JSON.stringify(params));
-var obj = JSON.parse(data)
+var obj = JSON.parse(data);
 alert(obj.latitude+","+obj.longitude);//同步返回json字符串
 //alert(data);                  
 ```
@@ -256,4 +300,4 @@ API版本:`uexLocation-4.0.0`
 | ------ | ---------------------------------------- |
 | wgs84  | GPS设备获取的角度坐标,世界标准地理坐标                    |
 | bd09   | 百度地图采用的经纬度坐标                             |
-| gcj02  | google地图、soso地图、aliyun地图、mapabc地图和amap地图所用坐标,中国国测局地理坐标 |
+| gcj02  | 高德地图、google地图、soso地图、aliyun地图、mapabc地图和amap地图所用坐标,中国国测局地理坐标 |

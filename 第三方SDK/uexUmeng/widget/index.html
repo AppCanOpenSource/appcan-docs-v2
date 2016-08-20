@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript">
+
+        function getDeviceInfo() {
+            var info = uexUmeng.getDeviceInfo();
+            alert(JSON.stringify(info));
+        }
+        function onEvent1() {
+            uexUmeng.onEvent("SimpleEvent1");
+        }
+
+        function onEvent2() {
+            var data = {"item":"apple"};
+            var json = JSON.stringify(data);
+            uexUmeng.onEvent("sell_event", json);
+        }
+    </script>
+</head>
+
+<body>
+	<div class="tit">uexUmeng Test</div>
+	<div class="conbor">
+		<div class="consj">
+            <input class="btn" type="button" onClick="getDeviceInfo()" value="Get Device Info"/>
+			<input class="btn" type="button" onClick="onEvent1()" value="SimpleEvent"/>
+			<input class="btn" type="button" onClick="onEvent2()" value="KVEvent"/>
+		</div>
+	</div>
+</body>
+</html>

@@ -30,17 +30,27 @@
 
 **参数:**
 
-| 参数名称             | 参数类型   | 是否必选 | 说明         |
-| ---------------- | ------ | ---- | ---------- |
-| year             | Number | 是    | 年          |
-| month            | Number | 是    | 月          |
-| day              | Number | 是    | 日          |
-| callbackFunction | 函数     | 是    | 选择日期后的回调函数 |
+| 参数名称             | 参数类型     | 是否必选 | 说明         |
+| ---------------- | -------- | ---- | ---------- |
+| year             | Number   | 是    | 年          |
+| month            | Number   | 是    | 月          |
+| day              | Number   | 是    | 日          |
+| callbackFunction | Function | 是    | 选择日期后的回调函数 |
 
-`callbackFunction`的参数是JSON对象，其格式如下：
+**回调参数:**
 
+```javascript
+var callbackFunction = function(data){}
 ```
-{
+
+| 参数名称 | 类型     | 说明             |
+| ---- | ------ | -------------- |
+| data | Object | json格式数据，形式如下: |
+
+
+
+```javascript
+var data = {
     year:,
     month:,
     day:
@@ -49,7 +59,7 @@
 
 **示例:**
 
-```
+```javascript
 uexControl.openDatePicker(1990,8,1, function(data) {
     alert(JSON.stringify(data));
 });
@@ -71,10 +81,19 @@ uexControl.openDatePicker(1990,8,1, function(data) {
 | minute           | Number | 是    | 分钟         |
 | callbackFunction | 函数     | 是    | 选择时间后的回调函数 |
 
-`callbackFunction`的参数是JSON对象，其格式如下：
+**回调参数:**
 
 ```
-{
+var callbackFunction = function(data){}
+
+```
+
+| 参数名称 | 类型     | 说明             |
+| ---- | ------ | -------------- |
+| data | Object | json格式数据，形式如下: |
+
+```
+var data = {
     hour:,
     minute:
 }
@@ -105,13 +124,21 @@ uexControl.openTimePicker(10,23, function(data) {
 | btnText          | String | 是    | 输入框按钮上标题                                 |
 | callbackFunction | 函数     | 是    | 回调函数, 返回输入框中的文字                          |
 
-* `callbackFunction`的参数是`String`类型，返回输入框中的文字
+**回调参数:**
+
+```
+var callbackFunction = function(data){}
+```
+
+| 参数名称 | 类型     | 说明      |
+| ---- | ------ | ------- |
+| data | String | 输入框中的文字 |
 
 **示例:**
 
 ```
-uexControl.openInputDialog(0,"默认数据","按钮", fuction(text) {
-    alert(text);
+uexControl.openInputDialog(0,"默认数据","按钮", fuction(data) {
+    alert(data);
 }) 
 ```
 
@@ -131,10 +158,19 @@ uexControl.openInputDialog(0,"默认数据","按钮", fuction(text) {
 | month            | Number | 是    | 月             |
 | callbackFunction | 函数     | 是    | 回调函数, 返回选择的日期 |
 
-`callbackFunction`的参数是JSON对象，其格式如下：
+**回调参数:**
 
 ```
-{
+var callbackFunction = function(data){}
+
+```
+
+| 参数名称 | 类型     | 说明             |
+| ---- | ------ | -------------- |
+| data | Object | json格式数据，形式如下: |
+
+```
+var data = {
     year:,
     month:
 }
@@ -159,6 +195,11 @@ uexControl.openDatePickerWithoutDay(1990,8, function(data) {
 监听方法[onError](#onError 参数传递错误时的监听方法)
 
 **参数:**
+
+| 参数名称             | 参数类型     | 是否必须 | 说明         |
+| ---------------- | -------- | ---- | ---------- |
+| params           | Object   | 是    | 配置信息       |
+| callbackFunction | Function | 是    | 选择日期后的回调函数 |
 
 ```
 var params = {
@@ -198,11 +239,19 @@ var params = {
 | month     | Number | 是    | 月,当limitType为0时,必传,表示具体月份。当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中月的相对值x,负数表示小于初始化月份x月,正数表示大于初始化月份x月 |
 | day       | Number | 是    | 日,当limitType为0时,必传,表示具体日期。当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中日的相对值x,负数表示小于初始化日期x天,正数表示大于初始化日期x天 |
 
-
-`callbackFunction`的参数是JSON对象，其格式如下：
+**回调参数:**
 
 ```
-{
+var callbackFunction = function(data){}
+
+```
+
+| 参数名称 | 类型     | 说明             |
+| ---- | ------ | -------------- |
+| data | Object | json格式数据，形式如下: |
+
+```javascript
+var data = {
     day:,
     month:,
     year:

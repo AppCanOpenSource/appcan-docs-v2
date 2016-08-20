@@ -4,7 +4,7 @@
 Apple Pay 支付插件
 ## 1.1、说明
  该插件实现了iPhone手机的Apple Pay 支付功能。
- 
+
 ## 1.2、UI展示
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/raw/master/%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD/uexApplePay/imgs/img1.jpg)
 ## 1.3、开源源码
@@ -45,15 +45,13 @@ var params = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| networks | Array | 否 | 指定进行ApplePay的支付网络,由UexApplePayNetworkKey构成的数组,详见[术语表-[UexApplePayNetworkKey](#UexApplePayNetworkKey "UexApplePayNetworkKey")]。不传时默认为系统可选的所有支付网络 |
+| 参数名称     | 参数类型  | 是否必选 | 说明                                       |
+| -------- | ----- | ---- | ---------------------------------------- |
+| networks | Array | 否    | 指定进行ApplePay的支付网络,由UexApplePayNetworkKey构成的数组,详见[术语表-[UexApplePayNetworkKey](#UexApplePayNetworkKey "UexApplePayNetworkKey")]。不传时默认为系统可选的所有支付网络 |
 
 **返回值:**
 
-|  返回值类型 | 说明 |
-| ----- | ----- | 
-| Number | 检测结果,是一个UexAppleCanMakePaymentStatus,详见[术语表-UexAppleCanMakePaymentStatus](#UexAppleCanMakePaymentStatus)|
+Number类型，检测结果，是一个UexAppleCanMakePaymentStatus,详见[术语表-UexAppleCanMakePaymentStatus](#UexAppleCanMakePaymentStatus)
 
 
 **示例:**
@@ -94,19 +92,15 @@ var params = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| orderInfo | String | 是 | 银联提供的交易流水号. |
-| mode | String | 是 | 测试类型,取值为"00"、"01"。"00"表示银联正式环境,若开发者已经入网银联支付,可用正式环境测试；"01"表示银联测试环境,测试环境仅用于测试插件功能是否正常 |
-| merchantIdentifier | String | 是 | 在苹果开发者中心配置的merchant证书的ID |
+| 参数名称               | 参数类型   | 是否必选 | 说明                                       |
+| ------------------ | ------ | ---- | ---------------------------------------- |
+| orderInfo          | String | 是    | 银联提供的交易流水号.                              |
+| mode               | String | 是    | 测试类型,取值为"00"、"01"。"00"表示银联正式环境,若开发者已经入网银联支付,可用正式环境测试；"01"表示银联测试环境,测试环境仅用于测试插件功能是否正常 |
+| merchantIdentifier | String | 是    | 在苹果开发者中心配置的merchant证书的ID                 |
 
 **返回值:**
 
-|  返回值类型 | 说明 |
-| ----- | ----- | 
-| Number | 打开支付页面的结果,是一个UexApplePayStartPayResult,详见[术语表-UexApplePayStartPayResult](#UexApplePayStartPayResult)|
-
-
+Number类型，检测结果，是一个UexApplePayStartPayResult,详见[术语表-UexApplePayStartPayResult](#UexApplePayStartPayResult)
 
 **示例:**
 
@@ -172,27 +166,27 @@ var params = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| merchantIdentifier | String | 是 | 在苹果开发者中心配置的merchant证书的ID |
-| merchantCapability | Number | 否 | 账单处理标准,是一个`UexApplePayMerchantCapability`,详见[术语表-UexApplePayMerchantCapability](#UexApplePayMerchantCapability),不传时默认为15 |
-| networks | Array | 否 | 进行ApplePay的支付网络,由`UexApplePayNetworkKey构成的数组`,详见[术语表-UexApplePayNetworkKey](#UexApplePayNetworkKey "UexApplePayNetworkKey")。不传时默认为系统可选的所有支付网络|
-| currencyCode | String | 否 | `标准货币代码`,表示此次支付的默认货币。不传时默认为`"CNY"`,既人民币 |
-| countryCode | String | 否 | 2位的`ISO Country Code` ,表示处理此次支付的区域。不传时默认为`"CN"`,既中国 |
-| payment | Object | 是 | 是一个`Payment Object`,表示这个订单中的账单信息,各字段说明详见下方表格|
-| billingContactRequiredFlag | Number | 否 | 表示此订单的账单联系人的信息需求情况。是一个UexApplePayContactRequiredFlag,详见[术语表-UexApplePayContactRequiredFlag](#UexApplePayContactRequiredFlag).不传时默认为0|
-| shippingContactRequiredFlag | Number | 否 | 表示此订单的运输接受者的信息需求情况。是一个UexApplePayContactRequiredFlag,详见[术语表-UexApplePayContactRequiredFlag](#UexApplePayContactRequiredFlag).不传时默认为0|
-| shippingType | Number | 否 | 表示此订单货物的物流类型。是一个UexApplePayShippingType,详见[术语表-UexApplePayShippingType](#UexApplePayShippingType) 。不传时默认为0 |
-| shippingMethods | Array | 否 | 表示此订单支持的物流方式 。 是由`ShippingMethod Object` 构成的数组。各字段说明详见下方表格。此字段可通过其他接口更新,开始时可以不传|
-| applicationData | String | 否 | 校验字段。传任何字符串。传入此参数,即可在最后获取的支付token中解析出传入字段的SHA-256 Hash |
+| 参数名称                        | 参数类型   | 是否必选 | 说明                                       |
+| --------------------------- | ------ | ---- | ---------------------------------------- |
+| merchantIdentifier          | String | 是    | 在苹果开发者中心配置的merchant证书的ID                 |
+| merchantCapability          | Number | 否    | 账单处理标准,是一个`UexApplePayMerchantCapability`,详见[术语表-UexApplePayMerchantCapability](#UexApplePayMerchantCapability),不传时默认为15 |
+| networks                    | Array  | 否    | 进行ApplePay的支付网络,由`UexApplePayNetworkKey构成的数组`,详见[术语表-UexApplePayNetworkKey](#UexApplePayNetworkKey "UexApplePayNetworkKey")。不传时默认为系统可选的所有支付网络 |
+| currencyCode                | String | 否    | `标准货币代码`,表示此次支付的默认货币。不传时默认为`"CNY"`,既人民币  |
+| countryCode                 | String | 否    | 2位的`ISO Country Code` ,表示处理此次支付的区域。不传时默认为`"CN"`,既中国 |
+| payment                     | Object | 是    | 是一个`Payment Object`,表示这个订单中的账单信息,各字段说明详见下方表格 |
+| billingContactRequiredFlag  | Number | 否    | 表示此订单的账单联系人的信息需求情况。是一个UexApplePayContactRequiredFlag,详见[术语表-UexApplePayContactRequiredFlag](#UexApplePayContactRequiredFlag).不传时默认为0 |
+| shippingContactRequiredFlag | Number | 否    | 表示此订单的运输接受者的信息需求情况。是一个UexApplePayContactRequiredFlag,详见[术语表-UexApplePayContactRequiredFlag](#UexApplePayContactRequiredFlag).不传时默认为0 |
+| shippingType                | Number | 否    | 表示此订单货物的物流类型。是一个UexApplePayShippingType,详见[术语表-UexApplePayShippingType](#UexApplePayShippingType) 。不传时默认为0 |
+| shippingMethods             | Array  | 否    | 表示此订单支持的物流方式 。 是由`ShippingMethod Object` 构成的数组。各字段说明详见下方表格。此字段可通过其他接口更新,开始时可以不传 |
+| applicationData             | String | 否    | 校验字段。传任何字符串。传入此参数,即可在最后获取的支付token中解析出传入字段的SHA-256 Hash |
 
 **`Payment Object`表示这个订单中的账单信息,其各字段含义如下**
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| payee | String | 是 | 表示这个订单的收款人员/机构 |
-| items | Array | 否 | 表示此次订单的明细清单,是由`Item Object` 构成的数组。 `Item Object`各字段说明详见下方表格。此参数可以不传,表示不提供明细。此参数不传时,totalPrice必传|
-| totalPrice | Number | 否 | 表示这个订单的总金额,此参数唯一确定了此订单的支付金额。见下方说明|
+| 参数名称       | 参数类型   | 是否必选 | 说明                                       |
+| ---------- | ------ | ---- | ---------------------------------------- |
+| payee      | String | 是    | 表示这个订单的收款人员/机构                           |
+| items      | Array  | 否    | 表示此次订单的明细清单,是由`Item Object` 构成的数组。 `Item Object`各字段说明详见下方表格。此参数可以不传,表示不提供明细。此参数不传时,totalPrice必传 |
+| totalPrice | Number | 否    | 表示这个订单的总金额,此参数唯一确定了此订单的支付金额。见下方说明        |
 
 说明:对于totalPrice
 
@@ -202,27 +196,27 @@ var params = {
 
 **`Item Object` 表示账单中的一个项目,各字段含义如下**
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| label | String | 是 | 项目说明,比如物品名称/运费/折扣名称/税费  等等 |
-| price | Number | 否 | 项目价格,支持用负数表示折扣。不传时表示此项目价格还未确定,会用`...`表示|
+| 参数名称  | 参数类型   | 是否必选 | 说明                                      |
+| ----- | ------ | ---- | --------------------------------------- |
+| label | String | 是    | 项目说明,比如物品名称/运费/折扣名称/税费  等等              |
+| price | Number | 否    | 项目价格,支持用负数表示折扣。不传时表示此项目价格还未确定,会用`...`表示 |
 
 注:价格未确定的项目在计算totalPrice时,按0处理。
 
 **`ShippingMethod Object`表示一种物流方式,各字段含义如下**
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| label | String | 是 | 物流名称 |
-| price | Number | 否 | 物流价格。不传时表示此价格还未确定,会用`...`表示|
-| identifier | String | 是 | 唯一标识符,传非空字符串,同一个订单内不可重复 |
-| detail | String | 否 | 此物流方式的一些额外说明,比如"3天内送达"等等。可以不传|
+| 参数名称       | 参数类型   | 是否必选 | 说明                            |
+| ---------- | ------ | ---- | ----------------------------- |
+| label      | String | 是    | 物流名称                          |
+| price      | Number | 否    | 物流价格。不传时表示此价格还未确定,会用`...`表示   |
+| identifier | String | 是    | 唯一标识符,传非空字符串,同一个订单内不可重复       |
+| detail     | String | 否    | 此物流方式的一些额外说明,比如"3天内送达"等等。可以不传 |
 
 **返回值:**
 
-|  返回值类型 | 说明 |
-| ----- | ----- | 
-| Number | 打开支付页面的结果,是一个UexApplePayStartPayResult,详见[术语表-UexApplePayStartPayResult](#UexApplePayStartPayResult)|
+| 返回值类型  | 说明                                       |
+| ------ | ---------------------------------------- |
+| Number | 打开支付页面的结果,是一个UexApplePayStartPayResult,详见[术语表-UexApplePayStartPayResult](#UexApplePayStartPayResult) |
 
 
 **示例:**
@@ -300,15 +294,15 @@ var params = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| payment | Object | 否 | 是一个`Payment Object`,同StartPay中的payment参数。不传时表示账单无变化|
+| 参数名称    | 参数类型   | 是否必选 | 说明                                       |
+| ------- | ------ | ---- | ---------------------------------------- |
+| payment | Object | 否    | 是一个`Payment Object`,同StartPay中的payment参数。不传时表示账单无变化 |
 
 **返回值:**
 
-|  返回值类型 | 说明 |
-| ----- | ----- | 
-| Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口|
+| 返回值类型   | 说明                                      |
+| ------- | --------------------------------------- |
+| Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口 |
 
 **示例:**
 
@@ -363,15 +357,15 @@ var params = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| payment | Object | 否 | 是一个`Payment Object`,同StartPay中的payment参数。不传时表示账单无变化|
+| 参数名称    | 参数类型   | 是否必选 | 说明                                       |
+| ------- | ------ | ---- | ---------------------------------------- |
+| payment | Object | 否    | 是一个`Payment Object`,同StartPay中的payment参数。不传时表示账单无变化 |
 
 **返回值:**
 
-|  返回值类型 | 说明 |
-| ----- | ----- | 
-| Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口|
+| 返回值类型   | 说明                                      |
+| ------- | --------------------------------------- |
+| Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口 |
 
 
 
@@ -431,17 +425,17 @@ var params = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| payment | Object | 否 | 是一个`Payment Object`,同StartPay中的payment参数。不传时表示账单无变化|
-| shippingMethods | Array | 否 | 是一个由`ShippingMethod Object`,同StartPay中的shippingMethods参数。不传时表示订单支持的物流方式无变化|
-| isPostalAddressInvalid | Boolean | 否 | 地址是否无效。传true时会让支付界面提示用户修改当前的地址。默认为false。|
+| 参数名称                   | 参数类型    | 是否必选 | 说明                                       |
+| ---------------------- | ------- | ---- | ---------------------------------------- |
+| payment                | Object  | 否    | 是一个`Payment Object`,同StartPay中的payment参数。不传时表示账单无变化 |
+| shippingMethods        | Array   | 否    | 是一个由`ShippingMethod Object`,同StartPay中的shippingMethods参数。不传时表示订单支持的物流方式无变化 |
+| isPostalAddressInvalid | Boolean | 否    | 地址是否无效。传true时会让支付界面提示用户修改当前的地址。默认为false。 |
 
 **返回值:**
 
-|  返回值类型 | 说明 |
-| ----- | ----- | 
-| Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口|
+| 返回值类型   | 说明                                      |
+| ------- | --------------------------------------- |
+| Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口 |
 
 
 **示例:**
@@ -493,15 +487,15 @@ var params = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| result | Boolean | 是 | 若此次订单支付成功,则传true,否则传false.|
+| 参数名称   | 参数类型    | 是否必选 | 说明                         |
+| ------ | ------- | ---- | -------------------------- |
+| result | Boolean | 是    | 若此次订单支付成功,则传true,否则传false. |
 
 **返回值:**
 
-|  返回值类型 | 说明 |
-| ----- | ----- | 
-| Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口|
+| 返回值类型   | 说明                                      |
+| ------- | --------------------------------------- |
+| Boolean | 调用接口结果。若为false,一般为参数错误或者不完整引起,必须重新调用此接口 |
 
 
 **示例:**
@@ -545,22 +539,22 @@ var params = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| id | String | 是 | 按钮的唯一标识符|
-| x | Number | 是 | 按钮距离屏幕左侧的距离,单位px|
-| y | Number | 是 | 按钮距离屏幕上方的距离,单位px|
-| width | Number | 是 | 按钮宽度,单位px|
-| height | Number | 是 | 按钮宽度,单位px|
-| type | Number | 否 | 按钮类型,插件提供了3中不同的按钮类型,请传0、1或者2,不传时默认为0|
-| style | Number | 否 | 按钮风格,插件提供了3中不同的按钮风格,请传0、1或者2,不传时默认为0|
-| scrollWithWeb | Boolean | 否 | 设置按钮是否跟随网页滑动,不传时默认为false|
+| 参数名称          | 参数类型    | 是否必选 | 说明                                   |
+| ------------- | ------- | ---- | ------------------------------------ |
+| id            | String  | 是    | 按钮的唯一标识符                             |
+| x             | Number  | 是    | 按钮距离屏幕左侧的距离,单位px                     |
+| y             | Number  | 是    | 按钮距离屏幕上方的距离,单位px                     |
+| width         | Number  | 是    | 按钮宽度,单位px                            |
+| height        | Number  | 是    | 按钮宽度,单位px                            |
+| type          | Number  | 否    | 按钮类型,插件提供了3中不同的按钮类型,请传0、1或者2,不传时默认为0 |
+| style         | Number  | 否    | 按钮风格,插件提供了3中不同的按钮风格,请传0、1或者2,不传时默认为0 |
+| scrollWithWeb | Boolean | 否    | 设置按钮是否跟随网页滑动,不传时默认为false             |
 
 **返回值:**
 
-|  返回值类型 | 说明 |
-| ----- | ----- | 
-| Boolean | 是否添加按钮成功。若为false,一般为参数错误或者不完整引起|
+| 返回值类型   | 说明                              |
+| ------- | ------------------------------- |
+| Boolean | 是否添加按钮成功。若为false,一般为参数错误或者不完整引起 |
 
 
 
@@ -601,15 +595,15 @@ var params = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| id | String | 是 | 按钮的唯一标识符|
+| 参数名称 | 参数类型   | 是否必选 | 说明       |
+| ---- | ------ | ---- | -------- |
+| id   | String | 是    | 按钮的唯一标识符 |
 
 **返回值:**
 
-|  返回值类型 | 说明 |
-| ----- | ----- | 
-| Boolean | 是否删除按钮成功。若为false,一般为参数错误或者不完整引起|
+| 返回值类型   | 说明                              |
+| ------- | ------------------------------- |
+| Boolean | 是否删除按钮成功。若为false,一般为参数错误或者不完整引起 |
 
 
 
@@ -647,11 +641,11 @@ var params = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| result | Number | 是 | 支付结果 0-支付成功 1-支付失败 2-用户取消了支付 3-支付结果不确定,此时应需查询商户后台以确认支付状态|
-| errorInfo | String | 否 | 支付失败时会通过此字段返回失败的原因 |
-| otherInfo | String | 否 | 支付的额外信息会通过此字段返回, 此字段由银联SDK直接提供,请参考银联的相关文档|
+| 参数名称      | 参数类型   | 是否必选 | 说明                                       |
+| --------- | ------ | ---- | ---------------------------------------- |
+| result    | Number | 是    | 支付结果 0-支付成功 1-支付失败 2-用户取消了支付 3-支付结果不确定,此时应需查询商户后台以确认支付状态 |
+| errorInfo | String | 否    | 支付失败时会通过此字段返回失败的原因                       |
+| otherInfo | String | 否    | 支付的额外信息会通过此字段返回, 此字段由银联SDK直接提供,请参考银联的相关文档 |
 
 
 **示例:**
@@ -687,11 +681,11 @@ var paymentMethod = {
 
 各字段含义如下:
 
-|  参数名称 | 参数类型  | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| type | Number | 是 | 支付方式,是一个UexApplePayPaymentMethodType,详见[术语表-UexApplePayPaymentMethodType](#UexApplePayPaymentMethodType)|
-| displayName | String | 否 | 支付的展示名,仅在申请支付许可时才会有此字段 |
-| network | String | 否 | 支付网络,仅在申请支付许可时才会有此字段|
+| 参数名称        | 参数类型   | 是否必选 | 说明                                       |
+| ----------- | ------ | ---- | ---------------------------------------- |
+| type        | Number | 是    | 支付方式,是一个UexApplePayPaymentMethodType,详见[术语表-UexApplePayPaymentMethodType](#UexApplePayPaymentMethodType) |
+| displayName | String | 否    | 支付的展示名,仅在申请支付许可时才会有此字段                   |
+| network     | String | 否    | 支付网络,仅在申请支付许可时才会有此字段                     |
 
 
 **示例:**
@@ -823,12 +817,12 @@ var param = {
 * 支付Token的具体解密方法请参考[苹果官方的解密文档](https://developer.apple.com/library/prerelease/ios/documentation/PassKit/Reference/PaymentTokenJSON/PaymentTokenJSON.html#//apple_ref/doc/uid/TP40014929)
 * **除非测试,否则绝对不要在前端进行解密工作!**
 * 正常的操作流程应该是
-	* 前端发送paymentInfo到后台 
-	* 后台校验加密内容是否有效 
-	* 进行解密工作。
-	* 根据解密后的信息调用相应的支付网关进行支付操作 
-	* 后台得到支付结果 返回给前端 
-	* 前端调用commitAuthorizedResult告诉插件支付结果,并展示给用户
+  * 前端发送paymentInfo到后台 
+  * 后台校验加密内容是否有效 
+  * 进行解密工作。
+  * 根据解密后的信息调用相应的支付网关进行支付操作 
+  * 后台得到支付结果 返回给前端 
+  * 前端调用commitAuthorizedResult告诉插件支付结果,并展示给用户
 
 
 **示例:**
@@ -927,29 +921,29 @@ uexApplePay.onButtonClick = function(info){
 
 UexApplePayNetworkKey 是一系列**字符串**,代表了各个银行卡发行商的支付网络
 
-| 值 | 含义 |
-| ----- | ----- |
-| ChinaUnionPay | 中国银联发行的借记卡和信用卡 | 
-| AMEX | American Express 美国运通 |
-| VISA | VISA信用卡 |
-| MasterCard | MasterCard 万事达卡 |
-| Discover | Discover Card 发现卡 |
-| PrivateLabel | 汇丰银行发行的 Private Label Card |
-| Interac | Interac 借记卡 |
+| 值             | 含义                         |
+| ------------- | -------------------------- |
+| ChinaUnionPay | 中国银联发行的借记卡和信用卡             |
+| AMEX          | American Express 美国运通      |
+| VISA          | VISA信用卡                    |
+| MasterCard    | MasterCard 万事达卡            |
+| Discover      | Discover Card 发现卡          |
+| PrivateLabel  | 汇丰银行发行的 Private Label Card |
+| Interac       | Interac 借记卡                |
 
 ## UexAppleCanMakePaymentStatus
 
 * UexAppleCanMakePaymentStatus是一个Number类型的枚举值,表示检测是否支持ApplePay的结果,**非0时均表示不能进行ApplePay支付**
 
-| 值 | 含义 |
-| ----- | ----- |
-| 0 | 可以进行ApplePay支付 |
-| 1 | 系统不支持,uexApplePay插件需要**iOS 9.2+**的系统 |
-| 2 | 设备不支持,见注1 | 
-| 3 | 账号不支持,见注2 |
+| 值    | 含义                                     |
+| ---- | -------------------------------------- |
+| 0    | 可以进行ApplePay支付                         |
+| 1    | 系统不支持,uexApplePay插件需要**iOS 9.2+**的系统  |
+| 2    | 设备不支持,见注1                              |
+| 3    | 账号不支持,见注2                              |
 
 注1 : 目前支持ApplePay的设备型号有
-	
+​	
 * iPhone : iPhone 6,iPhone 6 Plus,iPhone 6s,iPhone 6s Plus
 * iPad : iPad Pro,iPad Air 2,iPad mini 3,iPad mini 4
 
@@ -962,24 +956,24 @@ UexApplePayNetworkKey 是一系列**字符串**,代表了各个银行卡发行�
 
 * UexApplePayStartPayResult是一个Number类型的枚举值,表示调用开始支付接口的结果**,非0时均表示打开支付界面失败**
 
-| 值 | 含义 |
-| ----- | ----- |
-| 0 | 支付成功 |
-| 1 | 传入的参数有误 |
-| 2 | 设备或者系统不支持 | 
-| 3 | 其他未知错误 |
+| 值    | 含义        |
+| ---- | --------- |
+| 0    | 支付成功      |
+| 1    | 传入的参数有误  |
+| 2    | 设备或者系统不支持 |
+| 3    | 其他未知错误    |
 
 ## UexApplePayMerchantCapability
 
 * UexApplePayMerchantCapability是一个Number类型的枚举值,表示支持的支付处理标准。
 * 如果需要支持多种处理标准,请将需要支持的标准的值相加后作为最终结果传入。 比如,要同时支持3DS和EMV,请传3。
 
-| 值 | 含义 |
-| ----- | ----- |
-| 1 | 3D Secure 协议 |
-| 2 | EMV 协议 |
-| 4 | 信用卡支持 | 
-| 8 | 借记卡支持 |
+| 值    | 含义           |
+| ---- | ------------ |
+| 1    | 3D Secure 协议 |
+| 2    | EMV 协议      |
+| 4    | 信用卡支持        |
+| 8    | 借记卡支持        |
 
 其中3DS和EMV均同时支持信用卡和借记卡。因此假设你需要限此订单只支持信用卡支付,传4可达到此效果。
 
@@ -988,35 +982,35 @@ UexApplePayNetworkKey 是一系列**字符串**,代表了各个银行卡发行�
 * UexApplePayContactRequiredFlag是一个Number类型的枚举值,表示需要的联系人信息。
 * 如果同时需要多种信息,请将需要信息的值相加后作为最终结果传入。比如,同时需要联系人的名称和电话号码,请传10。
 
-| 值 | 含义 |
-| ----- | ----- |
-| 1 | 需要联系人详细地址 |
-| 2 | 需要联系人电话号码 |
-| 4 | 需要联系人Email | 
-| 8 | 需要联系人名称 |
+| 值    | 含义          |
+| ---- | ----------- |
+| 1    | 需要联系人详细地址   |
+| 2    | 需要联系人电话号码  |
+| 4    | 需要联系人Email  |
+| 8    | 需要联系人名称     |
 
 ## UexApplePayShippingType
 
 * UexApplePayShippingType是一个Number类型的枚举值,表示此订单货物的物流类型。
 
-| 值 | 含义 |
-| ----- | ----- |
-| 0 | 表示由商家委托第三方进行运输 |
-| 1 | 表示由商家自己进行运输 |
-| 2 | 表示此商品需要去商家店铺提取 | 
-| 3 | 表示商家会将商品运送至第三方自提点,需要用户去第三方自提点提取商品 |
+| 值    | 含义                                |
+| ---- | --------------------------------- |
+| 0    | 表示由商家委托第三方进行运输                    |
+| 1    | 表示由商家自己进行运输                      |
+| 2    | 表示此商品需要去商家店铺提取                    |
+| 3    | 表示商家会将商品运送至第三方自提点,需要用户去第三方自提点提取商品 |
 
 ## UexApplePayPaymentMethodType
 
 * UexApplePayPaymentMethodType是一个Number类型的枚举值,表示此支付方式的类型。
 
-| 值 | 含义 |
-| ----- | ----- |
-| 0 | 未知类型 |
-| 1 | Debit,借记卡 |
-| 2 | Credit,信用卡 | 
-| 3 | Prepaid,部分商家的预付费卡|
-| 4 | Store,部分商家联合银行发行的联名信用卡,比如Amazon Store Card|
+| 值    | 含义                                       |
+| ---- | ---------------------------------------- |
+| 0    | 未知类型                                     |
+| 1    | Debit,借记卡                               |
+| 2    | Credit,信用卡                               |
+| 3    | Prepaid,部分商家的预付费卡                        |
+| 4    | Store,部分商家联合银行发行的联名信用卡,比如Amazon Store Card |
 
 # 4、 FAQ常见问题
 
@@ -1026,12 +1020,12 @@ UexApplePayNetworkKey 是一系列**字符串**,代表了各个银行卡发行�
 * 如果您的应用需要进行非中国银联渠道的ApplePay 支付,那么只能选择startPay接口
 * 您应该视您的实际使用情况选择用哪个接口。它们的主要区别如下表所示
 
-|| startChinaUnionPay | startPay |
-| ----- | ----- | -----|
-| 前端代码实现难度 | 简单 | 较复杂 |
-| 后端服务器压力 | 只需和银联服务器进行交互,简单,压力小 | 需要进行解密工作,解密后还要组织报文进行支付,较复杂,压力较大|
-| 前端UI可定制程度 | 极低,所有UI均有银联SDK定死,无法更改 | 高,基本所有的UI均可修改,提供更好的用户体验 |
-| 适用范围 | 只支持国内,且必须是银联发布的支持ApplePay的银行卡 | 国外可以使用,支持所有支持ApplePay的银行卡 |
+|           | startChinaUnionPay            | startPay                        |
+| --------- | ----------------------------- | ------------------------------- |
+| 前端代码实现难度  | 简单                            | 较复杂                             |
+| 后端服务器压力   | 只需和银联服务器进行交互,简单,压力小           | 需要进行解密工作,解密后还要组织报文进行支付,较复杂,压力较大 |
+| 前端UI可定制程度 | 极低,所有UI均有银联SDK定死,无法更改         | 高,基本所有的UI均可修改,提供更好的用户体验         |
+| 适用范围      | 只支持国内,且必须是银联发布的支持ApplePay的银行卡 | 国外可以使用,支持所有支持ApplePay的银行卡       |
 
 #### 为什么我无法打开支付的界面?
 
@@ -1050,7 +1044,7 @@ ApplePay有如下原因会导致您的应用审核被拒
 * Apple Pay 按钮不是用于进行ApplePay支付
 * **在不能进行ApplePay支付的设备上提示或者可以选择进行Apple Pay支付**(正确的做法是先判断是否可以进行ApplePay支付,再展示ApplePay支付的UI)
 
-	
+
 # 5、 接入指引
 
 开发者集成及使用此插件,需要到Apple开发者中心申请Merchant证书,并且在Config.xml中配置相关的MerchantIdentifier才能使用。以下是具体步骤。
@@ -1071,9 +1065,9 @@ ApplePay有如下原因会导致您的应用审核被拒
 * 点击"Create Certificate",按照指示获取或生成签名证书请求(CSR),点击"Continue"
 * 点击"Choose File",选择你的CSR,点击"Generate"
 * 关于CSR文件:
-	* 有的的支付渠道(比如中国银联)可能会要求上传指定的.CSR文件才能使用其支付功能。
-	* 但上传不适配的.CSR文件只影响最后支付的结果
-	* 由于从支付渠道申请.CSR文件可以需要一定的时间,因此可以先上传自己生成的.CSR文件进行插件与前端页面调试,待正式的.CSR文件申请成功之后再进行替换,并测试前后端交互。
+  * 有的的支付渠道(比如中国银联)可能会要求上传指定的.CSR文件才能使用其支付功能。
+  * 但上传不适配的.CSR文件只影响最后支付的结果
+  * 由于从支付渠道申请.CSR文件可以需要一定的时间,因此可以先上传自己生成的.CSR文件进行插件与前端页面调试,待正式的.CSR文件申请成功之后再进行替换,并测试前后端交互。
 
 **如果你需要为不同的支付项目配置不同的商用ID标识,步骤一、和二、会进行多次。**
 
@@ -1108,9 +1102,9 @@ API版本:`uexApplePay-3.0.0`
 
 最近更新时间:`2016-3-2`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.0 | uexApplePay 插件 |
+| 历史发布版本 | 更新内容           |
+| ------ | -------------- |
+| 3.0.0  | uexApplePay 插件 |
 
 ### Android
 

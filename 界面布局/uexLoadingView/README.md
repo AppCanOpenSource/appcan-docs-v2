@@ -30,9 +30,9 @@
 
 **参数**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonstr | String | 是 |json 格式的字符串,如下 |
+| 参数名称    | 参数类型   | 是否必选 | 说明             |
+| ------- | ------ | ---- | -------------- |
+| jsonstr | String | 是    | json 格式的字符串,如下 |
 
 ```
  {  
@@ -71,7 +71,7 @@ var jsonstr = '{
 uexLoadingView.open(jsonstr);
 ```
 
-> ### openCircleLoading 打开带有圆形加载动画的loading view.
+> ### openCircleLoading 打开带有圆形加载动画的loading view
 
 `uexLoadingView.openCircleLoading()`
 
@@ -102,8 +102,6 @@ uexLoadingView.openCircleLoading();
 
 无
 
-
-
 **示例:**
 
 ```
@@ -118,16 +116,16 @@ API版本:`uexLoadingView-4.0.0`
 
 最近更新时间:`2016-6-29`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 支持引擎4.0，函数入参 |
-| 3.0.6 | 添加IDE支持 |
-| 3.0.5 | 修复openCircleLoading在ios7上背景不透明的BUG |
-| 3.0.4 | 新增openCircleLoading接口 |
-| 3.0.3 | uexLoadingView插件,修改open接口 |
-| 3.0.2 | 修改配置文件 |
-| 3.0.1 | 适配iOS5的版本 |
-| 3.0.0 | uexLoadingView插件 |
+| 历史发布版本 | 更新内容                               |
+| ------ | ---------------------------------- |
+| 4.0.0  | 支持引擎4.0，函数入参                       |
+| 3.0.6  | 添加IDE支持                            |
+| 3.0.5  | 修复openCircleLoading在ios7上背景不透明的BUG |
+| 3.0.4  | 新增openCircleLoading接口              |
+| 3.0.3  | uexLoadingView插件,修改open接口          |
+| 3.0.2  | 修改配置文件                             |
+| 3.0.1  | 适配iOS5的版本                          |
+| 3.0.0  | uexLoadingView插件                   |
 
 ### Android
 
@@ -135,13 +133,13 @@ API版本:`uexLoadingView-4.0.0`
 
 最近更新时间:`2016-6-29`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 支持引擎4.0，函数入参 |
-| 3.0.6 | 解决空指针报错问题 |
-| 3.0.5 | 添加圆形loading 动画效果 |
-| 3.0.4 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.3 | 修改open接口 |
-| 3.0.2 | 修复第二次打开界面空指针问题 |
-| 3.0.1 | clean函数中调用close方法 |
-| 3.0.0 | uexLoadingView插件 |
+| 历史发布版本 | 更新内容                       |
+| ------ | -------------------------- |
+| 4.0.0  | 支持引擎4.0，函数入参               |
+| 3.0.6  | 解决空指针报错问题                  |
+| 3.0.5  | 添加圆形loading 动画效果           |
+| 3.0.4  | 去掉插件中的ActivityGroup,配合引擎升级 |
+| 3.0.3  | 修改open接口                   |
+| 3.0.2  | 修复第二次打开界面空指针问题             |
+| 3.0.1  | clean函数中调用close方法          |
+| 3.0.0  | uexLoadingView插件           |

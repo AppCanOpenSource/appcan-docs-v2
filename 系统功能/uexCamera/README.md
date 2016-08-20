@@ -36,15 +36,23 @@
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| comtextareass | Number类型 | 可选 | 图片是否压缩,0表示压缩,非0或者不传表示不压缩 |
-| quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
-| callbackFunction|函数 | 必选 | 回调函数，用来获取相关业务数据|
+| 参数名称             | 参数类型     | 是否必选 | 说明                                    |
+| ---------------- | -------- | ---- | ------------------------------------- |
+| comtextareass    | Number类型 | 可选   | 图片是否压缩,0表示压缩,非0或者不传表示不压缩              |
+| quality          | Number类型 | 可选   | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
+| callbackFunction | 函数       | 必选   | 回调函数，用来获取相关业务数据                       |
 
-callbackFunction的参数是String类型，返回拍照完成后图片的存储路径。
- 
 
+
+**回调参数:**
+
+```javascript
+var callbackFunction = function(picPath){}
+```
+
+| 参数名称    | 类型     | 说明           |
+| ------- | ------ | ------------ |
+| picPath | String | 拍照完成后图片的存储路径 |
 
 **示例:**
 
@@ -66,13 +74,21 @@ uexCamera.open(comtextareass, quality, function(picPath) {
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| comtextareass | Number类型 | 可选 | 图片是否压缩,0表示压缩,非0或者不传表示不压缩 |
-| quality | Number类型 | 可选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
-| callbackFunction|函数 | 必选 | 回调函数，用来获取拍照后图片的存储路径|
+| 参数名称             | 参数类型     | 是否必选 | 说明                                    |
+| ---------------- | -------- | ---- | ------------------------------------- |
+| comtextareass    | Number类型 | 可选   | 图片是否压缩,0表示压缩,非0或者不传表示不压缩              |
+| quality          | Number类型 | 可选   | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
+| callbackFunction | 函数       | 必选   | 回调函数，用来获取拍照后图片的存储路径                   |
 
-callbackFunction的参数是String类型，返回拍照完成后图片的存储路径。
+**回调参数:**
+
+```javascript
+var callbackFunction = function(picPath){}
+```
+
+| 参数名称    | 类型     | 说明           |
+| ------- | ------ | ------------ |
+| picPath | String | 拍照完成后图片的存储路径 |
 
 
 **示例:**
@@ -87,7 +103,7 @@ uexCamera.openInternal(comtextareass, quality, function(data) {
 
 > ### openViewCamera 打开自定义View照相机
 
-`openViewCamera(x, y, width, heigth, label, quality, callbackFunction)`
+`uexCamera.openViewCamera(x, y, width, heigth, label, quality, callbackFunction)`
 
 **说明:**
 
@@ -95,20 +111,28 @@ uexCamera.openInternal(comtextareass, quality, function(data) {
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| x | Number类型 | 必选 | 照相机View起始位置x坐标,x为0时有效,取值范围[0,屏幕分辨率最大宽度]|
-| y | Number类型 | 必选 | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
-| width | Number类型 | 必选 | 照相机View宽度,width为0时有效,取值范围[0,屏幕分辨率最大宽度] |
-| heigth | Number类型 | 必选 | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
-| label | String类型 | 必选 | 拍照时显示在界面中的提示语或标签 |
-| quality | Number类型 | 必选 | 图片压缩质量,comtextareass为0时有效,取值范围[0,100] |
-| callbackFunction|函数 | 必选 | 回调函数，用来获取拍照后图片的存储路径|
+| 参数名称             | 参数类型     | 是否必选 | 说明                                      |
+| ---------------- | -------- | ---- | --------------------------------------- |
+| x                | Number类型 | 必选   | 照相机View起始位置x坐标,x为0时有效,取值范围[0,屏幕分辨率最大宽度] |
+| y                | Number类型 | 必选   | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
+| width            | Number类型 | 必选   | 照相机View宽度,width为0时有效,取值范围[0,屏幕分辨率最大宽度]  |
+| heigth           | Number类型 | 必选   | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
+| label            | String类型 | 必选   | 拍照时显示在界面中的提示语或标签                        |
+| quality          | Number类型 | 必选   | 图片压缩质量,comtextareass为0时有效,取值范围[0,100]   |
+| callbackFunction | 函数       | 必选   | 回调函数，用来获取拍照后图片的存储路径                     |
 
-callbackFunction 的参数是JSON 对象类型。格式如下：
+**回调参数:**
 
+```javascript
+var callbackFunction = function(data){}
 ```
-{
+
+| 参数名称 | 类型     | 说明            |
+| ---- | ------ | ------------- |
+| data | Object | 返回的图片信息，形式见下: |
+
+```javascript
+var data = {
     "photoPath": "/storage/emulated/0/widgetone/apps/11352882/uexViewCameraPhotos/2016-06-06_19-52-13.jpg",
     "location": "奥格瑞玛",
     "label": "奥格瑞玛"  //拍照时显示在界面中的提示语或标签
@@ -126,7 +150,7 @@ uexCamera.openViewCamera(x, y, w, h,label,quality, function(data) {
 
 > ### removeViewCameraFromWindow 从屏幕上移除自定义View相机
 
-`removeViewCameraFromWindow()`
+`uexCamera.removeViewCameraFromWindow()`
 
 **说明:**
 
@@ -145,40 +169,46 @@ uexCamera.removeViewCameraFromWindow();
 
 > ### changeFlashMode 改变自定义相机View的闪光灯模式
 
-`changeFlashMode(flashMode)`
+`uexCamera.changeFlashMode(flashMode)`
 
 **说明:**
 
 通过此方法将改变自定义相机View的闪光灯模式,0代表自动,1代表打开闪光灯,2代表关闭闪光灯。如果设置changeCameraPosition为前置摄像头则闪光灯无效。
-返回更改闪光灯模式成功后当前闪光灯的模式
 
 **参数:**
 
-````
- flashMode:(Number类型) 必选  照相机View的闪光灯模式,x为0、1、2时有效,取值范围[0,2]。
-````
+| 参数名称      | 参数类型   | 是否必选 | 说明                                  |
+| --------- | ------ | ---- | ----------------------------------- |
+| flashMode | Number | 是    | 照相机View的闪光灯模式,x为0、1、2时有效,取值范围[0,2]。 |
 
+**返回值:**
+
+Number类型，更改闪光灯模式成功后当前闪光灯模式。
 
 **示例:**
 
 ```
-var mode = uexCamera.changeFlashMode(flashMode);
+var mode = uexCamera.changeFlashMode(0);
 alert(mode);
 ```
 
 > ### changeCameraPosition 改变自定义相机View的摄像头位置
 
-`changeCameraPosition(cameraPosition)`
+`uexCamera.changeCameraPosition(cameraPosition)`
 
 **说明:**
 
-通过此方法改变自定义相机View的摄像头位置,0代表后置,1代表前置。返回更改前后摄像头成功后当前摄像头的位置
+通过此方法改变自定义相机View的摄像头位置,0代表后置,1代表前置。
 
 **参数:**
 
 ````
  cameraPosition:(Number类型) 必选  照相机View的摄像头位置,x为0、1时有效,取值范围[0,1]。
 ````
+
+**返回值:**
+
+Number类型，返回更改前后摄像头成功后当前摄像头的位置。
 
 **示例:**
 
@@ -195,18 +225,18 @@ API版本:`uexCamera-4.0.0`
 
 最近更新时间:`2016-6-6`
 
-| 历史发布版本| 更新内容 |
-| ----- | ----- |
-| 4.0.0|支持function传入|
-| 3.0.8 | cbOpenViewCamera回调方法,返回的JSON中增加字段label,替换之前的location |
-| 3.0.7 | 创建bundle存储资源文件,适配国际化 |
-| 3.0.6 | 修改IDE |
-| 3.0.5 | 修改openViewCamera接口适配地址长度,修改openInternal崩溃bug,修改第一次切换镜头无效 |
-| 3.0.4 | 修改openViewCamera不传照片质量崩溃bug,修改changeFlashMode闪光灯接口 |
-| 3.0.3 | 插件改为arc,添加openInternal自定义相机接口,添加openViewCamera自定义view模式相机 |
-| 3.0.2 | 添加IDE支持 |
-| 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
-| 3.0.0 | 照相机功能插件 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+| 4.0.0  | 支持function传入                             |
+| 3.0.8  | cbOpenViewCamera回调方法,返回的JSON中增加字段label,替换之前的location |
+| 3.0.7  | 创建bundle存储资源文件,适配国际化                     |
+| 3.0.6  | 修改IDE                                    |
+| 3.0.5  | 修改openViewCamera接口适配地址长度,修改openInternal崩溃bug,修改第一次切换镜头无效 |
+| 3.0.4  | 修改openViewCamera不传照片质量崩溃bug,修改changeFlashMode闪光灯接口 |
+| 3.0.3  | 插件改为arc,添加openInternal自定义相机接口,添加openViewCamera自定义view模式相机 |
+| 3.0.2  | 添加IDE支持                                  |
+| 3.0.1  | 使用新版Xcode重新编译,支持arm64                    |
+| 3.0.0  | 照相机功能插件                                  |
 
 ### Android
 
@@ -214,28 +244,28 @@ API版本:`uexCamera-4.0.0`
 
 最近更新时间:`2016-6-6`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0|支持function传入|
-| 3.0.21 | 修复了小内存手机压缩图片时发生OOM的问题 |
-| 3.0.20 | 修复了open时选择不压缩导致的拍照不能保存的问题 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+| 4.0.0  | 支持function传入                             |
+| 3.0.21 | 修复了小内存手机压缩图片时发生OOM的问题                    |
+| 3.0.20 | 修复了open时选择不压缩导致的拍照不能保存的问题                |
 | 3.0.19 | 优化了EUExCamera代码逻辑,优化了压缩图片算法,增加注释,规范代码；在cbOpenViewCamera的返回JSON中增加字段label,替换之前的location |
 | 3.0.18 | 优化了CameraView代码逻辑,优化了照片处理,优化了OOM问题处理,并做了为null判断,避免程序因空指针崩溃 |
 | 3.0.17 | 修复Activity拒绝服务漏洞的问题,修复了openViewCamera拒绝使用系统拍照权限后程序崩溃的问题 |
 | 3.0.16 | 修复了在三星手机上照片旋转方向不一致的问题;修复了多次点击照相按钮,再点重拍照相按钮失效的问题 |
 | 3.0.15 | 修复了少写mCamera.setPreviewCallback(null)导致崩溃的问题 |
 | 3.0.14 | 新增自定义View相机功能,可自行设置大小、位置,可传入地理位置,可调整闪光灯模式和前后置摄像头切换 |
-| 3.0.13 | 修复新引擎不能用的问题 |
-| 3.0.12 | 修改自定义相机crash问题 |
-| 3.0.11 | 修改低分辨率手机自定义相机拍照照片尺寸过小问题 |
-| 3.0.10 | 修改自定义相机横屏拍照显示问题 |
-| 3.0.9 | 修改自定义相机拍完的照片模糊问题 |
-| 3.0.8 | 修改自定义相机拍照时图片 模糊以及拍照后崩溃问题 |
-| 3.0.7 | 修改自定义相机空指针异常问题 |
-| 3.0.6 | 修改自定义相机拍照后崩溃问题 |
-| 3.0.5 | 修改调用系统相机大尺寸图片的处理内存溢出问题 |
-| 3.0.4 | 添加自定义相机点击屏幕聚焦的功能 |
-| 3.0.3 | 修改相机参数 |
-| 3.0.2 | 修改相机拍照数量限制 |
-| 3.0.1 | 自定义camera,已解决使用系 统camera内存不足应用被杀死的bug |
-| 3.0.0 | camera插件基础版 |
+| 3.0.13 | 修复新引擎不能用的问题                              |
+| 3.0.12 | 修改自定义相机crash问题                           |
+| 3.0.11 | 修改低分辨率手机自定义相机拍照照片尺寸过小问题                  |
+| 3.0.10 | 修改自定义相机横屏拍照显示问题                          |
+| 3.0.9  | 修改自定义相机拍完的照片模糊问题                         |
+| 3.0.8  | 修改自定义相机拍照时图片 模糊以及拍照后崩溃问题                 |
+| 3.0.7  | 修改自定义相机空指针异常问题                           |
+| 3.0.6  | 修改自定义相机拍照后崩溃问题                           |
+| 3.0.5  | 修改调用系统相机大尺寸图片的处理内存溢出问题                   |
+| 3.0.4  | 添加自定义相机点击屏幕聚焦的功能                         |
+| 3.0.3  | 修改相机参数                                   |
+| 3.0.2  | 修改相机拍照数量限制                               |
+| 3.0.1  | 自定义camera,已解决使用系 统camera内存不足应用被杀死的bug    |
+| 3.0.0  | camera插件基础版                              |
