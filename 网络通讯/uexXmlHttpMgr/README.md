@@ -129,7 +129,7 @@ var onProgress = function(progress){}
 var req = ...;//之前通过create接口创建的Request对象
 
 uexXmlHttpMgr.send(req,0,
-					function(state,resStr,resCode,resInfo){
+					function(status,resStr,resCode,resInfo){
                    		alert("state:" + state  + "\nresult:" + resStr + "\nresCode:" + resCode + "\nresInfo:" + JSON.stringify(resInfo));
                    },
                    function(progress){
@@ -306,7 +306,6 @@ Boolean类型，是否设置成功。
 ```javascript
 var req = ...;//之前通过create接口创建的Request对象
 var header = {
-	Content-type:"application/json;charset=utf-8",
 	testHeaderField:"testHeaderValue"
 }
 var ret = uexXmlHttpMgr.setHeaders(req, JSON.stringify(header));
