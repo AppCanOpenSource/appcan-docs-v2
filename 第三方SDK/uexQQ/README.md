@@ -64,7 +64,7 @@ urlScheme和您在QQ开发者申请的appid相关。
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=316_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 
-## 1.4 *术语表*
+## 1.4 术语表
 -----
 Path Types
 
@@ -99,27 +99,39 @@ Path Types
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                               |
 | ---------------- | -------- | ---- | -------------------------------- |
-| appId            | String类型 | 必选   | 在腾讯开放平台注册的应用appId,具体申请步骤可参考,点击跳转 |
-| callbackFunction | 函数       | 必选   | 回调函数，用来获取相关业务数据                  |
+| appId            | String   | 是    | 在腾讯开放平台注册的应用appId,具体申请步骤可参考,点击跳转 |
+| callbackFunction | Function | 是    | 回调函数，用来获取相关业务数据                  |
 
-回调函数中的数据是JSON对象,包含access_token, openId等信息。
-具体格式如下：
+**回调参数:**
+
 ```
-{
-    "ret": "0",
-    "data": {
-        "access_token": "7C8A051D7F77B7265171E742CC0A225B",
-        "openid": "7CD70F4AD1E7BE6FCACB904A65D2C8F9",
-        "expires_in": "7776000"
-    }
+var callbackFunction =  function(error, data){}
+```
+
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 0表示登录成功，非0表示登录失败  |
+| data  | Object | 登录成功返回的相关数据，形式如下： |
+
+```
+var data = {
+  access_token:,
+  openid:,
+  expires_in:
 }
 ```
+
+
 
 **示例:**
 
 ```
-uexQQ.login("222222", function(data) {
-    alert("data:" + JSON.stringify(data));
+uexQQ.login("222222", function(error, data) {
+    if(!error){
+      alert(JSON.stringify(data));
+    }else{
+      alert("登录失败");
+    }
 });
 ```
 
@@ -129,14 +141,27 @@ uexQQ.login("222222", function(data) {
 
 **说明:**
 
-检查QQ是否已安装, 如果已安装返回true, 未安装返回false.
+检查QQ是否已安装。
 
 **参数:**
 
-无       
+无
+
+**返回值:**
+
+Boolean类型，true表示已安装，false表示未安装。
+
+**示例:**
+
+```
+var ret = uexQQ.isQQInstalled();
+alert(ret);
+```
 
 
-> ### shareWebImgTextToQQ     分享图文到QQ     
+
+
+> ### shareWebImgTextToQQ   分享图文到QQ     
 
 `uexQQ.shareWebImgTextToQQ(appId,jsonData, callbackFunction);`
 
@@ -150,20 +175,18 @@ uexQQ.login("222222", function(data) {
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                |
 | ---------------- | -------- | ---- | ----------------- |
-| appId            | Number类型 | 必选   | 在腾讯开放平台注册的应用appId |
-| jsonData         | Json类型   | 必选   | 内容                |
-| callbackFunction | 函数       | 可选   | 回调函数，用来获取分享结果     |
-
-jsonData的格式如下
+| appId            | String   | 是    | 在腾讯开放平台注册的应用appId |
+| jsonData         | Object   | 是    | 内容                |
+| callbackFunction | Function | 是    | 回调函数，用来获取分享结果     |
 
 ```
-{
-    "title": "标题",
-    "summary": "摘要",
-    "targetUrl": "",
-    "imageUrl": "",
-    "appName": "uexQQ",
-    "cflag": "1"
+var jsonData = {
+    title:,
+    summary:,
+    targetUrl:,
+    imageUrl:,
+    appName:,
+    cflag:
 }
 ```
 各字段含义如下:
@@ -174,30 +197,33 @@ jsonData的格式如下
 | summary   | 否    | 消息摘要,最长40个字符                             |
 | targetUrl | 是    | 点击消息跳转URL                                |
 | imageUrl  | 否    | 图片地址,支持网络图片和本地图片                         |
-| appName   | 否    | 应用名称,显示在分享完成时的返回按钮,如下图所示                 |
+| appName   | 否    | 应用名称,显示在分享完成时的返回按钮                       |
 | cflag     | 否    | 是否弹出分享到空间对话框。不传时,不弹出对话框,可以选择分享到QQ好友或QQ空间； 值为"1",弹出对话框;值为"2",不弹出对话框,只能分享到QQ好友 |
 
+**回调参数:**
 
-callbackFunction 参数是JSON 对象类型，格式如下
+```\
+var callbackFunction = function(error,data){}
+```
 
-```
-{
-    "errStr": {
-        "ret": 0
-    },
-    "errCode": 0 // 0 成功。其它为失败，失败时errStr会显示失败原因
-}
-```
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 分享状态，0表示成功，非0表示失败 |
+| data  | String | 分享失败原因            |
+
+
 
 **示例:**
-
-​    
 
 ```
 function shareWebImgTextToQQ(){
     var json = '{"title":"图文分享标题","summary":"图文分享消息摘要","targetUrl":"http://appcan.cn","imageUrl":"res://aa.jpg","appName":"uexQQ", "cflag":"1"}';
-    uexQQ.shareWebImgTextToQQ("222222", json, function(data) {
-        alert("data:" + JSON.stringify(data));
+    uexQQ.shareWebImgTextToQQ("222222", json, function(error,data) {
+        if(!error){
+          alert("分享成功！");
+        }else{
+          alert("分享失败：" + data);
+        }
     });
 }
 ```
@@ -212,41 +238,52 @@ function shareWebImgTextToQQ(){
 
 **参数:**
 
-​    
-
 | 参数名称             | 参数类型     | 是否必选 | 说明                |
 | ---------------- | -------- | ---- | ----------------- |
-| appId            | Number类型 | 必选   | 在腾讯开放平台注册的应用appId |
-| jsonData         | Json类型   | 必选   | 内容                |
-| callbackFunction | 函数       | 可选   | 回调函数，用来获取分享结果     |
-
-
-jsonData的格式如下
+| appId            | String   | 是    | 在腾讯开放平台注册的应用appId |
+| jsonData         | Object   | 是    | 内容                |
+| callbackFunction | Function | 是    | 回调函数，用来获取分享结果     |
 
 ```
- {
-    "imageLocalUrl": "res: //aa.jpg",
-    "appName": "uexQQ",
-    "cflag": "1"
+ var jsonData = {
+    imageLocalUrl:,
+    appName:,
+    cflag:
 } 
 ```
 各字段含义如下:
 
 | 参数            | 是否必须 | 说明                                       |
 | ------------- | ---- | ---------------------------------------- |
-| imageLocalUrl | 是    | 本地图片路径,路径协议详见<a href="http://newdocx.appcan.cn/newdocx/docx?type=978_975"target="_blank">CONSTANT</a>中PathTypes |
-| appName       | 否    | 应用名称(说明同shareWebImgTextToQQ)             |
-| cflag         | 否    | 是否弹出分享到空间对话框(说明同shareWebImgTextToQQ)     |
+| imageLocalUrl | 是    | 本地图片路径,路径协议详见[CONSTANT中PathTypes         |
+| appName       | 否    | 应用名称,显示在分享完成时的返回按钮                       |
+| cflag         | 否    | 是否弹出分享到空间对话框。不传时,不弹出对话框,可以选择分享到QQ好友或QQ空间； 值为"1",弹出对话框;值为"2",不弹出对话框,只能分享到QQ好友 |
+
+**回调参数:**
+
+```\
+var callbackFunction = function(error,data){}
+```
+
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 分享状态，0表示成功，非0表示失败 |
+| data  | String | 分享失败原因            |
+
+**示例:**
 
 
 ```
 function shareLocalImgToQQ(){
     var json = '{"imageLocalUrl":"res://aa.jpg","appName":"uexQQ"}';
-    uexQQ.shareLocalImgToQQ("222222", json , function(data) {
-        alert("data:" + JSON.stringify(data));
+    uexQQ.shareLocalImgToQQ("222222", json , function(error,data) {
+        if(!error){
+          alert("分享成功！");
+        }else{
+          alert("分享失败：" + data);
+        }
     });
 }
-
 ```
 
 > ### shareAudioToQQ 分享音频到QQ
@@ -257,42 +294,51 @@ function shareLocalImgToQQ(){
 
 分享音频到QQ
 
-**参数:**
-
-​    
+​**参数:**    
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                |
 | ---------------- | -------- | ---- | ----------------- |
-| appId            | Number类型 | 必选   | 在腾讯开放平台注册的应用appId |
-| jsonData         | Json类型   | 必选   | 内容                |
-| callbackFunction | 函数       | 可选   | 回调函数，用来获取分享结果     |
+| appId            | String   | 是    | 在腾讯开放平台注册的应用appId |
+| jsonData         | Object   | 是    | 内容                |
+| callbackFunction | Function | 是    | 回调函数，用来获取分享结果     |
 
-jsonData的格式如下
+
 
 ```
-{
-    "title": "title",
-    "summary": "summary",
-    "targetUrl": "url",
-    "imageUrl": "url",
-    "appName": "uexQQ",
-    "audio_url": "url",
-    "cflag": "2"
+var jsonData = {
+    "title":,
+    "summary":,
+    "targetUrl":,
+    "imageUrl":,
+    "appName":,
+    "audio_url":,
+    "cflag":
 }
-
 ```
 
 各字段含义如下:
 
-| 参数        | 是否必须 | 说明                                   |
-| --------- | ---- | ------------------------------------ |
-| title     | 是    | 标题,最长30个字符                           |
-| summary   | 否    | 消息摘要,最长40个字符                         |
-| targetUrl | 是    | 点击消息跳转URL                            |
-| imageUrl  | 否    | 图片地址,支持网络图片和本地图片                     |
-| appName   | 否    | 应用名称(说明同shareWebImgTextToQQ)         |
-| audio_url | 是    | 音频地址                                 |
-| cflag     | 否    | 是否弹出分享到空间对话框(说明同shareWebImgTextToQQ) |
+| 参数        | 是否必须 | 说明                                       |
+| --------- | ---- | ---------------------------------------- |
+| title     | 是    | 标题,最长30个字符                               |
+| summary   | 否    | 消息摘要,最长40个字符                             |
+| targetUrl | 是    | 点击消息跳转URL                                |
+| imageUrl  | 否    | 图片地址,支持网络图片和本地图片                         |
+| appName   | 否    | 应用名称,显示在分享完成时的返回按钮                       |
+| audio_url | 是    | 音频地址                                     |
+| cflag     | 否    | 是否弹出分享到空间对话框。不传时,不弹出对话框,可以选择分享到QQ好友或QQ空间； 值为"1",弹出对话框;值为"2",不弹出对话框,只能分享到QQ好友 |
+
+**回调参数:**
+
+```\
+var callbackFunction = function(error,data){}
+```
+
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 分享状态，0表示成功，非0表示失败 |
+| data  | String | 分享失败原因            |
+
 
 
 **示例:**
@@ -301,7 +347,11 @@ jsonData的格式如下
 function shareAudioToQQ(){
     var json = '{"title":"音乐分享标题","summary":"音乐分享消息摘要","targetUrl":"http://appcan.cn","imageUrl":"http://imgcache.qq.com/qzone/space_item/textarea/0/66768.gif","appName":"uexQQ", "audio_url":"http://pan.baidu.com/share/link?shareid=1055030794&uk=2337020227","cflag":"2"}';
     uexQQ.shareAudioToQQ("222222", json, function(data) {
-        alert("data:" + JSON.stringify(data));
+        if(!error){
+          alert("分享成功！");
+        }else{
+          alert("分享失败：" + data);
+        }
     });
 }
 ```
@@ -320,40 +370,51 @@ function shareAudioToQQ(){
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                |
 | ---------------- | -------- | ---- | ----------------- |
-| appId            | Number类型 | 必选   | 在腾讯开放平台注册的应用appId |
-| jsonData         | Json类型   | 必选   | 内容                |
-| callbackFunction | 函数       | 可选   | 回调函数，用来获取分享结果     |
-
-jsonData的格式如下
+| appId            | String   | 是    | 在腾讯开放平台注册的应用appId |
+| jsonData         | Object   | 是    | 内容                |
+| callbackFunction | Function | 是    | 回调函数，用来获取分享结果     |
 
 ```
-{
-    "title": "标题",
-    "summary": "摘要",
-    "imageUrl": "",
-    "appName": "uexQQ",
-    "cflag": "1"
+var jsonData = {
+    "title":,
+    "summary":,
+    "imageUrl":,
+    "appName":,
+    "cflag":
 }   
 ```
 各字段含义如下:
 
-| 参数       | 是否必须 | 说明                                   |
-| -------- | ---- | ------------------------------------ |
-| title    | 是    | 标题,最长30个字符                           |
-| summary  | 否    | 消息摘要,最长40个字符                         |
-| imageUrl | 否    | 图片地址,支持网络图片和本地图片                     |
-| appName  | 否    | 应用名称(说明同shareWebImgTextToQQ)         |
-| cflag    | 否    | 是否弹出分享到空间对话框(说明同shareWebImgTextToQQ) |
+| 参数       | 是否必须 | 说明                                       |
+| -------- | ---- | ---------------------------------------- |
+| title    | 是    | 标题,最长30个字符                               |
+| summary  | 否    | 消息摘要,最长40个字符                             |
+| imageUrl | 否    | 图片地址,支持网络图片和本地图片                         |
+| appName  | 否    | 应用名称,显示在分享完成时的返回按钮                       |
+| cflag    | 否    | 是否弹出分享到空间对话框。不传时,不弹出对话框,可以选择分享到QQ好友或QQ空间； 值为"1",弹出对话框;值为"2",不弹出对话框,只能分享到QQ好友 |
+
+**回调参数:**
+
+```\
+var callbackFunction = function(error,data){}
+```
+
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 分享状态，0表示成功，非0表示失败 |
+| data  | String | 分享失败原因            |
 
 **示例:**
-
-​    
 
 ```
 function shareAppToQQ(){
     var json = '{"title":"标题","summary":"摘要","imageUrl":"","appName":"uexQQ","cflag":"1"}';
     uexQQ.shareAppToQQ("222222", json, function(data) {
-        alert("data:" + JSON.stringify(data));
+        if(!error){
+          alert("分享成功！");
+        }else{
+          alert("分享失败：" + data);
+        }
     });
 }
 ```
@@ -371,22 +432,16 @@ function shareAppToQQ(){
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                |
 | ---------------- | -------- | ---- | ----------------- |
-| appId            | Number类型 | 必选   | 在腾讯开放平台注册的应用appId |
-| jsonData         | Json类型   | 必选   | 内容                |
-| callbackFunction | 函数       | 可选   | 回调函数，用来获取分享结果     |
-
-jsonData的格式如下
+| appId            | String   | 是    | 在腾讯开放平台注册的应用appId |
+| jsonData         | String   | 是    | 内容,json格式，形式见下:   |
+| callbackFunction | Function | 是    | 回调函数，用来获取分享结果     |
 
 ```
-{
-    "title": "标题",
-    "summary": "摘要",
-    "targetUrl": "http://appcan.cn",
-    "imageUrl": [
-        "res://aa.png",
-        "res://aa.jpg",
-        "res://bb.png"
-    ]
+var jsonData = {
+    "title":,
+    "summary":,
+    "targetUrl":,
+    "imageUrl": []
 }
 ```
 
@@ -399,6 +454,17 @@ jsonData的格式如下
 | targetUrl | 是    | 点击消息跳转URL                      |
 | imageUrl  | 否    | 图片地址,支持网络图片和本地图片(iOS不支持发送多张图片) |
 
+**回调参数:**
+
+```\
+var callbackFunction = function(error,data){}
+```
+
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 分享状态，0表示成功，非0表示失败 |
+| data  | String | 分享失败原因            |
+
 **示例:**
 
 
@@ -406,7 +472,11 @@ jsonData的格式如下
 function shareImgTextToQZone(){
     var json = '{"title":"空间分享标题","summary":"空间分享消息摘要","targetUrl":"http://appcan.cn","imageUrl":["res://aa.png", "res://aa.jpg", "res://bb.png"]}';
     uexQQ.shareImgTextToQZone(appId, json, function(data) {
-        alert("data:" + JSON.stringify(data));
+        if(!error){
+          alert("分享成功！");
+        }else{
+          alert("分享失败：" + data);
+        }
     });
 }
 ```
