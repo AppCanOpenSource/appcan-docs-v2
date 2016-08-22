@@ -977,7 +977,7 @@ var param = {
 | path     | 是    | String | 目标文件夹路径            |
 | flag     | 否    | Number | 搜索设置 见下 不传默认为0     |
 | keywords | 否    | Array  | 要搜索的文件名关键字 不传时搜索所有 |
-| 否        | 否    | Array  | 要搜索的文件后缀名 不传时搜索所有  |
+| suffixes | 否    | Array  | 要搜索的文件后缀名 不传时搜索所有  |
 
 
 
