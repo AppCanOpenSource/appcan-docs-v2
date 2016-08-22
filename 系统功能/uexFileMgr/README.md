@@ -458,7 +458,7 @@ uexFileMgr.writeFile(file, 0, "test",function(err){
 | file | String   | 是    | uexFile对象file         |
 | len  | Number   | 是    | 字节数,传-1表示读取全部内容       |
 | flag | Number   | 是    | 读取设置(详见下)             |
-| flag | Function | 是    | 读取结束后,会调用此函数,函数参数说明见下 |
+| cb   | Function | 是    | 读取结束后,会调用此函数,函数参数说明见下 |
 
 * flag是一个枚举值,将所需设置对应的值传入即可。
 * 同时需要多种设置时,应将设置对应的flag相加后再传入。
