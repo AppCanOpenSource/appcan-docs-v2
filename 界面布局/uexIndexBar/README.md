@@ -41,11 +41,19 @@
 
 ```
 extras={
-    textColor:,//可选参数,索引文字颜色
-    indices:[],//可选参数,索引列表内容 String组成的数组
-    isScrollable,//可选参数,索引列表是否跟随网页滑动 true-跟随滑动 false-不跟随滑动(默认)
+    textColor:,
+    indices:[],
+    isScrollable:
 }
 ```
+
+各字段含义如下：
+
+| 字段名称         | 类型      | 是否必选 | 说明                                     |
+| ------------ | ------- | ---- | -------------------------------------- |
+| textColor    | String  | 否    | 索引文字颜色                                 |
+| indices      | Array   | 否    | 索引列表内容 String组成的数组                     |
+| isScrollable | Boolean | 否    | 索引列表是否跟随网页滑动 true-跟随滑动 false-不跟随滑动(默认) |
 
 **示例:**
 
@@ -83,24 +91,22 @@ uexIndexBar.close();
 
 ## 2.2、监听方法
 
-> ### onTouchResult 点击item的监听方法
+> ### onIndexClick点击item的监听方法
 
-`uexIndexBar.onTouchResult(opId,dataType,data);`
+`uexIndexBar.onIndexClick(data);`
 
 **参数:**
 
 
-| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
-| -------- | ------ | ---- | ---------------------------------------- |
-| opId     | Number | 是    | 操作ID,在此函数中不起作用,可忽略                       |
-| dataType | Number | 是    | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中Callback方法数据类型 |
-| data     | String | 是    | 索引值:a~z。                                 |
+| 参数名称 | 参数类型   | 说明       |
+| ---- | ------ | -------- |
+| data | String | 索引值:a~z。 |
 
 **示例:**
 
-```
-    uexIndexBar.onTouchResult = function(opCode, dataType, data){
-        alert(opCode + "," + dataType + "," + data);
+```javascript
+    uexIndexBar.onIndexClick = function(data){
+        alert("您点击了索引" + data);
     }
 ```
 
