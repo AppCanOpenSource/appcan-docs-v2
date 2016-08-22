@@ -32,28 +32,46 @@
 
 **参数: ** 
 
-```
+```javascript
 var viewInfo={
-    "emojicons":,//(必选)自定义表情配置文件的widget路径
-    "shares":,//(必选)自定义分享选项配置文件的widget路径
-    "placeHold":,//(可选)输入框提示语
-    "touchDownImg": ,//(可选)录音按钮按下时提示控件的背景
-    "dragOutsideImg": ,//(可选)按下录音按钮后滑动到录音范围之外时提示控件的背景
-    "textColor": ,//(可选)录音时间文字颜色
-    "textSize": ,//(可选)录音时间文字大小
-    "sendBtnbgColorUp": ,//(可选)发送按钮正常时控件的背景
-    "sendBtnbgColorDown": ,//(可选)发送按钮按下时控件的背景
-    "sendBtnText": ,//(可选)发送按钮展示文字
-    "sendBtnTextSize": ,//(可选)发送按钮文字大小
-    "sendBtnTextColor": ,//(可选)发送按钮文字颜色
-    "inputMode"://(可选) 输入框默认输入方式,0-文字输入；1-语音输入。默认为0。
+    "emojicons":,
+    "shares":,
+    "placeHold":,
+    "touchDownImg": ,
+    "dragOutsideImg": ,
+    "textColor": ,
+    "textSize": ,
+    "sendBtnbgColorUp": ,
+    "sendBtnbgColorDown": ,
+    "sendBtnText": ,
+    "sendBtnTextSize": ,
+    "sendBtnTextColor": ,
+    "inputMode":
 }
 ```
+
+各字段含义如下：
+
+| 字段名称               | 类型     | 是否必选 | 说明                            |
+| ------------------ | ------ | ---- | ----------------------------- |
+| emojicons          | String | 是    | 自定义表情配置文件的widget路径            |
+| shares             | String | 是    | 自定义分享选项配置文件的widget路径          |
+| placeHold          | String | 否    | 输入框提示语                        |
+| touchDownImg       | String | 否    | 录音按钮按下时提示控件的背景                |
+| dragOutsideImg     | String | 否    | 按下录音按钮后滑动到录音范围之外时提示控件的背景      |
+| textColor          | String | 否    | 录音时间文字颜色                      |
+| textSize           | Number | 否    | 录音时间文字大小                      |
+| sendBtnbgColorUp   | String | 否    | 发送按钮正常时控件的背景                  |
+| sendBtnbgColorDown | String | 否    | 发送按钮按下时控件的背景                  |
+| sendBtnText        | String | 否    | 发送按钮展示文字                      |
+| sendBtnTextSize    | Number | 否    | 发送按钮文字大小                      |
+| sendBtnTextColor   | String | 否    | 发送按钮文字颜色                      |
+| inputMode          | Number | 否    | 输入框默认输入方式,0-文字输入；1-语音输入。默认为0。 |
 
 >参数emojicons的自定义表情配置文件为:"res://emojicons/emojicons.xml"[widget路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "widget路径"),详细配置步骤:
 
 1、在widget的wgtRes目录下创建emojicons目录；
-2、在emojicons中放入表情以及删除的图片资源,表情的默认命名格式:
+2、在emojicons目录中放入表情以及删除的图片资源,表情的默认命名格式:
 ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
 3、在emojicons中创建emojicons.xml文件,格式如下:
 
@@ -73,7 +91,7 @@ ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
 * 表情目录、图片名以及配置文件名都可以自定义命名,但是必须保
   证配置文件中的图片名与资源图片对应。
 
->参数shares的自定义分享选项配置文件为:"res://emojicons/emojicons.xml"[widget路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "widget路径"),详细配置步骤:
+>参数shares的自定义分享选项配置文件为:"res://shares/shares.xml"[widget路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "widget路径"),详细配置步骤:
 
 1、在widget的wgtRes目录下创建shares目录；
 2、在shares中放入分享选项的图片资源,图片的默认命名格式:
@@ -152,12 +170,13 @@ uexChatKeyboard.close();
 
 **返回值：**
 
-Number类型
+Number类型，工具条高度。
 
 **示例:**
 
 ```javascript
-var result=uexChatKeyboard.getInputBarHeight();
+var result = uexChatKeyboard.getInputBarHeight();
+alert(result)；
 ```
 
 > ### hideKeyboard 收起键盘
@@ -186,7 +205,7 @@ var result=uexChatKeyboard.getInputBarHeight();
 
 **说明:**
 
-收到 [onKeyBoardShow](#onKeyBoardShow 键盘弹出或收起时的监听方法 "onKeyBoardShow")回调,并且status为1时调用这个方法传入当前div(表示文本输入框的高度)的高度,键盘会根据高度将聊天内容推上去
+当收到 [onKeyBoardShow](#onKeyBoardShow 键盘弹出或收起时的监听方法 "onKeyBoardShow")回调,并且status为1时调用这个方法传入当前div(表示文本输入框的高度)的高度,键盘会根据高度将聊天内容推上去
 
 **参数:**
 
@@ -241,23 +260,25 @@ uexChatKeyboard.insertAfterAt("守望宝宝");
 
 ```  
 var data={
-    "emojiconsText": "[微笑] [憋嘴]"
+    "emojiconsText": 
 }
 ```
 
+| 参数名称          | 参数类型   | 是否必选 | 说明      |
+| ------------- | ------ | ---- | ------- |
+| emojiconsText | String | 是    | 输入框里的内容 |
 
 **示例**
 
 ```
 uexChatKeyboard.onCommit = function(data){
-alert(data);
+    alert(data);
 }
-
 ```
 
 >### onShareMenuItem 点击分享里选项的监听方法 
 
-`uexChatKeyboard. onShareMenuItem (data)  `
+`uexChatKeyboard. onShareMenuItem(data)  `
 
 **说明**
 
@@ -265,23 +286,22 @@ alert(data);
 
 **参数: **
 
-| 参数名称 | 参数类型   | 是否必选 | 说明         |
-| ---- | ------ | ---- | ---------- |
-| data | Number | 是    | 享里各选项对应的位置 |
+| 参数名称 | 参数类型   | 是否必选 | 说明          |
+| ---- | ------ | ---- | ----------- |
+| data | Number | 是    | 分享里各选项对应的位置 |
 
 
 **示例**
 
 ```
 uexChatKeyboard.onShareMenuItem = function(data){
-alert(data);
+    alert(data);
 }
-
 ```
 
 >### onVoiceAction 录音按钮的监听方法 
 
-`uexChatKeyboard. onVoiceAction (data) `
+`uexChatKeyboard. onVoiceAction(data) `
 
 **说明**
 
@@ -293,9 +313,8 @@ alert(data);
 
 ```
 var data={
-    "status":,//录音按钮的状态,0-----开始录音,1-----录音完成,-1-----取消录音
+    "status":,//录音按钮的状态,0:开始录音,1:录音完成,-1:取消录音
 }
-
 ```
 
 **示例**
