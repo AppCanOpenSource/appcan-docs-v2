@@ -30,14 +30,14 @@
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| path | String | 是 | 音频文件路径,支持wgt://,res://,file://http://, https:// |
+| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| path | String | 是    | 音频文件路径,支持wgt://,res://,file://http://, https:// |
 
 **示例:**
 
 ```
-uexAudio.open(url);
+uexAudio.open("res://song.mp3");
 ```
 > ### play 播放
 
@@ -49,9 +49,9 @@ uexAudio.open(url);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| repeats | Number | 是 | 重复次数,-1:无限循环,0:不循环 |
+| 参数名称    | 参数类型   | 是否必选 | 说明                 |
+| ------- | ------ | ---- | ------------------ |
+| repeats | Number | 是    | 重复次数,-1:无限循环,0:不循环 |
 
 **示例:**
 
@@ -155,16 +155,16 @@ uexAudio.volumeDown()
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| mode | Number | 是 | 要录音格式,0:AMR格式,1:CAF格式,2:MP3格式。Android只支持AMR格式,MP3格式。 |
-| fileName | String | 否 | 录音文件名称,不传时默认以当前时间作为文件名 |
+| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
+| -------- | ------ | ---- | ---------------------------------------- |
+| mode     | Number | 是    | 要录音格式,0:AMR格式,1:CAF格式,2:MP3格式。Android只支持AMR格式,MP3格式。 |
+| fileName | String | 否    | 录音文件名称,不传时默认以当前时间作为文件名                   |
 
 
 **示例:**
 
 ```
-uexAudio.startBackgroundRecord(1,document.getElementById('RecordName').value);
+uexAudio.startBackgroundRecord(1,"record1");
 ```
 > ### stopBackgroundRecord 停止后台录音
 
@@ -176,24 +176,28 @@ uexAudio.startBackgroundRecord(1,document.getElementById('RecordName').value);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| cb | Function | 是 | 录音结束后,会调用此回调函数 |
+| 参数名称 | 参数类型     | 是否必选 | 说明             |
+| ---- | -------- | ---- | -------------- |
+| cb   | Function | 是    | 录音结束后,会调用此回调函数 |
 
 **回调参数**:
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| filePath | String | 是 | 录音文件的路径 |
+```
+var cb = function(filePath){}
+```
+
+| 参数名称     | 参数类型   | 是否必选 | 说明      |
+| -------- | ------ | ---- | ------- |
+| filePath | String | 是    | 录音文件的路径 |
 
 
 **示例:**
 
 ```
-uexAudio.stopBackgroundRecord(function(path){
-	alert(path);
+uexAudio.stopBackgroundRecord(function(filePath){
+	alert(filePath);
 });
-``` 
+```
 
 
 > ### openSoundPool 打开音效池
@@ -223,10 +227,10 @@ uexAudio.openSoundPool()；
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| soundID | Number | 是 | 唯一标识符 |
-| path | String | 是 | 音效文件路径,支持wgt://,res://,file://|
+| 参数名称    | 参数类型   | 是否必选 | 说明                             |
+| ------- | ------ | ---- | ------------------------------ |
+| soundID | Number | 是    | 唯一标识符                          |
+| path    | String | 是    | 音效文件路径,支持wgt://,res://,file:// |
 
 
 **示例:**
@@ -236,7 +240,7 @@ uexAudio.addSound(2,"res://1.mp3")
 ```
 > ### playFromSoundPool 播放音效
 
-`uexAudio.playFromSoundPool(id)`
+`uexAudio.playFromSoundPool(soundID)`
 
 **说明:**
 
@@ -244,9 +248,9 @@ uexAudio.addSound(2,"res://1.mp3")
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id | Number | 是 | 唯一标识符 |
+| 参数名称    | 参数类型   | 是否必选 | 说明           |
+| ------- | ------ | ---- | ------------ |
+| soundID | Number | 是    | 音效池中音效的唯一标识符 |
 
 **示例:**
 
@@ -255,7 +259,7 @@ uexAudio.playFromSoundPool(2)
 ```
 > ### stopFromSoundPool 停止音效
 
-`uexAudio.stopFromSoundPool(id)`
+`uexAudio.stopFromSoundPool(soundID)`
 
 **说明:**
 
@@ -263,9 +267,9 @@ uexAudio.playFromSoundPool(2)
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| id | Number | 是 | 唯一标识符 |
+| 参数名称    | 参数类型   | 是否必选 | 说明           |
+| ------- | ------ | ---- | ------------ |
+| soundID | Number | 是    | 音效池中音效的唯一标识符 |
 
 **示例:**
 
@@ -291,7 +295,7 @@ uexAudio.closeSoundPool()；
 ```
 > ### setPlayMode 设置播放模式
 
-`uexAudio.setPlayMode(jsonStr)`
+`uexAudio.setPlayMode(params)`
 
 **说明:**
 
@@ -299,26 +303,26 @@ uexAudio.closeSoundPool()；
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonStr | String | 是 | 设置声音播放模式 |
+| 参数名称   | 参数类型   | 是否必选 | 说明           |
+| ------ | ------ | ---- | ------------ |
+| params | Object | 是    | 接口所需参数，形式见下： |
 
 ```
 var params = {
-    playMode:'0'
-    }
+    playMode:0
+}
 ```
 各字段含义如下:
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| playMode | String | 是 | 播放模式:0为正常扩音器模式;1为听筒模式; |
+| 参数名称     | 参数类型   | 是否必选 | 说明                     |
+| -------- | ------ | ---- | ---------------------- |
+| playMode | Number | 是    | 播放模式:0为正常扩音器模式;1为听筒模式; |
 
 **示例:**
 
 ```
 var param = {
- playMode:'1'
+    playMode:1
 };
 param = JSON.stringify(param);
 uexAudio.setPlayMode(param)；
@@ -326,7 +330,7 @@ uexAudio.setPlayMode(param)；
 
 > ### setProximityState 设置听筒感应开关
 
-`uexAudio.setProximityState(params)`
+`uexAudio.setProximityState(type)`
 
 **说明:**
 
@@ -336,16 +340,16 @@ uexAudio.setPlayMode(param)；
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| params | String | 是 | 设置听筒感应开关,1为开启,0为关闭 |
+| 参数名称 | 参数类型   | 是否必选 | 说明                 |
+| ---- | ------ | ---- | ------------------ |
+| type | Number | 是    | 设置听筒感应开关,1为开启,0为关闭 |
 
 **示例:**
 
 ```
 //开启听筒感应
 uexAudio.open(url);
-uexAudio.setProximityState('1');
+uexAudio.setProximityState(1);
 uexAudio.play(0);
 ```
 
@@ -358,9 +362,9 @@ uexAudio.play(0);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| loopTime | Number | 是 | 已播放次数 |
+| 参数名称     | 参数类型   | 是否必选 | 说明    |
+| -------- | ------ | ---- | ----- |
+| loopTime | Number | 是    | 已播放次数 |
 
 **示例:**
 
@@ -380,27 +384,27 @@ API版本:`uexAudio-3.0.18`
 
 最近更新时间:`2016-4-11`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.18 | 修改播放amr格式时无回调的BUG |
-| 3.0.17 | 修改退出后光感继续存在的BUG |
-| 3.0.16 | 添加setProximityState()接口设置光感听筒模式 |
-| 3.0.15 | 添加setPlayMode()接口设置播放模式 |
-| 3.0.14 | 修改audio录的本地录音传到服务器上放不了bug |
-| 3.0.13 | 修改amr格式文件路径不存在时播放崩溃 |
-| 3.0.12 | 改用bundle调用图片资源;添加IDE支持 |
-| 3.0.11 | 支持后台播放音频,需配置相关权限 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+| 3.0.18 | 修改播放amr格式时无回调的BUG                        |
+| 3.0.17 | 修改退出后光感继续存在的BUG                          |
+| 3.0.16 | 添加setProximityState()接口设置光感听筒模式          |
+| 3.0.15 | 添加setPlayMode()接口设置播放模式                  |
+| 3.0.14 | 修改audio录的本地录音传到服务器上放不了bug                |
+| 3.0.13 | 修改amr格式文件路径不存在时播放崩溃                      |
+| 3.0.12 | 改用bundle调用图片资源;添加IDE支持                   |
+| 3.0.11 | 支持后台播放音频,需配置相关权限                         |
 | 3.0.10 | 提高了进行MP3录音的音质,修复了本地录 音生成的MP3文件用http网络播放不能正常使用的bug |
-| 3.0.9 | 更新lame库 |
-| 3.0.8 | 修复在iOS8.2/8.3下可能会引起程序崩溃的bug |
-| 3.0.7 | 使用音频界面录制音频支持mp3格式 |
-| 3.0.6 | 修复第二次录制MP3时录制CAF的BUG |
-| 3.0.5 | 修复播放网络音频没有回调的问题 |
-| 3.0.4 | 修复播放网络音频无法循环播放的问题 |
-| 3.0.3 | uexAudio更新libopencore-amrnb.a, libopencore-amrwb.a,libmp3lame.a,支持arm64 |
-| 3.0.2 | uexAudio插件录音文件名称与文档统一 |
-| 3.0.1 | 后台录音添加录音格式MP3 |
-| 3.0.0 | 音乐播放插件 |
+| 3.0.9  | 更新lame库                                  |
+| 3.0.8  | 修复在iOS8.2/8.3下可能会引起程序崩溃的bug              |
+| 3.0.7  | 使用音频界面录制音频支持mp3格式                        |
+| 3.0.6  | 修复第二次录制MP3时录制CAF的BUG                     |
+| 3.0.5  | 修复播放网络音频没有回调的问题                          |
+| 3.0.4  | 修复播放网络音频无法循环播放的问题                        |
+| 3.0.3  | uexAudio更新libopencore-amrnb.a, libopencore-amrwb.a,libmp3lame.a,支持arm64 |
+| 3.0.2  | uexAudio插件录音文件名称与文档统一                    |
+| 3.0.1  | 后台录音添加录音格式MP3                            |
+| 3.0.0  | 音乐播放插件                                   |
 
 ### Android
 
@@ -408,14 +412,14 @@ API版本:`uexAudio-3.0.8`
 
 最近更新时间:`2016-3-21`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.8 | 添加传感器设置接口,可设置听筒感应 |
-| 3.0.7 | 解决了录音时用户禁止其权限的问题 |
-| 3.0.6 | 添加听筒模式接口,修复小米手机音量设置无效的问题 |
-| 3.0.5 | 修复uexAudio.record方法不支 持录音文件存储为.mp3格式的问题 |
-| 3.0.4 | 修复多次点击播放音效不能关闭的问题 |
-| 3.0.3 | 修复录音文件名不正确 |
-| 3.0.2 | 修复录制失败问题 |
-| 3.0.1 | 背景录音添加录音格式MP3 |
-| 3.0.0 | 音乐播放插件 |
+| 历史发布版本 | 更新内容                                    |
+| ------ | --------------------------------------- |
+| 3.0.8  | 添加传感器设置接口,可设置听筒感应                       |
+| 3.0.7  | 解决了录音时用户禁止其权限的问题                        |
+| 3.0.6  | 添加听筒模式接口,修复小米手机音量设置无效的问题                |
+| 3.0.5  | 修复uexAudio.record方法不支 持录音文件存储为.mp3格式的问题 |
+| 3.0.4  | 修复多次点击播放音效不能关闭的问题                       |
+| 3.0.3  | 修复录音文件名不正确                              |
+| 3.0.2  | 修复录制失败问题                                |
+| 3.0.1  | 背景录音添加录音格式MP3                           |
+| 3.0.0  | 音乐播放插件                                  |
