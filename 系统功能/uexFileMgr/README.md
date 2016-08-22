@@ -859,32 +859,6 @@ if(!file){
 }
 ```
 
-> ### getFileCreateTime 获取文件或文件夹的创建时间
-
-`uexFileMgr.getFileCreateTime(path)`
-
-**说明:**
-
-获取文件或文件夹的创建时间
-
-**参数:**
-
-| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
-| ---- | ------ | ---- | ---------------------------------------- |
-| path | String | 是    | 文件路径,支持"wgt://","wgts://","res://","file://" 协议 |
-
-**返回值:**
-
-String类型,创建时间,`"yyyy-MM-dd HH:mm:ss"`格式
-获取失败时返回null
-
-**示例:**
-
-```javascript
-var timeStr = uexFileMgr.getFileCreateTime('wgt://test.txt');
-alert(timeStr);
-```
-
 >### renameFile 重命名文件
 
 `uexFileMgr.renameFile(param,cb)`
