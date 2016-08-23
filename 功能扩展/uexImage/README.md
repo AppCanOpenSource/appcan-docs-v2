@@ -227,12 +227,12 @@ uexImage.openBrowser(json,functiuon(){
 | param | String   | 否    | cropper参数设置     |
 | cb    | Function | 否    | cropper被关闭的回调函数 |
 
-```
+```javascript
 var param = {
   	src:,
   	quality:,
   	usePng:,
-	mode:2
+	mode:1
 }
 ```
 
@@ -243,7 +243,7 @@ var param = {
 | src     | String  | 否    | 图片路径 支持wgt:// wgts:// file:// res://,不传此参数时,会先打开系统相册让用户选择一张图片 | 无     |
 | quality | Number  | 否    | JPG压缩质量 取值范围 0-1 越大表示质量越好                | 0.5   |
 | usePng  | Boolean | 否    | 用png格式导出图片 ,此参数为true时,quality参数无效        | false |
-| mode    | Number  | 否    | 1- 正方型裁剪 2- 圆形裁剪(仅iOS支持圆形裁剪) 3- 自定义长宽比(仅Android) | 1     |
+| mode    | Number  | 否    | 1- 正方型裁剪 2- 圆形裁剪(仅iOS支持圆形裁剪)             | 1     |
 
 **回调参数**
 
@@ -255,14 +255,12 @@ var cb = function(info){}
 | ---- | ------ | -------------- |
 | info | Object | 返回图片相关信息，形式见下: |
 
-```
+```javascript
 var info = {
   isCancelled:,
   data:
-}
+}各字段含义如下：
 ```
-
-各字段含义如下：
 
 | 参数名称        | 参数类型    | 是否必选                        | 说明              |
 | ----------- | ------- | --------------------------- | --------------- |
