@@ -86,8 +86,8 @@ var info = {
 
 | 参数名称              | 参数类型  | 是否必选                                     | 说明                          |
 | ----------------- | ----- | ---------------------------------------- | --------------------------- |
-| detailedImageInfo | Array | 否 ,仅isCancelled为 false且openPicker有设置detailedInfo为true时才有此参数 | 导出的图片的信息uexImageInfo结构构成的数组 |
-| data              | Array | 否 ,仅isCancelled为 false时有此参数              | 导出的图片地址构成的数组                |
+| detailedImageInfo | Array | 否 ,仅openPicker有设置detailedInfo为true时才有此参数 | 导出的图片的信息uexImageInfo结构构成的数组 |
+| data              | Array | 否                                        | 导出的图片地址构成的数组                |
 
 * 即使只选择一张图片 detailedImageInfo和imageInfo也是数组
 * uexImageInfo结构如下定义
@@ -206,8 +206,7 @@ var data ={
 		desc:"22222222222222"
 		}]
 }
-var json=JSON.stringify(data);
-uexImage.openBrowser(json,functiuon(){
+uexImage.openBrowser(data,function(){
 	alert("browser closed!");
 });
 ```
@@ -327,13 +326,12 @@ var callback = function(error,errorInfo){
 
 **示例**
 
-```
+```javascript
 var data={
 	localPath:"res://photo4.jpg",
-	}
-var json=JSON.stringify(data);
-uexImage.saveToPhotoAlbum(json,function(err,errStr){
-	if(!err){
+}
+uexImage.saveToPhotoAlbum(data,function(err,errStr){
+	if(!err){
 		alert("储存成功!");
 	}else{
 		alert("储存失败:" + errStr);
@@ -361,7 +359,7 @@ uexImage.saveToPhotoAlbum(json,function(err,errStr){
 
 **示例**
 
-```
+```javascript
 var ret = uexImage.clearOutputImages();
 alert(ret);
 ```
@@ -387,7 +385,7 @@ alert(ret);
 
 **示例**
 
-```
+```javascript
 uexImage.setIpadPopEnable(0);
 ```
 
