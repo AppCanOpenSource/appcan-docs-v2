@@ -226,6 +226,7 @@ var info = {
 
 ```javascript
 var tcp = uexSocketMgr.createTCP(
+	{dataType: 2},
 	function(status){
 		alert(status == 0 ? "已连接上服务器" : "连接中断");
 	},
