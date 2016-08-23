@@ -33,7 +33,7 @@
 ## 1.2 UI展示
  ![](http://newdocx.appcan.cn/docximg/164911i2015y6i16c.png)
 
-## 1.3 开源源码:
+## 1.3 开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=186_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.4 术语表
@@ -64,22 +64,30 @@ Path Types
 
 **说明:**
 
-用户授权,用户授权后可以进行调用分享等接口,如果手机上端有微博客户端,会直接调用客户端进行授权。如果没有,则开启网页让用户授权。
+用户授权,用户授权后可以进行调用分享等接口,如果手机上有微博客户端,会直接调用客户端进行授权。如果没有,则开启网页让用户授权。
 
 
 **参数:**
 
-| 参数名称             | 参数类型     | 是否必选 | 说明                           |
-| ---------------- | -------- | ---- | ---------------------------- |
-| appKey           | String类型 | 必选   | 通过开放平台注册的appKey,appKey申请点击跳转 |
-| appSecret        | String类型 | 必选   | 通过开放平台注册的appSecret           |
-| registerURL      | String类型 | 必选   | 通过开放平台注册的registerURL         |
-| callbackFunction | 函数       | 必选   | 回调函数，用来获取相关业务数据              |
+| 参数名称             | 参数类型     | 是否必选 | 说明                   |
+| ---------------- | -------- | ---- | -------------------- |
+| appKey           | String   | 是    | 通过开放平台注册的appKey      |
+| appSecret        | String   | 是    | 通过开放平台注册的appSecret   |
+| registerURL      | String   | 是    | 通过开放平台注册的registerURL |
+| callbackFunction | Function | 是    | 回调函数，用来获取相关业务数据      |
 
-callbackFunction 参数是JSON对象, 其数据格式如下：
+**回调参数:**
 
 ```
-{
+var callbackFunction = function(data){}
+```
+
+| 参数名称 | 类型     | 说明            |
+| ---- | ------ | ------------- |
+| data | Object | 返回的相关数据，形式见下： |
+
+```
+var data = {
     openId: 
     token:
     code:// code 为0时表示成功, 此时openId和token会有值，1 代表失败
@@ -108,9 +116,9 @@ uexSina.registerApp(appKey,appSecret,registerUrl, function(data) {
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                           |
 | ---------------- | -------- | ---- | ---------------------------- |
-| appKey           | String类型 | 必选   | 通过开放平台注册的appKey,appKey申请点击跳转 |
-| registerURL      | String类型 | 必选   | 通过开放平台注册的registerURL         |
-| callbackFunction | 函数       | 必选   | 回调函数，用来获取相关业务数据              |
+| appKey           | String   | 是    | 通过开放平台注册的appKey,appKey申请点击跳转 |
+| registerURL      | String   | 是    | 通过开放平台注册的registerURL         |
+| callbackFunction | Function | 是    | 回调函数，用来获取相关业务数据              |
 
 **回调参数:**
 
@@ -119,13 +127,13 @@ var callbackFunction = function(error, data){}
 
 ```
 
-| 参数名称  | 类型     | 说明                                       |
-| ----- | ------ | ---------------------------------------- |
-| error | Number | 0表示获取成功，非0表示获取失败                         |
-| data  | JSON对象   |error非0返回NULL;error为0,其数据格式如下:  |
+| 参数名称  | 类型     | 说明                             |
+| ----- | ------ | ------------------------------ |
+| error | Number | 0表示获取成功，非0表示获取失败               |
+| data  | Object | error非0返回NULL;error为0,其数据格式如下: |
 
 ```
-{
+var data = {
     "uid": "1820127523",
     "expires_in": 1465844397060,
     "access_token": "2.00X_ELzBXB6a8E0b24b217d5CYmpKE",
@@ -144,7 +152,7 @@ uexSina.login(appKey,registerUrl,function(error,data){
      alert(JSON.stringify(data));
      }
 });
-``` 
+```
 
 
 > ### getUserInfo 获取用户基本信息
@@ -157,11 +165,21 @@ uexSina.login(appKey,registerUrl,function(error,data){
 
 **参数:**
 
-| 参数名称             | 参数类型 | 是否必选 | 说明              |
-| ---------------- | ---- | ---- | --------------- |
-| callbackFunction | 函数   | 必选   | 回调函数，用来获取相关业务数据 |
+| 参数名称             | 参数类型     | 是否必选 | 说明              |
+| ---------------- | -------- | ---- | --------------- |
+| callbackFunction | Function | 是    | 回调函数，用来获取相关业务数据 |
 
-回调函数的参数类型是JSON 对象，包含用户的基本信息。
+**回调参数:
+
+```
+var callbackFunction = function(data){}
+```
+
+| 参数名称 | 类型     | 说明                                       |
+| ---- | ------ | ---------------------------------------- |
+| data | Object | 包含用户的基本信息,信息中包含字段请参考[新浪官方文档](#http://open.weibo.com/wiki/2/users/show) |
+
+
 
 
 **示例:**
@@ -182,15 +200,25 @@ uexSina.getUserInfo(commonCallback);
 
 **参数:**
 
-| 参数名称             | 参数类型 | 是否必选 | 说明               |
-| ---------------- | ---- | ---- | ---------------- |
-| callbackFunction | 函数   | 必选   | 回调函数，返回退出是否成功的状态 |
+| 参数名称             | 参数类型     | 是否必选 | 说明               |
+| ---------------- | -------- | ---- | ---------------- |
+| callbackFunction | Function | 是    | 回调函数，返回退出是否成功的状态 |
 
+**回调参数:**
+
+```
+var callbackFunction = function(data){}
+```
+
+| 参数名称 | 类型     | 说明               |
+| ---- | ------ | ---------------- |
+| data | Number | 退出是否成功，0-成功，1-失败 |
 
 **示例:**
+
 ```
 uexSina.logout(function(data) {
-    alert(data); // data: 0 成功， 1: 失败
+    alert(data); 
 });
 ```
 
@@ -206,11 +234,23 @@ uexSina.logout(function(data) {
 
 | 参数名称             | 参数类型     | 是否必选 | 说明               |
 | ---------------- | -------- | ---- | ---------------- |
-| txt              | String类型 | 必选   | 文本内容             |
-| callbackFunction | 函数       | 必选   | 回调函数，返回分享是否成功的状态 |
+| txt              | String   | 是    | 文本内容             |
+| callbackFunction | Function | 是    | 回调函数，返回分享是否成功的状态 |
+
+**回调参数:**
+
+```
+var callbackFunction = function(data){}
+```
+
+| 参数名称 | 类型     | 说明               |
+| ---- | ------ | ---------------- |
+| data | Number | 分享是否成功，0-成功，1-失败 |
+
 
 
 **示例:**
+
 ```
 var txt = "中国最大的移动中间平台AppCan对新浪微博分享支持测试";
 uexSina.sendTextContent(txt, function(data) {
@@ -230,16 +270,24 @@ uexSina.sendTextContent(txt, function(data) {
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                             |
 | ---------------- | -------- | ---- | ------------------------------ |
-| imagePath        | String类型 | 必选   | 图片路径,路径协议详见CONSTANT中PathTypes。 |
-| txt              | String类型 | 必选   | 文本内容                           |
-| callbackFunction | 函数       | 必选   | 回调函数，返回分享是否成功的状态               |
+| imagePath        | String   | 是    | 图片路径,路径协议详见CONSTANT中PathTypes。 |
+| txt              | String   | 是    | 文本内容                           |
+| callbackFunction | Function | 是    | 回调函数，返回分享是否成功的状态               |
+
+**回调参数:**
+
+    var callbackFunction = function(data){}
+| 参数名称 | 类型     | 说明               |
+| ---- | ------ | ---------------- |
+| data | Number | 分享是否成功，0-成功，1-失败 |
 
 **示例:**
+
 ```
 var content = "中国最大的移动中间平台AppCan对新浪微博分享的图片支持测试";
 var realImgPath = "res://sotower.png";
 uexSina.sendImageContent(realImgPath, content,function(data) {
-    alert(data); // data: 0 成功， 1 失败
+    alert(data); 
 });
 ```
 
