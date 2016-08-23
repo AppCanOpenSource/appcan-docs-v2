@@ -58,28 +58,23 @@ Path Types
 
 使用该插件需要先在[融云官网](http://www.rongcloud.cn/)申请AppKey。
 
+如果无特殊说明，本文档的回调函数全部是如下格式：
+
+```javascript
+var callback=function (error,data){
+  //error为0表示成功，其他表示失败
+}
+```
+
+
+
 ##2.1、初始化
 ***
->### init(param)  初始化
+>### init 初始化
 
-param为json字符串
+`uexRongCloud.init(json,callback)`
 
-```javascript
-var param{
-	appKey:,//区别app的标识   
-};
-```
-
->### cbInit(param)  初始化
-
-param为json字符串
-
-```javascript
-  var param{
-	result:,//true ,false
-	error:,//result为false时才有,0:已经初始化,1:参数错误
-};
-```
+**说明：**
 
 **Android 版本的AppKey需要在`config.xml`中配置,把`value`对应的值替换成自己的AppKey即可。示例如下:**
 
@@ -89,106 +84,209 @@ param为json字符串
 </config>
 ```
 
+**参数：**
+
+`json`为JSON对象，各字段如下：
+
+| 参数名称   | 参数类型   | 是否必选 | 说明       |
+| ------ | ------ | ---- | -------- |
+| appKey | String | 是    | 区别app的标识 |
+
+**回调参数：**
+
+```javascript
+var callback=function (error,data){}
+```
+
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功，非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
+
+**示例：**
+
+```javascript
+uexRongCloud.init({
+  appKey:""
+},function(error,data){
+  if(error==0){
+    alert("初始化成功")!
+  }
+});
+```
+
 ##2.2、登录与登出
 
 ***
 >### connect(param)   与融云服务器建立连接
 
+`uexRongCloud.connect(json,callback)`
+
+**说明：**
+
 在App整个生命周期,您只需要调用一次此方法与融云服务器建立连接。之后无论是网络出现异常或者App有前后台的切换等,SDK都会负责自动重连。除非您已经手动将连接断开,否则您不需要自己再手动重连。
 param为json字符串
 
-```
-var param = {
-	token:,//从您服务器端获取的token(用户身份令牌)
-};
+**参数：**
+
+`json`为JSON对象，各字段如下：
+
+| 参数名称  | 参数类型   | 是否必选 | 说明                     |
+| ----- | ------ | ---- | ---------------------- |
+| token | String | 是    | 从您服务器端获取的token(用户身份令牌) |
+
+**回调参数：**
+
+```javascript
+var callback=function (error,data){}
 ```
 
->###cbConnect(param)  与融云服务器建立连接回调
+| 参数名称  | 类型     | 说明                     |
+| ----- | ------ | ---------------------- |
+| error | Number | 0表示成功，非0表示失败           |
+| data  | String | 失败时返回相关的原因， 成功返回userId |
 
-param为json字符串
+**示例：**
 
+```javascript
+uexRongCloud.connect({
+  token:""
+},function(error,data){
+  if(error==0){
+    alert("userId为："+data)!
+  }
+});
 ```
-var param = {
-	resultCode:,//失败错误码,成功返回为0。token错误返回-1。其他错误码信息参见附录
-	userId:,//成功返回userId,失败不返回
-};
-```
->### disconnect(param)   断开与融云服务器建立连接
+
+>### disconnect  断开与融云服务器建立连接
+
+`uexRongCloud.disconnect(json)`
+
+**说明：**
 
 因为SDK在前后台切换或者网络出现异常都会自动重连,会保证连接的可靠性。 所以除非您的App逻辑需要登出,否则一般不需要调用此方法进行手动断开。
-param为json字符串
 
-```
-var param = {
-	isReceivePush:,//断开与融云服务器的连接之后,是否还接收远程推送。true:接收,false:不接收
-};
+**参数：**
+
+`json`为JSON对象，各字段如下：
+
+| 参数名称          | 参数类型    | 是否必选 | 说明                                       |
+| ------------- | ------- | ---- | ---------------------------------------- |
+| isReceivePush | Boolean | 是    | 断开与融云服务器的连接之后,是否还接收远程推送。true:接收,false:不接收 |
+
+
+
+**示例：**
+
+```javascript
+uexRongCloud.disconnect({
+  isReceivePush:""
+});
 ```
 
 ##2.3、基础消息功能
 ***
 
->### sendMessage(param) 发送消息
+>### sendMessage 发送消息
 
-param为json字符串
+`uexRongClound.sendMessage(json,callback)`
 
+**说明：**
+
+无
+
+**参数：**
+
+`json`为JSON对象，各字段如下：
+
+**公共参数：**
+
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| objectName       | String | 是    | 消息类型   "RC:TxtMsg":文字消息     "RC:VcMsg":语音消息  "RC:ImgMsg":图片消息     "RC:ImgTextMsg":图文消息    "RC:LBSMsg":位置消息     "RC:CmdNtf":命令消息 |
+| conversationType | String | 是    | 会话类型 'PRIVATE'-单聊  'DISCUSSION'-讨论组 'GROUP'-群组 'CHATROOM'-聊天室 'CUSTOMER_SERVICE'-客服 'SYSTEM'-系统 |
+| targetId         | String | 是    | 消息的接收方 Id。根据不同的 conversationType,可能是用户Id、讨论组Id、群组Id或聊天室Id等 |
+| extra            | String | 否认   | 消息的附加字段                                  |
+| localId          | String | 是    | 消息的唯一id,用于标识接收发送回调的处理                    |
+
+**objectName 为"RC:TxtMsg"时(文字消息) 需要传以下参数：**
+
+| 参数名称 | 参数类型   | 是否必选 | 说明      |
+| ---- | ------ | ---- | ------- |
+| text | String | 是    | 消息的文字内容 |
+
+**objectName 为"RC:VcMsg"时(语音消息) 需要传以下参数：**
+
+| 参数名称      | 参数类型   | 是否必选 | 说明           |
+| --------- | ------ | ---- | ------------ |
+| voicePath | String | 是    | 语音文件的路径      |
+| duration  | Number | 是    | 语音消息的时长,单位为秒 |
+
+**objectName 为"RC:ImgMsg"时(图片消息) 需要传以下参数：**
+
+| 参数名称    | 参数类型   | 是否必选 | 说明      |
+| ------- | ------ | ---- | ------- |
+| imgPath | String | 是    | 图片的本地路径 |
+
+**objectName 为"RC:ImgTextMsg"时(图文消息) 需要传以下参数：**
+
+| 参数名称        | 参数类型   | 是否必选 | 说明                |
+| ----------- | ------ | ---- | ----------------- |
+| title       | String | 是    | 消息的标题             |
+| description | String | 是    | 消息的内容描述           |
+| imgPath     | String | 是    | 发送图片的网络路径         |
+| url         | String | 是    | 图文消息中包含的需要跳转到的URL |
+
+**objectName 为"RC:LBSMsg"时(位置消息) 需要传以下参数：**
+
+| 参数名称      | 参数类型   | 是否必选 | 说明       |
+| --------- | ------ | ---- | -------- |
+| latitude  | String | 是    | 纬度       |
+| longitude | String | 是    | 经度       |
+| poi       | String | 是    | 地理位置的名称  |
+| imgPath   | String | 是    | 地图略缩图的路径 |
+
+**objectName 为"RC:CmdNtf"时(命令消息) 需要传以下参数：**
+
+| 参数名称 | 参数类型   | 是否必选 | 说明    |
+| ---- | ------ | ---- | ----- |
+| name | String | 是    | 命令的名称 |
+| data | String | 是    | 命令的数据 |
+
+**回调参数：**
+
+```javascript
+var callback=function (error,data){}
 ```
-var param = {
 
-    //通用参数
-    objectName:,//String 消息类型  "RC:TxtMsg":文字消息 "RC:VcMsg":语音消息  
-    //"RC:ImgMsg":图片消息 "RC:ImgTextMsg":图文消息 "RC:LBSMsg":位置消息 "RC:CmdNtf":命令消息
-      
-    conversationType:,//String 会话类型 'PRIVATE'-单聊  'DISCUSSION'-讨论组 'GROUP'-群组 'CHATROOM'-聊天室 'CUSTOMER_SERVICE'-客服 'SYSTEM'-系统
-    targetId:,//消息的接收方 Id。根据不同的 conversationType,可能是用户Id、讨论组Id、群组Id或聊天室Id等
-    extra:,//消息的附加字段
-    localId:,//消息的唯一id,用于标识接收发送回调的处理
-     
-    //objectName 为"RC:TxtMsg"时(文字消息) 需要传以下参数
-    text:,//消息的文字内容
-    
-    //objectName 为"RC:VcMsg"时(语音消息) 需要传以下参数
-    voicePath:,//语音文件的路径  
-    duration:,//Number类型 语音消息的时长,单位为秒
-      
-    
-    //objectName 为"RC:ImgMsg"时(图片消息) 需要传以下参数
-    imgPath:,//图片的本地路径  
-      
-    //objectName 为"RC:ImgTextMsg"时(图文消息) 需要传以下参数
-    title:,//消息的标题
-    description:,//消息的内容描述
-    imgPath:,//发送图片的网络路径 
-    url://图文消息中包含的需要跳转到的URL 
-      
-    //objectName 为"RC:LBSMsg"时(位置消息) 需要传以下参数
-    latitude:,//维度
-    longitude:,//经度
-    poi:,//地理位置的名称
-    imgPath:,//地图略缩图的路径
-      
-      
-    //objectName 为"RC:CmdNtf"时(命令消息) 需要传以下参数
-    name:,//命令的名称
-    data:,//命令的数据
-      
-};
-```
+`data`为JSON对象，相关字段如下：
 
->### cbSendMessage(param) 发送消息的回调  
+| 参数名称       | 类型     | 说明                                |
+| ---------- | ------ | --------------------------------- |
+| resultCode | Number | 发送结果 0:准备发送 1.发送成功, 2:发送失败,3:发送进度 |
+| messageId  | String | 发送消息的ID                           |
+| progress   | Number | 发送图片时，发送图片的进度 （RC:ImgMsg）         |
 
-param为json字符串
+**示例：**
 
-```
-var params={
-   //通用参数
-     localId:,//消息的唯一id,用于标识接收发送回调的处理
-     resultCode:,//Number 发送结果 0:准备发送 1.发送成功, 2:发送失败,3:发送进度
-     messageId:发送消息的ID
-     
-     //RC:ImgMsg,图片消息
-     progress://发送图片的进度
-}
-
+```javascript
+uexRongCloud.sendMessage({
+  	objectName: "RC:CmdNtf",
+    conversationType: "PRIVATE",
+    targetId: globalTargetId,
+    // targetId: "55666",
+    extra: "extra info ...", //消息的附加字段
+    //objectName 为"RC:TxtMsg"时(文字消息)
+    text: "text content ...", //消息的文字内容
+},function(error,data){
+  if(error==0){
+    if (data.resultCode == 0) {
+    	alert("准备发送 messageId: " + data.messageId);
+  	}else if (data.resultCode == 1) {
+    	alert("发送成功 messageId: " + data.messageId);
+  	}
+  }
+});
 ```
 
 >### onMessageReceived(param) 收到消息
