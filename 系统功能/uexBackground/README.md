@@ -17,6 +17,14 @@
 
 插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
+有特殊版本要求的API会在文档中额外说明。
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用。  
+在后续版本中新添加的接口会在文档中额外说明。
+
 # 2、API概览
 
 ## 2.1、方法
@@ -37,35 +45,27 @@
 
 对于iOS系统,额外需要注意如下事项
 
-* 需要在config.xml中配置后台权限 app才能在后台运行。具体配置方法见[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置APP后台权限)。
+* 需要在config.xml中配置后台权限 app才能在后台时正常运行。具体配置方法见[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置APP后台权限)。
 * **不当的后台权限配置可能会影响上架AppStore!**
 
 
 **参数**
 
-param 是JSON字符串,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
+param 是JSON字符串,包含的参数如下
 
-```
-var param = {
-	jsPath:,//String必选,js文件路径
-	jsResourcePaths:,//Array,可选, 由String构成的字符串,依赖的js文件路径,依赖的JS文件会被先执行
-}
-```
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+| jsPath| String | 是 | 后台js文件路径 |
+| jsResourcePaths | Array | 否 | 由String构成的字符串,依赖的js文件路径,依赖的js文件会被先执行 |
+
+
 **返回值**
 
-Boolean 
+Boolean 类型
 
 * js文件查找失败会返回false;
 * 全局只允许唯一的后台运行JS,因此如果已经有正在运行的后台JS,此接口会返回false;
 
-**平台支持:**
-
-Android 4.0+
-iOS 7.0+
-
-**版本支持:**
-
-3.3.0+
 
 **示例**
 
@@ -77,7 +77,7 @@ var data = {
 var result = uexBackground.start(JSON.stringify(data));
 ```
 
-* 此示例中,用`"res://../"`获得了`widget`目录的路径,**这种方式仅本插件支持!**
+* 此示例中,用`"res://../"`获得了`wgtRes`的上级目录的路径,**这种方式仅本插件支持!**
 
 > ###stop 停止当前正在运行的后台JS
 
@@ -97,15 +97,6 @@ Boolean 是否stop成功
 
 * 如果没有正在运行的后台JS,会返回false;
 * 成功被停止运行的JS上下文将会被销毁,下次调用start时,会生成一个全新的JS上下文
-
-**平台支持:**
-
-Android 4.0+
-iOS 7.0+
-
-**版本支持:**
-
-3.3.0+
 
 **示例**
 
@@ -148,14 +139,6 @@ Boolean 是否add成功
   * 因此,建议在uexBackground.onLoad()中去设置第一个timer ;
 * 使用已有的id/functionName会返回false;
 
-**平台支持:**
-
-Android 4.0+
-iOS 7.0+
-
-**版本支持:**
-
-3.3.0+
 
 **示例**
 
@@ -189,15 +172,6 @@ var param = []//Array,必选由id构成的数组,传[]代表取消所有timer
 
 无
 
-**平台支持:**
-
-Android 4.0+
-iOS 7.0+
-
-**版本支持:**
-
-3.3.0+
-
 **示例**
 
 ```
@@ -221,15 +195,6 @@ var result = uexBackground.cancelTimer(JSON.stringify(param));
 
 无
 
-**平台支持:**
-
-Android 4.0+
-iOS 7.0+
-
-**版本支持:**
-
-3.3.0+
-
 **示例**
 
 ```
@@ -251,15 +216,6 @@ uexBackground.onLoad = function(){
 
 Number类型,为当前已经执行的次数。从1开始计数。
 
-**平台支持:**
-
-Android 4.0+
-iOS 7.0+
-
-**版本支持:**
-
-3.3.0+
-
 **示例**
 
 ```
@@ -272,20 +228,20 @@ uexBackground.XXX = function(count){
 
 ### iOS
 
-API版本:`uexBackground-3.0.0`
+API版本:`uexBackground-4.0.0`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-8-18`
 
-| 历史发布版本 | 更新内容                  |
+| 历史发布版本 | 更新内容 |
 | ------ | --------------------- |
-| 3.0.0  | uexBackground for iOS |
+| 4.0.0  | 后台运行插件 |
 
 ### Android
 
-API版本:`uexBackground-3.3.0`
+API版本:`uexBackground-4.0.0`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-8-18`
 
 | 历史发布版本 | 更新内容   |
 | ------ | ------ |
-| 3.3.0  | 后台运行插件 |
+| 4.0.0  | 后台运行插件 |
