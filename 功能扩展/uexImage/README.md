@@ -25,7 +25,7 @@
 
 > ### openPicker 打开照片选择器
 
-`uexImage.openPicker(param,cb);`
+`uexImage.openPicker(param,callback);`
 
 **说明**
 
@@ -34,10 +34,10 @@
 
 **参数**
 
-| 参数名称  | 参数类型     | 是否必选 | 说明             |
-| ----- | -------- | ---- | -------------- |
-| param | String   | 否    | picker参数设置     |
-| cb    | Function | 否    | picker被关闭的回调函数 |
+| 参数名称     | 参数类型     | 是否必选 | 说明             |
+| -------- | -------- | ---- | -------------- |
+| param    | String   | 否    | picker参数设置     |
+| callback | Function | 否    | picker被关闭的回调函数 |
 
 ```javascript
 var param = {
@@ -66,17 +66,17 @@ var param = {
 **回调参数**
 
 ```javascript
-var cb = function(info){
+var callback = function(error,info){
 }
 ```
 
-| 参数名称 | 类型     | 说明            |
-| ---- | ------ | ------------- |
-| info | Object | 返回的数据信息，形式见下： |
+| 参数名称  | 类型     | 说明                    |
+| ----- | ------ | --------------------- |
+| info  | Object | 返回的数据信息，形式见下：         |
+| error | Number | 0为成功，-1为点击取消而关闭，其他为失败 |
 
 ```javascript
 var info = {
-  isCancelled:,
   detailedImageInfo:,
   data:
 }
@@ -84,11 +84,10 @@ var info = {
 
 各字段含义如下:
 
-| 参数名称              | 参数类型    | 是否必选                                     | 说明                          |
-| ----------------- | ------- | ---------------------------------------- | --------------------------- |
-| isCancelled       | Boolean | 是                                        | 选择器是否是由于点击取消而关闭             |
-| detailedImageInfo | Array   | 否 ,仅isCancelled为 false且openPicker有设置detailedInfo为true时才有此参数 | 导出的图片的信息uexImageInfo结构构成的数组 |
-| data              | Array   | 否 ,仅isCancelled为 false时有此参数              | 导出的图片地址构成的数组                |
+| 参数名称              | 参数类型  | 是否必选                                     | 说明                          |
+| ----------------- | ----- | ---------------------------------------- | --------------------------- |
+| detailedImageInfo | Array | 否 ,仅isCancelled为 false且openPicker有设置detailedInfo为true时才有此参数 | 导出的图片的信息uexImageInfo结构构成的数组 |
+| data              | Array | 否 ,仅isCancelled为 false时有此参数              | 导出的图片地址构成的数组                |
 
 * 即使只选择一张图片 detailedImageInfo和imageInfo也是数组
 * uexImageInfo结构如下定义
@@ -105,29 +104,30 @@ var uexImageInfo={
 
 **示例**
 
-```
+```javascript
 var data = {
 	min:2,
 	max:3,
 	quality:0.8,
 	detailedInfo:true
 }
-var json = JSON.stringify(data);
-uexImage.openPicker(json,function(info){
-	if(info.isCancelled){
+uexImage.openPicker(data,function(error,info){
+	if(error==-1){
 		alert("cancelled!");
-	}else{
+	}else if(error==0){
 		alert(info.data);
 		if(info.detailedImageInfo){
 			alert(JSON.stringify(info.detailedImageInfo));
 		}
+	}else{
+      	alert("error");
 	}
 });
 ```
 
 > ### openBrowser 打开图片浏览器
 
-`uexImage.openBrowser(param,cb);`
+`uexImage.openBrowser(param,callback);`
 
 **说明**
 
@@ -137,10 +137,10 @@ uexImage.openPicker(json,function(info){
 
 **参数**
 
-| 参数名称  | 参数类型     | 是否必选 | 说明              |
-| ----- | -------- | ---- | --------------- |
-| param | String   | 是    | browser参数设置     |
-| cb    | Function | 否    | browser被关闭的回调函数 |
+| 参数名称     | 参数类型     | 是否必选 | 说明              |
+| -------- | -------- | ---- | --------------- |
+| param    | String   | 是    | browser参数设置     |
+| callback | Function | 否    | browser被关闭的回调函数 |
 
 ```javascript
 var param = {
@@ -178,7 +178,7 @@ var param = {
 ```
 **回调参数**
 ​	
-回调函数cb没有参数
+回调函数`callback`没有参数
 
 
 **示例**
@@ -213,7 +213,7 @@ uexImage.openBrowser(json,functiuon(){
 ```
 > ### openCropper 打开图片裁剪器
 
-`uexImage.openCropper(param,cb);`
+`uexImage.openCropper(param,callback);`
 
 **说明**
 
@@ -248,38 +248,40 @@ var param = {
 **回调参数**
 
 ```
-var cb = function(info){}
+var callback = function(error,info){}
 ```
 
-| 参数名称 | 类型     | 说明             |
-| ---- | ------ | -------------- |
-| info | Object | 返回图片相关信息，形式见下: |
+| 参数名称  | 类型     | 说明                  |
+| ----- | ------ | ------------------- |
+| info  | Object | 返回图片相关信息，形式见下:      |
+| error | Number | 0表示成功，-1表示取消，其他表示失败 |
 
 ```javascript
 var info = {
   isCancelled:,
   data:
-}各字段含义如下：
+}
 ```
 
-| 参数名称        | 参数类型    | 是否必选                        | 说明              |
-| ----------- | ------- | --------------------------- | --------------- |
-| isCancelled | Boolean | 是                           | 选择器是否是由于点击取消而关闭 |
-| data        | String  | 否 ,仅isCancelled为 false时有此参数 | 裁剪后的图片地址        |
+各字段含义如下：
+
+| 参数名称        | 参数类型    | 是否必选 | 说明              |
+| ----------- | ------- | ---- | --------------- |
+| isCancelled | Boolean | 是    | 选择器是否是由于点击取消而关闭 |
+| data        | String  | 否    | 裁剪后的图片地址        |
 
 
 **示例**
 
-```
+```javascript
 var data={
 	src:"res://photo5.jpg",
 	mode:2
 }
-var json=JSON.stringify(data);
-uexImage.openCropper(json,function(info){
-	if(info.isCancelled){
+uexImage.openCropper(data,function(error,info){
+	if(error==-1){
 		alert("cancelled!");
-	}else{
+	}else if(error==0) {
 		alert(info.data);
 	
 	}
@@ -288,7 +290,7 @@ uexImage.openCropper(json,function(info){
 
 > ### saveToPhotoAlbum 储存到相册
 
-`uexImage.saveToPhotoAlbum(param,cb);`
+`uexImage.saveToPhotoAlbum(param,callback);`
 
 **说明**
 
@@ -297,10 +299,10 @@ uexImage.openCropper(json,function(info){
 **参数**
 
 
-| 参数名称  | 参数类型     | 是否必选 | 说明      |
-| ----- | -------- | ---- | ------- |
-| param | String   | 是    | 储存参数设置  |
-| cb    | Function | 否    | 储存的回调函数 |
+| 参数名称     | 参数类型     | 是否必选 | 说明      |
+| -------- | -------- | ---- | ------- |
+| param    | String   | 是    | 储存参数设置  |
+| callback | Function | 否    | 储存的回调函数 |
 
 param为json字符串,包含的参数如下
 
@@ -312,7 +314,7 @@ param为json字符串,包含的参数如下
 **回调参数**
 
 ```javascript
-var cb = function(error,errorInfo){
+var callback = function(error,errorInfo){
 }
 ```
 
