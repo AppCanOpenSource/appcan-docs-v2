@@ -356,7 +356,7 @@ function shareAudioToQQ(){
 }
 ```
 
-> ### shareAppToQQ  分享应用到QQ         
+> ### shareAppToQQ  分享应用到QQ，仅Android支持         
 
 `uexQQ.shareAppToQQ(appId,jsonData, callbackFunction);`
 
