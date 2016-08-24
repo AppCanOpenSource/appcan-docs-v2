@@ -3,7 +3,7 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 新浪分享插件
 
-## 1.1 说明
+## 1.1、说明
 调用新浪分享文字,图片。
 
 **iOS 9 以后,为了预防APP通过非正常渠道获取用户的某些隐私信息,Apple启用了URLScheme白名单机制。**
@@ -30,13 +30,13 @@
 ```
 其中'wb407216840'的'407216840'改成您自己申请到的新浪appkey,`需要是wb+appkey的形式`
 
-## 1.2 UI展示
+## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/164911i2015y6i16c.png)
 
-## 1.3 开源源码
+## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=186_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4 术语表
+## 1.4、术语表
 -----
 Path Types
 
@@ -56,53 +56,7 @@ Path Types
 在后续版本中新添加的接口会在文档中额外说明。
 
 # 2、API概览
-##  2.1 方法
-
-> ### registerApp 用户授权
-
-`uexSina.registerApp(appKey,appSecret,registerURL, callbackFunction) `
-
-**说明:**
-
-用户授权,用户授权后可以进行调用分享等接口,如果手机上有微博客户端,会直接调用客户端进行授权。如果没有,则开启网页让用户授权。
-
-
-**参数:**
-
-| 参数名称             | 参数类型     | 是否必选 | 说明                   |
-| ---------------- | -------- | ---- | -------------------- |
-| appKey           | String   | 是    | 通过开放平台注册的appKey      |
-| appSecret        | String   | 是    | 通过开放平台注册的appSecret   |
-| registerURL      | String   | 是    | 通过开放平台注册的registerURL |
-| callbackFunction | Function | 是    | 回调函数，用来获取相关业务数据      |
-
-**回调参数:**
-
-```
-var callbackFunction = function(data){}
-```
-
-| 参数名称 | 类型     | 说明            |
-| ---- | ------ | ------------- |
-| data | Object | 返回的相关数据，形式见下： |
-
-```
-var data = {
-    openId: 
-    token:
-    code:// code 为0时表示成功, 此时openId和token会有值，1 代表失败
-}
-```
-
-**示例:**
-```
-var appKey = "4072168402";
-var appSecret = "b28223208b965d73c19fab20eab38943";
-var registerUrl = "http://www.testsina.com";
-uexSina.registerApp(appKey,appSecret,registerUrl, function(data) {
-    alert("openId:" + data.openId + "    token:" + data.token);
-});
-```
+##  2.1、方法
 
 > ### login 登录
 
@@ -169,7 +123,7 @@ uexSina.login(appKey,registerUrl,function(error,data){
 | ---------------- | -------- | ---- | --------------- |
 | callbackFunction | Function | 是    | 回调函数，用来获取相关业务数据 |
 
-**回调参数:
+**回调参数:**
 
 ```
 var callbackFunction = function(data){}
