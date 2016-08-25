@@ -80,9 +80,9 @@ var param = {
 
 **示例:**
 
-```
+```javascript
 var param = {
-	src:"res://1.mp4"
+	src:"res://1.mp4",
 	startTime:3,
 	autoStart:true,
 	forceFullScreen:false,
