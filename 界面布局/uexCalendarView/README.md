@@ -32,15 +32,27 @@
 
 **参数**
 
-```
+| 参数名称 | 参数类型   | 是否必选 | 说明           |
+| ---- | ------ | ---- | ------------ |
+| json | Object | 是    | 接口所需数据，形式见下： |
+
+```javascript
 var json = {
-	x:,//view距离当前网页顶部的距离(px)
-	y:,//view距离当前网页左边框的距离(px)
-	w:,//view宽度(px)
-	h:,//view高度(px)
+	x:,
+	y:,
+	w:,
+	h:
 }
 ```
 
+各字段含义如下：
+
+| 字段名称 | 类型     | 是否必选 | 说明                   |
+| ---- | ------ | ---- | -------------------- |
+| x    | Number | 是    | view距离当前网页左边框的距离(px) |
+| y    | Number | 是    | view距离当前网页顶部的距离(px)  |
+| w    | Number | 是    | view宽度(px)           |
+| h    | Number | 是    | view高度(px)           |
 
 **示例**
 
@@ -51,8 +63,7 @@ var data ={
     w:300,
 	h:300
 };
-var jsonStr = JSON.stringify(data)
-uexCalendarView.open(jsonStr);
+uexCalendarView.open(data);
 ```
 
 >###close  关闭日历
@@ -72,7 +83,6 @@ uexCalendarView.open(jsonStr);
 
 ```
 uexCalendarView.close()
-
 ```
 >###setSelectedDate 设置被选中的日期
 
@@ -84,19 +94,32 @@ uexCalendarView.close()
 
 **参数**
 
-```
+| 参数名称 | 参数类型   | 是否必选 | 说明           |
+| ---- | ------ | ---- | ------------ |
+| json | Object | 是    | 接口所需数据，形式见下： |
+
+```javascript
 var json = {
-	date:{  //所设置的日期
-		year:,//年
-		month:,//月
-		day:,//日
+	date:{
+		year:,
+		month:,
+		day:
 	} 
 }
 ```
 
+各字段含义如下：
+
+| 字段名称  | 类型     | 是否必选 | 说明     |
+| ----- | ------ | ---- | ------ |
+| date  | Object | 是    | 所设置的日期 |
+| year  | Number | 是    | 年      |
+| month | Number | 是    | 月      |
+| day   | Number | 是    | 日      |
+
 **示例**
 
-```
+```javascript
 var data ={
 	date:{  
 		year:2014,
@@ -104,16 +127,14 @@ var data ={
 		day:11
 	}
 };
-var jsonStr = JSON.stringify(data)
-uexCalendarView.setSelectedDate(jsonStr);
-
+uexCalendarView.setSelectedDate(data);
 ```
 
 ## 2.2、监听方法
 
 >###onItemClick  点击日期时的监听方法
 
-`uexCalendarView.onItemClick(jsonString)`
+`uexCalendarView.onItemClick(json)`
 
 **说明**
 
@@ -126,16 +147,16 @@ var json = {
 	date:{  //返回的日期
 		year:,//年
 		month:,//月
-		day:,//日
+		day://日
 	} 
 }
 ```
 
 **示例**
 
-```
-uexCalendarView.onItemClick = function(jsonString){
-	alert(jsonString);
+```javascript
+uexCalendarView.onItemClick = function(json){
+	alert(json);
 }
 ```
 

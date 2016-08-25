@@ -33,12 +33,23 @@
 
 **参数**
 
-```
+| 参数名称 | 参数类型   | 是否必选 | 说明           |
+| ---- | ------ | ---- | ------------ |
+| json | Object | 是    | 接口所需数据，形式见下： |
+
+```javascript
 var json = {
-    "emojicons":,//emojicons.xml文件路径(详细说明见下)
-    "placeHold":,//输入框提示语
+    emojicons:,
+    placeHold:
 }
 ```
+各字段含义如下：
+
+| 字段名称      | 类型     | 是否必选 | 说明                        |
+| --------- | ------ | ---- | ------------------------- |
+| emojicons | String | 是    | emojicons.xml文件路径(详细说明见下) |
+| placeHold | String | 否    | 输入框提示语                    |
+
 >参数emojicons的自定义表情配置文件为:"res://emojicons/emojicons.xml",详细配置步骤:
 
 1、在widget的wgtRes目录下创建emojicons目录；
@@ -46,7 +57,7 @@ var json = {
 ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
 3、在emojicons中创建emojicons.xml文件,格式如下:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <emojicons delete="ace_emoji_delete.png ">
   <key>[微笑]</key>
@@ -64,13 +75,12 @@ ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
 
 **示例**
 
-```
+```javascript
 var data ={
     emojicons: "res://emojicons/emojicons.xml",
     placeHold: "请输入内容"
 };
-var jsonStr = JSON.stringify(data)
-uexInputTextFieldView.open(jsonStr);
+uexInputTextFieldView.open(data);
 ```
 
 > ### close 关闭评论输入
@@ -90,8 +100,8 @@ uexInputTextFieldView.open(jsonStr);
 
 **示例**
 
-```
-uexInputTextFieldView.close()
+```javascript
+uexInputTextFieldView.close();
 ```
 
 > ### setInputFocused 输入框自动获取焦点
@@ -129,51 +139,27 @@ uexInputTextFieldView.setInputFocused();
 
 **返回值：**
 
-int类型
+Number类型，工具条高度。
 
 
 **示例:**
 
 ```javascript
 var result=uexInputTextFieldView.getInputBarHeight();
+alert(result);
 ```
 
 ## 2.2、监听方法
 
-> ### onCommit 点击评论按钮时的监听方法
-
-`uexInputTextFieldView.onCommit(json)`
-
-**说明**
-
-使用此接口时,可能会出现json解析失败的情况,请使用[onCommitJson](http://newdocx.appcan.cn/newdocx/docx?type=1478_975#onCommitJson 点击发送的监听方法 "onCommitJson")方法
-
-**参数**
-
-```
-var json = {
-    emojiconsText://用户所输入内容
-}
-```
-
-
-
-**示例**
-
-```
-uexInputTextFieldView.onCommit = function(data){
-    alert(data);
-}
-```
 > ### onCommitJson 点击发送的监听方法
 
 `uexInputTextFieldView.onCommitJson(json)`
 
 **参数:**
 
-```
+```javascript
 var json = {
-emojiconsText:
+	emojiconsText:
 }
 ```
 
@@ -183,12 +169,12 @@ emojiconsText:
 
 **示例:**
 
-```
+```javascript
 function onCommitJson(data) {
-alert(data);
+	alert(data);
 }
 window.uexOnload = function(){
-uexInputTextFieldView.onCommitJson = onCommitJson;
+	uexInputTextFieldView.onCommitJson = onCommitJson;
 }
 ```
 > ### onKeyBoardShow 键盘弹出或收起时的监听方法
@@ -197,9 +183,9 @@ uexInputTextFieldView.onCommitJson = onCommitJson;
 
 **参数:**
 
-```
+```javascript
 var json = {
-status:
+	status:
 }
 ```
 
@@ -211,12 +197,12 @@ status:
 
 **示例:**
 
-```
+```javascript
 function onKeyBoardShow(data) {
-alert(data);
+	alert(data);
 }
 window.uexOnload = function(){
-uexInputTextFieldView.onKeyBoardShow = onKeyBoardShow;
+	uexInputTextFieldView.onKeyBoardShow = onKeyBoardShow;
 }
 ```
 

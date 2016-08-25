@@ -28,13 +28,17 @@
 
 **参数**
 
-```
-var param={
-	interval;//自动滚动的间隔时间,单位为毫秒,默认3000
-	anchor;//float数对[X,Y] 轮播图的左上角锚点的坐标
-	height;//轮播图高度
-	width;//轮播图宽度
-	urls;//List<String> 的json字符串
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | String | 是    | 接口所需数据，形式见下： |
+
+```javascript
+var param = {
+	interval:,//自动滚动的间隔时间,单位为毫秒,默认3000
+	anchor:,//float数对[X,Y] 轮播图的左上角锚点的坐标
+	height:,//轮播图高度
+	width:,//轮播图宽度
+	urls://List<String> 的json字符串
 };
 ```
 
@@ -54,7 +58,7 @@ var param={
 
 **示例**
 
-```
+```javascript
 var param={
 	interval:2000,
 	anchor:["0", "0"],
@@ -66,7 +70,6 @@ var view1=uexScrollPicture.createNewScrollPicture(JSON.stringify(param));
 if(!view1){
 	alert("创建轮播图失败");
 }
-
 ```
 
 >### startAutoScroll   开始图片轮播
@@ -80,13 +83,13 @@ if(!view1){
 
 ```
 var param={
-	view;//轮播图对象
+	view://轮播图对象
 };
 ```
 
 **示例**
 
-```
+```javascript
 var param={
 	view:...//createNewScrollPicture接口返回的对象
 };
@@ -94,15 +97,21 @@ uexScrollPicture.startAutoScroll(JSON.stringify(param));
 ```
 
 >### stopAutoScroll   停止图片轮播
->`uexScrollPicture.stopAutoScroll(param)`
+
+`uexScrollPicture.stopAutoScroll(param)`
 
 **说明**  
 停止图片轮播
 
 **参数**
+
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | String | 是    | 接口所需数据，形式见下： |
+
 ```
 var param={
-	view;//轮播图对象
+	view://轮播图对象
 };
 ```
 
@@ -116,7 +125,8 @@ uexScrollPicture.stopAutoScroll(JSON.stringify(param));
 ```
 
 >### removeView   删除view
->`uexScrollPicture.removeView(param)`
+
+`uexScrollPicture.removeView(param)`
 
 **说明**  
 删除view
@@ -124,7 +134,7 @@ uexScrollPicture.stopAutoScroll(JSON.stringify(param));
 **参数**
 ```
 var param={
-	view;//轮播图对象
+	view://轮播图对象
 };
 ```
 
@@ -150,7 +160,7 @@ uexScrollPicture.removeView(JSON.stringify(param));
 **参数**
 
 ```
-var param={
+var data={
 	index:,//第几个图片被点击,从0开始
 	view://轮播图对象
 }
