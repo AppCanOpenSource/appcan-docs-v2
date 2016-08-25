@@ -15,27 +15,25 @@
 
 * 在任何网页调用本插件,调用的是同一个插件实例;
 * 所有的API都是异步方法,不会直接返回值;
-* 所有的回调都会传到root页面(config.xml中配置的App起始页面)
+* 所有的回调都会传到“**root页面**”(config.xml中配置的App起始页面即为root页面)
 
 **以上内容非常重要**
 
 root页面收到回调后,可以通过uexWindow的相关方法传递到各个网页去,
 以下方法是您可能要用到的——
 
- 传递给某个窗口:
- 
-* uexWindow.evaluateScript;
-* uexWindow.evaluatePopoverScript
-* uexWindow.evaluateMultiPopoverScript
-
+````
+ 传递给某个窗口
+uexWindow.evaluateScript;
+uexWindow.evaluatePopoverScript
+uexWindow.evaluateMultiPopoverScript
  传递给某些窗口:
- 
-* uexWindow.publishChannelNotification
-* uexWindow.subscribeChannelNotification
+uexWindow.publishChannelNotification
+uexWindow.subscribeChannelNotification
+````
+这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249) 内有描述，当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用。
 
-这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1318_1249) 内有描述
 
-当然,也可[下载Demo](http://plugin.appcan.cn/details.html?id=406_index) 参考Demo内的调用。
  
 ##1.2、 UI展示
 暂无
@@ -230,7 +228,7 @@ var param = {
 >###sendText(param) 发送文本消息及表情
 
 **说明:**
-环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -246,7 +244,7 @@ var param = {
 >###sendFile(param) 发送文件
 
 **说明:**
-环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -263,7 +261,7 @@ var param = {
 >###sendPicture(param)//发送图片
 
 **说明:**
-环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -280,7 +278,7 @@ var param = {
 >###sendLocationMsg(param)//发送地理位置信息
 
 **说明:**
-环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -298,7 +296,7 @@ var param = {
 >###sendVoice(param)//发送语音
 
 **说明:**
-环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -317,7 +315,7 @@ var param = {
 >###sendVideo(param) 发送视频
 
 **说明:**
-环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```
@@ -336,7 +334,7 @@ var param = {
 >###sendCmdMessage(param) 发送透传消息
 
 **说明:**
-环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
+增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
 param为json字符串
 
 ```

@@ -23,13 +23,13 @@
 
 ## 2.1、方法
 
-> ### init 初始化拍摄的相关参数
+> ### init 初始化趣拍sdk
   
 `uexQupai.init(param,function(data){})`
 
 **说明:**
 
-初始化拍摄的相关参数。需要注意的是,之所以需要`appKey`, `appSecret`, `space`这三个参数,是因为趣拍SDK中封装有上传文失件的功能,这三个参数在上传文件时会需要。但当前插件中没有封装这一功能,既使用户输入错误的`appKey`, `appSecret`, `space`,该插件的录制视屏功能同样可以使用,但是在使用时会有`授权失败`的提示。 所以建议开发者还是去趣拍[官网](http://vcs.qupai.me/)申请这三个参数,申请详细步骤,见链接地址:[iOS地址](http://faq.vcs.qupai.me/123.html), [Android地址](http://faq.vcs.qupai.me/125.html).
+初始化趣拍SDK。需要注意的是,之所以需要`appKey`, `appSecret`, `space`这三个参数,是因为趣拍SDK中封装有上传文失件的功能,这三个参数在上传文件时会需要。但当前插件中没有封装这一功能,既使用户输入错误的`appKey`, `appSecret`, `space`,该插件的录制视屏功能同样可以使用,但是在使用时会有`授权失败`的提示。 所以建议开发者还是去趣拍[官网](http://vcs.qupai.me/)申请这三个参数,申请详细步骤,见链接地址:[iOS地址](http://faq.vcs.qupai.me/123.html), [Android地址](http://faq.vcs.qupai.me/125.html).
 
 **参数:**
 
