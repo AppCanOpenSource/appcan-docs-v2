@@ -152,7 +152,7 @@ var data={
 	cancelVerificationButtonTitle:"切换其他账号",
 	minimumCodeLength:5
 }
-uexGestureUnlock.config(JSON.stringify(data));
+uexGestureUnlock.config(data);
 ```
 
 > ###verify 验证手势密码
@@ -251,7 +251,7 @@ var cb = function(error, data){
 var data={
 	isNeedVerifyBeforeCreate:false
 }
-uexGestureUnlock.create(JSON.stringify(data),function(error, data){
+uexGestureUnlock.create(data,function(error, data){
     if(!error){
         alert("设置成功");
     }else{

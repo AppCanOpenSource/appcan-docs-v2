@@ -51,12 +51,23 @@
 
 **参数**
 
-param 是JSON字符串,包含的参数如下
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| jsPath| String | 是 | 后台js文件路径 |
-| jsResourcePaths | Array | 否 | 由String构成的字符串,依赖的js文件路径,依赖的js文件会被先执行 |
+```javascript
+var param = {
+  jsPath:,
+  jsResourcePaths:
+}
+```
+
+各字段含义如下：
+
+| 字段名称            | 字段类型   | 是否必选 | 说明                                   |
+| --------------- | ------ | ---- | ------------------------------------ |
+| jsPath          | String | 是    | 后台js文件路径                             |
+| jsResourcePaths | Array  | 否    | 由String构成的字符串,依赖的js文件路径,依赖的js文件会被先执行 |
 
 
 **返回值**
@@ -69,12 +80,12 @@ Boolean 类型
 
 **示例**
 
-```
+```javascript
 var data = {
  	jsPath:"res://background.js",
  	jsResourcePaths:["res://../js/constant.js","res://../js/CCLog.js"]
 }
-var result = uexBackground.start(JSON.stringify(data));
+var result = uexBackground.start(data);
 ```
 
 * 此示例中,用`"res://../"`获得了`wgtRes`的上级目录的路径,**这种方式仅本插件支持!**
@@ -100,13 +111,13 @@ Boolean 是否stop成功
 
 **示例**
 
-```
+```javascript
 var result = uexBackground.stop();
 ```
 
 > ### addTimer 设置一个定时器
 
-`uexBackground.addTimer(param)`
+`uexBackground.addTimer(param, cb)`
 
 **说明**
 
@@ -114,21 +125,40 @@ var result = uexBackground.stop();
 
 **参数**
 
-param 是JSON字符串
+| 参数名称  | 参数类型     | 是否必选 | 说明           |
+| ----- | -------- | ---- | ------------ |
+| param | Object   | 是    | 接口所需数据，形式见下： |
+| cb    | Function | 是    | 回调方法         |
 
-```
+```javascript
 var param = {
-	id:,//String,必选,唯一标识符
-	callbackName:,//String,必选,不可重复,回调方法名
-	repeatTimes:,//Number,必选,重复次数,传0表示无限循环
-	timeInterval:,//Number,必选 单位毫秒
+	id:,
+	repeatTimes:,
+	timeInterval:
 }
 ```
 
+各字段含义如下：
+
+| 字段名称         | 字段类型   | 是否必选 | 说明            |
+| ------------ | ------ | ---- | ------------- |
+| id           | String | 是    | 唯一标识符         |
+| repeatTimes  | Number | 是    | 重复次数,传0表示无限循环 |
+| timeInterval | Number | 是    | 间隔时间，单位毫秒     |
+
 * 设置成功之后,**会立即开始第一次回调**,而不是等过了timeInterval毫秒之后才开始第一次;
-* callbackName不能为`"onLoad"`;
 * 由于系统限制,实际使用时,回调触发间隔可能会有毫秒级的误差;
-* 当调用uexBackground.stop()接口时,所有的定时器将会被安全的取消:)
+* 当调用uexBackground.stop()接口时,所有的定时器将会被安全的取消。
+
+**回调参数**
+
+```javascript
+var cb = function(count){}
+```
+
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| count | Number | 当前已经执行的次数。从1开始计数。 |
 
 **返回值**
 
@@ -142,14 +172,16 @@ Boolean 是否add成功
 
 **示例**
 
-```
+```javascript
 var param = {
 	id:"timer",
-	callbackName:"cbTimer",
 	repeatTimes:0,
 	timeInterval:1000
 }
-var result = uexBackground.addTimer(JSON.stringify(param));
+var result = uexBackground.addTimer(param,function(count){
+	alert("定时器执行次数:" + count);
+});
+alert(result);
 ```
 
 > ### cancelTimer 取消定时器
@@ -162,21 +194,19 @@ var result = uexBackground.addTimer(JSON.stringify(param));
 
 **参数**
 
-param 是**数组**转换而成的JSON字符串
+| 参数名称  | 参数类型    | 是否必选 | 说明                      |
+| ----- | ------- | ---- | ----------------------- |
+| param | JSON字符串 | 是    | 由id构成的数组,传[]代表取消所有timer |
 
+```javascript
+var param = []
 ```
-var param = []//Array,必选由id构成的数组,传[]代表取消所有timer
-```
-
-**返回值**
-
-无
 
 **示例**
 
-```
+```javascript
 var param = ["timer"];
-var result = uexBackground.cancelTimer(JSON.stringify(param));
+uexBackground.cancelTimer(JSON.stringify(param));
 ```
 
 ## 2.2、监听方法
@@ -203,26 +233,7 @@ uexBackground.onLoad = function(){
 }
 ```
 
-> ### XXX 定时器的监听方法
 
-`uexBackground.XXX()`
-
-**说明**
-
-* addTimer后定时器的监听方法
-* XXX为在addTimer接口中指定的callbackName方法名
-
-**参数**
-
-Number类型,为当前已经执行的次数。从1开始计数。
-
-**示例**
-
-```
-uexBackground.XXX = function(count){
-	alert("定时器执行次数:" + count);
-}
-```
 
 # 3、更新历史
 
@@ -232,8 +243,8 @@ API版本:`uexBackground-4.0.0`
 
 最近更新时间:`2016-8-18`
 
-| 历史发布版本 | 更新内容 |
-| ------ | --------------------- |
+| 历史发布版本 | 更新内容   |
+| ------ | ------ |
 | 4.0.0  | 后台运行插件 |
 
 ### Android

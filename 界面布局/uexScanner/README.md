@@ -34,31 +34,38 @@
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| callbackFunction| 函数| 是 |扫描成功后的回调函数|
+| 参数名称             | 参数类型     | 是否必选 | 说明         |
+| ---------------- | -------- | ---- | ---------- |
+| callbackFunction | Function | 是    | 扫描成功后的回调函数 |
 
-`callbackFunction`的参数是JSON对象类型，其格式如下：
+**回调参数:**
 
+```javascript
+var callbackFunction = function(error,data){}
 ```
-{
+
+| 参数名称  | 类型     | 说明                                  |
+| ----- | ------ | ----------------------------------- |
+| error | Number | 扫描结果，0-成功，非0-失败,打开失败通常是因为没有开启摄像头权限. |
+| data  | Object | 扫描成功的数据，形式如下：                       |
+
+```javascript
+var data = {
     code:, 
     type:
 }
 ```
-如果打开失败，返回的参数为 `null`, 打开失败通常是因为没有开启摄像头权限所致。
-
 **示例:**
 
-```
-var callback = function(data) {
-    var result = "data:" + JSON.stringify(data)
-    console.log(result);
-    alert(result);
+```javascript
+var callback = function(error,data) {
+  if(!error){
+    alert("data:" + JSON.stringify(data));
+  }else{
+    alert("failed!");
+  }
 };
-
 uexScanner.open(callback);
-
 ```
 
 > ### setJsonData 设置数据
@@ -72,20 +79,39 @@ uexScanner.open(callback);
 
 **参数:**
 
-```
+| 参数名称   | 参数类型   | 是否必选 | 说明             |
+| ------ | ------ | ---- | -------------- |
+| params | Object | 是    | 接口所需相关数据，形式见下： |
+
+```javascript
 var params = {
-    "lineImg": , //扫描时移动的光线,可选
-    "pickBgImg": , //扫描区域边框图片, 可选
-    "tipLabel": ,  //扫描区下部提示语,可选
-    "title": ,//扫描界面顶部标题 (仅iOS支持),可选
-    "charset"//设置字符编码,可选
+    lineImg: ,
+    pickBgImg: ,
+    tipLabel: ,
+    title: ,
+    charset:
 }
 ```
 
+各字段含义如下：
+
+| 字段名称      | 类型     | 是否必选     | 说明       |
+| --------- | ------ | -------- | -------- |
+| lineImg   | String | 否        | 扫描时移动的光线 |
+| pickBgImg | String | 否        | 扫描区域边框图片 |
+| tipLabel  | String | 否        | 扫描区下部提示语 |
+| title     | String | 否，仅iOS支持 | 扫描界面顶部标题 |
+| charset   | String | 否        | 设置字符编码   |
+
 **示例:**
 
-```
-var jsonData = '{"lineImg":"res://line.png","pickBgImg":"res://pick_bg.png","tipLabel":"对准二维码/条形码,即可自动扫描","title":"扫一下"}';
+```javascript
+var jsonData = {
+  lineImg:"res://line.png",
+  pickBgImg:"res://pick_bg.png",
+  tipLabel:"对准二维码/条形码,即可自动扫描",
+  title:"扫一下"
+};
 uexScanner.setJsonData(jsonData);
 ```
 
@@ -98,17 +124,17 @@ API版本:`uexScanner-4.0.0`
 
 最近更新时间:`2016-6-11`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 支持function传入 |
-| 3.1.7 | 修改为ios7.0以上调用系统库扫描 |
-| 3.1.6 | 修复横屏扫描时图像显示异常的BUG |
-| 3.1.5 | 添加可选参数charset,支持GBK编码的二维码 |
-| 3.1.4 | 重构:改用ZXing识别二维码;添加IDE支持 |
-| 3.0.3 | 修改二维码扫描UI图片 |
-| 3.0.2 | 修改资源图片 |
-| 3.0.1 | UI适配iOS7以下系统 |
-| 3.0.0 | 二维码插件UI优化 |
+| 历史发布版本 | 更新内容                      |
+| ------ | ------------------------- |
+| 4.0.0  | 支持function传入              |
+| 3.1.7  | 修改为ios7.0以上调用系统库扫描        |
+| 3.1.6  | 修复横屏扫描时图像显示异常的BUG         |
+| 3.1.5  | 添加可选参数charset,支持GBK编码的二维码 |
+| 3.1.4  | 重构:改用ZXing识别二维码;添加IDE支持   |
+| 3.0.3  | 修改二维码扫描UI图片               |
+| 3.0.2  | 修改资源图片                    |
+| 3.0.1  | UI适配iOS7以下系统              |
+| 3.0.0  | 二维码插件UI优化                 |
 
 ### Android
 
@@ -116,22 +142,22 @@ API版本:`uexScanner-4.0.0`
 
 最近更新时间:`2016-6-11`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 支持function传入 |
-| 3.0.15 | 添加charset字段设置编码 |
-| 3.0.14 | 调整扫描框为正方形 |
-| 3.0.13 | 拍照权限被禁止情况处理 |
-| 3.0.12 | 去掉读取联系人权限 |
-| 3.0.11 | 添加扫描本地二维码图片功能 |
-| 3.0.10 | 二维码优化 |
-| 3.0.9 | 优化UI效果 |
-| 3.0.8 | ZBar更新UI,增加setJsonData接口 |
-| 3.0.7 | 修复uexScanner扫码画面颠倒问题 |
-| 3.0.6 | 修复插件包打包错误问题 |
-| 3.0.5 | 优化扫描界面。提供下载:[旧版二维码](/docAttach/975/uexScanner-3.0.5.zip "旧版二维码") |
-| 3.0.4 | CreateBarCode不能调用问题 |
-| 3.0.3 | 新增生成条形码和二维码接口 |
-| 3.0.2 | 修复手动输入条形码崩溃问题 |
-| 3.0.1 | 修复资源问题 |
-| 3.0.0 | 条形码二维码扫描功能插件 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+| 4.0.0  | 支持function传入                             |
+| 3.0.15 | 添加charset字段设置编码                          |
+| 3.0.14 | 调整扫描框为正方形                                |
+| 3.0.13 | 拍照权限被禁止情况处理                              |
+| 3.0.12 | 去掉读取联系人权限                                |
+| 3.0.11 | 添加扫描本地二维码图片功能                            |
+| 3.0.10 | 二维码优化                                    |
+| 3.0.9  | 优化UI效果                                   |
+| 3.0.8  | ZBar更新UI,增加setJsonData接口                 |
+| 3.0.7  | 修复uexScanner扫码画面颠倒问题                     |
+| 3.0.6  | 修复插件包打包错误问题                              |
+| 3.0.5  | 优化扫描界面。提供下载:[旧版二维码](/docAttach/975/uexScanner-3.0.5.zip "旧版二维码") |
+| 3.0.4  | CreateBarCode不能调用问题                      |
+| 3.0.3  | 新增生成条形码和二维码接口                            |
+| 3.0.2  | 修复手动输入条形码崩溃问题                            |
+| 3.0.1  | 修复资源问题                                   |
+| 3.0.0  | 条形码二维码扫描功能插件                             |
