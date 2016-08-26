@@ -5,7 +5,7 @@
 
 ## 1.1、说明
 
-该插件封装了自定义布局的功能,开发者可通过该插件实现原生布局。
+该插件封装了自定义布局的功能,开发者可通过该插件实现原生布局.
 
 ## 1.2、UI展示
 
@@ -14,24 +14,24 @@
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=631_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.4、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。
-在后续版本中新添加的接口会在文档中额外说明。
+本插件所有API默认在插件版本**4.0.0+**可用.
+在后续版本中新添加的接口会在文档中额外说明.
 
 # 2、API概览
 
 ## 2.1、方法
 
-> ### initLayout 初始化布局
+### 📦 initLayout 初始化布局
 
 `uexNBListView.initLayout(params, callbackFunction);`
 
 **说明:**
 
-初始化布局,动态数据定义方式,请参考[数据载入方式](#数据载入方式),该方法需要在所有方法之前调用。
+初始化布局,动态数据定义方式,请参考[数据载入方式](#数据载入方式),该方法需要在所有方法之前调用.
 
 **参数:**
 
@@ -82,13 +82,13 @@ uexNBListView.initLayout(data, function(errorCode){
 });
 ```
 
-> ### setItems 设置列表数据
+### 📦 setItems 设置列表数据
 
 `uexNBListView.setItems(params, callbackFunction);`
 
 **说明:**
 
-设置列表数据,也可以刷新列表数据。原列表数据会被清空。该方法需要在initLayout方法之后调用。
+设置列表数据,也可以刷新列表数据.原列表数据会被清空.该方法需要在initLayout方法之后调用.
 
 **参数:**
 
@@ -233,8 +233,8 @@ var params = {
  	dataList:[
  		{
  		center:{
- 			"type1":"1",//指定布局id,这里对应initLayout接口的layout_item1布局,该布局文件定义了layoutType的属性值为${type1},则需要在这里通过type1关键字指定布局id。值1和layout_item1布局文件中的layoutId属性值一致。
- 			//以下键值对中键是与layout_item1布局文件中定义的变量值(形如:${变量值})对应,值即是相对应的属性值。
+ 			"type1":"1",//指定布局id,这里对应initLayout接口的layout_item1布局,该布局文件定义了layoutType的属性值为${type1},则需要在这里通过type1关键字指定布局id.值1和layout_item1布局文件中的layoutId属性值一致.
+ 			//以下键值对中键是与layout_item1布局文件中定义的变量值(形如:${变量值})对应,值即是相对应的属性值.
  			"text1" : "测试1",
  			"text2" : "测试2",
  			"text3" : "测试3",
@@ -249,11 +249,11 @@ var params = {
  			"button-bg":"#dddddd"
  		},
   		left:{
- 				"layoutId" : "left",//指定布局id,这里对应initLayout接口的layout_left布局,该布局文件没有定义layoutType属性,则需要在这里通过layoutId关键字指定布局id。值left和layout_left布局文件中的layoutId属性值一致。
+ 				"layoutId" : "left",//指定布局id,这里对应initLayout接口的layout_left布局,该布局文件没有定义layoutType属性,则需要在这里通过layoutId关键字指定布局id.值left和layout_left布局文件中的layoutId属性值一致.
  				"left-button" : "left1"
  		},
  		right:{
- 			"layoutId" : "right",//指定布局id,这里对应initLayout接口的layout_right布局,该布局文件没有定义layoutType属性,则需要在这里通过layoutId关键字指定布局id。值right和layout_right布局文件中的layoutId属性值一致。
+ 			"layoutId" : "right",//指定布局id,这里对应initLayout接口的layout_right布局,该布局文件没有定义layoutType属性,则需要在这里通过layoutId关键字指定布局id.值right和layout_right布局文件中的layoutId属性值一致.
  			"right-button" : "right1"
  		}
  	},
@@ -280,13 +280,13 @@ uexNBListView.setItems(data, function(errorCode){
 });
 ```
 
-> ### open 打开自定义布局列表
+### 📦 open 打开自定义布局列表
 
 `uexNBListView.open(params, callbackFunction);`
 
 **说明:**
 
-打开自定义布局列表,该方法需要在initLayout方法之后调用,若在调用该方法之前,设置了数据,则会直接显示列表内容,否则不显示。
+打开自定义布局列表,该方法需要在initLayout方法之后调用,若在调用该方法之前,设置了数据,则会直接显示列表内容,否则不显示.
 
 **参数:**
 
@@ -330,17 +330,17 @@ var params ={
 | width           | Number | 是    | 宽                                        |
 | height          | Number | 是    | 高                                        |
 | swipeMode       | Number | 否    | 侧滑模式,参考[SwipeType](#SwipeType),默认3       |
-| offsetLeft      | Number | 否    | 向左滑动时右侧布局显示的宽度,swipeMode支持左滑时必选。 <br>**建议和右侧布局的宽度一致。** |
-| offsetRight     | Number | 否    | 向右滑动时左侧布局显示的宽度,swipeMode支持右滑时必选。<br>  **建议和左侧布局的宽度一致**。 |
+| offsetLeft      | Number | 否    | 向左滑动时右侧布局显示的宽度,swipeMode支持左滑时必选. <br>**建议和右侧布局的宽度一致.** |
+| offsetRight     | Number | 否    | 向右滑动时左侧布局显示的宽度,swipeMode支持右滑时必选.<br>  **建议和左侧布局的宽度一致**. |
 | refreshMode     | Number | 否    | 刷新模式,参考[RefreshMode](#RefreshMode),默认0   |
-| refreshTimeout  | Number | 否    | 刷新超时时间,单位毫秒。在refreshMode非等于0有效,默认为3000   |
+| refreshTimeout  | Number | 否    | 刷新超时时间,单位毫秒.在refreshMode非等于0有效,默认为3000   |
 | openType        | Number | 否    | 打开方式,参考[OpenType](#OpenType)             |
 | containerID     | String | 否    | 只在openType为2时有效且必选,并且该容器已经通过uexWindow中的 [createPluginViewContainer](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249#createPluginViewContainer 创建插件容器 "createPluginViewContainer")方法创建成功 |
-| containerIndex  | Number | 否    | 只在openType为2时有效且必选。指定该列表视图在容器中的索引        |
+| containerIndex  | Number | 否    | 只在openType为2时有效且必选.指定该列表视图在容器中的索引        |
 | backgroundColor | String | 否    | listView的背景色,不传默认为透明                     |
-| header          | json   | 否    | listView头部网页，固定位于listView的顶端，不随listView滚动 |
-| footer          | json   | 否    | listView底部网页，固定位于listView的底部，不随listView滚动 |
-| url             | String | 是    | 网页地址，该网页中不能调用插件和引擎的任何方法，只能通过[sendHtmlEvent](#sendHtmlEvent 头部或底部网页向主网页发送数据方法)和[onHtmlEvent](#onHtmlEvent 头部或底部网页元素被点击的监听方法)与主网页之间进行数据传递 |
+| header          | json   | 否    | listView头部网页,固定位于listView的顶端,不随listView滚动 |
+| footer          | json   | 否    | listView底部网页,固定位于listView的底部,不随listView滚动 |
+| url             | String | 是    | 网页地址,该网页中不能调用插件和引擎的任何方法,只能通过[sendHtmlEvent](#sendHtmlEvent 头部或底部网页向主网页发送数据方法)和[onHtmlEvent](#onHtmlEvent 头部或底部网页元素被点击的监听方法)与主网页之间进行数据传递 |
 
 **回调参数**
 
@@ -366,7 +366,7 @@ var params = {
 });
 ```
 
-> ### close 关闭自定义布局列表
+### 📦 close 关闭自定义布局列表
 
 `uexNBListView.close(params);`
 
@@ -388,13 +388,13 @@ var params = []//唯一标识符数组
         uexNBListView.close(data);
 ```
 
-> ### insert 插入数据
+### 📦 insert 插入数据
 
 `uexNBListView.insert(params,callbackFunction);`
 
 **说明:**
 
-根据索引插入一条或连续的多条数据,若索引大于或等于当前列表长度,则直接插入到列表末尾。注意dataList数据结构需要和setItems中的dataList数据结构保持一致。
+根据索引插入一条或连续的多条数据,若索引大于或等于当前列表长度,则直接插入到列表末尾.注意dataList数据结构需要和setItems中的dataList数据结构保持一致.
 
 **参数:**
 
@@ -487,13 +487,13 @@ var params = {
 });
 ```
 
-> ### update 更新数据
+### 📦 update 更新数据
 
 `uexNBListView.update(params,callbackFunction);`
 
 **说明:**
 
-根据索引更新数据。
+根据索引更新数据.
 
 **参数:**
 
@@ -547,13 +547,13 @@ uexNBListView.update(data, function(errorCode){
 });
 ```
 
-> ### delete 删除数据
+### 📦 delete 删除数据
 
 `uexNBListView.delete(params,callbackFunction);`
 
 **说明:**
 
-根据唯一标识符和索引删除数据。
+根据唯一标识符和索引删除数据.
 
 **参数:**
 
@@ -592,13 +592,13 @@ uexNBListView.delete(data, function(errorCode){
 });
 ```
 
-> ### show 显示自定义列表
+### 📦 show 显示自定义列表
 
 `uexNBListView.show(params);`
 
 **说明:**
 
-根据唯一标识符显示自定义列表。
+根据唯一标识符显示自定义列表.
 
 **参数:**
 
@@ -618,13 +618,13 @@ var data = JSON.stringify(params);
 uexNBListView.show(data);
 ```
 
-> ### hide 隐藏自定义列表
+### 📦 hide 隐藏自定义列表
 
 `uexNBListView.hide(params);`
 
 **说明:**
 
-根据唯一标识符隐藏自定义列表。
+根据唯一标识符隐藏自定义列表.
 
 **参数:**
 
@@ -644,13 +644,13 @@ var data = JSON.stringify(params);
 uexNBListView.hide(data);
 ```
 
-> ### setRefreshStatusCompleted 设置刷新完成状态
+### 📦 setRefreshStatusCompleted 设置刷新完成状态
 
 `uexNBListView.setRefreshStatusCompleted(params);`
 
 **说明:**
 
-在用户执行上拉或者下拉操作后可通过该方法设置刷新完成状态。若当前用户没有执行上拉或下拉操作,则调用该方法无效。
+在用户执行上拉或者下拉操作后可通过该方法设置刷新完成状态.若当前用户没有执行上拉或下拉操作,则调用该方法无效.
 
 **参数:**
 
@@ -670,13 +670,13 @@ var data = JSON.stringify(params);
 uexNBListView.setRefreshStatusCompleted(data);
 ```
 
-> ### sendHtmlEvent 头部或底部网页向主网页发送数据方法
+### 📦 sendHtmlEvent 头部或底部网页向主网页发送数据方法
 
 `uexNBListView.sendHtmlEvent(data);`
 
 **说明:**
 
-该方法只能在头部或者底部html内调用，其他网页内调用该方法无效。该方法主要实现头部网页或者底部网页和主网页(打开listView的网页)之间的交互。调用该方法传递任意字符型参数，该参数会原样通过监听方法[onHtmlEvent](#onHtmlEvent 主网页收到头部或底部网页发送的数据的监听方法)传递给主网页。
+该方法只能在头部或者底部html内调用,其他网页内调用该方法无效.该方法主要实现头部网页或者底部网页和主网页(打开listView的网页)之间的交互.调用该方法传递任意字符型参数,该参数会原样通过监听方法[onHtmlEvent](#onHtmlEvent 主网页收到头部或底部网页发送的数据的监听方法)传递给主网页.
 
 **参数:**
 
@@ -692,7 +692,7 @@ uexNBListView.sendHtmlEvent(data);
 
 ## 2.2、监听方法
 
-> ### onPullRefreshHeader 下拉刷新的监听方法
+### 📦 onPullRefreshHeader 下拉刷新的监听方法
 
 `uexNBListView.onPullRefreshHeader(params);`
 
@@ -718,7 +718,7 @@ uexNBListView.onPullRefreshHeader = function(data){
 }
 ```
 
-> ### onPullRefreshFooter 上拉刷新的监听方法
+### 📦 onPullRefreshFooter 上拉刷新的监听方法
 
 `uexNBListView.onPullRefreshFooter(params);`
 
@@ -744,13 +744,13 @@ uexNBListView.onPullRefreshFooter = function(data){
 }
 ```
 
-> ### XXX 自定义布局内的元素被点击的监听方法
+### 📦 XXX 自定义布局内的元素被点击的监听方法
 
 `uexNBListView.XXX(params);`
 
 **说明:**
 
-XXX表示名称开发者可自定义。给在布局中的元素设置onClick属性值,在该元素被点击时该监听方法被触发。
+XXX表示名称开发者可自定义.给在布局中的元素设置onClick属性值,在该元素被点击时该监听方法被触发.
 
 **参数:**
 
@@ -789,9 +789,9 @@ uexNBListView.onLeftClick = function(data){
 	alert("onLeftClick->" + data);
 };
 ```
-其中onLeftClick方法在id为txt的元素被点击时触发。
+其中onLeftClick方法在id为txt的元素被点击时触发.
 
-> ### onHtmlEvent 主网页收到头部或底部网页发送的数据的监听方法
+### 📦 onHtmlEvent 主网页收到头部或底部网页发送的数据的监听方法
 
 `uexNBListView.onHtmlEvent(info);`
 
@@ -802,7 +802,7 @@ var info = {
     data:
 }
 ```
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称       | 参数类型   | 是否必选 | 说明                                       |
 | ---------- | ------ | ---- | ---------------------------------------- |
@@ -833,14 +833,12 @@ uexNBListView.onHtmlEvent = function(data){
 
 ### Android
 
-API版本:`uexNBListView-3.0.1`
+API版本: `uexNBListView-4.0.0`
 
 最近更新时间:`2016-7-27`
 
 | 历史发布版本 | 更新内容                  |
 | ------ | --------------------- |
-| 3.0.1  | listview新增头部和底部html功能 |
-| 3.0.0  | 自定义布局列表功能插件           |
 # 4、附录
 
 ### SwipeType
@@ -901,7 +899,7 @@ API版本:`uexNBListView-3.0.1`
 # 5、技术专题
 
 ### 数据载入方式
-uexNBListView在使用过程中,需要优先调用initLayout初始化布局方法,布局在定义时需要指定哪些数据在列表中是动态的,然后在setItems,insert或者update接口时对应的传入相应的数据。举例如下:
+uexNBListView在使用过程中,需要优先调用initLayout初始化布局方法,布局在定义时需要指定哪些数据在列表中是动态的,然后在setItems,insert或者update接口时对应的传入相应的数据.举例如下:
 布局文件:
 
 ```
@@ -916,8 +914,8 @@ uexNBListView在使用过程中,需要优先调用initLayout初始化布局方�
 </root>
 ```
 
-其中定义了两个控件元素,一个text显示标题,一个button显示操作按钮。
-其中跟根布局linearlayout的背景颜色和text的文本内容需要动态变化,则定义id为content的linearlayout的background属性为:${自定义变量名},这里的"自定义变量名"为backgroundColor。同理定义id为text的text属性为${title}。
+其中定义了两个控件元素,一个text显示标题,一个button显示操作按钮.
+其中跟根布局linearlayout的背景颜色和text的文本内容需要动态变化,则定义id为content的linearlayout的background属性为:${自定义变量名},这里的"自定义变量名"为backgroundColor.同理定义id为text的text属性为${title}.
 则在设置数据的时候,传入如下代码:
 
 ```
@@ -948,8 +946,8 @@ uexNBListView在使用过程中,需要优先调用initLayout初始化布局方�
 ![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexNBListView/ScreenShoot/data.png)
 
 **注意事项**
->  1、 需要动态更新的数据,必须唯一指定该元素的id,如上例中的linearlayout的id为content,text的id为text。
->  2.、定义变量名时必须是形如${XXX},XXX表示自定义的名称,该名称不能再包含"$"、"{"和"}"符号,并且和传入数据时的key一一对应；
+>  1、 需要动态更新的数据,必须唯一指定该元素的id,如上例中的linearlayout的id为content,text的id为text.
+>  2.、定义变量名时必须是形如${XXX},XXX表示自定义的名称,该名称不能再包含"$"、"{"和"}"符号,并且和传入数据时的key一一对应;
 
->1. 目前只支持部分属性的动态更新,详情请参考[附录](#VariableSupport),属性的取值范围及规则参考"[自定义布局指引文档](http://newdocx.appcan.cn/newdocx/docx?type=1788_975 "自定义布局指引文档")"中的各属性介绍。
+>1. 目前只支持部分属性的动态更新,详情请参考[附录](#VariableSupport),属性的取值范围及规则参考"[自定义布局指引文档](http://newdocx.appcan.cn/newdocx/docx?type=1788_975 "自定义布局指引文档")"中的各属性介绍.
 

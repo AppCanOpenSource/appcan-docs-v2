@@ -10,18 +10,18 @@ uexSlidePager滑动切换页面的相关功能...... 通过创建滑动页面,�
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=187_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.4、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。  
-在后续版本中新添加的接口会在文档中额外说明。
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
 
 # 2、API概览
 
 ## 2.1、方法
 
-> ### openSlidePager 创建滑动页面
+### 📦 openSlidePager 创建滑动页面
 
 `uexSlidePager.openSlidePager(topMargin, contents, icons, colors, option)`
 
@@ -65,7 +65,7 @@ var option = {
 uexSlidePager.openSlidePager(topMargin, contents, icons, colors, JSON.stringify(option));
 
 ```
-> ### closeSlidePager移除滑动页面
+### 📦 closeSlidePager移除滑动页面
 
 `uexSlidePager.closeSlidePager()    `
 
@@ -83,7 +83,7 @@ uexSlidePager.openSlidePager(topMargin, contents, icons, colors, JSON.stringify(
 ```
 uexSlidePager.closeSlidePager()
 ```
-> ### setCurrentPage 设置当前页
+### 📦 setCurrentPage 设置当前页
 
 `uexSlidePager.setCurrentPage(index)    `
 
@@ -106,7 +106,7 @@ uexSlidePager.setCurrentPage(1)
 ```
 
 ## 2.2、监听方法
-> ### onPageClick 点击页面的监听方法
+### 📦 onPageClick 点击页面的监听方法
 
 `uexSlidePager.onPageClick(index)   `
 
@@ -130,7 +130,7 @@ uexSlidePager.onPageClick = function(data){
 }  
 
 ```
-> ### onChangeColor 页面切换背景色的监听方法
+### 📦 onChangeColor 页面切换背景色的监听方法
 
 `uexSlidePager.onChangeColor(color) `
 
@@ -158,50 +158,18 @@ uexSlidePager.onChangeColor = function(data){
 
 ### iOS
 
-API版本:`uexSlidePager-3.0.14`
+API版本: `uexSlidePager-4.0.0`
 
 最近更新时间:`2016-3-2`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.14 | 修复屏幕黑屏问题 |
-| 3.0.13 | openSlidePager接口添加option参数 |
-| 3.0.12 | 添加IDE支持 |
-| 3.0.11 | 适配iPhone6和iPhone6 Plus |
-| 3.0.10 | 修复打开白屏问题 |
-| 3.0.9 | 修复动态库生成不成功的问题 |
-| 3.0.8 | 允许加载加密网页 |
-| 3.0.7 | 修复反复打开关闭插件时的显示错误 |
-| 3.0.6 | 增加closeSlidePager方法 |
-| 3.0.5 | 修复显示bug |
-| 3.0.4 | 修改界面效果 |
-| 3.0.3 | 修改界面效果 |
-| 3.0.2 | 修改界面效果 |
-| 3.0.1 | 修改界面效果 |
-| 3.0.0 | uexSlidePager滑动切换插件 |
 
 ### Android
 
-API版本:`uexSlidePager-3.0.16`
+API版本: `uexSlidePager-4.0.0`
 
 最近更新时间:`2016-01-06`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.16 | 打开接口新增配置是否显示底部图标参数 |
-| 3.0.15 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.14 | 修改jar文件 |
-| 3.0.13 | 修改解密路径 |
-| 3.0.12 | 修改用新引擎打包闪退问题 |
-| 3.0.11 | 修改插件包中的plugin.xml文件 |
-| 3.0.10 | 修复加载加密网页乱码的问题 |
-| 3.0.9 | 修改dimens.xml文件中标签name值 |
-| 3.0.8 | 修复removeView之前窗口已关闭的问题 |
-| 3.0.7 | 实现插件中的clean方法销毁activity |
-| 3.0.6 | 实现插件中的clean方法销毁activity |
-| 3.0.5 | 添加webview弹出alert框功能 |
-| 3.0.4 | 修复webview不支持本地缓存的问题 |
-| 3.0.3 | 修复部分机型webview不透明的问题 |
-| 3.0.2 | 修改webview的背景为透明 |
-| 3.0.1 | 增加setCurrentPage接口以及点击item的回调方法onPageClick |
-| 3.0.0 | uexSlidePager滑动切换插件 |

@@ -9,18 +9,18 @@
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=474_index ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.4、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。  
-在后续版本中新添加的接口会在文档中额外说明。
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
 
 # 2、API概览
 
 ## 2.1、方法
 
-> ### open 打开搜索框
+### 📦 open 打开搜索框
 
 `uexSearchBarView.open(json)`  
 
@@ -79,7 +79,7 @@ var json = {
 运行效果:
 ![](/docImg/975/u10&#40;1&#41;.png)
 
-> ### close 关闭搜索框  
+### 📦 close 关闭搜索框  
 
 ```
 uexSearchBarView.close()
@@ -100,7 +100,7 @@ uexSearchBarView.close()
     uexSearchBarView.close()
 ```
 
-> ### clearHistory 清空搜索历史
+### 📦 clearHistory 清空搜索历史
 
 ```
 uexSearchBarView.clearHistory()
@@ -122,7 +122,7 @@ uexSearchBarView.clearHistory()
 ```
 ## 2.2、监听方法
 
-> ### onItemClick item被点击的监听方法
+### 📦 onItemClick item被点击的监听方法
 
 `uexSearchBarView.onItemClick(json);`
 
@@ -145,7 +145,7 @@ var json = {
     }
 ```
 
-> ### onSearch 用户点击搜索之后的回调
+### 📦 onSearch 用户点击搜索之后的回调
 
 `uexSearchBarView.onSearch(json);`
 
@@ -168,22 +168,18 @@ var json = {
 
 ### iOS
 
-API版本:`uexSearchBarView-3.0.1`
+API版本: `uexSearchBarView-4.0.0`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.1 | 添加IDE支持 |
-| 3.0.0 | 搜索框 |
 
 ### Android
 
-API版本:`uexSearchBarView-3.0.1`
+API版本: `uexSearchBarView-4.0.0`
 
 最近更新时间:`2015-11-06`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.1 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.0 | 搜索框 |

@@ -5,25 +5,25 @@
 图片插件
 
 ## 1.1、说明
-封装了图片的相关功能:您可以使用该插件进行选择。导出、裁剪、浏览、存入系统相册等一系列针对图片的操作。
+封装了图片的相关功能:您可以使用该插件进行选择.导出、裁剪、浏览、存入系统相册等一系列针对图片的操作.
 ## 1.2、UI展示
  ![](/docImg/975/093141n2015r11c2vt&#40;2&#41;.png)  ![](/docImg/975/093145g2015m11b2se&#40;2&#41;.png) 
 ## 1.3、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=505_index)至插件详情页(插件测试用例与插件包已经提供)
 ## 1.4、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。  
-在后续版本中新添加的接口会在文档中额外说明。
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
 
 
 #2、 API预览
 
 ##2.1、 方法
 
-> ### openPicker 打开照片选择器
+### 📦 openPicker 打开照片选择器
 
 `uexImage.openPicker(param,callback);`
 
@@ -49,7 +49,7 @@ var param = {
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称         | 参数类型    | 是否必选 | 说明                                | 默认值   |
 | ------------ | ------- | ---- | --------------------------------- | ----- |
@@ -59,7 +59,7 @@ var param = {
 | usePng       | Boolean | 否    | 用png格式导出图片 ,此参数为true时,quality参数无效 | false |
 | detailedInfo | Boolean | 否    | 此参数为true时,回调中会包含图片的额外信息           | false |
 
-* png 无损且支持透明色,但文件体积比jpg大。
+* png 无损且支持透明色,但文件体积比jpg大.
 * 用户应按需求自行选择图片文件格式
 
 
@@ -72,8 +72,8 @@ var callback = function(error,info){
 
 | 参数名称  | 类型     | 说明                    |
 | ----- | ------ | --------------------- |
-| info  | Object | 返回的数据信息，形式见下：         |
-| error | Number | 0为成功，-1为点击取消而关闭，其他为失败 |
+| info  | Object | 返回的数据信息,形式见下:         |
+| error | Number | 0为成功,-1为点击取消而关闭,其他为失败 |
 
 ```javascript
 var info = {
@@ -125,7 +125,7 @@ uexImage.openPicker(data,function(error,info){
 });
 ```
 
-> ### openBrowser 打开图片浏览器
+### 📦 openBrowser 打开图片浏览器
 
 `uexImage.openBrowser(param,callback);`
 
@@ -210,7 +210,7 @@ uexImage.openBrowser(data,function(){
 	alert("browser closed!");
 });
 ```
-> ### openCropper 打开图片裁剪器
+### 📦 openCropper 打开图片裁剪器
 
 `uexImage.openCropper(param,callback);`
 
@@ -235,7 +235,7 @@ var param = {
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称    | 参数类型    | 是否必选 | 说明                                       | 默认值   |
 | ------- | ------- | ---- | ---------------------------------------- | ----- |
@@ -252,8 +252,8 @@ var callback = function(error,info){}
 
 | 参数名称  | 类型     | 说明                  |
 | ----- | ------ | ------------------- |
-| info  | Object | 返回图片相关信息，形式见下:      |
-| error | Number | 0表示成功，-1表示取消，其他表示失败 |
+| info  | Object | 返回图片相关信息,形式见下:      |
+| error | Number | 0表示成功,-1表示取消,其他表示失败 |
 
 ```javascript
 var info = {
@@ -262,7 +262,7 @@ var info = {
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称        | 参数类型    | 是否必选 | 说明              |
 | ----------- | ------- | ---- | --------------- |
@@ -287,7 +287,7 @@ uexImage.openCropper(data,function(error,info){
 });
 ```
 
-> ### saveToPhotoAlbum 储存到相册
+### 📦 saveToPhotoAlbum 储存到相册
 
 `uexImage.saveToPhotoAlbum(param,callback);`
 
@@ -338,7 +338,7 @@ uexImage.saveToPhotoAlbum(data,function(err,errStr){
 	}
 });
 ```
-> ### clearOutputImages 清除由本插件导出的所有图片文件
+### 📦 clearOutputImages 清除由本插件导出的所有图片文件
 
 `uexImage.clearOutputImages();`
 
@@ -364,14 +364,14 @@ var ret = uexImage.clearOutputImages();
 alert(ret);
 ```
 
-> ### setIpadPopEnable 设置iPad是否启用pop窗口
+### 📦 setIpadPopEnable 设置iPad是否启用pop窗口
 
 `uexImage.setIpadPopEnable(flag);`
 
 **说明**
 
 * 插件在iPad上默认用pop窗口展示插件页面,
-* 通过调用此接口,可以选择是否禁用pop窗口,改用全屏展示插件页面。
+* 通过调用此接口,可以选择是否禁用pop窗口,改用全屏展示插件页面.
 
 **参数**
 
@@ -394,46 +394,18 @@ uexImage.setIpadPopEnable(0);
 
 ### iOS
 
-API版本:`uexImage-3.0.10`
+API版本: `uexImage-4.0.0`
 
 最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容                                     |
 | ------ | ---------------------------------------- |
-| 3.0.10 | 修复在4/4s机型上裁剪接口闪退的问题                      |
-| 3.0.9  | 修复openPicker接口在选择相册界面滑动时可能会产生重影的问题       |
-| 3.0.8  | openPicker接口打开相册时,默认滑动至最底端,以显示最新拍摄的照片    |
-| 3.0.7  | 修复7.x系统上一个导致卡死的bug;修复iPhone包在iPad上运行时的崩溃bug |
-| 3.0.6  | 修复pick图片方向不正确的bug                        |
-| 3.0.5  | 添加IDE支持                                  |
-| 3.0.4  | 新增接口setIpadPopEnable                     |
-| 3.0.3  | 删去资源包中多余的info.plist                      |
-| 3.0.2  | 修复armv7环境会编译失败的bug                       |
-| 3.0.1  | 修复openCropper没有国际化的问题                    |
-| 3.0.0  | uexImage 发布                              |
 
 ### Android
 
-API版本:`uexImage-3.0.16`
+API版本: `uexImage-4.0.0`
 
 最近更新时间:`2016-5-17`
 
 | 历史发布版本 | 更新内容                                |
 | ------ | ----------------------------------- |
-| 3.0.16 | 当进行图片方形裁剪时,固定图片的尺寸                  |
-| 3.0.15 | 优化选择图片时quality为1时的处理逻辑,防止图片质量会有细微差别 |
-| 3.0.14 | 修复三星等机型Exif导致图片显示方向不正确的问题           |
-| 3.0.13 | 优化图片选择器按照图片修改时间排序                   |
-| 3.0.12 | 更换图片加载中资源文件                         |
-| 3.0.11 | 优化图片剪裁功能,优化图片选择器倒序加载图片              |
-| 3.0.10 | 针对保存图片到相册接口,修复开启增量更新时的res协议路径的bug   |
-| 3.0.9  | 修复开启增量更新时的res协议路径的bug               |
-| 3.0.8  | 修复单张图片在图片浏览器上title不正确的问题,优化裁剪后图片的命名 |
-| 3.0.7  | 修复在华为GEM-730L上裁剪图片时显示为圆形的问题         |
-| 3.0.6  | 优化图片目录加载慢,内存占用高,图片预览时的屏幕适配问题        |
-| 3.0.5  | 更换头部的UI背景                           |
-| 3.0.4  | 修复在华为机型的图片裁剪闪退的问题,与iOS同步图片剪裁器       |
-| 3.0.3  | 修复在某些机型上图片裁剪失败的问题                   |
-| 3.0.2  | 修复图片压缩质量错误问题                        |
-| 3.0.1  | 去掉插件中的ActivityGroup,配合引擎升级          |
-| 3.0.0  | uexImage 发布                         |

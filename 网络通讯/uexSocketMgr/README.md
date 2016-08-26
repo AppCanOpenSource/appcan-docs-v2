@@ -3,7 +3,7 @@
 
  socket插件
 ## 1.1、说明
- socket管理接口API,该对象主要封装了tcp,udp的创建以及传输数据文件等接口。
+ socket管理接口API,该对象主要封装了tcp,udp的创建以及传输数据文件等接口.
 ## 1.2、UI展示
 
  ![](http://newdocx.appcan.cn/docxapi/getCImg?img=133440g2015x6r16i.jpg)
@@ -11,18 +11,18 @@
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=189_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供) 
 
 ## 1.4、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。 
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。  
-在后续版本中新添加的接口会在文档中额外说明。 
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明. 
 
 # 2、API概览
 ## 2.1、方法
 
 
-> ### createUDP 创建UDP对象
+### 📦 createUDP 创建UDP对象
 
 `uexSocketMgr.createUDP(param,onData)`
 
@@ -60,7 +60,7 @@ var onData = function(info){
 
 | 参数名称 | 类型     | 说明            |
 | ---- | ------ | ------------- |
-| info | Object | 收到的数据信息，形式见下： |
+| info | Object | 收到的数据信息,形式见下: |
 
 ```javascript
 var info = {
@@ -97,7 +97,7 @@ if(!udp){
 }
 ```
 
-> ### send UDP对象发送数据
+### 📦 send UDP对象发送数据
 
 `uexSocketMgr.send(udp,param,cb)`
 
@@ -158,7 +158,7 @@ uexSocketMgr.send(udp,
 ```
 
 
-> ### createTCP 创建TCP对象
+### 📦 createTCP 创建TCP对象
 
 `uexSocketMgr.createTCP(param,onStatus,onData)`
 
@@ -180,7 +180,7 @@ var param = {
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称     | 参数类型   | 是否必选 | 说明                                       |
 | -------- | ------ | ---- | ---------------------------------------- |
@@ -204,7 +204,7 @@ var onData = function(info){
 
 | 参数名称 | 类型     | 说明            |
 | ---- | ------ | ------------- |
-| info | Object | 收到的数据信息，形式如下: |
+| info | Object | 收到的数据信息,形式如下: |
 
 ```javascript
 var info = {
@@ -238,7 +238,7 @@ if(!tcp){
 }
 ```
 
-> ### connect TCP对象连接服务器
+### 📦 connect TCP对象连接服务器
 
 `uexSocketMgr.connect(tcp,param,cb)`
 
@@ -297,7 +297,7 @@ uexSocketMgr.connect(tcp,
 ```
 
 
-> ### write TCP对象写入数据
+### 📦 write TCP对象写入数据
 
 `uexSocketMgr.write(tcp,param,cb)`
 
@@ -353,7 +353,7 @@ uexSocketMgr.write(tcp,
 ```
 
 
-> ### close 关闭Socket
+### 📦 close 关闭Socket
 
 `uexSocketMgr.close(socket,param,cb)`
 
@@ -418,30 +418,28 @@ uexSocketMgr.close(socket,
 | dataType | 数据类型   | 说明                                       |
 | -------- | ------ | ---------------------------------------- |
 | 0        | utf-8  | 双方均采用utf-8编码的字符串进行通讯                     |
-| 1        | base64 | 此选项多用于二进制流通讯。前端应传入base64编码后的字符串,插件会对其进行解码并发送给对方;收到数据时,插件会对数据进行base64编码,并将编码后的字符串返回给前端. |
-| 2        | gbk    | 当对方要求gbk编码时选择此项。前端应传入utf-8数据,插件会将数据重新按gbk编码后发送给对方; 收到对方的gbk数据时,插件会将数据重新按utf-8编码后返回给前端 |
+| 1        | base64 | 此选项多用于二进制流通讯.前端应传入base64编码后的字符串,插件会对其进行解码并发送给对方;收到数据时,插件会对数据进行base64编码,并将编码后的字符串返回给前端. |
+| 2        | gbk    | 当对方要求gbk编码时选择此项.前端应传入utf-8数据,插件会将数据重新按gbk编码后发送给对方; 收到对方的gbk数据时,插件会将数据重新按utf-8编码后返回给前端 |
 
 
 # 4、更新历史
 
 ### iOS
 
-API版本:`uexSocketMgr-4.0.0`
+API版本: `uexSocketMgr-4.0.0`
 
 最近更新时间:`2016-6-23`
 
 | 历史发布版本 | 更新内容       |
 | ------ | ---------- |
-| 4.0.0  | Socket功能插件 |
 
 
 ### Android
 
-API版本:`uexSocketMgr-4.0.0`
+API版本: `uexSocketMgr-4.0.0`
 
 最近更新时间:`2016-6-23`
 
 | 历史发布版本 | 更新内容       |
 | ------ | ---------- |
-| 4.0.0  | Socket功能插件 |
 

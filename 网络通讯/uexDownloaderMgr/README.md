@@ -2,7 +2,7 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 文件下载插件
 ## 1.1、说明
-文件下载管理接口API,该对象主要封装了下载数据的接口,支持多个文件下载,断点续传下载,下载文件大小无限制。
+文件下载管理接口API,该对象主要封装了下载数据的接口,支持多个文件下载,断点续传下载,下载文件大小无限制.
 
 ## 1.2、UI展示
 ![](http://newdocx.appcan.cn/docximg/133313p2015r6s16g.png)
@@ -11,16 +11,16 @@
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=169_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.4、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。  
-在后续版本中新添加的接口会在文档中额外说明。
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
 
 # 2、API概览
 ## 2.1、方法
-> ### create 创建下载对象
+### 📦 create 创建下载对象
 
 `uexDownloaderMgr.create()`
 
@@ -46,7 +46,7 @@ if(!downloader){
 }
 ```
 
-> ### setHeaders 设置请求头
+### 📦 setHeaders 设置请求头
 
 `uexDownloaderMgr.setHeaders(downloader, json)`
 
@@ -69,7 +69,7 @@ var headJson = '{"Content-type":"application/json;charset=utf-8"}';
 uexDownloaderMgr.setHeaders(downloader, headJson);
 ```
 
-> ### download 下载文件
+### 📦 download 下载文件
 
 `uexDownloaderMgr.download(downloader,serverURL,savePath,mode,cb)`
 
@@ -112,7 +112,7 @@ uexDownloaderMgr.download(downloader,
 	 function(fileSize, percent, status){
               switch (status) {
                   case 0:
-                      document.getElementById('percentage').innerHTML = "文件大小：" + fileSize + "字节<br>下载进度：" + percent;
+                      document.getElementById('percentage').innerHTML = "文件大小:" + fileSize + "字节<br>下载进度:" + percent;
                       return;
                   break;
                   case 1:
@@ -124,7 +124,7 @@ uexDownloaderMgr.download(downloader,
 });
 ```
 
-> ### cancelDownload 取消下载
+### 📦 cancelDownload 取消下载
 
 `uexDownloaderMgr.cancelDownload(serverURL,clearMode)`
 
@@ -137,7 +137,7 @@ uexDownloaderMgr.download(downloader,
 | 参数名称      | 参数类型   | 是否必选 | 说明                                       |
 | --------- | ------ | ---- | ---------------------------------------- |
 | serverURL | String | 是    | 服务器下载地址                                  |
-| clearMode | Number | 否    | 默认为0。0-只取消此次下载任务,不清除已经下载的临时文件。 1-取消此次下载任务并清除已经下载的临时文件 |
+| clearMode | Number | 否    | 默认为0.0-只取消此次下载任务,不清除已经下载的临时文件. 1-取消此次下载任务并清除已经下载的临时文件 |
 
 ​    
 
@@ -147,7 +147,7 @@ uexDownloaderMgr.download(downloader,
 uexDownloaderMgr.cancelDownload("http://wallpaper.pocketdigi.com/upload/1/bigImage/1284565196.jpg");
 ```
 
-> ### closeDownloader 关闭下载对象
+### 📦 closeDownloader 关闭下载对象
 
 `uexDownloaderMgr.closeDownloader(downloader)`
 
@@ -171,7 +171,7 @@ var downloader = ...//由create接口创建的下载对象
 uexDownloaderMgr.closeDownloader(downloader);
 ```
 
-> ### getInfo 获取下载对象的相关信息
+### 📦 getInfo 获取下载对象的相关信息
 
 `uexDownloaderMgr.getInfo(serverURL)`
 
@@ -187,7 +187,7 @@ uexDownloaderMgr.closeDownloader(downloader);
 
 **返回值:**
 
-返回值info是JSON Object类型,形式如下：
+返回值info是JSON Object类型,形式如下:
 
 ```javascript
 var info = {
@@ -198,7 +198,7 @@ var info = {
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 参数名称        | 参数类型   | 说明       |
 | ----------- | ------ | -------- |
@@ -219,49 +219,18 @@ alert(JSON.stringify(info));
 
 ### iOS
 
-API版本:`uexDownloaderMgr-3.3.15`
+API版本: `uexDownloaderMgr-4.0.0`
 
 最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容                                     |
 | ------ | ---------------------------------------- |
-| 3.3.15 | 用AFNetworking重构;添加后台下载的相关接口              |
-| 3.0.14 | 修复在复用窗口中使用时回调丢失的bug                      |
-| 3.0.13 | 添加IDE支持                                  |
-| 3.0.12 | 修改了下载时进度条不动的BUG                          |
-| 3.0.11 | 修改请求的变量                                  |
-| 3.0.10 | 修改clean方法                                |
-| 3.0.9  | 验证的请求头的中的appid与key不匹配                    |
-| 3.0.8  | 判断当前的验证的请求头的属于的应用                        |
-| 3.0.7  | xcode7修正                                 |
-| 3.0.6  | 兼容打包脚本                                   |
-| 3.0.5  | 修改了请求头的验证                                |
-| 3.0.4  | 支持https,导入证书。                            |
-| 3.0.3  | 支持https                                  |
-| 3.0.2  | 为和文档保持统一增加uexDownloader Mgr.cancelDownload接口 |
-| 3.0.1  | 新增setHeaders接口                           |
-| 3.0.0  | 下载管理功能插件                                 |
 
 ### Android
 
-API版本:`uexDownloaderMgr-3.0.14`
+API版本: `uexDownloaderMgr-4.0.0`
 
 最近更新时间:`2016-3-2`
 
 | 历史发布版本 | 更新内容                                     |
 | ------ | ---------------------------------------- |
-| 3.0.14 | 修复下载过程中下载进度过快导致应用异常的问题。                  |
-| 3.0.13 | 修复有些url被encode不能下载的问题                    |
-| 3.0.12 | 修复下载过程中崩溃的问题(由于与其他插件使用的数据库同名造成的)。        |
-| 3.0.11 | 修复调用cancelDownload之后,即使不清除已下载的临时文件,下次下载时不能断点续传的问题 |
-| 3.0.10 | 增加新的 header以及plugin里面的子应用的appId和appkey都按照主应用为准 |
-| 3.0.9  | 增加appVerify校验头                           |
-| 3.0.8  | https下载时可以支持预置证书；增大下载缓冲区；支持中文url;增强稳定性   |
-| 3.0.7  | 修复不支持HTTPS问题                             |
-| 3.0.6  | 新增setHeaders接口                           |
-| 3.0.5  | 引擎更新后,修复取消下载提示不准确的问题                     |
-| 3.0.4  | 修复下载速度慢的问题,修复取消下载提示不准确问题                 |
-| 3.0.3  | 新增接口cancelDownload                       |
-| 3.0.2  | 修复下载速度的问题                                |
-| 3.0.1  | 修复下载完成之后,无法打开,文件不存在的问题                   |
-| 3.0.0  | 下载管理功能插件                                 |

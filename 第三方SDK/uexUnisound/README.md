@@ -6,21 +6,21 @@
 云知声插件
 
 ## 1.1、 说明
-封装了云知声的相关功能:通过调用插件的相关接口,您可以轻松进行语音识别、语义识别以及语音合成等相关功能。
+封装了云知声的相关功能:通过调用插件的相关接口,您可以轻松进行语音识别、语义识别以及语音合成等相关功能.
 
-* 对于个人开发者使用语音服务,需要经过云知声的授权,请到"http://dev.hivoice.cn" 注册成为云知声的开发者,并创建应用,在"我的应用"中获取 AppKey 和 Secret。使用该应用授权码可以帮助开发者监控语音识别服务的使用情况。
+* 对于个人开发者使用语音服务,需要经过云知声的授权,请到"http://dev.hivoice.cn" 注册成为云知声的开发者,并创建应用,在"我的应用"中获取 AppKey 和 Secret.使用该应用授权码可以帮助开发者监控语音识别服务的使用情况.
 
 ## 1.2、 当前版本插件下载
 [点击]()至插件详情页(插件测试用例与插件包已经提供)
 
 
 ## 1.3、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.4、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。  
-在后续版本中新添加的接口会在文档中额外说明。
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
 
 ***
 
@@ -28,7 +28,7 @@
 
 ##2.1、 方法
 
->### init  初始化
+### 📦 init  初始化
 
 `uexUnisound.init(param)`
 
@@ -60,7 +60,7 @@ uexUnisound.init(JSON.stringify(data));
 
 ```
 
->### updateRecognizerSettings  更新语音识别设置
+### 📦 updateRecognizerSettings  更新语音识别设置
 
 `uexUnisound.updateRecognizerSettings(param)`
 
@@ -78,13 +78,13 @@ param是一个字典结构生成的json字符串,其key值如下表所示
 | backTime             | 用户停止说话自动停止录音的时间 | Number | 正整数 单位为毫秒                                | 1000 |
 | rate                 | 录音采样率           | Number | 1-BANDWIDTH\_AUTO; 2-RATE\_8K; 3-RATE_16K; 详细说明见表末 | 3    |
 | languague            | 识别语言            | Number | 1-普通话 2-英语 3-粤语                          | 1    |
-| engine               | 识别领域选择          | Number | 1. “general”：通用识别，2. “poi”: 地名识别,3. “song”: 歌名识别,4. “movietv”：影视名识别,5. . “medical”: 医药领域识别 | 1    |
+| engine               | 识别领域选择          | Number | 1. "general":通用识别,2. "poi": 地名识别,3. "song": 歌名识别,4. "movietv":影视名识别,5. . "medical": 医药领域识别 | 1    |
 
 
 * 以上都是可选参数
 * 采样率意味着录音的质量
-  * 对网络带宽要求 RATE\_16K≈2KB/秒,RATE\_8K≈1KB/秒。
-  * 当设置成 BANDWIDTH_AUTO 时自动根据当前的网络环境切换到最佳的采样频率。
+  * 对网络带宽要求 RATE\_16K≈2KB/秒,RATE\_8K≈1KB/秒.
+  * 当设置成 BANDWIDTH_AUTO 时自动根据当前的网络环境切换到最佳的采样频率.
 
 **示例**
 
@@ -102,7 +102,7 @@ var data = {
 uexUnisound.updateRecognizerSettings();
 ```
 
->### start  开始语音识别
+### 📦 start  开始语音识别
 
 `uexUnisound.start()`
 
@@ -110,7 +110,7 @@ uexUnisound.updateRecognizerSettings();
 
 开始语音识别
 
-* 启动录音和识别,收到 [onRecognizerStart](#onRecognizerStart 语音识别开始的监听方法) 回调代表启动成功,**此时用户才可以说话**。
+* 启动录音和识别,收到 [onRecognizerStart](#onRecognizerStart 语音识别开始的监听方法) 回调代表启动成功,**此时用户才可以说话**.
 * 识别成功后,会通过 [onReceiveRecognizerResult](#onReceiveRecognizerResult 收到语音识别结果的监听方法) 方法回调取到的**语音识别**结果,会通过[onReceiveUnderstanderResult](#onReceiveUnderstanderResult 收到语义理解结果的监听方法) 方法回调取到的**语义解析**结果
 * 如过程中出现了错误,会通过 [onEnd](#onEnd 语音识别任务结束的监听方法) 方法回调错误信息
 * 任务流程:开始语音识别->启动成功->开始录音->回调语音识别结果->录音结束->进行语义识别->回调语义识别结果->结束任务
@@ -127,7 +127,7 @@ uexUnisound.start();
 
 ```
 
->### stop  停止语音识别
+### 📦 stop  停止语音识别
 
 `uexUnisound.stop()`
 
@@ -148,7 +148,7 @@ uexUnisound.stop();
 
 ```
 
->### cancel  取消语音识别
+### 📦 cancel  取消语音识别
 
 `uexUnisound.cancel()`
 
@@ -156,7 +156,7 @@ uexUnisound.stop();
 
 取消语音识别
 
-* 本方法调用后,放弃当前任务,本次任务状态不再回调。
+* 本方法调用后,放弃当前任务,本次任务状态不再回调.
 
 **参数**
 
@@ -170,7 +170,7 @@ uexUnisound.cancel();
 
 ```
 
->### runTextUnderstand 进行文本语义理解
+### 📦 runTextUnderstand 进行文本语义理解
 
 `uexUnisound.runTextUnderstand(param)`
 
@@ -200,7 +200,7 @@ uexUnisound.runTextUnderstand(JSON.stringify(data));
 
 ```
 
->### speaking 进行语音合成
+### 📦 speaking 进行语音合成
 
 `uexUnisound.speaking(param)`
 
@@ -236,7 +236,7 @@ uexUnisound.speaking(JSON.stringify(data));
 
 ```
 
->### cancelSpeaking 取消语音合成
+### 📦 cancelSpeaking 取消语音合成
 
 `uexUnisound.cancelSpeaking()`
 
@@ -261,7 +261,7 @@ uexUnisound.cancelSpeaking();
 
 ##2.2、 监听方法
 
->### onRecognizerStart 语音识别开始的监听方法
+### 📦 onRecognizerStart 语音识别开始的监听方法
 
 `uexUnisound.onRecognizerStart()`
 
@@ -269,8 +269,8 @@ uexUnisound.cancelSpeaking();
 
 语音识别开始的监听方法 (仅IOS支持)
 
-* 录音初始化完成,识别启动时,回调此方法。
-* 由于录音初始化需要时间,如果录音没有初始化完成就开始说话,可能会导致语音前半部分被截断,从而影响识别效果,因此不能调用 start 后就开始说话,而是要等待录音初始化完成才提示用户开始说话。
+* 录音初始化完成,识别启动时,回调此方法.
+* 由于录音初始化需要时间,如果录音没有初始化完成就开始说话,可能会导致语音前半部分被截断,从而影响识别效果,因此不能调用 start 后就开始说话,而是要等待录音初始化完成才提示用户开始说话.
 
 **参数**
 
@@ -287,7 +287,7 @@ window.uexOnload = function(type){
 
 ```
 
->### onSpeechStart 检测到开始说话的监听方法
+### 📦 onSpeechStart 检测到开始说话的监听方法
 
 `uexUnisound.onSpeechStart()`
 
@@ -295,7 +295,7 @@ window.uexOnload = function(type){
 
 检测到开始说话的监听方法
 
-* 收到此回调代表已检测到用户开始说话。
+* 收到此回调代表已检测到用户开始说话.
 
 **参数**
 
@@ -313,7 +313,7 @@ window.uexOnload = function(type){
 
 ```
 
->### onReceiveRecognizerResult 收到语音识别结果的监听方法
+### 📦 onReceiveRecognizerResult 收到语音识别结果的监听方法
 
 `uexUnisound.onReceiveRecognizerResult(param)`
 
@@ -322,9 +322,9 @@ window.uexOnload = function(type){
 收到语音识别结果的监听方法
 
 * 控件采用边录音边识别方式,可能会多次返回结果,
-  * isLast 为 true 表示识别结果已经取完,随后将进行语义解析任务。
-  * false 表示结果未取完。 
-  * 建议用户在此接口中先将数据保存起来,然后在 onEnd 中再进行下一步处理。
+  * isLast 为 true 表示识别结果已经取完,随后将进行语义解析任务.
+  * false 表示结果未取完. 
+  * 建议用户在此接口中先将数据保存起来,然后在 onEnd 中再进行下一步处理.
 
 **参数**
 
@@ -350,13 +350,13 @@ window.uexOnload = function(type){
 
 ```
 
->### onEnd 语音识别任务结束的监听方法
+### 📦 onEnd 语音识别任务结束的监听方法
 
 `uexUnisound.onEnd(param)`
 
 **说明**
 
-* onEnd 回调时,表示本次语音识别过程结束。
+* onEnd 回调时,表示本次语音识别过程结束.
 
 **参数**
 
@@ -391,14 +391,14 @@ window.uexOnload = function(type){
 }
 
 ```
->### onVADTimeout 录音超时的监听方法
+### 📦 onVADTimeout 录音超时的监听方法
 
 `uexUnisound.onVADTimeout()`
 
 **说明**
 
-* 录音过程中,如果用户间隔一段时间没有说话,会回调此方法。
-* 用户可以在此方法中调用 stop 方法停止录音,等待识别结果。
+* 录音过程中,如果用户间隔一段时间没有说话,会回调此方法.
+* 用户可以在此方法中调用 stop 方法停止录音,等待识别结果.
 
 **参数**
 
@@ -415,14 +415,14 @@ window.uexOnload = function(type){
 
 ```
 
->### onUpdateVolume 录音过程中音量大小的监听方法
+### 📦 onUpdateVolume 录音过程中音量大小的监听方法
 
 `uexUnisound.onUpdateVolume(param)`
 
 **说明**
 
-* 录音过程中会不断的回调此方法,实时返回音量大小(0 到 100)。
-* 值越大表示音量越大。
+* 录音过程中会不断的回调此方法,实时返回音量大小(0 到 100).
+* 值越大表示音量越大.
 * 用户可以根据 volume 的大小来实现音量变化的动画效果
 
 **参数**
@@ -449,7 +449,7 @@ window.uexOnload = function(type){
 
 ```
 
->### onReceiveUnderstanderResult 收到语义理解结果的监听方法
+### 📦 onReceiveUnderstanderResult 收到语义理解结果的监听方法
 
 `uexUnisound.onReceiveUnderstanderResult(param)`
 
@@ -484,7 +484,7 @@ window.uexOnload = function(type){
 
 ```
 
->### onSpeakingStart 语音合成开始的监听方法
+### 📦 onSpeakingStart 语音合成开始的监听方法
 
 `uexUnisound.onSpeakingStart()`
 
@@ -507,7 +507,7 @@ window.uexOnload = function(type){
 
 ```
 
->### onSpeakingFinish 语音合成结束的监听方法
+### 📦 onSpeakingFinish 语音合成结束的监听方法
 
 `uexUnisound.onSpeakingFinish()`
 
@@ -530,7 +530,7 @@ window.uexOnload = function(type){
 
 ```
 
->### onSpeakingCancel 语音合成被取消的监听方法
+### 📦 onSpeakingCancel 语音合成被取消的监听方法
 
 `uexUnisound.onSpeakingCancel()`
 
@@ -553,7 +553,7 @@ window.uexOnload = function(type){
 
 ```
 
->### onSpeakingErrorOccur 语音合成过程出错的监听方法
+### 📦 onSpeakingErrorOccur 语音合成过程出错的监听方法
 
 `uexUnisound.onSpeakingErrorOccur(param)`
 
@@ -588,20 +588,18 @@ window.uexOnload = function(type){
 
 ### iOS
 
-API版本:`uexUnisound-3.0.0`
+API版本: `uexUnisound-4.0.0`
 
 最近更新时间:`2015-09-18`
 
 | 历史发布版本 | 更新内容  |
 | ------ | ----- |
-| 3.0.0  | 云知声插件 |
 
 ### Android
 
-API版本:`uexUnisound-3.0.0`
+API版本: `uexUnisound-4.0.0`
 
 最近更新时间:`2015-09-18`
 
 | 历史发布版本 | 更新内容  |
 | ------ | ----- |
-| 3.0.0  | 云知声插件 |

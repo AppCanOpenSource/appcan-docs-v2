@@ -20,7 +20,7 @@
 
 ##2.1、 方法
 
->### init  初始化
+### 📦 init  初始化
 
 `uexXunfei.init(param)`
 
@@ -67,13 +67,13 @@ iOS 3.0.0+
 
 ```
 
->### initSpeaker 初始化语音合成
+### 📦 initSpeaker 初始化语音合成
 
 `uexXunfei.initSpeaker(param)`
 
 **说明**
 
-初始化语音合成接口,只需要调用一次。不使用语音合成相关功能则不需要调用
+初始化语音合成接口,只需要调用一次.不使用语音合成相关功能则不需要调用
 
 **参数**
 
@@ -113,7 +113,7 @@ iOS 3.0.0+
     }
 ```
 
->### startSpeaking 开始语音合成
+### 📦 startSpeaking 开始语音合成
 
 `uexXunfei.startSpeaking(param)`
 
@@ -151,7 +151,7 @@ iOS 3.0.0+
     }
 ```
 
->### stopSpeaking 停止语音合成
+### 📦 stopSpeaking 停止语音合成
 
 `uexXunfei.stopSpeaking()`
 
@@ -175,7 +175,7 @@ iOS 3.0.0+
 uexXunfei.stopSpeaking();    
 ```
 
->### pauseSpeaking 暂停语音合成
+### 📦 pauseSpeaking 暂停语音合成
 
 `uexXunfei.pauseSpeaking()`
 
@@ -199,7 +199,7 @@ iOS 3.0.0+
 uexXunfei.pauseSpeaking();    
 ```
 
->### resumeSpeaking 继续语音合成
+### 📦 resumeSpeaking 继续语音合成
 
 `uexXunfei.resumeSpeaking()`
 
@@ -223,13 +223,13 @@ iOS 3.0.0+
 uexXunfei.resumeSpeaking();    
 ```
 
->### initRecognizer 初始化语音识别
+### 📦 initRecognizer 初始化语音识别
 
 `uexXunfei.initRecognizer()`
 
 **说明**
 
-初始化语音识别,该接口只需要调用一次。如果不需要用到语音识别的功能,则不需要调用
+初始化语音识别,该接口只需要调用一次.如果不需要用到语音识别的功能,则不需要调用
 
 **参数**
 
@@ -244,7 +244,7 @@ var param={
 				//视频:video 
 				//地图:poi
 				//音乐:music(String类型,必选)
-		language;//设置语言 默认"zh_cn"(String类型。可选)
+		language;//设置语言 默认"zh_cn"(String类型.可选)
 				//当前支持:
 				//简体中文:zh_cn(默认)
 				//美式英文:en_us
@@ -278,7 +278,7 @@ iOS 3.0.0+
     }
 ```
 
->### startListening 开始语音识别
+### 📦 startListening 开始语音识别
 
 `uexXunfei.startListening(param)`
 
@@ -303,7 +303,7 @@ iOS 3.0.0+
     }
 ```
 
->### stopListening 停止语音识别
+### 📦 stopListening 停止语音识别
 
 `uexXunfei.stopListening()`
 
@@ -327,7 +327,7 @@ iOS 3.0.0+
 uexXunfei.stopListening();    
 ```
 
->### cancelListening 取消语音识别
+### 📦 cancelListening 取消语音识别
 
 `uexXunfei.cancelListening()`
 
@@ -353,7 +353,7 @@ uexXunfei.cancelListening();
 
 ## 2.2、 回调方法
 
->### cbInit 初始化完成的回调方法
+### 📦 cbInit 初始化完成的回调方法
 
 `uexXunfei.cbInit(param)`
 
@@ -383,7 +383,7 @@ var param={
  
 ##2.3、 监听方法
 
->### onSpeakBegin 语音合成开始
+### 📦 onSpeakBegin 语音合成开始
 
 `uexXunfei.onSpeakBegin()`
 
@@ -409,7 +409,7 @@ iOS 3.0.0+
        }
 ```
 
->### onSpeakPaused 语音合成暂停
+### 📦 onSpeakPaused 语音合成暂停
 
 `uexXunfei.onSpeakPaused()`
 
@@ -435,7 +435,7 @@ iOS 3.0.0+
        }
 ```
 
->### onSpeakResumed 语音合成继续
+### 📦 onSpeakResumed 语音合成继续
 
 `uexXunfei.onSpeakResumed()`
 
@@ -461,7 +461,7 @@ iOS 3.0.0+
        }
 ```
 
->### onSpeakComplete 语音合成完成
+### 📦 onSpeakComplete 语音合成完成
 
 `uexXunfei.onSpeakComplete()`
 
@@ -487,7 +487,7 @@ iOS 3.0.0+
        }
 ```
 
->### onRecognizeError 语音识别出错
+### 📦 onRecognizeError 语音识别出错
 
 `uexXunfei.onRecognizeError()`
 
@@ -521,7 +521,7 @@ iOS 3.0.0+
        }
 ```
 
->### onBeginOfSpeech 开始语音识别
+### 📦 onBeginOfSpeech 开始语音识别
 
 `uexXunfei.onBeginOfSpeech()`
 
@@ -547,7 +547,7 @@ iOS 3.0.0+
        }
 ```
 
->### onEndOfSpeech 语音识别完成
+### 📦 onEndOfSpeech 语音识别完成
 
 `uexXunfei.onEndOfSpeech()`
 
@@ -573,7 +573,7 @@ iOS 3.0.0+
        }
 ```
 
->### onRecognizeResult 语音识别的结果
+### 📦 onRecognizeResult 语音识别的结果
 
 `uexXunfei.onRecognizeResult()`
 
@@ -625,7 +625,7 @@ iOS 3.0.0+
 语音识别示例:  
 
 ```
-{"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"今天","sc":0}]},{"bg":0,"cw":{"w":"的","sc":0}]},{"bg":0,"cw":[{"w":"天气","sc":0}]},{"bg":0,"cw":[{"w":"怎么样","sc":0}]},{"bg":0,"cw":[{"w":"。","sc":0}]}]}  
+{"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"今天","sc":0}]},{"bg":0,"cw":{"w":"的","sc":0}]},{"bg":0,"cw":[{"w":"天气","sc":0}]},{"bg":0,"cw":[{"w":"怎么样","sc":0}]},{"bg":0,"cw":[{"w":".","sc":0}]}]}  
 ```
 多候选示例:  
 
@@ -636,27 +636,24 @@ iOS 3.0.0+
 #3、 附录
 
 ##AppID申请
-AppID申请需要在讯飞官网申请完成。创建应用之后需要开通`语音听写` `在线语音合成`。目前暂时支持这两个功能,后续有需求会继承其他的功能
+AppID申请需要在讯飞官网申请完成.创建应用之后需要开通`语音听写` `在线语音合成`.目前暂时支持这两个功能,后续有需求会继承其他的功能
 
 # 4、更新历史
 
 ### iOS
 
-API版本:`uexXunfei-3.0.1`
+API版本: `uexXunfei-4.0.0`
 
 最近更新时间:`2016-3-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.1 | 添加iflyMSC.framework |
-| 3.0.0 | 新增uexXunfei插件 |
 
 ### Android
 
-API版本:`uexXunfei-3.0.0`
+API版本: `uexXunfei-4.0.0`
 
 最近更新时间:`2015-12-18`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 初始化版本 |

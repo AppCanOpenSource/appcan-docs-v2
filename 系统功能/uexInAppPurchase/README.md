@@ -7,7 +7,7 @@
 
 ## 1.3、公告 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fnew.gif)]() 
 
-iOS开发的收入有三种来源:出售应用、内购和广告。国内用户通常很少直接购买应用,因此对于开发者而言(特别是个人开发者),内购和广告收入就成了主要的收入来源。内购营销模式,通常软件本身是不收费的,但是要获得某些特权就必须购买一些道具,需要通过内购的方式来实现,而内购的过程是由苹果官方统一来管理的.
+iOS开发的收入有三种来源:出售应用、内购和广告.国内用户通常很少直接购买应用,因此对于开发者而言(特别是个人开发者),内购和广告收入就成了主要的收入来源.内购营销模式,通常软件本身是不收费的,但是要获得某些特权就必须购买一些道具,需要通过内购的方式来实现,而内购的过程是由苹果官方统一来管理的.
     
 ## 1.4、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=567) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
@@ -16,7 +16,7 @@ iOS开发的收入有三种来源:出售应用、内购和广告。国内用户�
 
 ##2.1、方法
 
-> ### getProductList 得到产品列表方法
+### 📦 getProductList 得到产品列表方法
 
 `uexInAppPurchase.getProductList(params);`     
 
@@ -53,7 +53,7 @@ var params = {
 };            
 uexInAppPurchase.getProductList(JSON.stringify(params));
 ```
-> ### canMakePay 测试设备是否支持支付功能
+### 📦 canMakePay 测试设备是否支持支付功能
 
 `var info = uexInAppPurchase.canMakePay();`
  
@@ -61,7 +61,7 @@ uexInAppPurchase.getProductList(JSON.stringify(params));
 
 **说明:**
 
-该方法测试设备是否支持支付功能，支持同步返回。
+该方法测试设备是否支持支付功能,支持同步返回.
 
                
 
@@ -69,7 +69,7 @@ uexInAppPurchase.getProductList(JSON.stringify(params));
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| info| Number | 是 | 0表示设备允许内购，1设备禁止内购| 
+| info| Number | 是 | 0表示设备允许内购,1设备禁止内购| 
 
 **支持平台:**
 				
@@ -86,7 +86,7 @@ iOS6.0+
  
  alert(info);
 ```
-> ### purchase 购买单一产品
+### 📦 purchase 购买单一产品
 
 uexInAppPurchase.purchase(params);
      
@@ -96,7 +96,7 @@ uexInAppPurchase.purchase(params);
 
 **说明:**
 
-该产品应该为从服务器返回的某一产品,从cbGetProductList中获取,该产品可以是消耗品或非消耗品以及其它类型,开发人员应对非消耗品进行逻辑处理,非消耗品无需再次购买。
+该产品应该为从服务器返回的某一产品,从cbGetProductList中获取,该产品可以是消耗品或非消耗品以及其它类型,开发人员应对非消耗品进行逻辑处理,非消耗品无需再次购买.
 
                 
 
@@ -112,8 +112,8 @@ var params = {
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | productID | String | 是 |某一产品ID,通过cbGetProductList获取| 
-| quantity | Number | 否 |购买的数量，默认为1 | 
-| appStoreVerifyURL | bool | 是 |true为实际购买验证；false为沙盒测试 | 
+| quantity | Number | 否 |购买的数量,默认为1 | 
+| appStoreVerifyURL | bool | 是 |true为实际购买验证;false为沙盒测试 | 
 **支持平台:**
 				
 iOS6.0+	
@@ -133,13 +133,13 @@ var params = {
 uexInAppPurchase.purchase(JSON.stringify(params));
 ```
 
-> ###restorePurchase 恢复购买方法
+### 📦restorePurchase 恢复购买方法
 
 `uexInAppPurchase.restorePurchase();`	
 
 **说明:**
 
-恢复所有非消耗品,对于非消耗品,用户在完成购买后如果使用其他机器登录或者卸载重新安装应用后通常希望这些非消耗品能够恢复。
+恢复所有非消耗品,对于非消耗品,用户在完成购买后如果使用其他机器登录或者卸载重新安装应用后通常希望这些非消耗品能够恢复.
 		
 
 **参数:**
@@ -165,7 +165,7 @@ iOS6.0+
 
 ## 2.2、回调方法
 
-> ### cbGetProductList 获取产品列表信息的回调方法
+### 📦 cbGetProductList 获取产品列表信息的回调方法
 
 `cbGetProductList(info)`
 
@@ -203,13 +203,13 @@ window.uexOnload = function(){
 }
 ```
 
-> ### <del>cbGetVerifyInfo 获取产品购买验证信息的回调方法</del>(已废弃)
+### 📦 <del>cbGetVerifyInfo 获取产品购买验证信息的回调方法</del>(已废弃)
 
 `cbGetVerifyInfo(info)`
 
 **说明:**
 
- 该方法返回产品购买验证的相关信息,根据该信息进行相应的逻辑处理。如:读取产品标识 ,如果是消耗品则记录购买数量,非消耗品则记录是否购买过。
+ 该方法返回产品购买验证的相关信息,根据该信息进行相应的逻辑处理.如:读取产品标识 ,如果是消耗品则记录购买数量,非消耗品则记录是否购买过.
 
 **参数:**
 
@@ -233,7 +233,7 @@ window.uexOnload = function(){
 ```
 ## 2.2、监听方法
 
-> ### onRequestState 对发送产品请求进行监听
+### 📦 onRequestState 对发送产品请求进行监听
 
 `onRequestState(state)`
 
@@ -253,9 +253,9 @@ var state ={
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| status | Number | 是 |发送产品请求的状态,0表示请求完成，1表示请求失败 | 
-| errorCode | Number | 否 |status为1才有，错误状态码 | 
-| errorDescription | String | 否 |status为1才有，错误状态的描述信息 | 
+| status | Number | 是 |发送产品请求的状态,0表示请求完成,1表示请求失败 | 
+| errorCode | Number | 否 |status为1才有,错误状态码 | 
+| errorDescription | String | 否 |status为1才有,错误状态的描述信息 | 
 **版本支持:**
 
 3.0.0+
@@ -270,7 +270,7 @@ window.uexOnload = function(){
     uexInAppPurchase.onRequestState = onRequestState;
 }
 ```
-> ### onPurchaseState 对产品购买状态的监听方法
+### 📦 onPurchaseState 对产品购买状态的监听方法
 
 `onPurchaseState(state)`
 
@@ -289,7 +289,7 @@ var state ={
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| status | Number | 是 |购买产品的有效性,0表示产品有效，1表示产品无效 | 
+| status | Number | 是 |购买产品的有效性,0表示产品有效,1表示产品无效 | 
 | msg | String | 是 |产品有效返回"purchase start",产品无效返回"product is nil" | 
  
  
@@ -310,13 +310,13 @@ window.uexOnload = function(){
 ```
 
 
-> ### onTransactionState 对产品交易状态和信息的监听方法
+### 📦 onTransactionState 对产品交易状态和信息的监听方法
 
 `onTransactionState(state)`
 
 **说明:**
 
- 当购买的产品为有效产品时,会将有效产品加入支付队列就形成一次购买请求,并且用户允许内购时,将会进行交易。该方法是对用户交易状态的监听。
+ 当购买的产品为有效产品时,会将有效产品加入支付队列就形成一次购买请求,并且用户允许内购时,将会进行交易.该方法是对用户交易状态的监听.
 
 
 **参数:**
@@ -345,13 +345,13 @@ var state ={
 ```
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| state | Number | 是 |交易状态标识符，详细说明见下| 
+| state | Number | 是 |交易状态标识符,详细说明见下| 
 
  state字段含义如下:
 
 |  value | 说明  |
 | ----- | ----- |
-| 0 | 通过验证，购买成功 |
+| 0 | 通过验证,购买成功 |
 | 1 | 恢复成功 |
 | 2 | 购买失败 |
 | 3 | 验证购买过程中发生错误 |
@@ -373,13 +373,13 @@ window.uexOnload = function(){
 ```
 
 
-> ### onRestoreState 对产品恢复购买的状态进行监听
+### 📦 onRestoreState 对产品恢复购买的状态进行监听
 
 `onRestoreState(state)`
 
 **说明:**
 
- 对于非消耗品,用户在完成购买后如果使用其他机器登录或者卸载重新安装应用后通常希望这些非消耗品能够恢复,该监听方法是对restorePurchase方法进行监听,返回恢复购买的状态。
+ 对于非消耗品,用户在完成购买后如果使用其他机器登录或者卸载重新安装应用后通常希望这些非消耗品能够恢复,该监听方法是对restorePurchase方法进行监听,返回恢复购买的状态.
 
 **参数:**
 
@@ -393,9 +393,9 @@ var state ={
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| status | Number | 是 |恢复购买的状态,0表示恢复购买完成，1表示恢复购买失败 | 
-| errorCode | Number | 否 |status为1才有，错误状态码 | 
-| errorDescription | String | 否 |status为1才有，错误状态的描述信息 |  
+| status | Number | 是 |恢复购买的状态,0表示恢复购买完成,1表示恢复购买失败 | 
+| errorCode | Number | 否 |status为1才有,错误状态码 | 
+| errorDescription | String | 否 |status为1才有,错误状态的描述信息 |  
 
 **版本支持:**
 
@@ -411,13 +411,13 @@ window.uexOnload = function(){
     uexInAppPurchase.onRestoreState = onRestoreState;
 }
 ```
-> ### <del>onVerifyState 对产品购买验证状态的进行监听</del>(已废弃)
+### 📦 <del>onVerifyState 对产品购买验证状态的进行监听</del>(已废弃)
 
 `onVerifyState(state)`
 
 **说明:**
 
- 当交易成功时,会进行产品购买验证,该方法是对产品购买验证的状态进行监听。
+ 当交易成功时,会进行产品购买验证,该方法是对产品购买验证的状态进行监听.
 
 **参数:**
 
@@ -439,13 +439,13 @@ window.uexOnload = function(){
     uexInAppPurchase.onVerifyState = onVerifyState;
 }
 ```
-> ### <del>onSettingState 对用户内购权限设置状态的监听</del>(已废弃)
+### 📦 <del>onSettingState 对用户内购权限设置状态的监听</del>(已废弃)
 
 `onSettingState(state)`
 
 **说明:**
 
- 当购买的产品为有效产品时,会将有效产品加入支付队列就形成一次购买请求,若用户禁止内购,购买请求将会被终止。该方法是对用户内购权限设置状态的监听。
+ 当购买的产品为有效产品时,会将有效产品加入支付队列就形成一次购买请求,若用户禁止内购,购买请求将会被终止.该方法是对用户内购权限设置状态的监听.
  
 
 **参数:**
@@ -472,17 +472,12 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexInAppPurchase-3.0.4`
+API版本: `uexInAppPurchase-4.0.0`
 
 最近更新时间:`2016-05-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.4 | 新增接口canMakePay，废弃无用监听 |
-| 3.0.3 | 更新方法 |
-| 3.0.2 | 修复无法返回产品列表 |
-| 3.0.1 | 优化内购插件 |
-| 3.0.0 | 内部支付(IAP)插件 |
 
 ### Android
 

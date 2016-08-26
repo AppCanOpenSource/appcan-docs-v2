@@ -3,9 +3,9 @@
 uexRongCloud(融云)插件  
 
 ## 1.1、 说明
-融云是国内首家专业的即时通讯云服务提供商,专注为互联网、移动互联网开发者提供免费的即时通讯基础能力和云端服务。通过融云平台,开发者不必搭建服务端硬件环境,就可以将即时通讯、实时网络能力快速集成至应用中。融云SDK包括两部分:IM界面组件和 IM通讯能力库。
+融云是国内首家专业的即时通讯云服务提供商,专注为互联网、移动互联网开发者提供免费的即时通讯基础能力和云端服务.通过融云平台,开发者不必搭建服务端硬件环境,就可以将即时通讯、实时网络能力快速集成至应用中.融云SDK包括两部分:IM界面组件和 IM通讯能力库.
 
-本插件封装的是IM通讯能力库-IMLib,IMLib 是不含界面的基础 IM 通讯能力库,封装了通信能力和会话、消息等对象。
+本插件封装的是IM通讯能力库-IMLib,IMLib 是不含界面的基础 IM 通讯能力库,封装了通信能力和会话、消息等对象.
 
 > **使用前说明:**  
 
@@ -35,7 +35,7 @@ root页面收到回调后,可以通过uexWindow的相关方法传递到各个网
 
 这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1318_1249) 内有描述
 
-当然,也可[下载Demo]() 参考Demo内的调用。
+当然,也可[下载Demo]() 参考Demo内的调用.
 
 ##1.2、 UI展示
 暂无
@@ -56,13 +56,13 @@ Path Types
 
 #2、API概述		
 
-使用该插件需要先在[融云官网](http://www.rongcloud.cn/)申请AppKey。
+使用该插件需要先在[融云官网](http://www.rongcloud.cn/)申请AppKey.
 
-如果无特殊说明，本文档的回调函数全部是如下格式：
+如果无特殊说明,本文档的回调函数全部是如下格式:
 
 ```javascript
 var callback=function (error,data){
-  //error为0表示成功，其他表示失败
+  //error为0表示成功,其他表示失败
 }
 ```
 
@@ -70,13 +70,13 @@ var callback=function (error,data){
 
 ##2.1、初始化
 ***
->### init 初始化
+### 📦 init 初始化
 
 `uexRongCloud.init(json,callback)`
 
-**说明：**
+**说明:**
 
-**Android 版本的AppKey需要在`config.xml`中配置,把`value`对应的值替换成自己的AppKey即可。示例如下:**
+**Android 版本的AppKey需要在`config.xml`中配置,把`value`对应的值替换成自己的AppKey即可.示例如下:**
 
 ```xml
 <config desc="uexRongCloud" type="KEY">
@@ -84,15 +84,15 @@ var callback=function (error,data){
 </config>
 ```
 
-**参数：**
+**参数:**
 
-`json`为JSON对象，各字段如下：
+`json`为JSON对象,各字段如下:
 
 | 参数名称   | 参数类型   | 是否必选 | 说明       |
 | ------ | ------ | ---- | -------- |
 | appKey | String | 是    | 区别app的标识 |
 
-**回调参数：**
+**回调参数:**
 
 ```javascript
 var callback=function (error,data){}
@@ -100,10 +100,10 @@ var callback=function (error,data){}
 
 | 参数名称  | 类型     | 说明           |
 | ----- | ------ | ------------ |
-| error | Number | 0表示成功，非0表示失败 |
+| error | Number | 0表示成功,非0表示失败 |
 | data  | String | 失败时返回相关的原因   |
 
-**示例：**
+**示例:**
 
 ```javascript
 uexRongCloud.init({
@@ -118,24 +118,24 @@ uexRongCloud.init({
 ##2.2、登录与登出
 
 ***
->### connect(param)   与融云服务器建立连接
+### 📦 connect(param)   与融云服务器建立连接
 
 `uexRongCloud.connect(json,callback)`
 
-**说明：**
+**说明:**
 
-在App整个生命周期,您只需要调用一次此方法与融云服务器建立连接。之后无论是网络出现异常或者App有前后台的切换等,SDK都会负责自动重连。除非您已经手动将连接断开,否则您不需要自己再手动重连。
+在App整个生命周期,您只需要调用一次此方法与融云服务器建立连接.之后无论是网络出现异常或者App有前后台的切换等,SDK都会负责自动重连.除非您已经手动将连接断开,否则您不需要自己再手动重连.
 param为json字符串
 
-**参数：**
+**参数:**
 
-`json`为JSON对象，各字段如下：
+`json`为JSON对象,各字段如下:
 
 | 参数名称  | 参数类型   | 是否必选 | 说明                     |
 | ----- | ------ | ---- | ---------------------- |
 | token | String | 是    | 从您服务器端获取的token(用户身份令牌) |
 
-**回调参数：**
+**回调参数:**
 
 ```javascript
 var callback=function (error,data){}
@@ -143,40 +143,40 @@ var callback=function (error,data){}
 
 | 参数名称  | 类型     | 说明                     |
 | ----- | ------ | ---------------------- |
-| error | Number | 0表示成功，非0表示失败           |
-| data  | String | 失败时返回相关的原因， 成功返回userId |
+| error | Number | 0表示成功,非0表示失败           |
+| data  | String | 失败时返回相关的原因, 成功返回userId |
 
-**示例：**
+**示例:**
 
 ```javascript
 uexRongCloud.connect({
   token:""
 },function(error,data){
   if(error==0){
-    alert("userId为："+data)!
+    alert("userId为:"+data)!
   }
 });
 ```
 
->### disconnect  断开与融云服务器建立连接
+### 📦 disconnect  断开与融云服务器建立连接
 
 `uexRongCloud.disconnect(json)`
 
-**说明：**
+**说明:**
 
-因为SDK在前后台切换或者网络出现异常都会自动重连,会保证连接的可靠性。 所以除非您的App逻辑需要登出,否则一般不需要调用此方法进行手动断开。
+因为SDK在前后台切换或者网络出现异常都会自动重连,会保证连接的可靠性. 所以除非您的App逻辑需要登出,否则一般不需要调用此方法进行手动断开.
 
-**参数：**
+**参数:**
 
-`json`为JSON对象，各字段如下：
+`json`为JSON对象,各字段如下:
 
 | 参数名称          | 参数类型    | 是否必选 | 说明                                       |
 | ------------- | ------- | ---- | ---------------------------------------- |
-| isReceivePush | Boolean | 是    | 断开与融云服务器的连接之后,是否还接收远程推送。true:接收,false:不接收 |
+| isReceivePush | Boolean | 是    | 断开与融云服务器的连接之后,是否还接收远程推送.true:接收,false:不接收 |
 
 
 
-**示例：**
+**示例:**
 
 ```javascript
 uexRongCloud.disconnect({
@@ -187,48 +187,48 @@ uexRongCloud.disconnect({
 ##2.3、基础消息功能
 ***
 
->### sendMessage 发送消息
+### 📦 sendMessage 发送消息
 
 `uexRongClound.sendMessage(json,callback)`
 
-**说明：**
+**说明:**
 
 无
 
-**参数：**
+**参数:**
 
-`json`为JSON对象，各字段如下：
+`json`为JSON对象,各字段如下:
 
-**公共参数：**
+**公共参数:**
 
 | 参数名称             | 参数类型   | 是否必选 | 说明                                       |
 | ---------------- | ------ | ---- | ---------------------------------------- |
 | objectName       | String | 是    | 消息类型   "RC:TxtMsg":文字消息     "RC:VcMsg":语音消息  "RC:ImgMsg":图片消息     "RC:ImgTextMsg":图文消息    "RC:LBSMsg":位置消息     "RC:CmdNtf":命令消息 |
 | conversationType | String | 是    | 会话类型 'PRIVATE'-单聊  'DISCUSSION'-讨论组 'GROUP'-群组 'CHATROOM'-聊天室 'CUSTOMER_SERVICE'-客服 'SYSTEM'-系统 |
-| targetId         | String | 是    | 消息的接收方 Id。根据不同的 conversationType,可能是用户Id、讨论组Id、群组Id或聊天室Id等 |
+| targetId         | String | 是    | 消息的接收方 Id.根据不同的 conversationType,可能是用户Id、讨论组Id、群组Id或聊天室Id等 |
 | extra            | String | 否认   | 消息的附加字段                                  |
 | localId          | String | 是    | 消息的唯一id,用于标识接收发送回调的处理                    |
 
-**objectName 为"RC:TxtMsg"时(文字消息) 需要传以下参数：**
+**objectName 为"RC:TxtMsg"时(文字消息) 需要传以下参数:**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明      |
 | ---- | ------ | ---- | ------- |
 | text | String | 是    | 消息的文字内容 |
 
-**objectName 为"RC:VcMsg"时(语音消息) 需要传以下参数：**
+**objectName 为"RC:VcMsg"时(语音消息) 需要传以下参数:**
 
 | 参数名称      | 参数类型   | 是否必选 | 说明           |
 | --------- | ------ | ---- | ------------ |
 | voicePath | String | 是    | 语音文件的路径      |
 | duration  | Number | 是    | 语音消息的时长,单位为秒 |
 
-**objectName 为"RC:ImgMsg"时(图片消息) 需要传以下参数：**
+**objectName 为"RC:ImgMsg"时(图片消息) 需要传以下参数:**
 
 | 参数名称    | 参数类型   | 是否必选 | 说明      |
 | ------- | ------ | ---- | ------- |
 | imgPath | String | 是    | 图片的本地路径 |
 
-**objectName 为"RC:ImgTextMsg"时(图文消息) 需要传以下参数：**
+**objectName 为"RC:ImgTextMsg"时(图文消息) 需要传以下参数:**
 
 | 参数名称        | 参数类型   | 是否必选 | 说明                |
 | ----------- | ------ | ---- | ----------------- |
@@ -237,7 +237,7 @@ uexRongCloud.disconnect({
 | imgPath     | String | 是    | 发送图片的网络路径         |
 | url         | String | 是    | 图文消息中包含的需要跳转到的URL |
 
-**objectName 为"RC:LBSMsg"时(位置消息) 需要传以下参数：**
+**objectName 为"RC:LBSMsg"时(位置消息) 需要传以下参数:**
 
 | 参数名称      | 参数类型   | 是否必选 | 说明       |
 | --------- | ------ | ---- | -------- |
@@ -246,28 +246,28 @@ uexRongCloud.disconnect({
 | poi       | String | 是    | 地理位置的名称  |
 | imgPath   | String | 是    | 地图略缩图的路径 |
 
-**objectName 为"RC:CmdNtf"时(命令消息) 需要传以下参数：**
+**objectName 为"RC:CmdNtf"时(命令消息) 需要传以下参数:**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明    |
 | ---- | ------ | ---- | ----- |
 | name | String | 是    | 命令的名称 |
 | data | String | 是    | 命令的数据 |
 
-**回调参数：**
+**回调参数:**
 
 ```javascript
 var callback=function (error,data){}
 ```
 
-`data`为JSON对象，相关字段如下：
+`data`为JSON对象,相关字段如下:
 
 | 参数名称       | 类型     | 说明                                |
 | ---------- | ------ | --------------------------------- |
 | resultCode | Number | 发送结果 0:准备发送 1.发送成功, 2:发送失败,3:发送进度 |
 | messageId  | String | 发送消息的ID                           |
-| progress   | Number | 发送图片时，发送图片的进度 （RC:ImgMsg）         |
+| progress   | Number | 发送图片时,发送图片的进度 (RC:ImgMsg)         |
 
-**示例：**
+**示例:**
 
 ```javascript
 uexRongCloud.sendMessage({
@@ -289,7 +289,7 @@ uexRongCloud.sendMessage({
 });
 ```
 
->### onMessageReceived(param) 收到消息
+### 📦 onMessageReceived(param) 收到消息
 
 param为json字符串
 
@@ -358,7 +358,7 @@ var params={
 ##2.3、会话功能
 ***
 
->### getConversationList() 获取会话列表
+### 📦 getConversationList() 获取会话列表
 
 ```
 var param=getConversationList();
@@ -395,7 +395,7 @@ var params={
 
 ```
 
->### getConversation(json) 获取某一会话信息
+### 📦 getConversation(json) 获取某一会话信息
 
 param为json字符串
 
@@ -437,7 +437,7 @@ var params={
 } 
 ```
 
->### removeConversation(param) 从会话列表中移除某一会话,但是不删除会话内的消息
+### 📦 removeConversation(param) 从会话列表中移除某一会话,但是不删除会话内的消息
 
 param为json字符串
 
@@ -449,7 +449,7 @@ var params={
 
 ```
 
->### cbRemoveConversation(param) removeConversation的回调
+### 📦 cbRemoveConversation(param) removeConversation的回调
 
 param为json字符串
 
@@ -460,7 +460,7 @@ var params={
 
 ```
 
->### clearConversations(param) 清空所有会话及会话消息
+### 📦 clearConversations(param) 清空所有会话及会话消息
 
 param为json字符串
 
@@ -471,7 +471,7 @@ var params={
 
 ```
 
->### cbClearConversations(param) clearConversations的回调
+### 📦 cbClearConversations(param) clearConversations的回调
 
 param为json字符串
 
@@ -482,7 +482,7 @@ var params={
 
 ```
 
->### setConversationToTop(param) 清空所有会话及会话消息
+### 📦 setConversationToTop(param) 清空所有会话及会话消息
 
 param为json字符串
 
@@ -495,7 +495,7 @@ var params={
 
 ```
 
->### cbSetConversationToTop(param) setConversationToTop 的回调
+### 📦 cbSetConversationToTop(param) setConversationToTop 的回调
 
 param为json字符串
 
@@ -506,7 +506,7 @@ var params={
 
 ```
 
->### getConversationNotificationStatus(param) 获取某一会话的通知状态 
+### 📦 getConversationNotificationStatus(param) 获取某一会话的通知状态 
 
 param为json字符串
 
@@ -518,7 +518,7 @@ var params={
 
 ```
 
->### cbGetConversationNotificationStatus(param) getConversationNotificationStatus 的回调
+### 📦 cbGetConversationNotificationStatus(param) getConversationNotificationStatus 的回调
 
 param为json字符串
 
@@ -530,7 +530,7 @@ var params={
 
 ```
 
->### setConversationNotificationStatus(param) 设置某一会话的通知状态
+### 📦 setConversationNotificationStatus(param) 设置某一会话的通知状态
 
 param为json字符串
 
@@ -543,7 +543,7 @@ var params={
 
 ```
 
->### cbSetConversationNotificationStatus(param) setConversationNotificationStatus 的回调
+### 📦 cbSetConversationNotificationStatus(param) setConversationNotificationStatus 的回调
 
 param为json字符串
 
@@ -555,7 +555,7 @@ var params={
 
 ```
 
->### getLatestMessages(param) 获取某一会话的最新消息记录
+### 📦 getLatestMessages(param) 获取某一会话的最新消息记录
 
 param为json字符串
 
@@ -568,7 +568,7 @@ var params={
 
 ```
 
->### cbGetLatestMessages(param) getLatestMessages 的回调
+### 📦 cbGetLatestMessages(param) getLatestMessages 的回调
 
 param为json字符串
 
@@ -594,7 +594,7 @@ var params=[
 
 ```
 
->### getHistoryMessages(param) 获取某一会话的历史消息记录
+### 📦 getHistoryMessages(param) 获取某一会话的历史消息记录
 
 param为json字符串
 
@@ -608,7 +608,7 @@ var params={
 
 ```
 
->### cbGetHistoryMessages(param) getHistoryMessages 的回调
+### 📦 cbGetHistoryMessages(param) getHistoryMessages 的回调
 
 param为json字符串
 
@@ -634,7 +634,7 @@ var params=[
 
 ```
 
->### deleteMessages(param) 获取某一会话的历史消息记录
+### 📦 deleteMessages(param) 获取某一会话的历史消息记录
 
 param为json字符串
 
@@ -645,7 +645,7 @@ var params={
 
 ```
 
->### cbDeleteMessages(param) deleteMessages 的回调
+### 📦 cbDeleteMessages(param) deleteMessages 的回调
 
 param为json字符串
 
@@ -656,7 +656,7 @@ var params={
 
 ```
 
->### clearMessages(param) 清空某一会话的所有聊天消息记录
+### 📦 clearMessages(param) 清空某一会话的所有聊天消息记录
 
 param为json字符串
 
@@ -668,7 +668,7 @@ var params={
 
 ```
 
->### cbClearMessages(param) clearMessages 的回调
+### 📦 cbClearMessages(param) clearMessages 的回调
 
 param为json字符串
 
@@ -679,13 +679,13 @@ var params={
 
 ```
 
->### getTotalUnreadCount() 获取所有未读消息数
+### 📦 getTotalUnreadCount() 获取所有未读消息数
 
 ```
 var count=uexRongCloud.getTotalUnreadCount();
 ```
 
->### getUnreadCount(param) 获取来自某用户(某会话)的未读消息数
+### 📦 getUnreadCount(param) 获取来自某用户(某会话)的未读消息数
 
 param为json字符串
 
@@ -697,7 +697,7 @@ var params={
 var count=uexRongCloud.getUnreadCount(JSON.stringify(params));
 ```
 
->### getUnreadCountByConversationTypes(param) 获取某(些)会话类型的未读消息数
+### 📦 getUnreadCountByConversationTypes(param) 获取某(些)会话类型的未读消息数
 
 param为json字符串
 
@@ -708,7 +708,7 @@ var params={
 var count=uexRongCloud.getUnreadCountByConversationTypes(JSON.stringify(params));
 ```
 
->### setMessageReceivedStatus(param) 设置接收到的消息状态
+### 📦 setMessageReceivedStatus(param) 设置接收到的消息状态
 
 param为json字符串
 
@@ -720,7 +720,7 @@ var params={
 
 ```
 
->### clearMessagesUnreadStatus(param) 清除某一会话的消息未读状态
+### 📦 clearMessagesUnreadStatus(param) 清除某一会话的消息未读状态
 
 param为json字符串
 
@@ -733,43 +733,43 @@ var params={
 ```
 
 #3、附录
->### 建立连接返回的错误码
+### 📦 建立连接返回的错误码
 
 | error | 错误信息                                     |
 | ----- | ---------------------------------------- |
-| 30000 | 导航路由失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。    |
-| 30001 | 连接已被释放, 建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。   |
-| 30002 | 连接不可用,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。     |
-| 30003 | 请求响应超时,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。    |
-| 30004 | 导航HTTP发送失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。 |
-| 30005 | 导航HTTP请求超时,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。 |
-| 30006 | 导航HTTP接收失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。 |
-| 30007 | 导航HTTP请求失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。 |
-| 30008 | 导航HTTP返回数据格式错误,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。 |
-| 30009 | 导航HTTP返回数据不可用,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。 |
-| 30010 | 创建Socket连接失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。 |
-| 30011 | Socket断开,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。  |
-| 30012 | PING失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。    |
-| 30013 | PING超时,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。    |
-| 30014 | 信令发送失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。    |
-| 31000 | 连接ACK超时,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。   |
-| 31001 | 信令版本错误,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。    |
-| 31002 | AppKey错误,请检查您使用的AppKey是否正确。              |
-| 31003 | 服务器当前不可用(预留),建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。 |
-| 31004 | Token无效,Token无效一般有以下两种原因。一是token错误,请您检查客户端初始化使用的AppKey和您服务器获取token使用的AppKey是否一致；二是token过期,是因为您在开发者后台设置了token过期时间,您需要请求您的服务器重新获取token并再次用新的token建立连接。 |
-| 31005 | AppKey与Token不匹配,请检查您使用的AppKey与Token是否正确,是否匹配。一般有以下两种原因。一是token错误,请您检查客户端初始化使用的AppKey和您服务器获取token使用的AppKey是否一致；二是token过期,是因为您在开发者后台设置了token过期时间,您需要请求您的服务器重新获取token并再次用新的token建立连接。 |
-| 31006 | 连接重定向,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。     |
-| 31007 | BundleID不正确,请检查您App的BundleID是否正确。        |
-| 31008 | AppKey被封禁或已删除,请检查您使用的AppKey是否正确。         |
-| 31009 | 用户被封禁,请检查您使用的Token是否正确,以及对应的UserId是否被封禁。 |
+| 30000 | 导航路由失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理.    |
+| 30001 | 连接已被释放, 建立连接的临时错误码,SDK会做好自动重连,开发者无须处理.   |
+| 30002 | 连接不可用,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理.     |
+| 30003 | 请求响应超时,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理.    |
+| 30004 | 导航HTTP发送失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理. |
+| 30005 | 导航HTTP请求超时,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理. |
+| 30006 | 导航HTTP接收失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理. |
+| 30007 | 导航HTTP请求失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理. |
+| 30008 | 导航HTTP返回数据格式错误,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理. |
+| 30009 | 导航HTTP返回数据不可用,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理. |
+| 30010 | 创建Socket连接失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理. |
+| 30011 | Socket断开,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理.  |
+| 30012 | PING失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理.    |
+| 30013 | PING超时,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理.    |
+| 30014 | 信令发送失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理.    |
+| 31000 | 连接ACK超时,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理.   |
+| 31001 | 信令版本错误,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理.    |
+| 31002 | AppKey错误,请检查您使用的AppKey是否正确.              |
+| 31003 | 服务器当前不可用(预留),建立连接的临时错误码,SDK会做好自动重连,开发者无须处理. |
+| 31004 | Token无效,Token无效一般有以下两种原因.一是token错误,请您检查客户端初始化使用的AppKey和您服务器获取token使用的AppKey是否一致;二是token过期,是因为您在开发者后台设置了token过期时间,您需要请求您的服务器重新获取token并再次用新的token建立连接. |
+| 31005 | AppKey与Token不匹配,请检查您使用的AppKey与Token是否正确,是否匹配.一般有以下两种原因.一是token错误,请您检查客户端初始化使用的AppKey和您服务器获取token使用的AppKey是否一致;二是token过期,是因为您在开发者后台设置了token过期时间,您需要请求您的服务器重新获取token并再次用新的token建立连接. |
+| 31006 | 连接重定向,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理.     |
+| 31007 | BundleID不正确,请检查您App的BundleID是否正确.        |
+| 31008 | AppKey被封禁或已删除,请检查您使用的AppKey是否正确.         |
+| 31009 | 用户被封禁,请检查您使用的Token是否正确,以及对应的UserId是否被封禁. |
 | 31010 | 当前用户在其他设备上登陆,此设备被踢下线                     |
-| 32001 | 信令数据无效,建立连接的临时状态,SDK会做好自动重连,开发者无须处理。     |
-| 32002 | 信令数据错误,建立连接的临时状态,SDK会做好自动重连,开发者无须处理。     |
-| 33001 | SDK没有初始化,在使用SDK任何功能之前,必须先Init。           |
-| 33003 | 开发者接口调用时传入的参数错误,请检查接口调用时传入的参数类型和值。       |
-| -1000 | 开发者接口调用时传入的参数错误,请检查接口调用时传入的参数类型和值。       |
+| 32001 | 信令数据无效,建立连接的临时状态,SDK会做好自动重连,开发者无须处理.     |
+| 32002 | 信令数据错误,建立连接的临时状态,SDK会做好自动重连,开发者无须处理.     |
+| 33001 | SDK没有初始化,在使用SDK任何功能之前,必须先Init.           |
+| 33003 | 开发者接口调用时传入的参数错误,请检查接口调用时传入的参数类型和值.       |
+| -1000 | 开发者接口调用时传入的参数错误,请检查接口调用时传入的参数类型和值.       |
 
->### 具体业务错误码
+### 📦 具体业务错误码
 
 | code  | 详细描述                               |
 | ----- | ---------------------------------- |
@@ -785,31 +785,29 @@ var params={
 | 23411 | 聊天室成员超限                            |
 | 30001 | 当前连接不可用(连接已经被释放)                   |
 | 30002 | 当前连接不可用                            |
-| 33001 | SDK没有初始化,在使用SDK任何功能之前,必须先Init。     |
-| 33002 | 数据库错误,请检查您使用的Token和userId是否正确。     |
-| 33003 | 开发者接口调用时传入的参数错误,请检查接口调用时传入的参数类型和值。 |
+| 33001 | SDK没有初始化,在使用SDK任何功能之前,必须先Init.     |
+| 33002 | 数据库错误,请检查您使用的Token和userId是否正确.     |
+| 33003 | 开发者接口调用时传入的参数错误,请检查接口调用时传入的参数类型和值. |
 | 33007 | 历史消息云存储业务未开通                       |
 
 #4、更新历史
 
 ### iOS
 
-API版本:`uexRongCloud-3.0.0`
+API版本: `uexRongCloud-4.0.0`
 
 最近更新时间:`2016-01-16`
 
 | 历史发布版本 | 更新内容                         |
 | ------ | ---------------------------- |
-| 3.0.0  | 融云IM(uexRongCloud)插件 for iOS |
 
 ### Android
 
-API版本:`uexRongCloud-3.0.0`
+API版本: `uexRongCloud-4.0.0`
 
 最近更新时间:`2016-4-11`
 
 | 历史发布版本 | 更新内容                 |
 | ------ | -------------------- |
-| 3.0.0  | 融云IM(uexRongCloud)插件 |
 #5 文档更新记录
 

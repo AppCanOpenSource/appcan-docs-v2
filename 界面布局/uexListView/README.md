@@ -11,30 +11,30 @@ optionList带操作选项的列表组件:实现列表项可向左滑动后右侧
 
 ## 1.4、平台版本支持
 
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。 
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
 
-本插件所有API默认在插件版本**4.0.0+**可用。  
-在后续版本中新添加的接口会在文档中额外说明。 
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明. 
 
 # 2、API概览
 
 ## 2.1、方法
-> ### open 打开listview
+### 📦 open 打开listview
 
 `uexListView.open(params);`
 
 **说明:**
 
-在界面的指定位置显示listview。
+在界面的指定位置显示listview.
 
 **参数:**
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | Object | 是    | 接口所需数据，形式见下： |
+| params | Object | 是    | 接口所需数据,形式见下: |
 
 ```javascript
 var params = {
@@ -45,7 +45,7 @@ var params = {
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 字段名称 | 类型     | 是否必选 | 说明   |
 | ---- | ------ | ---- | ---- |
@@ -65,7 +65,7 @@ var params = {
     };
     uexListView.open(JSON.stringify(params));
 ```
-> ### close 关闭listview视图
+### 📦 close 关闭listview视图
 
 `uexListView.close();`
 
@@ -83,7 +83,7 @@ var params = {
     uexListView.close();
 ```
 
-> ### setItems 设置listview列表项数据
+### 📦 setItems 设置listview列表项数据
 
 `uexListView.setItems(params);`
 
@@ -96,7 +96,7 @@ var params = {
 
 | 参数名称   | 参数类型   | 是否必选 | 说明                       |
 | ------ | ------ | ---- | ------------------------ |
-| params | String | 是    | listview每一个条目数据的集合，形式见下： |
+| params | String | 是    | listview每一个条目数据的集合,形式见下: |
 
 ```javascript
 var params = {
@@ -106,7 +106,7 @@ var params = {
             "placeholderImg":,//可选,头像占位图片
             "title":,//必选,标题
             "subtitle":,//必选,子标题
-            "rightBtnImg":,//可选,右侧按钮图片。(暂不支持)
+            "rightBtnImg":,//可选,右侧按钮图片.(暂不支持)
             "titleSize":,//可选,标题字体大小
             "titleColor":,//可选,标题字体颜色
             "subtitleSize":,//可选,子标题字体大小
@@ -192,7 +192,7 @@ var params = {
     };
     uexListView.setItems(JSON.stringify(params));
 ```
-> ### deleteItemsAt 删除指定位置的数据
+### 📦 deleteItemsAt 删除指定位置的数据
 
 `uexListView.deleteItemsAt(params);`
 
@@ -204,7 +204,7 @@ var params = {
 
 | 参数名称   | 参数类型   | 是否必选 | 说明                     |
 | ------ | ------ | ---- | ---------------------- |
-| params | String | 是    | listview列表项索引的数组，形式见下： |
+| params | String | 是    | listview列表项索引的数组,形式见下: |
 
  
 
@@ -225,7 +225,7 @@ var params = {
     uexListView.deleteItemsAt(JSON.stringify(params));
 ```
 
-> ### insertItemAt 插入数据到指定位置
+### 📦 insertItemAt 插入数据到指定位置
 
 `uexListView.insertItemAt(params);`
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
@@ -238,7 +238,7 @@ var params = {
 
 | 参数名称   | 参数类型   | 是否必选 | 说明                     |
 | ------ | ------ | ---- | ---------------------- |
-| params | String | 是    | 要插入listview数据的集合，形式见下： |
+| params | String | 是    | 要插入listview数据的集合,形式见下: |
 
 ```javascript
 var params ={
@@ -248,7 +248,7 @@ var params ={
         "placeholderImg":,//可选,头像占位图片
         "title":,//必选,标题
         "subtitle":,//必选,子标题
-        "rightBtnImg":",//可选,右侧按钮图片。(暂不支持)
+        "rightBtnImg":",//可选,右侧按钮图片.(暂不支持)
         "titleSize":,//可选,标题字体大小
         "titleColor":,//可选,标题字体颜色
         "subtitleSize":,//可选,子标题字体大小
@@ -284,7 +284,7 @@ var params ={
     };
     uexListView.insertItemAt(JSON.stringify(params));
 ```
-> ### appendItems 加载数据
+### 📦 appendItems 加载数据
 
 `uexListView.appendItems(params)`
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
@@ -297,7 +297,7 @@ var params ={
 
 | 参数名称   | 参数类型   | 是否必选 | 说明                     |
 | ------ | ------ | ---- | ---------------------- |
-| params | String | 是    | listview列表项数据的集合，形式见下： |
+| params | String | 是    | listview列表项数据的集合,形式见下: |
 
 
 
@@ -309,7 +309,7 @@ var params = {
             "placeholderImg":,//可选,头像占位图片
             "title":,//必选,标题
             "subtitle":,//必选,子标题
-            "rightBtnImg":,//可选,右侧按钮图片。(暂不支持)
+            "rightBtnImg":,//可选,右侧按钮图片.(暂不支持)
             "titleSize":,//可选,标题字体大小
             "titleColor":,//可选,标题字体颜色
             "subtitleSize":,//可选,子标题字体大小
@@ -347,7 +347,7 @@ var params = {
     };
     uexListView.appendItems(JSON.stringify(params));
 ```
-> ### reloadItems 刷新数据
+### 📦 reloadItems 刷新数据
 
 `uexListView.reloadItems(params)`
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
@@ -360,7 +360,7 @@ var params = {
 
 | 参数名称   | 参数类型   | 是否必选 | 说明             |
 | ------ | ------ | ---- | -------------- |
-| params | String | 是    | 要刷新数据的集合，形式见下： |
+| params | String | 是    | 要刷新数据的集合,形式见下: |
 
 
 ```javascript
@@ -371,7 +371,7 @@ var params = {
             "placeholderImg":,//可选,头像占位图片
             "title":,//必选,标题
             "subtitle":,//必选,子标题
-            "rightBtnImg":,//可选,右侧按钮图片。(暂不支持)
+            "rightBtnImg":,//可选,右侧按钮图片.(暂不支持)
             "titleSize":,//可选,标题字体大小
             "titleColor":,//可选,标题字体颜色
             "subtitleSize":,//可选,子标题字体大小
@@ -410,13 +410,13 @@ var params = {
     uexListView.reloadItems(JSON.stringify(params));
 ```
 
-> ### setItemSwipeType 设置侧滑类型
+### 📦 setItemSwipeType 设置侧滑类型
 
 `uexListView.setItemSwipeType(type);`
 
 **说明:**
 
-  设置listview侧滑类型。
+  设置listview侧滑类型.
 
 
 **参数:**
@@ -432,20 +432,20 @@ var params = {
     uexListView.setItemSwipeType(2);
 ```
 
-> ### setPullRefreshHeader 设置下拉刷新样式
+### 📦 setPullRefreshHeader 设置下拉刷新样式
 
 `uexListView.setPullRefreshHeader(params);`
 
 **说明:**
 
-设置listview下拉刷新样式。
+设置listview下拉刷新样式.
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
 
 **参数:**
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```javascript
 var params ={
@@ -457,7 +457,7 @@ var params ={
         "pullRefreshNormalText":,//必选,下拉时文本
         "pullRefreshPullingText":,//必选,松开时文本
         "pullRefreshLoadingText":,//必选,加载中文本
-        "isShowUpdateDate"://必选,是否显示更新日期(0:不显示,1:显示)。安卓和ios格式不一样
+        "isShowUpdateDate"://必选,是否显示更新日期(0:不显示,1:显示).安卓和ios格式不一样
     }
 };
 ```
@@ -482,22 +482,22 @@ var params ={
     uexListView.setPullRefreshHeader(JSON.stringify(params));
 ```
 
-> ### setPullRefreshFooter 设置上拉加载样式
+### 📦 setPullRefreshFooter 设置上拉加载样式
 
 `uexListView.setPullRefreshFooter(params);`
 
 **说明:**
 
-设置listview上拉加载样式。
+设置listview上拉加载样式.
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
 
 **参数:**
 
 | 参数名称   | 参数类型   | 是否必选 | 说明            |
 | ------ | ------ | ---- | ------------- |
-| params | String | 是    | 加载样式的集合，形式见下： |
+| params | String | 是    | 加载样式的集合,形式见下: |
 
-  params:(String类型) 必选加载样式的集合。该字符串为JSON格式,如下:
+  params:(String类型) 必选加载样式的集合.该字符串为JSON格式,如下:
 
 ```javascript
 var params ={
@@ -509,7 +509,7 @@ var params ={
         "pullRefreshNormalText":,//必选,上拉时文本
         "pullRefreshPullingText":,//必选,松开时文本
         "pullRefreshLoadingText":,//必选,加载中文本
-        "isShowUpdateDate"://必选,是否显示日期(0:不显示,1:显示)。
+        "isShowUpdateDate"://必选,是否显示日期(0:不显示,1:显示).
     }
 };
 ```
@@ -535,13 +535,13 @@ var params ={
 ```
 ## 2.2、监听方法
 
-> ### onItemClick 点击列表项的监听方法
+### 📦 onItemClick 点击列表项的监听方法
 
 `uexListView.onItemClick(itemIndex);`
 
 **说明:**
 
-点击列表项的监听方法。
+点击列表项的监听方法.
 
 **参数:**
 
@@ -559,13 +559,13 @@ var params ={
     };
 ```
 
-> ### onLeftOptionButtonInItem 点击左边按钮的监听方法
+### 📦 onLeftOptionButtonInItem 点击左边按钮的监听方法
 
 `uexListView.onLeftOptionButtonInItem(itemIndex,optionBtnIndex);`
 
 **说明:**
 
-点击左边按钮的监听方法。
+点击左边按钮的监听方法.
 
 **参数:**
 
@@ -584,13 +584,13 @@ var params ={
     };
 ```
 
-> ### onRightOptionButtonInItem 点击右边按钮的监听方法
+### 📦 onRightOptionButtonInItem 点击右边按钮的监听方法
 
 `uexListView.onRightOptionButtonInItem(itemIndex,optionBtnIndex);`
 
 **说明:**
 
-点击右边按钮的监听方法。
+点击右边按钮的监听方法.
 
 **参数:**
 
@@ -609,13 +609,13 @@ var params ={
     };
 ```
 
-> ### ontPullRefreshHeaderListener 下拉刷新的监听方法
+### 📦 ontPullRefreshHeaderListener 下拉刷新的监听方法
 
 `uexListView.ontPullRefreshHeaderListener(status);`
 
 **说明:**
 
-下拉刷新的监听方法。
+下拉刷新的监听方法.
 
 **参数:**
 
@@ -633,7 +633,7 @@ var params ={
     };
 ```
 
-> ### ontPullRefreshFooterListener 上拉加载的监听方法
+### 📦 ontPullRefreshFooterListener 上拉加载的监听方法
 
 `uexListView.ontPullRefreshFooterListener(status);`
 
@@ -661,40 +661,21 @@ var params ={
 
 ### iOS
 
-API版本:`uexListView-3.0.7`
+API版本: `uexListView-4.0.0`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容                         |
 | ------ | ---------------------------- |
-| 3.0.7  | 添加IDE支持                      |
-| 3.0.6  | 未满全屏时去掉多余的行                  |
-| 3.0.5  | 修复关闭窗口后再次打开界面会卡死的问题          |
-| 3.0.4  | 删除接口与Android做统一处理            |
-| 3.0.3  | 修复调用删除接口无效的bug               |
-| 3.0.2  | 修复加载图片大小不统一的bug              |
-| 3.0.1  | 修复上拉加载时内容加载太快,右滑时出现红色 背景的bug |
-| 3.0.0  | Listview下拉列表,封装Listview扩展功能  |
 
 ### Android
 
-API版本:`uexListView-3.0.10`
+API版本: `uexListView-4.0.0`
 
 最近更新时间:`2016-4-16`
 
 | 历史发布版本 | 更新内容                                     |
 | ------ | ---------------------------------------- |
-| 3.0.10 | 删除universalimageloader源码                 |
-| 3.0.9  | 修复plugin.xml                             |
-| 3.0.8  | 添加自定义布局相关接口                              |
-| 3.0.7  | 修复listview加载网络图片显示不正常的问题                 |
-| 3.0.6  | 修复listview侧滑按钮显示不正常的问题                   |
-| 3.0.5  | 修复listview不能随页面关闭的问题                     |
-| 3.0.4  | 更新适配机型使用的方法                              |
-| 3.0.3  | 修复点击打开,再点击删除 插件崩溃的问题, 修复左滑或右滑list时不只显示一个删除和一个分享的问题 |
-| 3.0.2  | 修复list条目不足时不能上拉加载的问题                     |
-| 3.0.1  | 修复下拉刷新内容不正确的问题, 修复list列表中的图标不及时刷新的问题, 修复删除后再次打开无反应的问题 |
-| 3.0.0  | Listview下拉列表,封装Listview扩展功能              |
 # 4、附录
 
 ### SwipeType

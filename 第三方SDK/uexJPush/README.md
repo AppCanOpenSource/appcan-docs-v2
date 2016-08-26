@@ -5,29 +5,29 @@
 
 极光推送插件
 ##1.1、 说明
-封装了极光推送的相关功能:您可以主动、及时地向您的用户发起交互,向其发送聊天消息、日程提醒、活动预告、进度提示、动态更新等,精准的目标用户和有价值的推送内容可以提升用户忠诚度,提高留存率与收入。
+封装了极光推送的相关功能:您可以主动、及时地向您的用户发起交互,向其发送聊天消息、日程提醒、活动预告、进度提示、动态更新等,精准的目标用户和有价值的推送内容可以提升用户忠诚度,提高留存率与收入.
 
-* 集成打包之前需要在 config.xml 配置参数,否则打包失败。若打包平台不支持config.xml配置,用户需要自定义插件进行使用,详见**[附录](#3、附录 "附录")**
-* 插件需要用到证书/包名,因此IDE打包下部分功能无法正常使用,**调试使用本插件时,请使用在线打包**。
-* 本插件为单例插件,用户可以在任意界面调用插件的接口,但回调始终传回给root页面。
+* 集成打包之前需要在 config.xml 配置参数,否则打包失败.若打包平台不支持config.xml配置,用户需要自定义插件进行使用,详见**[附录](#3、附录 "附录")**
+* 插件需要用到证书/包名,因此IDE打包下部分功能无法正常使用,**调试使用本插件时,请使用在线打包**.
+* 本插件为单例插件,用户可以在任意界面调用插件的接口,但回调始终传回给root页面.
 
 ##1.2、 开源源码
 [点击](http://plugin.appcan.cn/details.html?id=432_index)插件中心至插件详情页(测试用例与插件源码已经提供)
 
 
 ## 1.3、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。 
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.4、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。  
-在后续版本中新添加的接口会在文档中额外说明。 
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明. 
 
 
 #2、API概览
 ##2.1、方法
 
->### <del>   init  初始化 </del>(已废弃,插件现在自动初始化)
+### 📦 <del>   init  初始化 </del>(已废弃,插件现在自动初始化)
 
 `uexJPush.init()`
 
@@ -42,7 +42,7 @@
 ```
 uexJPush.init();
 ```
->### stopPush  停止推送服务
+### 📦 stopPush  停止推送服务
 
 `uexJPush.stopPush()`
 
@@ -65,7 +65,7 @@ Android 3.0.0+
 uexJPush.stopPush();
 ```
 
->### resumePush  恢复推送服务
+### 📦 resumePush  恢复推送服务
 
 `uexJPush.resumePush()`
 
@@ -88,7 +88,7 @@ Android 3.0.0+
 uexJPush.resumePush();
 ```
 
->### setAlias   设置别名
+### 📦 setAlias   设置别名
 
 `uexJPush.setAlias(json, callbackFunction)`
 
@@ -102,13 +102,13 @@ uexJPush.resumePush();
 var json={
 	alias:,//String 设置的别名
 };
-说明:传""(空字符串)表示取消之前的设置。
-	每次调用设置有效的别名,覆盖之前的设置。
-	有效的别名组成:字母(区分大小写)、数字、下划线、汉字。
-	限制:alias 命名长度限制为 40 字节。(判断长度需采用UTF-8编码)
+说明:传""(空字符串)表示取消之前的设置.
+	每次调用设置有效的别名,覆盖之前的设置.
+	有效的别名组成:字母(区分大小写)、数字、下划线、汉字.
+	限制:alias 命名长度限制为 40 字节.(判断长度需采用UTF-8编码)
 ```
 
-`callbackFunction`的参数是JSON对象类型，格式如下：
+`callbackFunction`的参数是JSON对象类型,格式如下:
 
 ```
 {
@@ -129,7 +129,7 @@ uexJPush.setAlias(data, function(data) {
 });
 ```
 
->### setTags  设置标签
+### 📦 setTags  设置标签
 
 `uexJPush.setTags(json, callbackFunction)`
 
@@ -143,13 +143,13 @@ uexJPush.setAlias(data, function(data) {
 var json={
 	tags:,//Set<String>  设置的标签
 };
-说明:空数组或列表表示取消之前的设置。
-	每次调用设置有效的标签,覆盖之前的设置。
-	有效的标签组成:字母(区分大小写)、数字、下划线、汉字。
-	限制:每个tag命名长度限制为 40 字节,最多支持设置 100 个 tag,但总长度不得超过1K字节。(判断长度需采用UTF-8编码)
+说明:空数组或列表表示取消之前的设置.
+	每次调用设置有效的标签,覆盖之前的设置.
+	有效的标签组成:字母(区分大小写)、数字、下划线、汉字.
+	限制:每个tag命名长度限制为 40 字节,最多支持设置 100 个 tag,但总长度不得超过1K字节.(判断长度需采用UTF-8编码)
 ```
 
-`callbackFunction`的参数是JSON对象类型，格式如下：
+`callbackFunction`的参数是JSON对象类型,格式如下:
 
 ```
 {
@@ -171,7 +171,7 @@ uexJPush.setTags(data, function(data) {
 });
 ```
 
->### setAliasAndTags  同时设置别名与标签
+### 📦 setAliasAndTags  同时设置别名与标签
 
 `uexJPush.setAliasAndTags(json, callbackFunction)`
 
@@ -188,7 +188,7 @@ var json={
 	}
 ```
 
-`callbackFunction`的参数是JSON对象类型，格式如下：
+`callbackFunction`的参数是JSON对象类型,格式如下:
 
 ```
 {
@@ -212,7 +212,7 @@ uexJPush.setAliasAndTags(data, function(data) {
 });
 ```
 
->### getRegistrationID 取得应用程序对应的 RegistrationID
+### 📦 getRegistrationID 取得应用程序对应的 RegistrationID
 
 `uexJPush.getRegistrationID()`
 
@@ -233,7 +233,7 @@ var id = uexJPush.getRegistrationID();
 alert(id);
 ```
 
->### clearAllNotifications 清除所有通知
+### 📦 clearAllNotifications 清除所有通知
 
 `uexJPush.clearAllNotifications()`
 
@@ -257,7 +257,7 @@ Android 3.0.0+
 uexJPush.clearAllNotifications();
 ```
 
->### clearNotificationById  根据Id清除某条通知
+### 📦 clearNotificationById  根据Id清除某条通知
 
 `uexJPush.clearNotificationById(json)`
 
@@ -286,19 +286,19 @@ uexJPush.clearNotificationById(data);
 
 ```
 
->### getConnectionState 获取推送连接状态
+### 📦 getConnectionState 获取推送连接状态
 
 `uexJPush.getConnectionState(callbackFunction)`
 
 **说明**
-获取推送连接状态，获取状态成功后回调`callbackFunction`
+获取推送连接状态,获取状态成功后回调`callbackFunction`
 
 **参数**
 
 ```
 无
 ```
-`callbackFunction`的参数是`Number`类型， 0: 已连上， 1: 未连接
+`callbackFunction`的参数是`Number`类型, 0: 已连上, 1: 未连接
 
 **示例**
 
@@ -308,7 +308,7 @@ uexJPush.getConnectionState(function(data) {
 });
 ```
 
->### addLocalNotification  添加一个本地通知
+### 📦 addLocalNotification  添加一个本地通知
 
 `uexJPush.addLocalNotification(json)`
 
@@ -340,7 +340,7 @@ var data = JSON.stringify(params);
 uexJPush.addLocalNotification(data);
 ```
 
->### removeLocalNotification 移除一个本地通知
+### 📦 removeLocalNotification 移除一个本地通知
 
 `uexJPush.removeLocalNotification(json)`
 
@@ -363,7 +363,7 @@ var data = JSON.stringify(params);
 uexJPush.removeLocalNotification(data);
 ```
 
->### clearLocalNotifications  移除所有的通知
+### 📦 clearLocalNotifications  移除所有的通知
 
 `uexJPush.clearLocalNotifications()`
 
@@ -379,7 +379,7 @@ uexJPush.removeLocalNotification(data);
 uexJPush.clearLocalNotifications();
 ```
 
->### setBadgeNumber  设置badge值
+### 📦 setBadgeNumber  设置badge值
 
 `uexJPush.setBadgeNumber(badgeNumber)`
 
@@ -403,16 +403,16 @@ uexJPush.setBadgeNumber(0);
 
 ```
 
->### disableLocalNotificationAlertView  禁止前台本地通知提示框
+### 📦 disableLocalNotificationAlertView  禁止前台本地通知提示框
 
 `uexJPush.disableLocalNotificationAlertView(flag)`
 
 **说明**
 
-和Android系统不同,在iOS系统中,当APP处于前台时,收到本地通知后,系统不会在屏幕顶部弹出气泡显示通知内容。
-于是极光SDK自己设置了一个本地通知提示框,在APP在前台收到本地通知后弹出,显示通知内容。
+和Android系统不同,在iOS系统中,当APP处于前台时,收到本地通知后,系统不会在屏幕顶部弹出气泡显示通知内容.
+于是极光SDK自己设置了一个本地通知提示框,在APP在前台收到本地通知后弹出,显示通知内容.
 
-通过调用此接口,可以禁止或者重新启动此本地通知提示框。
+通过调用此接口,可以禁止或者重新启动此本地通知提示框.
 
 **参数**
 
@@ -437,7 +437,7 @@ uexJPush.disableLocalNotificationAlertView(1);
 
 ##2.2、监听方法
 
->### onReceiveMessage 收到了自定义消息
+### 📦 onReceiveMessage 收到了自定义消息
 
 `uexJPush.onReceiveMessage(json)`
 
@@ -464,7 +464,7 @@ window.uexOnload=function(type){
 }
 ```
 
->### onReceiveNotification 收到了通知
+### 📦 onReceiveNotification 收到了通知
 
 `uexJPush.onReceiveNotification(json)`
 
@@ -472,8 +472,8 @@ window.uexOnload=function(type){
 
 ```
 var json={
-	content:,//对应 Portal 推送通知界面上的"通知内容"字段。
-	extras:,//对应 Portal 推送消息界面上的"可选设置"里的附加字段。
+	content:,//对应 Portal 推送通知界面上的"通知内容"字段.
+	extras:,//对应 Portal 推送消息界面上的"可选设置"里的附加字段.
 	notificationId:,//(仅Android以及iOS本地通知) 消息Id,用于清除通知
 	isAPNs:,//(仅iOS)本通知是否由APNs服务发出 true/false  
 };
@@ -498,7 +498,7 @@ window.uexOnload=function(type){
 }
 ```
 
->### onReceiveNotificationOpen  用户点击了通知
+### 📦 onReceiveNotificationOpen  用户点击了通知
 
 `uexJPush.onReceiveNotificationOpen(json)`
 
@@ -506,8 +506,8 @@ window.uexOnload=function(type){
 
 ```
 var param={
-	content:,//对应 Portal 推送通知界面上的"通知内容"字段。
-	extras:,//对应 Portal 推送消息界面上的"可选设置"里的附加字段。
+	content:,//对应 Portal 推送通知界面上的"通知内容"字段.
+	extras:,//对应 Portal 推送消息界面上的"可选设置"里的附加字段.
 	notificationId:,//(仅Android)消息Id,可以用于清除通知
 	isAPNs:,//(仅iOS)本通知是否由APNs服务发出 true/false 
 };
@@ -532,7 +532,7 @@ window.uexOnload=function(type){
 }
 ```
 
->### onReceiveConnectionChange  连接状态变化
+### 📦 onReceiveConnectionChange  连接状态变化
 
 `uexJPush.onReceiveConnectionChange(json)`
 
@@ -559,7 +559,7 @@ window.uexOnload=function(type){
 }
 ```
 
->### onReceiveRegistration  应用程序注册监听
+### 📦 onReceiveRegistration  应用程序注册监听
 
 `uexJPush.onReceiveRegistration(json)`
 
@@ -591,11 +591,11 @@ window.uexOnload=function(type){
 |-----|-----|-----|
 |6001|无效的设置,tag/alias 不应参数都为 null	
 |6002|	设置超时	|建议重试
-|6003|	alias 字符串不合法	|有效的别名、标签组成:字母(区分大小写)、数字、下划线、汉字。
-|6004|	alias超长。最多 40个字节	|中文 UTF-8 是 3 个字节
-|6005|	某一个 tag 字符串不合法	|有效的别名、标签组成:字母(区分大小写)、数字、下划线、汉字。
-|6006|	某一个 tag 超长。一个 tag 最多 40个字节	|中文 UTF-8 是 3 个字节
-|6007|	tags 数量超出限制。最多 100个	|这是一台设备的限制。一个应用全局的标签数量无限制。
+|6003|	alias 字符串不合法	|有效的别名、标签组成:字母(区分大小写)、数字、下划线、汉字.
+|6004|	alias超长.最多 40个字节	|中文 UTF-8 是 3 个字节
+|6005|	某一个 tag 字符串不合法	|有效的别名、标签组成:字母(区分大小写)、数字、下划线、汉字.
+|6006|	某一个 tag 超长.一个 tag 最多 40个字节	|中文 UTF-8 是 3 个字节
+|6007|	tags 数量超出限制.最多 100个	|这是一台设备的限制.一个应用全局的标签数量无限制.
 |6008|	tag/alias 超出总长度限制	|总长度最多 1K 字节
 |6011|	10s内设置tag或alias大于10次|	短时间内操作过于频繁
 
@@ -607,27 +607,27 @@ window.uexOnload=function(type){
 
 
 ##3.3、 Android插件配置说明
-**如果不使用config.xml配制方法,那么本插件需要下载插件包配置`AndroidManifest.xml`文件后作为自定义插件上传才能正常使用。(只针对未升级打包服务的企业用户)**
+**如果不使用config.xml配制方法,那么本插件需要下载插件包配置`AndroidManifest.xml`文件后作为自定义插件上传才能正常使用.(只针对未升级打包服务的企业用户)**
 
-插件需要在`AndroidManifest.xml`中查找替换所有的`$UEXJPUSH_PACKAGE$`改为自己的包名(一共应该是五处)。
+插件需要在`AndroidManifest.xml`中查找替换所有的`$UEXJPUSH_PACKAGE$`改为自己的包名(一共应该是五处).
 
 并将`$UEXJPUSH_APPKEY$`替换为自己在极光推送申请的appkey
 
 ##3.4、 iOS插件配置说明
-**如果不使用config.xml配制方法,那么本插件需要下载插件包配置`PushConfig.plist`文件后作为自定义插件上传才能正常使用。**
+**如果不使用config.xml配制方法,那么本插件需要下载插件包配置`PushConfig.plist`文件后作为自定义插件上传才能正常使用.**
 
-所需配置的文件为插件包解压缩后的文件夹中的`uexJPushGroup\PushConfig.plist`。
+所需配置的文件为插件包解压缩后的文件夹中的`uexJPushGroup\PushConfig.plist`.
 键值说明:
 
 ```
 CHANNEL
-指明应用程序包的下载渠道,为方便分渠道统计。根据你的需求自行定义即可。
+指明应用程序包的下载渠道,为方便分渠道统计.根据你的需求自行定义即可.
 
 APP_KEY
-在管理Portal上创建应用时自动生成的(AppKey)用以标识该应用。请确保应用内配置的 AppKey 与在 Portal 上创建应用时生成的 AppKey 一致,AppKey 可以在应用详情中查询。
+在管理Portal上创建应用时自动生成的(AppKey)用以标识该应用.请确保应用内配置的 AppKey 与在 Portal 上创建应用时生成的 AppKey 一致,AppKey 可以在应用详情中查询.
 
 APS_FOR_PRODUCTION
-表示应用是否采用生产证书发布( Ad_Hoc 或 APP Store ),0 (默认值)表示采用的是开发者证书,1 表示采用生产证书发布应用。请注意此处配置与 Web Portal 应用环境设置匹配。
+表示应用是否采用生产证书发布( Ad_Hoc 或 APP Store ),0 (默认值)表示采用的是开发者证书,1 表示采用生产证书发布应用.请注意此处配置与 Web Portal 应用环境设置匹配.
 
 ```
 
@@ -677,44 +677,18 @@ $UEXJPUSH_APS_ENVIRONMENT$ ----->推送证书类型   0-开发者证书(develope
 
 ### iOS
 
-API版本:`uexJPush-4.0.0`
+API版本: `uexJPush-4.0.0`
 
 最近更新时间:`2016-6-15`
 
 | 历史发布版本 | 更新内容                                     |
 | ------ | ---------------------------------------- |
-| 4.0.0  | 支持function传入                             |
-| 3.0.8  | 更新JPush SDK到2.1.5                        |
-| 3.0.7  | 现在应用在后台时,点击推送,会正确的触发onReceiveNotificationOpen |
-| 3.0.6  | 修复root页面回调失效的bug                         |
-| 3.0.5  | 新增接口disableLocalNotificationAlertView    |
-| 3.0.4  | 新增接口setBadgeNumber                       |
-| 3.0.3  | 修改推送的extras为字典格式                         |
-| 3.0.2  | 添加config.xml配置支持                         |
-| 3.0.1  | 支持onReceiveNotificationOpen接口            |
-| 3.0.0  | 极光推送(uexJPush) 插件 for iOS                |
 
 ### Android
 
-API版本:`uexJPush-4.0.0`
+API版本: `uexJPush-4.0.0`
 
 最近更新时间:`2016-6-15`
 
 | 历史发布版本 | 更新内容                                     |
 | ------ | ---------------------------------------- |
-| 4.0.0  | 支持function传入                             |
-| 3.0.14 | 修复了缺少配置GET_TASKS权限导致的部分机型程序崩溃问题;修复了数据库推送不自动清空的问题;升级SDK支持64位uid |
-| 3.0.13 | 优化了当应用程序正常退出后,依然可以收到推送(所有机型)；注:当用户手动清理内存(杀进程)后,收不到推送是正常现象;若想杀进程后依然收到推送,须手动将App配置进系统白名单 |
-| 3.0.12 | 修复了Manifest文件书写错误导致的应用崩溃的问题              |
-| 3.0.11 | 设置中转广播接收器,用来在另一个进程中启动App,并转发广播           |
-| 3.0.10 | 增加应用程序退出后仍能收到推送的功能,更新SDK版本从173到213       |
-| 3.0.9  | 修复setTags返回格式不正确的问题                      |
-| 3.0.8  | 修复通知不含extras时闪退的问题                       |
-| 3.0.7  | 修复setTags和setAlias返回错误的问题                |
-| 3.0.6  | 修复重新登陆后消息记录remoteUrl为空的问题                |
-| 3.0.5  | 支持声音和震动；支持离线消息                           |
-| 3.0.4  | getGroup添加groupName,groupDescription字段；getChatterInfo返回新加好友的聊天记录 |
-| 3.0.3  | 修复4.4以下版本点击通知闪退的问题                       |
-| 3.0.2  | 修复4.修复onReceiveNotificationOpen,调整初始化时机  |
-| 3.0.1  | 修复退出应用时收到推送闪退的问题                         |
-| 3.0.0  | 极光推送插件                                   |

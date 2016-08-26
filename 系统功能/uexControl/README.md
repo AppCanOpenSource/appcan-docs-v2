@@ -10,17 +10,17 @@
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=162_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.4、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。  
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。  
-在后续版本中新添加的接口会在文档中额外说明。
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
 
 # 2、API概览
 ## 2.1、方法
 
-> ### openDatePicker 打开日期选择器
+### 📦 openDatePicker 打开日期选择器
 
 `uexControl.openDatePicker(year, month, day, callbackFunction)`
 
@@ -45,7 +45,7 @@ var callbackFunction = function(data){}
 
 | 参数名称 | 类型     | 说明             |
 | ---- | ------ | -------------- |
-| data | Object | json格式数据，形式如下: |
+| data | Object | json格式数据,形式如下: |
 
 
 
@@ -65,7 +65,7 @@ uexControl.openDatePicker(1990,8,1, function(data) {
 });
 ```
 
-> ### openTimePicker 打开时间选择器
+### 📦 openTimePicker 打开时间选择器
 
 `uexControl.openTimePicker(hour, minute,  callbackFunction)`
 
@@ -90,7 +90,7 @@ var callbackFunction = function(data){}
 
 | 参数名称 | 类型     | 说明             |
 | ---- | ------ | -------------- |
-| data | Object | json格式数据，形式如下: |
+| data | Object | json格式数据,形式如下: |
 
 ```
 var data = {
@@ -107,7 +107,7 @@ uexControl.openTimePicker(10,23, function(data) {
 });
 ```
 
-> ### openInputDialog 打开输入对话框
+### 📦 openInputDialog 打开输入对话框
 
 `uexControl.openInputDialog(type,inputHint,btnText, callbackFunction)`
 
@@ -142,7 +142,7 @@ uexControl.openInputDialog(0,"默认数据","按钮", fuction(data) {
 }) 
 ```
 
-> ### openDatePickerWithoutDay 打开只有年月的日期选择器
+### 📦 openDatePickerWithoutDay 打开只有年月的日期选择器
 
 `uexControl.openDatePickerWithoutDay(year,month, callbackFunction)`
 
@@ -167,7 +167,7 @@ var callbackFunction = function(data){}
 
 | 参数名称 | 类型     | 说明             |
 | ---- | ------ | -------------- |
-| data | Object | json格式数据，形式如下: |
+| data | Object | json格式数据,形式如下: |
 
 ```
 var data = {
@@ -184,7 +184,7 @@ uexControl.openDatePickerWithoutDay(1990,8, function(data) {
 });
 ```
 
-> ### openDatePickerWithConfig 打开带配置的日期选择器
+### 📦 openDatePickerWithConfig 打开带配置的日期选择器
 
 `uexControl.openDatePickerWithConfig(params, callbackFunction)`
 
@@ -233,11 +233,11 @@ var params = {
 | initDate  | Json   | 否    | 初始化日期,默认为当前日期                            |
 | minDate   | Json   | 否    | 最小日期值                                    |
 | maxDate   | Json   | 否    | 最大日期值                                    |
-| limitType | Number | 是    | 限制方式,0-表示具体日期限制,此种方式年月日参数必选；1-表示相对于初始化日期的前后天数,月数或年数,此种方式年月日参数有且只有一个有效,有效的优先级为日>月>年。具体用法请参考示例。 |
+| limitType | Number | 是    | 限制方式,0-表示具体日期限制,此种方式年月日参数必选;1-表示相对于初始化日期的前后天数,月数或年数,此种方式年月日参数有且只有一个有效,有效的优先级为日>月>年.具体用法请参考示例. |
 | data      | Json   | 是    | 限制数据                                     |
-| year      | Number | 是    | 年,当limitType为0时,必传,表示具体年份。当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中年的相对值x,负数表示小于初始化年份x年,正数表示大于初始化年份x年 |
-| month     | Number | 是    | 月,当limitType为0时,必传,表示具体月份。当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中月的相对值x,负数表示小于初始化月份x月,正数表示大于初始化月份x月 |
-| day       | Number | 是    | 日,当limitType为0时,必传,表示具体日期。当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中日的相对值x,负数表示小于初始化日期x天,正数表示大于初始化日期x天 |
+| year      | Number | 是    | 年,当limitType为0时,必传,表示具体年份.当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中年的相对值x,负数表示小于初始化年份x年,正数表示大于初始化年份x年 |
+| month     | Number | 是    | 月,当limitType为0时,必传,表示具体月份.当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中月的相对值x,负数表示小于初始化月份x月,正数表示大于初始化月份x月 |
+| day       | Number | 是    | 日,当limitType为0时,必传,表示具体日期.当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中日的相对值x,负数表示小于初始化日期x天,正数表示大于初始化日期x天 |
 
 **回调参数:**
 
@@ -248,7 +248,7 @@ var callbackFunction = function(data){}
 
 | 参数名称 | 类型     | 说明             |
 | ---- | ------ | -------------- |
-| data | Object | json格式数据，形式如下: |
+| data | Object | json格式数据,形式如下: |
 
 ```javascript
 var data = {
@@ -345,7 +345,7 @@ uexControl.openDatePickerWithConfig(data, callback);
 
 ## 2.2、监听方法
 
-> ### onError 参数传递错误时的监听方法
+### 📦 onError 参数传递错误时的监听方法
 
 `uexControl.onError(data)`
 
@@ -378,50 +378,21 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexControl-4.0.0`
+API版本: `uexControl-4.0.0`
 
 最近更新时间:`2016-6-15`
 
 | 历史发布版本 | 更新内容                                     |
 | ------ | ---------------------------------------- |
-| 4.0.0  | 支持function传入                             |
-| 3.0.16 | 对3.3引擎下非string参数造成闪退的情况进行了处理             |
-| 3.0.15 | 修改无法打开带配置的日期选择器的BUG                      |
-| 3.0.14 | 添加IDE支持                                  |
-| 3.0.13 | 删除info.plist                             |
-| 3.0.12 | 添加国际化支持                                  |
-| 3.0.11 | 插件现在支持iPad                               |
-| 3.0.10 | 修复doRotate时的崩溃问题                         |
-| 3.0.9  | 新增一个接口 允许设置取消按钮和确认按钮的标题字体颜色              |
-| 3.0.8  | 新增接口openDatePickerWithoutDay,打开只有年月的日历选择器 |
-| 3.0.7  | uexControl插件适配iphone6和6                  |
-| 3.0.6  | 同一时间只允许打开一个picker                        |
-| 3.0.5  | uexControl插件和安卓统一                        |
-| 3.0.4  | 修复uexControl.openTimePicker方法调不起的bug     |
-| 3.0.3  | 修复错误使用时的崩溃问题                             |
-| 3.0.2  | 彻底修复输入框被键盘遮挡                             |
-| 3.0.1  | 修复输入框被键盘遮挡                               |
-| 3.0.0  | 时间日期选择功能插件                               |
 
 ### Android
 
-API版本:`uexControl-4.0.0`
+API版本: `uexControl-4.0.0`
 
 最近更新时间:`2016-6-15`
 
 | 历史发布版本 | 更新内容                                     |
 | ------ | ---------------------------------------- |
-| 4.0.0  | 支持function传入                             |
-| 3.0.9  | 修复在华为系列平板上因中文crash问题                     |
-| 3.0.8  | 修复在Android 5.0以上版本选择日期时的crash问题          |
-| 3.0.7  | 修复日期不在范围内时,点击"确定"按钮能获取日期的问题              |
-| 3.0.6  | 6:修复华为手机上输入日期不生效的问题;新增openDatePickerWithConfig可配置日期范围的日期选择器接口。 |
-| 3.0.5  | 在openInputDialog接口中添加参数                  |
-| 3.0.4  | 新增接口openDatePickerWithoutDay,打开只有年月的日历选择器 |
-| 3.0.3  | 修改不显示当前日期问题                              |
-| 3.0.2  | 增加弹出输入框输入完成的回调方法cbOpenInputDialog        |
-| 3.0.1  | 修改魅族手机点击日期和软键盘同时弹出问题                     |
-| 3.0.0  | 时间日期选择功能插件                               |
 # 4、附录
 
 ### onError

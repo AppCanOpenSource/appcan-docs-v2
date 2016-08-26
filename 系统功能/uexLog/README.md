@@ -13,11 +13,11 @@ log插件
  
 ##2.1、方法
 
-> ### 			sendLog		向服务器发送信息		
+### 📦 			sendLog		向服务器发送信息		
 
 `uexLog.sendLog(log)`					
 **			说明:		**
-使用UDP协议发送log。服务器的ip在config.xml中logserverip中配置。端口号固定为:30050。
+使用UDP协议发送log.服务器的ip在config.xml中logserverip中配置.端口号固定为:30050.
 **  			参数:		**
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
@@ -64,26 +64,18 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexLog-3.0.5`
+API版本: `uexLog-4.0.0`
 
 最近更新时间:`2016-1-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.5 | GCDAsyncUdpSocket库更新 |
-| 3.0.4 | 添加IDE支持 |
-| 3.0.3 | 修复崩溃问题 |
-| 3.0.2 | iOS8.3以上系统支持在iTunes查看Documents文件夹 |
-| 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
-| 3.0.0 | Log功能插件 |
 
 ### Android
 
-API版本:`uexLog-3.0.1`
+API版本: `uexLog-4.0.0`
 
 最近更新时间:`2015-06-19`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.1 | 国际化 |
-| 3.0.0 | Log功能插件 |

@@ -4,7 +4,7 @@
 设备信息插件
 
 ## 1.1、说明
- 本类封装了设备硬件参数相关信息和硬件状态相关信息。
+ 本类封装了设备硬件参数相关信息和硬件状态相关信息.
 
 ## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/104339w2015d6d16t.jpg)
@@ -14,24 +14,24 @@
 
 
 ## 1.4、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。
-在后续版本中新添加的接口会在文档中额外说明。
+本插件所有API默认在插件版本**4.0.0+**可用.
+在后续版本中新添加的接口会在文档中额外说明.
 
 # 2、API概览
 
 ## 2.1、方法
 
-> ### vibrate 开启设备震动
+### 📦 vibrate 开启设备震动
 
 `uexDevice.vibrate(milliseconds)`
 
 **说明:**
 
-开启设备震动,iOS平台中,ipad,ipod不支持震动。
+开启设备震动,iOS平台中,ipad,ipod不支持震动.
 
 **参数:**
 
@@ -47,7 +47,7 @@
     uexDevice.vibrate(500);
 ```
 
-> ### cancelVibrate 关闭设备震动
+### 📦 cancelVibrate 关闭设备震动
 
 `uexDevice.cancelVibrate()`
 
@@ -66,7 +66,7 @@
     uexDevice.cancelVibrate();
 ```
 
-> ### getInfo 获取设备信息
+### 📦 getInfo 获取设备信息
 
 `uexDevice.getInfo(infoID)`
 
@@ -79,11 +79,11 @@
 
 | 参数名称   | 参数类型   | 是否必选 | 说明                                       |
 | ------ | ------ | ---- | ---------------------------------------- |
-| infoID | Number | 是    | 设备信息类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中设备信息类型。 |
+| infoID | Number | 是    | 设备信息类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中设备信息类型. |
 
 **返回值:**
 
-String类型对应设备信息。
+String类型对应设备信息.
 
 
 **示例:**
@@ -92,7 +92,7 @@ String类型对应设备信息。
  var systemVersion = uexDevice.getInfo('1');//获取系统版本
  alert(systemVersion);
 ```
-> ### screenCapture 屏幕截图
+### 📦 screenCapture 屏幕截图
 
 `uexDevice.screenCapture(quality, callbackFunction)`
 
@@ -106,7 +106,7 @@ String类型对应设备信息。
 | 参数名称             | 参数类型     | 是否必选 | 说明                        |
 | ---------------- | -------- | ---- | ------------------------- |
 | quality          | Number   | 是    | 图片压缩质量,取值范围[0,1] 为0时压缩率最大 |
-| callbackFunction | Function | 是    | 回调函数，用来获取相关业务数据           |
+| callbackFunction | Function | 是    | 回调函数,用来获取相关业务数据           |
 **回调参数:**
 
 ```javascript
@@ -117,10 +117,10 @@ var callbackFunction = function(error,data){
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
 | error | Number | 为0时表示成功,非0时表示失败 |
-| data  | Object | 返回数据，形式见下       |
+| data  | Object | 返回数据,形式见下       |
 ```
 var data = { 
-   savePath://String，屏幕截图的路径，error非零为空字符串
+   savePath://String,屏幕截图的路径,error非零为空字符串
 }
 ```
 **示例:**
@@ -134,13 +134,13 @@ var data = {
   }
 ```
 
-> ### setVolume 调整音量 
+### 📦 setVolume 调整音量 
 
 `uexDevice.setVolume(volume)`
 
 **说明:**
 
-设置系统音量值。特别说明,iOS需关闭**设置—>声音—>用按钮调整**，才有效。
+设置系统音量值.特别说明,iOS需关闭**设置—>声音—>用按钮调整**,才有效.
 
 **参数:**
 
@@ -154,7 +154,7 @@ var data = {
 ```
     uexDevice.setVolume(0.5);//设置系统音量
 ```
-> ### getVolume 获取系统音量值
+### 📦 getVolume 获取系统音量值
 
 `uexDevice.getVolume()`
 
@@ -177,7 +177,7 @@ Number类型音量值
  var volume = uexDevice.getVolume();//获取系统音量值
  alert(volume);
 ```
-> ### setScreenAlwaysBright 屏幕常亮控制 
+### 📦 setScreenAlwaysBright 屏幕常亮控制 
 
 `uexDevice.setScreenAlwaysBright(data)`
 
@@ -190,7 +190,7 @@ Number类型音量值
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                         |
 | ---- | ------ | ---- | -------------------------- |
-| data | Number | 是    | 屏幕常亮控制值,0 为取消常亮控制；1为设置屏幕常亮 |
+| data | Number | 是    | 屏幕常亮控制值,0 为取消常亮控制;1为设置屏幕常亮 |
 
 
 **示例:**
@@ -199,7 +199,7 @@ Number类型音量值
     uexDevice.setScreenAlwaysBright(1);//设置屏幕常亮
 ```
 
-> ### setScreenBrightness 调整屏幕亮度
+### 📦 setScreenBrightness 调整屏幕亮度
 
 `uexDevice.setScreenBrightness(brightness)`
 
@@ -221,7 +221,7 @@ Number类型音量值
     uexDevice.setScreenBrightness(0.5);//设置屏幕亮度
 ```
 
-> ### getScreenBrightness 获取屏幕亮度
+### 📦 getScreenBrightness 获取屏幕亮度
 
 `uexDevice.getScreenBrightness()`
 
@@ -244,7 +244,7 @@ Number类型屏幕亮度值
  alert(brightness);
 ```
 
-> ### openWiFiInterface 打开WIFI设置页
+### 📦 openWiFiInterface 打开WIFI设置页
 
 `uexDevice.openWiFiInterface()`
 
@@ -263,7 +263,7 @@ Number类型屏幕亮度值
     uexDevice.openWiFiInterface();//打开WIFI设置页面
 ```
 
-> ### isFunctionEnable 判断某功能是否开启
+### 📦 isFunctionEnable 判断某功能是否开启
 
 `uexDevice.isFunctionEnable(params, callbackFunction)`
 
@@ -284,7 +284,7 @@ var params = {
 | 字段名称             | 类型     | 是否必选 | 说明                        |
 | ---------------- | ------ | ---- | ------------------------- |
 | setting          | String | 是    | 功能名称,详情请参考[功能](#Settings) |
-| callbackFunction | 函数     | 必选   | 回调函数，用来获取相关业务数据           |
+| callbackFunction | 函数     | 必选   | 回调函数,用来获取相关业务数据           |
 
 **回调参数:**
 
@@ -295,7 +295,7 @@ var callbackFunction = function(data){
 
 | 参数名称 | 参数类型    | 说明              |
 | ---- | ------- | :-------------- |
-| data | Boolean | true开启，false未开启 |
+| data | Boolean | true开启,false未开启 |
 
 **示例:**
 
@@ -312,7 +312,7 @@ uexDevice.isFunctionEnable(data, function(data) {
 });
 ```
 
-> ### openSetting 打开设置界面
+### 📦 openSetting 打开设置界面
 
 `uexDevice.openSetting(params)`
 
@@ -348,20 +348,20 @@ uexDevice.openSetting(data);
 
 ## 2.2、监听方法
 
-> ### onOrientationChange 屏幕旋转的监听方法
+### 📦 onOrientationChange 屏幕旋转的监听方法
 
 `uexDevice.onOrientationChange(mode)`
 
 **说明:**
 
-该监听方法需要注册在主窗口中，注册在浮动窗口中无效。
+该监听方法需要注册在主窗口中,注册在浮动窗口中无效.
 
 **参数:**
 
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                |
 | ---- | ------ | ---- | ----------------- |
-| mode | Number | 是    | 屏幕方向,1-正竖屏；2-左横屏。 |
+| mode | Number | 是    | 屏幕方向,1-正竖屏;2-左横屏. |
 
 
 **示例:**
@@ -380,40 +380,21 @@ uexDevice.openSetting(data);
 
 ### iOS
 
-API版本:`uexDevice-4.0.0`
+API版本: `uexDevice-4.0.0`
 
 最近更新时间:`2016-6-6`
 
 | 历史发布版本 | 更新内容                                     |
 | ------ | ---------------------------------------- |
-| 4.0.0  | 支持function传入                             |
-| 3.0.9  | 修改获取设备型号的方式,添加设备型号                       |
-| 3.0.8  | 修改工程为arc;部分接口支持同步回调;设备型号现在可以识别iPad Pro   |
-| 3.0.7  | openSetting接口支持打开推送通知设置                  |
-| 3.0.6  | 添加判断功能是否开启,以及打开设置界面接口                    |
-| 3.0.5  | 添加IDE支持                                  |
-| 3.0.4  | 新增屏幕截图、调节屏幕亮度、调节系统音量、屏幕常亮控制、跳转WIFI界面相关接口 |
-| 3.0.3  | 设备列表更新                                   |
-| 3.0.2  | 支持获取4G网络状态                               |
-| 3.0.1  | 修复在不显示状态栏时无法获取当前网络状态的bug                 |
-| 3.0.0  | 设备能力功能插件                                 |
 
 ### Android
 
-API版本:`uexDevice-4.0.0`
+API版本: `uexDevice-4.0.0`
 
 最近更新时间:`2016-6-6`
 
 | 历史发布版本 | 更新内容                                     |
 | ------ | ---------------------------------------- |
-| 4.0.0  | 支持function传入                             |
-| 3.0.6  | Android6.0支持获取wifi mac地址                 |
-| 3.0.5  | 修复多次截图都是同一张图片的问题                         |
-| 3.0.4  | 解决多次截屏失效的问题                              |
-| 3.0.3  | 添加判断功能是否开启,以及打开设置界面接口                    |
-| 3.0.2  | 添加截图,听筒和扩音器切换, 设置/获取音量等接口                |
-| 3.0.1  | 新增屏幕截图、调节屏幕亮度、调节系统音量、屏幕常亮控制、跳转WIFI界面相关接口 |
-| 3.0.0  | 设备能力功能插件                                 |
 # 4、附录
 
 ### Settings

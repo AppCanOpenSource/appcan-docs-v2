@@ -24,7 +24,7 @@
 # 2、API概览
 
 ## 2.1、方法
-> ### create 创建上传对象
+### 📦 create 创建上传对象
 
 `uexUploaderMgr.create(param)`
 
@@ -45,7 +45,7 @@ var param = {
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 字段名称 | 类型     | 是否必选 | 说明                                       |
 | ---- | ------ | ---- | ---------------------------------------- |
@@ -74,7 +74,7 @@ if(!uploader){
 }
 ```
 
-> ### closeUploader 关闭上传对象
+### 📦 closeUploader 关闭上传对象
 
 `uexUploaderMgr.closeUploader(uploader)`
 
@@ -101,7 +101,7 @@ var ret = uexUploaderMgr.closeUploader(uploader);
 alert(ret);
 ```
 
-> ### setHeaders 设置请求头
+### 📦 setHeaders 设置请求头
 
 `uexUploaderMgr.setHeaders(uploader, json)`
 
@@ -129,7 +129,7 @@ var ret = uexUploaderMgr.setHeaders(uploader, JSON.stringify(headJson));
 alert(ret);
 ```
 
-> ### uploadFile 上传文件
+### 📦 uploadFile 上传文件
 
 `uexUploaderMgr.uploadFile(uploader, filePath, field, quality, maxWidth,cb)`
 
@@ -143,9 +143,9 @@ alert(ret);
 | 参数名称     | 参数类型     | 是否必选 | 说明                                       |
 | -------- | -------- | ---- | ---------------------------------------- |
 | uploader | Uploader | 是    | 由[create](# create 创建上传对象)接口创建的上传对象      |
-| filePath | String   | 是    | 需要上传的文件路径。支持`wgt://`,`res://`,`file://`  |
+| filePath | String   | 是    | 需要上传的文件路径.支持`wgt://`,`res://`,`file://`  |
 | field    | String   | 是    | 文件数据所在的field                             |
-| quality  | Number   | 是    | 类型如果为图片,表示是否需要压缩及压缩质量。 0:不压缩 1:高质量压缩 2:中质量压缩 3:低质量压缩 |
+| quality  | Number   | 是    | 类型如果为图片,表示是否需要压缩及压缩质量. 0:不压缩 1:高质量压缩 2:中质量压缩 3:低质量压缩 |
 | maxWidth | Number   | 是    | 类型如果为图片,图片按尺寸等比压缩的最大宽度                   |
 | cb       | Function | 是    | 文件上传中的信息会通过此函数回调                         |
 
@@ -187,20 +187,18 @@ uexUploaderMgr.uploadFile(uploader,"res://uexCoverFlow2_tupian.png","imageField"
 
 ### iOS
 
-API版本:`uexUploaderMgr-4.0.0`
+API版本: `uexUploaderMgr-4.0.0`
 
 最近更新时间:`2016-7-29`
 
 | 历史发布版本 | 更新内容   |
 | ------ | ------ |
-| 4.0.0  | 上传功能插件 |
 
 ### Android
 
-API版本:`uexUploaderMgr-4.0.0`
+API版本: `uexUploaderMgr-4.0.0`
 
 最近更新时间:`2016-7-29`
 
 | 历史发布版本 | 更新内容   |
 | ------ | ------ |
-| 4.0.0  | 上传功能插件 |

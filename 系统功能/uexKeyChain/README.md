@@ -4,8 +4,8 @@ KeyChain(钥匙串)插件
 
 ## 1.1、说明
 
-封装了iOS系统的KeyChain相关功能。iOS的keychain服务提供了一种安全的保存私密信息(如密码,序列号)的方式,每个ios程序都有一个独立的keychain存储。
-对于一些私密信息,比如密码等等,就需要使用更为安全的keychain了。keychain里保存的信息不会因App被删除而丢失,在用户重新安装App后依然有效,数据还在。
+封装了iOS系统的KeyChain相关功能.iOS的keychain服务提供了一种安全的保存私密信息(如密码,序列号)的方式,每个ios程序都有一个独立的keychain存储.
+对于一些私密信息,比如密码等等,就需要使用更为安全的keychain了.keychain里保存的信息不会因App被删除而丢失,在用户重新安装App后依然有效,数据还在.
 
 ## 1.2、UI展示
 
@@ -16,7 +16,7 @@ KeyChain(钥匙串)插件
 
 ## 2.1、方法
 
->### setItem 设置一个keyChain item
+### 📦 setItem 设置一个keyChain item
 
 `uexKeyChain.setItem(param)`
 
@@ -40,7 +40,7 @@ var param={
 }
 ```
 * keyChain说明见[术语表-KeyChain 说明](#KeyChain 说明)
-* service 和 key 2个字符串唯一确定了一个keyChain item,即一张数据表。
+* service 和 key 2个字符串唯一确定了一个keyChain item,即一张数据表.
 * 如果调用该接口时item已存在,会进行覆写操作,覆盖掉之前设置的value数据
 * accessibility说明见[术语表-accessibility KeyChain数据保护设置说明](### accessibility KeyChain数据保护设置说明)
 * 如果accessibility被设置为6 那么iCloudSync将会无效,因为此accessibility设置下数据永远不会被iCloud同步
@@ -76,7 +76,7 @@ var data={
 uexKeyChain.setItem(JSON.stringify(data));
 ```
 
->### getItem 获取KeyChain item数据
+### 📦 getItem 获取KeyChain item数据
 
 `uexKeyChain.getItem(param)`
 
@@ -116,7 +116,7 @@ var data={
 uexKeyChain.getItem(JSON.stringify(data));
 ```
 
->### removeItem 移除一个KeyChain item
+### 📦 removeItem 移除一个KeyChain item
 
 **说明**
 
@@ -155,13 +155,13 @@ var data={
 uexKeyChain.removeItem(JSON.stringify(data));
 ```
 
->### getDeviceUniqueIdentifier 生成设备唯一标识
+### 📦 getDeviceUniqueIdentifier 生成设备唯一标识
 
 `uexKeyChain.getDeviceUniqueIdentifier()`
 
 **说明**
 
-* 设备首次调用此接口时,会生成一个随机32位字符串并用插件内置的key和service以权限kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly储存在keyChain中,并返回此字符串；
+* 设备首次调用此接口时,会生成一个随机32位字符串并用插件内置的key和service以权限kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly储存在keyChain中,并返回此字符串;
 * 之后调用此接口,会直接根据key和service取回此字符串并返回
 * **用户卸载APP再重装,此字符串不会变更!**
 
@@ -196,7 +196,7 @@ alert(uid);
 
 ## 2.2、回调方法
 
->### cbSetItem 设置一个keyChain item的回调方法
+### 📦 cbSetItem 设置一个keyChain item的回调方法
 
 **说明**
 
@@ -237,7 +237,7 @@ Window.uexOnload=function(){
 }
 ```
 
->### cbGetItem 获取KeyChain item数据的回调方法
+### 📦 cbGetItem 获取KeyChain item数据的回调方法
 
 **说明**
 
@@ -276,7 +276,7 @@ Window.uexOnload=function(){
 }
 ```
 
->### cbRemoveItem 移除一个KeyChain item的回调方法
+### 📦 cbRemoveItem 移除一个KeyChain item的回调方法
 
 **说明**
 
@@ -306,7 +306,7 @@ Window.uexOnload=function(){
 }
 ```
 
->### cbGetDeviceUniqueIdentifier 生成设备唯一标识的回调方法
+### 📦 cbGetDeviceUniqueIdentifier 生成设备唯一标识的回调方法
 
 `uexKeychain.cbGetDeviceUniqueIdentifier(param)`
 
@@ -336,7 +336,7 @@ Window.uexOnload=function(){
 
 #3、术语表
 
->### KeyChain 说明
+### 📦 KeyChain 说明
 
 * keyChain是iOS系统里一个独立的数据库系统,存储于应用沙盒之外
 * 一般来说每个应用只能访问自己的KeyChain
@@ -346,7 +346,7 @@ Window.uexOnload=function(){
 * 存放在KeyChain中的非设备限制的数据可以备份,也可以通过iCloud在不同的iOS或者OSX设备间共享
 * **可以通过keyChain在iOS 7+系统上实现唯一标识符的功能**
 
->### accessibility KeyChain数据保护设置说明
+### 📦 accessibility KeyChain数据保护设置说明
 
 | accessibility值 | 对应的属性| 说明 | 备注 |
 | ----- | ----- | ----- | ----- |
@@ -370,15 +370,12 @@ Window.uexOnload=function(){
 
 ### iOS
 
-API版本:`uexKeyChain-3.0.2`
+API版本: `uexKeyChain-4.0.0`
 
 最近更新时间:`2016-1-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.2 | 添加接口getDeviceUniqueIdentifier |
-| 3.0.1 | 添加IDE支持 |
-| 3.0.0 | 系统钥匙串插件 |
 
 ### Android
 

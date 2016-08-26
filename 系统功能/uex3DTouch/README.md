@@ -7,7 +7,7 @@
 
 * 可以通过此插件来实现3D Touch相关功能
 * shortcut 请先阅读[术语表-shortcut](#shortcut)
-* **如果用户需要设置静态shortcut,或者需要在shortcut里设置自定义图标,则需要自定义插件**。具体自定义的方法见附录。
+* **如果用户需要设置静态shortcut,或者需要在shortcut里设置自定义图标,则需要自定义插件**.具体自定义的方法见附录.
 
 ## 1.2、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=511_pluginlist)至插件详情页(插件测试用例与插件源码已经提供)
@@ -15,20 +15,20 @@
 
 ## 1.3、平台版本支持
 
-本插件的所有API默认只支持**iOS9.0+**操作系统,**不支持Android**。
+本插件的所有API默认只支持**iOS9.0+**操作系统,**不支持Android**.
 
-有特殊版本要求的API会在文档中额外说明。
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.4、接口有效性
 
-本插件所有API默认在插件版本**4.0.0+**可用。
+本插件所有API默认在插件版本**4.0.0+**可用.
 
 
 #2、 API预览
 
 ##2.1、 方法
 
-> ### setDynamicShortcutItems 设置动态shortcut
+### 📦 setDynamicShortcutItems 设置动态shortcut
 
 `uex3DTouch.setDynamicShortcutItems(itemArray)`
 
@@ -100,7 +100,7 @@ uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 
 ##2.2 监听方法
 
-> ### onLoadByShortcutClickEvent 程序被点击3DTouch Shortcut调起的监听方法
+### 📦 onLoadByShortcutClickEvent 程序被点击3DTouch Shortcut调起的监听方法
 
   
   
@@ -137,11 +137,11 @@ uex3DTouch.onLoadByShortcutClickEvent = function(data){
 
 #3、术语表
 
->### shortcut
+### 📦 shortcut
 
 #### 概要
 
-* 当APP在支持3D Touch的iOS设备上,通过用力长按主屏幕上的app图标,可以弹出一个菜单。
+* 当APP在支持3D Touch的iOS设备上,通过用力长按主屏幕上的app图标,可以弹出一个菜单.
 * **菜单至多有四项**,每一项,既是一个shortcut
 * 用户可以点击shortcut以打开或者从后台唤醒应用
 * 当通过此方式打开应用时,APP可以获取到被点击的shortcut相关信息
@@ -162,11 +162,11 @@ uex3DTouch.onLoadByShortcutClickEvent = function(data){
 	* 由于菜单只容许至多4个shortcut,因此其他设置的shortcut将无效
 	* 比如,若你设置了3个静态shortcut和2个动态shortcut,那么第二个动态shortcut将不会被显示
 
->### shortcutIconTypes
+### 📦 shortcutIconTypes
 
 * iOS 系统内部预设了一些shortcut图标供开发者使用,详见下表
 * 具体图标样式参见[苹果官方文档](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIApplicationShortcutIcon_Class/index.html#//apple_ref/swift/enum/c:@E@UIApplicationShortcutIconType),搜索相应的shortcutIconType关键字即可看到
-* 在设置系统图标时,直接传shortcutIconType关键字即可。
+* 在设置系统图标时,直接传shortcutIconType关键字即可.
 * 比如想要设置某个动态shortcut的图标为系统的邮箱图标,则iconType应传值`"UIApplicationShortcutIconTypeMail"`
 
 |shortcutIconType关键字|图标说明|备注|
@@ -205,15 +205,12 @@ uex3DTouch.onLoadByShortcutClickEvent = function(data){
 
 ### iOS
 
-API版本:`uex3DTouch-3.0.2`
+API版本: `uex3DTouch-4.0.0`
 
 最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.2 | 修复可能会与其他包含3DTouch功能的插件冲突的问题 |
-| 3.0.1 | 添加IDE支持 |
-| 3.0.0 | 3DTouch 功能插件 |
 
 ### Android
 
@@ -229,7 +226,7 @@ API版本:`uex3DTouch-3.0.2`
 	* 正方形
 	* 单色(透明和非透明)
 * 实际使用时,iOS系统会对自定义图标文件进行处理,丢掉所有的色彩信息,然后把透明度为1(100%)的像素设置为黑色,透明度<1的像素设置为透明色
-* 因此,若你的图片文件没有alpha通道(比如.jpg),图标将会变成纯黑色的方块。
+* 因此,若你的图片文件没有alpha通道(比如.jpg),图标将会变成纯黑色的方块.
 * 建议图标格式:.png
 * **开发者需自定义插件,把图标文件放到插件目录下的uex3DTouchGroup文件夹中,才能被APP所使用**
 * 使用方式,在设置shortcut时设置iconFile参数,传值为文件名,如`"b.png"`

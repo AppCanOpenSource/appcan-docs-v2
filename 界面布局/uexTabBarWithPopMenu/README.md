@@ -8,19 +8,19 @@
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=621_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 ## 1.4、平台版本支持
 
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 
-有特殊版本要求的API会在文档中额外说明。
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
 
-本插件所有API默认在插件版本**4.0.0+**可用。
+本插件所有API默认在插件版本**4.0.0+**可用.
 
 # 2、API概览
 
 ## 2.1、方法
 
-> ### open 打开菜单
+### 📦 open 打开菜单
 
 `uexTabBarWithPopMenu.open(json)`
 
@@ -33,8 +33,8 @@
 ```
 var json = {
     statusColor:,//(可选) 底部tab选中指示条的颜色,默认"#EA7C24"
-    indicatorColor://(可选) 页面指示器的背景颜色，默认"#EA7C24"
-    indicatorSelectColor://(可选) 页面指示器的选中颜色，默认""#EE0000""
+    indicatorColor://(可选) 页面指示器的背景颜色,默认"#EA7C24"
+    indicatorSelectColor://(可选) 页面指示器的选中颜色,默认""#EE0000""
     tab:{//(必选) 底部tab菜单数据
         textSize:,//(可选) 字体大小,默认为10
         textNColor:,//(可选) 字体正常颜色,默认黑色
@@ -54,7 +54,7 @@ var json = {
         textSize:,//(可选) 字体大小,默认为13
         textNColor:,//(可选) 字体正常颜色,默认黑色
         textHColor:,//(可选) 字体高亮颜色,默认白色
-        bgColor:,//(可选) 弹出菜单的背景色,默认为透明背景色,可采用ARGB色彩模式即附加上Alpha(透明度)通道,对于 alpha,00 表示完全透明,ff 表示完全不透明,非00/ff为半透明。表达式顺序是"aabbggrr"如"#66ffffff"
+        bgColor:,//(可选) 弹出菜单的背景色,默认为透明背景色,可采用ARGB色彩模式即附加上Alpha(透明度)通道,对于 alpha,00 表示完全透明,ff 表示完全不透明,非00/ff为半透明.表达式顺序是"aabbggrr"如"#66ffffff"
         bottomDistance: //(可选)弹出菜单距离底部的距离,默认300
         data:[//(必选) 弹出菜单项,为二维数组
           [
@@ -182,7 +182,7 @@ var json = {
     uexTabBarWithPopMenu.open(data1);
 ```
 
-> ### close 关闭菜单
+### 📦 close 关闭菜单
 
 `uexTabBarWithPopMenu.close()`
 
@@ -203,7 +203,7 @@ var json = {
     uexTabBarWithPopMenu.close();
 ```
 
-> ### setItemChecked 设置tab选中项
+### 📦 setItemChecked 设置tab选中项
 
 `uexTabBarWithPopMenu.setItemChecked(json)`
 
@@ -229,7 +229,7 @@ var json = {
     uexTabBarWithPopMenu.setItemChecked(data1);
 ```
 
-> ### setBadge 设置徽标
+### 📦 setBadge 设置徽标
 
 `uexTabBarWithPopMenu.setBadge(json)`
 
@@ -255,7 +255,7 @@ var json = {
     var data1 = JSON.stringify(param1);
     uexTabBarWithPopMenu.setBadge(data1);
 ```
-> ### removeBadge 移除徽标
+### 📦 removeBadge 移除徽标
 
 `uexTabBarWithPopMenu.removeBadge(json)`
 
@@ -267,7 +267,7 @@ var json = {
 
 ```
 var json = {
-    indexes://(可选) tab菜单项索引数组，不传移除所有徽标
+    indexes://(可选) tab菜单项索引数组,不传移除所有徽标
 }
 ```
 
@@ -283,7 +283,7 @@ var json = {
 ```
 ## 2.2、监听方法
 
-> ### onTabItemClick tab菜单项被点击的监听方法
+### 📦 onTabItemClick tab菜单项被点击的监听方法
 
 `uexTabBarWithPopMenu.onTabItemClick(data);`
 
@@ -305,7 +305,7 @@ var data = {
     }
 ```
 
-> ### onPopMenuItemClick 弹出菜单项被点击的监听方法
+### 📦 onPopMenuItemClick 弹出菜单项被点击的监听方法
 
 `uexTabBarWithPopMenu.onPopMenuItemClick(data);`
 
@@ -332,24 +332,18 @@ var json = {
 
 ### iOS
 
-API版本:`uexTabBarWithPopMenu-4.0.0`
+API版本: `uexTabBarWithPopMenu-4.0.0`
 
 最近更新时间:`2016-07-19`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.2 | 支持引擎4.0，函数入参 |
-| 3.0.1 | 新增分页功能和徽标接口 |
-| 3.0.0 | 新增uexTabBarWithPopMenu插件 |
 
 ### Android
 
-API版本:`uexTabBarWithPopMenu-4.0.0`
+API版本: `uexTabBarWithPopMenu-4.0.0`
 
 最近更新时间:`2016-07-19`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.2 | 支持引擎4.0，函数入参 |
-| 3.0.1 | 新增分页功能和徽标接口 |
-| 3.0.0 | 新增uexTabBarWithPopMenu插件 |

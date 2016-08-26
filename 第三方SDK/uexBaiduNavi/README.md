@@ -6,7 +6,7 @@
 百度导航插件
 
 ## 1.1、说明
-封装了百度导航的相关功能:您可以使用该插件开发适用于iOS/Android系统移动设备的导航应用,通过调用插件的相关接口,您可以轻松访问百度导航的服务和数据,构建功能丰富、交互性强的导航类应用程序。
+封装了百度导航的相关功能:您可以使用该插件开发适用于iOS/Android系统移动设备的导航应用,通过调用插件的相关接口,您可以轻松访问百度导航的服务和数据,构建功能丰富、交互性强的导航类应用程序.
 >注:暂不支持IDE使用,此插件之前需要进行config.xml相关配置,否则无法正常编译,详见[附录](#3、 附录 "附录")
 
 ## 1.2、开源源码
@@ -16,7 +16,7 @@
 
 ##2.1、 方法
 
->### init  初始化
+### 📦 init  初始化
 
 `uexBaiduNavi.init(param)`
 
@@ -60,13 +60,13 @@ uexBaiduNavi.init(JSON.stringify(data));
 
 ```
 
->### startRoutePlan  开始路径规划
+### 📦 startRoutePlan  开始路径规划
 
 `uexBaiduNavi.startRoutePlan(param)`
 
 **说明**
 
-通过输入起点与终点,可以发起路径规划。百度导航使用gps坐标系,使用前需要转换成百度坐标系(百度地图)防止定位偏差。
+通过输入起点与终点,可以发起路径规划.百度导航使用gps坐标系,使用前需要转换成百度坐标系(百度地图)防止定位偏差.
 
 回调 [cbStartRoutePlan](#cbStartRoutePlan 开始路径规划的回调方法) 开始路径规划的回调方法
 
@@ -109,13 +109,13 @@ uexBaiduNavi.startRoutePlan(JSON.stringify(data));
 
 ```
 
->### startNavi  开始导航
+### 📦 startNavi  开始导航
 
 `uexBaiduNavi.startNavi(param)`
 
 **说明**
 
-成功发起路径规划后,即可以进入真实GPS导航或模拟导航。真实导航中点击转向标可以切换到文字导航模式,文字导航界面点击HUD按钮可以进入HUD导航。
+成功发起路径规划后,即可以进入真实GPS导航或模拟导航.真实导航中点击转向标可以切换到文字导航模式,文字导航界面点击HUD按钮可以进入HUD导航.
 
 监听 [onExitNavi](#onExitNavi 退出导航的监听方法) 退出导航的监听方法
 
@@ -156,7 +156,7 @@ var data={
 uexBaiduNavi.startNavi(JSON.stringify(data));
 ```
 
->### exitNavi  退出导航
+### 📦 exitNavi  退出导航
 
 `uexBaiduNavi.exitNavi()`
 
@@ -186,13 +186,13 @@ iOS 3.0.0+
 uexBaiduNavi.exitNavi();
 ```
 
->### startDigitDog  开始巡航
+### 📦 startDigitDog  开始巡航
 
 `uexBaiduNavi.startDigitDog(param)`
 
 **说明**
 
-巡航功能:也即电子狗功能,不用输入起点终点,一键即可进行巡航模式,准确发现前方电子眼信息。
+巡航功能:也即电子狗功能,不用输入起点终点,一键即可进行巡航模式,准确发现前方电子眼信息.
 
 监听 [onExitDigitDog](#onExitDigitDog 退出巡航的监听方法) 退出巡航的监听方法
 
@@ -231,7 +231,7 @@ uexBaiduNavi.startDigitDog(JSON.stringify(data));
 
 ## 2.2、 回调方法
 
->### cbInit 初始化完成的回调方法
+### 📦 cbInit 初始化完成的回调方法
 
 `uexBaiduNavi.cbInit(param)`
 
@@ -270,7 +270,7 @@ uexBaiduNavi.cbInit=function(json){
 }
 ```
 
->### cbStartRoutePlan 开始路径规划的回调方法
+### 📦 cbStartRoutePlan 开始路径规划的回调方法
 
 `uexBaiduNavi.cbStartRoutePlan(param)`
 
@@ -321,7 +321,7 @@ uexBaiduNavi.cbStartRoutePlan=function(json){
 
 ##2.3、 监听方法
 
->### onExitNavi 退出导航的监听方法
+### 📦 onExitNavi 退出导航的监听方法
 
 `uexBaiduNavi.onExitNavi()`
 
@@ -351,7 +351,7 @@ uexBaiduNavi.onExitNavi=function(){
 }
 ```
 
->### onExitDeclaration 退出导航声明页面的监听方法
+### 📦 onExitDeclaration 退出导航声明页面的监听方法
 
 `uexBaiduNavi.onExitDeclaration()`
 
@@ -383,7 +383,7 @@ uexBaiduNavi.onExitDeclaration=function(){
 }
 ```
 
->### onExitDigitDog 退出巡航的监听方法
+### 📦 onExitDigitDog 退出巡航的监听方法
 
 `uexBaiduNavi.onExitDigitDog()`
 
@@ -420,7 +420,7 @@ uexBaiduNavi.onExitDigitDog=function(){
 可以参考[百度地图的AppKEY申请指引](http://newdocx.appcan.cn/newdocx/docx?type=1384_975)
 	
 ## TTS语音平台授权
-SDK内置百度TTS语音播报功能,需要对应用进行授权验证才能够使用,因此需要主动注册应用相关信息。
+SDK内置百度TTS语音播报功能,需要对应用进行授权验证才能够使用,因此需要主动注册应用相关信息.
 
 可以在[导航TTS平台](http://app.navi.baidu.com/ttsregister/appinfo)中进行注册申请
 
@@ -439,7 +439,7 @@ SDK内置百度TTS语音播报功能,需要对应用进行授权验证才能够�
 ```
 
 ## Android插件配置指引
-将如下所示的value对应的值换成自己在百度上申请的秘钥即可。
+将如下所示的value对应的值换成自己在百度上申请的秘钥即可.
 ```
 <config desc="uexBaiduNavi" type="KEY">
    <param name="$uexBaiduNavi_ApiKey$" platform="Android" value="BMZtlp2EMfWQgMG8nOqu6KzG"/>
@@ -456,23 +456,18 @@ http://developer.baidu.com/map/index.php?title=android-navsdk/guide/voice
 
 ### iOS
 
-API版本:`uexBaiduNavi-3.0.0`
+API版本: `uexBaiduNavi-4.0.0`
 
 最近更新时间:`2015-10-23`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 百度导航插件 |
 
 ### Android
 
-API版本:`uexBaiduNavi-3.0.3`
+API版本: `uexBaiduNavi-4.0.0`
 
 最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.3 | 解决在部份手机上channel找不到的问题 |
-| 3.0.2 | 修复终点有偏差的问题 |
-| 3.0.1 | 修复仅有起点、终点经纬度坐标时路径规划失败问题 |
-| 3.0.0 | 百度导航插件 |

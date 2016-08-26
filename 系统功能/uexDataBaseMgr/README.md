@@ -15,25 +15,25 @@
 
 
 ## 1.4、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。  
-在后续版本中新添加的接口会在文档中额外说明。  
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.  
 
 # 2、API概览
 
 
 ## 2.1、方法
 
-> ### open 打开数据库
+### 📦 open 打开数据库
 
 `uexDataBaseMgr.open(dbName)`
 
 **说明:**
 
-打开数据库并得到数据库对象。
+打开数据库并得到数据库对象.
 
 **参数:**
 
@@ -44,7 +44,7 @@
 
 **返回值:**
 
-该函数同步返回`DB Object`。结果不为null即为打开成功，后续接口传入此对象进行操作，开发者不需要关心里面的数据结构。
+该函数同步返回`DB Object`.结果不为null即为打开成功,后续接口传入此对象进行操作,开发者不需要关心里面的数据结构.
 
 **示例:**
 
@@ -55,13 +55,13 @@ if(!db){
 }
 ```
 
-> ### sql Sql语句的执行
+### 📦 sql Sql语句的执行
 
 `uexDataBaseMgr.sql(db,sql,callbackFunction)`
 
 **说明:**
 
-Sql语句的执行,对数据库数据的增删改。执行完成后回调`callbackFunction`
+Sql语句的执行,对数据库数据的增删改.执行完成后回调`callbackFunction`
 **参数:**
 
 
@@ -69,7 +69,7 @@ Sql语句的执行,对数据库数据的增删改。执行完成后回调`callba
 | ---------------- | --------- | ---- | ------------- |
 | db               | DB Object | 是    | open接口同步返回的对象 |
 | sql              | String    | 是    | 要执行的sql语句     |
-| callbackFunction | Function  | 否    | 回调函数，返回执行的结果  |
+| callbackFunction | Function  | 否    | 回调函数,返回执行的结果  |
 
 **回调参数:**
 
@@ -79,7 +79,7 @@ var callbackFunction = function(error){}
 
 | 参数名称  | 类型     | 说明                |
 | ----- | ------ | ----------------- |
-| error | Number | 执行结果，0表示成功,非0表示失败 |
+| error | Number | 执行结果,0表示成功,非0表示失败 |
 
 
 **示例:**
@@ -92,13 +92,13 @@ uexDataBaseMgr.sql(db,sql, function(error) {
     }
 });
 ```
-> ### select Sql语句的查询
+### 📦 select Sql语句的查询
 
 `uexDataBaseMgr.select(db,sql, callbackFunction)`
 
 **说明:**
 
-Sql语句的查询,对数据库中数据的查询。
+Sql语句的查询,对数据库中数据的查询.
 
 **参数:**
 
@@ -106,7 +106,7 @@ Sql语句的查询,对数据库中数据的查询。
 | ---------------- | --------- | ---- | ------------- |
 | db               | DB Object | 是    | open接口同步返回的对象 |
 | sql              | String    | 否    | 要查询的sql语句     |
-| callbackFunction | 函数        | 否    | 回调函数，返回执行的结果  |
+| callbackFunction | 函数        | 否    | 回调函数,返回执行的结果  |
 
 **回调参数:**
 
@@ -117,7 +117,7 @@ var callbackFunction = function(error, data){
 
 | 参数名称  | 类型     | 说明                |
 | ----- | ------ | ----------------- |
-| error | Number | 执行结果，0表示成功,非0表示失败 |
+| error | Number | 执行结果,0表示成功,非0表示失败 |
 | data  | Array  | 查询结果              |
 
 
@@ -127,20 +127,20 @@ var callbackFunction = function(error, data){
 var sql = "SELECT * FROM testTable";
 uexDataBaseMgr.select(db,sql, function (error,data) {
     if (error) {
-        alert('执行失败')；
+        alert('执行失败');
     } else {
         alert('data:' + JSON.stringify(data));
     }
 });
 ```
 
-> ### transactionEx　事务的执行
+### 📦 transactionEx　事务的执行
 
 `uexDataBaseMgr.transactionEx(db,sqls, callbackFunction)`
 
 **说明:**
 
-事务的执行, 执行完成后回调`callbackFunction`，不支持select相关的语句
+事务的执行, 执行完成后回调`callbackFunction`,不支持select相关的语句
 
 **参数:**
 
@@ -148,7 +148,7 @@ uexDataBaseMgr.select(db,sql, function (error,data) {
 | ---------------- | --------- | ---- | --------------- |
 | db               | DB Object | 是    | open接口同步返回的对象   |
 | sqls             | String    | 是    | sql语句数组的Json字符串 |
-| callbackFunction | Function  | 否    | 回调函数，返回执行的结果    |
+| callbackFunction | Function  | 否    | 回调函数,返回执行的结果    |
 
 **回调参数:**
 
@@ -158,7 +158,7 @@ var callbackFunction = function(error){}
 
 | 参数名称  | 类型     | 说明                |
 | ----- | ------ | ----------------- |
-| error | Number | 执行结果，0表示成功,非0表示失败 |
+| error | Number | 执行结果,0表示成功,非0表示失败 |
 
 **示例:**
 
@@ -174,7 +174,7 @@ uexDataBaseMgr.transactionEx(db,JSON.stringify(sqls), function(error) {
 });
 ```
 
-> ### close 关闭数据库
+### 📦 close 关闭数据库
 
 `uexDataBaseMgr.close(db)`
 
@@ -204,22 +204,20 @@ alert(result);
 
 ### iOS
 
-API版本:`uexDataBaseMgr-4.0.0`
+API版本: `uexDataBaseMgr-4.0.0`
 
 最近更新时间:`2016-8-2`
 
 | 历史发布版本 | 更新内容    |
 | ------ | ------- |
-| 4.0.0  | 数据库功能插件 |
 
 
 ### Android
 
-API版本:`uexDataBaseMgr-4.0.0`
+API版本: `uexDataBaseMgr-4.0.0`
 
 最近更新时间:`2016-8-2`
 
 | 历史发布版本 | 更新内容    |
 | ------ | ------- |
-| 4.0.0  | 数据库功能插件 |
 

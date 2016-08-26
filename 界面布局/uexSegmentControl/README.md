@@ -11,7 +11,7 @@
 
 ## 2.1、方法
 
-> ### open 打开分段选择器
+### 📦 open 打开分段选择器
 
 `uexSegmentControl.open(jsonStr)`
 
@@ -89,7 +89,7 @@ iOS 3.0.0+
 点击按钮进入选择编辑状态:
 ![](/docImg/975/BrllwtC.png)
 
-> ### close 关闭分段选择器
+### 📦 close 关闭分段选择器
 
 `uexSegmentControl.close()`
 
@@ -119,7 +119,7 @@ iOS 3.0.0+
     uexSegmentControl.close()
 ```
 
-> ### setCurrentItem 设置当前选中项
+### 📦 setCurrentItem 设置当前选中项
 
 `uexSegmentControl.setCurrentItem(jsonStr)`
 
@@ -161,7 +161,7 @@ iOS 3.0.0+
 
 ## 2.2、监听方法
 
-> ### onItemClick item被点击的监听方法
+### 📦 onItemClick item被点击的监听方法
 
 `uexSegmentControl.onItemClick(jsonObj);`
 
@@ -198,7 +198,7 @@ iOS 3.0.0+
     }
 ```
 
-> ### onDataChange 数据发生变化的监听方法
+### 📦 onDataChange 数据发生变化的监听方法
 
 `uexSegmentControl.onDataChange(jsonObj);`
 
@@ -236,26 +236,18 @@ iOS 3.0.0+
 
 ### iOS
 
-API版本:`uexSegmentControl-3.0.3`
+API版本: `uexSegmentControl-4.0.0`
 
 最近更新时间:`2016-3-2`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.3 | 修复onItemClick接口回调参数与文档及安卓不一致的BUG |
-| 3.0.2 | 按要求修改结构布局 |
-| 3.0.1 | 修改资源图片不显示问题,适配iOS5以上的版本 |
-| 3.0.0 | 分段选择器插件 |
 
 ### Android
 
-API版本:`uexSegmentControl-3.0.4`
+API版本: `uexSegmentControl-4.0.0`
 
 最近更新时间:`2016-4-13`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.4 | 修正无选中效果的问题,优化选中逻辑 |
-| 3.0.3 | 修正资源命名隐患,修正部分部分bug,参照文档修正接口逻辑,修正回调类型,添加开源声明. |
-| 3.0.2 | 更新适配机型使用的方法 |
-| 3.0.0 | 分段选择器插件 |

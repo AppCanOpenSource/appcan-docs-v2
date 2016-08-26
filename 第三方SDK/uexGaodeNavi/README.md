@@ -6,7 +6,7 @@
 高德导航插件
 
 ## 1.1、说明
-高德导航 SDK 是一款针对在线导航的产品,产品功能涵盖路径规划、模拟导航、获取导航播报信息等。此外,该产品的导航路径计算与实时交通信息相结合,力求为用户提供更加合理、准确、人性化的导航服务。
+高德导航 SDK 是一款针对在线导航的产品,产品功能涵盖路径规划、模拟导航、获取导航播报信息等.此外,该产品的导航路径计算与实时交通信息相结合,力求为用户提供更加合理、准确、人性化的导航服务.
 高德导航没有内置的语音播报,可以选择官网的云知声或者讯飞插件来播报语音
 ## 1.2、UI展示
  ![](/docImg/975/134442r2016e3z30rb&#40;1&#41;.png)
@@ -17,7 +17,7 @@
 
 ##2.1、 方法
 
->### init  初始化
+### 📦 init  初始化
 
 `uexGaodeNavi.init(param)`
 
@@ -62,13 +62,13 @@ uexGaodeNavi.init();
 
 ```
 
->### calculateWalkRoute  开始步行路径规划
+### 📦 calculateWalkRoute  开始步行路径规划
 
 `uexGaodeNavi.calculateWalkRoute(param)`
 
 **说明**
 
-通过输入起点与终点,可以发起路径规划。
+通过输入起点与终点,可以发起路径规划.
 
 回调 [cbCalculateRoute](#cbCalculateRoute 开始路径规划的回调方法) 开始路径规划的回调方法
 
@@ -108,13 +108,13 @@ iOS 3.0.0+
 
 ```
 
->### calculateDriveRoute  开始驾车路径规划
+### 📦 calculateDriveRoute  开始驾车路径规划
 
 `uexGaodeNavi.calculateDriveRoute(param)`
 
 **说明**
 
-通过输入起点与终点,可以发起路径规划。
+通过输入起点与终点,可以发起路径规划.
 
 回调 [cbCalculateRoute](#cbCalculateRoute 开始路径规划的回调方法) 开始路径规划的回调方法
 
@@ -136,8 +136,8 @@ var param={
 
 ```
 
-* 起点列表的尾点为实际导航起点,其他坐标点为辅助信息,带有方向性,可有效避免算路到马路的另一侧。
-* 终点列表的尾点为实际导航终点,其他坐标点为辅助信息,带有方向性,可有效避免算路到马路的另一侧。
+* 起点列表的尾点为实际导航起点,其他坐标点为辅助信息,带有方向性,可有效避免算路到马路的另一侧.
+* 终点列表的尾点为实际导航终点,其他坐标点为辅助信息,带有方向性,可有效避免算路到马路的另一侧.
 * 支持最多3个途经点的路径规划
 
 **平台支持**
@@ -163,13 +163,13 @@ iOS 3.0.0+
 
 ```
 
->### startNavi  开始导航
+### 📦 startNavi  开始导航
 
 `uexGaodeNavi.startNavi(param)`
 
 **说明**
 
-成功发起路径规划后,即可以进入真实GPS导航或模拟导航。
+成功发起路径规划后,即可以进入真实GPS导航或模拟导航.
 
 * **成功发起路径规划后,才能调用此方法**
 
@@ -206,7 +206,7 @@ iOS 3.0.0+
         uexGaodeNavi.startNavi(data);
 ```
 
->### stopNavi 停止导航
+### 📦 stopNavi 停止导航
 
 `uexGaodeNavi.stopNavi()`
 
@@ -238,7 +238,7 @@ uexGaodeNavi.stopNavi();
 
 ## 2.2、 回调方法
 
->### cbInit 初始化完成的回调方法
+### 📦 cbInit 初始化完成的回调方法
 
 `uexGaodeNavi.cbInit(param)`
 
@@ -277,7 +277,7 @@ uexGaodeNavi.cbInit=function(json){
 }
 ```
 
->### cbCalculateRoute 路径规划的回调方法
+### 📦 cbCalculateRoute 路径规划的回调方法
 
 `uexGaodeNavi.cbCalculateRoute(param)`
 
@@ -318,7 +318,7 @@ uexGaodeNavi.cbCalculateRoute=function(json){
 
 ##2.3、 监听方法
 
->### onArriveDestination 到达目的地
+### 📦 onArriveDestination 到达目的地
 
 `uexGaodeNavi.onArriveDestination()`
 
@@ -348,7 +348,7 @@ uexGaodeNavi.onArriveDestination =function(){
 }
 ```
 
->### onGetNavigationText 导航播报的监听方法
+### 📦 onGetNavigationText 导航播报的监听方法
 
 `uexGaodeNavi.onGetNavigationText()`
 
@@ -387,7 +387,7 @@ uexGaodeNavi.onGetNavigationText =function(param){
 }
 ```
 
->### onReCalculateRouteForTrafficJam 驾车导航时,如果前方遇到拥堵时重新计算路径的回调
+### 📦 onReCalculateRouteForTrafficJam 驾车导航时,如果前方遇到拥堵时重新计算路径的回调
 
 `uexGaodeNavi.onReCalculateRouteForTrafficJam()`
 
@@ -418,7 +418,7 @@ uexGaodeNavi.onReCalculateRouteForTrafficJam()=function(){
 }
 ```
 
->### onReCalculateRouteForYaw 步行或驾车导航时,出现偏航后重新计算路径的回调函数
+### 📦 onReCalculateRouteForYaw 步行或驾车导航时,出现偏航后重新计算路径的回调函数
 
 `uexGaodeNavi.onReCalculateRouteForYaw()`
 
@@ -448,7 +448,7 @@ uexGaodeNavi.onReCalculateRouteForYaw=function(){
 }
 ```
 
->### onStartNavi 导航开始的回调
+### 📦 onStartNavi 导航开始的回调
 
 `uexGaodeNavi.onStartNavi()`
 
@@ -478,7 +478,7 @@ uexGaodeNavi.onStartNavi=function(){
 }
 ```
 
->### onNaviCancel 导航取消的回调
+### 📦 onNaviCancel 导航取消的回调
 
 `uexGaodeNavi.onNaviCancel()`
 
@@ -521,7 +521,7 @@ uexGaodeNavi.onNaviCancel=function(){
 在线打包时,可以在config.xml里配置key,也可以在init方法中直接传入key
 IDE打包只支持init方法传入key
 
-config.xml配置方法:将如下所示的value对应的值换成自己在高德上申请的秘钥即可。
+config.xml配置方法:将如下所示的value对应的值换成自己在高德上申请的秘钥即可.
 
 ```
 <config desc="uexGaodeNavi" type="KEY">
@@ -530,7 +530,7 @@ config.xml配置方法:将如下所示的value对应的值换成自己在高德�
 ```
 
 ## Android插件配置指引
-安卓只支持在线打包正常使用,将如下所示的value对应的值换成自己在高德上申请的秘钥即可。
+安卓只支持在线打包正常使用,将如下所示的value对应的值换成自己在高德上申请的秘钥即可.
 
 ```
 <config desc="uexGaodeNavi" type="KEY">
@@ -541,20 +541,18 @@ config.xml配置方法:将如下所示的value对应的值换成自己在高德�
 
 ### iOS
 
-API版本:`uexGaodeNavi-3.0.0`
+API版本: `uexGaodeNavi-4.0.0`
 
 最近更新时间:`2015-12-30`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | uexGaodeNavi for iOS |
 
 ### Android
 
-API版本:`uexGaodeNavi-3.0.0`
+API版本: `uexGaodeNavi-4.0.0`
 
 最近更新时间:`2015-12-16`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 高德导航插件 |

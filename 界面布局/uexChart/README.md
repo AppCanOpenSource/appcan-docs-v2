@@ -1,7 +1,7 @@
 [TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 ## 1.1、说明
-   该插件封装几何图表功能,包括饼状图,折线图和柱状图功能。
+   该插件封装几何图表功能,包括饼状图,折线图和柱状图功能.
    <div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">&times;</button> 公告!
  ios版插件暂支持公测环境编译,需获取公测权限[跳转](http://plugin.appcan.cn/details.html?id=456_index) ,具体更新到公共插件时间请关注官方通知.
 </div>
@@ -14,7 +14,7 @@
 
 ## 2.1、方法
 
-> ### openPieChart 打开饼状图
+### 📦 openPieChart 打开饼状图
 
 `uexChart.openPieChart(json)`
 
@@ -41,7 +41,7 @@ var json = {
     descTextSize:,//(可选) 描述及图例字体大小,默认12
     showValue:,//(可选) 是否显示value,默认true
     showLegend:,//(可选) 是否显示图例,默认false
-    legendPosition:,//(可选) 图例显示的位置,取值范围:bottom-饼状图下方；right-饼状图右侧,默认bottom
+    legendPosition:,//(可选) 图例显示的位置,取值范围:bottom-饼状图下方;right-饼状图右侧,默认bottom
     duration:,//(可选) 显示饼状图动画时间,单位ms,默认1000
     isScrollWithWeb:,//(可选) 是否跟随网页滑动,默认false
     showTitle:,//(可选) 是否显示title,默认true
@@ -178,7 +178,7 @@ iOS 3.0.0+
 运行效果:
  
 ![](/docImg/975/2.png)
->### closePieChart 关闭饼状图
+### 📦 closePieChart 关闭饼状图
 
   
 `uexChart.closePieChart(json)`
@@ -216,7 +216,7 @@ iOS 3.0.0+
     uexChart.closePieChart();//关闭所有饼状图
 ```
 
->### openLineChart 打开曲线图
+### 📦 openLineChart 打开曲线图
 
 **说明:**
 
@@ -243,7 +243,7 @@ var json = {
     descTextSize:,//(可选) 描述及图例字体大小,默认12
     showValue:,//(可选) 是否显示value,默认true
     showLegend:,//(可选) 是否显示图例,默认false
-    legendPosition:,//(可选) 图例显示的位置,取值范围:bottom-曲线图下方；right-曲线图右侧,默认bottom
+    legendPosition:,//(可选) 图例显示的位置,取值范围:bottom-曲线图下方;right-曲线图右侧,默认bottom
     duration:,//(可选) 显示曲线图动画时间,单位ms,默认1000
     isScrollWithWeb:,//(可选) 是否跟随网页滑动,默认false
     minValue,//(可选)纵坐标最小值(不填默认为传入的数据中最小的纵坐标值)
@@ -279,8 +279,8 @@ var json = {
         }
     ],
     option:{
-		initZoomX:,//Number,可选, X方向缩放系数。initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
-		initZoomY:,//Number,可选, Y方向缩放系数。initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
+		initZoomX:,//Number,可选, X方向缩放系数.initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
+		initZoomY:,//Number,可选, Y方向缩放系数.initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
 		isSupportDrag:,//Boolean,可选,是否支持滑动手势
 		isSupportZoomX:,//Boolean,可选,是否响应X方向上的缩放手势
 		isSupportZoomY://Boolean,可选,是否响应Y方向上的缩放手势
@@ -288,9 +288,9 @@ var json = {
 }
 ```
 
-* xData里的元素是在x轴上显示的文字,支持Number和String。
-* 当xData不传时,插件内部会新建一个数组,并将**每一个出现过的**xValue**顺次**添加至此数组中,并将此数组当做xData使用。
-* 传入xData时,插件不会再往其中添加新元素。此时,若数据的xValue没有出现在xData中,那么这个数据将被忽略。
+* xData里的元素是在x轴上显示的文字,支持Number和String.
+* 当xData不传时,插件内部会新建一个数组,并将**每一个出现过的**xValue**顺次**添加至此数组中,并将此数组当做xData使用.
+* 传入xData时,插件不会再往其中添加新元素.此时,若数据的xValue没有出现在xData中,那么这个数据将被忽略.
 
 **平台支持:**
 
@@ -451,7 +451,7 @@ iOS 3.0.0+
 运行效果:
  
 ![](/docImg/975/4.png)
->### closeLineChart 关闭曲线图
+### 📦 closeLineChart 关闭曲线图
 
 `uexChart.closeLineChart(json)`
 
@@ -487,7 +487,7 @@ iOS 3.0.0+
     uexChart.closeLineChart();//关闭所有曲线图
 ```
 
->### openBarChart 打开直方图
+### 📦 openBarChart 打开直方图
  
 `uexChart.openBarChart(json)`
 
@@ -515,7 +515,7 @@ var json = {
     descTextSize:,//(可选) 描述及图例字体大小,默认12
     showValue:,//(可选) 是否显示value,默认true
     showLegend:,//(可选) 是否显示图例,默认false
-    legendPosition:,//(可选) 图例显示的位置,取值范围:bottom-直方图下方；right-直方图右侧,默认bottom
+    legendPosition:,//(可选) 图例显示的位置,取值范围:bottom-直方图下方;right-直方图右侧,默认bottom
     duration:,//(可选) 显示直方图动画时间,单位ms,默认1000
     isScrollWithWeb:,//(可选) 是否跟随网页滑动,默认false
     minValue,//(可选)纵坐标最小值(不填默认为传入的数据中最小的纵坐标值)
@@ -545,8 +545,8 @@ var json = {
         }
     ],
     option:{
-		initZoomX:,//Number,可选, X方向缩放系数。initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
-		initZoomY:,//Number,可选, Y方向缩放系数。initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
+		initZoomX:,//Number,可选, X方向缩放系数.initZoomX为正实数 传小于1的值为缩小 大于1的值为放大
+		initZoomY:,//Number,可选, Y方向缩放系数.initZoomY为正实数 传小于1的值为缩小 大于1的值为放大
 		isSupportDrag:,//Boolean,可选,是否支持滑动手势
 		isSupportZoomX:,//Boolean,可选,是否响应X方向上的缩放手势
 		isSupportZoomY://Boolean,可选,是否响应Y方向上的缩放手势
@@ -670,7 +670,7 @@ iOS 3.0.0+
 运行效果:
  
 ![](/docImg/975/6.png)
->### closeBarChart 关闭直方图
+### 📦 closeBarChart 关闭直方图
 
 `uexChart.closeBarChart(json)`
 
@@ -709,7 +709,7 @@ iOS 3.0.0+
 
 ## 2.2、监听方法
 
->### onValueSelected 图表中元素被点击的监听方法
+### 📦 onValueSelected 图表中元素被点击的监听方法
 
 `uexChart.onValueSelected(json);`
 
@@ -752,30 +752,18 @@ iOS 3.0.0+
 
 ### iOS
 
-API版本:`uexChart-3.0.6`
+API版本: `uexChart-4.0.0`
 
 最近更新时间:`2016-1-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.6 | 修改了每次只能获取最后一个图表id的BUG |
-| 3.0.5 | 在监听方法onValueSelected中增加了图表id字段,用来区分图表 |
-| 3.0.4 | 改用embedFrameworks方式调用,提高编译速度 |
-| 3.0.3 | openBarChart和openLineChart新增option参数; |
-| 3.0.2 | 使用Swift2.1编译,支持IDE本地打包 |
-| 3.0.1 | 使用Swift2.0的库,支持Xcode7 |
-| 3.0.0 | 几何图表插件 |
 
 ### Android
 
-API版本:`uexChart-3.0.4`
+API版本: `uexChart-4.0.0`
 
 最近更新时间:`2016-01-25`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.4 | 修复了获取id与iOS不符的问题 |
-| 3.0.3 | 在图表中元素被点击的监听方法onValueSelected中增加了图表id字段,用来区分图表 |
-| 3.0.2 | openBarChart和openLineChart新增option参数 |
-| 3.0.1 | 替换ActivityGroup |
-| 3.0.0 | 几何图表插件 |

@@ -11,26 +11,26 @@ ActionSheet插件
 
 ## 1.4、平台版本支持
 
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 
-有特殊版本要求的API会在文档中额外说明。
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
 
-本插件所有API默认在插件版本**4.0.0+**可用。
+本插件所有API默认在插件版本**4.0.0+**可用.
 
-在后续版本中新添加的接口会在文档中额外说明。
+在后续版本中新添加的接口会在文档中额外说明.
 # 2、API概览
 
 ## 2.1、方法
 
-> ### open 打开菜单
+### 📦 open 打开菜单
 
 `uexActionSheet.open(x,y,width,height,jsonData)`
 
 **说明:**
 
-打开菜单,高度由内容决定。
+打开菜单,高度由内容决定.
 点击item时会触发监听[onClickItem](#onClickItem) 
 
 **参数:**
@@ -122,7 +122,7 @@ uexActionSheet.open(x,y,width,height,JsonData);
 
 ## 2.2、监听方法
 
-> ###  onClickItem 点击item的监听方法
+### 📦  onClickItem 点击item的监听方法
 
 `uexActionSheet.onClickItem(index)	`	
 
@@ -147,32 +147,18 @@ uexActionSheet.open(x,y,width,height,JsonData);
 
 ### iOS
 
-API版本:`uexActionSheet-4.0.0`
+API版本: `uexActionSheet-4.0.0`
 
 最近更新时间:`2016-6-24`
 
 | 历史发布版本 | 更新内容                                  |
 | ------ | ------------------------------------- |
-| 4.0.0  | 支持引擎4.0，函数入参                          |
-| 3.0.7  | 添加IDE支持                               |
-| 3.0.6  | 修正textNColor不能正常识别的bug                |
-| 3.0.5  | 增加颜色边框                                |
-| 3.0.4  | 修复ActionSheet框和底部间存在间隙                |
-| 3.0.3  | 解决uexActionSheet"取消"按钮字体正常与高亮颜色无法设置问题 |
-| 3.0.2  | 解决字体颜色,高亮颜色无法设置的问题                    |
-| 3.0.1  | 修复uexActionSheet打不开问题                 |
-| 3.0.0  | ActionSheet插件                         |
 
 ### Android
 
-API版本:`uexActionSheet-4.0.0`
+API版本: `uexActionSheet-4.0.0`
 
 最近更新时间:`2016-6-24`
 
 | 历史发布版本 | 更新内容                       |
 | ------ | -------------------------- |
-| 4.0.0  | 支持引擎4.0，函数入参               |
-| 3.0.3  | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.2  | 修复背景图片太大时,列表太高的问题          |
-| 3.0.1  | 修改设置的字体高亮颜色不生效的问题          |
-| 3.0.0  | ActionSheet插件              |

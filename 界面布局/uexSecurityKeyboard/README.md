@@ -5,7 +5,7 @@
 
 ## 1.1、说明
 
-创建一个带安全键盘的输入框插件,提供纯数字键盘,数字、字母和符号可切换的键盘,同时输入框位置、键盘描述信息可以定制,具体见下面。
+创建一个带安全键盘的输入框插件,提供纯数字键盘,数字、字母和符号可切换的键盘,同时输入框位置、键盘描述信息可以定制,具体见下面.
 
 ## 1.2、UI展示
 
@@ -17,18 +17,18 @@
 插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 ## 1.4、平台版本支持
 
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 
-有特殊版本要求的API会在文档中额外说明。
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
 
-本插件所有API默认在插件版本**4.0.0+**可用。
+本插件所有API默认在插件版本**4.0.0+**可用.
 # 2、API概览
 
 ## 2.1、方法
 
-> ### open 创建带安全键盘的输入框
+### 📦 open 创建带安全键盘的输入框
 
 `uexSecurityKeyboard.open(params);`
 
@@ -60,11 +60,11 @@
 | y                   | Number | 是    | 输入框距屏幕顶部的距离                              |
 | width               | Number | 是    | 输入框的宽度                                   |
 | height              | Number | 是    | 输入框的高度                                   |
-| isScrollWithWeb     | bool   | 否    | 是否随网页滚动，默认为false                         |
+| isScrollWithWeb     | bool   | 否    | 是否随网页滚动,默认为false                         |
 
 **返回值:**
 
-返回带安全键盘的输入框对象，创建失败时返回null。
+返回带安全键盘的输入框对象,创建失败时返回null.
 
 **示例:**
 
@@ -81,7 +81,7 @@
     var securityKeyboard = uexSecurityKeyboard.open(JSON.stringify(params));
 ```
 
-> ### close 销毁带安全键盘的输入框
+### 📦 close 销毁带安全键盘的输入框
 
 `uexSecurityKeyboard.close(securityKeyboard);`
 
@@ -93,7 +93,7 @@
 
 | 名称               | 类型     | 是否必选 | 说明                          |
 | ---------------- | ------ | ---- | --------------------------- |
-| securityKeyboard | Object | 否    | 由open接口创建的输入框对象，不传关闭所有输入框对象 |
+| securityKeyboard | Object | 否    | 由open接口创建的输入框对象,不传关闭所有输入框对象 |
 
 
 **示例:**
@@ -102,13 +102,13 @@
     uexSecurityKeyboard.close(securityKeyboard);
 ```
 
-> ### getData 获取输入框中的内容
+### 📦 getData 获取输入框中的内容
 
 `var content = uexSecurityKeyboard.getData(securityKeyboard);`
 
 **说明:**
 
-获取输入框对象中的内容,支持同步回调。
+获取输入框对象中的内容,支持同步回调.
 
 **参数:**
 
@@ -122,7 +122,7 @@
 
 **返回值:**
 
-输入框中的内容。
+输入框中的内容.
 
 **示例:**
 
@@ -145,20 +145,18 @@
 
 ### iOS
 
-API版本:`uexSecurityKeyboard-4.0.0`
+API版本: `uexSecurityKeyboard-4.0.0`
 
 最近更新时间:`2016-07-29`
 
 | 历史发布版本 | 更新内容         |
 | ------ | ------------ |
-| 4.0.0  | 支持引擎4.0，函数入参 |
 
 ### Android
 
-API版本:`uexSecurityKeyboard-4.0.0`
+API版本: `uexSecurityKeyboard-4.0.0`
 
 最近更新时间:`2016-07-29`
 
 | 历史发布版本 | 更新内容         |
 | ------ | ------------ |
-| 4.0.0  | 支持引擎4.0，函数入参 |

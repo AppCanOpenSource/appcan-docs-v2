@@ -12,7 +12,7 @@
 
 ## 2.1、方法
 
-> ### open 打开进度条
+### 📦 open 打开进度条
 
 `uexProgressView.open(json)`
 
@@ -29,7 +29,7 @@ var json = {
     top:,//(可选) 上间距,默认0
     width:,//(可选) 宽度,默认屏幕宽度
     height:,//(可选) 高度,默认屏幕高度
-    type:,//(必选) 进度条类型,1-细长形进度条；2-宽长形进度条；3-圆形填充进度条；4-圆形边框进度条
+    type:,//(必选) 进度条类型,1-细长形进度条;2-宽长形进度条;3-圆形填充进度条;4-圆形边框进度条
     progress:,//(可选) 设置初始进度值,取值范围:[0,...,100],默认为0
     isScrollWithWeb:,//(可选) 是否跟随网页滚动,默认为false
     normalColor:,//(可选) 进度条正常颜色
@@ -155,7 +155,7 @@ iOS 3.0.0+
 运行效果:
 ![](http://i.imgur.com/hQ82Cq4.png)
 
-> ### setProgress 设置进度值
+### 📦 setProgress 设置进度值
 
 `uexProgressView.setProgress(json)`
 
@@ -213,7 +213,7 @@ iOS 3.0.0+
 
 ![](http://i.imgur.com/u3jwCGP.gif)
 
-> ### close 关闭进度条
+### 📦 close 关闭进度条
 
 `uexProgressView.close(json)`
 
@@ -251,7 +251,7 @@ iOS 3.0.0+
 
 ## 2.2、监听方法
 
-> ### onComplete 进度达到100%的监听方法
+### 📦 onComplete 进度达到100%的监听方法
 
 `uexProgressView.onComplete(json);`
 
@@ -286,21 +286,18 @@ iOS 3.0.0+
 
 ### iOS
 
-API版本:`uexProgressView-3.0.0`
+API版本: `uexProgressView-4.0.0`
 
 最近更新时间:`2015-11-06`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 进度条控件 |
 
 ### Android
 
-API版本:`uexProgressView-3.0.1`
+API版本: `uexProgressView-4.0.0`
 
 最近更新时间:`2015-11-06`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.1 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.0 | 进度条控件 |

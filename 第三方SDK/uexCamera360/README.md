@@ -5,7 +5,7 @@
 图片编辑插件
 
 ## 1.1、说明
-该插件封装了[Camera360开放SDK](http://sdktest.camera360.com/page/guide)编辑图片的功能。
+该插件封装了[Camera360开放SDK](http://sdktest.camera360.com/page/guide)编辑图片的功能.
 
 * 注意camera360管理应用页面填写的包名与Bundle ID与打包服务器的想匹配;
 
@@ -17,26 +17,26 @@
 ![](/docImg/975/camera360.png)
 
 ## 1.4、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统。
-有特殊版本要求的API会在文档中额外说明。
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
+有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用。
-在后续版本中新添加的接口会在文档中额外说明。
+本插件所有API默认在插件版本**4.0.0+**可用.
+在后续版本中新添加的接口会在文档中额外说明.
 
 # 2、API
 
 ## 2.1、方法
 
-> ### edit 编辑图片
+### 📦 edit 编辑图片
 
 `uexCamera360.edit(params,callbackFunction);`
 
 **说明**
 
-编辑图片,图片名称统一为当前时间的毫秒数。
-Android平台,开发者可设置编辑后的图片是否保存到相册或者自定义保存路径。
-iOS平台必须设置编辑后图片的保存路径。
+编辑图片,图片名称统一为当前时间的毫秒数.
+Android平台,开发者可设置编辑后的图片是否保存到相册或者自定义保存路径.
+iOS平台必须设置编辑后图片的保存路径.
 
 **参数**
 
@@ -58,7 +58,7 @@ var params = {
 | 名称 | 类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | imgSrcPath | String | 否 | 要编辑的图片地址,不传或传空时,会打开系统图库,用户可选择一张照片编辑 |
-| isSaveToGallery | Boolean | 否 | **仅Android支持**,是否保存到相册,默认为false。该值为true时,imgSavePath参数无效。若不传或传false时,imgSavePath必传。 |
+| isSaveToGallery | Boolean | 否 | **仅Android支持**,是否保存到相册,默认为false.该值为true时,imgSavePath参数无效.若不传或传false时,imgSavePath必传. |
 | imgSavePath | String | 是 | 编辑后的图片保存的文件夹目录 |
 
 **回调参数**
@@ -80,7 +80,7 @@ var info = {
 
 **返回值:**
 
-返回一个对象，打开失败时返回null
+返回一个对象,打开失败时返回null
 
 **示例**
 
@@ -99,14 +99,14 @@ var info = {
         }
 ```
 
-> ### setAPIKey 设置APIKey
+### 📦 setAPIKey 设置APIKey
 
 `uexCamera360.setAPIKey(params);`
 
 **说明**
 
-* 仅iOS**首次调用**有效,调用后将忽略config.xml中的配置的APIKey。
-* 此接口是为了解决iOS IDE打包时不支持config.xml配置的问题。
+* 仅iOS**首次调用**有效,调用后将忽略config.xml中的配置的APIKey.
+* 此接口是为了解决iOS IDE打包时不支持config.xml配置的问题.
 * **请在调用edit之前调用此接口**
 * **Android不支持此接口**
 
@@ -164,21 +164,18 @@ iOS 4.0.0+
 
 ### iOS
 
-API版本:`uexCamera360-3.0.0`
+API版本: `uexCamera360-4.0.0`
 
 最近更新时间:`2015-12-30`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | Camera360图片编辑插件 |
 
 ### Android
 
-API版本:`uexCamera360-3.0.1`
+API版本: `uexCamera360-4.0.0`
 
 最近更新时间:`2016-07-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 4.0.0 | 4.0插件 |
-| 3.0.0 | Camera360图片编辑插件 |
