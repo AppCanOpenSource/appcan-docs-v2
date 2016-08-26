@@ -48,7 +48,7 @@ iOS6.0+
 
 ```
 	var path = "wgt://data/test.txt";
-	uexFileMgr.createFile('1', path);
+	uexFileMgr.createFile(1, path);
 ```
 
 > ### createDir 创建文件夹
@@ -79,7 +79,7 @@ iOS6.0+
 
 ```
 var path = "wgt://data/test2/";
-uexFileMgr.createDir('20', path);
+uexFileMgr.createDir(20, path);
 ```
 
 > ### openFile 打开文件
@@ -96,7 +96,7 @@ uexFileMgr.createDir('20', path);
 | ----- | ----- | ----- | ----- |
 | id| Number| 是 | 唯一标识符 |
 | path|String | 是 | 文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
-| mode|String | 是 | 文件打开模式,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#File "CONSTANT")中FileOpenModes |
+| mode|Number | 是 | 文件打开模式,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#File "CONSTANT")中FileOpenModes |
 
 **平台支持:**
 
@@ -227,7 +227,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.isFileExistByID('2');
+uexFileMgr.isFileExistByID(2);
 ```
 
 > ### getFileTypeByPath 根据路径获取文件类型
@@ -285,7 +285,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.getFileTypeByID('4');
+uexFileMgr.getFileTypeByID(4);
 ```
 > ### explorer 文件管理器
 
@@ -372,8 +372,8 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.openFile('1', "wgt://test.txt", '1');
-uexFileMgr.seekFile('1', '1');
+uexFileMgr.openFile(1, "wgt://test.txt", 1);
+uexFileMgr.seekFile(1, 1);
 ```
 
 > ### seekBeginOfFile 定位到起始位置
@@ -402,8 +402,8 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.openFile('1', "wgt://test.txt", '1');
-uexFileMgr.seekBeginOfFile('1');
+uexFileMgr.openFile(1, "wgt://test.txt", 1);
+uexFileMgr.seekBeginOfFile(1);
 ```
 
 > ### seekEndOfFile 定位到结束位置
@@ -432,8 +432,8 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.openFile('1', "wgt://test.txt", '1');
-uexFileMgr.seekEndOfFile('1');
+uexFileMgr.openFile(1, "wgt://test.txt", 1);
+uexFileMgr.seekEndOfFile(1);
 ```
 
 > ### writeFile 写文件
@@ -473,8 +473,8 @@ iOS6.0+
 **示例:**
 
 ```
-    uexFileMgr.openFile('1', "wgt://test.txt", '1');
-    uexFileMgr.writeFile('1', 0, "test");
+    uexFileMgr.openFile(1, "wgt://test.txt", 1);
+    uexFileMgr.writeFile(1, 0, "test");
 ```
 
 > ### readFile 读文件
@@ -513,8 +513,8 @@ iOS6.0+
 **示例:**
 
 ```
-    uexFileMgr.openFile('1', "wgt://test.txt", '1');
-    uexFileMgr.readFile('1', -1);
+    uexFileMgr.openFile(1, "wgt://test.txt", 1);
+    uexFileMgr.readFile(1, -1);
 ```
 
 > ### getFileSize 获取文件大小
@@ -543,8 +543,8 @@ iOS6.0+
 **示例:**
 
 ```
-    uexFileMgr.openFile('1', "wgt://test.txt", '1');
-    uexFileMgr.getFileSize('1');
+    uexFileMgr.openFile(1, "wgt://test.txt", 1);
+    uexFileMgr.getFileSize(1);
 ```
 
 > ### getFilePath 获取文件路径
@@ -573,8 +573,8 @@ iOS6.0+
 **示例:**
 
 ```
-    uexFileMgr.openFile('1', "wgt://test.txt", '1');
-    uexFileMgr.getFilePath('1');
+    uexFileMgr.openFile(1, "wgt://test.txt", 1);
+    uexFileMgr.getFilePath(1);
 ```
 > ### getFileRealPath 获取文件实际路径
 
@@ -691,7 +691,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.readPercent('1','20','3');
+uexFileMgr.readPercent(1,20,3);
 ```
 
 > ### readNext 读取下一页字符
@@ -721,7 +721,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.readNext('1', '20');
+uexFileMgr.readNext(1, 20);
 ```
 
 > ### readtextarea 读取上一页字符
@@ -751,7 +751,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.readtextarea('1','20');
+uexFileMgr.readtextarea(1,20);
 ```
 
 > ### openSecure 使用密码打开文件
@@ -783,7 +783,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.openSecure('100', "wgt://secure.txt", '1', '123456');
+uexFileMgr.openSecure(100, "wgt://secure.txt", 1, '123456');
 ```
 
 > ### createSecure 使用密码创建文件
@@ -814,7 +814,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.createSecure('100', "wgt://data/test.txt", '123456');
+uexFileMgr.createSecure(100, "wgt://data/test.txt", '123456');
 ```
 
 > ### getFileCreateTime 获取文件或文件夹的创建时间
@@ -844,7 +844,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexFileMgr.getFileCreateTime('33','wgt://test.txt');
+uexFileMgr.getFileCreateTime(33,'wgt://test.txt');
 ```
 
 >### renameFile 重命名文件

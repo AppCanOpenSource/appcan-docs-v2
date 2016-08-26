@@ -135,7 +135,7 @@ iOS6.0+
 **  示例:**
 
 ```
-uexXmlHttpMgr.setPostData(2, "0", "field1", "Hello");
+uexXmlHttpMgr.setPostData(2, 0, "field1", "Hello");
 ```
 
 > ### setInputStream 设置一个本地文件地址
