@@ -269,9 +269,9 @@ alert('data:' + JSON.stringify(data));
 
 **参数**
 
-| 参数名称      | 参数类型   | 是否必选 | 说明              |
-| --------- | ------ | ---- | --------------- |
-| zoomLevel | Number | 是    | 地图的缩放级别 范围:3~19 |
+| 参数名称      | 参数类型   | 是否必选 | 说明                      |
+| --------- | ------ | ---- | ----------------------- |
+| zoomLevel | Number | 是    | 地图的缩放级别 范围:3~19，数值越大越精确 |
 
 
 **示例**
@@ -468,7 +468,7 @@ uexBaiduMap.setOverlookEnable(1);
 
 **说明**
 
-添加标注
+添加标注, **注意：`json`是String类型，需要将对象JSON.stringify()**
 
 **参数**
 
@@ -537,7 +537,7 @@ var data = [
 			}
 		}
  ];
-var ids=uexBaiduMap.addMarkersOverlay(data);
+var ids=uexBaiduMap.addMarkersOverlay(JSON.stringify(data));
 if(!ids){
 	alert("添加失败");
 }
