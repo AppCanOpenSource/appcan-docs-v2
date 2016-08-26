@@ -21,7 +21,7 @@
 ## 2.1、方法
 ### 🍭 openCreditCardRec 开启识别
 
-`uexCreditCardRec.openCreditCardRec(token,function(data){})`
+`uexCreditCardRec.openCreditCardRec(token,cb)`
 
 **说明:**
 
@@ -29,17 +29,40 @@
 
 **参数:**
 
-| 参数名称  | 参数类型    | 是否必选 | 说明                          |
-| ----- | ------- | ---- | --------------------------- |
-| token | String  | 是    | 在PayPal获取的授权令牌              |
-| data  | json 对象 | 是    | 返回的数据,格式为{cardNumber:"卡号" } |
+| 参数名称  | 参数类型     | 是否必选 | 说明             |
+| ----- | -------- | ---- | -------------- |
+| token | String   | 是    | 在PayPal获取的授权令牌 |
+| cb    | Function | 是    | 回调函数           |
+**回调参数:**
+
+```javascript
+var cb = function(error,data){}
+```
+
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 识别结果，0-成功，非0-失败 |
+| data  | Object | 成功时返回的数据，形式见下：  |
+
+```javascript
+var data = {
+  cardNumber://卡号
+}
+```
+
+
+
 **示例:**
 
-```
+```javascript
 function createCreditCardRec(){
   var tokenStr = "f06a7eca39134918a18dc4d7c45ee49f";
-  uexCreditCardRec.openCreditCardRec(tokenStr,function(data){
-  alert("卡号:"+data.cardNumber);
+  uexCreditCardRec.openCreditCardRec(tokenStr,function(error,data){
+     if(!error){
+       alert("卡号:"+data.cardNumber);
+     }else{
+       alert("失败！");
+     }
   });
 }
 ```
