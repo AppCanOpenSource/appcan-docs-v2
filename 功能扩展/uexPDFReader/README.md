@@ -32,15 +32,15 @@ PDF阅读器插件
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| pdfPath | String | 是 | pdf文档路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes. |
+| 参数名称    | 参数类型   | 是否必选 | 说明                                       |
+| ------- | ------ | ---- | ---------------------------------------- |
+| pdfPath | String | 是    | pdf文档路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes. |
 
 
 
 **示例:**
 
-```
+```javascript
 var file = "res://test.pdf"
 uexPDFReader.openPDFReader(file);
 ```
@@ -60,7 +60,7 @@ uexPDFReader.openPDFReader(file);
 
 **示例:**
 
-```
+```javascript
 uexPDFReader.close();
 ```
 # 3、更新历史
