@@ -1122,7 +1122,7 @@ if(!id){
 **示例**
 
 ```
- uexBaiduMap.removeMakersOverlay("150");
+ uexBaiduMap.removeOverlay("150");
 ```
 
 > ### poiSearchInCity 城市内检索 
@@ -1160,8 +1160,7 @@ var data={
 	searchKey: "114",
 	pageNum: "0"
 };
-var jsonStr=JSON.stringify(data)；
-uexBaiduMap.poiSearchInCity(jsonStr, function(error,data) {
+uexBaiduMap.poiSearchInCity(data, function(error,data) {
 	alert(JSON.stringify(data));
 });
 ```
@@ -1255,15 +1254,14 @@ var json={
 **示例**
 
 ```javascript
- var data ={
+var data ={
 	longitude: "116.309",
 	latitude: "39.977",
 	radius: "1000",
 	searchKey: "电影院",
 	pageNum: "0"
-	};
-var jsonStr=JSON.stringify(data);
-uexBaiduMap. poiNearbySearch (jsonStr, function(error,data) {
+};
+uexBaiduMap.poiNearbySearch (jsonStr, function(error,data) {
 	alert(JSON.stringify(data));
 });
 ```
@@ -1650,7 +1648,7 @@ var data=
 
 uexBaiduMap.geocode(data, function(error,data) {
 	alert(JSON.stringify(data));
-};
+});
 ```
 
 > ### reverseGeocode 反地理编码 
