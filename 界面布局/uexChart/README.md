@@ -2,9 +2,9 @@
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 ## 1.1、说明
    该插件封装几何图表功能,包括饼状图,折线图和柱状图功能.
-   <div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">&times;</button> 公告!
- ios版插件暂支持公测环境编译,需获取公测权限[跳转](http://plugin.appcan.cn/details.html?id=456_index) ,具体更新到公共插件时间请关注官方通知.
-</div>
+
+ * 注意! iOS版插件目前只支持公测环境编译,需获取公测权限[跳转](http://plugin.appcan.cn/details.html?id=456_index) ,具体更新到公共插件时间请关注官方通知.
+
 ## 1.2、UI展示
 见具体API
 ## 1.3、开源源码
