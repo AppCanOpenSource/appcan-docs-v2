@@ -12,7 +12,7 @@ typealias MarkDownEditResult = (result: MarkDownSource,hasChanged: Bool)
 
 struct PluginMarkDown {
     struct Constant {
-        static let gitPath       = "/Users/appcan/Dev/Github/appcan-docs-v2"
+        static let gitPath       = "/Users/appcan_git/dev/appcan_git/appcan-docs-v2"
         static let pluginType    = ["系统功能","网络通讯","界面布局","功能扩展","第三方SDK"]
         static let ignorePlugins = []
     }
