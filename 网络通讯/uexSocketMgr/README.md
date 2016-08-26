@@ -22,7 +22,7 @@
 ## 2.1、方法
 
 
-### 📦 createUDP 创建UDP对象
+### 🍭 createUDP 创建UDP对象
 
 `uexSocketMgr.createUDP(param,onData)`
 
@@ -97,7 +97,7 @@ if(!udp){
 }
 ```
 
-### 📦 send UDP对象发送数据
+### 🍭 send UDP对象发送数据
 
 `uexSocketMgr.send(udp,param,cb)`
 
@@ -158,7 +158,7 @@ uexSocketMgr.send(udp,
 ```
 
 
-### 📦 createTCP 创建TCP对象
+### 🍭 createTCP 创建TCP对象
 
 `uexSocketMgr.createTCP(param,onStatus,onData)`
 
@@ -238,7 +238,7 @@ if(!tcp){
 }
 ```
 
-### 📦 connect TCP对象连接服务器
+### 🍭 connect TCP对象连接服务器
 
 `uexSocketMgr.connect(tcp,param,cb)`
 
@@ -297,7 +297,7 @@ uexSocketMgr.connect(tcp,
 ```
 
 
-### 📦 write TCP对象写入数据
+### 🍭 write TCP对象写入数据
 
 `uexSocketMgr.write(tcp,param,cb)`
 
@@ -353,7 +353,7 @@ uexSocketMgr.write(tcp,
 ```
 
 
-### 📦 close 关闭Socket
+### 🍭 close 关闭Socket
 
 `uexSocketMgr.close(socket,param,cb)`
 

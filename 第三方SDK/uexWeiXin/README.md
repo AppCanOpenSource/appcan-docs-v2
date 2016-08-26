@@ -71,7 +71,7 @@ Path Types
 
 ## 2.1 方法
 
-### 📦 registerApp 用户授权
+### 🍭 registerApp 用户授权
 
 `var info = uexWeiXin.registerApp(appID)`
 
@@ -96,7 +96,7 @@ var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 alert(info);
 ```
 
-### 📦 isWXAppInstalled 检查微信是否已安装
+### 🍭 isWXAppInstalled 检查微信是否已安装
 
 `var info = uexWeiXin.isWXAppInstalled()`
 
@@ -119,7 +119,7 @@ var info = uexWeiXin.isWXAppInstalled();
 alert(info);
 ```
 
-### 📦 isWXAppSupportApi 判断当前微信的版本是否支持OpenApi
+### 🍭 isWXAppSupportApi 判断当前微信的版本是否支持OpenApi
 
 `var info =uexWeiXin.isWXAppSupportApi()`
 
@@ -145,7 +145,7 @@ alert(info);
 ```
 
 
-### 📦 isSupportPay 判断是否支持支付功能
+### 🍭 isSupportPay 判断是否支持支付功能
 
 ` var info = uexWeiXin.isSupportPay()`
 
@@ -170,7 +170,7 @@ Boolean类型,是否支持支付功能,true-支持,false-不支持.
 
 
 
-### 📦 getWXAppInstallUrl 获取微信itunes的安装地址
+### 🍭 getWXAppInstallUrl 获取微信itunes的安装地址
 
 `uexWeiXin.getWXAppInstallUrl(cbFun)`
 
@@ -204,7 +204,7 @@ uexWeiXin.getWXAppInstallUrl(function(data) {
 
 
 
-### 📦 getApiVersion 获取SDK的版本号
+### 🍭 getApiVersion 获取SDK的版本号
 
 `uexWeiXin.getApiVersion(cbFun)`
 
@@ -236,7 +236,7 @@ uexWeiXin.getApiVersion(function(data){
 });
 ```
 
-### 📦 openWXApp 打开微信
+### 🍭 openWXApp 打开微信
 
 `uexWeiXin.openWXApp(cbFun)  `
 
@@ -271,7 +271,7 @@ uexWeiXin.openWXApp(function(data){
 
 
 
-### 📦 shareTextContent 分享文本
+### 🍭 shareTextContent 分享文本
 
 `uexWeiXin.shareTextContent(jsonData,cbFun)`
 
@@ -319,7 +319,7 @@ uexWeiXin.shareTextContent(jsonstr, function(error){
 });
 ```
 
-### 📦 shareImageContent 分享图片
+### 🍭 shareImageContent 分享图片
 
 `uexWeiXin.shareImageContent(jsonData,cbFun)`
 
@@ -373,7 +373,7 @@ var cbFun = function(error){}
     
 ```
 
-### 📦 shareLinkContent 分享Link
+### 🍭 shareLinkContent 分享Link
 
 `uexWeiXin.shareLinkContent(jsonData,cbFun)`
 
@@ -429,7 +429,7 @@ uexWeiXin.shareLinkContent(JsonData,function(data){
 ```
 
 
-### 📦 getPrepayId 生成预支付订单
+### 🍭 getPrepayId 生成预支付订单
 
 `uexWeiXin.getPrepayId(json,cbFun)`
 
@@ -511,7 +511,7 @@ uexWeiXin.getPrepayId(data1,function(data){
 });
 ```
 
-### 📦 startPay 支付
+### 🍭 startPay 支付
 
 `uexWeiXin.startPay(json,cbFun)`
 
@@ -572,7 +572,7 @@ uexWeiXin.startPay(data1,function(data){
 ```
 
 
-### 📦 login 登录
+### 🍭 login 登录
 
 `uexWeiXin.login(json,cbFun)`
 
@@ -643,7 +643,7 @@ var data = {
 });
 ```
 
-### 📦 getLoginAccessToken 获取access_token
+### 🍭 getLoginAccessToken 获取access_token
 
 `uexWeiXin.getLoginAccessToken(json,cbFun)`
 
@@ -719,7 +719,7 @@ var data = {
 });
 ```
 
-### 📦 getLoginRefreshAccessToken 获取刷新access_token
+### 🍭 getLoginRefreshAccessToken 获取刷新access_token
 
 `uexWeiXin.getLoginRefreshAccessToken(json,cbFun)`
 
@@ -790,7 +790,7 @@ var data = {
 });
 ```
 
-### 📦 getLoginCheckAccessToken 检验access_token是否有效
+### 🍭 getLoginCheckAccessToken 检验access_token是否有效
 
 `uexWeiXin.getLoginCheckAccessToken(json,cbFun)`
 
@@ -855,7 +855,7 @@ var data = {
 });
 ```
 
-### 📦 getLoginUnionID 获取用户个人信息
+### 🍭 getLoginUnionID 获取用户个人信息
 
 `uexWeiXin.getLoginUnionID(json,cbFun)`
 
@@ -937,7 +937,7 @@ var data = {
 });
 ```
 
-### 📦 setCallbackWindowName 设置接收回调方法的窗口名称
+### 🍭 setCallbackWindowName 设置接收回调方法的窗口名称
 
 `uexWeiXin.setCallbackWindowName(json)`
 

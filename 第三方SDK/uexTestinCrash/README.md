@@ -27,7 +27,7 @@ Path Types
 
 # 2、API概览
 
-### 📦 init(param) 初始化配置
+### 🍭 init(param) 初始化配置
 
 `uexTestinCrash.init(data)`
 
@@ -64,7 +64,7 @@ var result=uexTestinCrash.init(params);
 alert(result);
 ```
 
-### 📦 setUserInfo(param) 设置用户名
+### 🍭 setUserInfo(param) 设置用户名
 
 `uexTestinCrash.setUserInfo(data)`
 
@@ -102,7 +102,7 @@ uexTestinCrash.setUserInfo(params);
 ```
 
 
-### 📦 leaveBreadcrumb(param) 上传面包屑
+### 🍭 leaveBreadcrumb(param) 上传面包屑
 
 `uexTestinCrash.leaveBreadcrumb(data);`
 
@@ -139,7 +139,7 @@ uexTestinCrash.leaveBreadcrumb(params);
 ```
 
 
-### 📦 test() 崩溃测试
+### 🍭 test() 崩溃测试
 
 `uexTestinCrash.test();`
 

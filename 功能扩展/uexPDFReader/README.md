@@ -22,7 +22,7 @@ PDF阅读器插件
 
 ## 2.1、方法
 
-### 📦 openPDFReader 打开阅读器
+### 🍭 openPDFReader 打开阅读器
 
 `uexPDFReader.openPDFReader(pdfPath)`
 
@@ -44,7 +44,7 @@ PDF阅读器插件
 var file = "res://test.pdf"
 uexPDFReader.openPDFReader(file);
 ```
-### 📦 close 关闭阅读器
+### 🍭 close 关闭阅读器
 
 `uexPDFReader.close()`
 

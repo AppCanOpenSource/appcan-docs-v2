@@ -16,7 +16,7 @@ iOS开发的收入有三种来源:出售应用、内购和广告.国内用户通
 
 ##2.1、方法
 
-### 📦 getProductList 得到产品列表方法
+### 🍭 getProductList 得到产品列表方法
 
 `uexInAppPurchase.getProductList(params);`     
 
@@ -53,7 +53,7 @@ var params = {
 };            
 uexInAppPurchase.getProductList(JSON.stringify(params));
 ```
-### 📦 canMakePay 测试设备是否支持支付功能
+### 🍭 canMakePay 测试设备是否支持支付功能
 
 `var info = uexInAppPurchase.canMakePay();`
  
@@ -86,7 +86,7 @@ iOS6.0+
  
  alert(info);
 ```
-### 📦 purchase 购买单一产品
+### 🍭 purchase 购买单一产品
 
 uexInAppPurchase.purchase(params);
      
@@ -133,7 +133,7 @@ var params = {
 uexInAppPurchase.purchase(JSON.stringify(params));
 ```
 
-### 📦restorePurchase 恢复购买方法
+### 🍭restorePurchase 恢复购买方法
 
 `uexInAppPurchase.restorePurchase();`	
 
@@ -165,7 +165,7 @@ iOS6.0+
 
 ## 2.2、回调方法
 
-### 📦 cbGetProductList 获取产品列表信息的回调方法
+### 🍭 cbGetProductList 获取产品列表信息的回调方法
 
 `cbGetProductList(info)`
 
@@ -203,7 +203,7 @@ window.uexOnload = function(){
 }
 ```
 
-### 📦 <del>cbGetVerifyInfo 获取产品购买验证信息的回调方法</del>(已废弃)
+### 🍭 <del>cbGetVerifyInfo 获取产品购买验证信息的回调方法</del>(已废弃)
 
 `cbGetVerifyInfo(info)`
 
@@ -233,7 +233,7 @@ window.uexOnload = function(){
 ```
 ## 2.2、监听方法
 
-### 📦 onRequestState 对发送产品请求进行监听
+### 🍭 onRequestState 对发送产品请求进行监听
 
 `onRequestState(state)`
 
@@ -270,7 +270,7 @@ window.uexOnload = function(){
     uexInAppPurchase.onRequestState = onRequestState;
 }
 ```
-### 📦 onPurchaseState 对产品购买状态的监听方法
+### 🍭 onPurchaseState 对产品购买状态的监听方法
 
 `onPurchaseState(state)`
 
@@ -310,7 +310,7 @@ window.uexOnload = function(){
 ```
 
 
-### 📦 onTransactionState 对产品交易状态和信息的监听方法
+### 🍭 onTransactionState 对产品交易状态和信息的监听方法
 
 `onTransactionState(state)`
 
@@ -373,7 +373,7 @@ window.uexOnload = function(){
 ```
 
 
-### 📦 onRestoreState 对产品恢复购买的状态进行监听
+### 🍭 onRestoreState 对产品恢复购买的状态进行监听
 
 `onRestoreState(state)`
 
@@ -411,7 +411,7 @@ window.uexOnload = function(){
     uexInAppPurchase.onRestoreState = onRestoreState;
 }
 ```
-### 📦 <del>onVerifyState 对产品购买验证状态的进行监听</del>(已废弃)
+### 🍭 <del>onVerifyState 对产品购买验证状态的进行监听</del>(已废弃)
 
 `onVerifyState(state)`
 
@@ -439,7 +439,7 @@ window.uexOnload = function(){
     uexInAppPurchase.onVerifyState = onVerifyState;
 }
 ```
-### 📦 <del>onSettingState 对用户内购权限设置状态的监听</del>(已废弃)
+### 🍭 <del>onSettingState 对用户内购权限设置状态的监听</del>(已废弃)
 
 `onSettingState(state)`
 

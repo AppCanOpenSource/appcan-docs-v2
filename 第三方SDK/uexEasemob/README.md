@@ -68,7 +68,7 @@ Path Types
 #2、API概述		
 ##2.1、Initialization
 ***
-### 📦 initEasemob(param,function(data){})  初始化
+### 🍭 initEasemob(param,function(data){})  初始化
 
 param为json字符串
 
@@ -88,7 +88,7 @@ var data = "EaseMobSDK initialized successfully!" 或 "EaseMobSDK has already be
 ```
 	注:自动登录功能Android SDK 默认开启,iOS SDK默认关闭.
 	
-### 📦 login(param,function(data){})   登录
+### 🍭 login(param,function(data){})   登录
 
 param为json字符串
 
@@ -109,7 +109,7 @@ var data = {
 
 ```
 
-### 📦logout(function(data){})   退出登录
+### 🍭logout(function(data){})   退出登录
 
 data为json对象 
 
@@ -121,7 +121,7 @@ var data = {
 
 ```
 
-### 📦registerUser(param,function(data){})  注册
+### 🍭registerUser(param,function(data){})  注册
 
 param为json字符串
 
@@ -142,7 +142,7 @@ var data = {
 ```
 
 
-### 📦updateCurrentUserNickname(param)   更新当前用户的昵称
+### 🍭updateCurrentUserNickname(param)   更新当前用户的昵称
 
 param为json字符串
 
@@ -155,7 +155,7 @@ var param = {
 
 	注:此方法主要为了在苹果推送时能够推送昵称(nickname)而不是userid,一般可以在登陆成功后从自己服务器获取到个人信息,然后拿到nick更新到环信服务器.并且,在个人信息中如果更改个人的昵称,也要把环信服务器更新下nickname 防止显示差异.
 
-### 📦getLoginInfo(function(data){}) 获取当前登陆信息(仅iOS可用)
+### 🍭getLoginInfo(function(data){}) 获取当前登陆信息(仅iOS可用)
 
 data为json对象
 
@@ -172,8 +172,8 @@ data为json对象
 
 
 
-### 📦onConnected(); 已连接上
-### 📦onDisconnected(param) 链接断开
+### 🍭onConnected(); 已连接上
+### 🍭onDisconnected(param) 链接断开
 
 param为json字符串
 
@@ -185,13 +185,13 @@ var param = {
 
 ##2.2、Message
 ***
-### 📦onNewMessage(param) 收到新消息监听
+### 🍭onNewMessage(param) 收到新消息监听
 
 	注:param为EMMessage的json格式对象
 	EMMessage具体结构见文末附录
 	所有离线和在线时接受到的的非透传消息,都通过此回调传递
 	   
-### 📦onCmdMessageReceive(param) 透传消息监听
+### 🍭onCmdMessageReceive(param) 透传消息监听
 
 param为json字符串
 
@@ -203,7 +203,7 @@ var param = {
 };
 ```
 
-### 📦onAckMessage(param) 消息已读监听
+### 🍭onAckMessage(param) 消息已读监听
 
 param为json字符串
 
@@ -214,7 +214,7 @@ var param = {
 };
 ```
 
-### 📦onDeliveryMessage(param) 消息送达监听
+### 🍭onDeliveryMessage(param) 消息送达监听
 
 param为json字符串
 
@@ -225,7 +225,7 @@ var param = {
 };
 ```
 
-### 📦sendText(param) 发送文本消息及表情
+### 🍭sendText(param) 发送文本消息及表情
 
 **说明:**
 增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
@@ -241,7 +241,7 @@ var param = {
 };
 ```
 
-### 📦sendFile(param) 发送文件
+### 🍭sendFile(param) 发送文件
 
 **说明:**
 增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
@@ -258,7 +258,7 @@ var param = {
 };
 ```
 
-### 📦sendPicture(param)//发送图片
+### 🍭sendPicture(param)//发送图片
 
 **说明:**
 增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
@@ -275,7 +275,7 @@ var param = {
 };
 ```
 
-### 📦sendLocationMsg(param)//发送地理位置信息
+### 🍭sendLocationMsg(param)//发送地理位置信息
 
 **说明:**
 增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
@@ -293,7 +293,7 @@ var param = {
 };
 ```
 
-### 📦sendVoice(param)//发送语音
+### 🍭sendVoice(param)//发送语音
 
 **说明:**
 增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
@@ -312,7 +312,7 @@ var param = {
 };
 ```
 
-### 📦sendVideo(param) 发送视频
+### 🍭sendVideo(param) 发送视频
 
 **说明:**
 增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
@@ -331,7 +331,7 @@ var param = {
 };
 ```
 
-### 📦sendCmdMessage(param) 发送透传消息
+### 🍭sendCmdMessage(param) 发送透传消息
 
 **说明:**
 增加了环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
@@ -347,7 +347,7 @@ var param = {
 };
 ```
 
-### 📦setNotifyBySoundAndVibrate(param) 消息提醒相关配置
+### 🍭setNotifyBySoundAndVibrate(param) 消息提醒相关配置
 
 param为json字符串
 
@@ -365,7 +365,7 @@ var param = {
 
 * 受iOS后台机制所限,当应用在后台持续一段时间后,环信服务器与App的连接将会断开,此时showNotificationInBackgroud参数无效,需要走APNs通道才能收到新消息以及弹出提示通知.
 
-### 📦getMessageById(param,function(data){}) 根据id获取消息记录 
+### 🍭getMessageById(param,function(data){}) 根据id获取消息记录 
 
 param为json字符串
 
@@ -383,7 +383,7 @@ var data = {
 ```
 
 
-### 📦sendHasReadResponseForMessage(param) 发送消息已读回执
+### 🍭sendHasReadResponseForMessage(param) 发送消息已读回执
 
 param为json字符串
 
@@ -394,7 +394,7 @@ var param ={
 };
 ```
 
-### 📦 onMessageSent(param) 消息已发送监听
+### 🍭 onMessageSent(param) 消息已发送监听
 
 param为json字符串
 
@@ -412,7 +412,7 @@ var param ={
 
 ##2.3、Conversation
 ***
-### 📦getConversationByName(param,function(data){}) 根据用户名获取conversation对象
+### 🍭getConversationByName(param,function(data){}) 根据用户名获取conversation对象
 
 param为json字符串
 
@@ -431,7 +431,7 @@ var data = {
 ```
 
 
-### 📦getMessageHistory(param,function(data){}) 获取聊天记录
+### 🍭getMessageHistory(param,function(data){}) 获取聊天记录
 
 param为json字符串
 
@@ -452,7 +452,7 @@ var data = {
 ```
 
 
-### 📦getUnreadMsgCount(param,function(data){}) 获取未读消息数量
+### 🍭getUnreadMsgCount(param,function(data){}) 获取未读消息数量
 
 param为json字符串
 
@@ -470,7 +470,7 @@ var data = {
 };
 ```
 
-### 📦resetUnreadMsgCount(param) 指定会话未读消息数清零
+### 🍭resetUnreadMsgCount(param) 指定会话未读消息数清零
 
 param为json字符串
 
@@ -481,10 +481,10 @@ var param = {
 };
 ```
 
-### 📦resetAllUnreadMsgCount(); 所有未读消息数清零(仅Android可用)
+### 🍭resetAllUnreadMsgCount(); 所有未读消息数清零(仅Android可用)
 
 	
-### 📦getMsgCount(param,function(data){})获取消息总数(仅Android可用) 
+### 🍭getMsgCount(param,function(data){})获取消息总数(仅Android可用) 
 
 param为json字符串
 
@@ -503,7 +503,7 @@ var data = {
 ```
 
 
-### 📦clearConversation(param) 清空会话聊天记录(仅Android可用)
+### 🍭clearConversation(param) 清空会话聊天记录(仅Android可用)
 
 param为json字符串
 
@@ -513,7 +513,7 @@ var param = {
 };
 ```
 
-### 📦deleteConversation(param) 删除和某个user的整个的聊天记录(包括本地)
+### 🍭deleteConversation(param) 删除和某个user的整个的聊天记录(包括本地)
 
 param为json字符串
 
@@ -524,7 +524,7 @@ var param = {
 };
 ```
 
-### 📦removeMessage(param) 删除当前会话的某条聊天记录
+### 🍭removeMessage(param) 删除当前会话的某条聊天记录
 
 param为json字符串
 
@@ -536,9 +536,9 @@ var param = {
 };
 ```
 
-### 📦deleteAllConversation(); 删除所有会话记录(包括本地)
+### 🍭deleteAllConversation(); 删除所有会话记录(包括本地)
 
-### 📦getChatterInfo(function(data){}); 获取聊天对象信息
+### 🍭getChatterInfo(function(data){}); 获取聊天对象信息
 
 data为list<EMChatterInfo>,一个由EMChatterInfo结构组成的数组.
 	
@@ -546,7 +546,7 @@ data为list<EMChatterInfo>,一个由EMChatterInfo结构组成的数组.
 * EMChatterInfo结构说明见附录
 
 
-### 📦getTotalUnreadMsgCount(function(data){}); 获取总计未读消息数
+### 🍭getTotalUnreadMsgCount(function(data){}); 获取总计未读消息数
 
 data为json对象
 
@@ -557,7 +557,7 @@ var data ={
 ```
 
 
-### 📦getRecentChatters(function(data){}); 获取近期聊天对象信息
+### 🍭getRecentChatters(function(data){}); 获取近期聊天对象信息
 
 data为list<EMChatterInfo>,一个由EMChatterInfo结构组成的数组.
 	
@@ -568,7 +568,7 @@ data为list<EMChatterInfo>,一个由EMChatterInfo结构组成的数组.
 
 ##2.4、Friend
 ***
-### 📦onContactAdded(param)//新增联系人监听(iOS 3.0.22后支持)
+### 🍭onContactAdded(param)//新增联系人监听(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -578,7 +578,7 @@ var param = {
 };
 ```
 
-### 📦onContactDeleted(param)//删除联系人监听(iOS 3.0.22后支持)
+### 🍭onContactDeleted(param)//删除联系人监听(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -588,7 +588,7 @@ var param = {
 };
 ```
 
-### 📦onContactInvited(param)//接到好友申请
+### 🍭onContactInvited(param)//接到好友申请
 
 param为json字符串
 
@@ -599,7 +599,7 @@ var param = {
 };
 ```
 
-### 📦onContactAgreed(param)//好友请求被同意
+### 🍭onContactAgreed(param)//好友请求被同意
 
 param为json字符串
 
@@ -609,7 +609,7 @@ var param = {
 };
 ```
 
-### 📦onContactRefused(param)//好友请求被拒绝
+### 🍭onContactRefused(param)//好友请求被拒绝
 
 param为json字符串
 
@@ -619,7 +619,7 @@ var param = {
 };
 ```
 
-### 📦getContactUserNames(function(data){});//获取好友列表
+### 🍭getContactUserNames(function(data){});//获取好友列表
 
 data为json对象
 
@@ -636,7 +636,7 @@ var data = {
 
     		
     		
-### 📦addContact(param)//添加好友
+### 🍭addContact(param)//添加好友
 
 param为json字符串
 
@@ -647,7 +647,7 @@ var param = {
 };
 ```
 
-### 📦deleteContact(param)//删除好友
+### 🍭deleteContact(param)//删除好友
 
 param为json字符串
 
@@ -657,7 +657,7 @@ var param = {
 };
 ```
 
-### 📦acceptInvitation(param)//同意username的好友请求
+### 🍭acceptInvitation(param)//同意username的好友请求
 
 param为json字符串
 
@@ -667,7 +667,7 @@ var param = {
 };
 ```
 
-### 📦refuseInvitation(param)//拒绝username的好友请求
+### 🍭refuseInvitation(param)//拒绝username的好友请求
 
 param为json字符串
 
@@ -678,7 +678,7 @@ var param = {
 };
 ```
 
-### 📦getBlackListUsernames(function(data){});//获取黑名单列表
+### 🍭getBlackListUsernames(function(data){});//获取黑名单列表
 >
 data为json对象
 
@@ -690,7 +690,7 @@ var data = {
 
 
 
-### 📦addUserToBlackList(param)//把用户加入到黑名单
+### 🍭addUserToBlackList(param)//把用户加入到黑名单
 
 param为json字符串
 
@@ -700,7 +700,7 @@ var param = {
 };
 ```
 
-### 📦deleteUserFromBlackList(param)//把用户从黑名单中移除
+### 🍭deleteUserFromBlackList(param)//把用户从黑名单中移除
 
 param为json字符串
 
@@ -712,7 +712,7 @@ var param = {
 
 ##2.5、Group
 
-### 📦onInvitationDeclined(param)//群聊邀请被拒绝
+### 🍭onInvitationDeclined(param)//群聊邀请被拒绝
 
 param为json字符串
 
@@ -723,7 +723,7 @@ var param = {
 	reason:,
 };
 ```
-### 📦onInvitationAccpted(param)//群聊邀请被同意
+### 🍭onInvitationAccpted(param)//群聊邀请被同意
 
 param为json字符串
 
@@ -735,7 +735,7 @@ var param = {
 };
 ```
 
-### 📦onUserRemoved(param)//当前用户被管理员移除出群聊
+### 🍭onUserRemoved(param)//当前用户被管理员移除出群聊
 
 param为json字符串
 
@@ -746,7 +746,7 @@ var param = {
 };
 ```
 
-### 📦onGroupDestroy(param)//群聊被创建者解散
+### 🍭onGroupDestroy(param)//群聊被创建者解散
 
 param为json字符串
 
@@ -757,7 +757,7 @@ var param = {
 };
 ```
 
-### 📦onApplicationReceived(param)//用户申请加入群聊,收到加群申请
+### 🍭onApplicationReceived(param)//用户申请加入群聊,收到加群申请
 
 param为json字符串
 
@@ -770,7 +770,7 @@ var param = {
 };
 ```
 
-### 📦onApplicationAccept(param)// // 加群申请被同意
+### 🍭onApplicationAccept(param)// // 加群申请被同意
 
 param为json字符串
 
@@ -782,7 +782,7 @@ var param = {
 };
 ```
 
-### 📦onApplicationDeclined(param)//加群申请被拒绝
+### 🍭onApplicationDeclined(param)//加群申请被拒绝
 
 param为json字符串
 
@@ -795,7 +795,7 @@ var param = {
 };
 ```
 
-### 📦createPrivateGroup(param)//创建私有群
+### 🍭createPrivateGroup(param)//创建私有群
 
 param为json字符串
 
@@ -810,7 +810,7 @@ var param = {
 };
 ```
 
-### 📦createPublicGroup(param)//创建公开群
+### 🍭createPublicGroup(param)//创建公开群
 
 param为json字符串
 
@@ -825,7 +825,7 @@ var param = {
 };
 ```
 
-### 📦onGroupCreated(param)//群组建立监听
+### 🍭onGroupCreated(param)//群组建立监听
 
 param为json字符串
 
@@ -837,7 +837,7 @@ var param = {
 };
 ```
 
-### 📦addUsersToGroup(param)//群聊加人
+### 🍭addUsersToGroup(param)//群聊加人
 
 param为json字符串
 
@@ -850,7 +850,7 @@ var param = {
 };
 ```
 
-### 📦removeUserFromGroup(param)//群聊减人
+### 🍭removeUserFromGroup(param)//群聊减人
 
 param为json字符串
 
@@ -863,7 +863,7 @@ var param = {
  
 
 	只有owner才有权限进行此操作
-### 📦joinGroup(param)//加入某个群聊,只能用于加入公开群
+### 🍭joinGroup(param)//加入某个群聊,只能用于加入公开群
 
 param为json字符串
 
@@ -875,7 +875,7 @@ var param = {
 };
 ```
 
-### 📦exitFromGroup(param)//退出群聊
+### 🍭exitFromGroup(param)//退出群聊
 
 param为json字符串
 
@@ -885,7 +885,7 @@ var param = {
 };
 ```
 
-### 📦exitAndDeleteGroup(param)//解散群聊
+### 🍭exitAndDeleteGroup(param)//解散群聊
 
 param为json字符串
 
@@ -895,7 +895,7 @@ var param = {
 };
 ```
 
-### 📦getGroupsFromServer(param,function(data){})//从服务器获取自己加入的和创建的群聊列表
+### 🍭getGroupsFromServer(param,function(data){})//从服务器获取自己加入的和创建的群聊列表
 
 param为json字符串
 
@@ -915,7 +915,7 @@ var data = {
 ```
 
 
-### 📦getAllPublicGroupsFromServer(param,function(data){});//获取所有公开群列表
+### 🍭getAllPublicGroupsFromServer(param,function(data){});//获取所有公开群列表
 
 param为json字符串
 
@@ -937,7 +937,7 @@ var data = {
 ```
 
 
-### 📦getGroup(param,function(data){})//获取群详情
+### 🍭getGroup(param,function(data){})//获取群详情
 
 param为json字符串
 
@@ -956,7 +956,7 @@ var data = {
 ```
 
 
-### 📦blockGroupMessage(param)//屏蔽群消息
+### 🍭blockGroupMessage(param)//屏蔽群消息
 
 param为json字符串
 
@@ -966,7 +966,7 @@ var param = {
 };
 ```
 
-### 📦unblockGroupMessage(param)//解除屏蔽群
+### 🍭unblockGroupMessage(param)//解除屏蔽群
 
 param为json字符串
 
@@ -976,7 +976,7 @@ var param = {
 };
 ```
 
-### 📦changeGroupName(param)//修改群组名称
+### 🍭changeGroupName(param)//修改群组名称
 
 param为json字符串
 
@@ -987,7 +987,7 @@ var param = {
 };
 ```
 
-### 📦blockUser(param)//将群成员拉入群组的黑名单(iOS 3.0.22后支持)
+### 🍭blockUser(param)//将群成员拉入群组的黑名单(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -998,7 +998,7 @@ var param = {
 };
 ```
 
-### 📦unblockUser(param)//将拉入黑名单的群成员移除(iOS 3.0.22后支持)
+### 🍭unblockUser(param)//将拉入黑名单的群成员移除(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -1009,7 +1009,7 @@ var param = {
 };
 ```
 
-### 📦getBlockedUsers(param,function(data){})//获取群组的黑名单用户列表(iOS 3.0.22后支持)
+### 🍭getBlockedUsers(param,function(data){})//获取群组的黑名单用户列表(iOS 3.0.22后支持)
 
 param为json字符串
 
@@ -1027,7 +1027,7 @@ data为json对象
 ```
 
 
-### 📦onGroupUpdateInfo(param)//群组信息更新的监听(仅iOS)
+### 🍭onGroupUpdateInfo(param)//群组信息更新的监听(仅iOS)
 
 param为json字符串
 
@@ -1039,7 +1039,7 @@ var param={
 
 * 每当添加/移除/更改角色/更改主题/更改群组信息之后,都会触发此回调
 
-### 📦onDidJoinedGroup(param)//自动加入群组监听(3.0.22新增接口)
+### 🍭onDidJoinedGroup(param)//自动加入群组监听(3.0.22新增接口)
 
 SDK自动同意了用户A的加B入群邀请后,用户B接收到该回调,需要initEasemob时设置isAutoAcceptGroupInvitation为TRUE
 
@@ -1053,7 +1053,7 @@ param为json字符串
     	message:,//邀请消息
 };
 ```
-### 📦onReceiveGroupInvitation(param)//收到群组邀请监听(iOS 3.0.22, Android 3.0.23新增接口)
+### 🍭onReceiveGroupInvitation(param)//收到群组邀请监听(iOS 3.0.22, Android 3.0.23新增接口)
 
 用户A邀请用户B入群,用户B接收到该回调
 
@@ -1067,7 +1067,7 @@ param为json字符串
 };
 ```
 
-### 📦acceptJoinApplication(param)//批准入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
+### 🍭acceptJoinApplication(param)//批准入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
 
 param为json字符串
 
@@ -1078,7 +1078,7 @@ var param={
 };
 ```
 
-### 📦declineJoinApplication(param)//拒绝入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
+### 🍭declineJoinApplication(param)//拒绝入群申请, 需要Owner权限(iOS 3.0.22, Android 3.0.23新增接口)
 
 param为json字符串
 
@@ -1090,7 +1090,7 @@ var param={
 };
 ```
 
-### 📦acceptInvitationFromGroup(param)//接受入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
+### 🍭acceptInvitationFromGroup(param)//接受入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
 
 param为json字符串
 
@@ -1101,7 +1101,7 @@ var param={
 };
 ```
 
-### 📦declineInvitationFromGroup(param)//拒绝入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
+### 🍭declineInvitationFromGroup(param)//拒绝入群邀请(iOS 3.0.22, Android 3.0.23新增接口)
 
 param为json字符串
 
@@ -1114,7 +1114,7 @@ var param={
 ```
 ##2.6、Call
 ***
-### 📦onCallReceive(param)// 实时语音监听
+### 🍭onCallReceive(param)// 实时语音监听
 
 param为json字符串
 
@@ -1127,7 +1127,7 @@ var param = {
 };
 ```
 
-### 📦onCallStateChanged(param)//通话状态监听
+### 🍭onCallStateChanged(param)//通话状态监听
 
 param为json字符串
 
@@ -1141,7 +1141,7 @@ var param = {
         
 	eg. 一个成功的语音通话流程为 :A发送通话请求给B ==> AB建立语音通话连接 ==> B同意语音通话 ==> 开始语音通话
 
-### 📦makeVoiceCall(param)//拨打语音通话
+### 🍭makeVoiceCall(param)//拨打语音通话
 
 param为json字符串
 
@@ -1151,15 +1151,15 @@ var param = {
 };
 ```
 
-### 📦answerCall();//接听通话
+### 🍭answerCall();//接听通话
 
-### 📦rejectCall();//拒绝接听
+### 🍭rejectCall();//拒绝接听
 
-### 📦endCall();//挂断通话
+### 🍭endCall();//挂断通话
 
 ##2.7、Apns(以下方法全部仅限iOS)
 ***
-### 📦registerRemoteNotification(function(data){});//注册Apns推送
+### 🍭registerRemoteNotification(function(data){});//注册Apns推送
 
 data为json对象
 
@@ -1173,13 +1173,13 @@ data为json对象
 
 
  
-### 📦onApnsLaunch(param);
+### 🍭onApnsLaunch(param);
 
 	若APP是通过点击apns推送调起的,当插件初始化时会触发此回调.
 	param为此条推送的内容,json格式.
 
  
-### 📦updatePushOptions(param,function(data){});//设置apns全局属性
+### 🍭updatePushOptions(param,function(data){});//设置apns全局属性
 
 param为json字符串
 
@@ -1209,7 +1209,7 @@ var data = {
  
 	说明:updatePushOptions全为可选参数,当传入空值时,即可通过回调获得当前apns全局属性
 	
-### 📦ignoreGroupPushNotification(param,function(data){})//设置指定群组是否接收
+### 🍭ignoreGroupPushNotification(param,function(data){})//设置指定群组是否接收
 
 param为json字符串
 
@@ -1231,7 +1231,7 @@ var data = {
 
 #3、附录
 
-### 📦EMMessage json字符串返回值结构  
+### 🍭EMMessage json字符串返回值结构  
 
 key | 说明         
 ----- | ----- 
@@ -1250,26 +1250,26 @@ messageBody | 消息主体json
 
 messageBody的结构为
 
-### 📦普通文本消息
+### 🍭普通文本消息
 	
 key | 说明         
 ----- | -----
 text | 文本内容
 
-### 📦透传消息
+### 🍭透传消息
 	
 key | 说明         
 ----- | -----
 action | 具体命令 
 
-### 📦位置消息
+### 🍭位置消息
 key | 说明         
 ----- | ----- 
 longitude | 经度
 latitude | 纬度
 address | 地理位置信息
 
-### 📦视频/语音/图片/文件消息
+### 🍭视频/语音/图片/文件消息
 	
 	
 key | 说明         
@@ -1285,7 +1285,7 @@ thumbnailSecretKey | 预览图文件的密钥(仅视频/图片消息)
 * 返回的json数据中会包含除上述属性之外的一些其他信息,均可以忽略
 * 由于`Android SDK`不能获取`已发送消息`的`remotePath`和`thumbnailRemotePath`,因此改用`本地文件路径`(file://开头)代替
 
-### 📦EMConversation json字符串返回值结构 
+### 🍭EMConversation json字符串返回值结构 
 
 key | 说明         
 ----- | -----
@@ -1297,7 +1297,7 @@ messages	 | "conversation所包含的message列表,表内元素为EMMessage的js
 * 返回的json数据中会包含除上述属性之外的一些其他信息,均可以忽略
 
 	
-### 📦EMGroup json字符串返回值结构 
+### 🍭EMGroup json字符串返回值结构 
 
 key | 说明         
 ----- | -----
@@ -1318,7 +1318,7 @@ membersOnly | 需要申请和验证才能加入
 	* 群组的members属性以cbGetGroup回调为准
 	* **`Android的members包含群组的owner,而iOS并不包含`**,此问题已反馈给环信官方,待解决中
 
-### 📦EMChatterInfo json字符串返回值结构 
+### 🍭EMChatterInfo json字符串返回值结构 
 
 key | 说明         
 ----- | -----
@@ -1328,7 +1328,7 @@ chatType | 联系人类型 0-个人 1-群组
 unreadMsgCount | 未读消息数
 lastMsg | 最后一条消息 EMMessage格式的json字符串
 
-### 📦 "isGroup"参数废弃 改用"chatType"的相关说明
+### 🍭 "isGroup"参数废弃 改用"chatType"的相关说明
 
 由于环信插件即将添加`聊天室功能`,**isGroup参数即将不能满足需求**,因此做如下修改:
 

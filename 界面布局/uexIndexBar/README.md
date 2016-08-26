@@ -20,7 +20,7 @@
 
 ## 2.1、方法
 
-### 📦 open 创建索引列表
+### 🍭 open 创建索引列表
 
 `uexIndexBar.open(x, y, width, height,extras)`
 
@@ -71,7 +71,7 @@ extras={
 ```
 
 
-### 📦 close 关闭索引列表
+### 🍭 close 关闭索引列表
 
 `uexIndexBar.close()`
 
@@ -91,7 +91,7 @@ uexIndexBar.close();
 
 ## 2.2、监听方法
 
-### 📦 onIndexClick点击item的监听方法
+### 🍭 onIndexClick点击item的监听方法
 
 `uexIndexBar.onIndexClick(data);`
 

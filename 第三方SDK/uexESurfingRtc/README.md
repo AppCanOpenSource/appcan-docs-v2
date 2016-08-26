@@ -14,7 +14,7 @@
 # 2、API概览
 
 ## 2.1、方法
-### 📦 setAppKeyAndAppId 设置应用程序的appKey和appId接口
+### 🍭 setAppKeyAndAppId 设置应用程序的appKey和appId接口
 
 `uexESurfingRtc.setAppKeyAndAppId(appKey, appId)`
 
@@ -43,7 +43,7 @@ iOS6.0+
 ```
  
 ```
-### 📦 login 初始化RTC 客户端,并注册至RTC平台接口
+### 🍭 login 初始化RTC 客户端,并注册至RTC平台接口
 
 `uexESurfingRtc.login(jsonViewConfig, userName)`
 
@@ -84,7 +84,7 @@ iOS6.0+
 ```
  
 ```
-### 📦 logout 退出RTC平台接口
+### 🍭 logout 退出RTC平台接口
 
 `uexESurfingRtc.logout()`
 
@@ -110,7 +110,7 @@ iOS6.0+
 ```
  
 ```
-### 📦 call 创建呼叫接口
+### 🍭 call 创建呼叫接口
 
 `uexESurfingRtc.call(callType, callName)`
 
@@ -140,7 +140,7 @@ iOS6.0+
 ```
  
 ```
-### 📦 acceptCall 接听呼叫接口
+### 🍭 acceptCall 接听呼叫接口
 
 `uexESurfingRtc.acceptCall(callType)`
 
@@ -168,7 +168,7 @@ iOS6.0+
 ```
  
 ```
-### 📦 hangUp 挂断呼叫接口
+### 🍭 hangUp 挂断呼叫接口
  
 `uexESurfingRtc.hangUp()`
 
@@ -194,7 +194,7 @@ iOS6.0+
 ```
  
 ```
-### 📦 mute 设置静音/取消静音接口
+### 🍭 mute 设置静音/取消静音接口
  
 `uexESurfingRtc.mute(value)`
 
@@ -222,7 +222,7 @@ iOS6.0+
 ```
  
 ```
-### 📦 loudSpeaker 设置扬声器/电话听筒接口
+### 🍭 loudSpeaker 设置扬声器/电话听筒接口
  
 `uexESurfingRtc.loudSpeaker (value)`
 
@@ -250,7 +250,7 @@ iOS6.0+
 ```
  
 ```
-### 📦 setVideoAttr 设置视频清晰度
+### 🍭 setVideoAttr 设置视频清晰度
  
 `uexESurfingRtc.setVideoAttr (value)`
 
@@ -278,7 +278,7 @@ iOS6.0+
 ```
  
 ```
-### 📦 takeRemotePicture 截屏接口
+### 🍭 takeRemotePicture 截屏接口
  
 `uexESurfingRtc.takeRemotePicture ()`
 
@@ -307,7 +307,7 @@ iOS6.0+
  
 ```
 ## 2.2、监听方法
-### 📦 onGlobalStatus 监听客户端全局状态的回调函数
+### 🍭 onGlobalStatus 监听客户端全局状态的回调函数
 
 `uexESurfingRtc.onGlobalStatus (opId, dataType, data)`
 
@@ -326,7 +326,7 @@ iOS6.0+
 **示例:**
 
 ## 2.3、回调方法
-### 📦cbLogStatus 客户端注册至RTC平台的回调函数
+### 🍭cbLogStatus 客户端注册至RTC平台的回调函数
  
 `uexESurfingRtc.cbLogStatus(opId, dataType, data)`
 
@@ -348,7 +348,7 @@ iOS6.0+
 ```
  
 ```
-### 📦cbCallStatus 呼叫状态的回调函数
+### 🍭cbCallStatus 呼叫状态的回调函数
 
 `uexESurfingRtc.cbCallStatus(opId, dataType, data)`
 
@@ -370,7 +370,7 @@ iOS6.0+
 ```
  
 ```
-### 📦cbRemotePicPath 截屏的回调函数
+### 🍭cbRemotePicPath 截屏的回调函数
  
 `uexESurfingRtc.cbRemotePicPath(opId, dataType, data)`
 

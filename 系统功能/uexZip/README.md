@@ -16,7 +16,7 @@
 
 ##2.1、方法
 
-### 📦 			zip	  压缩文件		
+### 🍭 			zip	  压缩文件		
 
 `uexZip.zip(srcPath,zippedPath,cb)	`				
 **说明:**
@@ -43,7 +43,7 @@ uexZip.zip(srcPath,zippedPath,function(result) {
 });				
 ```
 
-### 📦 			zipWithPassword		以加密的方式压缩文件		
+### 🍭 			zipWithPassword		以加密的方式压缩文件		
 
 `uexZip.zipWithPassword(srcPath,zippedPath,password,cb)	`				
 **说明:**
@@ -72,7 +72,7 @@ function zipWithPassword() {srcPath,zippedPath,password,function(result){
 
 
 
-### 📦 			unzip		解压缩文件		
+### 🍭 			unzip		解压缩文件		
 
 `uexZip.unzip(srcPath,zippedPath,cb)				`	
 **说明:**
@@ -97,7 +97,7 @@ function unZip() {	uexZip.unzip(document.getElementById('hidunZip').value,docume
 	});
 }
 ```
-### 📦 			unzipWithPassword		解压缩加密的文件		
+### 🍭 			unzipWithPassword		解压缩加密的文件		
 
 `uexZip.unzipWithPassword(srcPath,zippedPath,password,cb)					`
 **说明:**

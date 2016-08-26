@@ -27,7 +27,7 @@
 
 ## 2.1、方法
 
-### 📦 open 打开数据库
+### 🍭 open 打开数据库
 
 `uexDataBaseMgr.open(dbName)`
 
@@ -55,7 +55,7 @@ if(!db){
 }
 ```
 
-### 📦 sql Sql语句的执行
+### 🍭 sql Sql语句的执行
 
 `uexDataBaseMgr.sql(db,sql,callbackFunction)`
 
@@ -92,7 +92,7 @@ uexDataBaseMgr.sql(db,sql, function(error) {
     }
 });
 ```
-### 📦 select Sql语句的查询
+### 🍭 select Sql语句的查询
 
 `uexDataBaseMgr.select(db,sql, callbackFunction)`
 
@@ -134,7 +134,7 @@ uexDataBaseMgr.select(db,sql, function (error,data) {
 });
 ```
 
-### 📦 transactionEx　事务的执行
+### 🍭 transactionEx　事务的执行
 
 `uexDataBaseMgr.transactionEx(db,sqls, callbackFunction)`
 
@@ -174,7 +174,7 @@ uexDataBaseMgr.transactionEx(db,JSON.stringify(sqls), function(error) {
 });
 ```
 
-### 📦 close 关闭数据库
+### 🍭 close 关闭数据库
 
 `uexDataBaseMgr.close(db)`
 

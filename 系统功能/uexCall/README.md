@@ -24,7 +24,7 @@
 #2、API概览
 ## 2.1、方法
 
-### 📦dial  调用系统拨号界面
+### 🍭dial  调用系统拨号界面
 
 ``
 uexCall.dial(number)
@@ -46,7 +46,7 @@ uexCall.dial(number)
 ```
 uexCall.dial("10086");
 ```
-### 📦 facetime   视频通话(仅支持iOS)
+### 🍭 facetime   视频通话(仅支持iOS)
 
 `uexCall.faceTime(number)`
 

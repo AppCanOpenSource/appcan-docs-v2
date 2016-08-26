@@ -19,7 +19,7 @@
 
 # 2.API概览  
 ##2.1、方法  
-### 📦 createNewScrollPicture   新建一个轮播图
+### 🍭 createNewScrollPicture   新建一个轮播图
 
 `uexScrollPicture.createNewScrollPicture(param)`
 
@@ -72,7 +72,7 @@ if(!view1){
 }
 ```
 
-### 📦 startAutoScroll   开始图片轮播
+### 🍭 startAutoScroll   开始图片轮播
 
 `uexScrollPicture.startAutoScroll(param);`
 
@@ -96,7 +96,7 @@ var param={
 uexScrollPicture.startAutoScroll(JSON.stringify(param));
 ```
 
-### 📦 stopAutoScroll   停止图片轮播
+### 🍭 stopAutoScroll   停止图片轮播
 
 `uexScrollPicture.stopAutoScroll(param)`
 
@@ -124,7 +124,7 @@ var param={
 uexScrollPicture.stopAutoScroll(JSON.stringify(param));
 ```
 
-### 📦 removeView   删除view
+### 🍭 removeView   删除view
 
 `uexScrollPicture.removeView(param)`
 
@@ -150,7 +150,7 @@ uexScrollPicture.removeView(JSON.stringify(param));
 
 ##2.2、监听方法
 
-### 📦 onPicItemClick 轮播图点击事件
+### 🍭 onPicItemClick 轮播图点击事件
 
 `uexScrollPicture.onPicItemClick(data)`
 

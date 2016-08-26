@@ -27,7 +27,7 @@
 #2、API概览
 ##2.1、方法
 
-### 📦 <del>   init  初始化 </del>(已废弃,插件现在自动初始化)
+### 🍭 <del>   init  初始化 </del>(已废弃,插件现在自动初始化)
 
 `uexJPush.init()`
 
@@ -42,7 +42,7 @@
 ```
 uexJPush.init();
 ```
-### 📦 stopPush  停止推送服务
+### 🍭 stopPush  停止推送服务
 
 `uexJPush.stopPush()`
 
@@ -65,7 +65,7 @@ Android 3.0.0+
 uexJPush.stopPush();
 ```
 
-### 📦 resumePush  恢复推送服务
+### 🍭 resumePush  恢复推送服务
 
 `uexJPush.resumePush()`
 
@@ -88,7 +88,7 @@ Android 3.0.0+
 uexJPush.resumePush();
 ```
 
-### 📦 setAlias   设置别名
+### 🍭 setAlias   设置别名
 
 `uexJPush.setAlias(json, callbackFunction)`
 
@@ -129,7 +129,7 @@ uexJPush.setAlias(data, function(data) {
 });
 ```
 
-### 📦 setTags  设置标签
+### 🍭 setTags  设置标签
 
 `uexJPush.setTags(json, callbackFunction)`
 
@@ -171,7 +171,7 @@ uexJPush.setTags(data, function(data) {
 });
 ```
 
-### 📦 setAliasAndTags  同时设置别名与标签
+### 🍭 setAliasAndTags  同时设置别名与标签
 
 `uexJPush.setAliasAndTags(json, callbackFunction)`
 
@@ -212,7 +212,7 @@ uexJPush.setAliasAndTags(data, function(data) {
 });
 ```
 
-### 📦 getRegistrationID 取得应用程序对应的 RegistrationID
+### 🍭 getRegistrationID 取得应用程序对应的 RegistrationID
 
 `uexJPush.getRegistrationID()`
 
@@ -233,7 +233,7 @@ var id = uexJPush.getRegistrationID();
 alert(id);
 ```
 
-### 📦 clearAllNotifications 清除所有通知
+### 🍭 clearAllNotifications 清除所有通知
 
 `uexJPush.clearAllNotifications()`
 
@@ -257,7 +257,7 @@ Android 3.0.0+
 uexJPush.clearAllNotifications();
 ```
 
-### 📦 clearNotificationById  根据Id清除某条通知
+### 🍭 clearNotificationById  根据Id清除某条通知
 
 `uexJPush.clearNotificationById(json)`
 
@@ -286,7 +286,7 @@ uexJPush.clearNotificationById(data);
 
 ```
 
-### 📦 getConnectionState 获取推送连接状态
+### 🍭 getConnectionState 获取推送连接状态
 
 `uexJPush.getConnectionState(callbackFunction)`
 
@@ -308,7 +308,7 @@ uexJPush.getConnectionState(function(data) {
 });
 ```
 
-### 📦 addLocalNotification  添加一个本地通知
+### 🍭 addLocalNotification  添加一个本地通知
 
 `uexJPush.addLocalNotification(json)`
 
@@ -340,7 +340,7 @@ var data = JSON.stringify(params);
 uexJPush.addLocalNotification(data);
 ```
 
-### 📦 removeLocalNotification 移除一个本地通知
+### 🍭 removeLocalNotification 移除一个本地通知
 
 `uexJPush.removeLocalNotification(json)`
 
@@ -363,7 +363,7 @@ var data = JSON.stringify(params);
 uexJPush.removeLocalNotification(data);
 ```
 
-### 📦 clearLocalNotifications  移除所有的通知
+### 🍭 clearLocalNotifications  移除所有的通知
 
 `uexJPush.clearLocalNotifications()`
 
@@ -379,7 +379,7 @@ uexJPush.removeLocalNotification(data);
 uexJPush.clearLocalNotifications();
 ```
 
-### 📦 setBadgeNumber  设置badge值
+### 🍭 setBadgeNumber  设置badge值
 
 `uexJPush.setBadgeNumber(badgeNumber)`
 
@@ -403,7 +403,7 @@ uexJPush.setBadgeNumber(0);
 
 ```
 
-### 📦 disableLocalNotificationAlertView  禁止前台本地通知提示框
+### 🍭 disableLocalNotificationAlertView  禁止前台本地通知提示框
 
 `uexJPush.disableLocalNotificationAlertView(flag)`
 
@@ -437,7 +437,7 @@ uexJPush.disableLocalNotificationAlertView(1);
 
 ##2.2、监听方法
 
-### 📦 onReceiveMessage 收到了自定义消息
+### 🍭 onReceiveMessage 收到了自定义消息
 
 `uexJPush.onReceiveMessage(json)`
 
@@ -464,7 +464,7 @@ window.uexOnload=function(type){
 }
 ```
 
-### 📦 onReceiveNotification 收到了通知
+### 🍭 onReceiveNotification 收到了通知
 
 `uexJPush.onReceiveNotification(json)`
 
@@ -498,7 +498,7 @@ window.uexOnload=function(type){
 }
 ```
 
-### 📦 onReceiveNotificationOpen  用户点击了通知
+### 🍭 onReceiveNotificationOpen  用户点击了通知
 
 `uexJPush.onReceiveNotificationOpen(json)`
 
@@ -532,7 +532,7 @@ window.uexOnload=function(type){
 }
 ```
 
-### 📦 onReceiveConnectionChange  连接状态变化
+### 🍭 onReceiveConnectionChange  连接状态变化
 
 `uexJPush.onReceiveConnectionChange(json)`
 
@@ -559,7 +559,7 @@ window.uexOnload=function(type){
 }
 ```
 
-### 📦 onReceiveRegistration  应用程序注册监听
+### 🍭 onReceiveRegistration  应用程序注册监听
 
 `uexJPush.onReceiveRegistration(json)`
 

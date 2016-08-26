@@ -26,7 +26,7 @@ Path Types
 #2、API概览
 ## 2.1、方法:
 
-### 📦 registerApp 授权本应用访问用户微博账号       
+### 🍭 registerApp 授权本应用访问用户微博账号       
 
 `uexTent.registerApp(appKey,appSecret,registerUrl)`
 
@@ -64,7 +64,7 @@ iOS6.0+
  
 见sendImageContent方法示例 
                 
-### 📦 sendTextContent 分享文本到腾讯微博
+### 🍭 sendTextContent 分享文本到腾讯微博
 
 `uexTent.sendTextContent(txt)`
 
@@ -100,7 +100,7 @@ iOS6.0+
 
  
 见sendImageContent方法示例                 
-### 📦 sendImageContent 分享图片到腾讯微博   
+### 🍭 sendImageContent 分享图片到腾讯微博   
 
 `uexTent.sendImageContent(imagePath,txt))`
 
@@ -198,7 +198,7 @@ var cInt = 2;
 ```
 ##2.2、回调方法:
 
-### 📦cbRegisterApp 注册应用的回调方法        
+### 🍭cbRegisterApp 注册应用的回调方法        
 
 `uexTent.cbRegisterApp(opId,dataType,data)`   
 
@@ -217,7 +217,7 @@ var cInt = 2;
 
  
 3.0.0+                  
-### 📦 cbShare 分享后的回调方法   
+### 🍭 cbShare 分享后的回调方法   
 
 `uexTent.cbShare(opId,dataType,data);`
 

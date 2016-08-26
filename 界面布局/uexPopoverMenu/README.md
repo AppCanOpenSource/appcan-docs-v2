@@ -21,7 +21,7 @@
 # 2、API概览
 
 ## 2.1、方法
-### 📦 openPopoverMenu 创建弹出框
+### 🍭 openPopoverMenu 创建弹出框
 
 `uexPopoverMenu.openPopoverMenu(params, callbackFunction)`  
 

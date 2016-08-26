@@ -14,7 +14,7 @@
 # 2、API概览
 
 ## 2.1、方法
-### 📦 setEvent 上报自定义事件
+### 🍭 setEvent 上报自定义事件
 
 `uexDataAnalysis.setEvent(eventId, attri)`
 
@@ -43,7 +43,7 @@ var reportStr = '{"次数统计":"1","test":"是的","12":"55"}';
 uexDataAnalysis.setEvent("AE000001", reportStr);
 ```
 
-### 📦 beginEvent 开始自定义事件
+### 🍭 beginEvent 开始自定义事件
 
 `uexDataAnalysis.beginEvent(eventId, keyword, attri)`
 
@@ -73,7 +73,7 @@ var keyword = "music";
 uexDataAnalysis.beginEvent("AE00001", keyword, inLabel);
 ```
 
-### 📦 endEvent 结束自定义事件并上报
+### 🍭 endEvent 结束自定义事件并上报
 
 `uexDataAnalysis.endEvent(eventId, keyword)`
 
@@ -100,7 +100,7 @@ iOS5.1.1+
 uexDataAnalysis.endEvent("AE0001", "keyword_value");
 ```
 
-### 📦 setErrorReport 设置是否收集异常信息并上报到服务器
+### 🍭 setErrorReport 设置是否收集异常信息并上报到服务器
 
 `uexDataAnalysis.setErrorReport(status)`
 

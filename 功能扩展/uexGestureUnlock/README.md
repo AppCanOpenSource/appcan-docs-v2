@@ -30,7 +30,7 @@
 
 ##2.1、 方法
 
-### 📦isGestureCodeSet 检测是否已设置手势密码
+### 🍭isGestureCodeSet 检测是否已设置手势密码
 
 `uexGestureUnlock.isGestureCodeSet();`
 
@@ -55,7 +55,7 @@ var ret = uexGestureUnlock.isGestureCodeSet();
 alert(ret);
 ```
 
-### 📦resetGestureCode 重置手势密码
+### 🍭resetGestureCode 重置手势密码
 
 `uexGestureUnlock.resetGestureCode();`
 
@@ -75,7 +75,7 @@ alert(ret);
 uexGestureUnlock.resetGestureCode();
 ```
 
-### 📦config 配置插件
+### 🍭config 配置插件
 
 `uexGestureUnlock.config(param);`
 
@@ -155,7 +155,7 @@ var data={
 uexGestureUnlock.config(data);
 ```
 
-### 📦verify 验证手势密码
+### 🍭verify 验证手势密码
 
 `uexGestureUnlock.verify(cb);`
 
@@ -196,7 +196,7 @@ uexGestureUnlock.verify(function(error, data){
 });
 ```
 
-### 📦create 设置手势密码
+### 🍭create 设置手势密码
 
 `uexGestureUnlock.create(config,cb);`
 
@@ -260,7 +260,7 @@ uexGestureUnlock.create(data,function(error, data){
 });
 ```
 
-### 📦cancel 终止手势密码验证/设置过程
+### 🍭cancel 终止手势密码验证/设置过程
 
 `uexGestureUnlock.cancel();`
 
@@ -282,7 +282,7 @@ uexGestureUnlock.cancel();
 
 ##2.2、 监听方法
 
-### 📦onEventOccur 插件事件发生的监听方法
+### 🍭onEventOccur 插件事件发生的监听方法
 
 `uexGestureUnlock.onEventOccur(param);`
 

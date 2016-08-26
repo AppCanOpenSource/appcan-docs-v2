@@ -21,7 +21,7 @@
 #2、API概览
  ##2.1、方法
 
-### 📦 open 打开视频播放器
+### 🍭 open 打开视频播放器
 
 `uexQcloudAV.open(params)`
 
@@ -86,7 +86,7 @@ var data = JSON.stringify(params);
 uexQcloudAV.open(data);
 ```
 
-### 📦 play 播放
+### 🍭 play 播放
 
 `uexQcloudAV.play()`
 
@@ -107,7 +107,7 @@ uexQcloudAV.open(data);
 ```
 uexQcloudAV.play();
 ```
-### 📦 pause 暂停
+### 🍭 pause 暂停
 
 `uexQcloudAV.pause()`
 
@@ -127,7 +127,7 @@ uexQcloudAV.play();
 uexQcloudAV.pause();
 ```
 
-### 📦 stop 停止
+### 🍭 stop 停止
 
 `uexQcloudAV.stop()`
 
@@ -147,7 +147,7 @@ uexQcloudAV.pause();
 ```
 uexQcloudAV.stop();
 ```
-### 📦 close 关闭
+### 🍭 close 关闭
 
 `uexQcloudAV.close()`
 
@@ -166,7 +166,7 @@ uexQcloudAV.stop();
 ```
 uexQcloudAV.close();
 ```
-### 📦 clear 清空缓存(仅支持iOS)
+### 🍭 clear 清空缓存(仅支持iOS)
 
 `uexQcloudAV.clear()`
 
@@ -187,7 +187,7 @@ uexQcloudAV.close();
 uexQcloudAV.clear();
 ```
 
-### 📦 getCurrentTime 获取当前播放的时间
+### 🍭 getCurrentTime 获取当前播放的时间
 
 `  var info = uexQcloudAV.getCurrentTime()`
 
@@ -213,7 +213,7 @@ var info = uexQcloudAV.getCurrentTime();
 alert(time);
 ```
 
-### 📦 seekTo 跳转到时间播放
+### 🍭 seekTo 跳转到时间播放
 
 `uexQcloudAV.seekTo(time)`
 
@@ -236,7 +236,7 @@ uexQcloudAV.seekTo("400");
 
 ## 2.3、监听方法
 
-### 📦 onStateChanged　播放器状态的监听方法
+### 🍭 onStateChanged　播放器状态的监听方法
 
 `uexQcloudAV.onStateChanged(data)`
 
@@ -259,7 +259,7 @@ window.uexOnload = function(){
   }
 }
 ```
-### 📦 onNetworkStateChanged　切换网络的监听方法(仅支持iOS)
+### 🍭 onNetworkStateChanged　切换网络的监听方法(仅支持iOS)
 
 `uexQcloudAV.onNetworkStateChanged(data)`
 

@@ -16,7 +16,7 @@
 
 ##2.1、 方法
 
-### 📦 init  初始化
+### 🍭 init  初始化
 
 `uexBaiduNavi.init(param)`
 
@@ -60,7 +60,7 @@ uexBaiduNavi.init(JSON.stringify(data));
 
 ```
 
-### 📦 startRoutePlan  开始路径规划
+### 🍭 startRoutePlan  开始路径规划
 
 `uexBaiduNavi.startRoutePlan(param)`
 
@@ -109,7 +109,7 @@ uexBaiduNavi.startRoutePlan(JSON.stringify(data));
 
 ```
 
-### 📦 startNavi  开始导航
+### 🍭 startNavi  开始导航
 
 `uexBaiduNavi.startNavi(param)`
 
@@ -156,7 +156,7 @@ var data={
 uexBaiduNavi.startNavi(JSON.stringify(data));
 ```
 
-### 📦 exitNavi  退出导航
+### 🍭 exitNavi  退出导航
 
 `uexBaiduNavi.exitNavi()`
 
@@ -186,7 +186,7 @@ iOS 3.0.0+
 uexBaiduNavi.exitNavi();
 ```
 
-### 📦 startDigitDog  开始巡航
+### 🍭 startDigitDog  开始巡航
 
 `uexBaiduNavi.startDigitDog(param)`
 
@@ -231,7 +231,7 @@ uexBaiduNavi.startDigitDog(JSON.stringify(data));
 
 ## 2.2、 回调方法
 
-### 📦 cbInit 初始化完成的回调方法
+### 🍭 cbInit 初始化完成的回调方法
 
 `uexBaiduNavi.cbInit(param)`
 
@@ -270,7 +270,7 @@ uexBaiduNavi.cbInit=function(json){
 }
 ```
 
-### 📦 cbStartRoutePlan 开始路径规划的回调方法
+### 🍭 cbStartRoutePlan 开始路径规划的回调方法
 
 `uexBaiduNavi.cbStartRoutePlan(param)`
 
@@ -321,7 +321,7 @@ uexBaiduNavi.cbStartRoutePlan=function(json){
 
 ##2.3、 监听方法
 
-### 📦 onExitNavi 退出导航的监听方法
+### 🍭 onExitNavi 退出导航的监听方法
 
 `uexBaiduNavi.onExitNavi()`
 
@@ -351,7 +351,7 @@ uexBaiduNavi.onExitNavi=function(){
 }
 ```
 
-### 📦 onExitDeclaration 退出导航声明页面的监听方法
+### 🍭 onExitDeclaration 退出导航声明页面的监听方法
 
 `uexBaiduNavi.onExitDeclaration()`
 
@@ -383,7 +383,7 @@ uexBaiduNavi.onExitDeclaration=function(){
 }
 ```
 
-### 📦 onExitDigitDog 退出巡航的监听方法
+### 🍭 onExitDigitDog 退出巡航的监听方法
 
 `uexBaiduNavi.onExitDigitDog()`
 

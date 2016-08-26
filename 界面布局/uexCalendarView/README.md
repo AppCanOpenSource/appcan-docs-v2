@@ -22,7 +22,7 @@
 
 ## 2.1、方法 
 
-### 📦open 打开日历
+### 🍭open 打开日历
 
 `uexCalendarView.open(json)`
 
@@ -66,7 +66,7 @@ var data ={
 uexCalendarView.open(data);
 ```
 
-### 📦close  关闭日历
+### 🍭close  关闭日历
 
 `uexCalendarView.close()`
 
@@ -84,7 +84,7 @@ uexCalendarView.open(data);
 ```
 uexCalendarView.close()
 ```
-### 📦setSelectedDate 设置被选中的日期
+### 🍭setSelectedDate 设置被选中的日期
 
 `uexCalendarView.setSelectedDate(json)`
 
@@ -132,7 +132,7 @@ uexCalendarView.setSelectedDate(data);
 
 ## 2.2、监听方法
 
-### 📦onItemClick  点击日期时的监听方法
+### 🍭onItemClick  点击日期时的监听方法
 
 `uexCalendarView.onItemClick(json)`
 

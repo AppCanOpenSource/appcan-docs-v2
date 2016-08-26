@@ -25,7 +25,7 @@ Document阅读器,是用来阅读Office文件的,包括PPT幻灯片,Excel表格,
 
 ## 2.1、方法
 
-### 📦 openDocumentReader打开阅读器
+### 🍭 openDocumentReader打开阅读器
 
 `uexDocumentReader.openDocumentReader(documentPath)`
 

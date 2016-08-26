@@ -25,7 +25,7 @@
 
 ## 2.1、方法
 
-### 📦 open 打开联系人界面
+### 🍭 open 打开联系人界面
 
 `uexContact.open(callbackFunction)`
 
@@ -62,7 +62,7 @@ uexContact.open(function(data){
 });
 ```
 
-### 📦 multiOpen 打开联系人选择界面
+### 🍭 multiOpen 打开联系人选择界面
 
 `uexContact.multiOpen(callbackFunction)`
 
@@ -97,7 +97,7 @@ uexContact.multiOpen(function(data) {
 });
 ```
 
-### 📦 addItem 添加联系人
+### 🍭 addItem 添加联系人
 
 `uexContact.addItem(name,num,email,option, callbackFunction)`
 
@@ -138,7 +138,7 @@ var option = {
 uexContact.addItem("张三","13436827900","widgetone@3g2win.com",JSON.stringify(option));
 ```
 
-### 📦 deleteWithId 删除联系人
+### 🍭 deleteWithId 删除联系人
 
 `uexContact.deleteWithId(option, callbackFunction)`
 
@@ -176,7 +176,7 @@ var option =  {
 uexContact.deleteWithId(JSON.stringify(option));
 ```
 
-### 📦 deleteItem 删除联系人
+### 🍭 deleteItem 删除联系人
 
 `uexContact.deleteItem(name, callbackFunction)`
 
@@ -198,7 +198,7 @@ uexContact.deleteWithId(JSON.stringify(option));
 ```
 uexContact.deleteItem("张三");
 ```
-### 📦 search 查询联系人
+### 🍭 search 查询联系人
 
 `uexContact.search(option, callbackFunction)`
 
@@ -283,7 +283,7 @@ var option = {
 uexContact.search(JSON.stringify(option));
 ```
 
-### 📦 searchItem 查询联系人
+### 🍭 searchItem 查询联系人
 
 `uexContact.searchItem(nameKey, callbackFunction)`
 
@@ -346,7 +346,7 @@ uexContact.searchItem("张三", JSON.stringify(option), function(data) {
     alert(JSON.stringify(data));
 });
 ```
-### 📦 modifyWithId 使用id修改联系人
+### 🍭 modifyWithId 使用id修改联系人
 
 `uexContact.modifyWithId(option, callbackFunction)`
 
@@ -394,7 +394,7 @@ uexContact.modifyWithId(JSON.stringify(option), function(data) {
 });
 ```
 
-### 📦 modifyItem 修改联系人
+### 🍭 modifyItem 修改联系人
 
 `uexContact.modifyItem(name,num,email, callbackFunction)`
 
@@ -421,7 +421,7 @@ uexContact.modifyItem("张三","13436827900","widgetone@3g2win.com", function(da
 });
 ```
 
-### 📦 addItemWithVCard 添加联系人
+### 🍭 addItemWithVCard 添加联系人
 
 `uexContact.addItemWithVCard(data,type, callbackFunction)`
 

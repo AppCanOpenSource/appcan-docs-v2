@@ -19,7 +19,7 @@
 # 2、API概览
 
 ## 2.1、方法
-### 📦 openLocation 打开定位功能,监听并返回设备所在地经纬度信息
+### 🍭 openLocation 打开定位功能,监听并返回设备所在地经纬度信息
 
 `uexLocation.openLocation(type,callBackFunction)`
 
@@ -59,7 +59,7 @@ uexLocation.openLocation("bd09",function(error) {
 
 
 
-### 📦 closeLocation 关闭定位功能
+### 🍭 closeLocation 关闭定位功能
 
 `uexLocation.closeLocation()`
 
@@ -77,7 +77,7 @@ uexLocation.openLocation("bd09",function(error) {
     uexLocation.closeLocation();
 ```
 
-### 📦 getAddressByType 获取经纬度对应的具体地址信息
+### 🍭 getAddressByType 获取经纬度对应的具体地址信息
 
 `uexLocation.getAddressByType(params, callbackFunction)`
 
@@ -158,7 +158,7 @@ var data = {
     uexLocation.getAddressByType(params,callbackFunction);
 ```
 
-### 📦 convertLocation 转换坐标的方法
+### 🍭 convertLocation 转换坐标的方法
 
 `var data = uexLocation.convertLocation(params);`
 
@@ -217,7 +217,7 @@ alert(obj.latitude+","+obj.longitude);//同步返回json字符串
 
 
 ## 2.2、监听方法
-### 📦 onChange 设备位置变化的监听方法
+### 🍭 onChange 设备位置变化的监听方法
 
   uexLocation.onChange(lat, log)
 

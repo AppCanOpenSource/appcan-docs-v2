@@ -21,7 +21,7 @@ uexSlidePager滑动切换页面的相关功能...... 通过创建滑动页面,�
 
 ## 2.1、方法
 
-### 📦 openSlidePager 创建滑动页面
+### 🍭 openSlidePager 创建滑动页面
 
 `uexSlidePager.openSlidePager(topMargin, contents, icons, colors, option)`
 
@@ -65,7 +65,7 @@ var option = {
 uexSlidePager.openSlidePager(topMargin, contents, icons, colors, JSON.stringify(option));
 
 ```
-### 📦 closeSlidePager移除滑动页面
+### 🍭 closeSlidePager移除滑动页面
 
 `uexSlidePager.closeSlidePager()    `
 
@@ -83,7 +83,7 @@ uexSlidePager.openSlidePager(topMargin, contents, icons, colors, JSON.stringify(
 ```
 uexSlidePager.closeSlidePager()
 ```
-### 📦 setCurrentPage 设置当前页
+### 🍭 setCurrentPage 设置当前页
 
 `uexSlidePager.setCurrentPage(index)    `
 
@@ -106,7 +106,7 @@ uexSlidePager.setCurrentPage(1)
 ```
 
 ## 2.2、监听方法
-### 📦 onPageClick 点击页面的监听方法
+### 🍭 onPageClick 点击页面的监听方法
 
 `uexSlidePager.onPageClick(index)   `
 
@@ -130,7 +130,7 @@ uexSlidePager.onPageClick = function(data){
 }  
 
 ```
-### 📦 onChangeColor 页面切换背景色的监听方法
+### 🍭 onChangeColor 页面切换背景色的监听方法
 
 `uexSlidePager.onChangeColor(color) `
 

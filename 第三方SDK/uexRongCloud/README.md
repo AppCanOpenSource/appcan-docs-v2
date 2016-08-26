@@ -70,7 +70,7 @@ var callback=function (error,data){
 
 ##2.1、初始化
 ***
-### 📦 init 初始化
+### 🍭 init 初始化
 
 `uexRongCloud.init(json,callback)`
 
@@ -118,7 +118,7 @@ uexRongCloud.init({
 ##2.2、登录与登出
 
 ***
-### 📦 connect(param)   与融云服务器建立连接
+### 🍭 connect(param)   与融云服务器建立连接
 
 `uexRongCloud.connect(json,callback)`
 
@@ -158,7 +158,7 @@ uexRongCloud.connect({
 });
 ```
 
-### 📦 disconnect  断开与融云服务器建立连接
+### 🍭 disconnect  断开与融云服务器建立连接
 
 `uexRongCloud.disconnect(json)`
 
@@ -187,7 +187,7 @@ uexRongCloud.disconnect({
 ##2.3、基础消息功能
 ***
 
-### 📦 sendMessage 发送消息
+### 🍭 sendMessage 发送消息
 
 `uexRongClound.sendMessage(json,callback)`
 
@@ -289,7 +289,7 @@ uexRongCloud.sendMessage({
 });
 ```
 
-### 📦 onMessageReceived(param) 收到消息
+### 🍭 onMessageReceived(param) 收到消息
 
 param为json字符串
 
@@ -358,7 +358,7 @@ var params={
 ##2.3、会话功能
 ***
 
-### 📦 getConversationList() 获取会话列表
+### 🍭 getConversationList() 获取会话列表
 
 ```
 var param=getConversationList();
@@ -395,7 +395,7 @@ var params={
 
 ```
 
-### 📦 getConversation(json) 获取某一会话信息
+### 🍭 getConversation(json) 获取某一会话信息
 
 param为json字符串
 
@@ -437,7 +437,7 @@ var params={
 } 
 ```
 
-### 📦 removeConversation(param) 从会话列表中移除某一会话,但是不删除会话内的消息
+### 🍭 removeConversation(param) 从会话列表中移除某一会话,但是不删除会话内的消息
 
 param为json字符串
 
@@ -449,7 +449,7 @@ var params={
 
 ```
 
-### 📦 cbRemoveConversation(param) removeConversation的回调
+### 🍭 cbRemoveConversation(param) removeConversation的回调
 
 param为json字符串
 
@@ -460,7 +460,7 @@ var params={
 
 ```
 
-### 📦 clearConversations(param) 清空所有会话及会话消息
+### 🍭 clearConversations(param) 清空所有会话及会话消息
 
 param为json字符串
 
@@ -471,7 +471,7 @@ var params={
 
 ```
 
-### 📦 cbClearConversations(param) clearConversations的回调
+### 🍭 cbClearConversations(param) clearConversations的回调
 
 param为json字符串
 
@@ -482,7 +482,7 @@ var params={
 
 ```
 
-### 📦 setConversationToTop(param) 清空所有会话及会话消息
+### 🍭 setConversationToTop(param) 清空所有会话及会话消息
 
 param为json字符串
 
@@ -495,7 +495,7 @@ var params={
 
 ```
 
-### 📦 cbSetConversationToTop(param) setConversationToTop 的回调
+### 🍭 cbSetConversationToTop(param) setConversationToTop 的回调
 
 param为json字符串
 
@@ -506,7 +506,7 @@ var params={
 
 ```
 
-### 📦 getConversationNotificationStatus(param) 获取某一会话的通知状态 
+### 🍭 getConversationNotificationStatus(param) 获取某一会话的通知状态 
 
 param为json字符串
 
@@ -518,7 +518,7 @@ var params={
 
 ```
 
-### 📦 cbGetConversationNotificationStatus(param) getConversationNotificationStatus 的回调
+### 🍭 cbGetConversationNotificationStatus(param) getConversationNotificationStatus 的回调
 
 param为json字符串
 
@@ -530,7 +530,7 @@ var params={
 
 ```
 
-### 📦 setConversationNotificationStatus(param) 设置某一会话的通知状态
+### 🍭 setConversationNotificationStatus(param) 设置某一会话的通知状态
 
 param为json字符串
 
@@ -543,7 +543,7 @@ var params={
 
 ```
 
-### 📦 cbSetConversationNotificationStatus(param) setConversationNotificationStatus 的回调
+### 🍭 cbSetConversationNotificationStatus(param) setConversationNotificationStatus 的回调
 
 param为json字符串
 
@@ -555,7 +555,7 @@ var params={
 
 ```
 
-### 📦 getLatestMessages(param) 获取某一会话的最新消息记录
+### 🍭 getLatestMessages(param) 获取某一会话的最新消息记录
 
 param为json字符串
 
@@ -568,7 +568,7 @@ var params={
 
 ```
 
-### 📦 cbGetLatestMessages(param) getLatestMessages 的回调
+### 🍭 cbGetLatestMessages(param) getLatestMessages 的回调
 
 param为json字符串
 
@@ -594,7 +594,7 @@ var params=[
 
 ```
 
-### 📦 getHistoryMessages(param) 获取某一会话的历史消息记录
+### 🍭 getHistoryMessages(param) 获取某一会话的历史消息记录
 
 param为json字符串
 
@@ -608,7 +608,7 @@ var params={
 
 ```
 
-### 📦 cbGetHistoryMessages(param) getHistoryMessages 的回调
+### 🍭 cbGetHistoryMessages(param) getHistoryMessages 的回调
 
 param为json字符串
 
@@ -634,7 +634,7 @@ var params=[
 
 ```
 
-### 📦 deleteMessages(param) 获取某一会话的历史消息记录
+### 🍭 deleteMessages(param) 获取某一会话的历史消息记录
 
 param为json字符串
 
@@ -645,7 +645,7 @@ var params={
 
 ```
 
-### 📦 cbDeleteMessages(param) deleteMessages 的回调
+### 🍭 cbDeleteMessages(param) deleteMessages 的回调
 
 param为json字符串
 
@@ -656,7 +656,7 @@ var params={
 
 ```
 
-### 📦 clearMessages(param) 清空某一会话的所有聊天消息记录
+### 🍭 clearMessages(param) 清空某一会话的所有聊天消息记录
 
 param为json字符串
 
@@ -668,7 +668,7 @@ var params={
 
 ```
 
-### 📦 cbClearMessages(param) clearMessages 的回调
+### 🍭 cbClearMessages(param) clearMessages 的回调
 
 param为json字符串
 
@@ -679,13 +679,13 @@ var params={
 
 ```
 
-### 📦 getTotalUnreadCount() 获取所有未读消息数
+### 🍭 getTotalUnreadCount() 获取所有未读消息数
 
 ```
 var count=uexRongCloud.getTotalUnreadCount();
 ```
 
-### 📦 getUnreadCount(param) 获取来自某用户(某会话)的未读消息数
+### 🍭 getUnreadCount(param) 获取来自某用户(某会话)的未读消息数
 
 param为json字符串
 
@@ -697,7 +697,7 @@ var params={
 var count=uexRongCloud.getUnreadCount(JSON.stringify(params));
 ```
 
-### 📦 getUnreadCountByConversationTypes(param) 获取某(些)会话类型的未读消息数
+### 🍭 getUnreadCountByConversationTypes(param) 获取某(些)会话类型的未读消息数
 
 param为json字符串
 
@@ -708,7 +708,7 @@ var params={
 var count=uexRongCloud.getUnreadCountByConversationTypes(JSON.stringify(params));
 ```
 
-### 📦 setMessageReceivedStatus(param) 设置接收到的消息状态
+### 🍭 setMessageReceivedStatus(param) 设置接收到的消息状态
 
 param为json字符串
 
@@ -720,7 +720,7 @@ var params={
 
 ```
 
-### 📦 clearMessagesUnreadStatus(param) 清除某一会话的消息未读状态
+### 🍭 clearMessagesUnreadStatus(param) 清除某一会话的消息未读状态
 
 param为json字符串
 
@@ -733,7 +733,7 @@ var params={
 ```
 
 #3、附录
-### 📦 建立连接返回的错误码
+### 🍭 建立连接返回的错误码
 
 | error | 错误信息                                     |
 | ----- | ---------------------------------------- |
@@ -769,7 +769,7 @@ var params={
 | 33003 | 开发者接口调用时传入的参数错误,请检查接口调用时传入的参数类型和值.       |
 | -1000 | 开发者接口调用时传入的参数错误,请检查接口调用时传入的参数类型和值.       |
 
-### 📦 具体业务错误码
+### 🍭 具体业务错误码
 
 | code  | 详细描述                               |
 | ----- | ---------------------------------- |

@@ -23,7 +23,7 @@
 
 ## 2.1、方法
 
-### 📦 create 创建请求对象
+### 🍭 create 创建请求对象
 
 `uexXmlHttpMgr.create(param)`
 
@@ -73,7 +73,7 @@ if(!req){
 
 
 
-### 📦 send 发送请求
+### 🍭 send 发送请求
 
 `uexXmlHttpMgr.send(req, flag,onResult,onProgress)`
 
@@ -137,7 +137,7 @@ uexXmlHttpMgr.send(req,0,
                    });
 ```
 
-### 📦 close 关闭一个请求对象
+### 🍭 close 关闭一个请求对象
 
 `uexXmlHttpMgr.close(req)`
 
@@ -163,7 +163,7 @@ var ret = uexXmlHttpMgr.close(req);
 alert(ret);
 ```
 
-### 📦 setPostData 设置post请求数据
+### 🍭 setPostData 设置post请求数据
 
 `uexXmlHttpMgr.setPostData(req, dataType, key, value)`
 
@@ -196,7 +196,7 @@ alert(result1);
 alert(result2);
 ```
 
-### 📦 setInputStream 根据本地文件设置请求体
+### 🍭 setInputStream 根据本地文件设置请求体
 
 `uexXmlHttpMgr.setInputStream(req, filePath)`
 
@@ -226,7 +226,7 @@ var ret = uexXmlHttpMgr.setInputStream(req, file);
 alert(ret);
 ```
 
-### 📦 setBody 设置post请求发送的数据体
+### 🍭 setBody 设置post请求发送的数据体
 
 `uexXmlHttpMgr.setBody(req, data)`
 
@@ -253,7 +253,7 @@ var ret = uexXmlHttpMgr.setBody(req, "body content");
 alert(ret);
 ```
 
-### 📦 setAppVerify 设置是否在请求头中加入appVerify字段
+### 🍭 setAppVerify 设置是否在请求头中加入appVerify字段
 
 `uexXmlHttpMgr.setAppVerify(req,isVerify)`
 
@@ -281,7 +281,7 @@ var ret = uexXmlHttpMgr.setAppVerify(req, 1);
 alert(ret);
 ```
 
-### 📦 setHeaders 设置请求头
+### 🍭 setHeaders 设置请求头
 
 `uexXmlHttpMgr.setHeaders(req, json)`
 
@@ -312,7 +312,7 @@ var ret = uexXmlHttpMgr.setHeaders(req, JSON.stringify(header));
 alert(ret);
 ```
 
-### 📦 setCertificate 设置本次请求使用的数字证书
+### 🍭 setCertificate 设置本次请求使用的数字证书
 
 `uexXmlHttpMgr.setCertificate(req, passsword, path)`
 
@@ -340,7 +340,7 @@ var ret = uexXmlHttpMgr.setCertificate(req, "" , "default");
 alert(ret);
 ```
 
-### 📦 getCookie 获取指定url的cookie信息
+### 🍭 getCookie 获取指定url的cookie信息
 
 `uexXmlHttpMgr.getCookie(url)`
 
@@ -365,7 +365,7 @@ var ret = uexXmlHttpMgr.getCookie("http://www.baidu.com/");
 alert(ret);
 ```
 
-### 📦 clearCookie 清空cookie信息
+### 🍭 clearCookie 清空cookie信息
 
 `uexXmlHttpMgr.clearCookie()`
 

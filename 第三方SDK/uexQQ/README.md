@@ -86,7 +86,7 @@ Path Types
 #2、API概览 
 ## 2.1 方法
 
-### 📦 login 登录      
+### 🍭 login 登录      
 
 `uexQQ.login(appId, callbackFunction);                    `
 
@@ -135,7 +135,7 @@ uexQQ.login("222222", function(error, data) {
 });
 ```
 
-### 📦 isQQInstalled 检查QQ是否已安装
+### 🍭 isQQInstalled 检查QQ是否已安装
 
 `uexQQ.isQQInstalled()`
 
@@ -161,7 +161,7 @@ alert(ret);
 
 
 
-### 📦 shareWebImgTextToQQ   分享图文到QQ     
+### 🍭 shareWebImgTextToQQ   分享图文到QQ     
 
 `uexQQ.shareWebImgTextToQQ(appId,jsonData, callbackFunction);`
 
@@ -227,7 +227,7 @@ function shareWebImgTextToQQ(){
     });
 }
 ```
-### 📦 shareLocalImgToQQ 分享本地图片到QQ
+### 🍭 shareLocalImgToQQ 分享本地图片到QQ
 
 `uexQQ.shareLocalImgToQQ(appId,jsonData, callbackFunction);`
 
@@ -286,7 +286,7 @@ function shareLocalImgToQQ(){
 }
 ```
 
-### 📦 shareAudioToQQ 分享音频到QQ
+### 🍭 shareAudioToQQ 分享音频到QQ
 
 `uexQQ.shareAudioToQQ(appId, jsonData, callbackFunction);`
 
@@ -356,7 +356,7 @@ function shareAudioToQQ(){
 }
 ```
 
-### 📦 shareAppToQQ  分享应用到QQ,仅Android支持         
+### 🍭 shareAppToQQ  分享应用到QQ,仅Android支持         
 
 `uexQQ.shareAppToQQ(appId,jsonData, callbackFunction);`
 
@@ -419,7 +419,7 @@ function shareAppToQQ(){
 }
 ```
 
-### 📦shareImgTextToQZone 分享图文到QQ空间   
+### 🍭shareImgTextToQZone 分享图文到QQ空间   
 
 `uexQQ.shareImgTextToQZone(appId,jsonData, callbackFunction);`
 

@@ -20,7 +20,7 @@
 
 ## 2.1、方法
 
-### 📦 open 打开loading
+### 🍭 open 打开loading
 
 `uexLoadingView.open(jsonstr)`
 
@@ -71,7 +71,7 @@ var jsonstr = '{
 uexLoadingView.open(jsonstr);
 ```
 
-### 📦 openCircleLoading 打开带有圆形加载动画的loading view
+### 🍭 openCircleLoading 打开带有圆形加载动画的loading view
 
 `uexLoadingView.openCircleLoading()`
 
@@ -90,7 +90,7 @@ uexLoadingView.open(jsonstr);
 uexLoadingView.openCircleLoading();
 ```
 
-### 📦 close 关闭Loading
+### 🍭 close 关闭Loading
 
 `uexLoadingView.close()`
 

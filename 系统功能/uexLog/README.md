@@ -13,7 +13,7 @@ log插件
  
 ##2.1、方法
 
-### 📦 			sendLog		向服务器发送信息		
+### 🍭 			sendLog		向服务器发送信息		
 
 `uexLog.sendLog(log)`					
 **			说明:		**

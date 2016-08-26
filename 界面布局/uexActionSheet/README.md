@@ -24,7 +24,7 @@ ActionSheet插件
 
 ## 2.1、方法
 
-### 📦 open 打开菜单
+### 🍭 open 打开菜单
 
 `uexActionSheet.open(x,y,width,height,jsonData)`
 
@@ -122,7 +122,7 @@ uexActionSheet.open(x,y,width,height,JsonData);
 
 ## 2.2、监听方法
 
-### 📦  onClickItem 点击item的监听方法
+### 🍭  onClickItem 点击item的监听方法
 
 `uexActionSheet.onClickItem(index)	`	
 

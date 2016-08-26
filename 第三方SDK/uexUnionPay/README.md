@@ -15,7 +15,7 @@ UnionPay银联支付插件
 # 2、API概览
 
 ## 2.1、方法
-### 📦 startPay 支付
+### 🍭 startPay 支付
 
 `uexUnionPay.startPay(params,funciton(result){})`
 

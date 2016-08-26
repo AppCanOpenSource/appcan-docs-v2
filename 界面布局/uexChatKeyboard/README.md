@@ -22,7 +22,7 @@
 
 ## 2.1、方法
 
-### 📦 open 打开聊天输入
+### 🍭 open 打开聊天输入
 
 `uexChatKeyboard.open(viewInfo) `  
 
@@ -137,7 +137,7 @@ var jsonstr =
 }';
 uexChatKeyboard.open(jsonstr);
 ```
-### 📦 close 关闭聊天输入 
+### 🍭 close 关闭聊天输入 
 
  ` uexChatKeyboard.close() `
 
@@ -156,7 +156,7 @@ uexChatKeyboard.open(jsonstr);
 uexChatKeyboard.close();
 ```
 
-### 📦 getInputBarHeight 获取输入工具条高度 
+### 🍭 getInputBarHeight 获取输入工具条高度 
 
 `uexChatKeyboard.getInputBarHeight();  `
 
@@ -179,7 +179,7 @@ var result = uexChatKeyboard.getInputBarHeight();
 alert(result);
 ```
 
-### 📦 hideKeyboard 收起键盘
+### 🍭 hideKeyboard 收起键盘
 
 `uexChatKeyboard.hideKeyboard()`
 
@@ -199,7 +199,7 @@ alert(result);
     uexChatKeyboard.hideKeyboard();
 ```
 
-### 📦 changeWebViewFrame 改变webview的高度以适应弹出的键盘
+### 🍭 changeWebViewFrame 改变webview的高度以适应弹出的键盘
 
 `uexChatKeyboard.changeWebViewFrame(height)`
 
@@ -224,7 +224,7 @@ iOS7.0+
 uexChatKeyboard.changeWebViewFrame(600);
 ```
 
-### 📦 insertAfterAt 添加字符串到@后面
+### 🍭 insertAfterAt 添加字符串到@后面
 
 `uexChatKeyboard.insertAfterAt(name)`
 
@@ -248,7 +248,7 @@ uexChatKeyboard.insertAfterAt("守望宝宝");
 
 ## 2.2、监听方法
 
-### 📦 onCommit 完成输入的监听方法
+### 🍭 onCommit 完成输入的监听方法
 
 `uexChatKeyboard.onCommit(data)`
 
@@ -276,7 +276,7 @@ uexChatKeyboard.onCommit = function(data){
 }
 ```
 
-### 📦 onShareMenuItem 点击分享里选项的监听方法 
+### 🍭 onShareMenuItem 点击分享里选项的监听方法 
 
 `uexChatKeyboard. onShareMenuItem(data)  `
 
@@ -299,7 +299,7 @@ uexChatKeyboard.onShareMenuItem = function(data){
 }
 ```
 
-### 📦 onVoiceAction 录音按钮的监听方法 
+### 🍭 onVoiceAction 录音按钮的监听方法 
 
 `uexChatKeyboard. onVoiceAction(data) `
 
@@ -325,7 +325,7 @@ uexChatKeyboard.onVoiceAction = function(data){
 }
 ```
 
-### 📦 onKeyBoardShow 键盘弹出或收起时的监听方法
+### 🍭 onKeyBoardShow 键盘弹出或收起时的监听方法
 
 `uexChatKeyboard.onKeyBoardShow(json)`
 
@@ -353,7 +353,7 @@ window.uexOnload = function(){
 }
 ```
 
-### 📦 onCommitJson 点击发送的监听方法
+### 🍭 onCommitJson 点击发送的监听方法
 
 `uexChatKeyboard.onCommitJson(json)`
 
@@ -381,7 +381,7 @@ window.uexOnload = function(){
 }
 ```
 
-### 📦 onAt 编辑框输入@之后的监听方法
+### 🍭 onAt 编辑框输入@之后的监听方法
 
 `uexChatKeyboard.onAt()`
 

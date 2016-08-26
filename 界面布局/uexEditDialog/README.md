@@ -21,7 +21,7 @@
 # 2、API概览
 
 ## 2.1、方法
-### 📦 create 创建自定义的输入框对象
+### 🍭 create 创建自定义的输入框对象
 
 ` var editDialog = uexEditDialog.create(params)`
 
@@ -79,7 +79,7 @@ var params = {
 var editDialog = uexEditDialog.create(JSON.stringify(params));
 ```
 
-### 📦 close 关闭编辑框
+### 🍭 close 关闭编辑框
 
 `uexEditDialog.close(editDialog)`
 
@@ -98,7 +98,7 @@ var editDialog = uexEditDialog.create(JSON.stringify(params));
 ```
 uexEditDialog.close(editDialog);
 ```
-### 📦 insert 插入数据
+### 🍭 insert 插入数据
 
 `uexEditDialog.insert(editDialog,text)`
 
@@ -118,7 +118,7 @@ uexEditDialog.close(editDialog);
 ```
 uexEditDialog.insert(editDialog,"这是5个字");
 ```
-### 📦 cleanAll 清除所有数据
+### 🍭 cleanAll 清除所有数据
 
 `uexEditDialog.cleanAll(editDialog)`
 
@@ -139,7 +139,7 @@ uexEditDialog.insert(editDialog,"这是5个字");
 uexEditDialog.cleanAll(editDialog)
 ```
 
-### 📦 getContent 获取编输入框内所有数据
+### 🍭 getContent 获取编输入框内所有数据
 
 `var data = uexEditDialog.getContent(editDialog)`
 
@@ -164,7 +164,7 @@ var data = uexEditDialog.getContent(editDialog)
  
 ## 2.2、监听方法
 
-### 📦 onNum 文本框字数改变时返回的剩余字数的回调函数
+### 🍭 onNum 文本框字数改变时返回的剩余字数的回调函数
 
 `uexEditDialog.onNum(editDialog, num)`
 

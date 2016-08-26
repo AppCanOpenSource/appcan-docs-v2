@@ -20,7 +20,7 @@
 # 2、API概览
 
 ## 2.1、方法
-### 📦 open 打开音频文件
+### 🍭 open 打开音频文件
 
 `uexAudio.open(path)`
 
@@ -39,7 +39,7 @@
 ```
 uexAudio.open("res://song.mp3");
 ```
-### 📦 play 播放
+### 🍭 play 播放
 
 `uexAudio.play(repeats)`
 
@@ -58,7 +58,7 @@ uexAudio.open("res://song.mp3");
 ```
 uexAudio.play(0);
 ```
-### 📦 pause 暂停
+### 🍭 pause 暂停
 
 `uexAudio.pause()`
 
@@ -75,7 +75,7 @@ uexAudio.play(0);
 ```
 uexAudio.pause();
 ```
-### 📦 replay 重播
+### 🍭 replay 重播
 
 `uexAudio.replay()`
 
@@ -92,7 +92,7 @@ uexAudio.pause();
 ```
 uexAudio.replay();
 ```
-### 📦 stop 停止
+### 🍭 stop 停止
 
 `uexAudio.stop()`
 
@@ -109,7 +109,7 @@ uexAudio.replay();
 ```
 uexAudio.stop()
 ```
-### 📦 volumeUp 音量+
+### 🍭 volumeUp 音量+
 
 `uexAudio.volumeUp()`
 
@@ -127,7 +127,7 @@ uexAudio.stop()
 uexAudio.volumeUp()
 ```
 
-### 📦 volumeDown  音量-
+### 🍭 volumeDown  音量-
 
 `uexAudio.volumeDown()`
 
@@ -145,7 +145,7 @@ uexAudio.volumeUp()
 uexAudio.volumeDown()
 ```
 
-### 📦 startBackgroundRecord 开始后台录音
+### 🍭 startBackgroundRecord 开始后台录音
 
 `uexAudio.startBackgroundRecord(mode,fileName)`
 
@@ -166,7 +166,7 @@ uexAudio.volumeDown()
 ```
 uexAudio.startBackgroundRecord(1,"record1");
 ```
-### 📦 stopBackgroundRecord 停止后台录音
+### 🍭 stopBackgroundRecord 停止后台录音
 
 `uexAudio.stopBackgroundRecord(cb)`
 
@@ -200,7 +200,7 @@ uexAudio.stopBackgroundRecord(function(filePath){
 ```
 
 
-### 📦 openSoundPool 打开音效池
+### 🍭 openSoundPool 打开音效池
 
 `uexAudio.openSoundPool()`
 
@@ -217,7 +217,7 @@ uexAudio.stopBackgroundRecord(function(filePath){
 ```
 uexAudio.openSoundPool();
 ```
-### 📦 addSound 向音效池添加音效
+### 🍭 addSound 向音效池添加音效
 
 `uexAudio.addSound(soundID,path)`
 
@@ -238,7 +238,7 @@ uexAudio.openSoundPool();
 ```
 uexAudio.addSound(2,"res://1.mp3")
 ```
-### 📦 playFromSoundPool 播放音效
+### 🍭 playFromSoundPool 播放音效
 
 `uexAudio.playFromSoundPool(soundID)`
 
@@ -257,7 +257,7 @@ uexAudio.addSound(2,"res://1.mp3")
 ```
 uexAudio.playFromSoundPool(2)
 ```
-### 📦 stopFromSoundPool 停止音效
+### 🍭 stopFromSoundPool 停止音效
 
 `uexAudio.stopFromSoundPool(soundID)`
 
@@ -276,7 +276,7 @@ uexAudio.playFromSoundPool(2)
 ```
 uexAudio.stopFromSoundPool(2)
 ```
-### 📦 closeSoundPool 关闭音效池
+### 🍭 closeSoundPool 关闭音效池
 
 `uexAudio.closeSoundPool()`
 
@@ -293,7 +293,7 @@ uexAudio.stopFromSoundPool(2)
 ```
 uexAudio.closeSoundPool();
 ```
-### 📦 setPlayMode 设置播放模式
+### 🍭 setPlayMode 设置播放模式
 
 `uexAudio.setPlayMode(params)`
 
@@ -328,7 +328,7 @@ param = JSON.stringify(param);
 uexAudio.setPlayMode(param);
 ```
 
-### 📦 setProximityState 设置听筒感应开关
+### 🍭 setProximityState 设置听筒感应开关
 
 `uexAudio.setProximityState(type)`
 
@@ -356,7 +356,7 @@ uexAudio.play(0);
 ## 2.2、监听方法
 
 
-### 📦 onPlayFinished  播放完成后的监听方法
+### 🍭 onPlayFinished  播放完成后的监听方法
 
 `uexAudio.onPlayFinished(loopTime)`
 

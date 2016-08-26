@@ -27,7 +27,7 @@
  
 ##2.1、方法
 
-### 📦add注册通知		
+### 🍭add注册通知		
 
 `uexLocalNotification.add(id,time,mode,message,buttonTitle,ringPath,cycle,notifyCount,extras)`
 
@@ -58,7 +58,7 @@
 
 见removeAll示例		
 			
-### 📦remove	移除通知	
+### 🍭remove	移除通知	
 
 `uexLocalNotification.remove(id)`	
 		
@@ -81,7 +81,7 @@
 
 见removeAll示例	
 		
-### 📦 removeAll 移除所有通知
+### 🍭 removeAll 移除所有通知
 
 `uexLocalNotification.removeAll()`	
 
@@ -152,7 +152,7 @@ iOS6.0+
 ```
 ## 2.2、监听方法
 
-### 📦 onActive		用户退到后台,点击了通知监听		
+### 🍭 onActive		用户退到后台,点击了通知监听		
 `uexLocalNotification.onActive(notificationID,message,extras)`
 
 **说明:**
@@ -175,7 +175,7 @@ iOS6.0+
 
 见removeAll示例
 
-### 📦 onMessage		用户处于前台的通知监听		
+### 🍭 onMessage		用户处于前台的通知监听		
 `uexLocalNotification.onMessage(notificationID,message,extras)`
 
 **说明:**

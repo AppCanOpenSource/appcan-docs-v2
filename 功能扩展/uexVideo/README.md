@@ -21,7 +21,7 @@
 
 ## 2.1、方法
 
-### 📦 openPlayer 打开视频播放器
+### 🍭 openPlayer 打开视频播放器
 
 `uexVideo.openPlayer(param)`
 
@@ -97,7 +97,7 @@ var param = {
 uexVideo.openPlayer(JSON.stringify(param))
 ```
 
-### 📦 closePlayer 关闭视频播放器
+### 🍭 closePlayer 关闭视频播放器
 
 `uexVideo.closePlayer()`
 
@@ -115,7 +115,7 @@ uexVideo.openPlayer(JSON.stringify(param))
 uexVideo.closePlayer();
 ```
 
-### 📦 record 打开视频录制界面
+### 🍭 record 打开视频录制界面
 
 `uexVideo.record(params)`
 
@@ -165,7 +165,7 @@ uexVideo.record(JSON.stringify(params));
 
 ## 2.2、监听方法
 
-### 📦 onPlayerClose 播放器被关闭时的监听方法
+### 🍭 onPlayerClose 播放器被关闭时的监听方法
 
 `uexVideo.onPlayerClose(info)`
 
@@ -197,7 +197,7 @@ window.uexOnload = function(){
 }
 ```
 
-### 📦 onPlayerStatusChange 播放器状态改变的监听方法
+### 🍭 onPlayerStatusChange 播放器状态改变的监听方法
 
 `uexVideo.onPlayerStatusChange(info)`
 
@@ -225,7 +225,7 @@ window.uexOnload = function(){
 }
 ```
 
-### 📦 onRecordFinish 录制结束的监听方法
+### 🍭 onRecordFinish 录制结束的监听方法
 
 `uexVideo.onRecordFinish(info)`
 
@@ -258,7 +258,7 @@ window.uexOnload = function(){
 }
 ```
 
-### 📦 onExportWithProgress 视频压缩进度的监听方法
+### 🍭 onExportWithProgress 视频压缩进度的监听方法
 
 此接口仅限iOS,可以用于等待压缩时的UI展示.
 `uexVideo.onExportWithProgress(progress)`

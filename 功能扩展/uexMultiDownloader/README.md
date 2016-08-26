@@ -12,7 +12,7 @@
 
 ## 2.1、方法
 
-### 📦 open 打开下载视图  
+### 🍭 open 打开下载视图  
 
 **说明:**  
 打开下载视图  
@@ -50,7 +50,7 @@ var data = JSON.stringify(params);
 uexMultiDownloader.open(data);
 ```
 
-### 📦 enqueue 添加下载任务
+### 🍭 enqueue 添加下载任务
   
 **说明:**
 添加下载任务 回调函数[cbEnqueue](#cbEnqueue 添加下载任务时回调)
@@ -81,7 +81,7 @@ var data = JSON.stringify(params);
 uexMultiDownloader.enqueue(data);
 ```
 
-### 📦 close 关闭下载器  
+### 🍭 close 关闭下载器  
 
 **说明:**  
 关闭下载器  
@@ -113,7 +113,7 @@ uexMultiDownloader.close(data);
 
 ## 2.2、回调方法
 
-### 📦 cbEnqueue 添加下载任务时回调  
+### 🍭 cbEnqueue 添加下载任务时回调  
 
 **参数:**  
 
@@ -142,7 +142,7 @@ function cbEnqueue(info){
 ```
 ## 2.3、监听方法
 
-### 📦 onTaskDetail 用户长按任务,出现任务详情的回调,需要自己实现详情的界面  
+### 🍭 onTaskDetail 用户长按任务,出现任务详情的回调,需要自己实现详情的界面  
 
 **参数:**
 

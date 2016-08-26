@@ -22,7 +22,7 @@ optionList带操作选项的列表组件:实现列表项可向左滑动后右侧
 # 2、API概览
 
 ## 2.1、方法
-### 📦 open 打开listview
+### 🍭 open 打开listview
 
 `uexListView.open(params);`
 
@@ -65,7 +65,7 @@ var params = {
     };
     uexListView.open(JSON.stringify(params));
 ```
-### 📦 close 关闭listview视图
+### 🍭 close 关闭listview视图
 
 `uexListView.close();`
 
@@ -83,7 +83,7 @@ var params = {
     uexListView.close();
 ```
 
-### 📦 setItems 设置listview列表项数据
+### 🍭 setItems 设置listview列表项数据
 
 `uexListView.setItems(params);`
 
@@ -192,7 +192,7 @@ var params = {
     };
     uexListView.setItems(JSON.stringify(params));
 ```
-### 📦 deleteItemsAt 删除指定位置的数据
+### 🍭 deleteItemsAt 删除指定位置的数据
 
 `uexListView.deleteItemsAt(params);`
 
@@ -225,7 +225,7 @@ var params = {
     uexListView.deleteItemsAt(JSON.stringify(params));
 ```
 
-### 📦 insertItemAt 插入数据到指定位置
+### 🍭 insertItemAt 插入数据到指定位置
 
 `uexListView.insertItemAt(params);`
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
@@ -284,7 +284,7 @@ var params ={
     };
     uexListView.insertItemAt(JSON.stringify(params));
 ```
-### 📦 appendItems 加载数据
+### 🍭 appendItems 加载数据
 
 `uexListView.appendItems(params)`
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
@@ -347,7 +347,7 @@ var params = {
     };
     uexListView.appendItems(JSON.stringify(params));
 ```
-### 📦 reloadItems 刷新数据
+### 🍭 reloadItems 刷新数据
 
 `uexListView.reloadItems(params)`
 图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中 PathTypes 
@@ -410,7 +410,7 @@ var params = {
     uexListView.reloadItems(JSON.stringify(params));
 ```
 
-### 📦 setItemSwipeType 设置侧滑类型
+### 🍭 setItemSwipeType 设置侧滑类型
 
 `uexListView.setItemSwipeType(type);`
 
@@ -432,7 +432,7 @@ var params = {
     uexListView.setItemSwipeType(2);
 ```
 
-### 📦 setPullRefreshHeader 设置下拉刷新样式
+### 🍭 setPullRefreshHeader 设置下拉刷新样式
 
 `uexListView.setPullRefreshHeader(params);`
 
@@ -482,7 +482,7 @@ var params ={
     uexListView.setPullRefreshHeader(JSON.stringify(params));
 ```
 
-### 📦 setPullRefreshFooter 设置上拉加载样式
+### 🍭 setPullRefreshFooter 设置上拉加载样式
 
 `uexListView.setPullRefreshFooter(params);`
 
@@ -535,7 +535,7 @@ var params ={
 ```
 ## 2.2、监听方法
 
-### 📦 onItemClick 点击列表项的监听方法
+### 🍭 onItemClick 点击列表项的监听方法
 
 `uexListView.onItemClick(itemIndex);`
 
@@ -559,7 +559,7 @@ var params ={
     };
 ```
 
-### 📦 onLeftOptionButtonInItem 点击左边按钮的监听方法
+### 🍭 onLeftOptionButtonInItem 点击左边按钮的监听方法
 
 `uexListView.onLeftOptionButtonInItem(itemIndex,optionBtnIndex);`
 
@@ -584,7 +584,7 @@ var params ={
     };
 ```
 
-### 📦 onRightOptionButtonInItem 点击右边按钮的监听方法
+### 🍭 onRightOptionButtonInItem 点击右边按钮的监听方法
 
 `uexListView.onRightOptionButtonInItem(itemIndex,optionBtnIndex);`
 
@@ -609,7 +609,7 @@ var params ={
     };
 ```
 
-### 📦 ontPullRefreshHeaderListener 下拉刷新的监听方法
+### 🍭 ontPullRefreshHeaderListener 下拉刷新的监听方法
 
 `uexListView.ontPullRefreshHeaderListener(status);`
 
@@ -633,7 +633,7 @@ var params ={
     };
 ```
 
-### 📦 ontPullRefreshFooterListener 上拉加载的监听方法
+### 🍭 ontPullRefreshFooterListener 上拉加载的监听方法
 
 `uexListView.ontPullRefreshFooterListener(status);`
 

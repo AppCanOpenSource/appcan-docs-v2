@@ -19,7 +19,7 @@
 # 2、API概览
 
 ## 2.1、方法
-### 📦 openCreditCardRec 开启识别
+### 🍭 openCreditCardRec 开启识别
 
 `uexCreditCardRec.openCreditCardRec(token,function(data){})`
 

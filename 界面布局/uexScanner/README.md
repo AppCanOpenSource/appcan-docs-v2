@@ -24,7 +24,7 @@
 # 2、API概览
 
 ## 2.1、方法
-### 📦 open 启动扫描
+### 🍭 open 启动扫描
 
 `uexScanner.open(callbackFunction)`
 
@@ -68,7 +68,7 @@ var callback = function(error,data) {
 uexScanner.open(callback);
 ```
 
-### 📦 setJsonData 设置数据
+### 🍭 setJsonData 设置数据
 
 `uexScanner.setJsonData(params)`
 

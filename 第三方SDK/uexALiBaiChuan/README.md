@@ -15,7 +15,7 @@
 #2、API概览
  ##2.1、方法
 
-### 📦 init 初始化阿里百川SDK
+### 🍭 init 初始化阿里百川SDK
 
 ` uexALiBaiChuan.init()`
 
@@ -43,7 +43,7 @@ iOS3.0.0+
 ```
 uexALiBaiChuan.init();
 ```
-### 📦 login 登录
+### 🍭 login 登录
 
 ` uexALiBaiChuan.login();`
 
@@ -71,7 +71,7 @@ iOS3.0.0+
 ```
 uexALiBaiChuan.login();
 ```
-### 📦 logout 退出登录
+### 🍭 logout 退出登录
 
 ` uexALiBaiChuan.logout();`
 
@@ -100,7 +100,7 @@ iOS3.0.0+
 uexALiBaiChuan.logout();
 ```
 
-### 📦 getUserInfo 获取用户信息
+### 🍭 getUserInfo 获取用户信息
 
 `var info = uexALiBaiChuan.getUserInfo();`
 
@@ -157,7 +157,7 @@ iOS3.0.0+
  var info = uexALiBaiChuan.getUserInfo();
  alert(info);                 
 ```
-### 📦 openMyCart 打开购物车
+### 🍭 openMyCart 打开购物车
 
 `  uexALiBaiChuan.openMyCart(params)`
 
@@ -195,7 +195,7 @@ var params = {
      };
 uexALiBaiChuan.openMyCart(JSON.stringify(params));
 ```
-### 📦 openMyOrdersPage 打开订单列表
+### 🍭 openMyOrdersPage 打开订单列表
 
 ` uexALiBaiChuan.openMyOrdersPage()`
 
@@ -224,7 +224,7 @@ iOS3.0.0+
 uexALiBaiChuan.openMyOrdersPage();
 ```
 
-### 📦 openItemDetailPageById 打开商品真实ID对应的详情页面
+### 🍭 openItemDetailPageById 打开商品真实ID对应的详情页面
 
 `uexALiBaiChuan.openItemDetailPageById(params)`
 
@@ -274,7 +274,7 @@ var params = {
  uexALiBaiChuan.openItemDetailPageById(JSON.stringify(params));
                   
 ```
-### 📦 openItemDetailPageByURL 通过URL打开指定商品页面
+### 🍭 openItemDetailPageByURL 通过URL打开指定商品页面
 
 `uexALiBaiChuan.openItemDetailPageByURL(params)`
 
@@ -318,7 +318,7 @@ uexALiBaiChuan.openItemDetailPageByURL(JSON.stringify(params));
 ```
 
 ##2.2、回调方法
-### 📦 cbInit　对初始化的回调方法
+### 🍭 cbInit　对初始化的回调方法
 
 `uexALiBaiChuan.cbInit(data)`
 
@@ -357,7 +357,7 @@ window.uexOnload = function(){
    }
 }
 ```
-### 📦 cbLogin　对登录的回调方法
+### 🍭 cbLogin　对登录的回调方法
 
 `uexALiBaiChuan.cbLogin(data)`
 
@@ -395,7 +395,7 @@ window.uexOnload = function(){
    }
 }
 ```
-### 📦 cbLogout　对退出登录的回调方法
+### 🍭 cbLogout　对退出登录的回调方法
 
 `uexALiBaiChuan.cbLogout(data)`
 

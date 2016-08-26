@@ -17,7 +17,7 @@
 
 ## 2.1、方法
 
-### 📦 open 打开气泡菜单
+### 🍭 open 打开气泡菜单
 
 `uexPopTipsView.open(json)`
 
@@ -81,7 +81,7 @@ var data1 = JSON.stringify(param1);
 uexPopTipsView.open(data1);
 ```
 
-### 📦 close 关闭气泡菜单
+### 🍭 close 关闭气泡菜单
 
 `uexPopTipsView.close()`
 
@@ -114,7 +114,7 @@ uexPopTipsView.close();
 
 ## 2.2、监听方法
 
-### 📦 onItemSelected 元素被点击的监听方法
+### 🍭 onItemSelected 元素被点击的监听方法
 
 `uexPopTipsView.onItemSelected(json);`
 

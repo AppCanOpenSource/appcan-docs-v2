@@ -11,7 +11,7 @@
 
 ## 2.1、方法
 
-### 📦 open 打开分段选择器
+### 🍭 open 打开分段选择器
 
 `uexSegmentControl.open(jsonStr)`
 
@@ -89,7 +89,7 @@ iOS 3.0.0+
 点击按钮进入选择编辑状态:
 ![](/docImg/975/BrllwtC.png)
 
-### 📦 close 关闭分段选择器
+### 🍭 close 关闭分段选择器
 
 `uexSegmentControl.close()`
 
@@ -119,7 +119,7 @@ iOS 3.0.0+
     uexSegmentControl.close()
 ```
 
-### 📦 setCurrentItem 设置当前选中项
+### 🍭 setCurrentItem 设置当前选中项
 
 `uexSegmentControl.setCurrentItem(jsonStr)`
 
@@ -161,7 +161,7 @@ iOS 3.0.0+
 
 ## 2.2、监听方法
 
-### 📦 onItemClick item被点击的监听方法
+### 🍭 onItemClick item被点击的监听方法
 
 `uexSegmentControl.onItemClick(jsonObj);`
 
@@ -198,7 +198,7 @@ iOS 3.0.0+
     }
 ```
 
-### 📦 onDataChange 数据发生变化的监听方法
+### 🍭 onDataChange 数据发生变化的监听方法
 
 `uexSegmentControl.onDataChange(jsonObj);`
 

@@ -14,7 +14,7 @@
 # 2、API概览
 ## 2.1、方法
 
-### 📦 open 打开饼状图
+### 🍭 open 打开饼状图
 
 `uexPieChart.open(id,x,y,w,h)`
 
@@ -49,7 +49,7 @@ iOS6.0+
     uexPieChart.open(1,100,500,800,800);
 ```
 
-### 📦 close 关闭饼状图
+### 🍭 close 关闭饼状图
 
 `uexPieChart.close()`
 
@@ -76,7 +76,7 @@ iOS6.0+
     uexPieChart.close();
 ```
 
-### 📦 setJsonData 设置饼状图的数据源
+### 🍭 setJsonData 设置饼状图的数据源
 
 `uexPieChart.setJsonData(jsonStr)`
 
@@ -159,7 +159,7 @@ iOS6.0+
     uexPieChart.setJsonData(JSON.stringify(jsonStr));
 ```
 ## 2.2、回调方法
-### 📦 cbOpen 打开饼状图的回调方法
+### 🍭 cbOpen 打开饼状图的回调方法
 
 `uexPieChart.cbOpen(opId,dataType,data)`
 
@@ -191,7 +191,7 @@ iOS6.0+
 ```
 
 ## 2.3、监听方法
-### 📦 onTouchUp 手指离开时的监听方法
+### 🍭 onTouchUp 手指离开时的监听方法
 
 `uexPieChart.onTouchUp(opId,dataType,data)`
 
@@ -221,7 +221,7 @@ iOS6.0+
         console.log("onTouchUp:" + data);
     }
 ```
-### 📦 onData 旋转时的监听方法
+### 🍭 onData 旋转时的监听方法
 
 `uexPieChart.onData(opId,dataType,data)`
 
