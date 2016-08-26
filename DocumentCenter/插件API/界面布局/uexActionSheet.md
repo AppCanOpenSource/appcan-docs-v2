@@ -46,31 +46,31 @@ ActionSheet插件
 | y        | Number | 是    | y坐标(已失效,请传0) |
 | width    | Number | 是    | 宽度           |
 | height   | Number | 是    | 高度(已失效,请传0)  |
-| jsonData | String | 是    | 按钮内容         |
+| jsonData | String | 是    | 按钮内容，形式见下：   |
 
 * 现在插件会自动在屏幕底部生成
 * 现在插件高度会根据按钮内容自动计算获取
 * jsonData是json字符串,结构如下:
   自定义图片资源,图片路径支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
 
-```
-jsonData{
+```javascript
+var jsonData = {
 	actionSheet_style:{
-		frameBgColor:,//背景色	
-		frameBroundColor:,//边框颜色
-		frameBgImg:,//背景图
-		btnSelectBgImg:,//一般按钮,被选中的背景图
-		btnUnSelectBgImg:,//一般按钮,未被选中的背景图
-		cancelBtnSelectBgImg:,//取消按钮,被选中的背景图
-		cancelBtnUnSelectBgImg:,//取消按钮,未被选中的背景图
-		textSize:,//文字字号
-		textNColor,//一般按钮,未被选中状态下的文字颜色
-		textHColor,//一般按钮,被选中状态下的文字颜色
-		cancleTextNColor,//取消按钮,未被选中状态下的文字颜色
-		cancleTextHColor,//取消按钮,被选中状态下的文字颜色
-		actionSheetList:[//按钮数据数组
+		frameBgColor:,
+		frameBroundColor:,
+		frameBgImg:,
+		btnSelectBgImg:,
+		btnUnSelectBgImg:,
+		cancelBtnSelectBgImg:,
+		cancelBtnUnSelectBgImg:,
+		textSize:,
+		textNColor,
+		textHColor,
+		cancleTextNColor,
+		cancleTextHColor,
+		actionSheetList:[
 			{
-			name://item名称
+				name:
 			}
 		]
 			
@@ -79,7 +79,25 @@ jsonData{
 	
 ```
 
+各字段含义如下：
 
+| 字段名称                   | 类型     | 是否必选 | 说明                |
+| ---------------------- | ------ | ---- | ----------------- |
+| actionSheet_style      | Object | 是    | 菜单样式关键字           |
+| frameBgColor           | String | 是    | 背景色               |
+| frameBroundColor       | String | 是    | 边框颜色              |
+| frameBgImg             | String | 是    | 背景图               |
+| btnSelectBgImg         | String | 是    | 一般按钮,被选中的背景图      |
+| btnUnSelectBgImg       | String | 是    | 一般按钮,未被选中的背景图     |
+| cancelBtnSelectBgImg   | String | 是    | 取消按钮,被选中的背景图      |
+| cancelBtnUnSelectBgImg | String | 是    | 取消按钮,未被选中的背景图     |
+| textSize               | Number | 是    | 文字字号              |
+| textNColor             | String | 是    | 一般按钮,未被选中状态下的文字颜色 |
+| textHColor             | String | 是    | 一般按钮,被选中状态下的文字颜色  |
+| cancleTextNColor       | String | 是    | 取消按钮,未被选中状态下的文字颜色 |
+| cancleTextHColor       | String | 是    | 取消按钮,被选中状态下的文字颜色  |
+| actionSheetList        | Array  | 是    | 菜单选项文字集合          |
+| name                   | String | 是    | 菜单项名称             |
 
 **示例:**
 
@@ -101,7 +119,7 @@ var data={
 		btnUnSelectBgImg:"res://btn.png",//一般按钮未被选中的背景图
 		cancelBtnSelectBgImg:"res://cancel-act.png",//取消按钮 被选中的背景图
 		cancelBtnUnSelectBgImg:"res://cancel.png",//取消按钮 未被选中的背景图
-		textSize:"17",//文字字号
+		textSize:17,//文字字号
 		textNColor:"#ffffff",//一般按钮,未被选中状态下的文字颜色
 		textHColor:"#ffff00",//一般按钮,被选中状态下的文字颜色
 		cancleTextNColor:"#ff00ff",//取消按钮,未被选中状态下的文字颜色
@@ -122,7 +140,6 @@ var data={
 } 
 var JsonData =JSON.stringify(data);   
 uexActionSheet.open(x,y,width,height,JsonData);           
-
 ```
 
 ## 2.2、监听方法<ignore>
@@ -143,7 +160,7 @@ uexActionSheet.open(x,y,width,height,JsonData);
 
 **示例:**
 
-```
+```javascript
     uexActionSheet.onClickItem = function(data){
         alert("onClickItem" + data);
     }
