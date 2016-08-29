@@ -7,6 +7,16 @@
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击]( ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
+
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.5、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用.
+
 # 2、API概览
 
 ## 2.1、方法
@@ -21,42 +31,50 @@
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonStr | String | 是 | 选择器相关参数设置 |
+| 参数名称    | 参数类型   | 是否必选 | 说明        |
+| ------- | ------ | ---- | --------- |
+| jsonStr | String | 是    | 选择器相关参数设置 |
 
-```
+```javascript
 var jsonStr = {
-    left:,//(可选) 左间距,默认0
-    top:,//(可选) 上间距,默认0
-    width:,//(可选) 宽度,默认屏幕宽度
-    height:,//(可选) 高度,默认屏幕高度
-    dataInfo:{//(必选) 数据
-        allData:[],//(必选) 所有选择项的集合
-        showData:[],//(必选) 导航条上显示的选择项的集合
-        maxShow:,//(必选) 导航条上最多显示的选择项的个数
-        isExpand:,//(可选) 是否支持可扩展的功能,0不会出现扩展按钮,默认1.
-        expandOpenIcon:,//(可选) 导航条上扩展打开扩展功能的按钮图标
-        expandCloseIcon:,//(可选) 导航条上扩展关闭扩展功能的按钮图标
-        showedLable:,//(可选) 扩展栏目的已展示栏目标题
-        addLable://(可选) 扩展栏目的可添加栏目标题
+    left:,
+    top:,
+    width:,
+    height:,
+    dataInfo:{
+        allData:[],
+        showData:[],
+        maxShow:,
+        isExpand:,
+        expandOpenIcon:,
+        expandCloseIcon:,
+        showedLable:,
+        addLable:
     }
 }
 ```
 
-**平台支持:**
+各字段含义如下：
 
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
+| 字段名称            | 类型     | 是否必选 | 说明                        |
+| --------------- | ------ | ---- | ------------------------- |
+| left            | Number | 否    | 左间距,默认0                   |
+| top             | Number | 否    | 上间距,默认0                   |
+| width           | Number | 否    | 宽度,默认屏幕宽度                 |
+| height          | Number | 否    | 高度,默认屏幕高度                 |
+| dataInfo        | Object | 是    | 数据关键字                     |
+| allData         | Array  | 是    | 所有选择项的集合                  |
+| showData        | Array  | 是    | 导航条上显示的选择项的集合             |
+| maxShow         | Number | 是    | 导航条上最多显示的选择项的个数           |
+| isExpand        | Number | 否    | 是否支持可扩展的功能,0不会出现扩展按钮,默认1. |
+| expandOpenIcon  | String | 否    | 导航条上扩展打开扩展功能的按钮图标         |
+| expandCloseIcon | String | 否    | 导航条上扩展关闭扩展功能的按钮图标         |
+| showedLable     | String | 否    | 扩展栏目的已展示栏目标题              |
+| addLable        | String | 否    | 扩展栏目的可添加栏目标题              |
 
 **示例:**
 
-```
+```javascript
     var width = window.screen.width;
     var height = window.screen.height - 300;
     var param1 = {
@@ -101,21 +119,9 @@ iOS 3.0.0+
 
 无
 
-**平台支持:**
-
-Android 2.2+
-
-iOS 6.0+
-
-**版本支持:**
-
-Android 3.0.0+
-
-iOS 3.0.0+
-
 **示例:**
 
-```
+```javascript
     uexSegmentControl.close()
 ```
 
@@ -129,29 +135,25 @@ iOS 3.0.0+
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonStr | String | 是 | 设置当前选中项相关参数 |
+| 参数名称    | 参数类型   | 是否必选 | 说明                |
+| ------- | ------ | ---- | ----------------- |
+| jsonStr | String | 是    | 设置当前选中项相关参数，形式见下： |
 
-```
+```javascript
 var jsonStr = {
-    index://(必选) 索引
+    index:
 }
 ```
 
-**平台支持:**
+各字段含义如下：
 
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
+| 字段名称  | 类型     | 是否必选 | 说明   |
+| ----- | ------ | ---- | ---- |
+| index | Number | 是    | 索引   |
 
 **示例:**
 
-```
+```javascript
     var param = {
         index:0
     };
@@ -167,34 +169,31 @@ iOS 3.0.0+
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonObj | jsonObject | 是 |  回调数据 |
+| 参数名称    | 参数类型       | 是否必选 | 说明   |
+| ------- | ---------- | ---- | ---- |
+| jsonObj | jsonObject | 是    | 回调数据 |
 
-```
-var json = {
-    index:,//(必选) 被点击的元素的索引
-    name://(必选) 被点击的元素的名称
+```javascript
+var jsonObj = {
+    index:,
+    name:
 }
 ```
 
-**平台支持:**
+各字段含义如下：
 
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
+| 字段名称  | 类型     | 说明        |
+| ----- | ------ | --------- |
+| index | Number | 被点击的元素的索引 |
+| name  | String | 被点击的元素的名称 |
 
 **示例:**
 
-```
+```javascript
     uexSegmentControl.onItemClick = function(jsonObj){
         var index = jsonObj.index;
         var name = jsonObj.name;
-        alert(JSON.stringify(jsonObj));
+        alert(index + "," + name);
     }
 ```
 
@@ -204,29 +203,25 @@ iOS 3.0.0+
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonObj | jsonObject | 是 |  回调数据 |
+| 参数名称    | 参数类型       | 是否必选 | 说明   |
+| ------- | ---------- | ---- | ---- |
+| jsonObj | jsonObject | 是    | 回调数据 |
 
 ```
 var jsonObj = {
-    shows:[]//(必选) 当前显示在导航条上的选择项集合
+    shows:[]
 }
 ```
 
-**平台支持:**
+各字段含义如下：
 
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
+| 字段名称  | 类型    | 说明              |
+| ----- | ----- | --------------- |
+| shows | Array | 当前显示在导航条上的选择项集合 |
 
 **示例:**
 
-```
+```javascript
     uexSegmentControl.onDataChange = function(jsonObj){
         alert(JSON.stringify(jsonObj));
     }
