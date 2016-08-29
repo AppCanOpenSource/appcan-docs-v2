@@ -97,8 +97,7 @@ var jsonStr = {
             addLable:'点击添加'
         }
     };
-    var data1 = JSON.stringify(param1);
-    uexSegmentControl.open(data1);
+    uexSegmentControl.open(param1);
 ```
 **运行效果:**
 默认打开状态:
@@ -157,8 +156,7 @@ var jsonStr = {
     var param = {
         index:0
     };
-    var data = JSON.stringify(param);
-    uexSegmentControl.setCurrentItem(data);
+    uexSegmentControl.setCurrentItem(param);
 ```
 
 ## 2.2、监听方法
