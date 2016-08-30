@@ -39,7 +39,7 @@
 var callbackFunction=function(error,data){}
 ```
 
-`callbackFunction`的参数`error`是Number 类型，0表示成功，-1为取消，其他表示失败 ;`data`是JSON对象类型,格式如下:
+`callbackFunction`的参数`error`是Number 类型,0表示成功,-1为取消,其他表示失败 ;`data`是JSON对象类型,格式如下:
 
 ```
 {
@@ -80,7 +80,7 @@ uexContact.open(function(error,data){
 var callbackFunction=function(error,data){}
 ```
 
-`callbackFunction`的参数`error`是Number 类型，0表示成功，-1为取消，其他表示失败 ;`data`是JSON数组类型,格式如下:
+`callbackFunction`的参数`error`是Number 类型,0表示成功,-1为取消,其他表示失败 ;`data`是JSON数组类型,格式如下:
 
 ```json
 [{
@@ -141,7 +141,7 @@ var option = {
 var callbackFunction=function(error,data){}
 ```
 
-`callbackFunction`的参数`error`是Number 类型，0表示成功，-1为取消，其他表示失败
+`callbackFunction`的参数`error`是Number 类型,0表示成功,-1为取消,其他表示失败
 
 
 **示例:**
@@ -190,7 +190,7 @@ var option = {
 var callbackFunction=function(error,data){}
 ```
 
-`error`是`Number`类型,用来表示操作是否成功,0表示成功，其他表示失败.
+`error`是`Number`类型,用来表示操作是否成功,0表示成功,其他表示失败.
 
 **示例:**
 
@@ -224,7 +224,7 @@ uexContact.deleteWithId(option,function(error,data){
 var callbackFunction=function(error,data){}
 ```
 
-`error`是`Number`类型,用来表示操作是否成功,0表示成功，其他表示失败.
+`error`是`Number`类型,用来表示操作是否成功,0表示成功,其他表示失败.
 
 **示例:**
 
@@ -281,7 +281,7 @@ var option = {
 var callbackFunction=function(error,data){}
 ```
 
-`error`是`Number`类型,用来表示操作是否成功,0表示成功，其他表示失败.
+`error`是`Number`类型,用来表示操作是否成功,0表示成功,其他表示失败.
 
 `data`是JSON数组对象类型,用来返回搜索数据.
 
@@ -371,7 +371,7 @@ var option = {
 var callbackFunction=function(error,data){}
 ```
 
-`error`是`Number`类型,用来表示操作是否成功,0表示成功，其他表示失败.
+`error`是`Number`类型,用来表示操作是否成功,0表示成功,其他表示失败.
 
 `data`是JSON对象类型,用来返回搜索数据.
 
@@ -430,7 +430,7 @@ var option = {
 var callbackFunction=function(error,data){}
 ```
 
-`error`是`Number`类型,用来表示操作是否成功,0表示成功，其他表示失败.
+`error`是`Number`类型,用来表示操作是否成功,0表示成功,其他表示失败.
 
 **示例:**
 
@@ -469,7 +469,7 @@ uexContact.modifyWithId(JSON.stringify(option), function(error,data) {
 var callbackFunction=function(error,data){}
 ```
 
-`error`是`Number`类型,用来表示操作是否成功,0表示成功，其他表示失败.
+`error`是`Number`类型,用来表示操作是否成功,0表示成功,其他表示失败.
 
 **示例:**
 
@@ -501,7 +501,7 @@ vCard方式添加联系人, 方法执行结束后回调`callbackFunction`
 var callbackFunction=function(error,data){}
 ```
 
-`error`是`Number`类型,用来表示操作是否成功,0表示成功，其他表示失败.
+`error`是`Number`类型,用来表示操作是否成功,0表示成功,其他表示失败.
 
 **示例:**
 

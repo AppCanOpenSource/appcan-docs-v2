@@ -52,7 +52,7 @@ var option = {
 | 字段名称          | 类型      | 是否必选 | 说明                                       |
 | ------------- | ------- | ---- | ---------------------------------------- |
 | isShowIcon    | Boolean | 否    | 是否显示页面底部图标,默认为true,若为false,则icons参数无效,且监听方法onIconClick无效 |
-| isShowContent | Boolean | 否    | 是否显示上方内容页，默认为true，若为false，则contents参数无效，且监听方法onPageClick无效 |
+| isShowContent | Boolean | 否    | 是否显示上方内容页,默认为true,若为false,则contents参数无效,且监听方法onPageClick无效 |
 
 **示例:**
 
@@ -144,7 +144,7 @@ uexSlidePager.setCurrentPage(1)
 
 **说明:**
 
-点击页面的监听方法，openSlidePager方法中option参数中isShowContent为false时，该方法无效。
+点击页面的监听方法,openSlidePager方法中option参数中isShowContent为false时,该方法无效.
 
 
 **参数:**
@@ -158,7 +158,7 @@ uexSlidePager.setCurrentPage(1)
 
 ```javascript
 uexSlidePager.onPageClick = function(data){
-    alert("onPageClick："+data);
+    alert("onPageClick:"+data);
 }  
 ```
 
@@ -168,7 +168,7 @@ uexSlidePager.onPageClick = function(data){
 
 **说明:**
 
-选择底部图标的监听方法，openSlidePager方法中option参数中isShowIcon为false时，该方法无效。
+选择底部图标的监听方法,openSlidePager方法中option参数中isShowIcon为false时,该方法无效.
 
 
 **参数:**
@@ -182,7 +182,7 @@ uexSlidePager.onPageClick = function(data){
 
 ```javascript
 uexSlidePager.onIconSelected = function(data){
-    alert("onIconSelected："+data);
+    alert("onIconSelected:"+data);
 }  
 ```
 
@@ -205,7 +205,7 @@ uexSlidePager.onIconSelected = function(data){
 
 ```javascript
 uexSlidePager.onChangeColor = function(color){
-    alert("onChangeColor："+color);
+    alert("onChangeColor:"+color);
 }  
 ```
 

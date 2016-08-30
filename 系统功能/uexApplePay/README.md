@@ -37,7 +37,7 @@ Apple Pay 支付插件
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 否    | 接口所需数据，形式见下： |
+| params | String | 否    | 接口所需数据,形式见下: |
 
 ```
 var params = {
@@ -84,7 +84,7 @@ if (result != 0){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```javascript
 var params = {
@@ -137,7 +137,7 @@ if (result != 0 ){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```javascript
 var params = {
@@ -290,7 +290,7 @@ if (result != 0 ){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```javascript
 var params = {
@@ -306,7 +306,7 @@ var params = {
 
 **返回值:**
 
-Boolean类型，调用接口结果.若为false,一般为参数错误或者不完整引起,必须重新调用此接口
+Boolean类型,调用接口结果.若为false,一般为参数错误或者不完整引起,必须重新调用此接口
 
 **示例:**
 
@@ -353,7 +353,7 @@ if(!result){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```
 var params = {
@@ -369,7 +369,7 @@ var params = {
 
 **返回值:**
 
-Boolean类型，调用接口结果.若为false,一般为参数错误或者不完整引起,必须重新调用此接口
+Boolean类型,调用接口结果.若为false,一般为参数错误或者不完整引起,必须重新调用此接口
 
 
 **示例:**
@@ -417,7 +417,7 @@ if(!result){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```javascript
 var params = {
@@ -437,7 +437,7 @@ var params = {
 
 **返回值:**
 
-Boolean，调用接口结果.若为false,一般为参数错误或者不完整引起,必须重新调用此接口
+Boolean,调用接口结果.若为false,一般为参数错误或者不完整引起,必须重新调用此接口
 
 
 **示例:**
@@ -481,7 +481,7 @@ if(!result){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```
 var params = {
@@ -497,7 +497,7 @@ var params = {
 
 **返回值:**
 
-Boolean，调用接口结果.若为false,一般为参数错误或者不完整引起,必须重新调用此接口
+Boolean,调用接口结果.若为false,一般为参数错误或者不完整引起,必须重新调用此接口
 
 
 **示例:**
@@ -526,7 +526,7 @@ if(!result){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```javascript
 var params = {
@@ -556,7 +556,7 @@ var params = {
 
 **返回值:**
 
-Boolean类型，是否添加按钮成功.若为false,一般为参数错误或者不完整引起
+Boolean类型,是否添加按钮成功.若为false,一般为参数错误或者不完整引起
 
 **示例:**
 
@@ -587,7 +587,7 @@ alert(suc)
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```
 var params = {
@@ -603,7 +603,7 @@ var params = {
 
 **返回值:**
 
-Boolean类型，是否删除按钮成功.若为false,一般为参数错误或者不完整引起
+Boolean类型,是否删除按钮成功.若为false,一般为参数错误或者不完整引起
 
 **示例:**
 
@@ -629,7 +629,7 @@ alert(suc)
 
 | 参数名称   | 参数类型   | 是否必选 | 说明         |
 | ------ | ------ | ---- | ---------- |
-| params | String | 是    | 返回数据，形式见下： |
+| params | String | 是    | 返回数据,形式见下: |
 
 ```
 var params = {
@@ -669,7 +669,7 @@ uexApplePay.onChinaUnionPayFinish = function(info){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明         |
 | ------ | ------ | ---- | ---------- |
-| params | String | 是    | 返回数据，形式见下： |
+| params | String | 是    | 返回数据,形式见下: |
 
 params是一个`PaymentMethod Object`转换而成的JSON字符串.
 
@@ -713,7 +713,7 @@ uexApplePay.onPaymentMethodChange = function(info){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明         |
 | ------ | ------ | ---- | ---------- |
-| params | String | 是    | 返回数据，形式见下： |
+| params | String | 是    | 返回数据,形式见下: |
 
 params是一个`Contact Object`序列化得到的JSON字符串,`Contact Object`结构如下
 
@@ -766,7 +766,7 @@ uexApplePay.onShippingContactChange = function(info){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明         |
 | ------ | ------ | ---- | ---------- |
-| params | String | 是    | 返回数据，形式见下： |
+| params | String | 是    | 返回数据,形式见下: |
 
 params是一个`ShippingMethod Object`序列化得到的JSON字符串,字段介绍详见startPay接口中的`ShippingMethod Object`参数介绍
 
@@ -801,7 +801,7 @@ uexApplePay.onShippingMethodChange = function(info){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明         |
 | ------ | ------ | ---- | ---------- |
-| params | String | 是    | 返回数据，形式见下： |
+| params | String | 是    | 返回数据,形式见下: |
 
 ```javascript
 var param = {
@@ -860,7 +860,7 @@ uexApplePay.onPaymentAuthorized = function(info){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明         |
 | ------ | ------ | ---- | ---------- |
-| params | String | 是    | 返回数据，形式见下： |
+| params | String | 是    | 返回数据,形式见下: |
 
 ```
 var param = {
@@ -890,7 +890,7 @@ uexApplePay.onCommitError = function(info){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明         |
 | ------ | ------ | ---- | ---------- |
-| params | String | 是    | 返回数据，形式见下： |
+| params | String | 是    | 返回数据,形式见下: |
 
 ```
 var param = {
@@ -918,7 +918,7 @@ uexApplePay.onPayFinish = function(info){
 
 | 参数名称   | 参数类型   | 是否必选 | 说明         |
 | ------ | ------ | ---- | ---------- |
-| params | String | 是    | 返回数据，形式见下： |
+| params | String | 是    | 返回数据,形式见下: |
 
 ```javascript
 var params = {

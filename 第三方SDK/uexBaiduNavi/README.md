@@ -46,7 +46,7 @@ var callback=function(error,data){}
 
 | 参数名称  | 参数类型   | 说明           |
 | ----- | ------ | ------------ |
-| error | Number | 0表示成功，其他表示失败 |
+| error | Number | 0表示成功,其他表示失败 |
 | data  | String | 失败时返回相关错误信息  |
 
 **版本支持**
@@ -102,7 +102,7 @@ var callback=function(error,data){}
 
 | 参数名称  | 参数类型   | 说明           |
 | ----- | ------ | ------------ |
-| error | Number | 0表示成功，其他表示失败 |
+| error | Number | 0表示成功,其他表示失败 |
 | data  | String | 失败时返回相关错误信息  |
 
 | error值 | 对应原因           |
@@ -357,7 +357,6 @@ API版本: `uexBaiduNavi-4.0.0`
 
 | ----- | ----- |
 | ----- | ----- |
-|       |       |
 
 ### Android
 

@@ -2,26 +2,26 @@
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 系统全局对象
 ## 1.1、属性  
-> ### platformName 系统名称
+### 🍭 platformName 系统名称
 
 `uexWidgetOne.platformName`
 
 **说明:**
 
-系统名称，值为`Android`或者`iOS`
+系统名称,值为`Android`或者`iOS`
 **示例:**
 
 ```
 alert('系统为:' + uexWidgetOne.platformName);    
 ```
 
-> ### platformVersion 系统版本
+### 🍭 platformVersion 系统版本
 
 `uexWidgetOne.platformVersion`
 
 **说明:**
 
-系统版本，如2.3.4，4.3.1等。
+系统版本,如2.3.4,4.3.1等.
 
 **示例:**
 
@@ -29,7 +29,7 @@ alert('系统为:' + uexWidgetOne.platformName);
 alert('系统版本为:' + uexWidgetOne.platformVersion);
 ```
 
-> ### isFullScreen 应用全屏判断
+### 🍭 isFullScreen 应用全屏判断
 
 `uexWidgetOne.isFullScreen`
 
@@ -54,7 +54,7 @@ alert('应用是否为全屏:' + uexWidgetOne.isFullScreen)";
 
 ##2.1、方法
 
-> ### getPlatform 获取平台信息
+### 🍭 getPlatform 获取平台信息
 
 `uexWidgetOne.getPlatform()`
 
@@ -66,9 +66,9 @@ alert('应用是否为全屏:' + uexWidgetOne.isFullScreen)";
 
 无
 
-**返回值：**
+**返回值:**
 
-Number类型，0为iOS，1为Android
+Number类型,0为iOS,1为Android
 
 **版本支持:**
 
@@ -79,7 +79,7 @@ Number类型，0为iOS，1为Android
 ```
 uexWidgetOne.getPlatform();
 ```
-> ### exit 退出
+### 🍭 exit 退出
 
 `uexWidgetOne.exit(flag)`
 
@@ -89,14 +89,14 @@ uexWidgetOne.getPlatform();
 
 **参数:**
 
-flag:(Number类型) 可选  是否弹出关闭提示框，0-不弹，否则弹提示框。
+flag:(Number类型) 可选  是否弹出关闭提示框,0-不弹,否则弹提示框.
 
 **示例:**
 
 ```
 uexWidgetOne.exit(0);
 ```
-> ### getCurrentWidgetInfo 获取当前widget信息
+### 🍭 getCurrentWidgetInfo 获取当前widget信息
 
 `uexWidgetOne.getCurrentWidgetInfo()`
 
@@ -108,9 +108,9 @@ uexWidgetOne.exit(0);
 
 无
 
-**返回值：**
+**返回值:**
 
-Json对象，各参数如下：
+Json对象,各参数如下:
 
  | 参数名称 | 参数类型 | 说明 | 
  | ----- | ----- | ----- | 
@@ -126,13 +126,13 @@ Json对象，各参数如下：
 var widgetInfo=uexWidgetOne.getCurrentWidgetInfo();
 console.log(widgetInfo.name)
 ```
-> ### cleanCache 清除缓存
+### 🍭 cleanCache 清除缓存
 
 `uexWidgetOne.cleanCache()`
 
 **说明:**
 
-清除当前应用的网页缓存，仅主widget调用此接口有效。
+清除当前应用的网页缓存,仅主widget调用此接口有效.
 
 **示例:**
 
@@ -140,7 +140,7 @@ console.log(widgetInfo.name)
 uexWidgetOne.cleanCache();
 ```
 
-> ### getMainWidgetId 获取主widget的appId
+### 🍭 getMainWidgetId 获取主widget的appId
 
 `uexWidgetOne.getMainWidgetId()`
 
@@ -152,7 +152,7 @@ uexWidgetOne.cleanCache();
 
 无
 
-**返回值：**
+**返回值:**
 
 String类型
 
@@ -163,7 +163,7 @@ var appId=uexWidgetOne.getMainWidgetId();
 ```
 
 
-> ### getEngineVersion 获取当前引擎版本
+### 🍭 getEngineVersion 获取当前引擎版本
 
 `uexWidgetOne.getEngineVersion()`
 
@@ -177,7 +177,7 @@ var appId=uexWidgetOne.getMainWidgetId();
 
 **返回值:**
 
-返回值是String类型的字符串,代表当前的引擎版本。比如"3.4.0"
+返回值是String类型的字符串,代表当前的引擎版本.比如"3.4.0"
 
 **示例:**
 
@@ -185,7 +185,7 @@ var appId=uexWidgetOne.getMainWidgetId();
 alert("engine version:" + uexWidgetOne.getEngineVersion());
 ```
 
-> ### getEngineVersionCode 获取当前引擎版本号
+### 🍭 getEngineVersionCode 获取当前引擎版本号
 
 `uexWidgetOne.getEngineVersionCode()`
 
@@ -215,14 +215,14 @@ alert("engine version code:" + uexWidgetOne.getEngineVersionCode());
 
 
 ##2.2、回调方法
-> ### cbError 出现异常时的回调方法
+### 🍭 cbError 出现异常时的回调方法
 
 `uexWidgetOne.cbError(opId,errorCode,errorInfo)`
 
 **参数:**
 
 ````
-opId:(Number类型) 必选  操作ID，在此函数中不起作用，可忽略
+opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
 errorCode:(Number类型) 必选  错误代码
 errorInfo:(String类型) 必选  错误信息````
 

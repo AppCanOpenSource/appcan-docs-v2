@@ -43,7 +43,7 @@
 
 | 参数名称      | 参数类型   | 是否必选 | 说明                                       |
 | --------- | ------ | ---- | ---------------------------------------- |
-| itemArray | String | 是    | list\<shortcutItem\>,由shortcutItem结构组成数组转换而成的json字符串，shortcutItem形式见下： |
+| itemArray | String | 是    | list\<shortcutItem\>,由shortcutItem结构组成数组转换而成的json字符串,shortcutItem形式见下: |
 
 ```javascript
 var shortcutItem={
@@ -56,7 +56,7 @@ var shortcutItem={
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 字段名称     | 类型     | 是否必选 | 说明                        |
 | -------- | ------ | ---- | ------------------------- |
@@ -121,7 +121,7 @@ uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 
 | 参数名称 | 参数类型   | 说明             |
 | ---- | ------ | -------------- |
-| data | String | json格式数据，形式见下： |
+| data | String | json格式数据,形式见下: |
 
 ```javascript
 var data = {
@@ -131,7 +131,7 @@ var data = {
 }	
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 字段名称   | 类型     | 说明                             |
 | ------ | ------ | ------------------------------ |

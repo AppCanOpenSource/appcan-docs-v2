@@ -41,8 +41,8 @@ var cb = function(error,data){}
 
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
-| error | Number | 识别结果，0-成功，非0-失败 |
-| data  | Object | 成功时返回的数据，形式见下：  |
+| error | Number | 识别结果,0-成功,非0-失败 |
+| data  | Object | 成功时返回的数据,形式见下:  |
 
 ```javascript
 var data = {
@@ -61,7 +61,7 @@ function createCreditCardRec(){
      if(!error){
        alert("卡号:"+data.cardNumber);
      }else{
-       alert("失败！");
+       alert("失败!");
      }
   });
 }

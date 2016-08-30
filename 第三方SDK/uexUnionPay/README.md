@@ -27,7 +27,7 @@ UnionPay银联支付插件
 
 | 参数名称   | 参数类型     | 是否必选 | 说明           |
 | ------ | -------- | ---- | ------------ |
-| params | Object   | 是    | 接口所需数据，形式见下： |
+| params | Object   | 是    | 接口所需数据,形式见下: |
 | cb     | Function | 是    | 回调方法         |
 
 ```javascript
@@ -53,7 +53,7 @@ var cb = function(error){}
 
 | 参数名称  | 参数类型   | 说明                                       |
 | ----- | ------ | ---------------------------------------- |
-| error | Number | 支付结果,0-成功，非0-失败。结果说明,请参考[PayResult](#PayResult) |
+| error | Number | 支付结果,0-成功,非0-失败.结果说明,请参考[PayResult](#PayResult) |
 
 **示例:**
 

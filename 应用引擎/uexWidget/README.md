@@ -11,7 +11,7 @@
 
 ## 2.1、方法
 
-> ### startWidget 加载一个widget 
+### 🍭 startWidget 加载一个widget 
 
 `uexWidget.startWidget(data,cb)`
 
@@ -27,16 +27,16 @@ data为Object类型,包含要加载的widget的一些信息,各字段含义如�
 | ----- | ----- | ----- | ----- |
 | appId | String | 是 | 子widget的appId |
 | animId | String | 是 | 子widget载入时的动画id,详见CONSTANT中WindowAnimiID |
-| funcName | String | 否 | 方法名，子widget结束时将String型的任意字符回调给该方法，可为空。 注意：只在主窗口中有效，浮动窗口中无效 |
+| funcName | String | 否 | 方法名,子widget结束时将String型的任意字符回调给该方法,可为空. 注意:只在主窗口中有效,浮动窗口中无效 |
 | info | String | 否 | 传给子widget的信息 |
-| animDuration | String | 否 | 动画持续时长，单位为毫秒，默认200毫秒 |
+| animDuration | String | 否 | 动画持续时长,单位为毫秒,默认200毫秒 |
 
 cb为加载widget的回调函数,拥有一个Number类型的参数error,error为0表示加载成功,非0时表示加载失败
 
 
-**返回值：**
+**返回值:**
 
-Bool类型，true表示成功，false表示失败
+Bool类型,true表示成功,false表示失败
 
 **示例:**
 
@@ -57,7 +57,7 @@ uexWidget.startWidget(data,function(error){
 ```
 
 
-> ### finishWidget 退出一个widget
+### 🍭 finishWidget 退出一个widget
 
   
 
@@ -65,16 +65,16 @@ uexWidget.startWidget(data,function(error){
 
 **说明:**
 
-  退出一个widget。
+  退出一个widget.
 
 **参数:**
 
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| resultInfo | String | 否 | 此widget结束时，传递给opener的信息 |
-| appId | String | 否 | 要结束的widget的appId，为空时退出的是当前的widget |
-| finishMode | Number | 否 | 结束此widget的方式，0表示销毁该widget，下次再调 用startWidget时，重新打开；1表示把该widget置于后 台，下次再调用startWidget时，不重新打开，操作数据 全部保存。不传或为空时，默认为0。|
+| resultInfo | String | 否 | 此widget结束时,传递给opener的信息 |
+| appId | String | 否 | 要结束的widget的appId,为空时退出的是当前的widget |
+| finishMode | Number | 否 | 结束此widget的方式,0表示销毁该widget,下次再调 用startWidget时,重新打开;1表示把该widget置于后 台,下次再调用startWidget时,不重新打开,操作数据 全部保存.不传或为空时,默认为0.|
 
 **示例:**
 
@@ -87,38 +87,38 @@ uexWidget.startWidget(data,function(error){
   });
 
 ```
-> ### removeWidget 删除一个widget
+### 🍭 removeWidget 删除一个widget
 
 `  uexWidget.removeWidget(appId)`
 
 **说明:**
 
-删除一个widget。
+删除一个widget.
 
 **参数:**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| appId | String | 是 | widget的appId，主widget不能被删除。 |
+| appId | String | 是 | widget的appId,主widget不能被删除. |
 
-**返回值：**
+**返回值:**
 
-Bool 类型，true表示成功，false表示失败
+Bool 类型,true表示成功,false表示失败
 
 **示例:**
 
 
 ```javascript
-var result=uexWidget.removeWidget(“12345”);
+var result=uexWidget.removeWidget("12345");
 ```
 
-> ### checkUpdate 检查更新
+### 🍭 checkUpdate 检查更新
 
 `  uexWidget.checkUpdate(callback)`
 
 **说明:**
 
-检查当前widget是否有更新。
+检查当前widget是否有更新.
 
 **参数:**
 
@@ -126,14 +126,14 @@ var result=uexWidget.removeWidget(“12345”);
 | ----- | ----- | ----- | ----- |
 | callback | Function | 是 | |
 
-**回调参数：**
+**回调参数:**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| error | Json对象 | 是 | error 为对象，!error表示请求成功 |
+| error | Json对象 | 是 | error 为对象,!error表示请求成功 |
 | data | Json对象 | 是 | data.result : 0- 需要更新 1- 不需要更新 |
 
-**data 参数：**
+**data 参数:**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
@@ -147,7 +147,7 @@ var result=uexWidget.removeWidget(“12345”);
 
 ```javascript
 uexWidget.checkUpdate(function(error,data){
-  	//error 为对象，!error表示请求成功
+  	//error 为对象,!error表示请求成功
   	if(!error){
       if(data.result==0){
         //需要更新
@@ -157,15 +157,15 @@ uexWidget.checkUpdate(function(error,data){
   	}
 });
 ```
-> ### loadApp 启动第三方应用（iOS）
+### 🍭 loadApp 启动第三方应用(iOS)
 
  ` uexWidget.loadApp(scheme)`
 
 **说明:**
 
-* 根据URLScheme启动一个第三方应用 。
-* 对于AppCan应用,可以根据[UrlScheme配置](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#type=”URLSCHEME” urlScheme管理（仅iOS） "UrlScheme配置")配置URLScheme
-* 假设应用A中拥有一个`scheme1`的URLScheme，在另一个应用B中，通过方法`uexWidget.loadApp('scheme1://');`即可打开应用A
+* 根据URLScheme启动一个第三方应用 .
+* 对于AppCan应用,可以根据[UrlScheme配置](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#type="URLSCHEME" urlScheme管理(仅iOS) "UrlScheme配置")配置URLScheme
+* 假设应用A中拥有一个`scheme1`的URLScheme,在另一个应用B中,通过方法`uexWidget.loadApp('scheme1://');`即可打开应用A
 * **此接口仅支持*iOS*平台**
 
 **参数:**
@@ -174,9 +174,9 @@ uexWidget.checkUpdate(function(error,data){
 | ----- | ----- | ----- | ----- |
 | scheme | String | 是 |  第三方应用的URLScheme |
 
-**返回值：**
+**返回值:**
 
-Boolean类型，true为成功，false为失败
+Boolean类型,true为成功,false为失败
 
 **示例:**
 
@@ -185,13 +185,13 @@ Boolean类型，true为成功，false为失败
 var scheme = "weixin://";//微信的URLScheme
 uexWidget.loadApp(scheme);
 ```
-> ### startApp 启动第三方应用（Android）
+### 🍭 startApp 启动第三方应用(Android)
 
 `uexWidget.startApp(startMode,mainInfo,addInfo,optInfo,extra)`
 
 **说明:**
 
-根据相关信息启动一个第三方应用。
+根据相关信息启动一个第三方应用.
 
 * **此接口仅支持*Android*平台**
 
@@ -199,16 +199,16 @@ uexWidget.loadApp(scheme);
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| startMode | String | 是 | 启动方式，0表示通过包名和类名启动，1表示通过Action启动。 |
-| optInfo | String | 否 | 附加参数，键值对，{key:value}格式多个用英文","隔开，如："{'key1':'value1'},{'key2':'value1'}"。 |
+| startMode | String | 是 | 启动方式,0表示通过包名和类名启动,1表示通过Action启动. |
+| optInfo | String | 否 | 附加参数,键值对,{key:value}格式多个用英文","隔开,如:"{'key1':'value1'},{'key2':'value1'}". |
 
 **startMode为0**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | mainInfo | String | 是 | 包名 |
-| addInfo | String | 否 | 类名，为空时启动应用入口类 |
-| extra | String | 否 | json格式如下： |
+| addInfo | String | 否 | 类名,为空时启动应用入口类 |
+| extra | String | 否 | json格式如下: |
 ```
 {
     "data": "http://www.baidu.com",
@@ -220,14 +220,14 @@ uexWidget.loadApp(scheme);
 | 参数 | 是否必须 | 说明 |
 | ----- | ----- | ----- |
 | data | 否 | data属性 |
-| isNewTask | 否 | 启动第三方Activity时，值为0，不使用NEW_TASK，值不为0，使用NEW_TASK，默认使用NEW_TASK |
+| isNewTask | 否 | 启动第三方Activity时,值为0,不使用NEW_TASK,值不为0,使用NEW_TASK,默认使用NEW_TASK |
 
 **startMode为1**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
 | mainInfo | String | 是 | action |
-| addInfo | String | 否 | category或data，json格式如下： |
+| addInfo | String | 否 | category或data,json格式如下: |
 ```json
 {
     "category": [
@@ -249,10 +249,10 @@ uexWidget.loadApp(scheme);
 | mineType | 否 | mineType属性 |
 | scheme | 否 | scheme属性 |
 
-**注意事项：**
+**注意事项:**
 
-如果通过包名类名启动AppCan应用，而且需要监听onLoadByOtherApp回调方法，则addInfo为必选。调用方法如下：
-若包名为com.appcan.develop(开发者在使用时只需要更换包名即可),则调用代码如下：
+如果通过包名类名启动AppCan应用,而且需要监听onLoadByOtherApp回调方法,则addInfo为必选.调用方法如下:
+若包名为com.appcan.develop(开发者在使用时只需要更换包名即可),则调用代码如下:
 
 ```javascript
 var packageName = "com.appcan.develop";
@@ -262,12 +262,12 @@ uexWidget.startApp(0,packageName,className,optInfo);
 ```
 
 
-**返回值：**
+**返回值:**
 
-Boolean类型，true为成功，false为失败
+Boolean类型,true为成功,false为失败
 
 **示例:**
-  1.要启动的AndroidManifest.xml文件如下：
+  1.要启动的AndroidManifest.xml文件如下:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -299,10 +299,10 @@ Boolean类型，true为成功，false为失败
             </intent-filter>
         </activity>
         <activity android:name="com.dongjf.mytest.SecondActivity">
-//通过包名启动，<intent-filter>标签非必须
+//通过包名启动,<intent-filter>标签非必须
             <intent-filter>
                 <action android:name="com.djf.test.second" ></action>
-//通过action启动时，category DEFAULT属性必须，否则无法调起
+//通过action启动时,category DEFAULT属性必须,否则无法调起
                 <category android:name="android.intent.category.DEFAULT" ></category>
                 <data android:scheme="tel"></data>
             </intent-filter>
@@ -327,7 +327,7 @@ Boolean类型，true为成功，false为失败
    </application>
 </manifest>
 ```
-  2.启动该应用对应界面示例如下：
+  2.启动该应用对应界面示例如下:
 
 ```html
 <!DOCTYPE HTML>
@@ -412,7 +412,7 @@ function startAppA(mode){
 </body>
 </html>
 ```
-3.指定用QQ浏览器打开链接：
+3.指定用QQ浏览器打开链接:
 
 ```javascript
 var optInfo = "{'key1':'value1'},{'key2':'value1'}";
@@ -420,19 +420,19 @@ var extra='{data:"http://www.appcan.cn/"}';
 uexWidget.startApp(0, "com.tencent.mtt","com.tencent.mtt.MainActivity",optInfo,extra);
 ```
 
-> ### getOpenerInfo 获取widget的相关信息
+### 🍭 getOpenerInfo 获取widget的相关信息
 
  ` uexWidget.getOpenerInfo()`
 
 **说明:**
 
-获取打开者传入此widget的相关信息。即调用startWidget时传入的info参数值。
+获取打开者传入此widget的相关信息.即调用startWidget时传入的info参数值.
 
 **参数:**
 
 无
 
-**返回值：**
+**返回值:**
 
 String类型 本widget的打开者通过startWidget函数打开本widget时传入的info参数值
 
@@ -444,13 +444,13 @@ String类型 本widget的打开者通过startWidget函数打开本widget时传�
  var result=uexWidget.getOpenerInfo()
 ```
 
-> ### installApp 安装apk
+### 🍭 installApp 安装apk
 
  ` uexWidget.installApp(appPath)`
 
 **说明:**
 
-  根据安装包所在路径安装一个apk。
+  根据安装包所在路径安装一个apk.
 
 * **此接口仅支持*Android*平台**
 
@@ -466,7 +466,7 @@ String类型 本widget的打开者通过startWidget函数打开本widget时传�
  var path = "res://pay.apk"; 
  uexWidget.installApp(path);
 ```
-> ### getPushInfo 获取推送消息  
+### 🍭 getPushInfo 获取推送消息  
 
  ` uexWidget.getPushInfo(type)`
 
@@ -478,14 +478,14 @@ String类型 本widget的打开者通过startWidget函数打开本widget时传�
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| type | String | 否 | 想要获取的推送消息内容类型，0：具体的推送内容，1：包含推送标题等其他推送消息的JSON字符串，默认值为0 |
+| type | String | 否 | 想要获取的推送消息内容类型,0:具体的推送内容,1:包含推送标题等其他推送消息的JSON字符串,默认值为0 |
 
-**返回值：**
+**返回值:**
 
-String类型，返回的数据 json格式字符串
+String类型,返回的数据 json格式字符串
 
 ```javascript
-根据iOS平台推送的特殊性，推送服务器发出的推送的json格式为
+根据iOS平台推送的特殊性,推送服务器发出的推送的json格式为
 var data={
     aps{
         alert:,//推送消息的标题
@@ -501,13 +501,13 @@ var data={
 ```javascript
 var data=uexWidget.getPushInfo();
 ```
-> ### setPushNotifyCallback 设置Push消息到达时的回调函数
+### 🍭 setPushNotifyCallback 设置Push消息到达时的回调函数
 
  `   uexWidget.setPushNotifyCallback(cbFunction)`
 
 **说明:**
 
-如果应用开启了推送功能，那么当有消息推送进来时，平台将调用指定的cbFunction函数通知页面。
+如果应用开启了推送功能,那么当有消息推送进来时,平台将调用指定的cbFunction函数通知页面.
 
 **参数:**
 
@@ -522,7 +522,7 @@ uexWidget.setPushNotifyCallback(function pushCallback(){
 	alert("收到推送消息");
 });
 ```
-> ###setPushInfo 设置推送用户信息
+### 🍭setPushInfo 设置推送用户信息
 
 `  uexWidget.setPushInfo(json)`
 
@@ -546,7 +546,7 @@ uexWidget.setPushInfo({
 });
 ```
 
-> ### setPushState 设置推送服务的状态
+### 🍭 setPushState 设置推送服务的状态
 
   `uexWidget.setPushState(state)`
 
@@ -567,7 +567,7 @@ uexWidget.setPushInfo({
 uexWidget.setPushState(0);
 
 ```
-> ### getPushState 获取推送服务的状态
+### 🍭 getPushState 获取推送服务的状态
 
  ` uexWidget.getPushState()` 
 
@@ -579,9 +579,9 @@ uexWidget.setPushState(0);
 
 无
 
-**返回值：**
+**返回值:**
 
-Bool 类型，true为开启，false为关闭
+Bool 类型,true为开启,false为关闭
 
 **示例:**
 
@@ -589,7 +589,7 @@ Bool 类型，true为开启，false为关闭
 var reuslt=uexWidget.getPushState()
 ```
 
-> ### isAppInstalled 是否安装某第三方应用
+### 🍭 isAppInstalled 是否安装某第三方应用
 
  ` uexWidget.isAppInstalled(json)`
 
@@ -597,14 +597,14 @@ var reuslt=uexWidget.getPushState()
 
   是否安装某第三方应用
 
-* 在iOS9.0+的系统上,只有在URLScheme白名单内的应用才会被正确的检测是否安装。检测在URLScheme白名单外的应用会一律返回未安装的结果。
+* 在iOS9.0+的系统上,只有在URLScheme白名单内的应用才会被正确的检测是否安装.检测在URLScheme白名单外的应用会一律返回未安装的结果.
 
 **参数:**
 
 
 ````javascript
  var json = {
-    appData://(必选) 第三方应用数据,android平台为第三方应用包名；iOS平台为 Scheme Url
+    appData://(必选) 第三方应用数据,android平台为第三方应用包名;iOS平台为 Scheme Url
  } 
 ````
 
@@ -624,13 +624,13 @@ Boolean类型返回值:当应用已安装时会返回`true`,当应用未安装�
 ````
 
 
-> ### closeLoading 关闭loading图
+### 🍭 closeLoading 关闭loading图
 
  ` uexWidget.closeLoading()`
 
 **说明:**
 
-关闭启动图。用于应用启动期间需要做页面跳转等逻辑。需要在config.xml 添加 `<removeloading>true</removeloading>`配置。 添加之后引擎不会关闭启动图，由前端调用此接口关闭，超时（时间为3秒）之后引擎才会关闭启动图。
+关闭启动图.用于应用启动期间需要做页面跳转等逻辑.需要在config.xml 添加 `<removeloading>true</removeloading>`配置. 添加之后引擎不会关闭启动图,由前端调用此接口关闭,超时(时间为3秒)之后引擎才会关闭启动图.
 
 **参数:**
 
@@ -646,13 +646,13 @@ Boolean类型返回值:当应用已安装时会返回`true`,当应用未安装�
   uexWidget.closeLoading();
 ```
 
-> ### moveToBack 运行到后台,不退出程序
+### 🍭 moveToBack 运行到后台,不退出程序
 
  ` uexWidget.moveToBack()`
 
 **说明:**
 
-  程序将会在后台运行，不退出。
+  程序将会在后台运行,不退出.
   
   * **此接口仅支持*Android*平台**
 
@@ -666,7 +666,7 @@ Boolean类型返回值:当应用已安装时会返回`true`,当应用未安装�
     uexWidget.moveToBack();
   ````
 
-> ### reloadWidgetByAppId 根据appId重载widget
+### 🍭 reloadWidgetByAppId 根据appId重载widget
 
 `uexWidget.reloadWidgetByAppId(appId);`
 
@@ -676,7 +676,7 @@ Boolean类型返回值:当应用已安装时会返回`true`,当应用未安装�
 
 **参数**
 
-   appId：子widget对应的appId（必选）
+   appId:子widget对应的appId(必选)
 
 
 **示例**
@@ -685,7 +685,7 @@ Boolean类型返回值:当应用已安装时会返回`true`,当应用未安装�
 uexWidget.reloadWidgetByAppId(sdk2015);
 ````
 
-> ### setKeyboardMode 设置键盘模式
+### 🍭 setKeyboardMode 设置键盘模式
 
 `uexWidget.setKeyboardMode(json)`
 
@@ -699,7 +699,7 @@ uexWidget.reloadWidgetByAppId(sdk2015);
 
 ````javascript
  var json = {
-    mode://(必选) Number类型 0:压缩模式 1：平移模式
+    mode://(必选) Number类型 0:压缩模式 1:平移模式
  } 
 ````
 
@@ -711,7 +711,7 @@ uexWidget.setKeyboardMode({
 };);
 ````
 
-> ### getMBaaSHost 获取MBaaS主机内容
+### 🍭 getMBaaSHost 获取MBaaS主机内容
 
  ` uexWidget.getMBaaSHost()`
 
@@ -720,7 +720,7 @@ uexWidget.setKeyboardMode({
   获取MBaaS主机内容
 
 
-**返回值：**
+**返回值:**
 
 String类型,MBaaS主机内容
 
@@ -734,7 +734,7 @@ String类型,MBaaS主机内容
 
 * ***所有的监听方法都得在root页面进行监听***
 
-> ### onLoadByOtherApp 被第三方应用调起的监听方法
+### 🍭 onLoadByOtherApp 被第三方应用调起的监听方法
 
   
 
@@ -742,7 +742,7 @@ String类型,MBaaS主机内容
 
 **参数:**
 
-jsonData:(String类型) 必选  传递的数据,json格式为：
+jsonData:(String类型) 必选  传递的数据,json格式为:
 
 ```
 {
@@ -755,7 +755,7 @@ jsonData:(String类型) 必选  传递的数据,json格式为：
 
 **示例:**
 
-第三方应用调用appcan应用示例代码：
+第三方应用调用appcan应用示例代码:
 
 ```java
 
@@ -781,13 +781,13 @@ jsonData:(String类型) 必选  传递的数据,json格式为：
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 
 ```
-应用入口页面注册监听代码：
+应用入口页面注册监听代码:
 ```
 function onLoadByOtherApp(jsonData){
 	alert(jsonData);
 } 
 ```
-> ### onSuspend 程序挂起的监听方法
+### 🍭 onSuspend 程序挂起的监听方法
 
 `uexWidget.onSuspend()`
 
@@ -802,7 +802,7 @@ uexWidget.onSuspend = function(){
 }
 ```
 
-> ### onResume 程序恢复的监听方法
+### 🍭 onResume 程序恢复的监听方法
 
 `uexWidget.onResume()`
 

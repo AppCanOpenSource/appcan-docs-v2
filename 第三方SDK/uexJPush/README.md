@@ -43,7 +43,7 @@
 uexJPush.stopPush();
 ```
 
-### 🍭 resumePush  恢复推送服务，仅支持Android
+### 🍭 resumePush  恢复推送服务,仅支持Android
 
 `uexJPush.resumePush()`
 
