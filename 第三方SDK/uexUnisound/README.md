@@ -30,7 +30,7 @@
 
 ### 🍭 init  初始化
 
-`uexUnisound.init(param)`
+`uexUnisound.init(params)`
 
 **说明**
 
@@ -38,31 +38,36 @@
 
 **参数**
 
-| 参数名称  | 参数类型   | 是否必选 | 说明                 |
-| ----- | ------ | ---- | ------------------ |
-| param | String | 是    | param是json字符串,详情见下 |
+| 参数名称   | 参数类型   | 是否必选 | 说明          |
+| ------ | ------ | ---- | ----------- |
+| params | String | 是    | json格式，详情见下 |
 
+```javascript
+var params = {
+	appKey:,
+	secret:
+}
 ```
-var param = {
-		appKey:,//String,必选 申请应用后获得的AppKey
-		secret:,//String,必选 申请应用后获得的Secret
-	}
+各字段含义如下：
 
-```
+| 字段名称   | 类型     | 是否必选 | 说明             |
+| ------ | ------ | ---- | -------------- |
+| appKey | String | 是    | 申请应用后获得的AppKey |
+| secret | String | 是    | 申请应用后获得的Secret |
+
 **示例**
 
-```
+```javascript
 var data = {
-		appKey:"fjxvybmv65mh6qdcj5chwi6vaetsvvwuj7ey5gyh",
-		secret:"1c22d036487da0bd69c791788e5870e6"
+	appKey:"fjxvybmv65mh6qdcj5chwi6vaetsvvwuj7ey5gyh",
+	secret:"1c22d036487da0bd69c791788e5870e6"
 }
 uexUnisound.init(JSON.stringify(data));
-
 ```
 
 ### 🍭 updateRecognizerSettings  更新语音识别设置
 
-`uexUnisound.updateRecognizerSettings(param)`
+`uexUnisound.updateRecognizerSettings(params)`
 
 **说明**
 
@@ -70,15 +75,27 @@ uexUnisound.init(JSON.stringify(data));
 
 **参数**
 
-param是一个字典结构生成的json字符串,其key值如下表所示
+| 参数名称   | 参数类型   | 是否必选 | 说明           |
+| ------ | ------ | ---- | ------------ |
+| params | String | 是    | 接口所需数据，形式见下： |
 
-| 参数名称                 | 参数解释            | 参数类型   | 取值范围                                     | 默认值  |
-| -------------------- | --------------- | ------ | ---------------------------------------- | ---- |
-| frontTime            | 用户不说话的超时时间      | Number | 正整数 单位为毫秒                                | 3000 |
-| backTime             | 用户停止说话自动停止录音的时间 | Number | 正整数 单位为毫秒                                | 1000 |
-| rate                 | 录音采样率           | Number | 1-BANDWIDTH\_AUTO; 2-RATE\_8K; 3-RATE_16K; 详细说明见表末 | 3    |
-| languague            | 识别语言            | Number | 1-普通话 2-英语 3-粤语                          | 1    |
-| engine               | 识别领域选择          | Number | 1. "general":通用识别,2. "poi": 地名识别,3. "song": 歌名识别,4. "movietv":影视名识别,5. . "medical": 医药领域识别 | 1    |
+```javascript
+var params = {
+	frontTime:,
+	backTime:,
+	rate:,
+	language:,
+	engine:
+}
+```
+
+| 参数名称      | 参数解释            | 参数类型   | 取值范围                                     | 默认值  |
+| --------- | --------------- | ------ | ---------------------------------------- | ---- |
+| frontTime | 用户不说话的超时时间      | Number | 正整数 单位为毫秒                                | 3000 |
+| backTime  | 用户停止说话自动停止录音的时间 | Number | 正整数 单位为毫秒                                | 1000 |
+| rate      | 录音采样率           | Number | 1-BANDWIDTH\_AUTO; 2-RATE\_8K; 3-RATE_16K; 详细说明见表末 | 3    |
+| languague | 识别语言            | Number | 1-普通话 2-英语 3-粤语                          | 1    |
+| engine    | 识别领域选择          | Number | 1. "general":通用识别,2. "poi": 地名识别,3. "song": 歌名识别,4. "movietv":影视名识别,5. . "medical": 医药领域识别 | 1    |
 
 
 * 以上都是可选参数
@@ -88,18 +105,15 @@ param是一个字典结构生成的json字符串,其key值如下表所示
 
 **示例**
 
-```
+```javascript
 var data = {
 	frontTime:2500,
 	backTime:1500,
 	rate:2,
 	language:2,
-	engine:3,
-	recognizationTimeout:20,
-	needUnderstander:false
+	engine:3
 }
-
-uexUnisound.updateRecognizerSettings();
+uexUnisound.updateRecognizerSettings(JSON.stringify(data));
 ```
 
 ### 🍭 start  开始语音识别
@@ -122,9 +136,7 @@ uexUnisound.updateRecognizerSettings();
 **示例**
 
 ```
-
 uexUnisound.start();
-
 ```
 
 ### 🍭 stop  停止语音识别
@@ -142,10 +154,8 @@ uexUnisound.start();
 
 **示例**
 
-```
-
+```javascript
 uexUnisound.stop();
-
 ```
 
 ### 🍭 cancel  取消语音识别
@@ -165,14 +175,12 @@ uexUnisound.stop();
 **示例**
 
 ```
-
 uexUnisound.cancel();
-
 ```
 
 ### 🍭 runTextUnderstand 进行文本语义理解
 
-`uexUnisound.runTextUnderstand(param)`
+`uexUnisound.runTextUnderstand(params)`
 
 **说明**
 
@@ -180,29 +188,34 @@ uexUnisound.cancel();
 
 **参数**
 
-| 参数名称  | 参数类型   | 是否必选 | 说明                 |
-| ----- | ------ | ---- | ------------------ |
-| param | String | 是    | param是json字符串,详情见下 |
+| 参数名称   | 参数类型   | 是否必选 | 说明                  |
+| ------ | ------ | ---- | ------------------- |
+| params | String | 是    | params是json字符串,详情见下 |
 
-```
-var param = {
-	text:,//需要语义理解的文本
+```javascript
+var params = {
+	text:
 }
 ```
 
+各字段含义如下：
+
+| 字段名称 | 类型     | 是否必选 | 说明        |
+| ---- | ------ | ---- | --------- |
+| text | String | 是    | 需要语义理解的文本 |
+
 **示例**
 
-```
+```javascript
 var data = {
 	test:"我爱你"
 }
 uexUnisound.runTextUnderstand(JSON.stringify(data));
-
 ```
 
 ### 🍭 speaking 进行语音合成
 
-`uexUnisound.speaking(param)`
+`uexUnisound.speaking(params)`
 
 **说明**
 
@@ -215,25 +228,29 @@ uexUnisound.runTextUnderstand(JSON.stringify(data));
 
 **参数**
 
-| 参数名称  | 参数类型   | 是否必选 | 说明                 |
-| ----- | ------ | ---- | ------------------ |
-| param | String | 是    | param是json字符串,详情见下 |
+| 参数名称   | 参数类型   | 是否必选 | 说明                  |
+| ------ | ------ | ---- | ------------------- |
+| params | String | 是    | params是json字符串,详情见下 |
 
-```
-var param = {
-	text:,//需要语音合成的文本
+```javascript
+var params = {
+	text:
 }
 ```
-   
+
+各字段含义如下：
+
+| 字段名称 | 类型     | 是否必选 | 说明        |
+| ---- | ------ | ---- | --------- |
+| text | String | 是    | 需要语音合成的文本 |
 
 **示例**
 
-```
+```javascript
 var data = {
 	test:"你好"
 }
 uexUnisound.speaking(JSON.stringify(data));
-
 ```
 
 ### 🍭 cancelSpeaking 取消语音合成
@@ -251,10 +268,8 @@ uexUnisound.speaking(JSON.stringify(data));
 
 **示例**
 
-```
-
+```javascript
 uexUnisound.cancelSpeaking();
-
 ```
 
 
@@ -276,15 +291,18 @@ uexUnisound.cancelSpeaking();
 
 无
 
+**平台支持**
+
+iOS7.0+
+
 **示例**
 
-```
+```javascript
 window.uexOnload = function(type){
 	uexUnisound.onRecognizerStart = function(){
 		alert("语音识别开始");
 	}
 }
-
 ```
 
 ### 🍭 onSpeechStart 检测到开始说话的监听方法
@@ -300,17 +318,16 @@ window.uexOnload = function(type){
 **参数**
 
 无
- 
+
 
 **示例**
 
-```
+```javascript
 window.uexOnload = function(type){
 	uexUnisound.onSpeechStart = function(){
 		alert("开始录音了");
 	}
 }
-
 ```
 
 ### 🍭 onReceiveRecognizerResult 收到语音识别结果的监听方法
@@ -332,22 +349,28 @@ window.uexOnload = function(type){
 | ----- | ------ | ---- | ------------------ |
 | param | String | 是    | param是json字符串,详情见下 |
 
-```
+```javascript
 var param = {
-	result:,//String 必选 识别返回的文字结果
-	isLast:,//Boolean 必选 是不是最后一次返回文字  true/false
+	result:,
+	isLast:
 }
 ```
+
+各字段含义如下：
+
+| 字段名称   | 类型      | 说明                      |
+| ------ | ------- | ----------------------- |
+| result | String  | 识别返回的文字结果               |
+| isLast | Boolean | 是不是最后一次返回文字  true/false |
 
 **示例**
 
-```
+```javascript
 window.uexOnload = function(type){
-	uexUnisound.onReceiveRecognizerResult = function(info){
-		alert(info);
+	uexUnisound.onReceiveRecognizerResult = function(param){
+		alert(param);
 	}
 }
-
 ```
 
 ### 🍭 onEnd 语音识别任务结束的监听方法
@@ -364,10 +387,10 @@ window.uexOnload = function(type){
 | ----- | ------ | ---- | ------------------ |
 | param | String | 是    | param是json字符串,详情见下 |
 
-```
+```javascript
 var param = {
-	result:,//Number 必选 详细说明见下
-	}
+	result://Number 必选 详细说明见下
+}
 ```
 
 | result | 说明            |
@@ -383,13 +406,12 @@ var param = {
 
 **示例**
 
-```
+```javascript
 window.uexOnload = function(type){
 	uexUnisound.onEnd = function(info){
 		alert(info);
 	}
 }
-
 ```
 ### 🍭 onVADTimeout 录音超时的监听方法
 
@@ -406,13 +428,12 @@ window.uexOnload = function(type){
 
 **示例**
 
-```
+```javascript
 window.uexOnload = function(type){
 	uexUnisound.onVADTimeout = function(){
 		alert("录音超时");
 	}
 }
-
 ```
 
 ### 🍭 onUpdateVolume 录音过程中音量大小的监听方法
@@ -431,22 +452,21 @@ window.uexOnload = function(type){
 | ----- | ------ | ---- | ------------------ |
 | param | String | 是    | param是json字符串,详情见下 |
 
-```
+```javascript
 var param = {
 	volume;//Number 必选 录音时的音量大小 0~100
-	}
+}
 ```
 
 **示例**
 
-```
+```javascript
 window.uexOnload = function(type){
 	uexUnisound.onUpdateVolume = function(info){
 		//alert(info);
 		//不建议alert调试此方法,会中断录音
 	}
 }
-
 ```
 
 ### 🍭 onReceiveUnderstanderResult 收到语义理解结果的监听方法
@@ -463,10 +483,10 @@ window.uexOnload = function(type){
 | ----- | ------ | ---- | ------------------ |
 | param | String | 是    | param是json字符串,详情见下 |
 
-```
+```javascript
 var param = {
 	stringResult:,//String 必选 请求返回的结果,json字符串
-	responseText:,//String 必选 json中的text项
+	responseText://String 必选 json中的text项
 }
 ```
 
@@ -475,13 +495,12 @@ var param = {
 
 **示例**
 
-```
+```javascript
 window.uexOnload = function(type){
 	uexUnisound.onReceiveRecognizerResult = function(info){
 		alert(info);
 	}
 }
-
 ```
 
 ### 🍭 onSpeakingStart 语音合成开始的监听方法
@@ -498,13 +517,12 @@ window.uexOnload = function(type){
 
 **示例**
 
-```
+```javascript
 window.uexOnload = function(type){
 	uexUnisound.onSpeakingStart = function(){
 		alert("语音合成开始");
 	}
 }
-
 ```
 
 ### 🍭 onSpeakingFinish 语音合成结束的监听方法
@@ -521,13 +539,12 @@ window.uexOnload = function(type){
 
 **示例**
 
-```
+```javascript
 window.uexOnload = function(type){
 	uexUnisound.onSpeakingFinish = function(){
 		alert("语音合成结束");
 	}
 }
-
 ```
 
 ### 🍭 onSpeakingCancel 语音合成被取消的监听方法
@@ -544,13 +561,12 @@ window.uexOnload = function(type){
 
 **示例**
 
-```
+```javascript
 window.uexOnload = function(type){
 	uexUnisound.onSpeakingCancel = function(){
 		alert("语音合成被取消");
 	}
 }
-
 ```
 
 ### 🍭 onSpeakingErrorOccur 语音合成过程出错的监听方法
@@ -567,21 +583,20 @@ window.uexOnload = function(type){
 | ----- | ------ | ---- | ------------------ |
 | param | String | 是    | param是json字符串,详情见下 |
 
-```
+```javascript
 var param = {
-	errorStr:,//String 可选 错误描述
+	errorStr://String 可选 错误描述
 }
 ```
 
 **示例**
 
-```
+```javascript
 window.uexOnload = function(type){
 	uexUnisound.onSpeakingErrorOccur = function(info){
 		alert(info);
 	}
 }
-
 ```
 
 # 3、更新历史
