@@ -41,34 +41,45 @@
 
 **参数**
 
-itemArray=list\<shortcutItem\> 是由shortcutItem结构组成数组转换而成的json字符串
+| 参数名称      | 参数类型   | 是否必选 | 说明                                       |
+| --------- | ------ | ---- | ---------------------------------------- |
+| itemArray | String | 是    | list\<shortcutItem\>,由shortcutItem结构组成数组转换而成的json字符串，shortcutItem形式见下： |
 
-shortcutItem 结构如下所示
-
-```
+```javascript
 var shortcutItem={
-	type:,//(必选,String) 任意字符串,作为此shortcut的唯一标识符使用
-	title:,//(必选,String) 此shortcut的标题
-	subtitle:,//(可选,String)此shortcut的子标题
-	iconType:,//(可选,String)此shortcut的系统图标类型
-	iconFile:,// (可选,String)此shortcut的自定义图标文件名
-	info:,//(可选,Dictionary) 此shortcut的预设信息,字典格式
-	}
+	type:,
+	title:,
+	subtitle:,
+	iconType:,
+	iconFile:,
+	info:
+}
 ```
+
+各字段含义如下：
+
+| 字段名称     | 类型     | 是否必选 | 说明                        |
+| -------- | ------ | ---- | ------------------------- |
+| type     | String | 是    | 任意字符串,作为此shortcut的唯一标识符使用 |
+| title    | String | 是    | 标题                        |
+| subtitle | String | 否    | 子标题                       |
+| iconType | String | 否    | 系统图标类型                    |
+| iconFile | String | 否    | 自定义图标文件名                  |
+| info     | Object | 否    | 预设信息                      |
 
 * 关于图标
-	* 仅设置iconType时会显示系统图标,具体iconType的值请参考[术语表-shortcutIconTypes](#shortcutIconTypes)
-	* 设置iconFile时会显示自定义图标,此时iconType的值会被忽略
-	* iconType和iconType都没设置或者设置失败时,不会显示图标
+  * 仅设置iconType时会显示系统图标,具体iconType的值请参考[术语表-shortcutIconTypes](#shortcutIconTypes)
+  * 设置iconFile时会显示自定义图标,此时iconType的值会被忽略
+  * iconType和iconType都没设置或者设置失败时,不会显示图标
 * 关于预设信息
-	* 以key - value形式储存一些开发者自己定义的字符串
-	* 这些信息会在用户点击此shortcut时回调给网页
+  * 以key - value形式储存一些开发者自己定义的字符串
+  * 这些信息会在用户点击此shortcut时回调给网页
 
 
 
 **示例**
 
-```
+```javascript
 var data=[
 	{
 		type:"dynamic1",
@@ -90,20 +101,16 @@ var data=[
 		key3:"value3",
 		key4:"value4"
 		}
-	}
-                  
+	}               
 ];
          
 uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
-
 ```
 
 ##2.2 监听方法
 
 ### 🍭 onLoadByShortcutClickEvent 程序被点击3DTouch Shortcut调起的监听方法
 
-  
-  
 `  uex3DTouch.onLoadByShortcutClickEvent(data)`
 
 **说明:**
@@ -112,27 +119,34 @@ uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 
 **参数:**
 
- 
-data是json格式的字符串,详细内容如下
+| 参数名称 | 参数类型   | 说明             |
+| ---- | ------ | -------------- |
+| data | String | json格式数据，形式见下： |
 
-```
+```javascript
 var data = {
-	type:,//(必选,String) shortcut的type(唯一标识符)
-	status:,//(必选,Number) APP被唤醒的方式  0-APP被打开 1-APP从后台恢复
-	info:,//(可选,Dictionary) shortcut预设的数据字典
-}
-	
+	type:,
+	status:,
+	info:
+}	
 ```
+
+各字段含义如下：
+
+| 字段名称   | 类型     | 说明                             |
+| ------ | ------ | ------------------------------ |
+| type   | String | 唯一标识符                          |
+| status | Number | APP被唤醒的方式  0-APP被打开 1-APP从后台恢复 |
+| info   | Object | 预设信息                           |
 
 
 **示例:**
 
-  
-```
-uex3DTouch.onLoadByShortcutClickEvent = function(data){
-	alert("data");
-}
 
+```javascript
+uex3DTouch.onLoadByShortcutClickEvent = function(data){
+	alert(data);
+}
 ```
 
 #3、术语表
@@ -150,17 +164,17 @@ uex3DTouch.onLoadByShortcutClickEvent = function(data){
 #### 静态shortcut和动态shortcut
 * shortcut分2种,静态shortcut和动态shortcut
 * 静态shortcut
-	* 不可通过应用内部的API更改
-	* 储存在应用的配置文件中,因此在用户安装应用后即可直接使用
-	* 优先级高
+  * 不可通过应用内部的API更改
+  * 储存在应用的配置文件中,因此在用户安装应用后即可直接使用
+  * 优先级高
 * 动态shortcut
-	* 可以通过接口在应用内部修改
-	* 在应用内设置并储存,因此至少要打开一次应用,才能设置并使用
-	* 优先级低
+  * 可以通过接口在应用内部修改
+  * 在应用内设置并储存,因此至少要打开一次应用,才能设置并使用
+  * 优先级低
 * 优先级
-	* 优先级高的shortcut会排在菜单前列
-	* 由于菜单只容许至多4个shortcut,因此其他设置的shortcut将无效
-	* 比如,若你设置了3个静态shortcut和2个动态shortcut,那么第二个动态shortcut将不会被显示
+  * 优先级高的shortcut会排在菜单前列
+  * 由于菜单只容许至多4个shortcut,因此其他设置的shortcut将无效
+  * 比如,若你设置了3个静态shortcut和2个动态shortcut,那么第二个动态shortcut将不会被显示
 
 ### 🍭 shortcutIconTypes
 
@@ -169,37 +183,37 @@ uex3DTouch.onLoadByShortcutClickEvent = function(data){
 * 在设置系统图标时,直接传shortcutIconType关键字即可.
 * 比如想要设置某个动态shortcut的图标为系统的邮箱图标,则iconType应传值`"UIApplicationShortcutIconTypeMail"`
 
-|shortcutIconType关键字|图标说明|备注|
-| -----| -----| ----- |
-| UIApplicationShortcutIconTypeCompose |评论 ||
-| UIApplicationShortcutIconTypePlay| 播放 ||
-| UIApplicationShortcutIconTypePause|暂停|
-| UIApplicationShortcutIconTypeAdd |添加|
-| UIApplicationShortcutIconTypeLocation |定位|
-| UIApplicationShortcutIconTypeSearch |搜索|
-| UIApplicationShortcutIconTypeShare |分享|
-| UIApplicationShortcutIconTypeProhibit |禁止|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeContact |联系人|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeHome |主页|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeMarkLocation |定位标注|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeFavorite |收藏|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeLove |喜欢|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeCloud |云|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeInvitation |下载|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeConfirmation |确定|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeMail |邮件|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeMessage |消息|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeDate |日期|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeTime |事件|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeCapturePhoto |照片|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeCaptureVideo |视频|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeTask |任务|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeTaskCompleted |任务完成|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeAlarm |闹钟|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeBookmark |图书|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeShuffle |乱序|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeAudio |声音|仅iOS 9.1+支持|
-| UIApplicationShortcutIconTypeUpdate|升级|仅iOS 9.1+支持|
+| shortcutIconType关键字                      | 图标说明 | 备注          |
+| ---------------------------------------- | ---- | ----------- |
+| UIApplicationShortcutIconTypeCompose     | 评论   |             |
+| UIApplicationShortcutIconTypePlay        | 播放   |             |
+| UIApplicationShortcutIconTypePause       | 暂停   |             |
+| UIApplicationShortcutIconTypeAdd         | 添加   |             |
+| UIApplicationShortcutIconTypeLocation    | 定位   |             |
+| UIApplicationShortcutIconTypeSearch      | 搜索   |             |
+| UIApplicationShortcutIconTypeShare       | 分享   |             |
+| UIApplicationShortcutIconTypeProhibit    | 禁止   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeContact     | 联系人  | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeHome        | 主页   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeMarkLocation | 定位标注 | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeFavorite    | 收藏   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeLove        | 喜欢   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeCloud       | 云    | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeInvitation  | 下载   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeConfirmation | 确定   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeMail        | 邮件   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeMessage     | 消息   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeDate        | 日期   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeTime        | 事件   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeCapturePhoto | 照片   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeCaptureVideo | 视频   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeTask        | 任务   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeTaskCompleted | 任务完成 | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeAlarm       | 闹钟   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeBookmark    | 图书   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeShuffle     | 乱序   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeAudio       | 声音   | 仅iOS 9.1+支持 |
+| UIApplicationShortcutIconTypeUpdate      | 升级   | 仅iOS 9.1+支持 |
 
 #4、更新历史
 
@@ -222,9 +236,9 @@ API版本: `uex3DTouch-4.0.0`
 
 * APP可以不使用iOS系统的内置图标,改用自己定义的图标,比如微信的"扫一扫"对应的二维码图标
 * 自定义图标要求
-	* 分辨率为35*35 单位:像素
-	* 正方形
-	* 单色(透明和非透明)
+  * 分辨率为35*35 单位:像素
+  * 正方形
+  * 单色(透明和非透明)
 * 实际使用时,iOS系统会对自定义图标文件进行处理,丢掉所有的色彩信息,然后把透明度为1(100%)的像素设置为黑色,透明度<1的像素设置为透明色
 * 因此,若你的图片文件没有alpha通道(比如.jpg),图标将会变成纯黑色的方块.
 * 建议图标格式:.png
@@ -275,10 +289,10 @@ API版本: `uex3DTouch-4.0.0`
 ```
 
 * 其中
-	* `<!-----   ----->`内为注释,实际使用时不用写
-	* `<key>UIApplicationShortcutItemXXX</key>`为系统规定的key值,不可修改
-	* `<key>UIApplicationShortcutItemUserInfo</key>`对应的dict内,为自定义info字典,key值可任意命名
-	* 所有的`<string></string>`请按注释要求设置
+  * `<!-----   ----->`内为注释,实际使用时不用写
+  * `<key>UIApplicationShortcutItemXXX</key>`为系统规定的key值,不可修改
+  * `<key>UIApplicationShortcutItemUserInfo</key>`对应的dict内,为自定义info字典,key值可任意命名
+  * 所有的`<string></string>`请按注释要求设置
 * 再给几个栗子以供参考⬇️⬇️⬇️
 
 **仅有一个搜索标题,最简单的ShortcutDict**
