@@ -27,22 +27,7 @@
 #2、API概览
 ##2.1、方法
 
-### 🍭 <del>   init  初始化 </del>(已废弃,插件现在自动初始化)
-
-`uexJPush.init()`
-
-**参数**
-
-```
-无
-```
-
-**示例**
-
-```
-uexJPush.init();
-```
-### 🍭 stopPush  停止推送服务
+### 🍭 stopPush  停止推送服务,仅支持Android
 
 `uexJPush.stopPush()`
 
@@ -52,20 +37,13 @@ uexJPush.init();
 无
 ```
 
-**平台支持**  
-Android 2.2+
-
-**版本支持**  
-Android 3.0.0+
-
-
 **示例**
 
 ```
 uexJPush.stopPush();
 ```
 
-### 🍭 resumePush  恢复推送服务
+### 🍭 resumePush  恢复推送服务，仅支持Android
 
 `uexJPush.resumePush()`
 
@@ -74,12 +52,6 @@ uexJPush.stopPush();
 ```
 无
 ```
-
-**平台支持**  
-Android 2.2+
-
-**版本支持**  
-Android 3.0.0+
 
 
 **示例**
@@ -96,7 +68,12 @@ uexJPush.resumePush();
 
 设置别名, 操作完成后会回调`callbackFunction`
 
-**参数**
+**参数:**
+
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| json | Object | 是    | 传入参数 |
+| callBackFunction | Function | 是    | 回调函数 |
 
 ```
 var json={
@@ -107,25 +84,32 @@ var json={
 	有效的别名组成:字母(区分大小写)、数字、下划线、汉字.
 	限制:alias 命名长度限制为 40 字节.(判断长度需采用UTF-8编码)
 ```
+**回调参数:**
 
-`callbackFunction`的参数是JSON对象类型,格式如下:
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| error | Number | 是    | 0-成功,非0-失败 具体失败代码解释见文末附录 |
+| data | Object | 是    | 回调数据 |
 
 ```
-{
-    result://0-成功,其他-失败 具体失败代码解释见文末附录
-    alias://设置的别名
-};
+var data = {
+       alias://设置的别名
+  };
 ```
 
 **示例**
 
 ```
-var params = {
+var json = {
 	alias:"alias22"
 };
-var data = JSON.stringify(params);
-uexJPush.setAlias(data, function(data) {
-	alert(JSON.stringify(data));
+uexJPush.setAlias(json, function(error,data) {
+   if(!error){
+        alert(JSON.stringify(data));
+   }else{
+        alert("设置失败");
+   }
+	
 });
 ```
 
@@ -139,6 +123,11 @@ uexJPush.setAlias(data, function(data) {
 
 **参数**
 
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| json | Object | 是    | 传入参数 |
+| callBackFunction | Function | 是    | 回调函数 |
+
 ```
 var json={
 	tags:,//Set<String>  设置的标签
@@ -149,11 +138,15 @@ var json={
 	限制:每个tag命名长度限制为 40 字节,最多支持设置 100 个 tag,但总长度不得超过1K字节.(判断长度需采用UTF-8编码)
 ```
 
-`callbackFunction`的参数是JSON对象类型,格式如下:
+**回调参数:**
+
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| error | Number | 是    | 0-成功,非0-失败 具体失败代码解释见文末附录 |
+| data | Object | 是    | 回调数据 |
 
 ```
 {
-    result://0-成功,其他-失败 具体失败代码解释见文末附录
     tags://设置的标签
 }
 ```
@@ -162,12 +155,15 @@ var json={
 
 ```
 var tags=new Array("tag1","tag2","tag3");
-var params = {
+var json = {
 	tags:tags
 };
-var data = JSON.stringify(params);
-uexJPush.setTags(data, function(data) {
-	alert(JSON.stringify(data));
+uexJPush.setTags(json, function(error,data) {
+	if(!error){
+        alert(JSON.stringify(data));
+   }else{
+        alert("设置失败");
+   }
 });
 ```
 
@@ -181,6 +177,11 @@ uexJPush.setTags(data, function(data) {
 
 **参数**
 
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| json | Object | 是    | 传入参数 |
+| callBackFunction | Function | 是    | 回调函数 |
+
 ```
 var json={
 	alias:,//string 设置的别名
@@ -188,11 +189,15 @@ var json={
 	}
 ```
 
-`callbackFunction`的参数是JSON对象类型,格式如下:
+**回调参数:**
+
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| error | Number | 是    | 0-成功,非0-失败 具体失败代码解释见文末附录 |
+| data | Object | 是    | 回调数据 |
 
 ```
 {
-    result://0-成功,其他-失败 具体失败代码解释见文末附录
     alias://设置的别名
     tags://设置的标签
 };
@@ -202,13 +207,16 @@ var json={
 
 ```
 var tags=new Array("tag4","tag5","tag6");
-var params = {
+var json = {
 	alias:"alias66",
 	tags:tags
 };
-var data = JSON.stringify(params);
-uexJPush.setAliasAndTags(data, function(data) {
-	alert(JSON.stringify(data));
+uexJPush.setAliasAndTags(json, function(error,data) {
+	if(!error){
+        alert(JSON.stringify(data));
+   }else{
+        alert("设置失败");
+   }
 });
 ```
 
@@ -233,7 +241,7 @@ var id = uexJPush.getRegistrationID();
 alert(id);
 ```
 
-### 🍭 clearAllNotifications 清除所有通知
+### 🍭 clearAllNotifications 清除所有通知,仅支持Android
 
 `uexJPush.clearAllNotifications()`
 
@@ -241,15 +249,7 @@ alert(id);
 
 ```
 无
-```
-
-**平台支持**
-
-Android 2.2+    
-
-**版本支持**
-
-Android 3.0.0+    
+```   
 
 **示例**
 
@@ -257,7 +257,7 @@ Android 3.0.0+
 uexJPush.clearAllNotifications();
 ```
 
-### 🍭 clearNotificationById  根据Id清除某条通知
+### 🍭 clearNotificationById  根据Id清除某条通知,仅支持Android
 
 `uexJPush.clearNotificationById(json)`
 
@@ -269,11 +269,6 @@ var json={
 }
 ```
 
-**平台支持**  
-Android 2.2+
-
-**版本支持**  
-Android 3.0.0+
 
 **示例**
 
@@ -298,13 +293,23 @@ uexJPush.clearNotificationById(data);
 ```
 无
 ```
-`callbackFunction`的参数是`Number`类型, 0: 已连上, 1: 未连接
+
+**回调参数:**
+
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| error | Number | 是    | 0: 已连上, 1: 未连接 |
 
 **示例**
 
 ```
-uexJPush.getConnectionState(function(data) {
-	alert(data);
+uexJPush.getConnectionState(function(error) {
+	if(!error){
+        alert("已连上");
+   }else{
+        alert("未连接");
+   }
+
 });
 ```
 
@@ -313,6 +318,10 @@ uexJPush.getConnectionState(function(data) {
 `uexJPush.addLocalNotification(json)`
 
 **参数**
+
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| json | Object | 是    | 传入参数 |
 
 ```
 var json={
@@ -328,7 +337,7 @@ var json={
 **示例**
 
 ```
-var params = {
+var json = {
 	builderId:0,
 	title:"这是title",
 	content:"这是内容",
@@ -336,8 +345,7 @@ var params = {
 	notificationId:3,
 	broadCastTime:10000
 };
-var data = JSON.stringify(params);
-uexJPush.addLocalNotification(data);
+uexJPush.addLocalNotification(json);
 ```
 
 ### 🍭 removeLocalNotification 移除一个本地通知
@@ -345,6 +353,10 @@ uexJPush.addLocalNotification(data);
 `uexJPush.removeLocalNotification(json)`
 
 **参数**
+
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| json | Object | 是    | 传入参数 |
 
 ```
 var json={
@@ -356,11 +368,10 @@ var json={
 
 ```
 var notificationId=3;
-var params = {
+var json = {
 	notificationId:notificationId
 };
-var data = JSON.stringify(params);
-uexJPush.removeLocalNotification(data);
+uexJPush.removeLocalNotification(json);
 ```
 
 ### 🍭 clearLocalNotifications  移除所有的通知
@@ -379,7 +390,7 @@ uexJPush.removeLocalNotification(data);
 uexJPush.clearLocalNotifications();
 ```
 
-### 🍭 setBadgeNumber  设置badge值
+### 🍭 setBadgeNumber  设置badge值,仅支持iOS
 
 `uexJPush.setBadgeNumber(badgeNumber)`
 
@@ -389,12 +400,6 @@ uexJPush.clearLocalNotifications();
 | ----------- | ------ | ---- | --------------- |
 | badgeNumber | Number | 是    | 要设置的badge值,非负整数 |
 
-**平台支持**  
-iOS 6.0+
-
-**版本支持**  
-iOS 3.0.4+
-
 **示例**
 
 ```
@@ -403,7 +408,7 @@ uexJPush.setBadgeNumber(0);
 
 ```
 
-### 🍭 disableLocalNotificationAlertView  禁止前台本地通知提示框
+### 🍭 disableLocalNotificationAlertView  禁止前台本地通知提示框,仅支持iOS
 
 `uexJPush.disableLocalNotificationAlertView(flag)`
 
@@ -419,13 +424,6 @@ uexJPush.setBadgeNumber(0);
 | 参数名称 | 参数类型   | 是否必选 | 说明          |
 | ---- | ------ | ---- | ----------- |
 | flag | Number | 是    | 1-禁止  其他-允许 |
-
-**平台支持**  
-iOS 6.0+
-
-**版本支持**  
-iOS 3.0.4+
-
 
 **示例**
 
@@ -587,7 +585,7 @@ window.uexOnload=function(type){
 #3、附录
 
 ##3.1、别名/标签 错误代码解释
-|result|描述|详细解释|
+|error|描述|详细解释|
 |-----|-----|-----|
 |6001|无效的设置,tag/alias 不应参数都为 null	
 |6002|	设置超时	|建议重试
