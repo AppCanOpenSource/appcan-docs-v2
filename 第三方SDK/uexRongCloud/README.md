@@ -118,7 +118,7 @@ uexRongCloud.init({
 ##2.2、登录与登出
 
 ***
-### 🍭 connect(param)   与融云服务器建立连接
+### 🍭 connect  与融云服务器建立连接
 
 `uexRongCloud.connect(json,callback)`
 
@@ -289,36 +289,45 @@ uexRongCloud.sendMessage({
 });
 ```
 
-### 🍭 onMessageReceived(param) 收到消息
+### 🍭 onMessageReceived 收到消息
 
-param为json字符串
+`uexRongClound.onMessageReceived(json)`
 
-```
-var params={
-    message:
-        {
+**参数：**
+
+`json`为JSON对象,各字段如下:
+
+```javascript
+var json = {
+    message: {
         //
-            content: {
-                text: ,//文本内容
-                extra://消息的附加字段
-            }, // 消息内容
-            conversationType: , // 会话类型
-            messageDirection:, // String 消息方向 发送:SEND  接收:RECEIVE
-            targetId: , // 对应消息发送者的 userId
-            objectName:, //消息类型
-            sentStatus:, //Number,发送状态, 10:发送中,20:发送失败,30:已发送成功,40:对方已接收,50: 对方已阅读,60:对方已销毁
-            senderUserId:, // 发送者 userId
-            messageId:, // 本地消息 Id
-            sentTime:, // 发送消息的时间戳,从1970年1月1日0点0分0秒开始到现在的毫秒数
-            receivedTime: // 收到消息的时间戳,从1970年1月1日0点0分0秒开始到现在的毫秒数
-        },
-        left: 0 // 剩余未拉取的消息数目
+        content: {
+            text: , //文本内容
+            extra: //消息的附加字段
+        }, // 消息内容
+        conversationType: , // 会话类型
+        messageDirection: , // String 消息方向 发送:SEND  接收:RECEIVE
+        targetId: , // 对应消息发送者的 userId
+        objectName: , //消息类型
+        sentStatus: , //Number,发送状态, 10:发送中,20:发送失败,30:已发送成功,40:对方已接收,50: 对方已阅读,60:对方已销毁
+        senderUserId: , // 发送者 userId
+        messageId: , // 本地消息 Id
+        sentTime: , // 发送消息的时间戳,从1970年1月1日0点0分0秒开始到现在的毫秒数
+        receivedTime: // 收到消息的时间戳,从1970年1月1日0点0分0秒开始到现在的毫秒数
+    },
+    left: 0 // 剩余未拉取的消息数目
 }
-
 ```
-### message content字段
 
-```
+
+| 参数名称    | 参数类型   | 说明         |
+| ------- | ------ | ---------- |
+| message | String | 消息         |
+| left    | Number | 剩余未拉取的消息数目 |
+
+ **`message.content`字段会根据`objectName`对应不同内容，如下所示：**
+
+```javascript
     //objectName 为"RC:TxtMsg"时(文字消息)
     text:,//消息的文字内容
     extra:,//消息的附加字段
@@ -328,7 +337,6 @@ var params={
     duration:,//Number类型 语音消息的时长,单位为秒
     extra:,//消息的附加字段
      
-    
     //objectName 为"RC:ImgMsg"时(图片消息) 
     imgPath:,//图片的本地路径  
     thumbPath:,//缩略图
@@ -358,17 +366,21 @@ var params={
 ##2.3、会话功能
 ***
 
-### 🍭 getConversationList() 获取会话列表
+### 🍭 getConversationList 获取会话列表
 
-```
-var param=getConversationList();
 
-```
+`var param=uexRongClound.getConversationList();`
 
-param为json字符串
+**参数**
 
-```
-var params={
+无
+
+**返回值**
+
+返回值为json对象，各字段如下所示：
+
+```javascript
+var param={
     resultCode:,// Number  0 返回成功,其他为失败
     conversations:[
         {
@@ -392,30 +404,33 @@ var params={
         }
     ]
 }
-
 ```
 
-### 🍭 getConversation(json) 获取某一会话信息
+### 🍭 getConversation 获取某一会话信息
 
-param为json字符串
+`uexRongClound.getConversation(json)`
 
-```
+**参数**
+
+json为Json对象
+
+```javascript
 var json={
      conversationType:,//消息的会话类型
      targetId:,//消息目标 Id
 }
-
 ```
 
-```
+**返回值**
+
+```javascript
 var param=getConversation(json);
-
 ```
 
-param为json字符串
+返回值param为json对象,字段如下所示：
 
-```
-var params={
+```javascript
+var param={
     resultCode:,// 0 返回成功,其他为失败
     conversationTitle:, // 会话标题
     conversationType:, // 会话类型
@@ -437,143 +452,164 @@ var params={
 } 
 ```
 
-### 🍭 removeConversation(param) 从会话列表中移除某一会话,但是不删除会话内的消息
+### 🍭 removeConversation 从会话列表中移除某一会话,但是不删除会话内的消息
+
+`uexRongClound.removeConversation(json,callback)`
+
+**参数**
 
 param为json字符串
 
-```
-var params={
+```javascript
+var param={
     conversationType:,//消息的会话类型
     targetId:,//消息目标 Id
 }
-
 ```
 
-### 🍭 cbRemoveConversation(param) removeConversation的回调
+**回调参数**
 
-param为json字符串
-
-```
-var params={
-    resultCode://Number 0表示成功,其他为失败
-}
-
+```javascript
+var callback=function(error,data){}
 ```
 
-### 🍭 clearConversations(param) 清空所有会话及会话消息
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
 
-param为json字符串
+### 🍭 clearConversations 清空所有会话及会话消息
 
-```
-var params={
+`uexRongClound.clearConversations(param,callback)`
+
+**参数**
+
+`param`为json,`callback` 为Function
+
+```javascript
+var param={
     conversationTypes:,//消息的会话类型
 }
-
 ```
 
-### 🍭 cbClearConversations(param) clearConversations的回调
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
 
-param为json字符串
+### 🍭 setConversationToTop 清空所有会话及会话消息
 
-```
-var params={
-    resultCode://Number 0表示成功,其他为失败
-}
+`uexRongClound.setConversationToTop(param,callback)`
 
-```
+**参数**
 
-### 🍭 setConversationToTop(param) 清空所有会话及会话消息
+`param`为json字符串,`callback` 为Function
 
-param为json字符串
-
-```
-var params={
+```javascript
+var param={
     conversationType:,//消息的会话类型
     targetId:,//消息目标 Id
     isTop:,//true 或false 是否置顶
 }
-
 ```
 
-### 🍭 cbSetConversationToTop(param) setConversationToTop 的回调
+**回调参数:**
 
-param为json字符串
-
-```
-var params={
-    resultCode://Number 0表示成功,其他为失败
-}
-
+```javascript
+var callback=function (error,data){}
 ```
 
-### 🍭 getConversationNotificationStatus(param) 获取某一会话的通知状态 
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
 
-param为json字符串
+### 🍭 getConversationNotificationStatus 获取某一会话的通知状态 
 
-```
-var params={
+`uexRongClound.getConversationNotificationStatus(param,callback)`
+
+**参数**
+
+`param`为json字符串,`callback` 为Function
+
+```javascript
+var param={
     conversationType:,//消息的会话类型
     targetId:,//消息目标 Id
 }
-
 ```
 
-### 🍭 cbGetConversationNotificationStatus(param) getConversationNotificationStatus 的回调
+**回调参数:**
 
-param为json字符串
-
-```
-var params={
-    resultCode://Number 0表示成功,其他为失败
-    status:,//Number 状态码,0:免打扰 / 1:提醒
-}
-
+```javascript
+var callback=function (error,data){}
 ```
 
-### 🍭 setConversationNotificationStatus(param) 设置某一会话的通知状态
+| 参数名称  | 类型     | 说明               |
+| ----- | ------ | ---------------- |
+| error | Number | 0表示成功,非0表示失败     |
+| data  | Number | 状态码,0:免打扰 / 1:提醒 |
 
-param为json字符串
 
-```
-var params={
+
+### 🍭 setConversationNotificationStatus 设置某一会话的通知状态
+
+`uexRongClound.setConversationNotificationStatus(param,callback)`
+
+**参数**
+
+`param`为json字符串,`callback` 为Function
+
+```javascript
+var param={
     conversationType:,//消息的会话类型
     targetId:,//消息目标 Id
     status:,//Number 状态码,0:免打扰 / 1:提醒
 }
-
 ```
 
-### 🍭 cbSetConversationNotificationStatus(param) setConversationNotificationStatus 的回调
+**回调参数:**
 
-param为json字符串
-
-```
-var params={
-    resultCode://Number 0表示成功,其他为失败
-    status:,//Number 状态码,0:免打扰 / 1:提醒
-}
-
+```javascript
+var callback=function (error,data){}
 ```
 
-### 🍭 getLatestMessages(param) 获取某一会话的最新消息记录
+| 参数名称  | 类型     | 说明               |
+| ----- | ------ | ---------------- |
+| error | Number | 0表示成功,非0表示失败     |
+| data  | Number | 状态码,0:免打扰 / 1:提醒 |
 
-param为json字符串
+### 🍭 getLatestMessages 获取某一会话的最新消息记录
 
-```
-var params={
+`uexRongClound.getLatestMessages(param,callback)`
+
+**参数**
+
+`param`为json字符串,`callback` 为Function
+
+```javascript
+var param={
     conversationType:,//消息的会话类型
     targetId:,//消息目标 Id
     count:,//Number 要获取的消息数量
 }
-
 ```
 
-### 🍭 cbGetLatestMessages(param) getLatestMessages 的回调
+**回调参数:**
 
-param为json字符串
-
+```javascript
+var callback=function (error,data){}
 ```
-var params=[
+
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | json   | 消息记录         |
+
+`data`各字段如下：
+
+```javascript
+var data=[
         {
             content: {
                 text: ,
@@ -591,29 +627,40 @@ var params=[
             receivedTime: // 收到消息的时间戳,从1970年1月1日0点0分0秒开始到现在的毫秒数
     }
 ]
-
 ```
 
-### 🍭 getHistoryMessages(param) 获取某一会话的历史消息记录
+### 🍭 getHistoryMessages 获取某一会话的历史消息记录
 
-param为json字符串
+`uexRongClound.getHistoryMessages(param,callback)`
 
-```
-var params={
+**参数**
+
+`param`为json字符串,`callback` 为Function
+
+```javascript
+var param={
     conversationType:,//消息的会话类型
     targetId:,//消息目标 Id
     count:,//Number 要获取的消息数量
     oldestMessageId:,// Number 最后一条消息的 Id,获取此消息之前的 count 条消息,没有消息第一次调用应设置为: -1
 }
-
 ```
 
-### 🍭 cbGetHistoryMessages(param) getHistoryMessages 的回调
+**回调参数:**
 
-param为json字符串
-
+```javascript
+var callback=function (error,data){}
 ```
-var params=[
+
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | Json对象 | 历史消息记录       |
+
+`data`各字段如下：
+
+```javascript
+var data=[
         {
             content: {
                 text: ,
@@ -631,105 +678,132 @@ var params=[
             receivedTime: // 收到消息的时间戳,从1970年1月1日0点0分0秒开始到现在的毫秒数
         }
 ]
-
 ```
 
-### 🍭 deleteMessages(param) 获取某一会话的历史消息记录
+### 🍭 deleteMessages 获取某一会话的历史消息记录
 
-param为json字符串
+`uexRongClound.deleteMessages(param,callback)`
+
+**参数**
+
+`param`为json字符串,`callback` 为Function
 
 ```
-var params={
+var param={
     messageIds:,//要删除的消息 Id 数组
 }
-
 ```
 
-### 🍭 cbDeleteMessages(param) deleteMessages 的回调
+**回调参数:**
 
-param为json字符串
-
-```
-var params={
-    resultCode://Number 0表示成功,其他为失败
-}
-
+```javascript
+var callback=function (error,data){}
 ```
 
-### 🍭 clearMessages(param) 清空某一会话的所有聊天消息记录
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
 
-param为json字符串
+
+
+### 🍭 clearMessages 清空某一会话的所有聊天消息记录
+
+`uexRongClound.clearMessages(param,callback)`
+
+**参数**
+
+`param`为json字符串,`callback` 为Function
 
 ```
-var params={
+var param={
     conversationType:,//消息的会话类型
     targetId:,//消息目标 Id
 }
-
 ```
 
-### 🍭 cbClearMessages(param) clearMessages 的回调
+**回调参数:**
 
-param为json字符串
-
-```
-var params={
-    resultCode://Number 0表示成功,其他为失败
-}
-
+```javascript
+var callback=function (error,data){}
 ```
 
-### 🍭 getTotalUnreadCount() 获取所有未读消息数
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
 
-```
+### 🍭 getTotalUnreadCount 获取所有未读消息数
+
+`uexRongCloud.getTotalUnreadCount()`
+
+**返回值**
+
+Number类型
+
+```javascript
 var count=uexRongCloud.getTotalUnreadCount();
 ```
 
-### 🍭 getUnreadCount(param) 获取来自某用户(某会话)的未读消息数
+### 🍭 getUnreadCount 获取来自某用户(某会话)的未读消息数
+
+`uexRongCloud.getUnreadCount(param)`
+
+**参数**
 
 param为json字符串
 
-```
-var params={
+```javascript
+var param={
     conversationType:,//消息的会话类型
     targetId:,//消息目标 Id
 }
-var count=uexRongCloud.getUnreadCount(JSON.stringify(params));
+var count=uexRongCloud.getUnreadCount(param);
 ```
 
-### 🍭 getUnreadCountByConversationTypes(param) 获取某(些)会话类型的未读消息数
+### 🍭 getUnreadCountByConversationTypes 获取某(些)会话类型的未读消息数
+
+`uexRongCloud.getUnreadCountByConversationTypes(prama)`
+
+**参数**
 
 param为json字符串
 
-```
+```javascript
 var params={
     conversationTypes:,//消息的会话类型,是ConversationType的数组
 }
-var count=uexRongCloud.getUnreadCountByConversationTypes(JSON.stringify(params));
+var count=uexRongCloud.getUnreadCountByConversationTypes(params);
 ```
 
-### 🍭 setMessageReceivedStatus(param) 设置接收到的消息状态
+### 🍭 setMessageReceivedStatus 设置接收到的消息状态
+
+`uexRongCloud.setMessageReceivedStatus(prama)`
+
+**参数**
 
 param为json字符串
 
-```
-var params={
+```javascript
+var param={
     messageId:,// Number 消息 Id
     receivedStatus:,//"UNREAD","READ","LISTENED","DOWNLOADED"
 }
-
 ```
 
-### 🍭 clearMessagesUnreadStatus(param) 清除某一会话的消息未读状态
+### 🍭 clearMessagesUnreadStatus 清除某一会话的消息未读状态
+
+`uexRongCloud.clearMessagesUnreadStatus(prama)`
+
+**参数**
 
 param为json字符串
 
-```
+```javascript
 var params={
     conversationType:,//消息的会话类型
     targetId:,//消息目标 Id
 }
-
 ```
 
 #3、附录
