@@ -18,7 +18,7 @@ AppCan平台中,维护了一个窗口堆栈,每个窗口以唯一的窗口名字
 　 最后一个参数script,是目标窗口的执行脚本.脚本形参限定为数字和字符串.如果是 特殊字符和汉字,则无法传递,可以通过window.localStorage暂存数据,在执行脚本的目标窗口中获取 localStorage.
 
 ## 1.4 多窗口通讯之订阅发布模式
-　 调用接口subscribeChannelNotification订阅一个频道,注册监听函数. 在任何窗口（包括主窗口,浮动窗口,多页面浮动窗口）调用publishChannelNotification接口发布消息,对应频道的所有订阅者,将收到消息,回调函数将被调用,并传入相应的参数.
+　 调用接口subscribeChannelNotification订阅一个频道,注册监听函数. 在任何窗口(包括主窗口,浮动窗口,多页面浮动窗口)调用publishChannelNotification接口发布消息,对应频道的所有订阅者,将收到消息,回调函数将被调用,并传入相应的参数.
 
 ## 1.5 窗口侧边栏菜单效果(抽屉效果)
 　 调用setSlidingWindow接口实现侧边栏菜单效果.手势滑动实现侧边栏菜单的打开和关闭功能.相关接口:setSlidingWindowEnabled,toggleSlidingWindow
@@ -34,7 +34,7 @@ AppCan平台中,维护了一个窗口堆栈,每个窗口以唯一的窗口名字
 
 ## 2.1、窗口类方法
 
-> ### open 打开窗口
+### 🍭 open 打开窗口
 
 `uexWindow.open(params)`
 
@@ -50,8 +50,8 @@ AppCan平台中,维护了一个窗口堆栈,每个窗口以唯一的窗口名字
 | 参数名称         | 参数类型   | 是否必选 | 说明                                       |
 | ------------ | ------ | ----- | ---------------------------------------- |
 | name         | String |  是   | 窗口名字,可为空,不能为"root",若已经打开过该名字的窗口,则直接跳转至该窗口. |
-| dataType     | Number |  否   | 窗口载入的数据的类型,0:url方式载入；1:html内容方式载入,默认为0   |
-| data         | String |  是   | url或html数据,支持“wgtroot://” 协议头,此协议头用于某些将项目部署在服务器上 的appcan应用,在应用执行过程中加载本地网页用.当dataType为0时,url支持相对路径、 绝对路径.其中,当url以“wgtroot://” 协议开头时,支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件.  例如:当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页,如果在xxx.html页面中open一个窗口时,传入的data为“wgtroot://index.html", 那么本次open执行时,引擎将会到本应用沙箱目录的widget路径下去寻找此页面, 例如Android上找到的路径会是:file:///android_assert/widget/index.html 当dataType为1时,把相应html的内容传进去（不建议） |
+| dataType     | Number |  否   | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入,默认为0   |
+| data         | String |  是   | url或html数据,支持"wgtroot://" 协议头,此协议头用于某些将项目部署在服务器上 的appcan应用,在应用执行过程中加载本地网页用.当dataType为0时,url支持相对路径、 绝对路径.其中,当url以"wgtroot://" 协议开头时,支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件.  例如:当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页,如果在xxx.html页面中open一个窗口时,传入的data为"wgtroot://index.html", 那么本次open执行时,引擎将会到本应用沙箱目录的widget路径下去寻找此页面, 例如Android上找到的路径会是:file:///android_assert/widget/index.html 当dataType为1时,把相应html的内容传进去(不建议) |
 | animID       | Number |  是   | 动画ID,详见术语表-[WindowAnimationId 窗口动画Id](http://newdocx.appcan.cn/newdocx/docx?type=978_975) |
 | flag         | Number |  是   | 窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
 | animDuration | Number |  否   | 动画持续时长,单位为毫秒,默认为260毫秒                    |
@@ -62,7 +62,7 @@ var extras = {
 	extraInfo:{//网页配置
 		opaque:,//Boolean 可选 页面是否透明,默认false
 		bgColor:,//String 可选 支持图片和颜色,格式为 #fff、#ffffff、rgba(r,g,b,a)等,图片路径支持 res:// wgt:// 等AppCan协议路径
-		hardware: //是否开启硬件加速,0:否,1:开启（仅Android）
+		hardware: //是否开启硬件加速,0:否,1:开启(仅Android)
 	},
 	animationInfo:{//动画配置,仅iOS且animationID选择bounce类的动画时有效
 		bounciness:,//Number,可选,模拟弹性大小系数,传0-1之间的double值,越大表示弹性越快
@@ -85,7 +85,7 @@ uexWindow.open({
 });
 ```
 
-> ### openPresentWindow 打开一个位于最上层的window
+### 🍭 openPresentWindow 打开一个位于最上层的window
 
 `uexWindow.openPresentWindow(params)`
 
@@ -111,7 +111,7 @@ uexWindow.openPresentWindow({
 ```
 
 
-> ### close 关闭窗口
+### 🍭 close 关闭窗口
 
 `uexWindow.close(params)`
 
@@ -139,7 +139,7 @@ uexWindow.close({
 });
 ```
 
-> ### forward 前进到下一个页面
+### 🍭 forward 前进到下一个页面
 
 `uexWindow.forward()`
 
@@ -153,7 +153,7 @@ uexWindow.close({
 
 
 
-> ### back 返回上一个页面
+### 🍭 back 返回上一个页面
 
 `uexWindow.back()`
 
@@ -167,7 +167,7 @@ uexWindow.close({
 
 
 
-> ### pageForward 前进到下一个页面
+### 🍭 pageForward 前进到下一个页面
 
 `uexWindow.pageForward()`
 
@@ -185,7 +185,7 @@ Bool类型,true表示成功,false为失败
 
 
 
-> ### pageBack 返回上一个页面
+### 🍭 pageBack 返回上一个页面
 
 `uexWindow.pageBack()`
 
@@ -203,7 +203,7 @@ Bool类型,true表示成功,false为失败
 
 
 
-> ### windowForward 前进到下一个窗口
+### 🍭 windowForward 前进到下一个窗口
 
 `uexWindow.windowForward(params)`
 
@@ -222,7 +222,7 @@ params 为JSON对象,字段如下:
 
 
 
-> ### windowBack 返回到上一个窗口
+### 🍭 windowBack 返回到上一个窗口
 
 `uexWindow.windowBack(params)`
 
@@ -242,7 +242,7 @@ params为JSON对象,字段如下:
 
 
 
-> ### setWindowFrame 移动当前窗口位置
+### 🍭 setWindowFrame 移动当前窗口位置
 
 `uexWindow.setWindowFrame(params)`
 
@@ -272,7 +272,7 @@ uexWindow.setWindowFrame({
 });
 ```
 
-> ### openSlibing 打开一个兄弟窗口
+### 🍭 openSlibing 打开一个兄弟窗口
 
 `uexWindow.openSlibing(params)`
 
@@ -284,8 +284,8 @@ uexWindow.setWindowFrame({
 
 | 参数名称     | 参数类型    | 是否必选 | 说明                                       |
 | -------- | ------- | ---- | ---------------------------------------- |
-| type     | Number  |  是   | 窗口的类型,1-头部；2-底部                          |
-| dataType | String |  是   | 窗口载入的数据的类型,0:url方式载入；1:html内容方式载入； 2:既有url方式,又有html内容方式 |
+| type     | Number  |  是   | 窗口的类型,1-头部;2-底部                          |
+| dataType | String |  是   | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入; 2:既有url方式,又有html内容方式 |
 | url      | Number  |  是   | 窗口路径                                     |
 | data     | String  |  是   | 数据,可为空                                   |
 | h        | Number  |  是   | 窗口高度,支持百分数,默认为屏幕高度                       |
@@ -303,7 +303,7 @@ uexWindow.openSlibing({
   h:75
 });
 ```
-> ### closeSlibing 关闭一个兄弟窗口
+### 🍭 closeSlibing 关闭一个兄弟窗口
 
 `uexWindow.closeSlibing(type)`
 
@@ -315,7 +315,7 @@ uexWindow.openSlibing({
 
 | 参数名称 | 参数类型   | 是否必选 | 说明              |
 | ---- | ------ | ---- | --------------- |
-| type | Number | 是    | 窗口的类型,1-头部；2-底部 |
+| type | Number | 是    | 窗口的类型,1-头部;2-底部 |
 
 
 
@@ -325,7 +325,7 @@ uexWindow.openSlibing({
 uexWindow.closeSlibing(2);
 ```
 
-> ### showSlibing 显示兄弟窗口
+### 🍭 showSlibing 显示兄弟窗口
 
 `uexWindow.showSlibing(type)`
 
@@ -337,7 +337,7 @@ uexWindow.closeSlibing(2);
 
 | 参数名称 | 参数类型   | 是否必选 | 说明              |
 | ---- | ------ | ---- | --------------- |
-| type | Number | 是    | 窗口的类型,1-头部；2-底部 |
+| type | Number | 是    | 窗口的类型,1-头部;2-底部 |
 
 
 
@@ -348,7 +348,7 @@ uexWindow.showSlibing(1)
 ```
 
 
-> ### evaluateScript 执行js脚本
+### 🍭 evaluateScript 执行js脚本
 
 `uexWindow.evaluateScrip(params)`
 
@@ -362,7 +362,7 @@ uexWindow.showSlibing(1)
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                                       |
 | ---- | ------ | ----- | ---------------------------------------- |
-| name | String |  是   | 窗口名称,默认空为当前窗口（可以是主窗口、root窗口、浮动窗口）        |
+| name | String |  是   | 窗口名称,默认空为当前窗口(可以是主窗口、root窗口、浮动窗口)        |
 | type | Number |  是   | 窗口的类型,uex.cWindowTypeNormal,uex.cWindowTypeTop 或uex.cWindowTypeBottom,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Types "CONSTANT")中WindowTypes |
 | js   | String |  是   | js脚本内容                                   |
 
@@ -374,11 +374,11 @@ uexWindow.showSlibing(1)
 uexWindow.evaluateScript({
   name:"root", 
   type:0, 
-  js:"alert('执行去吧！！');"
+  js:"alert('执行去吧!!');"
 });
 ```
 
-> ### evaluatePopoverScript 在浮动窗口中执行js脚本
+### 🍭 evaluatePopoverScript 在浮动窗口中执行js脚本
 
 `uexWindow.evaluatePopoverScript(params)`
 
@@ -392,7 +392,7 @@ uexWindow.evaluateScript({
 
 | 参数名称       | 参数类型   | 是否必选 | 说明                           |
 | ---------- | ------ | ----- | ---------------------------- |
-| windowName | String |  是   | 窗口名称,默认空为当前窗口（只能为主窗口、root窗口） |
+| windowName | String |  是   | 窗口名称,默认空为当前窗口(只能为主窗口、root窗口) |
 | popName    | String |  是   | 浮动窗口名称                       |
 | js         | String |  是   | js脚本内容                       |
 
@@ -404,10 +404,10 @@ uexWindow.evaluateScript({
 uexWindow.evaluatePopoverScript({
   windowName:"root", 
   popName:"sss", 
-  js:"alert('执行去吧！！');"
+  js:"alert('执行去吧!!');"
 });
 ```
-> ### evaluateMultiPopoverScript 在多页面浮动窗口中执行js脚本
+### 🍭 evaluateMultiPopoverScript 在多页面浮动窗口中执行js脚本
 
 `uexWindow.evaluateMultiPopoverScript(params)`
 
@@ -439,7 +439,7 @@ uexWindow.evaluateMultiPopoverScript({
 });
 ```
 
-> ### openPopover 打开浮动窗口
+### 🍭 openPopover 打开浮动窗口
 
 `uexWindow.openPopover(params)`
 
@@ -454,8 +454,8 @@ uexWindow.evaluateMultiPopoverScript({
 | 参数名称         | 参数类型   | 是否必选 | 说明                                       |
 | ------------ | ------ | ----- | ---------------------------------------- |
 | name         | String |  是   | 名称                                       |
-| dataType     | Number |  否   | 窗口载入的数据的类型,0:url方式载入；1:html内容方式载入；2:既有url方式, 又有html内容方式.默认为0 |
-| url          | String |  是   | url类型数据,支持“wgtroot://” 协议头,此协议头用于某些将项目部署在服务器上的appcan应用,在应用执行过程中 加载本地网页用.当dataType为0时,url支持相对路径、绝对路径.其中,当url以“wgtroot://” 协议开头时,支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件. 例如:当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页,如果在xxx.html页面中open一个窗口时,传入的data为“wgtroot://index.html" ,  那么本次open执行时,引擎将会到本应用沙箱目录的widget路径下去寻找此页面, 例如Android上找到的路径会是:file:///android_assert/widget/index.html . |
+| dataType     | Number |  否   | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入;2:既有url方式, 又有html内容方式.默认为0 |
+| url          | String |  是   | url类型数据,支持"wgtroot://" 协议头,此协议头用于某些将项目部署在服务器上的appcan应用,在应用执行过程中 加载本地网页用.当dataType为0时,url支持相对路径、绝对路径.其中,当url以"wgtroot://" 协议开头时,支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件. 例如:当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页,如果在xxx.html页面中open一个窗口时,传入的data为"wgtroot://index.html" ,  那么本次open执行时,引擎将会到本应用沙箱目录的widget路径下去寻找此页面, 例如Android上找到的路径会是:file:///android_assert/widget/index.html . |
 | data         | String |  否   | data类型数据,用于当dataType为1时,把相应html的内容传进去.比如传入的是一个'<div>hello,world!</div>' |
 | x            | Number |  否   | x坐标,默认为0                                 |
 | y            | Number |  否   | y坐标,默认为0                                 |
@@ -474,7 +474,7 @@ uexWindow.evaluateMultiPopoverScript({
 | opaque    | 可选   | 是否透明true/false默认为false                   |
 | bgColor   | 可选   | 背景色,支持图片和颜色,格式为#fff、#ffffff、rgba(r,g,b,a)等,图片路径支持res://、 wgt://等AppCan协议路径 |
 | delayTime | 可选   | 延迟打开窗口,单位为毫秒,避免父窗口在uexOnload中打开浮动窗口产生卡顿.(仅Android) |
-| hardware  | 可选   | 是否开启硬件加速,0:关闭,1:开启（仅Android）             |
+| hardware  | 可选   | 是否开启硬件加速,0:关闭,1:开启(仅Android)             |
 
 
 
@@ -490,7 +490,7 @@ uexWindow.openPopover({
 });
 ```
 
-> ### closePopover 关闭浮动窗口
+### 🍭 closePopover 关闭浮动窗口
 
 `uexWindow.closePopover(popName)`
 
@@ -512,7 +512,7 @@ uexWindow.openPopover({
 uexWindow.closePopover('sss')
 ```
 
-> ### preOpenStart 开始浮动窗口的预加载
+### 🍭 preOpenStart 开始浮动窗口的预加载
 
 `uexWindow.preOpenStart()`
 
@@ -525,7 +525,7 @@ uexWindow.closePopover('sss')
 
 * 假设A窗口打开B窗口,B窗口中需要预加载多个浮动窗口.
 * 那么A窗口中执行uexWindow.open时,其flag参数需要:uex.cWiondowFlagPreOpenreOpen=64配合使用,即open时有此flag,B窗口方可使用预加载.
-* 此时在B窗口中,会等所有预加载的浮动窗口都加载完毕（不包括异步获取网络数据）,方才显示B窗口.
+* 此时在B窗口中,会等所有预加载的浮动窗口都加载完毕(不包括异步获取网络数据),方才显示B窗口.
 * 预加载的浮动窗口的开启函数,即uexWindow.openPopover,需要放置于uexWindow.preOpenStart和uexWindow.preOpenFinish之间.
 
 **参数:**
@@ -579,7 +579,7 @@ B.html
     </html>
 ```
 
-> ### preOpenFinish 结束浮动窗口的预加载
+### 🍭 preOpenFinish 结束浮动窗口的预加载
 
 `uexWindow.preOpenFinish()`
 
@@ -599,7 +599,7 @@ B.html
 uexWindow.preOpenFinish()
 ```
 
-> ### setPopoverFrame 更改浮动窗口的位置和大小
+### 🍭 setPopoverFrame 更改浮动窗口的位置和大小
 
 `uexWindow.setPopoverFrame(params)`
 
@@ -633,7 +633,7 @@ uexWindow.setPopoverFrame({
 });
 ```
 
-> ### openMultiPopover 打开多页面浮动窗口
+### 🍭 openMultiPopover 打开多页面浮动窗口
 
 `uexWindow.openMultiPopover(params)`
 
@@ -649,7 +649,7 @@ uexWindow.setPopoverFrame({
 | ------------- | ------ | ----- | ---------------------------------------- |
 | content       | JSON对象 |  是   | 多页面窗口数据格式为json.不可为空. json格式如下:    '{"content":[{"inPageName":"p1","inUrl":"xxx1.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}, {"inPageName":"p2","inUrl":"xxx2.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}]}' |
 | name          | String |  是   | 浮动窗口名称                                   |
-| dataType      | Number |  否   | 窗口载入的数据的类型,0:url方式载入；1:html内容方式载入；2:既有url方式, 又有html内容方式,默认为0 |
+| dataType      | Number |  否   | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入;2:既有url方式, 又有html内容方式,默认为0 |
 | x             | Number |  是   | x坐标                                      |
 | y             | Number |  是   | y坐标                                      |
 | w             | Number |  是   | 宽度,为空时默认为window的宽度                       |
@@ -709,7 +709,7 @@ uexWindow.openMultiPopover({
 });
 ```
 
-> ### closeMultiPopover 关闭多页面浮动窗口
+### 🍭 closeMultiPopover 关闭多页面浮动窗口
 
 `uexWindow.closeMultiPopover(popName)`
 
@@ -731,7 +731,7 @@ uexWindow.openMultiPopover({
 uexWindow.closeMultiPopover('sss');
 ```
 
-> ### setSelectedPopOverInMultiWindow 设置多页面浮动窗口跳转到的子页面窗口的索引
+### 🍭 setSelectedPopOverInMultiWindow 设置多页面浮动窗口跳转到的子页面窗口的索引
 
 `uexWindow.setSelectedPopOverInMultiWindow(params)`
 
@@ -759,7 +759,7 @@ uexWindow.setSelectedPopOverInMultiWindow({
 });
 ```
 
-> ### setMultiPopoverFrame 更改多页面浮动窗口的位置和大小
+### 🍭 setMultiPopoverFrame 更改多页面浮动窗口的位置和大小
 
 `uexWindow.setMultiPopoverFrame(params)`
 
@@ -793,7 +793,7 @@ uexWindow.setMultiPopoverFrame(
 );
 ```
 
-> ### bringToFront 置顶当前浮动窗口
+### 🍭 bringToFront 置顶当前浮动窗口
 
 `uexWindow.bringToFront()`
 
@@ -879,7 +879,7 @@ B1.html
     </html>
 ```
 
-> ### sendToBack 置底当前浮动窗口
+### 🍭 sendToBack 置底当前浮动窗口
 
 `uexWindow.sendToBack()`
 
@@ -899,7 +899,7 @@ B1.html
 uexWindow.sendToBack()
 ```
 
-> ### insertAbove 将当前浮动窗口插入到指定浮动窗口之上
+### 🍭 insertAbove 将当前浮动窗口插入到指定浮动窗口之上
 
 `uexWindow.insertAbove(name)`
 
@@ -922,7 +922,7 @@ uexWindow.insertAbove('pop2');
 ```
 
 
-> ### insertBelow 将当前浮动窗口插入到指定浮动窗口之下
+### 🍭 insertBelow 将当前浮动窗口插入到指定浮动窗口之下
 
 `uexWindow.insertBelow(name)`
 
@@ -946,7 +946,7 @@ uexWindow.insertAbove('pop2');
 uexWindow.insertBelow('pop2');
 ```
 
-> ### bringPopoverToFront 置顶指定浮动窗口
+### 🍭 bringPopoverToFront 置顶指定浮动窗口
 
 `uexWindow.bringPopoverToFront(name)`
 
@@ -969,7 +969,7 @@ uexWindow.bringPopoverToFront("pop1");
 ```
 
 
-> ### sendPopoverToBack 置底指定浮动窗口
+### 🍭 sendPopoverToBack 置底指定浮动窗口
 
 `uexWindow.sendPopoverToBack(name)`
 
@@ -991,7 +991,7 @@ uexWindow.bringPopoverToFront("pop1");
 uexWindow.sendPopoverToBack("pop1");
 ```
 
-> ### insertPopoverAbovePopover 将指定浮动窗口插入到另一浮动窗口之上
+### 🍭 insertPopoverAbovePopover 将指定浮动窗口插入到另一浮动窗口之上
 
 `uexWindow.insertPopoverAbovePopover(nameA,nameB)`
 
@@ -1013,7 +1013,7 @@ uexWindow.sendPopoverToBack("pop1");
 uexWindow.insertPopoverAbovePopover("pop1","pop3");
 ```
 
-> ### insertPopoverBelowPopover
+### 🍭 insertPopoverBelowPopover
 
 将指定浮动窗口插入到另一浮动窗口之下
 
@@ -1039,13 +1039,13 @@ uexWindow.insertPopoverBelowPopover("pop1","pop3");
 ```
 
 
-> ### insertWindowAboveWindow 将指定窗口插入到另一窗口之上
+### 🍭 insertWindowAboveWindow 将指定窗口插入到另一窗口之上
 
 `uexWindow.insertWindowAboveWindow(nameA,nameB)`
 
 **说明:**
 
-将指定窗口A插入到另一窗口B之上,该接口仅对显示在屏幕上且不被隐藏的window起作用.（即open该window时,flag传入的是256）
+将指定窗口A插入到另一窗口B之上,该接口仅对显示在屏幕上且不被隐藏的window起作用.(即open该window时,flag传入的是256)
 
 **参数:**
 
@@ -1062,13 +1062,13 @@ uexWindow.insertPopoverBelowPopover("pop1","pop3");
 uexWindow.insertWindowAboveWindow("pop1","pop3");
 ```
 
-> ### insertWindowBelowWindow 将指定窗口插入到另一窗口之下
+### 🍭 insertWindowBelowWindow 将指定窗口插入到另一窗口之下
 
 `uexWindow.insertWindowBelowWindow(nameA,nameB)`
 
 **说明:**
 
-将指定窗口A插入到另一窗口B之下,该接口仅对显示在屏幕上且不被隐藏的window起作用.（即open该window时,flag传入的是256）
+将指定窗口A插入到另一窗口B之下,该接口仅对显示在屏幕上且不被隐藏的window起作用.(即open该window时,flag传入的是256)
 
 **参数:**
 
@@ -1085,19 +1085,19 @@ uexWindow.insertWindowAboveWindow("pop1","pop3");
 uexWindow.insertWindowBelowWindow("pop1","pop3");
 ```
 
-> ### setWindowHidden 设置当前窗口显示和隐藏
+### 🍭 setWindowHidden 设置当前窗口显示和隐藏
 
 `uexWindow.setWindowHidden(visible)`
 
 **说明:**
 
-设置当前窗口显示和隐藏,该接口仅对显示在屏幕上且不被隐藏的window起作用.（即open该window时,flag传入的是256）
+设置当前窗口显示和隐藏,该接口仅对显示在屏幕上且不被隐藏的window起作用.(即open该window时,flag传入的是256)
 
 **参数:**
 
 | 参数名称    | 参数类型   | 是否必选 | 说明              |
 | ------- | ------ | ---- | --------------- |
-| visible | Number | 是    | 显示或隐藏,0-显示；1-隐藏 |
+| visible | Number | 是    | 显示或隐藏,0-显示;1-隐藏 |
 
 
 
@@ -1107,7 +1107,7 @@ uexWindow.insertWindowBelowWindow("pop1","pop3");
 uexWindow.setWindowHidden(1);
 ```
 
-> ### toggleSlidingWindow 打开侧滑窗口
+### 🍭 toggleSlidingWindow 打开侧滑窗口
 
 `uexWindow.toggleSlidingWindow(json)`
 
@@ -1133,7 +1133,7 @@ var params  = {
 uexWindow.toggleSlidingWindow(params);
 ```
 
-> ### setSlidingWindow 设置侧滑窗口
+### 🍭 setSlidingWindow 设置侧滑窗口
 
 `uexWindow.setSlidingWindow(json)`
 
@@ -1179,7 +1179,7 @@ uexWindow.setSlidingWindow({
  });
 ```
 
-> ### setSlidingWindowEnabled 设置侧滑窗口是否可用
+### 🍭 setSlidingWindowEnabled 设置侧滑窗口是否可用
 
 `uexWindow.setSlidingWindowEnabled(enable)`
 
@@ -1201,7 +1201,7 @@ uexWindow.setSlidingWindow({
 uexWindow.setSlidingWindowEnabled(1);
 ```
 
-> ### setMultilPopoverFlippingEnbaled 设置控件是否响应滑动事件
+### 🍭 setMultilPopoverFlippingEnbaled 设置控件是否响应滑动事件
 
 `uexWindow.setMultilPopoverFlippingEnbaled(enable)`
 
@@ -1224,13 +1224,13 @@ uexWindow.setMultilPopoverFlippingEnbaled(1);
 ```
 
 
-> ### postGlobalNotification 发送全局消息
+### 🍭 postGlobalNotification 发送全局消息
 
 `uexWindow.postGlobalNotification(content)`
 
 **说明:**
 
-发送全局消息,用于窗口之间的通信,调用该方法时,所有打开（通过调用uexWindow的open和openPopover方法）的窗口只要注册过[onGlobalNotification](#onGlobalNotification 全局消息的监听方法 "onGlobalNotification"),都会被调用.
+发送全局消息,用于窗口之间的通信,调用该方法时,所有打开(通过调用uexWindow的open和openPopover方法)的窗口只要注册过[onGlobalNotification](#onGlobalNotification 全局消息的监听方法 "onGlobalNotification"),都会被调用.
 
 **参数:**
 
@@ -1352,7 +1352,7 @@ index2.html
     </html>
 ```
 
-> ### subscribeChannelNotification 注册接收消息通知的监听器
+### 🍭 subscribeChannelNotification 注册接收消息通知的监听器
 
 `uexWindow.subscribeChannelNotification(channelId,functionName)`
 
@@ -1485,7 +1485,7 @@ index2.html
     </script>
     </html>
 ```
-> ### publishChannelNotification 发布消息通知
+### 🍭 publishChannelNotification 发布消息通知
 
 `uexWindow.publishChannelNotification(channelId,content)`
 
@@ -1506,7 +1506,7 @@ index2.html
 uexWindow.publishChannelNotification("No1","channel 1 test just!");
 
 ```
-> ### publishChannelNotificationForJson 发布Json类型消息通知
+### 🍭 publishChannelNotificationForJson 发布Json类型消息通知
 
 `uexWindow.publishChannelNotificationForJson(channelId,content)`
 
@@ -1533,7 +1533,7 @@ var json = ｛
 uexWindow.publishChannelNotificationForJson("No1",JSON.stringify(json));
 ```
 
-> ### getState 获取当前窗口处于前台还是后台
+### 🍭 getState 获取当前窗口处于前台还是后台
 
 `uexWindow.getState()`
 
@@ -1547,7 +1547,7 @@ uexWindow.publishChannelNotificationForJson("No1",JSON.stringify(json));
 
 **返回值:**
 
-Number类型,0:前台；1:后台
+Number类型,0:前台;1:后台
 
 
 
@@ -1556,7 +1556,7 @@ Number类型,0:前台；1:后台
 ```javascript
 uexWindow.getState()
 ```
-> ### getHeight 获取window的高度
+### 🍭 getHeight 获取window的高度
 
 `uexWindow.getHeight()`
 
@@ -1573,7 +1573,7 @@ uexWindow.getState()
 
 
 
-> ### getWidth 获取window的宽度
+### 🍭 getWidth 获取window的宽度
 
 `uexWindow.getWidth()`
 
@@ -1590,7 +1590,7 @@ uexWindow.getState()
 
 
 
-> ### getUrlQuery 获取加载页面时传入的参数
+### 🍭 getUrlQuery 获取加载页面时传入的参数
 
 `uexWindow.getUrlQuery()`
 
@@ -1613,7 +1613,7 @@ String类型
 ```javascript
 var result=uexWindow.getUrlQuery();
 ```
-> ### getSlidingWindowState 获取侧滑窗口显示情况
+### 🍭 getSlidingWindowState 获取侧滑窗口显示情况
 
 `uexWindow.getSlidingWindowState()`
 
@@ -1623,7 +1623,7 @@ var result=uexWindow.getUrlQuery();
 
 **返回值:**
 
-Number类型,返回的显示情况,0:左侧菜单显示；1:主界面显示；2:右侧菜单显示
+Number类型,返回的显示情况,0:左侧菜单显示;1:主界面显示;2:右侧菜单显示
 
 **版本支持:**
 3.0.0+
@@ -1636,7 +1636,7 @@ var state=uexWindow.getSlidingWindowState();
 
 ## 2.2、系统UI类方法
 
-> ### alert 弹出alert对话框
+### 🍭 alert 弹出alert对话框
 
 `uexWindow.alert(json)`
 
@@ -1650,7 +1650,7 @@ var state=uexWindow.getSlidingWindowState();
 | ----------- | ------ | ---- | ----------------- |
 | title       | String | 是    | 标题                |
 | message     | String | 是    | 内容                |
-| buttonLabel | String | 否    | 显示在按钮上的文字,默认为“确定” |
+| buttonLabel | String | 否    | 显示在按钮上的文字,默认为"确定" |
 
 
 
@@ -1664,7 +1664,7 @@ uexWindow.alert({
 });
 ```
 
-> ### confirm 弹出confirm对话框
+### 🍭 confirm 弹出confirm对话框
 
 `uexWindow.confirm(json,callback)`
 
@@ -1691,14 +1691,14 @@ callback为Function类型,参数为用户点击的按钮索引
 ```javascript
 uexWindow.confirm({
   title:"警告",
-  message:"确定退出么？",
+  message:"确定退出么?",
   buttonLabels:"OK,Cancel"
 },function(index){
   
 });
 ```
 
-> ### prompt 弹出prompt对话框
+### 🍭 prompt 弹出prompt对话框
 
 `uexWindow.prompt(json,callback)`
 
@@ -1739,7 +1739,7 @@ uexWindow.prompt({
 });
 ```
 
-> ### toast 弹出消息提示框
+### 🍭 toast 弹出消息提示框
 
 `uexWindow.toast(json)`
 
@@ -1751,7 +1751,7 @@ uexWindow.prompt({
 
 | 参数名称     | 参数类型   | 是否必选 | 说明                                       |
 | -------- | ------ | ---- | ---------------------------------------- |
-| type     | Number | 是    | 0-没有进度条；1-有进度条                           |
+| type     | Number | 是    | 0-没有进度条;1-有进度条                           |
 | location | Number | 是    | 显示位置,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Toast Location "CONSTANT")中WindowToastLocation |
 | msg      | Number | 是    | 消息                                       |
 | duration | Number | 是    | 显示时间,单位为毫秒,非正整数时,提示框一直存在,不会自动关闭          |
@@ -1769,7 +1769,7 @@ uexWindow.toast({
 });
 ```
 
-> ### closeToast 关闭消息提示框
+### 🍭 closeToast 关闭消息提示框
 
 `uexWindow.closeToast()`
 
@@ -1788,7 +1788,7 @@ uexWindow.toast({
 ```javascript
 uexWindow.closeToast()
 ```
-> ### createProgressDialog 创建全局对话框
+### 🍭 createProgressDialog 创建全局对话框
 
 `uexWindow.createProgressDialog(json)`
 
@@ -1800,7 +1800,7 @@ uexWindow.closeToast()
 
 | 参数名称      | 参数类型   | 是否必选 | 说明                                       |
 | --------- | ------ | ---- | ---------------------------------------- |
-| title     | String | 是    | 标题,传空字符串时没有标题,如”“                        |
+| title     | String | 是    | 标题,传空字符串时没有标题,如""                        |
 | msg       | String | 是    | 内容                                       |
 | canCancel | Number | 否    | 是否可以取消,即点击屏幕上除对话框以外的任何地方,或者点击返回键,对话框是否消失. 0-可以取消,1-不能取消.设置为1时,该对话框只能在通过调 用destroyProgressDialog取消,否则会一直显示.默认可以取消 |
 
@@ -1819,7 +1819,7 @@ uexWindow.createProgressDialog({
 });
 ```
 
-> ### destroyProgressDialog 销毁全局对话框
+### 🍭 destroyProgressDialog 销毁全局对话框
 
 `uexWindow.destroyProgressDialog()`
 
@@ -1840,7 +1840,7 @@ uexWindow.createProgressDialog({
 ```javascript
 uexWindow.destroyProgressDialog();
 ```
-> ### actionSheet 弹出菜单列表
+### 🍭 actionSheet 弹出菜单列表
 
 `uexWindow.actionSheet(json,callback)`
 
@@ -1874,7 +1874,7 @@ uexWindow.actionSheet({
 ```
 
 ## 2.3、系统control类方法
-> ### setOrientation 设置屏幕方向
+### 🍭 setOrientation 设置屏幕方向
 
 `uexWindow.setOrientation(orientation)`
 
@@ -1886,7 +1886,7 @@ uexWindow.actionSheet({
 
 | 参数名称        | 参数类型   | 是否必选 | 说明                                       |
 | ----------- | ------ | ---- | ---------------------------------------- |
-| orientation | Number | 是    | 1:竖屏,home键在屏幕下方；    2:横屏,home键在屏幕右边；4:竖屏,home键在屏幕上方；  8:横屏,home键在屏幕左边；   15:随系统设置自动转屏. |
+| orientation | Number | 是    | 1:竖屏,home键在屏幕下方;    2:横屏,home键在屏幕右边;4:竖屏,home键在屏幕上方;  8:横屏,home键在屏幕左边;   15:随系统设置自动转屏. |
 
 
 
@@ -1896,7 +1896,7 @@ uexWindow.actionSheet({
 uexWindow.setOrientation(1);
 ```
 
-> ### setWindowScrollbarVisible 设置滚动条的显示和隐藏
+### 🍭 setWindowScrollbarVisible 设置滚动条的显示和隐藏
 
 `uexWindow.setWindowScrollbarVisible(visible)`
 
@@ -1907,7 +1907,7 @@ uexWindow.setOrientation(1);
 
 | 参数名称    | 参数类型 | 是否必选 | 说明                     |
 | ------- | ---- | ---- | ---------------------- |
-| visible | Bool | 是    | 显示或隐藏,true-显示；false-隐藏 |
+| visible | Bool | 是    | 显示或隐藏,true-显示;false-隐藏 |
 
 
 
@@ -1939,7 +1939,7 @@ uexWindow.setOrientation(1);
     </body>
     </html>
 ```
-> ### setReportKey 设置当前页面是否拦截某个按键
+### 🍭 setReportKey 设置当前页面是否拦截某个按键
 
 `uexWindow.setReportKey(keyCode,enable)`
 
@@ -1961,7 +1961,7 @@ uexWindow.setOrientation(1);
 ```javascript
 uexWindow.setReportKey(1,1)
 ```
-> ### showSoftKeyboard 弹出软键盘
+### 🍭 showSoftKeyboard 弹出软键盘
 
 `uexWindow.showSoftKeyboard()`
 
@@ -1975,7 +1975,7 @@ uexWindow.setReportKey(1,1)
 
 
 
-> ### hideSoftKeyboard 关闭软键盘
+### 🍭 hideSoftKeyboard 关闭软键盘
 
 `uexWindow.hideSoftKeyboard() `
 
@@ -1990,7 +1990,7 @@ uexWindow.setReportKey(1,1)
 **版本支持:**
 4.0.0+
 
-> ### setSwipeRate 设置左右手势的灵敏度
+### 🍭 setSwipeRate 设置左右手势的灵敏度
 
 `uexWindow.setSwipeRate(rate)`
 
@@ -2006,7 +2006,7 @@ uexWindow.setReportKey(1,1)
 
 
 
-> ### statusBarNotification 发送消息到状态栏
+### 🍭 statusBarNotification 发送消息到状态栏
 
 `uexWindow.statusBarNotification(title,msg)`
 
@@ -2027,7 +2027,7 @@ uexWindow.setReportKey(1,1)
 ```javascript
 uexWindow.statusBarNotification('title','msg');
 ```
-> ### setStatusBarTitleColor 设置状态条上字体的颜色
+### 🍭 setStatusBarTitleColor 设置状态条上字体的颜色
 
 `uexWindow.setStatusBarTitleColor(color)`
 
@@ -2049,7 +2049,7 @@ uexWindow.statusBarNotification('title','msg');
 uexWindow.setStatusBarTitleColor(0);
 ```
 
-> ### share 调用系统分享
+### 🍭 share 调用系统分享
 
 `uexWindow.share(jsonStr)`
 
@@ -2111,14 +2111,14 @@ function share(){
  	uexWindow.share(JSON.stringify(param));
 }
 ```
-> ### setLoadingImagePath 设置启动图相关参数
+### 🍭 setLoadingImagePath 设置启动图相关参数
 
 `uexWindow.setLoadingImagePath(params)`
 
 **说明:**
 
-用于引擎的启动图之后,动态加载自定义启动画面；
-设置启动图路径和时间（推荐采用本地路径）,下次启动应用才会生效 .
+用于引擎的启动图之后,动态加载自定义启动画面;
+设置启动图路径和时间(推荐采用本地路径),下次启动应用才会生效 .
 
 **参数:**
 
@@ -2126,7 +2126,7 @@ params是JSON字符串,具体结构如下
 
 ```JavaScript
 var params = {
-	loadingImagePath:,//String,必选 启动图路径,只支持"res://","wgt://"协议,当此字段传空字符串("")时,代表取消自定义启动图,网络地址图片优先建议下载到本地来设置启动图路径；
+	loadingImagePath:,//String,必选 启动图路径,只支持"res://","wgt://"协议,当此字段传空字符串("")时,代表取消自定义启动图,网络地址图片优先建议下载到本地来设置启动图路径;
 	loadingImageTime:,//Number,当loadingImagePath非空时必选 启动图持续时间,单位毫秒
 }
 ```
@@ -2145,7 +2145,7 @@ var paramStr = JSON.stringify(params);
 uexWindow.setLoadingImagePath(paramStr);
 ```
 
-> ### setAutorotateEnable 设置窗口是否跟随设备自动旋转
+### 🍭 setAutorotateEnable 设置窗口是否跟随设备自动旋转
 
 `uexWindow.setAutorotateEnable()`
 
@@ -2157,7 +2157,7 @@ uexWindow.setLoadingImagePath(paramStr);
 
 | 参数名称   | 参数类型   | 是否必选 | 说明              |
 | ------ | ------ | ---- | --------------- |
-| enable | Number | 是    | 是否跟随,0:跟随；1:不跟随 |
+| enable | Number | 是    | 是否跟随,0:跟随;1:不跟随 |
 
 
 
@@ -2167,7 +2167,7 @@ uexWindow.setLoadingImagePath(paramStr);
 uexWindow.setAutorotateEnable(1);
 ```
 
-> ### setHardwareEnable 设置窗口的硬件加速
+### 🍭 setHardwareEnable 设置窗口的硬件加速
 
 `uexWindow.setHardwareEnable(flag)`
 
@@ -2178,7 +2178,7 @@ uexWindow.setAutorotateEnable(1);
 
 | 参数名称 | 参数类型   | 是否必选 | 说明             |
 | ---- | ------ | ---- | -------------- |
-| flag | Number | 是    | 是否开启,0:关闭；1:开启 |
+| flag | Number | 是    | 是否开启,0:关闭;1:开启 |
 
 
 
@@ -2188,7 +2188,7 @@ uexWindow.setAutorotateEnable(1);
 uexWindow.setHardwareEnable(1);
 ```
 
-> ### setPopHardwareEnable 设置Popover的硬件加速功能
+### 🍭 setPopHardwareEnable 设置Popover的硬件加速功能
 
 `uexWindow.setPopHardwareEnable(name,flag)`
 
@@ -2200,7 +2200,7 @@ uexWindow.setHardwareEnable(1);
 
 | 参数名称 | 参数类型   | 是否必选 | 说明             |
 | ---- | ------ | ---- | -------------- |
-| flag | Number | 是    | 是否开启,0:关闭；1:开启 |
+| flag | Number | 是    | 是否开启,0:关闭;1:开启 |
 | name | String | 是    | popover的name   |
 
 **版本支持:**
@@ -2209,9 +2209,9 @@ uexWindow.setHardwareEnable(1);
 **示例:**
 
 ```
-uexWindow.setPopHardwareEnable(‘content’,1);
+uexWindow.setPopHardwareEnable('content',1);
 ```
-> ### beginAnimition 开始设置动画的相关参数
+### 🍭 beginAnimition 开始设置动画的相关参数
 
 `uexWindow.beginAnimition()`
 
@@ -2231,7 +2231,7 @@ uexWindow.setPopHardwareEnable(‘content’,1);
 uexWindow.beginAnimition()`
 ```
 
-> ### setAnimitionDelay 设置动画延迟执行时间
+### 🍭 setAnimitionDelay 设置动画延迟执行时间
 
 `uexWindow.setAnimitionDelay(delay)`
 
@@ -2252,7 +2252,7 @@ uexWindow.beginAnimition()`
 uexWindow.setAnimitionDelay(200)
 ```
 
-> ### setAnimitionDuration 设置动画持续时间
+### 🍭 setAnimitionDuration 设置动画持续时间
 
 `uexWindow.setAnimitionDuration(duration)`
 
@@ -2274,7 +2274,7 @@ uexWindow.setAnimitionDelay(200)
 uexWindow.setAnimitionDuration(4000);
 ```
 
-> ### setAnimitionCurve 设置动画曲线类型
+### 🍭 setAnimitionCurve 设置动画曲线类型
 
 `uexWindow.setAnimitionCurve(curve)`
 
@@ -2296,7 +2296,7 @@ uexWindow.setAnimitionDuration(4000);
 uexWindow.setAnimitionCurve(1);
 ```
 
-> ### setAnimitionRepeatCount 设置动画重复次数
+### 🍭 setAnimitionRepeatCount 设置动画重复次数
 
 `uexWindow.setAnimitionRepeatCount(count)`
 
@@ -2318,7 +2318,7 @@ uexWindow.setAnimitionCurve(1);
 uexWindow.setAnimitionRepeatCount(0);
 ```
 
-> ### setAnimitionAutoReverse 设置动画结束后自动恢复位置和状态
+### 🍭 setAnimitionAutoReverse 设置动画结束后自动恢复位置和状态
 
 `uexWindow.setAnimitionAutoReverse(isReverse)`
 
@@ -2330,7 +2330,7 @@ uexWindow.setAnimitionRepeatCount(0);
 
 | 参数名称      | 参数类型   | 是否必选 | 说明                   |
 | --------- | ------ | ---- | -------------------- |
-| isReverse | Number | 否    | 是否恢复.0-不恢复；1-恢复.默认为0 |
+| isReverse | Number | 否    | 是否恢复.0-不恢复;1-恢复.默认为0 |
 
 
 
@@ -2340,7 +2340,7 @@ uexWindow.setAnimitionRepeatCount(0);
 uexWindow.setAnimitionAutoReverse(1);
 ```
 
-> ### makeTranslation 设置移动动画
+### 🍭 makeTranslation 设置移动动画
 
 `uexWindow.makeTranslation(toX,toY,toZ)`
 
@@ -2364,7 +2364,7 @@ uexWindow.setAnimitionAutoReverse(1);
 uexWindow.makeTranslation(100,0,0);
 ```
 
-> ### makeScale 设置伸缩动画
+### 🍭 makeScale 设置伸缩动画
 
 `uexWindow.makeScale(toX,toY,toZ)`
 
@@ -2389,7 +2389,7 @@ uexWindow.makeScale(2,1,1);
 ```
 
 
-> ### makeRotate 设置旋转动画
+### 🍭 makeRotate 设置旋转动画
 
 `uexWindow.makeRotate(degrees,toX,toY,toZ)`
 
@@ -2414,7 +2414,7 @@ uexWindow.makeScale(2,1,1);
 uexWindow.makeRotate(90, 1, 0, 1);
 ```
 
-> ### makeAlpha 设置透明度动画
+### 🍭 makeAlpha 设置透明度动画
 
 `uexWindow.makeAlpha(alpha)`
 
@@ -2436,7 +2436,7 @@ uexWindow.makeRotate(90, 1, 0, 1);
 uexWindow.makeAlpha(0.5);
 ```
 
-> ### commitAnimition 提交动画设置并开始执行动画
+### 🍭 commitAnimition 提交动画设置并开始执行动画
 
 `uexWindow.commitAnimition()`
 
@@ -2456,7 +2456,7 @@ uexWindow.makeAlpha(0.5);
 uexWindow.commitAnimition();
 ```
 
-> ### getBounce 获取网页弹动状态
+### 🍭 getBounce 获取网页弹动状态
 
 `uexWindow.getBounce()`
 
@@ -2480,7 +2480,7 @@ Number类型,1:支持,0:不支持
 uexWindow.getBounce();
 ```
 
-> ### setBounce 设置是否支持网页弹动
+### 🍭 setBounce 设置是否支持网页弹动
 
 `uexWindow.setBounce(flag)`
 
@@ -2492,7 +2492,7 @@ uexWindow.getBounce();
 
 | 参数名称 | 参数类型   | 是否必选 | 说明         |
 | ---- | ------ | ---- | ---------- |
-| flag | Number | 是    | 1:支持；0:不支持 |
+| flag | Number | 是    | 1:支持;0:不支持 |
 
 
 
@@ -2501,7 +2501,7 @@ uexWindow.getBounce();
 uexWindow.setBounce(1);
 ```
 
-> ### notifyBounceEvent 注册接收弹动事件
+### 🍭 notifyBounceEvent 注册接收弹动事件
 
 `uexWindow.notifyBounceEvent(type,status)`
 
@@ -2513,8 +2513,8 @@ uexWindow.setBounce(1);
 
 | 参数名称   | 参数类型   | 是否必选 | 说明                                   |
 | ------ | ------ | ---- | ------------------------------------ |
-| type   | Number | 是    | 弹动的位置,0:顶端弹动；1:底部弹动                  |
-| status | Number | 是    | 是否调用onBounceStateChange方法,0:不调用；1-调用 |
+| type   | Number | 是    | 弹动的位置,0:顶端弹动;1:底部弹动                  |
+| status | Number | 是    | 是否调用onBounceStateChange方法,0:不调用;1-调用 |
 
 
 
@@ -2524,7 +2524,7 @@ uexWindow.setBounce(1);
 uexWindow.notifyBounceEvent(1,1);
 ```
 
-> ### showBounceView 显示弹动效果
+### 🍭 showBounceView 显示弹动效果
 
 `uexWindow.showBounceView(json)`
 
@@ -2536,9 +2536,9 @@ uexWindow.notifyBounceEvent(1,1);
 
 | 参数名称  | 参数类型   | 是否必选 | 说明                           |
 | ----- | ------ | ---- | ---------------------------- |
-| type  | Number | 是    | 弹动的位置,0:顶端弹动；1:底部弹动          |
+| type  | Number | 是    | 弹动的位置,0:顶端弹动;1:底部弹动          |
 | color | String | 是    | 弹动显示部位的颜色值,内容不超过一屏时底部弹动内容不显示 |
-| flag  | String | 是    | 是否显示内容,1:显示；0:不显示            |
+| flag  | String | 是    | 是否显示内容,1:显示;0:不显示            |
 
 
 
@@ -2552,7 +2552,7 @@ uexWindow.showBounceView({
 });
 ```
 
-> ### resetBounceView 设置弹动效果结束后显示的网页
+### 🍭 resetBounceView 设置弹动效果结束后显示的网页
 
 `uexWindow.resetBounceView(type)`
 
@@ -2564,7 +2564,7 @@ uexWindow.showBounceView({
 
 | 参数名称 | 参数类型   | 是否必选 | 说明              |
 | ---- | ------ | ---- | --------------- |
-| type | Number | 是    | 弹动的位置,0:顶端；1:底部 |
+| type | Number | 是    | 弹动的位置,0:顶端;1:底部 |
 
 
 
@@ -2574,7 +2574,7 @@ uexWindow.showBounceView({
 uexWindow.resetBounceView("1");
 ```
 
-> ### setBounceParams 设置弹动参数
+### 🍭 setBounceParams 设置弹动参数
 
 `uexWindow.setBounceParams(type,status)`
 
@@ -2585,7 +2585,7 @@ uexWindow.resetBounceView("1");
 
 | 参数名称   | 参数类型   | 是否必选 | 说明                  |
 | ------ | ------ | ---- | ------------------- |
-| type   | Number | 是    | 弹动的位置,0:顶端弹动；1:底部弹动 |
+| type   | Number | 是    | 弹动的位置,0:顶端弹动;1:底部弹动 |
 | status | String | 是    | json                |
 
 status中字段的说明
@@ -2594,11 +2594,11 @@ status中字段的说明
 | ------------------- | ---- | ---------------------------------------- |
 | imagePath           | 是    | 下拉状态小图标的路径,只支持res:// 格式.路径协议详见<a href="http://newdocx.appcan.cn/index.html?templateId=301"target="_blank">CONSTANT</a>中Pathtypes |
 | textColor           | 是    | 展示下拉状态文字的颜色,如:"#ffffff"                  |
-| levelText           | 是    | 显示的二级文字,如:“上次更新时间:xxxxx”.                |
-| pullToReloadText    | 是    | 开始拖动直到超过刷新临界线之前显示的文字,如:“拖动刷新”            |
-| releaseToReloadText | 是    | 拖动超过刷新临界线后显示的文字,如:“释放刷新”                 |
-| loadingText         | 是    | 拖动超过刷新临界线并且释放拖动,进入刷新状态时显示的文字,如:“加载中,请稍等” |
-| loadingImagePath    | 否    | 等待状态loading小图标的路径,只支持res:// 格式（该字段为定制需求,默认无效） |
+| levelText           | 是    | 显示的二级文字,如:"上次更新时间:xxxxx".                |
+| pullToReloadText    | 是    | 开始拖动直到超过刷新临界线之前显示的文字,如:"拖动刷新"            |
+| releaseToReloadText | 是    | 拖动超过刷新临界线后显示的文字,如:"释放刷新"                 |
+| loadingText         | 是    | 拖动超过刷新临界线并且释放拖动,进入刷新状态时显示的文字,如:"加载中,请稍等" |
+| loadingImagePath    | 否    | 等待状态loading小图标的路径,只支持res:// 格式(该字段为定制需求,默认无效) |
 
 
 
@@ -2616,7 +2616,7 @@ var json={
 uexWindow.setBounceParams(0, json);
 ```
 
-> ### hiddenBounceView 隐藏弹动效果
+### 🍭 hiddenBounceView 隐藏弹动效果
 
 `uexWindow.hiddenBounceView(type)`
 
@@ -2628,7 +2628,7 @@ uexWindow.setBounceParams(0, json);
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                |
 | ---- | ------ | ---- | ----------------- |
-| type | Number | 是    | 弹动显示的部位,0:顶端；1:底部 |
+| type | Number | 是    | 弹动显示的部位,0:顶端;1:底部 |
 
 
 
@@ -2639,7 +2639,7 @@ uexWindow.hiddenBounceView(1);
 ```
 
 
-> ### setIsSupportSlideCallback 设置网页是否支持滑动的相关监听方法
+### 🍭 setIsSupportSlideCallback 设置网页是否支持滑动的相关监听方法
 
 `uexWindow.setIsSupportSlideCallback(param)`
 
@@ -2658,7 +2658,7 @@ uexWindow.hiddenBounceView(1);
 
 ```javascript
 var param = {
-    isSupport://(必选)true:支持；false:不支持.默认为false.
+    isSupport://(必选)true:支持;false:不支持.默认为false.
 }
 ```
 
@@ -2674,7 +2674,7 @@ var param = {
 uexWindow.setIsSupportSlideCallback(param);
 ```
 
-> ### setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法
+### 🍭 setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法
 
 `uexWindow.setIsSupportSwipeCallback(param)`
 
@@ -2686,7 +2686,7 @@ uexWindow.setIsSupportSlideCallback(param);
 
 ```javascript
 var param = {
-    isSupport:true(支持)；false(不支持).必选,默认为false.
+    isSupport:true(支持);false(不支持).必选,默认为false.
 }
 ```
 
@@ -2701,7 +2701,7 @@ var param = {
 uexWindow.setIsSupportSwipeCallback(param);
 ```
 
-> ### disturbLongPressGesture 阻碍当前网页长按手势
+### 🍭 disturbLongPressGesture 阻碍当前网页长按手势
 
 `uexWindow.disturbLongPressGesture(flag)`
 
@@ -2744,7 +2744,7 @@ Android:
 uexWindow.disturbLongPressGesture(1);
 ```
 
-> ### reload 重载当前页面
+### 🍭 reload 重载当前页面
 
 `uexWindow.reload();`
 
@@ -2767,7 +2767,7 @@ uexWindow.reload();
 
 ```
 
-> ### topBounceViewRefresh 自动下拉刷新
+### 🍭 topBounceViewRefresh 自动下拉刷新
 
 `uexWindow.topBounceViewRefresh()`
 
@@ -2787,7 +2787,7 @@ uexWindow.reload();
 uexWindow.topBounceViewRefresh();
 ```
 
-> ### createPluginViewContainer 创建插件容器
+### 🍭 createPluginViewContainer 创建插件容器
 
 `uexWindow.createPluginViewContainer(jsonStr);`
 
@@ -2830,7 +2830,7 @@ var params = {
 var result=uexWindow.createPluginViewContainer(JSON.stringify(params));
 ```
 
-> ### closePluginViewContainer 关闭插件容器
+### 🍭 closePluginViewContainer 关闭插件容器
 
 `uexWindow.closePluginViewContainer(jsonStr);`
 
@@ -2865,7 +2865,7 @@ var params = {
 var result=uexWindow.closePluginViewContainer(JSON.stringify(params));
 ```
 
-> ### setPageInContainer 设置插件容器当前要显示的页面
+### 🍭 setPageInContainer 设置插件容器当前要显示的页面
 
 `uexWindow.setPageInContainer(jsonStr);`
 
@@ -2899,7 +2899,7 @@ var params = {
         };
 uexWindow.setPageInContainer(JSON.stringify(params));
 ```
-> ### hideStatusBar 隐藏状态栏
+### 🍭 hideStatusBar 隐藏状态栏
 
 `uexWindow.hideStatusBar()`
 
@@ -2917,7 +2917,7 @@ uexWindow.setPageInContainer(JSON.stringify(params));
 
 `uexWindow.hideStatusBar();`
 
-> ### showStatusBar 显示状态栏
+### 🍭 showStatusBar 显示状态栏
 
 `uexWindow.showStatusBar()`
 
@@ -2937,7 +2937,7 @@ uexWindow.setPageInContainer(JSON.stringify(params));
 
 
 
-> ### setSwipeCloseEnable 设置当前页面是否支持手势侧滑关闭
+### 🍭 setSwipeCloseEnable 设置当前页面是否支持手势侧滑关闭
 
 `uexWindow.setSwipeCloseEnable(jsonStr)`
 
@@ -2970,7 +2970,7 @@ var jsonStr = {
 
 
 
-> ### putLocalData 存放本地数据
+### 🍭 putLocalData 存放本地数据
 
 `uexWindow.putLocalData(key,value)`
 
@@ -2994,7 +2994,7 @@ var jsonStr = {
 
 
 
-> ### getLocalData 获取本地存储的数据
+### 🍭 getLocalData 获取本地存储的数据
 
 `uexWindow.getLocalData(key)`
 
@@ -3010,7 +3010,7 @@ var jsonStr = {
 
 **返回值:**
 
-key所对应的数据的值，不存在时会返回undefined
+key所对应的数据的值,不存在时会返回undefined
 
 **示例:**
 
@@ -3025,7 +3025,7 @@ console.log(name);
 
 ## 2.4 回调方法
 
-> ### cbOpenMultiPopover 打开多页面浮动窗口的回调方法
+### 🍭 cbOpenMultiPopover 打开多页面浮动窗口的回调方法
 
 `uexWindow.cbOpenMultiPopover(opId,dataType,data)`
 
@@ -3049,7 +3049,7 @@ data字符串中各字段含义如下:
 
 ## 2.5 监听方法
 
-> ### uexOnload 网页加载完成时的回调方法
+### 🍭 uexOnload 网页加载完成时的回调方法
 
 `window.uexOnload(type)`
 
@@ -3068,7 +3068,7 @@ window.uexOnload = function(type){
 }
 ```
 
-> ### onSlipedUpward 上滑的监听方法,内容超过一屏时有效
+### 🍭 onSlipedUpward 上滑的监听方法,内容超过一屏时有效
 
 `uexWindow.onSlipedUpward()`
 
@@ -3086,7 +3086,7 @@ uexWindow.onSlipedUpward = function(){
 }
 ```
 
-> ### onSlipedDownward 下滑的监听方法,内容超过一屏时有效
+### 🍭 onSlipedDownward 下滑的监听方法,内容超过一屏时有效
 
 `uexWindow.onSlipedDownward()`
 
@@ -3100,7 +3100,7 @@ uexWindow.onSlipedUpward = function(){
 
 类似onSlipedUpward
 
-> ### onSlipedUpEdge 滑到顶部的监听方法,内容超过一屏时有效
+### 🍭 onSlipedUpEdge 滑到顶部的监听方法,内容超过一屏时有效
 
 `uexWindow.onSlipedUpEdge()`
 
@@ -3114,7 +3114,7 @@ uexWindow.onSlipedUpward = function(){
 
 类似onSlipedUpward
 
-> ### onSlipedDownEdge 滑到底部的监听方法,内容超过一屏时有效
+### 🍭 onSlipedDownEdge 滑到底部的监听方法,内容超过一屏时有效
 
 `uexWindow.onSlipedDownEdge()`
 
@@ -3128,7 +3128,7 @@ uexWindow.onSlipedUpward = function(){
 
 类似onSlipedUpward
 
-> ### onAnimationFinish 动画执行完成的监听方法,只对浮动窗口有效
+### 🍭 onAnimationFinish 动画执行完成的监听方法,只对浮动窗口有效
 
 `uexWindow.onAnimationFinish()`
 
@@ -3146,7 +3146,7 @@ function onAnimationFinish() {
 }
 ```
 
-> ### onSetWindowFrameFinish 当前窗口位置移动完成的监听方法
+### 🍭 onSetWindowFrameFinish 当前窗口位置移动完成的监听方法
 
 `uexWindow.onSetWindowFrameFinish()`
 
@@ -3163,11 +3163,11 @@ window.uexOnload = function(type){
     uexWindow.onSetWindowFrameFinish = onSetWindowFrameFinish;
 }
 function onSetWindowFrameFinish(){
-    alert('移动完成！');
+    alert('移动完成!');
 }
 ```
 
-> ### onSwipeRight 向右滑动的监听方法
+### 🍭 onSwipeRight 向右滑动的监听方法
 
 `uexWindow.onSwipeRight()`
 
@@ -3185,7 +3185,7 @@ uexWindow.onSwipeRight = function(){
 }
 ```
 
-> ### onSwipeLeft 向左滑动的监听方法
+### 🍭 onSwipeLeft 向左滑动的监听方法
 
 `uexWindow.onSwipeLeft()`
 
@@ -3195,7 +3195,7 @@ uexWindow.onSwipeRight = function(){
 
 
 
-> ### onBounceStateChange 弹动状态改变的监听方法
+### 🍭 onBounceStateChange 弹动状态改变的监听方法
 
 `uexWindow.onBounceStateChange(type,state)`
 
@@ -3203,8 +3203,8 @@ uexWindow.onSwipeRight = function(){
 
 | 参数名称  | 参数类型   | 是否必选 | 说明                             |
 | ----- | ------ | ---- | ------------------------------ |
-| type  | Number | 是    | 对应的部位值,0:网页顶端；1:网页底部           |
-| state | Number | 是    | 状态值,0:滑动事件开始；1:刷新事件开始；2:滑动事件结束 |
+| type  | Number | 是    | 对应的部位值,0:网页顶端;1:网页底部           |
+| state | Number | 是    | 状态值,0:滑动事件开始;1:刷新事件开始;2:滑动事件结束 |
 
 
 
@@ -3228,7 +3228,7 @@ function onBounceStateChange(type, state){
 }
 ```
 
-> ### onGlobalNotification 全局消息的监听方法
+### 🍭 onGlobalNotification 全局消息的监听方法
 
 `uexWindow.onGlobalNotification(data)`
 
@@ -3252,7 +3252,7 @@ function onGlobalNotification(ret){
 }
 ```
 
-> ### onKeyPressed 按键事件的监听方法
+### 🍭 onKeyPressed 按键事件的监听方法
 
 `uexWindow.onKeyPressed (keyCode)`
 
@@ -3272,7 +3272,7 @@ uexWindow.onKeyPressed =function(keyCode){
 }
 ```
 
-> ### onStateChange 窗口前后台状态变化的监听方法
+### 🍭 onStateChange 窗口前后台状态变化的监听方法
 
 `uexWindow.onStateChange(state)`
 
@@ -3293,7 +3293,7 @@ uexWindow.onStateChange=function(state){
 ```
 
 
-> ### onPopoverLoadFinishInRootWnd 浮动窗口加载完成的监听方法
+### 🍭 onPopoverLoadFinishInRootWnd 浮动窗口加载完成的监听方法
 
 `uexWindow.onPopoverLoadFinishInRootWnd(name,url)`
 
@@ -3302,12 +3302,12 @@ uexWindow.onStateChange=function(state){
 | 参数名称 | 参数类型   | 是否必选 | 说明                                       |
 | ---- | ------ | ---- | ---------------------------------------- |
 | name | String | 是    | 浮动窗口的名称                                  |
-| url  | String | 是    | 浮动窗口的url；当浮动窗口加载的是本地网页时,url返回网页的绝对路径（file:// 开头）当浮动窗口加载的是网络上的网页时,url返回网址（http:// 开头） |
+| url  | String | 是    | 浮动窗口的url;当浮动窗口加载的是本地网页时,url返回网页的绝对路径(file:// 开头)当浮动窗口加载的是网络上的网页时,url返回网址(http:// 开头) |
 
 
 
 
-> ### onPluginContainerPageChange容器页面切换回调
+### 🍭 onPluginContainerPageChange容器页面切换回调
 
 `uexWindow.onPluginContainerPageChange(opId,dataType,data)`
 
@@ -3331,7 +3331,7 @@ window.uexOnload = function(type){
 }
 ```
 
-> ### onSlidingWindowStateChanged 侧滑菜单状态改变的监听方法
+### 🍭 onSlidingWindowStateChanged 侧滑菜单状态改变的监听方法
 
 `uexWindow.onSlidingWindowStateChanged(state)`
 
@@ -3339,7 +3339,7 @@ window.uexOnload = function(type){
 
 | 参数名称  | 参数类型   | 是否必选 | 说明                                |
 | ----- | ------ | ---- | --------------------------------- |
-| state | Number | 是    | 返回的显示情况,0:左侧菜单显示；1:主界面显示；2:右侧菜单显示 |
+| state | Number | 是    | 返回的显示情况,0:左侧菜单显示;1:主界面显示;2:右侧菜单显示 |
 
 
 
@@ -3353,7 +3353,7 @@ uexWindow.onSlidingWindowStateChanged=function(state){
 
 #3 术语表
 
->### WindowAnimationId 窗口动画Id
+### 🍭 WindowAnimationId 窗口动画Id
 
 > **基础动画**
 
@@ -3363,9 +3363,9 @@ uexWindow.onSlidingWindowStateChanged=function(state){
 * uex.cWindowAnimationUpToDown=3//由上往下推入
 * uex.cWindowAnimationDownToUp=4//由下往上推入
 * uex.cWindowAnimationFadeOutFadeIn=5//淡入淡出
-* uex.cWindowAnimationLeftFlip=6//左翻页（android暂不支持）
-* uex.cWindowAnimationRigthFlip=7//右翻页（android暂不支持）
-* uex.cWindowAnimationRipple=8//水波纹（android暂不支持）
+* uex.cWindowAnimationLeftFlip=6//左翻页(android暂不支持)
+* uex.cWindowAnimationRigthFlip=7//右翻页(android暂不支持)
+* uex.cWindowAnimationRipple=8//水波纹(android暂不支持)
 * uex.cWindowAnimationLeftToRightMoveIn=9//由左往右切入
 * uex.cWindowAnimationRightToLeftMoveIn=10//由右往左切入
 * uex.cWindowAnimationTopToBottomMoveIn=11//由上往下切入

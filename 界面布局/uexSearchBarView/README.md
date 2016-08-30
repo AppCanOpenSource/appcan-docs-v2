@@ -26,35 +26,50 @@
 
 **说明:**
 
-  
+
 打开搜索框
 
 **参数:**
 
-  
-
-```
+```javascript
 var json = {
-    x:,//(必选) 左间距
-    y:,//(必选) 上间距
-    w:,//(必选) 宽度
-    h:,//(必选) 高度
-    searchBar:{//(可选) 搜索框样式
-        placehoderText:,//(可选) 输入框预置文字
-        textColor:,//(可选) 输入框中文字颜色
-        inputBgColor://(可选) 输入框背景色
+    x:,
+    y:,
+    w:,
+    h:,
+    searchBar:{
+        placehoderText:,
+        textColor:,
+        inputBgColor:
     },
-    listView:{//(可选) 列表样式
-        bgColor:,//(可选) 背景色
-        separatorLineColor:,//(可选) 分隔线颜色
-        itemTextColor://(可选) 列表项文字颜色
+    listView:{
+        bgColor:,
+        separatorLineColor:,
+        itemTextColor:
     }
 }
 ```
 
+各字段含义如下:
+
+| 字段名称               | 类型     | 是否必选 | 说明       |
+| ------------------ | ------ | ---- | -------- |
+| x                  | Number | 是    | 左间距      |
+| y                  | Number | 是    | 上间距      |
+| w                  | Number | 是    | 宽度       |
+| h                  | Number | 是    | 高度       |
+| searchBar          | Object | 否    | 搜索框样式    |
+| placehoderText     | String | 否    | 输入框预置文字  |
+| textColor          | String | 否    | 输入框中文字颜色 |
+| inputBgColor       | String | 否    | 输入框背景色   |
+| listView           | Object | 否    | 列表样式     |
+| bgColor            | String | 否    | 背景色      |
+| separatorLineColor | String | 否    | 分隔线颜色    |
+| itemTextColor      | String | 否    | 列表项文字颜色  |
+
 **示例:**
 
-```
+```javascript
     var width = window.screen.width;
     var height = window.screen.height - 300;
     var param1 = {
@@ -81,13 +96,11 @@ var json = {
 
 ### 🍭 close 关闭搜索框  
 
-```
-uexSearchBarView.close()
-```
+`uexSearchBarView.close()`
 
 **说明:**
 
-  
+
 关闭搜索框  
 
 **参数:**
@@ -96,19 +109,17 @@ uexSearchBarView.close()
 
 **示例:**
 
-```
+```javascript
     uexSearchBarView.close()
 ```
 
 ### 🍭 clearHistory 清空搜索历史
 
-```
-uexSearchBarView.clearHistory()
-```  
+`uexSearchBarView.clearHistory()`
 
 **说明:**
 
-  
+
 清空搜索历史  
 
 **参数:**
@@ -117,7 +128,7 @@ uexSearchBarView.clearHistory()
 
 **示例:**
 
-```
+```javascript
     uexSearchBarView.clearHistory();
 ```
 ## 2.2、监听方法

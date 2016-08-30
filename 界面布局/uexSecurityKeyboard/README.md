@@ -38,7 +38,7 @@
 
 **参数:**
 
-```
+```javascript
     var params = {
          "keyboardType": ,
          "keyboardDescription": ,
@@ -68,7 +68,7 @@
 
 **示例:**
 
-```
+```javascript
     var params = {
         "keyboardType":1,
         "keyboardDescription": "正益移动安全输入",
@@ -98,7 +98,7 @@
 
 **示例:**
 
-```
+```javascript
     uexSecurityKeyboard.close(securityKeyboard);
 ```
 
@@ -115,10 +115,9 @@
 
 各字段含义如下:
 
-| 名称               | 类型     | 是否必选 | 说明              |
+| 参数名称             | 参数类型   | 是否必选 | 说明              |
 | ---------------- | ------ | ---- | --------------- |
 | securityKeyboard | Object | 是    | 由open接口创建的输入框对象 |
-| content          | String | 是    | 输入框对象的内容        |
 
 **返回值:**
 
@@ -126,7 +125,7 @@
 
 **示例:**
 
-```
+```javascript
    var content = uexSecurityKeyboard.getData(securityKeyboard);
 ```
 

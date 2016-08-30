@@ -18,95 +18,116 @@
 
 ### 🍭 init  初始化
 
-`uexBaiduNavi.init(param)`
+`uexBaiduNavi.init(param,callback)`
 
 **说明**
 
 初始化百度导航
 
-回调 [cbInit](#cbInit 初始化完成的回调方法)
-
 **参数**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|param|String|是|param是json字符串,详情见下|
+| 参数名称     | 参数类型     | 是否必选 | 说明                 |
+| -------- | -------- | ---- | ------------------ |
+| param    | String   | 是    | param是json字符串,详情见下 |
+| callback | Function | 否    | init的回调函数          |
 
 ```
 var param = {
 	baiduAPIKey;//(必选,String)百度APIKey
 }
-
 ```
 * 百度APIKey由用户在在百度LBS开放平台申请得来
 
-**平台支持**
+**回调参数**
 
-Android 2.2+    
-iOS 6.0+    
+```javascript
+var callback=function(error,data){}
+```
+
+| 参数名称  | 参数类型   | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,其他表示失败 |
+| data  | String | 失败时返回相关错误信息  |
 
 **版本支持**
 
-Android 3.0.0+    
-iOS 3.0.0+    
+4.0.0+    
 
 **示例**
 
-```
+```javascript
 var data={
-		baiduAPIKey:"cCfq6oSxA8SKsHB7FopAocyX"
+	baiduAPIKey:"cCfq6oSxA8SKsHB7FopAocyX"
 }
-uexBaiduNavi.init(JSON.stringify(data));
-
+uexBaiduNavi.init(data,function(error,data){
+  	if(!error){
+      	elert("初始化成功");
+  	}
+});
 ```
 
 ### 🍭 startRoutePlan  开始路径规划
 
-`uexBaiduNavi.startRoutePlan(param)`
+`uexBaiduNavi.startRoutePlan(param,callback)`
 
 **说明**
 
 通过输入起点与终点,可以发起路径规划.百度导航使用gps坐标系,使用前需要转换成百度坐标系(百度地图)防止定位偏差.
 
-回调 [cbStartRoutePlan](#cbStartRoutePlan 开始路径规划的回调方法) 开始路径规划的回调方法
-
 **参数**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|param|String|是|param是json字符串,详情见下|
+| 参数名称     | 参数类型     | 是否必选 | 说明                 |
+| -------- | -------- | ---- | ------------------ |
+| param    | String   | 是    | param是json字符串,详情见下 |
+| callback | Function | 否    | 规划完成的回调            |
 
-```
+```javascript
 var param={
 		startNode;//(必选,Array)[longitude,latitude]起点 经纬度坐标
 		endNode;//(必选,Array)[longitude,latitude]终点 经纬度坐标
 		throughNodes;//(可选,Array)由[longitude,latitude]组成的数组 途经点坐标
  		mode;//(可选,Number)路径规划模式 1-默认 2-高速优先 3-少走高速
 }
-
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
 
 **版本支持**
 
-Android 3.0.0+    
-iOS 3.0.0+    
+4.0.0+   
+
+**回调参数**
+
+```javascript
+var callback=function(error,data){}
+```
+
+| 参数名称  | 参数类型   | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,其他表示失败 |
+| data  | String | 失败时返回相关错误信息  |
+
+| error值 | 对应原因           |
+| ------ | -------------- |
+| 1      | 获取地理位置失败       |
+| 2      | 无法发起算路         |
+| 3      | 定位服务未开启        |
+| 4      | 节点之间距离太近       |
+| 5      | 节点输入有误         |
+| 6      | 上次算路取消了,需要等一会儿 |
 
 **示例**
 
-```
+```javascript
  var data={
-		startNode:[113.948222,22.549555],
-		endNode:[114.089863,22.546236],
-		throughNodes:[[113.977004,22.556393]],
-		mode:2
+	startNode:[113.948222,22.549555],
+	endNode:[114.089863,22.546236],
+	throughNodes:[[113.977004,22.556393]],
+	mode:2
 }
-uexBaiduNavi.startRoutePlan(JSON.stringify(data));
-
+uexBaiduNavi.startRoutePlan(data,function(error,data){
+  	if(!error){
+      //路径规划成功
+  	}
+});
 ```
 
 ### 🍭 startNavi  开始导航
@@ -123,37 +144,29 @@ uexBaiduNavi.startRoutePlan(JSON.stringify(data));
 
 **参数**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|param|String|否|param是json字符串,详情见下|
+| 参数名称  | 参数类型   | 是否必选 | 说明                 |
+| ----- | ------ | ---- | ------------------ |
+| param | String | 否    | param是json字符串,详情见下 |
 
-```
+```javascript
 var param={
-		naviType;//(可选,Number)导航模式 1-真实导航 2-模拟导航
-		isNeedLandscape;// (可选,Number) 是否需要横竖屏切换 (导航默认竖屏) 1-需要(默认) 2-不需要
+	naviType;//(可选,Number)导航模式 1-真实导航 2-模拟导航
+	isNeedLandscape;// (可选,Number) 是否需要横竖屏切换 (导航默认竖屏) 1-需要(默认) 2-不需要
 }
-
 ```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
 
 **版本支持**
 
-Android 3.0.0+    
-iOS 3.0.0+    
+4.0.0+    
 
 **示例**
 
-```
+```javascript
 var data={
-		naviType:1,
-		isNeedLandscape:2
+	naviType:1,
+	isNeedLandscape:2
 }
-    
-uexBaiduNavi.startNavi(JSON.stringify(data));
+uexBaiduNavi.startNavi(data);
 ```
 
 ### 🍭 exitNavi  退出导航
@@ -170,15 +183,9 @@ uexBaiduNavi.startNavi(JSON.stringify(data));
 
 无
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
 **版本支持**
 
-Android 3.0.0+    
-iOS 3.0.0+    
+4.0.0+  
 
 **示例**
 
@@ -198,128 +205,31 @@ uexBaiduNavi.exitNavi();
 
 **参数**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|param|String|否|param是json字符串,详情见下|
+| 参数名称  | 参数类型   | 是否必选 | 说明                 |
+| ----- | ------ | ---- | ------------------ |
+| param | String | 否    | param是json字符串,详情见下 |
 
-```
+```javascript
 var param={
 		isNeedLandscape;// (可选,Number) 是否需要横竖屏切换 (导航默认竖屏) 1-需要(默认) 2-不需要
 }
-
 ```
-
-**平台支持**
-
-  
-iOS 6.0+    
 
 **版本支持**
 
- 
-iOS 3.0.0+    
+
+iOS 4.0.0+    
 
 **示例**
 
-```
+```javascript
 var data={
-		isNeedLandscape:2
+	isNeedLandscape:2
 }
-    
-uexBaiduNavi.startDigitDog(JSON.stringify(data));
+uexBaiduNavi.startDigitDog(data);
 ```
 
-## 2.2、 回调方法
-
-### 🍭 cbInit 初始化完成的回调方法
-
-`uexBaiduNavi.cbInit(param)`
-
-**说明**
-
-初始化完成之后会触发此回调
-
-**参数**
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|param|String|否|param是json字符串,详情见下|
-
-```
-var param={
-		isSuccess:,// true/false 百度导航插件初始化是否成功
-}
-
-```
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
-```
-uexBaiduNavi.cbInit=function(json){
-	alert(json);
-}
-```
-
-### 🍭 cbStartRoutePlan 开始路径规划的回调方法
-
-`uexBaiduNavi.cbStartRoutePlan(param)`
-
-**说明**
-
-路径规划完成之后会触发此回调
-
-**参数**
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|param|String|否|param是json字符串,详情见下|
-
-```
-var param={
-		resultCode;//1-路径规划成功 2-路径规划失败 3-路径规划被取消
-		errorInfo;//当且仅当路径规划失败时会包含此项,具体说明见下
-}
-
-```
-
-|errorInfo值|对应原因|
-|-----|-----|
-|1|获取地理位置失败|
-|2|无法发起算路|
-|3|定位服务未开启|
-|4|节点之间距离太近|
-|5|节点输入有误|
-|6|上次算路取消了,需要等一会儿|
-
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.0.0+    
-iOS 3.0.0+    
-
-**示例**
-
-```
-uexBaiduNavi.cbStartRoutePlan=function(json){
-	alert(json);
-}
-```
-
-##2.3、 监听方法
+##2.2、 监听方法
 
 ### 🍭 onExitNavi 退出导航的监听方法
 
@@ -333,15 +243,9 @@ uexBaiduNavi.cbStartRoutePlan=function(json){
 
 无
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
 **版本支持**
 
-Android 3.0.0+    
-iOS 3.0.0+    
+4.0.0+     
 
 **示例**
 
@@ -365,15 +269,9 @@ uexBaiduNavi.onExitNavi=function(){
 
 无
 
-**平台支持**
-
-Android 2.2+    
-iOS 6.0+    
-
 **版本支持**
 
-Android 3.0.0+    
-iOS 3.0.0+    
+4.0.0+    
 
 **示例**
 
@@ -395,15 +293,10 @@ uexBaiduNavi.onExitDeclaration=function(){
 
 无
 
-**平台支持**
-
- 
-iOS 6.0+    
-
 **版本支持**
 
-  
-iOS 3.0.0+    
+
+iOS 4.0.0+    
 
 **示例**
 
@@ -418,7 +311,7 @@ uexBaiduNavi.onExitDigitDog=function(){
 ## AppKEY 申请
 
 可以参考[百度地图的AppKEY申请指引](http://newdocx.appcan.cn/newdocx/docx?type=1384_975)
-	
+​	
 ## TTS语音平台授权
 SDK内置百度TTS语音播报功能,需要对应用进行授权验证才能够使用,因此需要主动注册应用相关信息.
 
@@ -428,19 +321,19 @@ SDK内置百度TTS语音播报功能,需要对应用进行授权验证才能够�
 
 * iOS 直接传入AppKEY即可在**前台**正常使用导航功能
 * 如果您的应用需要用到**后台导航**,需要在[config.xml中添加以下**后台权限**](http://newdocx.appcan.cn/newdocx/docx?type=1492_1291#Authority)
-	* 后台音乐播放   
-	* 后台定位
+  * 后台音乐播放   
+  * 后台定位
 * 如果您没有用到其他后台权限,那么可以参考如下配置
 
-```
+```xml
 <config desc="bgConfig" type="AUTHORITY">
-<permission platform="iOS" info="backGroundMode" flag="3"/>
+	<permission platform="iOS" info="backGroundMode" flag="3"/>
 </config>
 ```
 
 ## Android插件配置指引
 将如下所示的value对应的值换成自己在百度上申请的秘钥即可.
-```
+```xml
 <config desc="uexBaiduNavi" type="KEY">
    <param name="$uexBaiduNavi_ApiKey$" platform="Android" value="BMZtlp2EMfWQgMG8nOqu6KzG"/>
 </config>
@@ -461,6 +354,8 @@ API版本: `uexBaiduNavi-4.0.0`
 最近更新时间:`2015-10-23`
 
 | 历史发布版本 | 更新内容 |
+
+| ----- | ----- |
 | ----- | ----- |
 
 ### Android
