@@ -1692,7 +1692,7 @@ var json = {
     }
 ```
 
-### 🍭 onMarkerBubbleClickListener 点击气泡的监听方法
+### 🍭 onMarkerBubbleClickListener 点击气泡的监听方法,仅支持Android
 
 `uexGaodeMap.onMarkerBubbleClickListener(json);`
 
@@ -2172,7 +2172,7 @@ var json = {
 | 参数名称 | 参数类型    | 是否必选 | 说明   |
 | ---- | ------- | ---- | ---- |
 | error | Number | 是    | 0表示成功,非0表示失败 |
-| data | Array | 是    | 返回的数据 |
+| data | Object | 是    | 返回的数据 |
 
 ```
 var data = {
