@@ -13,7 +13,7 @@ typealias MarkDownEditResult = (result: MarkDownSource,hasChanged: Bool)
 struct PluginMarkDown {
     struct Constant {
         static let gitPath       = "/Users/appcan_git/dev/appcan_git/appcan-docs-v2"
-        static let pluginType    = ["系统功能","网络通讯","界面布局","功能扩展","第三方SDK"]
+        static let pluginType    = ["系统功能","网络通讯","界面布局","功能扩展","第三方SDK","应用引擎"]
         static let ignorePlugins = []
     }
     
@@ -126,7 +126,7 @@ for md in PluginMarkDown.allAvailable(){
     requiredPath  = requiredPath
         .stringByDeletingLastPathComponent()
         .stringByAppendingPathComponent("DocumentCenter")
-        .stringByAppendingPathComponent("插件API")
+        .stringByAppendingPathComponent("引擎插件API")
         .stringByAppendingPathComponent(type)
         .stringByAppendingPathComponent(md.name + ".md")
     let fm = NSFileManager.defaultManager()
