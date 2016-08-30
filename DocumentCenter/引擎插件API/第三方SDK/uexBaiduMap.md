@@ -276,7 +276,7 @@ alert('data:' + JSON.stringify(data));
 
 | 参数名称      | 参数类型   | 是否必选 | 说明                      |
 | --------- | ------ | ---- | ----------------------- |
-| zoomLevel | Number | 是    | 地图的缩放级别 范围:3~19，数值越大越精确 |
+| zoomLevel | Number | 是    | 地图的缩放级别 范围:3~19,数值越大越精确 |
 
 
 **示例**
@@ -473,7 +473,7 @@ uexBaiduMap.setOverlookEnable(1);
 
 **说明**
 
-添加标注, **注意：`json`是String类型，需要将对象JSON.stringify()**
+添加标注, **注意:`json`是String类型,需要将对象JSON.stringify()**
 
 **参数**
 

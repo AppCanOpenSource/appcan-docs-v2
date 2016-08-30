@@ -39,28 +39,39 @@ Toc: 1
 | ------- | ------ | ---- | -------------- |
 | jsonstr | String | 是    | json 格式的字符串,如下 |
 
-```
+```javascript
  {  
-    "x": //x坐标
-    "y": //y坐标
-    "w": //宽(宽度需要跟圆点数量相适应,太短会显示不完整)
-    "h": //高
+    "x":,
+    "y":,
+    "w":,
+    "h":,
     "style": {
-        "styleId": //loading的样式,取值为0或1,0-大小渐变样式;1-颜色渐变样式.
-        "pointNum": //圆点的数量
-        "pointColor": [//颜色数组,数组个数为1或者等于圆点的数量
-            "#ffffff" //圆点的颜色
+        "styleId":,
+        "pointNum":,
+        "pointColor": [
+            "#ffffff"
         ]
     }
 }
 ```
 
+各字段含义如下:
 
+| 字段名称       | 类型     | 是否必选 | 说明                                   |
+| ---------- | ------ | ---- | ------------------------------------ |
+| x          | Number | 是    | x坐标                                  |
+| y          | Number | 是    | y坐标                                  |
+| w          | Number | 是    | 宽(宽度需要跟圆点数量相适应,太短会显示不完整)             |
+| h          | Number | 是    | 高                                    |
+| style      | Object | 是    | 圆点样式关键字                              |
+| styleId    | Number | 是    | loading的样式,取值为0或1,0-大小渐变样式;1-颜色渐变样式. |
+| pointNum   | Number | 是    | 圆点的数量                                |
+| pointColor | Array  | 是    | 颜色数组,数组个数为1或者等于圆点的数量                 |
 
 **示例:**
 
-```
-var jsonstr = '{
+```javascript
+var jsonstr = {
     "x": 200, 
     "y": 500, 
     "w": 150, 
@@ -72,8 +83,8 @@ var jsonstr = '{
             "#ffffff"
         ]
     }
-}';
-uexLoadingView.open(jsonstr);
+};
+uexLoadingView.open(JSON.stringify(jsonstr));
 ```
 
 ### 🍭 openCircleLoading 打开带有圆形加载动画的loading view
@@ -91,7 +102,7 @@ uexLoadingView.open(jsonstr);
 
 **示例:**
 
-```
+```javascript
 uexLoadingView.openCircleLoading();
 ```
 
@@ -109,7 +120,7 @@ uexLoadingView.openCircleLoading();
 
 **示例:**
 
-```
+```javascript
 uexLoadingView.close();
 ```
 
