@@ -23,7 +23,7 @@
 ## 2.1、方法
 ### 🍭 openPopoverMenu 创建弹出框
 
-`uexPopoverMenu.openPopoverMenu(params, callbackFunction)`  
+`uexPopoverMenu.openPopoverMenu(params)`  
 
 **说明:**
 
@@ -34,18 +34,8 @@
 | 参数名称   | 参数类型        | 是否必选 | 说明             |
 | ------ | ----------- | ---- | -------------- |
 | params | JSON String | 是    | 布局显示相关的配置      |
-| cb     | Function    | 否    | 回调函数,点击某个菜单后触发 |
 
-**回调参数：**
 
-```
-var cb = function(error, index) {}
-```
-
-| 参数名称  | 参数类型   | 说明              |
-| ----- | ------ | --------------- |
-| error | Number | 转换结果，0-成功，非0-失败 |
-| index | Number | 选中的行号,行号标识从0开始  |
 
 * `params`参数的说明如下:
 
@@ -113,7 +103,7 @@ var params = {
               }
             ]
 }
-uexPopoverMenu.openPopoverMenu(JSON.stringify(params), function(index){alert(index);});
+uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
              
 或者
   
@@ -140,10 +130,28 @@ var params = {
               }
             ]
 }
-uexPopoverMenu.openPopoverMenu(JSON.stringify(params), function(index){alert(index);});
+uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
 
 ```
+## 2.2、监听方法
 
+### 🍭 onClick 点击按钮的监听方法   
+
+`uexPopoverMenu.onItemSelected(index)  `
+
+**参数:**    
+
+| 参数名称   | 参数类型   | 是否必选 | 说明                  |
+| ------ | ------ | ---- | ------------------- |
+| index | Number | 是    | 选中的行号,行号标识从0开始 |
+
+**示例:**
+
+```
+uexPopoverMenu.onItemSelected = function(index){
+     alert("onClick-" + index);
+}
+```
 #3、更新历史
 
 ### iOS
