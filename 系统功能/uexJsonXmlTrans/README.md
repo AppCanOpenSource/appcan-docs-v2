@@ -88,7 +88,7 @@ var cb = function(error,data){}
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
 | error | Number | 转换结果，0-成功，非0-失败 |
-| data  | String | 转换后的数据          |
+| data  | Object | 转换后的数据          |
 
 **示例:**
 
