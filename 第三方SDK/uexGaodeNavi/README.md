@@ -27,26 +27,32 @@
 
 ### 🍭 init  初始化
 
-`uexGaodeNavi.init(param)`
+`uexGaodeNavi.init(param,cb)`
 
 **说明**
 
 初始化高德导航
 
-回调 [cbInit](#cbInit 初始化完成的回调方法)
-
 **参数**
 
-| 参数名称  | 参数类型   | 是否必选 | 说明                 |
-| ----- | ------ | ---- | ------------------ |
-| param | String | 是    | param是json字符串,详情见下 |
+| 参数名称  | 参数类型     | 是否必选 | 说明             |
+| ----- | -------- | ---- | -------------- |
+| param | Object   | 否    | param是初始化需要的参数 |
+| cb    | Function | 否    | 初始化的回调函数       |
 
+```javascript
+var param = {
+	appKey:,//(可选,String,仅iOS)高德的appKey
+};
 ```
-var param={
-	appKey;//(可选,String,仅iOS)高德的appKey
-}
 
+```javascript
+var cb = function(error){
+  	//error为Number类型,为0表示初始化成功,非0时表示初始化失败;
+};
 ```
+
+
 
 
 
@@ -59,74 +65,83 @@ var param={
 
 ```
 uexGaodeNavi.init();
-
 ```
 
 ### 🍭 calculateWalkRoute  开始步行路径规划
 
-`uexGaodeNavi.calculateWalkRoute(param)`
+`uexGaodeNavi.calculateWalkRoute(param,cb)`
 
 **说明**
 
 通过输入起点与终点,可以发起路径规划.
 
-回调 [cbCalculateRoute](#cbCalculateRoute 开始路径规划的回调方法) 开始路径规划的回调方法
-
 **参数**
 
-| 参数名称  | 参数类型   | 是否必选 | 说明                 |
-| ----- | ------ | ---- | ------------------ |
-| param | String | 是    | param是json字符串,详情见下 |
+| 参数名称  | 参数类型     | 是否必选 | 说明                   |
+| ----- | -------- | ---- | -------------------- |
+| param | Object   | 是    | param是路径规划需要的参数,详情见下 |
+| cb    | Function | 是    | 路径规划的回调函数            |
 
+```javascript
+var param = {
+	startPoint:,//(可选,Array)[latitude,longitude]起点 经纬度坐标 ,不传时以当前位置为起点
+	endPoint:,//(必选,Array)[latitude,longitude]终点 经纬度坐标
+};
 ```
-var param={
-		startPoint;//(可选,Array)[latitude,longitude]起点 经纬度坐标 ,不传时以当前位置为起点
-		endPoint;//(必选,Array)[latitude,longitude]终点 经纬度坐标
-}
 
+```javascript
+var cb = function(error){
+  	//error为Number类型,为0表示路径规划成功,非0时表示路径规划失败;
+};
 ```
 
 
 
 **示例**
 
-```
- var data={
-		 startPoint:[39.925846, 116.432765],
-        endPoint:[39.925041, 116.437901]
-}
-      var data = JSON.stringify(params);
-      uexGaodeNavi.calculateWalkRoute(data);
-
+```javascript
+uexGaodeNavi.calculateWalkRoute({
+		startPoint:[39.925846, 116.432765],
+    	endPoint:[39.925041, 116.437901]
+	},
+    function(error){
+  		alert(error);
+	});
 ```
 
 ### 🍭 calculateDriveRoute  开始驾车路径规划
 
-`uexGaodeNavi.calculateDriveRoute(param)`
+`uexGaodeNavi.calculateDriveRoute(param,cb)`
 
 **说明**
 
 通过输入起点与终点,可以发起路径规划.
 
-回调 [cbCalculateRoute](#cbCalculateRoute 开始路径规划的回调方法) 开始路径规划的回调方法
-
 **参数**
 
-| 参数名称  | 参数类型   | 是否必选 | 说明                 |
-| ----- | ------ | ---- | ------------------ |
-| param | String | 是    | param是json字符串,详情见下 |
+| 参数名称  | 参数类型     | 是否必选 | 说明                   |
+| ----- | -------- | ---- | -------------------- |
+| param | Object   | 是    | param是路径规划需要的参数,详情见下 |
+| cb    | Function | 是    | 路径规划的回调函数            |
 
+```javascript
+var param = {
+		startPoint:,//(可选,Array)[latitude,longitude]起点 经纬度坐标 ,不传时以当前位置为起点
+		startPoints:,//(可选,由[latitude,longitude]组成的数组) 
+		endPoint:,//(与endPoints必传一个,Array)[latitude,longitude]终点 经纬度坐标
+		endPoints:,//(与endPoint必传一个,由[latitude,longitude]组成的数组)终点
+		wayPoints:,//(可选,由[latitude,longitude]组成的数组)途径地点
+		driveMode:,//(可选,Number,默认为0)0.速度优先 1.花费最少 2.距离最短 3.不走高速 4.时间最短且躲避拥堵 5.不走收费道路且躲避拥堵
+};
 ```
-var param={
-		startPoint;//(可选,Array)[latitude,longitude]起点 经纬度坐标 ,不传时以当前位置为起点
-		startPoints;//(可选,由[latitude,longitude]组成的数组) 
-		endPoint;//(与endPoints必传一个,Array)[latitude,longitude]终点 经纬度坐标
-		endPoints;//(与endPoint必传一个,由[latitude,longitude]组成的数组)终点
-		wayPoints;//(可选,由[latitude,longitude]组成的数组)途径地点
-		driveMode://(可选,Number,默认为0)0.速度优先 1.花费最少 2.距离最短 3.不走高速 4.时间最短且躲避拥堵 5.不走收费道路且躲避拥堵
-}
 
+```javascript
+var cb = function(error){
+  	//error为Number类型,为0表示路径规划成功,非0时表示路径规划失败;
+};
 ```
+
+
 
 * 起点列表的尾点为实际导航起点,其他坐标点为辅助信息,带有方向性,可有效避免算路到马路的另一侧.
 * 终点列表的尾点为实际导航终点,其他坐标点为辅助信息,带有方向性,可有效避免算路到马路的另一侧.
@@ -136,15 +151,15 @@ var param={
 
 **示例**
 
-```
- var data={
+```javascript
+uexGaodeNavi.calculateDriveRoute({
 		startPoint:[39.925846, 116.432765],
 		wayPoints:[[39.925846, 116.432345],[39.925846, 116.432789]],
 		endPoint:[39.925041, 116.437901]
- }
- var data = JSON.stringify(params);
- uexGaodeNavi.calculateDriveRoute(data);
-
+ 	},
+	function(error){
+  		alert(error);
+	});
 ```
 
 ### 🍭 startNavi  开始导航
@@ -161,25 +176,22 @@ var param={
 
 | 参数名称  | 参数类型   | 是否必选 | 说明                 |
 | ----- | ------ | ---- | ------------------ |
-| param | String | 否    | param是json字符串,详情见下 |
+| param | Object | 否    | param是导航的卑职参数,详情见下 |
 
-```
-var param={
-		type;//(可选,Number)导航模式 0-真实导航 1-模拟导航
-}
-
+```java
+var param = {
+	type:,//(可选,Number)导航模式 0-真实导航 1-模拟导航
+};
 ```
 
 
 
 **示例**
 
-```
-   var params = {
-            type:1
-        };
-        var data = JSON.stringify(params);
-        uexGaodeNavi.startNavi(data);
+```javascript
+uexGaodeNavi.startNavi({
+	type:1
+});
 ```
 
 ### 🍭 stopNavi 停止导航
@@ -204,87 +216,7 @@ var param={
 uexGaodeNavi.stopNavi();
 ```
 
-## 2.2、 回调方法
-
-### 🍭 cbInit 初始化完成的回调方法
-
-`uexGaodeNavi.cbInit(param)`
-
-**说明**
-
-初始化完成之后会触发此回调
-
-**参数**
-
-| 参数名称  | 参数类型   | 是否必选 | 说明                 |
-| ----- | ------ | ---- | ------------------ |
-| param | String | 否    | param是json字符串,详情见下 |
-
-```
-var param={
-		result:,// true/false 初始化是否成功
-}
-
-```
-
-**平台支持**
-
-Android 4.0+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.2.0+    
-iOS 3.0.0+    
-
-**示例**
-
-```
-uexGaodeNavi.cbInit=function(json){
-	alert(json);
-}
-```
-
-### 🍭 cbCalculateRoute 路径规划的回调方法
-
-`uexGaodeNavi.cbCalculateRoute(param)`
-
-**说明**
-
-路径规划完成之后会触发此回调
-
-**参数**
-
-| 参数名称  | 参数类型   | 是否必选 | 说明                 |
-| ----- | ------ | ---- | ------------------ |
-| param | String | 否    | param是json字符串,详情见下 |
-
-```
-var param={
-		result;//bool类型 true 成功 ,false失败
-}
-
-```
-
-**平台支持**
-
-Android 4.0+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.2.0+    
-iOS 3.0.0+    
-
-**示例**
-
-```
-uexGaodeNavi.cbCalculateRoute=function(json){
-	alert(json);
-}
-```
-
-##2.3、 监听方法
+##2.2、 监听方法
 
 ### 🍭 onArriveDestination 到达目的地
 
@@ -298,22 +230,12 @@ uexGaodeNavi.cbCalculateRoute=function(json){
 
 无
 
-**平台支持**
-
-Android 4.0+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.2.0+    
-iOS 3.0.0+    
-
 **示例**
 
-```
-uexGaodeNavi.onArriveDestination =function(){
-	alert("onExitNavi");
-}
+```javascript
+uexGaodeNavi.onArriveDestination = function(){
+	alert("onExitNavi!");
+};
 ```
 
 ### 🍭 onGetNavigationText 导航播报的监听方法
@@ -330,28 +252,18 @@ uexGaodeNavi.onArriveDestination =function(){
 | ----- | ------ | ---- | ------------------ |
 | param | String | 否    | param是json字符串,详情见下 |
 
+```javascript
+var param = {
+	text:,//播报文字
+};
 ```
-var param={
-		text;//播报文字
-}
-
-```
-
-**平台支持**
-
-Android 4.0+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.2.0+    
-iOS 3.0.0+    
 
 **示例**
 
-```
-uexGaodeNavi.onGetNavigationText =function(param){
-	alert(param);
+```javascript
+uexGaodeNavi.onGetNavigationText = function(param){
+  	var data = JSON.parse(param);
+	alert(data.text);
 }
 ```
 
@@ -363,25 +275,17 @@ uexGaodeNavi.onGetNavigationText =function(param){
 
 驾车导航时,如果前方遇到拥堵时会重新计算路径,同时触发此回调函数
 
-* iOS不支持此回调
+* 仅Android有此回调,iOS不支持此方法
 
 **参数**
 
 无
 
-**平台支持**
-
-Android 4.0+    
-
-**版本支持**
-
-Android 3.2.0+    
-
 
 **示例**
 
-```
-uexGaodeNavi.onReCalculateRouteForTrafficJam()=function(){
+```javascript
+uexGaodeNavi.onReCalculateRouteForTrafficJam = function(){
 	alert("onReCalculateRouteForTrafficJam");
 }
 ```
@@ -398,20 +302,10 @@ uexGaodeNavi.onReCalculateRouteForTrafficJam()=function(){
 
 无
 
-**平台支持**
-
-Android 4.0+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.2.0+    
-iOS 3.0.0+     
-
 **示例**
 
-```
-uexGaodeNavi.onReCalculateRouteForYaw=function(){
+```javascript
+uexGaodeNavi.onReCalculateRouteForYaw = function(){
 	alert("onReCalculateRouteForYaw");
 }
 ```
@@ -428,20 +322,10 @@ uexGaodeNavi.onReCalculateRouteForYaw=function(){
 
 无
 
-**平台支持**
-
-Android 4.0+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.2.0+    
-iOS 3.0.0+    
-
 **示例**
 
-```
-uexGaodeNavi.onStartNavi=function(){
+```javascript
+uexGaodeNavi.onStartNavi = function(){
 	alert("onStartNavi");
 }
 ```
@@ -461,20 +345,10 @@ uexGaodeNavi.onStartNavi=function(){
 
 无
 
-**平台支持**
-
-Android 4.0+    
-iOS 6.0+    
-
-**版本支持**
-
-Android 3.2.0+    
-iOS 3.0.0+    
-
 **示例**
 
-```
-uexGaodeNavi.onNaviCancel=function(){
+```javascript
+uexGaodeNavi.onNaviCancel = function(){
 	alert("onNaviCancel");
 }
 ```
@@ -491,7 +365,7 @@ IDE打包只支持init方法传入key
 
 config.xml配置方法:将如下所示的value对应的值换成自己在高德上申请的秘钥即可.
 
-```
+```xml
 <config desc="uexGaodeNavi" type="KEY">
     <param name="$uexGaodeNavi_appKey$" platform="iOS" value="209883bc35ae7d04176febb72a856afe"/>
 </config>
@@ -500,7 +374,7 @@ config.xml配置方法:将如下所示的value对应的值换成自己在高德�
 ## Android插件配置指引
 安卓只支持在线打包正常使用,将如下所示的value对应的值换成自己在高德上申请的秘钥即可.
 
-```
+```xml
 <config desc="uexGaodeNavi" type="KEY">
     <param name="$uexGaodeNavi_appKey$" platform="Android" value="209883bc35ae7d04176febb72a856afe"/>
 </config>
@@ -514,7 +388,10 @@ API版本: `uexGaodeNavi-4.0.0`
 最近更新时间:`2015-12-30`
 
 | 历史发布版本 | 更新内容 |
-| ----- | ----- |
+| ------ | ---- |
+|        |      |
+
+
 
 ### Android
 
@@ -523,4 +400,5 @@ API版本: `uexGaodeNavi-4.0.0`
 最近更新时间:`2015-12-16`
 
 | 历史发布版本 | 更新内容 |
-| ----- | ----- |
+| ------ | ---- |
+|        |      |
