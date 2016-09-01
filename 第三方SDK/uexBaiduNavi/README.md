@@ -28,14 +28,20 @@
 
 | 参数名称     | 参数类型     | 是否必选 | 说明                 |
 | -------- | -------- | ---- | ------------------ |
-| param    | String   | 是    | param是json字符串,详情见下 |
+| param    | Object   | 是    | param是json字符串,详情见下 |
 | callback | Function | 否    | init的回调函数          |
 
 ```
 var param = {
-	baiduAPIKey;//(必选,String)百度APIKey
+	baiduAPIKey:
 }
 ```
+各字段含义如下：
+
+| 字段名称        | 类型     | 是否必选 | 说明       |
+| ----------- | ------ | ---- | -------- |
+| baiduAPIKey | String | 是    | 百度APIKey |
+
 * 百度APIKey由用户在在百度LBS开放平台申请得来
 
 **回调参数**
@@ -78,17 +84,26 @@ uexBaiduNavi.init(data,function(error,data){
 
 | 参数名称     | 参数类型     | 是否必选 | 说明                 |
 | -------- | -------- | ---- | ------------------ |
-| param    | String   | 是    | param是json字符串,详情见下 |
+| param    | Object   | 是    | param是json字符串,详情见下 |
 | callback | Function | 否    | 规划完成的回调            |
 
 ```javascript
 var param={
-		startNode;//(必选,Array)[longitude,latitude]起点 经纬度坐标
-		endNode;//(必选,Array)[longitude,latitude]终点 经纬度坐标
-		throughNodes;//(可选,Array)由[longitude,latitude]组成的数组 途经点坐标
- 		mode;//(可选,Number)路径规划模式 1-默认 2-高速优先 3-少走高速
+		startNode:,
+		endNode:,
+		throughNodes:,
+ 		mode:
 }
 ```
+
+各字段含义如下：
+
+| 字段名称         | 类型     | 是否必选 | 说明                               |
+| ------------ | ------ | ---- | -------------------------------- |
+| startNode    | Array  | 是    | [longitude,latitude]起点 经纬度坐标     |
+| endNode      | Array  | 是    | [longitude,latitude]终点 经纬度坐标     |
+| throughNodes | Array  | 否    | 由[longitude,latitude]组成的数组 途经点坐标 |
+| mode         | Number | 否    | 路径规划模式 1-默认 2-高速优先 3-少走高速        |
 
 **版本支持**
 
@@ -146,14 +161,21 @@ uexBaiduNavi.startRoutePlan(data,function(error,data){
 
 | 参数名称  | 参数类型   | 是否必选 | 说明                 |
 | ----- | ------ | ---- | ------------------ |
-| param | String | 否    | param是json字符串,详情见下 |
+| param | Object | 否    | param是json字符串,详情见下 |
 
 ```javascript
 var param={
-	naviType;//(可选,Number)导航模式 1-真实导航 2-模拟导航
-	isNeedLandscape;// (可选,Number) 是否需要横竖屏切换 (导航默认竖屏) 1-需要(默认) 2-不需要
+	naviType:,
+	isNeedLandscape:
 }
 ```
+
+各字段含义如下：
+
+| 字段名称            | 类型     | 是否必选 | 说明                                |
+| --------------- | ------ | ---- | --------------------------------- |
+| naviType        | Number | 否    | 导航模式 1-真实导航 2-模拟导航                |
+| isNeedLandscape | Number | 否    | 是否需要横竖屏切换 (导航默认竖屏) 1-需要(默认) 2-不需要 |
 
 **版本支持**
 
@@ -207,13 +229,19 @@ uexBaiduNavi.exitNavi();
 
 | 参数名称  | 参数类型   | 是否必选 | 说明                 |
 | ----- | ------ | ---- | ------------------ |
-| param | String | 否    | param是json字符串,详情见下 |
+| param | Object | 否    | param是json字符串,详情见下 |
 
 ```javascript
 var param={
-		isNeedLandscape;// (可选,Number) 是否需要横竖屏切换 (导航默认竖屏) 1-需要(默认) 2-不需要
+		isNeedLandscape:
 }
 ```
+
+各字段含义如下：
+
+| 字段名称            | 类型     | 是否必选 | 说明                                |
+| --------------- | ------ | ---- | --------------------------------- |
+| isNeedLandscape | Number | 否    | 是否需要横竖屏切换 (导航默认竖屏) 1-需要(默认) 2-不需要 |
 
 **版本支持**
 
