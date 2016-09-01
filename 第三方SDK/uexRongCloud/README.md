@@ -180,7 +180,7 @@ uexRongCloud.connect({
 
 ```javascript
 uexRongCloud.disconnect({
-  isReceivePush:""
+  isReceivePush:true
 });
 ```
 
@@ -203,7 +203,7 @@ uexRongCloud.disconnect({
 
 | 参数名称             | 参数类型   | 是否必选 | 说明                                       |
 | ---------------- | ------ | ---- | ---------------------------------------- |
-| objectName       | String | 是    | 消息类型   "RC:TxtMsg":文字消息     "RC:VcMsg":语音消息  "RC:ImgMsg":图片消息     "RC:ImgTextMsg":图文消息    "RC:LBSMsg":位置消息     "RC:CmdNtf":命令消息 |
+| objectName       | String | 是    | 消息类型   "RC:TxtMsg":文字消息     "RC:VcMsg":语音消息  "RC:ImgMsg":图片消息     "RC:ImgTextMsg":图文消息    "RC:LBSMsg":位置消息     "RC:CmdMsg":命令消息 |
 | conversationType | String | 是    | 会话类型 'PRIVATE'-单聊  'DISCUSSION'-讨论组 'GROUP'-群组 'CHATROOM'-聊天室 'CUSTOMER_SERVICE'-客服 'SYSTEM'-系统 |
 | targetId         | String | 是    | 消息的接收方 Id.根据不同的 conversationType,可能是用户Id、讨论组Id、群组Id或聊天室Id等 |
 | extra            | String | 否认   | 消息的附加字段                                  |
@@ -246,7 +246,7 @@ uexRongCloud.disconnect({
 | poi       | String | 是    | 地理位置的名称  |
 | imgPath   | String | 是    | 地图略缩图的路径 |
 
-**objectName 为"RC:CmdNtf"时(命令消息) 需要传以下参数:**
+**objectName 为"RC:CmdMsg"时(命令消息) 需要传以下参数:**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明    |
 | ---- | ------ | ---- | ----- |
@@ -256,16 +256,13 @@ uexRongCloud.disconnect({
 **回调参数:**
 
 ```javascript
-var callback=function (error,data){}
+var callback=function (error,messageId){}
 ```
 
-`data`为JSON对象,相关字段如下:
-
-| 参数名称       | 类型     | 说明                                |
-| ---------- | ------ | --------------------------------- |
-| resultCode | Number | 发送结果 0:准备发送 1.发送成功, 2:发送失败,3:发送进度 |
-| messageId  | String | 发送消息的ID                           |
-| progress   | Number | 发送图片时,发送图片的进度 (RC:ImgMsg)         |
+| 参数名称      | 类型     | 说明                         |
+| --------- | ------ | -------------------------- |
+| error     | Number | 发送结果 0:准备发送 1.发送成功, 2:发送失败 |
+| messageId | String | 发送消息的ID                    |
 
 **示例:**
 
@@ -377,7 +374,7 @@ var json = {
 
 **返回值**
 
-返回值为json对象，各字段如下所示：
+返回值为json格式的String，各字段如下所示：
 
 ```javascript
 var param={
@@ -406,6 +403,12 @@ var param={
 }
 ```
 
+**示例**
+
+```javascript
+var result = uexRongCloud.getConversationList();
+```
+
 ### 🍭 getConversation 获取某一会话信息
 
 `uexRongClound.getConversation(json)`
@@ -427,7 +430,7 @@ var json={
 var param=getConversation(json);
 ```
 
-返回值param为json对象,字段如下所示：
+返回值param为json格式的String,字段如下所示：
 
 ```javascript
 var param={
@@ -450,6 +453,16 @@ var param={
     isTop:, //true 或false 置顶状态
     latestMessageId: // 本会话最后一条消息 Id
 } 
+```
+
+**示例**
+
+```javascript
+var params = {
+  conversationType: "PRIVATE",
+  targetId: globalTargetId
+};
+var result = uexRongCloud.getConversation(params);
 ```
 
 ### 🍭 removeConversation 从会话列表中移除某一会话,但是不删除会话内的消息
@@ -478,6 +491,18 @@ var callback=function(error,data){}
 | error | Number | 0表示成功,非0表示失败 |
 | data  | String | 失败时返回相关的原因   |
 
+**示例**
+
+```javascript
+var params = {
+    conversationType: "PRIVATE",
+    targetId: globalTargetId
+};
+uexRongCloud.removeConversation(params, function (error, data) {
+    
+});
+```
+
 ### 🍭 clearConversations 清空所有会话及会话消息
 
 `uexRongClound.clearConversations(param,callback)`
@@ -496,6 +521,18 @@ var param={
 | ----- | ------ | ------------ |
 | error | Number | 0表示成功,非0表示失败 |
 | data  | String | 失败时返回相关的原因   |
+
+**示例**
+
+```javascript
+var types = ["PRIVATE"];
+var params = {
+    conversationTypes: types
+};
+uexRongCloud.clearConversations(params, function (error, data) {
+   
+});
+```
 
 ### 🍭 setConversationToTop 清空所有会话及会话消息
 
@@ -524,6 +561,19 @@ var callback=function (error,data){}
 | error | Number | 0表示成功,非0表示失败 |
 | data  | String | 失败时返回相关的原因   |
 
+**示例**
+
+```javascript
+var params = {
+    conversationType: "PRIVATE",
+    targetId: globalTargetId,
+    isTop: true
+};
+uexRongCloud.setConversationToTop(params, function (error, data) {
+   
+});
+```
+
 ### 🍭 getConversationNotificationStatus 获取某一会话的通知状态 
 
 `uexRongClound.getConversationNotificationStatus(param,callback)`
@@ -550,7 +600,17 @@ var callback=function (error,data){}
 | error | Number | 0表示成功,非0表示失败     |
 | data  | Number | 状态码,0:免打扰 / 1:提醒 |
 
+**示例**
 
+```javascript
+var params = {
+    conversationType: "PRIVATE",
+    targetId: globalTargetId
+};
+uexRongCloud.getConversationNotificationStatus(params, function (error, data) {
+    
+});
+```
 
 ### 🍭 setConversationNotificationStatus 设置某一会话的通知状态
 
@@ -578,6 +638,19 @@ var callback=function (error,data){}
 | ----- | ------ | ---------------- |
 | error | Number | 0表示成功,非0表示失败     |
 | data  | Number | 状态码,0:免打扰 / 1:提醒 |
+
+**示例**
+
+```javascript
+var params = {
+    conversationType: "PRIVATE",
+    targetId: globalTargetId,
+    status: 1
+};
+uexRongCloud.setConversationNotificationStatus(params, function (error, data) {
+    
+});
+```
 
 ### 🍭 getLatestMessages 获取某一会话的最新消息记录
 
@@ -627,6 +700,19 @@ var data=[
             receivedTime: // 收到消息的时间戳,从1970年1月1日0点0分0秒开始到现在的毫秒数
     }
 ]
+```
+
+**示例**
+
+```javascript
+var params = {
+    conversationType: "PRIVATE",
+    targetId: globalTargetId,
+    count: 20
+};
+uexRongCloud.getLatestMessages(params, function (error, data) {
+    console.log(JSON.stringify(data));
+});
 ```
 
 ### 🍭 getHistoryMessages 获取某一会话的历史消息记录
@@ -680,6 +766,19 @@ var data=[
 ]
 ```
 
+**示例**
+
+```javascript
+var params = {
+    conversationType: "PRIVATE",
+    targetId: globalTargetId,
+    count: 20,
+    oldestMessageId: -1
+};
+uexRongCloud.getHistoryMessages(params, function (error, data) {
+});
+```
+
 ### 🍭 deleteMessages 获取某一会话的历史消息记录
 
 `uexRongClound.deleteMessages(param,callback)`
@@ -705,7 +804,17 @@ var callback=function (error,data){}
 | error | Number | 0表示成功,非0表示失败 |
 | data  | String | 失败时返回相关的原因   |
 
+**示例**
 
+```javascript
+var ids = [globalMsgId];
+var params = {
+    messageIds: ids
+};
+uexRongCloud.deleteMessages(params, function (error, data) {
+   
+});
+```
 
 ### 🍭 clearMessages 清空某一会话的所有聊天消息记录
 
@@ -733,6 +842,18 @@ var callback=function (error,data){}
 | error | Number | 0表示成功,非0表示失败 |
 | data  | String | 失败时返回相关的原因   |
 
+**示例**
+
+```javascript
+var params = {
+    conversationType: "PRIVATE",
+    targetId: globalTargetId
+};
+uexRongCloud.clearMessages(params, function (error, data) {
+   
+});
+```
+
 ### 🍭 getTotalUnreadCount 获取所有未读消息数
 
 `uexRongCloud.getTotalUnreadCount()`
@@ -743,6 +864,13 @@ Number类型
 
 ```javascript
 var count=uexRongCloud.getTotalUnreadCount();
+```
+
+**示例**
+
+```javascript
+var count = uexRongCloud.getTotalUnreadCount();
+console.log("未读消息总数:"+count);
 ```
 
 ### 🍭 getUnreadCount 获取来自某用户(某会话)的未读消息数
@@ -761,6 +889,16 @@ var param={
 var count=uexRongCloud.getUnreadCount(param);
 ```
 
+**示例**
+
+```javascript
+var params = {
+    conversationType: "PRIVATE",
+    targetId: globalTargetId
+};
+var count = uexRongCloud.getUnreadCount(params);
+```
+
 ### 🍭 getUnreadCountByConversationTypes 获取某(些)会话类型的未读消息数
 
 `uexRongCloud.getUnreadCountByConversationTypes(prama)`
@@ -774,6 +912,15 @@ var params={
     conversationTypes:,//消息的会话类型,是ConversationType的数组
 }
 var count=uexRongCloud.getUnreadCountByConversationTypes(params);
+```
+
+**示例**
+
+```javascript
+var params = {
+    conversationTypes: ["PRIVATE"]
+};
+var count = uexRongCloud.getUnreadCountByConversationTypes(params);
 ```
 
 ### 🍭 setMessageReceivedStatus 设置接收到的消息状态
@@ -791,6 +938,16 @@ var param={
 }
 ```
 
+**示例**
+
+```javascript
+var params = {
+    messageId: globalMsgId, // Number 消息 Id
+    receivedStatus: "READ" //"UNREAD","READ","LISTENED","DOWNLOADED"
+};
+uexRongCloud.setMessageReceivedStatus(params);
+```
+
 ### 🍭 clearMessagesUnreadStatus 清除某一会话的消息未读状态
 
 `uexRongCloud.clearMessagesUnreadStatus(prama)`
@@ -804,6 +961,16 @@ var params={
     conversationType:,//消息的会话类型
     targetId:,//消息目标 Id
 }
+```
+
+**示例**
+
+```javascript
+var params = {
+    conversationType: "PRIVATE",
+    targetId: globalTargetId
+};
+uexRongCloud.clearMessagesUnreadStatus(params);
 ```
 
 #3、附录
