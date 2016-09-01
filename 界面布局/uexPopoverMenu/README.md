@@ -135,9 +135,9 @@ uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
 ```
 ## 2.2、监听方法
 
-### 🍭 onClick 点击按钮的监听方法   
+### 🍭 onItemClicked 点击按钮的监听方法   
 
-`uexPopoverMenu.onItemSelected(index)  `
+`uexPopoverMenu.onItemClicked(index)  `
 
 **参数:**    
 
@@ -148,7 +148,7 @@ uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
 **示例:**
 
 ```
-uexPopoverMenu.onItemSelected = function(index){
+uexPopoverMenu.onItemClicked = function(index){
      alert("onClick-" + index);
 }
 ```
