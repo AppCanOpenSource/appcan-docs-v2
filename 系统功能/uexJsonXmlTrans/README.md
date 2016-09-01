@@ -60,8 +60,12 @@ var param = {
           key4:false,
           key5:["1","2","3"]
  };
- uexJsonXmlTrans.json2xml(param,function(data){
-   alert(data);
+ uexJsonXmlTrans.json2xml(param,function(error, data){
+    if (error) {
+        alert("转换出错!");
+    } else {
+        alert(data);
+    }
  });         
 ```
 ### 🍭 xml2json 将xml格式字符串转为json格式
@@ -94,8 +98,12 @@ var cb = function(error,data){}
 
 ```xml
 var param = '<key3>3</key3><key1>value1</key1><key4>0</key4><key2><hehe>讨厌</hehe></key2><key5>1</key5><key5>2</key5><key5>3</key5>';
- uexJsonXmlTrans.xml2json(param,function(data){
-    alert(JSON.stringify(data));
+uexJsonXmlTrans.xml2json(param,function(error, data){
+    if (error) {
+        alert("转换出错!");
+    } else {
+        alert(JSON.stringify(data));
+    }
  });        
             
 ```
