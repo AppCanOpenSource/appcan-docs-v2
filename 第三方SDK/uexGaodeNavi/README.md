@@ -42,24 +42,31 @@
 
 ```javascript
 var param = {
-	appKey:,//(可选,String,仅iOS)高德的appKey
+	appKey:
 };
 ```
 
-```javascript
-var cb = function(error){
-  	//error为Number类型,为0表示初始化成功,非0时表示初始化失败;
-};
-```
+各字段含义如下：
 
-
-
+| 字段名称   | 类型     | 是否必选 | 说明             |
+| ------ | ------ | ---- | -------------- |
+| appKey | String | 否    | 仅iOS，高德的appKey |
 
 
 * iOS 在线打包支持`通过init传入AppKey`或者`通过config.xml配置appKey`
 * iOS IDE打包只支持`通过init传入AppKey`
 * Android 在线打包只支持`通过config.xml配置appKey`
 * Android 不支持IDE打包使用
+
+**回调参数:**
+
+```javascript
+var cb = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明                          |
+| ----- | ------ | --------------------------- |
+| error | Number | 初始化结果，为0表示初始化成功,非0时表示初始化失败; |
 
 **示例**
 
@@ -84,18 +91,27 @@ uexGaodeNavi.init();
 
 ```javascript
 var param = {
-	startPoint:,//(可选,Array)[latitude,longitude]起点 经纬度坐标 ,不传时以当前位置为起点
-	endPoint:,//(必选,Array)[latitude,longitude]终点 经纬度坐标
+	startPoint:,
+	endPoint:
 };
 ```
+
+各字段含义如下：
+
+| 字段名称       | 类型    | 是否必选 | 说明                                       |
+| ---------- | ----- | ---- | ---------------------------------------- |
+| startPoint | Array | 否    | [latitude,longitude]起点 经纬度坐标 ,不传时以当前位置为起点 |
+| endPoint   | Array | 是    | [latitude,longitude]终点 经纬度坐标             |
+
+**回调参数:**
 
 ```javascript
-var cb = function(error){
-  	//error为Number类型,为0表示路径规划成功,非0时表示路径规划失败;
-};
+var cb = function(error){}
 ```
 
-
+| 参数名称  | 参数类型   | 说明                      |
+| ----- | ------ | ----------------------- |
+| error | Number | 为0表示路径规划成功,非0时表示路径规划失败; |
 
 **示例**
 
@@ -126,28 +142,39 @@ uexGaodeNavi.calculateWalkRoute({
 
 ```javascript
 var param = {
-		startPoint:,//(可选,Array)[latitude,longitude]起点 经纬度坐标 ,不传时以当前位置为起点
-		startPoints:,//(可选,由[latitude,longitude]组成的数组) 
-		endPoint:,//(与endPoints必传一个,Array)[latitude,longitude]终点 经纬度坐标
-		endPoints:,//(与endPoint必传一个,由[latitude,longitude]组成的数组)终点
-		wayPoints:,//(可选,由[latitude,longitude]组成的数组)途径地点
-		driveMode:,//(可选,Number,默认为0)0.速度优先 1.花费最少 2.距离最短 3.不走高速 4.时间最短且躲避拥堵 5.不走收费道路且躲避拥堵
+		startPoint:,
+		startPoints:,
+		endPoint:,
+		endPoints:,
+		wayPoints:,
+		driveMode:
 };
 ```
 
-```javascript
-var cb = function(error){
-  	//error为Number类型,为0表示路径规划成功,非0时表示路径规划失败;
-};
-```
+各字段含义如下：
 
-
+| 字段名称        | 类型     | 是否必选            | 说明                                       |
+| ----------- | ------ | --------------- | ---------------------------------------- |
+| startPoint  | Array  | 否               | [latitude,longitude]起点 经纬度坐标 ,不传时以当前位置为起点 |
+| startPoints | Array  | 否               | 起点，由[latitude,longitude]组成的数组            |
+| endPoint    | Array  | 否               | [latitude,longitude]终点 经纬度坐标             |
+| endPoints   | Array  | 否，与endPoint必传一个 | 终点，由[latitude,longitude]组成的数组            |
+| wayPoints   | Array  | 否               | 途径地点，由[latitude,longitude]组成的数组          |
+| driveMode   | Number | 否               | 0.速度优先 1.花费最少 2.距离最短 3.不走高速 4.时间最短且躲避拥堵 5.不走收费道路且躲避拥堵，默认为0 |
 
 * 起点列表的尾点为实际导航起点,其他坐标点为辅助信息,带有方向性,可有效避免算路到马路的另一侧.
 * 终点列表的尾点为实际导航终点,其他坐标点为辅助信息,带有方向性,可有效避免算路到马路的另一侧.
 * 支持最多3个途经点的路径规划
 
+**回调参数:**
 
+```javascript
+var cb = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明                      |
+| ----- | ------ | ----------------------- |
+| error | Number | 为0表示路径规划成功,非0时表示路径规划失败; |
 
 **示例**
 
@@ -176,15 +203,19 @@ uexGaodeNavi.calculateDriveRoute({
 
 | 参数名称  | 参数类型   | 是否必选 | 说明                 |
 | ----- | ------ | ---- | ------------------ |
-| param | Object | 否    | param是导航的卑职参数,详情见下 |
+| param | Object | 否    | param是导航的配置参数,详情见下 |
 
-```java
+```javascript
 var param = {
-	type:,//(可选,Number)导航模式 0-真实导航 1-模拟导航
+	type:
 };
 ```
 
+各字段含义如下：
 
+| 字段名称 | 类型     | 是否必选 | 说明                 |
+| ---- | ------ | ---- | ------------------ |
+| type | Number | 否    | 导航模式 0-真实导航 1-模拟导航 |
 
 **示例**
 
@@ -207,8 +238,6 @@ uexGaodeNavi.startNavi({
 **参数**
 
 无
-
-
 
 **示例**
 
