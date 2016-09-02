@@ -13,7 +13,7 @@
 ## 2.1、方法
 > ### openLocation 打开定位功能,监听并返回设备所在地经纬度信息
 
-`uexLocation.openLocation()`
+`uexLocation.openLocation(tpye)`
 
 **说明:**
 
@@ -21,7 +21,9 @@
 
 **参数:**
 
- 无
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| type             | String   | 否    | 指定坐标系类型,"wgs84":采用世界标准经纬度坐标;"bd09":采用百度地图的经纬度坐标;"gcj02":采用高德地图的经纬度坐标.不传,iOS默认返回高德地图的经纬度坐标,Android默认返回百度地图的经纬度坐标 |
 
 **平台支持:**
 
@@ -35,7 +37,7 @@ iOS 6.0+
 **示例:**
 
 ```
-uexLocation.openLocation();
+uexLocation.openLocation("bd09");
 ```
 
 > ### closeLocation 关闭定位功能
