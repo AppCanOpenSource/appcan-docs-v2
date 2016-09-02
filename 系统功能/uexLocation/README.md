@@ -17,7 +17,7 @@
 
 **说明:**
 
-位置信息将通过手机GPS、WIFI或移动网络信号获取。成功打开定位功能时回调[cbOpenLocation](#cbOpenLocation 定位功能是否成功打开的回调方法 "cbOpenLocation")方法,成功获取到位置信息时通过[onChange](#onChange 设备位置变化的监听方法 "onChange")回调方法返回,注意:iOS默认返回高德地图的经纬度坐标,Android默认返回百度地图的经纬度坐标,若需要统一坐标系,请将得到的坐标用[convertLocation](#convertLocation 转换坐标的方法 "convertLocation") 方法进行转换  。
+位置信息将通过手机GPS、WIFI或移动网络信号获取。成功打开定位功能时回调[cbOpenLocation](#cbOpenLocation 定位功能是否成功打开的回调方法 "cbOpenLocation")方法,成功获取到位置信息时通过[onChange](#onChange 设备位置变化的监听方法 "onChange")回调方法返回,并通过type指定采用何种坐标系返回。
 
 **参数:**
 
