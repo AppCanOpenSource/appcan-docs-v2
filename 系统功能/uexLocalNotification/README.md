@@ -121,7 +121,7 @@ uexLocalNotification.removeAll();
 
 **说明:**
 
-用户退到后台,点击了通知监听	
+用户退到后台,点击了通知监听,**该监听方法需注册在root页面才生效。**
 ​				
 
 **参数:**
@@ -150,7 +150,7 @@ uexLocalNotification.onActive = function(notificationID,message,extras){
 
 **说明:**
 
-用户处于前台的通知监听	
+用户处于前台的通知监听，**该监听方法需注册在root页面才生效。**
 ​				
 
 **参数:**
