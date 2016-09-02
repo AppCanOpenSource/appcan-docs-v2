@@ -3,7 +3,6 @@
 定位插件
 ## 1.1、说明
 定位功能。同时使用GPS,GPRS,WIFI三种方式联合定位,取最先返回值。
-**注:**Android版本采用的坐标系为bd09(百度坐标系),iOS版本采用的坐标系为gcj02(中国国测局坐标系)。若需要统一坐标系,请将得到的坐标用[convertLocation](#convertLocation 转换坐标的方法 "convertLocation") 方法进行转换  
 ## 1.2、UI展示
 ![](http://newdocx.appcan.cn/docximg/160943n2015l6y16l.jpg)
 ## 1.3、开源源码
@@ -18,7 +17,7 @@
 
 **说明:**
 
-位置信息将通过手机GPS、WIFI或移动网络信号获取。成功打开定位功能时回调[cbOpenLocation](#cbOpenLocation 定位功能是否成功打开的回调方法 "cbOpenLocation")方法,成功获取到位置信息时通过[onChange](#onChange 设备位置变化的监听方法 "onChange")回调方法返回。
+位置信息将通过手机GPS、WIFI或移动网络信号获取。成功打开定位功能时回调[cbOpenLocation](#cbOpenLocation 定位功能是否成功打开的回调方法 "cbOpenLocation")方法,成功获取到位置信息时通过[onChange](#onChange 设备位置变化的监听方法 "onChange")回调方法返回,注意:iOS默认返回高德地图的经纬度坐标,Android默认返回百度地图的经纬度坐标,若需要统一坐标系,请将得到的坐标用[convertLocation](#convertLocation 转换坐标的方法 "convertLocation") 方法进行转换  。
 
 **参数:**
 
@@ -71,7 +70,7 @@ iOS6.0+
 `uexLocation.getAddress(inLatitude,inLongitude,flag)`
 
 ** 说明:**
-根据经纬度获取对应的地址信息
+根据经纬度获取对应的地址信息,注意:iOS默认采用世界标准的经纬度坐标,Android默认采用百度地图的经纬度坐标,
 回调 [cbGetAddress](#cbGetAddress 获取到位置信息返回经纬度数据的回调方法 "cbGetAddress")
 
 **参数:**
@@ -306,7 +305,7 @@ API版本:`uexLocation-3.0.9`
 
 |  String | 说明  |
 | ----- | ----- |
-| wgs84 | GPS设备获取的角度坐标,世界标准地理坐标 |
+| wgs84 | 世界标准地理坐标 |
 | bd09 | 百度地图采用的经纬度坐标 |
-| gcj02 | google地图、soso地图、aliyun地图、mapabc地图和amap地图所用坐标,中国国测局地理坐标 |
+| gcj02 | 高德地图、google地图、soso地图、aliyun地图、mapabc地图和amap地图所用坐标,中国国测局地理坐标 |
 
