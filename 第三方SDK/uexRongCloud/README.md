@@ -54,19 +54,17 @@ Path Types
 | wgts://         | /storage/emulated/0/widgetone/widgets/   | /Documents/widgets/               |
 | file:///sdcard/ | /storage/emulated/0/                     | 无                                 |
 
+## 1.5、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.6、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
+
 #2、API概述		
 
 使用该插件需要先在[融云官网](http://www.rongcloud.cn/)申请AppKey.
-
-如果无特殊说明,本文档的回调函数全部是如下格式:
-
-```javascript
-var callback=function (error,data){
-  //error为0表示成功,其他表示失败
-}
-```
-
-
 
 ##2.1、初始化
 ***
@@ -86,7 +84,18 @@ var callback=function (error,data){
 
 **参数:**
 
-`json`为JSON对象,各字段如下:
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| json     | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
+
+```javascript
+var json = {
+  appKey:
+}
+```
+
+各字段含义如下:
 
 | 参数名称   | 参数类型   | 是否必选 | 说明       |
 | ------ | ------ | ---- | -------- |
@@ -95,7 +104,7 @@ var callback=function (error,data){
 **回调参数:**
 
 ```javascript
-var callback=function (error,data){}
+var callback = function (error,data){}
 ```
 
 | 参数名称  | 类型     | 说明           |
@@ -117,7 +126,6 @@ uexRongCloud.init({
 
 ##2.2、登录与登出
 
-***
 ### 🍭 connect  与融云服务器建立连接
 
 `uexRongCloud.connect(json,callback)`
@@ -125,11 +133,21 @@ uexRongCloud.init({
 **说明:**
 
 在App整个生命周期,您只需要调用一次此方法与融云服务器建立连接.之后无论是网络出现异常或者App有前后台的切换等,SDK都会负责自动重连.除非您已经手动将连接断开,否则您不需要自己再手动重连.
-param为json字符串
 
 **参数:**
 
-`json`为JSON对象,各字段如下:
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| json     | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
+
+```javascript
+var json = {
+  token:
+}
+```
+
+各字段含义如下:
 
 | 参数名称  | 参数类型   | 是否必选 | 说明                     |
 | ----- | ------ | ---- | ---------------------- |
@@ -168,13 +186,21 @@ uexRongCloud.connect({
 
 **参数:**
 
-`json`为JSON对象,各字段如下:
+| 参数名称 | 参数类型   | 是否必选 | 说明           |
+| ---- | ------ | ---- | ------------ |
+| json | Object | 是    | 接口所需数据，形式见下： |
+
+```javascript
+var json = {
+  isReceivePush:
+}
+```
+
+各字段含义如下:
 
 | 参数名称          | 参数类型    | 是否必选 | 说明                                       |
 | ------------- | ------- | ---- | ---------------------------------------- |
 | isReceivePush | Boolean | 是    | 断开与融云服务器的连接之后,是否还接收远程推送.true:接收,false:不接收 |
-
-
 
 **示例:**
 
@@ -185,7 +211,6 @@ uexRongCloud.disconnect({
 ```
 
 ##2.3、基础消息功能
-***
 
 ### 🍭 sendMessage 发送消息
 
@@ -197,7 +222,34 @@ uexRongCloud.disconnect({
 
 **参数:**
 
-`json`为JSON对象,各字段如下:
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| json     | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
+
+```javascript
+var json = {
+  objectName:,
+  conversationType:,
+  targetId:,
+  extra:,
+  localId:,
+  text:,
+  voicePath:,
+  duration:,
+  imgPath:,
+  title:,
+  description:,
+  url:,
+  latitude:,
+  longitude:,
+  poi:,
+  name:,
+  data:
+}
+```
+
+各字段含义如下:
 
 **公共参数:**
 
@@ -275,13 +327,9 @@ uexRongCloud.sendMessage({
     extra: "extra info ...", //消息的附加字段
     //objectName 为"RC:TxtMsg"时(文字消息)
     text: "text content ...", //消息的文字内容
-},function(error,data){
+},function(error,messageId){
   if(error==0){
-    if (data.resultCode == 0) {
-    	alert("准备发送 messageId: " + data.messageId);
-  	}else if (data.resultCode == 1) {
-    	alert("发送成功 messageId: " + data.messageId);
-  	}
+    alert("发送成功 messageId: " + messageId);
   }
 });
 ```
@@ -292,7 +340,11 @@ uexRongCloud.sendMessage({
 
 **参数：**
 
-`json`为JSON对象,各字段如下:
+| 参数名称 | 参数类型   | 是否必选 | 说明           |
+| ---- | ------ | ---- | ------------ |
+| json | Object | 是    | 接口所需数据，形式见下： |
+
+各字段含义如下:
 
 ```javascript
 var json = {
@@ -361,7 +413,6 @@ var json = {
 ```
 
 ##2.3、会话功能
-***
 
 ### 🍭 getConversationList 获取会话列表
 
@@ -415,12 +466,14 @@ var result = uexRongCloud.getConversationList();
 
 **参数**
 
-json为Json对象
+| 参数名称 | 参数类型   | 是否必选 | 说明           |
+| ---- | ------ | ---- | ------------ |
+| json | Object | 是    | 接口所需数据，形式见下： |
 
 ```javascript
 var json={
      conversationType:,//消息的会话类型
-     targetId:,//消息目标 Id
+     targetId://消息目标 Id
 }
 ```
 
@@ -471,7 +524,10 @@ var result = uexRongCloud.getConversation(params);
 
 **参数**
 
-param为json字符串
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| json     | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```javascript
 var param={
@@ -509,13 +565,29 @@ uexRongCloud.removeConversation(params, function (error, data) {
 
 **参数**
 
-`param`为json,`callback` 为Function
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```javascript
 var param={
-    conversationTypes:,//消息的会话类型
+    conversationTypes:
 }
 ```
+
+各字段含义如下:
+
+| 参数名称              | 参数类型  | 是否必选 | 说明      |
+| ----------------- | ----- | ---- | ------- |
+| conversationTypes | Array | 是    | 消息的会话类型 |
+
+**回调参数:**
+
+```javascript
+var callback = function (error,data){}
+```
+
 
 | 参数名称  | 类型     | 说明           |
 | ----- | ------ | ------------ |
@@ -540,20 +612,31 @@ uexRongCloud.clearConversations(params, function (error, data) {
 
 **参数**
 
-`param`为json字符串,`callback` 为Function
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```javascript
 var param={
-    conversationType:,//消息的会话类型
-    targetId:,//消息目标 Id
-    isTop:,//true 或false 是否置顶
+    conversationType:,
+    targetId:,
+    isTop:
 }
 ```
+
+各字段含义如下:
+
+| 参数名称             | 参数类型    | 是否必选 | 说明      |
+| ---------------- | ------- | ---- | ------- |
+| conversationType | String  | 是    | 消息的会话类型 |
+| targetId         | String  | 是    | 消息目标 Id |
+| isTop            | Boolean | 是    | 是否置顶    |
 
 **回调参数:**
 
 ```javascript
-var callback=function (error,data){}
+var callback=function(error,data){}
 ```
 
 | 参数名称  | 类型     | 说明           |
@@ -580,14 +663,24 @@ uexRongCloud.setConversationToTop(params, function (error, data) {
 
 **参数**
 
-`param`为json字符串,`callback` 为Function
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```javascript
 var param={
-    conversationType:,//消息的会话类型
-    targetId:,//消息目标 Id
+    conversationType:,
+    targetId:
 }
 ```
+
+各字段含义如下:
+
+| 参数名称             | 参数类型   | 是否必选 | 说明      |
+| ---------------- | ------ | ---- | ------- |
+| conversationType | String | 是    | 消息的会话类型 |
+| targetId         | String | 是    | 消息目标 Id |
 
 **回调参数:**
 
@@ -618,15 +711,26 @@ uexRongCloud.getConversationNotificationStatus(params, function (error, data) {
 
 **参数**
 
-`param`为json字符串,`callback` 为Function
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```javascript
 var param={
-    conversationType:,//消息的会话类型
-    targetId:,//消息目标 Id
-    status:,//Number 状态码,0:免打扰 / 1:提醒
+    conversationType:,
+    targetId:,
+    status:
 }
 ```
+
+各字段含义如下:
+
+| 参数名称             | 参数类型   | 是否必选 | 说明               |
+| ---------------- | ------ | ---- | ---------------- |
+| conversationType | String | 是    | 消息的会话类型          |
+| targetId         | String | 是    | 消息目标 Id          |
+| status           | Number | 是    | 状态码,0:免打扰 / 1:提醒 |
 
 **回调参数:**
 
@@ -658,15 +762,26 @@ uexRongCloud.setConversationNotificationStatus(params, function (error, data) {
 
 **参数**
 
-`param`为json字符串,`callback` 为Function
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```javascript
 var param={
-    conversationType:,//消息的会话类型
-    targetId:,//消息目标 Id
-    count:,//Number 要获取的消息数量
+    conversationType:,
+    targetId:,
+    count:
 }
 ```
+
+各字段含义如下:
+
+| 参数名称             | 参数类型   | 是否必选 | 说明       |
+| ---------------- | ------ | ---- | -------- |
+| conversationType | String | 是    | 消息的会话类型  |
+| targetId         | String | 是    | 消息目标 Id  |
+| count            | Number | 是    | 要获取的消息数量 |
 
 **回调参数:**
 
@@ -721,16 +836,28 @@ uexRongCloud.getLatestMessages(params, function (error, data) {
 
 **参数**
 
-`param`为json字符串,`callback` 为Function
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```javascript
 var param={
-    conversationType:,//消息的会话类型
-    targetId:,//消息目标 Id
-    count:,//Number 要获取的消息数量
-    oldestMessageId:,// Number 最后一条消息的 Id,获取此消息之前的 count 条消息,没有消息第一次调用应设置为: -1
+    conversationType:,
+    targetId:,
+    count:,
+    oldestMessageId:
 }
 ```
+
+各字段含义如下:
+
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| conversationType | String | 是    | 消息的会话类型                                  |
+| targetId         | String | 是    | 消息目标 Id                                  |
+| count            | Number | 是    | 要获取的消息数量                                 |
+| oldestMessageId  | Number | 是    | 最后一条消息的 Id,获取此消息之前的 count 条消息,没有消息第一次调用应设置为: -1 |
 
 **回调参数:**
 
@@ -785,13 +912,22 @@ uexRongCloud.getHistoryMessages(params, function (error, data) {
 
 **参数**
 
-`param`为json字符串,`callback` 为Function
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
-```
+```javascript
 var param={
-    messageIds:,//要删除的消息 Id 数组
+    messageIds:
 }
 ```
+
+各字段含义如下:
+
+| 参数名称       | 参数类型  | 是否必选 | 说明           |
+| ---------- | ----- | ---- | ------------ |
+| messageIds | Array | 是    | 要删除的消息 Id 数组 |
 
 **回调参数:**
 
@@ -822,14 +958,24 @@ uexRongCloud.deleteMessages(params, function (error, data) {
 
 **参数**
 
-`param`为json字符串,`callback` 为Function
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
-```
+```javascript
 var param={
-    conversationType:,//消息的会话类型
-    targetId:,//消息目标 Id
+    conversationType:,
+    targetId:
 }
 ```
+
+各字段含义如下:
+
+| 参数名称             | 参数类型   | 是否必选 | 说明      |
+| ---------------- | ------ | ---- | ------- |
+| conversationType | String | 是    | 消息的会话类型 |
+| targetId         | String | 是    | 消息目标 Id |
 
 **回调参数:**
 
@@ -858,13 +1004,13 @@ uexRongCloud.clearMessages(params, function (error, data) {
 
 `uexRongCloud.getTotalUnreadCount()`
 
+**参数**
+
+无
+
 **返回值**
 
-Number类型
-
-```javascript
-var count=uexRongCloud.getTotalUnreadCount();
-```
+Number类型未读消息数。
 
 **示例**
 
@@ -879,15 +1025,27 @@ console.log("未读消息总数:"+count);
 
 **参数**
 
-param为json字符串
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
 ```javascript
 var param={
-    conversationType:,//消息的会话类型
-    targetId:,//消息目标 Id
+    conversationType:,
+    targetId:
 }
-var count=uexRongCloud.getUnreadCount(param);
 ```
+
+各字段含义如下:
+
+| 参数名称             | 参数类型   | 是否必选 | 说明      |
+| ---------------- | ------ | ---- | ------- |
+| conversationType | String | 是    | 消息的会话类型 |
+| targetId         | String | 是    | 消息目标 Id |
+
+**返回值**
+
+Number类型未读消息数。
 
 **示例**
 
@@ -901,18 +1059,29 @@ var count = uexRongCloud.getUnreadCount(params);
 
 ### 🍭 getUnreadCountByConversationTypes 获取某(些)会话类型的未读消息数
 
-`uexRongCloud.getUnreadCountByConversationTypes(prama)`
+`uexRongCloud.getUnreadCountByConversationTypes(param)`
 
 **参数**
 
-param为json字符串
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
 ```javascript
-var params={
-    conversationTypes:,//消息的会话类型,是ConversationType的数组
+var params = {
+    conversationTypes:
 }
-var count=uexRongCloud.getUnreadCountByConversationTypes(params);
 ```
+
+各字段含义如下:
+
+| 参数名称              | 参数类型  | 是否必选 | 说明      |
+| ----------------- | ----- | ---- | ------- |
+| conversationTypes | Array | 是    | 消息的会话类型 |
+
+**返回值**
+
+Number类型未读消息数。
 
 **示例**
 
@@ -929,14 +1098,23 @@ var count = uexRongCloud.getUnreadCountByConversationTypes(params);
 
 **参数**
 
-param为json字符串
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
 ```javascript
 var param={
-    messageId:,// Number 消息 Id
-    receivedStatus:,//"UNREAD","READ","LISTENED","DOWNLOADED"
+    messageId:,
+    receivedStatus:
 }
 ```
+
+各字段含义如下:
+
+| 参数名称           | 参数类型   | 是否必选 | 说明                                      |
+| -------------- | ------ | ---- | --------------------------------------- |
+| messageId      | Number | 是    | 消息 Id                                   |
+| receivedStatus | String | 是    | "UNREAD","READ","LISTENED","DOWNLOADED" |
 
 **示例**
 
@@ -954,14 +1132,23 @@ uexRongCloud.setMessageReceivedStatus(params);
 
 **参数**
 
-param为json字符串
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
 ```javascript
-var params={
-    conversationType:,//消息的会话类型
-    targetId:,//消息目标 Id
+var param={
+    conversationType:,
+    targetId:
 }
 ```
+
+各字段含义如下:
+
+| 参数名称             | 参数类型   | 是否必选 | 说明      |
+| ---------------- | ------ | ---- | ------- |
+| conversationType | String | 是    | 消息的会话类型 |
+| targetId         | String | 是    | 消息目标 Id |
 
 **示例**
 
@@ -1049,6 +1236,8 @@ API版本: `uexRongCloud-4.0.0`
 最近更新时间:`2016-4-11`
 
 | 历史发布版本 | 更新内容                 |
+
 | ------ | -------------------- |
-#5 文档更新记录
+| ------ | -------------------- |
+|        |                      |
 
