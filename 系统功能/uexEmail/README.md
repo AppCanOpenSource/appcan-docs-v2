@@ -12,6 +12,14 @@
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=171_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
+
 # 2、API概览
 
 ## 2.1、方法
@@ -33,10 +41,6 @@
 | subject        | String | 是    | 邮件主题                                     |
 | content        | String | 否    | 邮件正文                                     |
 | attachmentPath | String | 否    | 邮件附件路径,支持的协议有:wgt ://…,wgts://…,file://,等本地协议,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的PathTypes.如果有多个地址,请用英文逗号隔开,如varstr='wgt://xxx.txt,res://xxx.png' |
-
-**版本支持:**
-
-4.0.0+
 
 **示例:**
 
