@@ -127,7 +127,7 @@ var params ={
 		day:11
 	}
 };
-uexCalendarView.setSelectedDate(data);
+uexCalendarView.setSelectedDate(params);
 ```
 
 ## 2.2、监听方法
