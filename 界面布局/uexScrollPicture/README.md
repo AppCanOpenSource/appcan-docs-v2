@@ -2,10 +2,10 @@
 
 #1. 简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 轮播图插件
-##1.1 业务限制资源规格限制说明
+##1.1、说明
 轮播图插件,实现图片自动滚动联播
-## 1.2 UI展示
-##1.3 开源源码
+## 1.2、UI展示
+##1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=433_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供) 
 
 

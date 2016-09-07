@@ -1,4 +1,5 @@
 [TOC]
+
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 
 自定义编辑框插件
@@ -7,7 +8,7 @@
 ## 1.2、UI展示
 
  ![](http://newdocx.appcan.cn/docximg/141950m2015c6g16o.jpg)
-## 1.3、开源源码:
+## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=170_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.4、平台版本支持

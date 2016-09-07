@@ -12,6 +12,16 @@
 ## 1.2、开源源码
 [点击]()至插件详情页(插件测试用例与插件包已经提供)
 
+## 1.3、平台版本支持
+
+本插件的所有API默认支持**Android4.4+**和**iOS7.1+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.4、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
+
 #2、 API预览
 
 ##2.1、 方法
@@ -54,10 +64,6 @@ var callback=function(error,data){}
 | ----- | ------ | ------------ |
 | error | Number | 0表示成功,其他表示失败 |
 | data  | String | 失败时返回相关错误信息  |
-
-**版本支持**
-
-4.0.0+    
 
 **示例**
 
@@ -104,10 +110,6 @@ var param={
 | endNode      | Array  | 是    | [longitude,latitude]终点 经纬度坐标     |
 | throughNodes | Array  | 否    | 由[longitude,latitude]组成的数组 途经点坐标 |
 | mode         | Number | 否    | 路径规划模式 1-默认 2-高速优先 3-少走高速        |
-
-**版本支持**
-
-4.0.0+   
 
 **回调参数**
 
@@ -177,10 +179,6 @@ var param={
 | naviType        | Number | 否    | 导航模式 1-真实导航 2-模拟导航                |
 | isNeedLandscape | Number | 否    | 是否需要横竖屏切换 (导航默认竖屏) 1-需要(默认) 2-不需要 |
 
-**版本支持**
-
-4.0.0+    
-
 **示例**
 
 ```javascript
@@ -204,10 +202,6 @@ uexBaiduNavi.startNavi(data);
 **参数**
 
 无
-
-**版本支持**
-
-4.0.0+  
 
 **示例**
 
@@ -243,11 +237,6 @@ var param={
 | --------------- | ------ | ---- | --------------------------------- |
 | isNeedLandscape | Number | 否    | 是否需要横竖屏切换 (导航默认竖屏) 1-需要(默认) 2-不需要 |
 
-**版本支持**
-
-
-iOS 4.0.0+    
-
 **示例**
 
 ```javascript
@@ -271,10 +260,6 @@ uexBaiduNavi.startDigitDog(data);
 
 无
 
-**版本支持**
-
-4.0.0+     
-
 **示例**
 
 ```
@@ -297,10 +282,6 @@ uexBaiduNavi.onExitNavi=function(){
 
 无
 
-**版本支持**
-
-4.0.0+    
-
 **示例**
 
 ```
@@ -320,11 +301,6 @@ uexBaiduNavi.onExitDeclaration=function(){
 **参数**
 
 无
-
-**版本支持**
-
-
-iOS 4.0.0+    
 
 **示例**
 

@@ -4,7 +4,7 @@
 # 1、 简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 
 QQ登录及分享插件
-## 1.1 说明
+## 1.1、说明
 调用QQ登录及分享插件,可以实现图文分享、音频分享、应用分享
 
 温馨提示:
@@ -56,15 +56,15 @@ urlScheme和您在QQ开发者申请的appid相关.
 <string>mqq</string>
 ```
 
-## 1.2  UI展示
+## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/162019s2015p6u16v.png)
 
  ![](http://newdocx.appcan.cn/docximg/163002w2015z6l16r.png)
-## 1.3 开源源码
+## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=316_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 
-## 1.4 术语表
+## 1.4、术语表
 -----
 Path Types
 
@@ -84,7 +84,7 @@ Path Types
 在后续版本中新添加的接口会在文档中额外说明.
 
 #2、API概览 
-## 2.1 方法
+## 2.1、方法
 
 ### 🍭 login 登录      
 
@@ -120,8 +120,6 @@ var data = {
   expires_in:
 }
 ```
-
-
 
 **示例:**
 
@@ -366,8 +364,6 @@ function shareAudioToQQ(){
 
 **参数:**
 
-​    
-
 | 参数名称             | 参数类型     | 是否必选 | 说明                |
 | ---------------- | -------- | ---- | ----------------- |
 | appId            | String   | 是    | 在腾讯开放平台注册的应用appId |
@@ -404,6 +400,10 @@ var callbackFunction = function(error,data){}
 | error | Number | 分享状态,0表示成功,非0表示失败 |
 | data  | String | 分享失败原因            |
 
+**平台支持:**
+
+Android 4.0+
+
 **示例:**
 
 ```
@@ -419,7 +419,7 @@ function shareAppToQQ(){
 }
 ```
 
-### 🍭shareImgTextToQZone 分享图文到QQ空间   
+### 🍭 shareImgTextToQZone 分享图文到QQ空间   
 
 `uexQQ.shareImgTextToQZone(appId,jsonData, callbackFunction);`
 

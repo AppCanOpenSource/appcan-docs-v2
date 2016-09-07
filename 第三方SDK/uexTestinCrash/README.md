@@ -1,19 +1,19 @@
 [TOC]
 
-# 1. 简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 崩溃大师插件
 
-## 1.1 说明
+## 1.1、说明
 本插件包封装了Testin崩溃分析的相关模块,能根据实际用户发生的崩溃信息,帮助确定崩溃发生的规模以及严重程度,根据应用版本和崩溃类型进行分析.
 开发者能够通过这些信息迅速找到影响用户最严重的崩溃进行修复与优化, 具体操作见[手册](http://newdocx.appcan.cn/newdocx/docx?type=1046_975 "手册")
 
-## 1.2 UI展示
+## 1.2、UI展示
 无
 
-## 1.3 开源源码:
+## 1.3、开源源码
 自定义插件下载:[点击此处](http://plugin.appcan.cn/details.html?id=407_index)  
 
-## 1.4 术语表
+## 1.4、术语表
 
 -----
 Path Types
@@ -170,7 +170,7 @@ uexTestinCrash.test();
 ```
 
 
-#３、 更新历史
+#３、更新历史
 
 ### iOS
 

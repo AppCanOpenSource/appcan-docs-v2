@@ -2,7 +2,7 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 微信分享插件
 
-## 1.1 说明
+## 1.1、说明
 
 封装了微信开放平台的SDK,集成了微信登录、微信分享功能;可用于实现第三方账号登录,分享内容到朋友圈或好友;使用之前须从[微信开放平台](https://open.weixin.qq.com/ "微信开放平台")申请开发者账号并创建应用,获取 appid 和 secret.同时包含微信支付功能.
 
@@ -33,13 +33,13 @@ iOS 9 以后,为了预防APP通过非正常渠道获取用户的某些隐私信�
 <string>weixin</string>
 ```
 
-## 1.2 UI展示
+## 1.2、UI展示
 ![](http://newdocx.appcan.cn/docximg/162019s2015p6u16v.png)
 
-## 1.3 开源源码
+## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=195_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4 术语表
+## 1.4、术语表
 -----
 Path Types
 
@@ -50,7 +50,7 @@ Path Types
 | wgts://         | /storage/emulated/0/widgetone/widgets/   | /Documents/widgets/               |
 | file:///sdcard/ | /storage/emulated/0/                     | 无                                 |
 
-## 1.5 错误返回码说明
+## 1.5、错误返回码说明
 前端收到的回调中的错误返回码errCode可查看下方链接获取详细信息
 [微信官方全局返回码说明地址](http://mp.weixin.qq.com/wiki/17/fa4e1434e57290788bde25603fa2fcbd.html)
 
@@ -69,7 +69,7 @@ Path Types
 
 # 2、API概览
 
-## 2.1 方法
+## 2.1、方法
 
 ### 🍭 registerApp 用户授权
 

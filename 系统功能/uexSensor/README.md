@@ -63,7 +63,7 @@ uexSensor.open(1,3);
 uexSensor.close(1);
 ```
 
-## 2.3、监听方法
+## 2.2、监听方法
 
 ### 🍭 onAccelerometerChange 加速度传感器的监听方法
 

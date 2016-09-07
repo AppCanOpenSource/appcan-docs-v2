@@ -9,22 +9,35 @@
 ## 1.2、UI展示
 ![](http://newdocx.appcan.cn/docximg/165128c2015g6x16g.jpg)
 
-## 1.3、 开源源码:
+## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=190_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
- 
-## 1.4、 术语表
+
+## 1.4、术语表
 -----
 Path Types
 
-|  协议头 |  Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径  |
-| ----- | ----- | ----- |
-| res:// |widget/wgtRes/   |widget/wgtRes   |
-|  wgts:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/  |  /Documents/apps/xxx(widgetAppId)/ |
-|  wgts:// |  /storage/emulated/0/widgetone/widgets/ |  /Documents/widgets/ |
-|  file:///sdcard/ | /storage/emulated/0/  | 无  |
+| 协议头             | Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径                           |
+| --------------- | ---------------------------------------- | --------------------------------- |
+| res://          | widget/wgtRes/                           | widget/wgtRes                     |
+| wgts://         | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
+| wgts://         | /storage/emulated/0/widgetone/widgets/   | /Documents/widgets/               |
+| file:///sdcard/ | /storage/emulated/0/                     | 无                                 |
+
+## 1.5、平台版本支持
+
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.6、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明. 
+
+
 
 #2、API概览
-## 2.1、方法:
+
+## 2.1、方法
 
 ### 🍭 registerApp 授权本应用访问用户微博账号       
 
@@ -32,45 +45,43 @@ Path Types
 
 **说明:**
 
- 
+
 请先到腾讯微博开放平台注册 回调 [cbRegisterApp](#cbregisterapp 注册应用的回调方法 "注册应用的回调方法")
 
 **参数:**
 
- 
+| 参数名称        | 参数类型     | 是否必选 | 说明                     |
+| ----------- | -------- | ---- | ---------------------- |
+| appKey      | String类型 | 必选   | 通过腾讯开放平台注册的appKey      |
+| appSecret   | String类型 | 必选   | 通过腾讯开放平台注册的appSecret   |
+| registerURL | String类型 | 必选   | 通过腾讯开放平台注册的registerURL |
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| appKey| String类型| 必选 | 通过腾讯开放平台注册的appKey   |
-| appSecret|String类型 | 必选 | 通过腾讯开放平台注册的appSecret |
-| registerURL|String类型 | 必选 | 通过腾讯开放平台注册的registerURL |
- 
 
 **平台支持:**
 
- 
+
 Android2.2+                 
 iOS6.0+    
-             
+​             
 
 **版本支持:**
 
- 
+
 3.0.0+ 
-                 
+​                 
 
 **示例:**
 
- 
+
 见sendImageContent方法示例 
-                
+​                
 ### 🍭 sendTextContent 分享文本到腾讯微博
 
 `uexTent.sendTextContent(txt)`
 
 **说明:**
 
- 
+
 分享文本到腾讯微博                   
 回调 [cbShare](#cbShare 分享后的回调方法 "分享后的回调方法")
 
@@ -78,27 +89,27 @@ iOS6.0+
 
  
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| txt| String类型| 必选 | 分享的文本内容   |
- 
+| 参数名称 | 参数类型     | 是否必选 | 说明      |
+| ---- | -------- | ---- | ------- |
+| txt  | String类型 | 必选   | 分享的文本内容 |
+
 
 **平台支持:**
 
- 
+
 Android2.2+                 
 iOS6.0+
-           
+​           
 
 **版本支持:**
 
- 
+
 3.0.0+  
-                
+​                
 
 **示例:**
 
- 
+
 见sendImageContent方法示例                 
 ### 🍭 sendImageContent 分享图片到腾讯微博   
 
@@ -115,24 +126,24 @@ iOS6.0+
 
  
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| imagePath| String类型| 必选 | 分享的图片的路径,本接口不支持网络图片  |
-| txt|String类型 | 必选 | 分享的文本内容 |
- 
+| 参数名称      | 参数类型     | 是否必选 | 说明                  |
+| --------- | -------- | ---- | ------------------- |
+| imagePath | String类型 | 必选   | 分享的图片的路径,本接口不支持网络图片 |
+| txt       | String类型 | 必选   | 分享的文本内容             |
+
 
 **平台支持:**
 
- 
+
 Android2.2+         
 iOS6.0+    
-     
+​     
 
 **版本支持:**
 
- 
+
 3.0.0+    
-      
+​      
 
 **示例:**
 
@@ -206,16 +217,16 @@ var cInt = 2;
 
  
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,在此函数中不起作用,可忽略   |
-| dataType|Number类型 | 必选 | 数据类型详见CONSTANT中Callback方法数据类型 |
-| data|Number类型 | 必选 | 分享结果,成功:0,失败:1. |
- 
+| 参数名称     | 参数类型     | 是否必选 | 说明                            |
+| -------- | -------- | ---- | ----------------------------- |
+| opId     | Number类型 | 必选   | 操作ID,在此函数中不起作用,可忽略            |
+| dataType | Number类型 | 必选   | 数据类型详见CONSTANT中Callback方法数据类型 |
+| data     | Number类型 | 必选   | 分享结果,成功:0,失败:1.               |
+
 
 **版本支持:**
 
- 
+
 3.0.0+                  
 ### 🍭 cbShare 分享后的回调方法   
 
@@ -225,18 +236,18 @@ var cInt = 2;
 
  
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number类型| 必选 | 操作ID,在此函数中不起作用,可忽略   |
-| dataType|Number类型 | 必选 |  数据类型详见CONSTANT中Callback方法数据类型 |
-| data|Number类型 | 必选 | 分享结果,成功:0,失败:1. |
- 
+| 参数名称     | 参数类型     | 是否必选 | 说明                            |
+| -------- | -------- | ---- | ----------------------------- |
+| opId     | Number类型 | 必选   | 操作ID,在此函数中不起作用,可忽略            |
+| dataType | Number类型 | 必选   | 数据类型详见CONSTANT中Callback方法数据类型 |
+| data     | Number类型 | 必选   | 分享结果,成功:0,失败:1.               |
+
 
 **版本支持:**
 
- 
+
 3.0.0+      
-            
+​            
 #3、更新历史
 
 ### iOS
