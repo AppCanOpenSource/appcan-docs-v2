@@ -26,7 +26,7 @@
 
 ### 🍭 open 打开系统默认邮件发送程序界面,发送邮件
 
-`uexEmail.open(receiverEmail,subject,content,attachmentPath)`
+`uexEmail.open(receiverEmail,subject,content,attachmentPath,mimeType)`
 
 **说明:**
 
@@ -39,21 +39,18 @@
 | -------------- | ------ | ---- | ---------------------------------------- |
 | receiverEmail  | String | 是    | 接收者的邮件地址,如果收件人有多个,用英文逗号隔开,如varstr='123@qq.com,123@163.com' |
 | subject        | String | 是    | 邮件主题                                     |
-| content        | String | 否    | 邮件正文                                     |
+| content        | String | 是    | 邮件正文，不需要请传空字符串                                     |
 | attachmentPath | String | 否    | 邮件附件路径,支持的协议有:wgt ://…,wgts://…,file://,等本地协议,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的PathTypes.如果有多个地址,请用英文逗号隔开,如varstr='wgt://xxx.txt,res://xxx.png' |
-
+| mimeType        | String | 否    | 该资源的媒体类型，mimeType和attachmentPath配合使用，传其中一个无法启动附件功能    
 **示例:**
 
 ```javascript
-    var email = "test@163.com";
-    var subject = "测试邮件";
-    var content = "我是邮件";
-    var attachmentPath = "res://attach.rar";
-    if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(Email)) {
-        alert('Email格式不正确');
-        return;
-    }
-    uexEmail.open(email, subject, content, attachmentPath);
+    var email = "ygeutter@126.com";
+            var subject = "测试邮件";
+            var content = "我是邮件";
+            var attachmentPath = "res://PDFDocument.pdf";
+            var mimeType = "application/pdf";
+     uexEmail.open(email, subject, content,attachmentPath,mimeType);
 ```
 # 3、更新历史
 
