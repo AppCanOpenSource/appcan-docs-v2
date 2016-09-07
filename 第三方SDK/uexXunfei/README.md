@@ -28,7 +28,7 @@
 
 ### 🍭 init  初始化
 
-`uexXunfei.init(param,callbackFunction)`
+`uexXunfei.init(param)`
 
 **说明**
 
@@ -39,7 +39,7 @@
 | 参数名称             | 参数类型     | 是否必选 | 说明                  |
 | ---------------- | -------- | ---- | ------------------- |
 | param            | String   | 是    | param是json字符串,详情见下: |
-| callbackFunction | Function | 是    | 回调方法                |
+
 
 ```javascript
 var param = {
@@ -55,34 +55,21 @@ var param = {
 * APPID需要在[讯飞官网](http://www.xfyun.cn/mycloud/app/create)申请
 
 
-**回调参数**
-
-```javascript
-var callbackFunction = function(error){}
-```
-
-| 参数名称  | 参数类型   | 说明               |
-| ----- | ------ | ---------------- |
-| error | Number | 初始化结果，0-成功，非0-失败 |
-
-
 **示例**
 
 ```javascript
-    function init(){
-        var params = {
-            appID:"56710b9c"
-        };
-        var data = JSON.stringify(params);
-        uexXunfei.init(data,function(error){
-          if(!error){
-            alert("成功");
-          }else{
-            alert("失败");
-          }
-        });
-    }
+function init(){
+    var params = {
+        appID:"56710b9c"
+    };
+    var data = JSON.stringify(params);
+    var result = uexXunfei.init(data);
+}
 ```
+
+**返回值：**
+
+boolean类型，初始化成功返回true, 失改返回false
 
 ### 🍭 initSpeaker 初始化语音合成
 
