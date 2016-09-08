@@ -94,7 +94,7 @@ iOS6.0+
 uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 ```
 
-> ### weiXinLogin 微信授权登录
+> ### weiXinLogin 微信授权登录(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.weiXinLogin(scope,state)`
 
@@ -205,7 +205,7 @@ alert("cbGetWXAppInstallUrl:"+data);
 
 ```
 
-> ### getWeiXinLoginAccessToken 获取微信登录accessToken
+> ### getWeiXinLoginAccessToken 获取微信登录accessToken(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.getWeiXinLoginAccessToken(secret,grant_type)`
 
@@ -235,7 +235,7 @@ iOS6.0+
 
 见weiXinLogin方法
 
-> ### getWeiXinLoginCheckAccessToken 检验accessToken是否有效
+> ### getWeiXinLoginCheckAccessToken 检验accessToken是否有效(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.getWeiXinLoginCheckAccessToken(access_token,openid)`
 
@@ -265,7 +265,7 @@ iOS6.0+
 
 见weiXinLogin方法
 
-> ### getWeiXinLoginRefreshAccessToken 获取微信登录的刷新或续期access_token
+> ### getWeiXinLoginRefreshAccessToken 获取微信登录的刷新或续期access_token(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.getWeiXinLoginRefreshAccessToken(grant_type,refresh_token)`
 
@@ -295,7 +295,7 @@ iOS6.0+
 
 见weiXinLogin方法
 
-> ### getWeiXinLoginUnionID 获取用户个人信息
+> ### getWeiXinLoginUnionID 获取用户个人信息(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.getWeiXinLoginUnionID(access_token,openid)`
 
