@@ -137,7 +137,7 @@ uexContact.multiOpen(function(error,data) {
 | 参数名称             | 参数类型     | 是否必选 | 说明                    |
 | ---------------- | -------- | ---- | --------------------- |
 | name             | String   | 是    | 名称                    |
-| num              | Number   | 是    | 电话号码                  |
+| num              | String   | 是    | 电话号码                  |
 | email            | String   | 是    | 邮件                    |
 | option           | String   | 否    | 添加联系人配置,json格式字符串,如下: |
 | callbackFunction | Function | 否    | 回调函数                  |
@@ -353,11 +353,11 @@ uexContact.search(option,function(error,data){
 
 **参数:**
 
-| 参数名称             | 参数类型   | 是否必选 | 说明                    |
-| ---------------- | ------ | ---- | --------------------- |
-| nameKey          | String | 是    | 名称,传空字符串时,查询通讯录中所有联系人 |
-| option           | String | 否    | 搜索配置,json格式字符串,如下:    |
-| callbackFunction | 函数     | 否    | 回调函数                  |
+| 参数名称             | 参数类型     | 是否必选 | 说明                    |
+| ---------------- | -------- | ---- | --------------------- |
+| nameKey          | String   | 是    | 名称,传空字符串时,查询通讯录中所有联系人 |
+| option           | String   | 否    | 搜索配置,json格式字符串,如下:    |
+| callbackFunction | Function | 否    | 回调函数                  |
 
 
 ```javascript
@@ -481,12 +481,12 @@ uexContact.modifyWithId(JSON.stringify(option), function(error) {
 
 **参数:**
 
-| 参数名称             | 参数类型   | 是否必选 | 说明   |
-| ---------------- | ------ | ---- | ---- |
-| name             | String | 是    | 名称   |
-| num              | Number | 是    | 电话号码 |
-| email            | String | 是    | 邮件   |
-| callbackFunction | 函数     | 否    | 回调函数 |
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
+| name             | String   | 是    | 名称   |
+| num              | String   | 是    | 电话号码 |
+| email            | String   | 是    | 邮件   |
+| callbackFunction | Function | 否    | 回调函数 |
 
 **回调参数**
 
