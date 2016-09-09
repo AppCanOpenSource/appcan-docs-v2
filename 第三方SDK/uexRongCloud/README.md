@@ -136,8 +136,6 @@ uexRongCloud.init(param,function(error,data){
 | param     | Object   | 是    | 接口所需数据，形式见下： |
 | callback | Function | 是    | 回调方法         |
 
-param为json字符串
-
 ```
 var param = {
 	token:
@@ -151,7 +149,7 @@ var param = {
 **回调参数:**
 
 ```javascript
-var callback=function (error,data){}
+var callback = function (error,data){}
 ```
 
 | 参数名称  | 类型     | 说明                     |
@@ -182,7 +180,10 @@ uexRongCloud.connect(param,function(error,data){
 **注意：因为SDK在前后台切换或者网络出现异常都会自动重连,会保证连接的可靠性。 所以除非您的App逻辑需要登出,否则一般不需要调用此方法进行手动断开。**
 
 **参数:**
-param为json字符串
+
+| 参数名称 | 参数类型   | 是否必选 | 说明           |
+| ---- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
 ```
 var param = {
@@ -191,7 +192,7 @@ var param = {
 ```
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-|  isReceivePush   | bool | 是 | 断开与融云服务器的连接之后,是否还接收远程推送。true:接收,false:不接收 |
+|  isReceivePush   | Boolean | 是 | 断开与融云服务器的连接之后,是否还接收远程推送。true:接收,false:不接收 |
 
 
 **示例:**
@@ -457,7 +458,7 @@ function onMessageReceived(info) {
   alert('onMessageReceived: ' + JSON.stringify(info));
 }                
 ```
-##2.3、会话功能
+##2.4、会话功能
 ***
 
 >### getConversationList 获取会话列表
