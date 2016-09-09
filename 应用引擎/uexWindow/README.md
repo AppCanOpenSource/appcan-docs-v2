@@ -2898,7 +2898,7 @@ uexWindow.setIsSupportSlideCallback(JSON.stringify(param));
 `uexWindow.setIsSupportSwipeCallback(param)`
 
 **说明:**
-左右滑动监听包括[onSwipeRight](#onSwipeRight 向右滑动的监听方法)，[onSwipeLeft](#onSwipeLeft 向左滑动的监听方法)，
+左右滑动监听包括[onSwipeRight](#onSwipeRight 向右滑动的监听方法)，[onSwipeLeft](#onSwipeLeft 向左滑动的监听方法)，主窗口浮动窗口分别调用之后，onSwipeRight、onSwipeRight左右监听方法才会生效。
 
 **参数:**
 ```
@@ -2918,9 +2918,19 @@ var param = {
 
 ```
 var param = {
-    isSupport:false
+    isSupport:true
 };
 uexWindow.setIsSupportSwipeCallback(JSON.stringify(param));
+```
+uexWindow.onSwipeRight = function(){
+    console.log('onSwipeRight');
+}
+```
+```
+uexWindow.onSwipeLeft = function(){
+    console.log('onSwipeLeft');
+}
+```
 ```
 
 > ### disturbLongPressGesture 阻碍当前网页长按手势
@@ -3766,7 +3776,8 @@ function onSetWindowFrameFinish(){
 > ### onSwipeRight 向右滑动的监听方法
 
 `uexWindow.onSwipeRight()`
-
+**说明:**
+使用之前需调用[setIsSupportSwipeCallback](#setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法 "setIsSupportSwipeCallback")设置当前网页是否支持滑动，主窗口浮动窗口分别调用之后，onSwipeRight、onSwipeRight左右监听方法才会生效。
 **参数:**
 无
 
@@ -3778,17 +3789,15 @@ iOS6.0+
 3.0.0+
 
 **示例：**
+参考[setIsSupportSwipeCallback](#setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法 "setIsSupportSwipeCallback")
 
-```
-uexWindow.onSwipeRight = function(){
-    console.log('onSwipeRight');
-}
-```
+
 
 > ### onSwipeLeft 向左滑动的监听方法
 
 `uexWindow.onSwipeLeft()`
-
+**说明:**
+使用之前需调用[setIsSupportSwipeCallback](#setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法 "setIsSupportSwipeCallback")设置当前网页是否支持滑动，主窗口浮动窗口分别调用之后，onSwipeRight、onSwipeRight左右监听方法才会生效。
 **参数:**
 无
 
@@ -3798,6 +3807,8 @@ iOS6.0+
 
 **版本支持：**
 3.0.0+
+**示例：**
+参考[setIsSupportSwipeCallback](#setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法 "setIsSupportSwipeCallback")
 
 > ### onBounceStateChange 弹动状态改变的监听方法
 
