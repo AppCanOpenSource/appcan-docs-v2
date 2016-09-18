@@ -346,7 +346,7 @@ uexWeiXin.shareTextContent(jsonstr, function(error){
 
 | 参数名称     | 参数类型     | 是否必选 | 说明                                       |
 | -------- | -------- | ---- | ---------------------------------------- |
-| jsonData | String   | 是    | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type |
+| jsonData | String   | 是    | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type, Android不支持网络路径图片 |
 | cbFun    | Function | 是    | 分享结束后的回调函数                               |
 
 ```javascript
