@@ -617,6 +617,32 @@ iOS6.0+
 uexWindow.setPopoverFrame('sss',500,200,400,400);
 ```
 
+> ### setPopoverVisibility 设置浮动窗口是否显示
+
+`uexWindow.setPopoverVisibility(popName,visible)`
+
+**说明:**
+设置浮动窗口是否显示
+
+**参数:**
+
+| 参数名称    | 参数类型   | 是否必选 | 说明         |
+| ------- | ------ | ---- | ---------- |
+| popName | String | 是    | 名称         |
+| visible | Number | 是    | 0-不显示，1-显示 |
+
+**平台支持：**
+Android2.2+
+iOS6.0+
+
+**版本支持：**
+3.0.0+
+
+**示例:**
+```
+uexWindow.setPopoverVisibility('sss',0);
+```
+
 > ### openMultiPopover 打开多页面浮动窗口
 
 `uexWindow.openMultiPopover(content,popName,dataType,x,y,w,h,fontSize,flag,indexSelected,extraInfo)`
@@ -2926,11 +2952,13 @@ uexWindow.onSwipeRight = function(){
     console.log('onSwipeRight');
 }
 ```
+
 ```
 uexWindow.onSwipeLeft = function(){
     console.log('onSwipeLeft');
 }
 ```
+
 ```
 
 > ### disturbLongPressGesture 阻碍当前网页长按手势
@@ -3297,7 +3325,7 @@ iOS 6.0+
 
 
 
-## 2.4 回调方法
+## 2.4、回调方法
 
 > ### cbConfirm 弹出confirm对话框的回调方法
 
@@ -3626,7 +3654,7 @@ iOS6.0+
 
 
 
-## 2.5 监听方法
+## 2.5、监听方法
 
 > ### uexOnload 网页加载完成时的回调方法
 
