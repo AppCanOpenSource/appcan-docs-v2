@@ -3050,6 +3050,8 @@ uexWindow.reload();
 
 **说明:**
 创建插件容器，供插件将页面填充进去
+可用于将插件中的原生View添加在此容器中，这个容器可以承载多个页面分别呈现不同的插件View，实现类似多浮动窗口的形式（但实际上不存在窗口）。适用于只需要使用大量的插件View来呈现复杂页面的场景，而不使用H5页面的模块。
+**补充：**可用于插件容器接口的插件有[分段选择器插件](http://plugin.appcan.cn/details.html?id=413_index "分段选择器插件uexSegmentControl")、[显示网页插件](http://plugin.appcan.cn/details.html?id=656_index "显示网页插件uexWebview")、[自定义布局列表插件](http://plugin.appcan.cn/details.html?id=631_index "自定义布局列表插件uexNBListView")。
 **参数:**
 
 | 参数名称    | 参数类型 | 是否必选 | 说明         |
