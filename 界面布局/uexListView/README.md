@@ -244,7 +244,7 @@ iOS6.0+
 ```
 var params ={
     "itemIndex":1,//必选,要插入的位置索引
-    "item":{//必选,数据
+    "listItem":{//必选,数据
         "image": ,//必选,列表项头像
         "placeholderImg":,//可选,头像占位图片
         "title":,//必选,标题
@@ -275,7 +275,7 @@ iOS6.0+
 ```
     var params ={
         "itemIndex":1,
-        "item":{
+        "listItem":{
             "image": "res://icon.png",
             "placeholderImg":"res://1Normal.png",
             "title": "标题",
