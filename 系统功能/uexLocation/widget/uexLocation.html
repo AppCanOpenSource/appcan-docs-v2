@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <meta name="viewport"
+          content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>获取当前位置</title>
+    <script type="text/javascript">
+
+        //回调
+        window.uexOnload = function () {
+
+            uexLocation.onChange = function (lat, log) {
+                alert("-----onChange-----\n" + "lat = " + lat + "\n" + "log = " + log);
+                document.getElementById('longitude').value = log;
+                document.getElementById('latitude').value = lat;
+            }
+
+            uexLocation.cbGetAddress = function (opCode, dataType, data) {
+                alert("-----cbGetAddress-----\n" + data);
+            }
+
+            uexWidgetOne.cbError = function (opCode, errorCode, errorInfo) {
+                alert("errorCode:" + errorCode + "\nerrorInfo:" + errorInfo);
+            }
+        }
+
+        //打开定位功能,通过onChange获取当前经纬度
+        function openLocation() {
+
+
+            uexLocation.openLocation("bd09");//注意该接口传入的坐标系类型type和getAddressByType中type应该保持一致
+        }
+
+
+        //获取经纬度对应的具体地址信息
+        function getAddressByType() {
+            var latitude = document.getElementById('latitude').value;
+            var longitude = document.getElementById('longitude').value;
+            var type = document.getElementById('type').value;
+            var flag = 1;
+            var param = {
+                latitude: latitude,
+                longitude: longitude,
+                type: type,
+                flag: 1
+            }
+            uexLocation.getAddressByType(param);
+        }
+
+        //地址转换
+        function convertLocation() {
+            var params = {
+                latitude: 30.453851,
+                longitude: 114.430494,
+                from: "gcj02",
+                to: "bd09"
+            };
+            var data = uexLocation.convertLocation(JSON.stringify(params));
+            alert("地址转换同步返回:\n" + data);
+        }
+
+    </script>
+</head>
+<body>
+<div class="conbor">
+    <div class="consj">
+
+        <span>openLocation</span>
+        <input class="btn" type="button" value="获取当前经纬度" onclick="openLocation();">
+
+        <span>当前的经纬度值为：</span>
+        <input type="tcxx" id="latitude">
+        <input type="tcxx" id="longitude"><br/><br/>
+
+        <span>getAddress</span>
+        <input class="btn" id="type" value="bd09"><br/>
+        <input class="btn" type="button" value="获取经纬度对应的具体地址信息" onclick="getAddressByType()"><br/><br/>
+
+        <span>closeLocation</span>
+        <input class="btn" type="button" value="关闭定位" onclick="uexLocation.closeLocation();">
+
+        <span>convertLocation</span>
+        <input class="btn" type="button" value="地址转换" onclick="convertLocation();">
+
+
+    </div>
+</div>
+</body>
+</html>
