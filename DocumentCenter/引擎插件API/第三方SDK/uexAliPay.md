@@ -8,7 +8,7 @@ Toc: 1
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() <ignore>
 支付宝插件
 
-##   1.1.说明<ignore>
+##   1.1、说明<ignore>
 支付功能,封装了支付宝快捷支付.
 
 **iOS 9 以后,为了预防APP通过非正常渠道获取用户的某些隐私信息,Apple启用了URLScheme白名单机制.**
@@ -22,14 +22,14 @@ Toc: 1
 <string>alipayshare</string>
 ```
 
-##   1.2.UI展示<ignore>
+##   1.2、UI展示<ignore>
 
  ![](http://newdocx.appcan.cn/docximg/180420r2015s6i16p.png)
 
-##  1.3.公告<ignore>
+##  1.3、公告<ignore>
 旧版uexPay 已经下架了,官方不再维护,如需使用,请[跳转](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=25876 "跳转")到详细官方通告
 
-##  1.4.开源源码<ignore>
+##  1.4、开源源码<ignore>
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=279_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.5、平台版本支持<ignore>
@@ -42,7 +42,7 @@ Toc: 1
 
 #    2、API概览<ignore>
 
-##  2.1. 方法<ignore>
+##  2.1、方法<ignore>
 
 
 ### 🍭   setPayInfo 设置商户信息

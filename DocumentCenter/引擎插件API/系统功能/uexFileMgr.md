@@ -340,7 +340,7 @@ var file = uexFileMgr.open({
 	path: "wgt://data/1.txt",
 	mode: 3
 });
-var ret = uexFileMgr.seekFile(file, '1');
+var ret = uexFileMgr.seekFile(file, 1);
 alert(ret);
 ```
 

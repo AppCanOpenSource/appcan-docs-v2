@@ -39,19 +39,34 @@ KeyChain(钥匙串)插件
 
 **参数**
 
-param为JSON Object,包含内容如下
+| 参数名称  | 参数类型     | 是否必选 | 说明           |
+| ----- | -------- | ---- | ------------ |
+| param | Object   | 是    | 接口所需数据，形式见下： |
+| cb    | Function | 是    | 回调方法         |
 
 ```javascript
 var param = {
-	service:,//String,必选 keyChain item关键字
-	key:,//String,必选  keyChain item关键字
-	value:,//String,必选 keyChain item内保存的数据
-	accessibility:,//Number 可选 KeyChain数据保护设置 ,默认值为2
-	iCloudSync:,//Boolean 可选 是否允许iCloud同步 仅限iOS7+ 默认false
-	TouchIDProtected:,//Boolean 可选 是否设置TouchID保护 仅限iOS 8+ 默认false
-	TouchIDPrompt://String 可选 覆写受到TouchID保护的数据时,弹出的TouchID提示文字 仅限iOS 8+ 
+	service:,
+	key:,
+	value:,
+	accessibility:,
+	iCloudSync:,
+	TouchIDProtected:,
+	TouchIDPrompt:
 }
 ```
+各字段含义如下：
+
+| 字段名称             | 类型      | 是否必选 | 说明                                       |
+| ---------------- | ------- | ---- | ---------------------------------------- |
+| service          | String  | 是    | keyChain item关键字                         |
+| key              | String  | 是    | keyChain item关键字                         |
+| value            | String  | 是    | keyChain item内保存的数据                      |
+| accessibility    | Number  | 否    | KeyChain数据保护设置 ,默认值为2                    |
+| iCloudSync       | Boolean | 否    | 是否允许iCloud同步 仅限iOS7+ 默认false             |
+| TouchIDProtected | Boolean | 否    | 是否设置TouchID保护 仅限iOS 8+ 默认false           |
+| TouchIDPrompt    | String  | 否    | 覆写受到TouchID保护的数据时,弹出的TouchID提示文字 仅限iOS 8+ |
+
 * keyChain说明见[术语表-KeyChain 说明](#KeyChain 说明)
 * service 和 key 2个字符串唯一确定了一个keyChain item,即一张数据表.
 * 如果调用该接口时item已存在,会进行覆写操作,覆盖掉之前设置的value数据
@@ -70,14 +85,14 @@ var param = {
 
 **回调参数**
 
-cb 为Function类型,为setItem的回调函数
-
 ```javascript
-var cb = function(error,data){
-  //error 为错误码,Number类型.为0表示操作成功,非0时表示操作失败
-  //data 为操作回调结果,Object类型. 各字段解释见下
-}
+var cb = function(error,data){}
 ```
+
+| 参数名称  | 参数类型   | 说明                 |
+| ----- | ------ | ------------------ |
+| error | Number | 为0表示操作成功,非0时表示操作失败 |
+| data  | Object | 操作回调结果，形式见下：       |
 
 ```javascript
 var data = {
@@ -88,8 +103,6 @@ var data = {
 	errorInfo:,//String 可选 系统错误描述 操作失败时才有此值
 }
 ```
-
-
 
 **示例**
 
@@ -122,27 +135,40 @@ uexKeyChain.setItem(param,function(err,data){
 
 **参数**
 
-param为JSON Object,包含内容如下
+
+| 参数名称  | 参数类型     | 是否必选 | 说明           |
+| ----- | -------- | ---- | ------------ |
+| param | Object   | 是    | 接口所需数据，形式见下： |
+| cb    | Function | 是    | 回调方法         |
 
 ```javascript
 var param={
-	service:,//String,必选 keyChain item关键字
-	key:,//String,必选 keyChain item关键字
-	TouchIDPrompt:,//String,可选 获取受到TouchID保护的数据时,弹出的TouchID提示文字 仅限iOS 8+ 
+	service:,
+	key:,
+	TouchIDPrompt:
 }
 ```
+各字段含义如下：
+
+| 字段名称          | 类型     | 是否必选 | 说明                                       |
+| ------------- | ------ | ---- | ---------------------------------------- |
+| service       | String | 是    | keyChain item关键字                         |
+| key           | String | 是    | keyChain item关键字                         |
+| TouchIDPrompt | String | 否    | 获取受到TouchID保护的数据时,弹出的TouchID提示文字 仅限iOS 8+ |
+
 * 具体参数含义可参考`uexKeyChain.setItem(param)`中的参数说明
 
 **回调参数**
 
-cb 为Function类型,为getItem的回调函数
-
 ```javascript
-var cb = function(error,data){
-  //error 为错误码,Number类型.为0表示操作成功,非0时表示操作失败
-  //data 为操作回调结果,Object类型. 各字段解释见下
-}
+var cb = function(error,data){}
 ```
+
+
+| 参数名称  | 参数类型   | 说明                 |
+| ----- | ------ | ------------------ |
+| error | Number | 为0表示操作成功,非0时表示操作失败 |
+| data  | Object | 操作回调结果，形式见下：       |
 
 ```javascript
 var data = {
@@ -153,8 +179,6 @@ var data = {
 	errorInfo:,//String 可选 系统错误描述 操作失败时才有此值
 }
 ```
-
-
 
 **示例**
 
@@ -175,35 +199,47 @@ uexKeyChain.getItem(param,function(err,data){
 
 ### 🍭 removeItem 移除一个KeyChain item
 
+`uexKeyChain.removeItem(param,cb)`
+
 **说明**
 
 移除KeyChain数据
 
 **参数**
 
-param为JSON Object,包含内容如下
 
-`uexKeyChain.removeItem(param,cb)`
+| 参数名称  | 参数类型     | 是否必选 | 说明           |
+| ----- | -------- | ---- | ------------ |
+| param | Object   | 是    | 接口所需数据，形式见下： |
+| cb    | Function | 是    | 回调方法         |
 
 ```javascript
 var param={
-	service:,//String,必选 keyChain item关键字
-	key:,//String,必选 keyChain item关键字 
+	service:,
+	key:
 }
 ```
+
+各字段含义如下：
+
+| 字段名称          | 类型     | 是否必选 | 说明                                       |
+| ------------- | ------ | ---- | ---------------------------------------- |
+| service       | String | 是    | keyChain item关键字                         |
+| key           | String | 是    | keyChain item关键字                         |
+
 * 具体参数含义可参考`uexKeyChain.setItem(param)`中的参数说明
 * 移除受到TouchID保护的item并不要求验证TouchID
 
 **回调参数**
 
-cb 为Function类型,为getItem的回调函数
-
 ```javascript
-var cb = function(error,data){
-  //error 为错误码,Number类型.为0表示操作成功,非0时表示操作失败
-  //data 为操作回调结果,Object类型. 各字段解释见下
-}
+var cb = function(error,data){}
 ```
+
+| 参数名称  | 参数类型   | 说明                 |
+| ----- | ------ | ------------------ |
+| error | Number | 为0表示操作成功,非0时表示操作失败 |
+| data  | Object | 操作回调结果，形式见下：       |
 
 ```javascript
 var data = {
@@ -213,8 +249,6 @@ var data = {
 	errorInfo:,//String 可选 系统错误描述 操作失败时才有此值
 }
 ```
-
-
 
 **示例**
 

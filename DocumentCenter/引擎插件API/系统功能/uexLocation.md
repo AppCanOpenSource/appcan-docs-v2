@@ -155,8 +155,8 @@ var data = {
       }
     }
     var params = {
-            latitude: "30.475798",
-            longitude: "114.402815",
+            latitude: 30.475798,
+            longitude: 114.402815,
             type:"gcj02",
             flag:2
     };

@@ -112,7 +112,7 @@ var data=[
 uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 ```
 
-##2.2 监听方法<ignore>
+##2.2、监听方法<ignore>
 
 ### 🍭 onLoadByShortcutClickEvent 程序被点击3DTouch Shortcut调起的监听方法
 

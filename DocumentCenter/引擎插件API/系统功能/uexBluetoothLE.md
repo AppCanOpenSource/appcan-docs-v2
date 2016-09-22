@@ -5,10 +5,10 @@ Toc: 1
 
 [TOC]
 
-# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
+# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
 蓝牙BLE插件
 
-## 1.1、说明<ignore>
+## 1.1、说明<ignore>
 蓝牙BLE插件.
 iOS 后台蓝牙功能须知
 * iOS设备要在后台使用蓝牙功能,必须首先设置相应的后台蓝夜权限;
@@ -18,22 +18,22 @@ iOS 后台蓝牙功能须知
 
 **注:由于本插件的特殊性,暂时没法提供方法的示例,整体示例请参考开源源码中的示例**
 
-## 1.2、开源源码<ignore>
+## 1.2、开源源码<ignore>
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=465_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.3、平台版本支持<ignore>
+## 1.3、平台版本支持<ignore>
 本插件的所有API默认支持**Android4.4+**和**iOS7.1+**操作系统.  
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.4、接口有效性<ignore>
+## 1.4、接口有效性<ignore>
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明.
 
 
 
-# 2、API概览<ignore>
+# 2、API概览<ignore>
 
-## 2.1、方法<ignore>
+## 2.1、方法<ignore>
 
 ### 🍭 init 初始化接口
 
@@ -64,12 +64,12 @@ iOS 后台蓝牙功能须知
 **参数:**
 
 | 参数名称         | 参数类型  | 是否必选 | 说明                                       |
-| ----- | ----- | ----- | ----- |
+| ------------ | ----- | ---- | ---------------------------------------- |
 | serviceUUIDs | Array | 否    | 由service的UUID字符串组成的数组.	serviceUUIDs不传时,插件会扫描所有蓝牙设备;否则,插件会只扫描包含数组中的指定service的蓝牙设备;iOS系统,在进行后台蓝牙设备扫描时,该参数必须,若前台扫描则该参数为可选. |
 
-
-
 **示例:**
+
+
 
 ### 🍭 stopScanDevice 停止扫描设备
 
@@ -83,8 +83,9 @@ iOS 后台蓝牙功能须知
 
 无
 
-
 **示例:**
+
+
 
 ### 🍭 connect 连接指定蓝牙设备
 
@@ -96,15 +97,15 @@ iOS 后台蓝牙功能须知
 
 **参数:**
 
-```
+```javascript
 var param={
     address://(必选)要连接的蓝牙地址
-};
+}
 ```
 
-
-
 **示例:**
+
+
 
 ### 🍭 disconnect 断开蓝牙连接
 
@@ -118,9 +119,9 @@ var param={
 
 无
 
-
-
 **示例:**
+
+
 
 ### 🍭 searchForCharacteristic 从指定service中搜索characteristic
 
@@ -132,14 +133,15 @@ var param={
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID://(必选)string,要搜索的service的UUID
 }
 ```
 
-
 **示例:**
+
+
 
 ### 🍭 searchForDescriptor 从指定characteristic中搜索descriptor
 
@@ -151,7 +153,7 @@ var param={
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID:,//(必选)被搜索的characteristic所在的service的UUID
 	characteristicUUID://(必选)string 要搜索的characteristics的UUID
@@ -159,6 +161,8 @@ var param={
 ```
 
 **示例:**
+
+
 
 ### 🍭 readCharacteristic 读取Characteristic
 
@@ -170,15 +174,16 @@ var param={
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID://(必选)service的UUID
 	characteristicUUID://(必选)characteristic的UUID
 }
 ```
 
-
 **示例:**
+
+
 
 ### 🍭 writeCharacteristic 写入数据到Characteristic
 
@@ -191,7 +196,7 @@ var param={
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID:,//service的UUID
 	characteristicUUID:,//characteristic的UUID
@@ -199,8 +204,9 @@ var param={
 }
 ```
 
-
 **示例:**
+
+
 
 ### 🍭 readDescriptor 读取Descriptor
 
@@ -212,7 +218,7 @@ var param={
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID://service的UUID
 	characteristicUUID://characteristic的UUID
@@ -221,6 +227,8 @@ var param={
 ```
 
 **示例:**
+
+
 
 ### 🍭 writeDescriptor 写入数据到Descriptor
 
@@ -233,7 +241,7 @@ var param={
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID://service的UUID
 	characteristicUUID://characteristic的UUID
@@ -242,8 +250,9 @@ var param={
 }
 ```
 
-
 **示例:**
+
+
 
 ### 🍭 setCharacteristicNotification 监听某一个Characteristic
 
@@ -255,13 +264,16 @@ var param={
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID:,//service的UUID
 	characteristicUUID:,//characteristic的UUID
 	enable://true 或false,开启或关闭监听
 }
 ```
+
+**示例:**
+
 
 
 ### 🍭 readRemoteRssi 读取rssi
@@ -276,13 +288,13 @@ var param={
 
 无
 
+**示例:**
 
 
 
 
 
-
-## 2.2、回调方法<ignore>
+## 2.2、回调方法<ignore>
 
 ### 🍭 cbInit 初始化的回调方法
 
@@ -290,7 +302,7 @@ var param={
 
 **参数:**
 
-```
+```javascript
 var data={
 	resultCode://(必选) 0-BLE启动成功,1-BLE启动失败
 }
@@ -299,7 +311,7 @@ var data={
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbInit = cbInit;
     }
@@ -314,7 +326,7 @@ var data={
 
 **参数:**
 
-```
+```javascript
 var data={
 	services://(必选) service的UUID构成的数组
 }
@@ -323,7 +335,7 @@ var data={
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbConnect = cbConnect;
     }
@@ -338,7 +350,7 @@ var data={
 
 **参数:**
 
-```
+```javascript
 var data={
 	serviceUUID:,//(必选)被搜索的service的UUID
 	characteristics://(必选)list<uexBLECharacteristic> 此service下的uexBLECharacteristic结构构成的数组
@@ -346,11 +358,9 @@ var data={
 ```
 uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明)
 
-
-
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbSearchForCharacteristic = cbSearchForCharacteristic;
     }
@@ -365,7 +375,7 @@ uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说�
 
 **参数:**
 
-```
+```javascript
 var data={
 	serviceUUID://被搜索的characteristic所在的service的UUID
 	characteristicUUID:,//被搜索的characteristic的UUID
@@ -374,11 +384,9 @@ var data={
 ```
 uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
 
-
-
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbSearchForDescriptor = cbSearchForDescriptor;
     }
@@ -393,7 +401,7 @@ uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
 
 **参数:**
 
-```
+```javascript
 var data={
 	resultCode://0-成功,1-失败
 	data://uexBLECharacteristic的Json格式
@@ -401,11 +409,9 @@ var data={
 ```
 uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明)
 
-
-
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbReadCharacteristic = cbReadCharacteristic;
     }
@@ -431,7 +437,7 @@ uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说�
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbWriteCharacteristic = cbWriteCharacteristic;
     }
@@ -446,7 +452,7 @@ uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说�
 
 **参数:**
 
-```
+```javascript
 var data={
 	resultCode://0-成功,1-失败
 	data://uexBLEDescriptor的Json格式
@@ -456,7 +462,7 @@ uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbReadDescriptor = cbReadDescriptor;
     }
@@ -471,7 +477,7 @@ uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
 
 **参数:**
 
-```
+```javascript
 var data={
 	resultCode://0-成功,1-失败
 	data:uexBLEDescriptor的Json格式
@@ -481,7 +487,7 @@ uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbWriteDescriptor = cbWriteDescriptor;
     }
@@ -490,15 +496,15 @@ uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
     }
 ```
 
-## 2.3、监听方法<ignore>
+## 2.3、监听方法<ignore>
 
-### 🍭 onLeScan 扫描到设备的回调方法
+### 🍭 onLeScan 扫描到设备的监听方法
 
 `uexBluetoothLE.onLeScan(data)`
 
 **参数:**
 
-```
+```javascript
 var data={
 	address:,
 	name:
@@ -507,13 +513,13 @@ var data={
 各字段含义如下:
 
 | 参数名称    | 参数类型   | 是否必选 | 说明                                       |
-| ----- | ----- | ----- | ----- |
+| ------- | ------ | ---- | ---------------------------------------- |
 | address | String | 是    | Android的address参数传回的是设备的mac地址;iOS的address参数传回的是设备的UUID |
 | name    | String | 是    | 蓝牙设备名称                                   |
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.onLeScan = onLeScan;
     }
@@ -528,7 +534,7 @@ var data={
 
 **参数:**
 
-```
+```javascript
 var data={
 	resultCode://(必选)0-已连接上,1-已断开
 }
@@ -537,7 +543,7 @@ var data={
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.onConnectionStateChange = onConnectionStateChange;
     }
@@ -553,13 +559,13 @@ var data={
 **参数:**
 
 | 参数名称 | 参数类型 | 是否必选 | 说明                                       |
-| ----- | ----- | ----- | ----- |
+| ---- | ---- | ---- | ---------------------------------------- |
 | data | Json | 是    | uexBLECharacteristic的Json格式数据,uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明) |
 
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.onCharacteristicChanged = onCharacteristicChanged;
     }
@@ -583,7 +589,7 @@ var data={
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.onReadRemoteRssi = onReadRemoteRssi;
     }
@@ -593,9 +599,9 @@ var data={
 ```
 
 
-# 3、附录<ignore>
-## 3.1 uexBLEDescriptor结构说明<ignore>
-```
+# 3、附录<ignore>
+## 3.1 uexBLEDescriptor结构说明<ignore>
+```javascript
 	var uexBLEDescriptor{
 		serviceUUID:,//此descriptor所属的service的UUID
 		characteristicUUID:,//此descriptor所属的characteristic的UUID
@@ -605,10 +611,9 @@ var data={
 	}
 ```
 `permissions`权限说明请参考[permissions权限说明](#3.3 permissions权限说明)
-``
 
-## 3.2 uexBLECharacteristic结构说明<ignore>
-```
+## 3.2 uexBLECharacteristic结构说明<ignore>
+```javascript
 	var uexBLECharacteristic{
 		serviceUUID:,//string,此Characteristic所属的service的UUID
 		UUID:,//string,此Characteristic的UUID 
@@ -621,12 +626,12 @@ var data={
 `permissions`权限说明请参考[permissions权限说明](#3.3 permissions权限说明)
 `writeType`写入方式请参考[writeType](3.4 writeType)
 
-## 3.3 permissions权限说明<ignore>
+## 3.3 permissions权限说明<ignore>
 
-### 3.3.1 iOS权限说明<ignore>
+### 3.3.1 iOS权限说明<ignore>
 
 | flag | desription                               |
-| ----- | ----- |
+| ---- | ---------------------------------------- |
 | 1    | Permits broadcasts of the characteristic value using a characteristic configuration descriptor. |
 | 2    | Permits reads of the characteristic value. |
 | 4    | Permits writes of the characteristic value, without a response. |
@@ -638,12 +643,12 @@ var data={
 | 256  | If set, only trusted devices can enable notifications of the characteristic value. |
 | 512  | If set, only trusted devices can enable indications of the characteristic value. |
 
-## 3.4 writeType<ignore>
+## 3.4 writeType<ignore>
     待补充
 
-# 4、更新历史<ignore>
+# 4、更新历史<ignore>
 
-### iOS<ignore>
+### iOS<ignore>
 
 API版本: `uexBluetoothLE-4.0.0`
 
@@ -652,7 +657,7 @@ API版本: `uexBluetoothLE-4.0.0`
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 
-### Android<ignore>
+### Android<ignore>
 
 API版本: `uexBluetoothLE-4.0.0`
 

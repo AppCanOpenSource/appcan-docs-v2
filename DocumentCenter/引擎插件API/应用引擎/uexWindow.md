@@ -14,7 +14,7 @@ AppCan平台中,维护了一个窗口堆栈,每个窗口以唯一的窗口名字
 　 窗口加载完毕后平台将触发此方法.类比window.onload方法,都是html页面加载完成 之后触发的方法.区别是,window.uexOnload方法会晚于window.onload方法,原因是window.uexOnload需要等 待AppCan扩展对象,即'uex'前缀的对象初始化完毕.事件加载完成之后,可以安全的使用uex扩展对象.
 
 ## 1.2 浮动窗口<ignore>
-　 主窗口之上可以有多个浮动窗口,即浮动窗口是附属于某个主窗口的.主窗口关闭后, 其上所有浮动窗口也都会关闭.所有的窗口都有唯一的名字,通过uexWindow.open打开的是一个主窗口,浮动窗 口则通过uexWindow.openPopover创建.一个主窗口上的多个浮动窗口名字是唯一的,但不同主窗口上的浮动窗 口名字可以相同.浮动窗口可以有弹动效果,可以有数学变化:放大,旋转,移动等.浮动窗口能够解决的事情 很多,比如解决手机浏览器不支持局部DIV滚动, 上下拉刷新特效,抽屉特效等问题.
+　 主窗口之上可以有多个浮动窗口,即浮动窗口是附属于某个主窗口的.主窗口关闭后, 其上所有浮动窗口也都会关闭.所有的窗口都有唯一的名字,通过uexWindow.open打开的是一个主窗口,浮动窗口则通过主窗口uexWindow.openPopover创建（ 浮动窗口不可创建“openPopover”浮动窗口）。一个主窗口上的多个浮动窗口名字是唯一的,但不同主窗口上的浮动窗 口名字可以相同.浮动窗口可以有弹动效果,可以有数学变化:放大,旋转,移动等.浮动窗口能够解决的事情 很多,比如解决手机浏览器不支持局部DIV滚动, 上下拉刷新特效,抽屉特效等问题.
 
 ## 1.3 多窗口之间的通讯<ignore>
 　 **窗口之间的通讯**,比如从网络获取一个数据,根据返回的数据,让其它窗口执行相应的 变化,这就需要用到窗口间通讯机制.
@@ -450,7 +450,7 @@ uexWindow.evaluateMultiPopoverScript({
 
 **说明:**
 
-打开浮动窗口,如果浮动窗口名字相同,则会覆盖相同浮动窗口名字的页面内容.
+打开浮动窗口,如果浮动窗口名字相同,则会覆盖相同浮动窗口名字的页面内容。浮动窗口可通过主窗口openPopover创建，浮动窗口不可创建“openPopover”浮动窗口。
 
 **参数:**
 
@@ -2685,7 +2685,7 @@ uexWindow.setIsSupportSlideCallback(param);
 
 **说明:**
 
-左右滑动监听包括[onSwipeRight](#onSwipeRight 向右滑动的监听方法),[onSwipeLeft](#onSwipeLeft 向左滑动的监听方法),
+左右滑动监听包括[onSwipeRight](#onSwipeRight 向右滑动的监听方法),[onSwipeLeft](#onSwipeLeft 向左滑动的监听方法),主窗口浮动窗口分别调用之后，onSwipeRight、onSwipeRight左右监听方法才会生效。
 
 **参数:**
 
@@ -2704,6 +2704,12 @@ var param = {
     isSupport:false
 };
 uexWindow.setIsSupportSwipeCallback(param);
+uexWindow.onSwipeRight = function(){
+    console.log('onSwipeRight');
+}
+uexWindow.onSwipeLeft = function(){
+    console.log('onSwipeLeft');
+}
 ```
 
 ### 🍭 disturbLongPressGesture 阻碍当前网页长按手势
@@ -2799,6 +2805,8 @@ uexWindow.topBounceViewRefresh();
 **说明:**
 
 创建插件容器,供插件将页面填充进去
+可用于将插件中的原生View添加在此容器中，这个容器可以承载多个页面分别呈现不同的插件View，实现类似多浮动窗口的形式（但实际上不存在窗口）。适用于只需要使用大量的插件View来呈现复杂页面的场景，而不使用H5页面的模块。
+**补充：**可用于插件容器接口的插件有[分段选择器插件](http://plugin.appcan.cn/details.html?id=413_index "分段选择器插件uexSegmentControl")、[显示网页插件](http://plugin.appcan.cn/details.html?id=656_index "显示网页插件uexWebview")、[自定义布局列表插件](http://plugin.appcan.cn/details.html?id=631_index "自定义布局列表插件uexNBListView")。
 
 **参数:**
 
@@ -3175,6 +3183,7 @@ function onSetWindowFrameFinish(){
 ### 🍭 onSwipeRight 向右滑动的监听方法
 
 `uexWindow.onSwipeRight()`
+使用之前需调用[setIsSupportSwipeCallback](#setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法 "setIsSupportSwipeCallback")设置当前网页是否支持滑动，主窗口浮动窗口分别调用之后，onSwipeRight、onSwipeRight左右监听方法才会生效。
 
 **参数:**
 
@@ -3193,12 +3202,14 @@ uexWindow.onSwipeRight = function(){
 ### 🍭 onSwipeLeft 向左滑动的监听方法
 
 `uexWindow.onSwipeLeft()`
+使用之前需调用[setIsSupportSwipeCallback](#setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法 "setIsSupportSwipeCallback")设置当前网页是否支持滑动，主窗口浮动窗口分别调用之后，onSwipeRight、onSwipeRight左右监听方法才会生效。
 
 **参数:**
 
 无
 
-
+**示例：**
+参考[setIsSupportSwipeCallback](#setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法 "setIsSupportSwipeCallback")
 
 ### 🍭 onBounceStateChange 弹动状态改变的监听方法
 

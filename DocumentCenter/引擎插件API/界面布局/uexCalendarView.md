@@ -29,7 +29,7 @@ Toc: 1
 
 ### 🍭open 打开日历
 
-`uexCalendarView.open(json)`
+`uexCalendarView.open(params)`
 
 **说明**
 
@@ -39,10 +39,10 @@ Toc: 1
 
 | 参数名称 | 参数类型   | 是否必选 | 说明           |
 | ---- | ------ | ---- | ------------ |
-| json | Object | 是    | 接口所需数据,形式见下: |
+| params | Object | 是    | 接口所需数据,形式见下: |
 
 ```javascript
-var json = {
+var params = {
 	x:,
 	y:,
 	w:,
@@ -62,13 +62,13 @@ var json = {
 **示例**
 
 ```
-var data ={
+var params ={
     x:0,
-	y:0,
+    y:0,
     w:300,
-	h:300
+    h:300
 };
-uexCalendarView.open(data);
+uexCalendarView.open(params);
 ```
 
 ### 🍭close  关闭日历
@@ -91,7 +91,7 @@ uexCalendarView.close()
 ```
 ### 🍭setSelectedDate 设置被选中的日期
 
-`uexCalendarView.setSelectedDate(json)`
+`uexCalendarView.setSelectedDate(params)`
 
 **说明**
 
@@ -101,10 +101,10 @@ uexCalendarView.close()
 
 | 参数名称 | 参数类型   | 是否必选 | 说明           |
 | ---- | ------ | ---- | ------------ |
-| json | Object | 是    | 接口所需数据,形式见下: |
+| params | Object | 是    | 接口所需数据,形式见下: |
 
 ```javascript
-var json = {
+var params = {
 	date:{
 		year:,
 		month:,
@@ -125,21 +125,21 @@ var json = {
 **示例**
 
 ```javascript
-var data ={
+var params ={
 	date:{  
 		year:2014,
-		moth:11,
+		month:11,
 		day:11
 	}
 };
-uexCalendarView.setSelectedDate(data);
+uexCalendarView.setSelectedDate(params);
 ```
 
 ## 2.2、监听方法<ignore>
 
 ### 🍭onItemClick  点击日期时的监听方法
 
-`uexCalendarView.onItemClick(json)`
+`uexCalendarView.onItemClick(params)`
 
 **说明**
 
@@ -148,7 +148,7 @@ uexCalendarView.setSelectedDate(data);
 **参数**
 
 ```javascript
-var json = {
+var params = {
 	date:{  //返回的日期
 		year:,//年
 		month:,//月
@@ -160,8 +160,8 @@ var json = {
 **示例**
 
 ```javascript
-uexCalendarView.onItemClick = function(json){
-	alert(json);
+uexCalendarView.onItemClick = function(params){
+	alert(params);
 }
 ```
 

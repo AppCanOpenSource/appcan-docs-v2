@@ -5,28 +5,28 @@ Toc: 1
 
 [TOC]
 
-#1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
+#1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
 系统剪贴板插件
-##1.1、说明<ignore>
+##1.1、说明<ignore>
  封装系统剪贴板,提供系统全局的文字复制粘贴功能
 
-##1.2、UI展示<ignore>
+##1.2、UI展示<ignore>
 
  ![](http://newdocx.appcan.cn/docximg/164619h2015x6t15y.png)
-  
-##1.3、开源源码<ignore>
+
+##1.3、开源源码<ignore>
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=205_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
-## 1.4、平台版本支持<ignore>
+## 1.4、平台版本支持<ignore>
 
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性<ignore>
+## 1.5、接口有效性<ignore>
 
 本插件所有API默认在插件版本**4.0.0+**可用.
-#2、API概览<ignore>
-##2.1、方法<ignore>
+#2、API概览<ignore>
+##2.1、方法<ignore>
 ### 🍭 copy 复制
 
 `uexClipboard.copy(text)`
@@ -37,14 +37,14 @@ Toc: 1
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| text | String | 是 | 内容 |
+| 参数名称 | 参数类型   | 是否必选 | 说明   |
+| ---- | ------ | ---- | ---- |
+| text | String | 是    | 内容   |
 
 
 **示例:**
 
-```
+```javascript
 uexClipboard.copy("复制内容");
 ```
 ### 🍭 getContent 获取内容
@@ -57,21 +57,23 @@ uexClipboard.copy("复制内容");
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| info | String | 是 | 返回剪贴板上存放的文字 |
+无
+
+**返回值:**
+
+String类型，剪贴板上存放的内容
 
 
 **示例:**
 
-```
+```javascript
 var info = uexClipboard.getContent();
 alert(info);
 ```
 
-#3、更新历史<ignore>
+#3、更新历史<ignore>
 
-### iOS<ignore>
+### iOS<ignore>
 
 API版本: `uexClipboard-4.0.0`
 
@@ -80,7 +82,7 @@ API版本: `uexClipboard-4.0.0`
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 
-### Android<ignore>
+### Android<ignore>
 
 API版本: `uexClipboard-4.0.0`
 

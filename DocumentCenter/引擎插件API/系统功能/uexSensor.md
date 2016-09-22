@@ -4,26 +4,26 @@ Toc: 1
 */
 
 [TOC]
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
+# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
 设备传感器插件
-## 1.1、 说明<ignore>
+## 1.1、说明<ignore>
 设备传感器.
-## 1.2、UI展示<ignore>
+## 1.2、UI展示<ignore>
  ![](http://newdocx.appcan.cn/docximg/124447l2015i6u16n.png)
-## 1.3 、 开源源码<ignore>
+## 1.3 、开源源码<ignore>
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=185_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
-## 1.4、平台版本支持<ignore>
+## 1.4、平台版本支持<ignore>
 
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性<ignore>
+## 1.5、接口有效性<ignore>
 
 本插件所有API默认在插件版本**4.0.0+**可用.
-# 2、API概览<ignore>
+# 2、API概览<ignore>
 
-## 2.1、方法<ignore>
+## 2.1、方法<ignore>
 
 ### 🍭 open 打开传感器
 
@@ -35,10 +35,10 @@ Toc: 1
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-|  type  | Number | 否 | 传感器类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Sensor "CONSTANT")中SensorType |
-|  rate  | Number | 否 | 传感器速率,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Sensor "CONSTANT")中SensorRate |
+| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| type | Number | 否    | 传感器类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Sensor "CONSTANT")中SensorType |
+| rate | Number | 否    | 传感器速率,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Sensor "CONSTANT")中SensorRate |
 
 
 **示例:**
@@ -57,9 +57,9 @@ uexSensor.open(1,3);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-|  type | Number | 否 | 传感器类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Sensor "CONSTANT")中SensorType |
+| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| type | Number | 否    | 传感器类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Sensor "CONSTANT")中SensorType |
 
 
 **示例:**
@@ -67,8 +67,8 @@ uexSensor.open(1,3);
 ```
 uexSensor.close(1);
 ```
-			  
-## 2.3、监听方法<ignore>
+
+## 2.2、监听方法<ignore>
 
 ### 🍭 onAccelerometerChange 加速度传感器的监听方法
 
@@ -77,24 +77,23 @@ uexSensor.close(1);
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| x | Number | 是 | x方向上的值 |        
-| y | Number | 是 | y方向上的值 |
-| z | Number | 是 | z方向上的值 |
+| 参数名称 | 参数类型   | 是否必选 | 说明     |
+| ---- | ------ | ---- | ------ |
+| x    | Number | 是    | x方向上的值 |
+| y    | Number | 是    | y方向上的值 |
+| z    | Number | 是    | z方向上的值 |
 
 
 
 **示例:**
 
-```
+```javascript
 window.uexOnload = function(){
 	uexSensor.onAccelerometerChange = accelerometerChange;
 }
 function accelerometerChange(x, y, z){
-	document.getElementById('accelerometer').innerHTML = "X=" + x + ";<br>Y=" + y + ";<br>Z=" + z;
+     alert("onAccelerometerChange:" + "x=" + x + ",y" + y + ",z" + z);
 }
-
 ```
 
 ### 🍭  onOrientationChange 方向传感器的监听方法(仅支持Android)
@@ -103,20 +102,24 @@ function accelerometerChange(x, y, z){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| x | Number | 是 | x方向上的值 |
-| y | Number | 是 | y方向上的值 |
-| z | Number | 是 | z方向上的值 |
+| 参数名称 | 参数类型   | 是否必选 | 说明     |
+| ---- | ------ | ---- | ------ |
+| x    | Number | 是    | x方向上的值 |
+| y    | Number | 是    | y方向上的值 |
+| z    | Number | 是    | z方向上的值 |
+
+**平台支持:**
+
+Android 4.0+
 
 **示例:**
 
-```
+```javascript
 window.uexOnload = function(){
 	uexSensor.onOrientationChange = orientation;
 }
 function orientation(x, y, z){
-	document.getElementById('orientation').innerHTML = "X=" + x + ";<br>Y=" + y + ";<br>Z=" + z;
+	alert("onOrientationChange:" + "x=" + x + ",y" + y + ",z" + z);
 }
 ```
 
@@ -126,21 +129,21 @@ function orientation(x, y, z){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| x | Number | 是 | x方向上的值 |
-| y | Number | 是 | y方向上的值 |
-| z | Number | 是 | z方向上的值 |
+| 参数名称 | 参数类型   | 是否必选 | 说明     |
+| ---- | ------ | ---- | ------ |
+| x    | Number | 是    | x方向上的值 |
+| y    | Number | 是    | y方向上的值 |
+| z    | Number | 是    | z方向上的值 |
 
 
 **示例:**
 
-```
+```javascript
 window.uexOnload = function(){
 	uexSensor.onMagneticChange = magneticChange;
 }
 function magneticChange(x, y, z){
-	document.getElementById('field').innerHTML = "X=" + x + ";<br>Y=" + y + ";<br>Z=" + z;
+    alert("onMagneticChange:" + "x=" + x + ",y" + y + ",z" + z);
 }
 ```
 
@@ -150,25 +153,28 @@ function magneticChange(x, y, z){
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| light | Number | 是 | 亮度的变化值 |
+| 参数名称  | 参数类型   | 是否必选 | 说明     |
+| ----- | ------ | ---- | ------ |
+| light | Number | 是    | 亮度的变化值 |
 
+**平台支持:**
+
+Android 4.0+
 
 **示例:**
 
-```
+```javascript
 window.uexOnload = function(){
 	uexSensor.onLightChange = light;
 }
-function light(data){
-	document.getElementById('light').innerHTML = data;
+function light(light){
+    alert("onLightChange:light=" + light);
 }
 ```
 
-# 3、更新历史<ignore>
+# 3、更新历史<ignore>
 
-### iOS<ignore>
+### iOS<ignore>
 
 API版本: `uexSensor-4.0.0`
 
@@ -177,7 +183,7 @@ API版本: `uexSensor-4.0.0`
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 
-### Android<ignore>
+### Android<ignore>
 
 API版本: `uexSensor-4.0.0`
 

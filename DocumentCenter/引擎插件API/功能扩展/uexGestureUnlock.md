@@ -151,9 +151,9 @@ var params = {
 var data={
 	backgroundImage:"res://bgImage.jpg",
 	iconImage:"res://icon.png",
-	normalThemeColor:"#F1F1F1",
-	selectedThemeColor:"rgb(33,233,164)",
-	errorThemeColor:"rgba(250,45,116,0.4)",
+     normalThemeColor:"#F1F1F1",
+     selectedThemeColor:"#00ff00",
+     errorThemeColor:"#ff0000",
 	cancelVerificationButtonTitle:"切换其他账号",
 	minimumCodeLength:5
 }
@@ -297,11 +297,13 @@ uexGestureUnlock.cancel();
 
 **参数**
 
-param为json字符串
+| 参数名称  | 参数类型   | 说明           |
+| ----- | ------ | ------------ |
+| param | String | json格式,形式见下： |
 
 ```javascript
 var param={
-	eventCode:,//Number ,必选,插件事件代码
+	eventCode://Number ,必选,插件事件代码
 }
 ```
 * eventCode详见[附录-uexGestureUnlockEvent 事件代码列表](#uexGestureUnlockEvent 事件代码列表)

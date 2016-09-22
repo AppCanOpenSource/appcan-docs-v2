@@ -4,9 +4,9 @@ Toc: 1
 */
 
 [TOC]
-#1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
+#1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
 环信插件
-##1.1、 说明<ignore>
+##1.1、 说明<ignore>
 本插件是基于环信API封装的AppCan平台的插件模块,用户可以使用本插件实现基本的即时通讯功能,包括——
 
 * 单聊功能:支持发送语音,图片,表情,文字,位置,附件;
@@ -39,39 +39,39 @@ uexWindow.subscribeChannelNotification
 这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249) 内有描述,当然,也可[下载Demo](#1.3、开源源码) 参考Demo内的调用.
 
 
- 
-##1.2、 UI展示<ignore>
+
+##1.2、 UI展示<ignore>
 暂无
- 
-##1.3、 开源源码<ignore>
+
+##1.3、 开源源码<ignore>
 插件测试用例与自定义插件下载:[点击此处](http://plugin.appcan.cn/details.html?id=406_index)  (插件测试用例与插件源码已经提供)
 
- 
-##1.4、 术语表<ignore>
+
+##1.4、 术语表<ignore>
 
 Path Types  
 
-| 协议头 | Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径 | 
-| ----- | ----- | ----- | 
-| res:// | widget/wgtRes/ | widget/wgtRes | 
-| wgts:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ | 
-| wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ | 
-| file:///sdcard/ | /storage/emulated/0/ | 无 | 
+| 协议头             | Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径                           |
+| --------------- | ---------------------------------------- | --------------------------------- |
+| res://          | widget/wgtRes/                           | widget/wgtRes                     |
+| wgts://         | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
+| wgts://         | /storage/emulated/0/widgetone/widgets/   | /Documents/widgets/               |
+| file:///sdcard/ | /storage/emulated/0/                     | 无                                 |
 
-## 1.5、平台版本支持<ignore>
+## 1.5、平台版本支持<ignore>
 
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.6、接口有效性<ignore>
+## 1.6、接口有效性<ignore>
 
 本插件所有API默认在插件版本**4.0.0+**可用.
 
 在后续版本中新添加的接口会在文档中额外说明. 
 
-#2、API概述		<ignore>
-##2.1、Initialization<ignore>
+#2、API概述		<ignore>
+##2.1、Initialization<ignore>
 ***
 ### 🍭 initEasemob(param,function(data){})  初始化
 
@@ -92,7 +92,28 @@ var data = "EaseMobSDK initialized successfully!" 或 "EaseMobSDK has already be
 
 ```
 	注:自动登录功能Android SDK 默认开启,iOS SDK默认关闭.
-	
+### 🍭 registerCallback  注册监听
+
+`uexEasemob.registerCallback()`
+
+**说明**
+
+- 调用了改接口的页面都会受到回调，页面关闭时，请取消掉
+- 请尽量少的在页面调用该接口，会影响效率
+- Root页面默认自动调用了此接口
+
+### 🍭 unRegisterCallback 取消注册监听
+
+`uexEasemob.unRegisterCallback()`
+
+**说明**
+
+取消该页面的监听
+
+如果要取消所有页面的监听，请调用`uexEasemob.unRegisterCallback(-1)`
+
+
+
 ### 🍭 login(param,function(data){})   登录
 
 param为json字符串
@@ -173,7 +194,7 @@ data为json对象
 	isAutoLoginEnabled://是否自动登录  1-是 2-否
 };
 ```
- 
+
 
 
 
@@ -188,14 +209,14 @@ var param = {
 };
 ```
 
-##2.2、Message<ignore>
+##2.2、Message<ignore>
 ***
 ### 🍭onNewMessage(param) 收到新消息监听
 
 	注:param为EMMessage的json格式对象
 	EMMessage具体结构见文末附录
 	所有离线和在线时接受到的的非透传消息,都通过此回调传递
-	   
+
 ### 🍭onCmdMessageReceive(param) 透传消息监听
 
 param为json字符串
@@ -415,7 +436,7 @@ var param ={
 * 所有send开头的发送消息的API均会触发此监听
 * 此监听仅表示消息是否成功发送至环信服务器,不能以此判断接收人是否收到消息
 
-##2.3、Conversation<ignore>
+##2.3、Conversation<ignore>
 ***
 ### 🍭getConversationByName(param,function(data){}) 根据用户名获取conversation对象
 
@@ -488,7 +509,7 @@ var param = {
 
 ### 🍭resetAllUnreadMsgCount(); 所有未读消息数清零(仅Android可用)
 
-	
+
 ### 🍭getMsgCount(param,function(data){})获取消息总数(仅Android可用) 
 
 param为json字符串
@@ -546,7 +567,7 @@ var param = {
 ### 🍭getChatterInfo(function(data){}); 获取聊天对象信息
 
 data为list<EMChatterInfo>,一个由EMChatterInfo结构组成的数组.
-	
+​	
 * 包含所有好友和群组的聊天对象信息
 * EMChatterInfo结构说明见附录
 
@@ -565,13 +586,13 @@ var data ={
 ### 🍭getRecentChatters(function(data){}); 获取近期聊天对象信息
 
 data为list<EMChatterInfo>,一个由EMChatterInfo结构组成的数组.
-	
+​	
 * 仅包含有聊天记录的聊天对象(包括非好友)
 * param已按lastMsg的时间戳排序,最后接收消息的时间越新,排序越靠前
 * EMChatterInfo结构说明见附录
 
 
-##2.4、Friend<ignore>
+##2.4、Friend<ignore>
 ***
 ### 🍭onContactAdded(param)//新增联系人监听(iOS 3.0.22后支持)
 
@@ -637,10 +658,10 @@ var data = {
 
 
 
-	
+​	
 
-    		
-    		
+
+​    		
 ### 🍭addContact(param)//添加好友
 
 param为json字符串
@@ -685,7 +706,7 @@ var param = {
 
 ### 🍭getBlackListUsernames(function(data){});//获取黑名单列表
 >
-data为json对象
+>data为json对象
 
 ```
 var data = {
@@ -715,7 +736,7 @@ var param = {
 };
 ```
 
-##2.5、Group<ignore>
+##2.5、Group<ignore>
 
 ### 🍭onInvitationDeclined(param)//群聊邀请被拒绝
 
@@ -865,7 +886,7 @@ var param = {
 	username://
 };
 ```
- 
+
 
 	只有owner才有权限进行此操作
 ### 🍭joinGroup(param)//加入某个群聊,只能用于加入公开群
@@ -1117,7 +1138,7 @@ var param={
 	reason:,//拒绝理由
 };
 ```
-##2.6、Call<ignore>
+##2.6、Call<ignore>
 ***
 ### 🍭onCallReceive(param)// 实时语音监听
 
@@ -1142,8 +1163,8 @@ var param = {
   };
 ```
 
-        
-        
+
+​        
 	eg. 一个成功的语音通话流程为 :A发送通话请求给B ==> AB建立语音通话连接 ==> B同意语音通话 ==> 开始语音通话
 
 ### 🍭makeVoiceCall(param)//拨打语音通话
@@ -1162,7 +1183,7 @@ var param = {
 
 ### 🍭endCall();//挂断通话
 
-##2.7、Apns(以下方法全部仅限iOS)<ignore>
+##2.7、Apns(以下方法全部仅限iOS)<ignore>
 ***
 ### 🍭registerRemoteNotification(function(data){});//注册Apns推送
 
@@ -1177,13 +1198,13 @@ data为json对象
 ```
 
 
- 
+
 ### 🍭onApnsLaunch(param);
 
 	若APP是通过点击apns推送调起的,当插件初始化时会触发此回调.
 	param为此条推送的内容,json格式.
 
- 
+
 ### 🍭updatePushOptions(param,function(data){});//设置apns全局属性
 
 param为json字符串
@@ -1211,9 +1232,9 @@ var data = {
 
 
 
- 
+
 	说明:updatePushOptions全为可选参数,当传入空值时,即可通过回调获得当前apns全局属性
-	
+
 ### 🍭ignoreGroupPushNotification(param,function(data){})//设置指定群组是否接收
 
 param为json字符串
@@ -1231,107 +1252,107 @@ var data = {
 	groupIds;//已屏蔽接收推送消息的群列表
 };
 ```
- 
 
 
-#3、附录<ignore>
+
+#3、附录<ignore>
 
 ### 🍭EMMessage json字符串返回值结构  
 
-key | 说明         
------ | ----- 
-from | 发送者        
-to | 接受者  
-messageId | 消息id
-messageTime | 消息发送或接收的时间
-isAcked | 是否接收到了接收方的阅读回执, 或是否已发送了阅读回执给对方
-isDelivered | 对于发送方来说, 该值表示:接收方是否已收到了消息, 对于接收方来说, 表示:接收方是否已发送了"已接收回执" 给对方
-isRead	 | 是否已读
-chatType: | 聊天类别 0-个人 1-群组
-messageType | 消息类型  text/video/audio/image/location/file/cmd
-ext | 扩展属性 String格式
-extObj | 扩展属性(iOS 3.0.22, Android 3.0.23新增,JSONString 用于环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp)
-messageBody | 消息主体json
+| key         | 说明                                       |
+| ----------- | ---------------------------------------- |
+| from        | 发送者                                      |
+| to          | 接受者                                      |
+| messageId   | 消息id                                     |
+| messageTime | 消息发送或接收的时间                               |
+| isAcked     | 是否接收到了接收方的阅读回执, 或是否已发送了阅读回执给对方           |
+| isDelivered | 对于发送方来说, 该值表示:接收方是否已收到了消息, 对于接收方来说, 表示:接收方是否已发送了"已接收回执" 给对方 |
+| isRead      | 是否已读                                     |
+| chatType:   | 聊天类别 0-个人 1-群组                           |
+| messageType | 消息类型  text/video/audio/image/location/file/cmd |
+| ext         | 扩展属性 String格式                            |
+| extObj      | 扩展属性(iOS 3.0.22, Android 3.0.23新增,JSONString 用于环信移动客服功能,详情见[环信移动客服文档](http://docs.easemob.com/cs/300visitoraccess/10nativeapp) |
+| messageBody | 消息主体json                                 |
 
 messageBody的结构为
 
 ### 🍭普通文本消息
-	
-key | 说明         
------ | -----
-text | 文本内容
+
+| key  | 说明   |
+| ---- | ---- |
+| text | 文本内容 |
 
 ### 🍭透传消息
-	
-key | 说明         
------ | -----
-action | 具体命令 
+
+| key    | 说明   |
+| ------ | ---- |
+| action | 具体命令 |
 
 ### 🍭位置消息
-key | 说明         
------ | ----- 
-longitude | 经度
-latitude | 纬度
-address | 地理位置信息
+| key       | 说明     |
+| --------- | ------ |
+| longitude | 经度     |
+| latitude  | 纬度     |
+| address   | 地理位置信息 |
 
 ### 🍭视频/语音/图片/文件消息
-	
-	
-key | 说明         
------ | -----
-displayName | 显示名
-remotePath	 | 服务器远程文件路径 	
-secretKey	 | 远端文件的密钥
-length | 长度 (单位:秒 仅语音/视频消息)	
-thumbnailRemotePath | 预览图文件的服务器远程路径(仅视频/图片消息)
-thumbnailSecretKey | 预览图文件的密钥(仅视频/图片消息)
- 
+
+
+| key                 | 说明                      |
+| ------------------- | ----------------------- |
+| displayName         | 显示名                     |
+| remotePath          | 服务器远程文件路径               |
+| secretKey           | 远端文件的密钥                 |
+| length              | 长度 (单位:秒 仅语音/视频消息)      |
+| thumbnailRemotePath | 预览图文件的服务器远程路径(仅视频/图片消息) |
+| thumbnailSecretKey  | 预览图文件的密钥(仅视频/图片消息)      |
+
 
 * 返回的json数据中会包含除上述属性之外的一些其他信息,均可以忽略
 * 由于`Android SDK`不能获取`已发送消息`的`remotePath`和`thumbnailRemotePath`,因此改用`本地文件路径`(file://开头)代替
 
 ### 🍭EMConversation json字符串返回值结构 
 
-key | 说明         
------ | -----
-chatter	 | conversation识别名
-chatType	 | 聊天类别 0-个人 1-群组
-messages	 | "conversation所包含的message列表,表内元素为EMMessage的json字符串"
-	
-	
+| key      | 说明                                       |
+| -------- | ---------------------------------------- |
+| chatter  | conversation识别名                          |
+| chatType | 聊天类别 0-个人 1-群组                           |
+| messages | "conversation所包含的message列表,表内元素为EMMessage的json字符串" |
+
+
 * 返回的json数据中会包含除上述属性之外的一些其他信息,均可以忽略
 
-	
+
 ### 🍭EMGroup json字符串返回值结构 
 
-key | 说明         
------ | -----
-groupName	 | 群组名称
-groupDescription | 群组描述
-members	 | 包含的成员
-owner	 | 群主
-isPushNotificationEnable	 | 是否允许推送提醒
-isBlock	 | 是否被用户屏蔽
-groupMaxUserCount	 | 群组最大人数
-groupId	 | 群组Id
-isPublic | 群组类型
-allowInvites | 是否允许群成员邀请人进群
-membersOnly | 需要申请和验证才能加入
+| key                      | 说明           |
+| ------------------------ | ------------ |
+| groupName                | 群组名称         |
+| groupDescription         | 群组描述         |
+| members                  | 包含的成员        |
+| owner                    | 群主           |
+| isPushNotificationEnable | 是否允许推送提醒     |
+| isBlock                  | 是否被用户屏蔽      |
+| groupMaxUserCount        | 群组最大人数       |
+| groupId                  | 群组Id         |
+| isPublic                 | 群组类型         |
+| allowInvites             | 是否允许群成员邀请人进群 |
+| membersOnly              | 需要申请和验证才能加入  |
 
 * 返回的json数据中会包含除上述属性之外的一些其他信息,均可以忽略
 * 受SDK所限,部分接口的members属性会有误
-	* 群组的members属性以cbGetGroup回调为准
-	* **`Android的members包含群组的owner,而iOS并不包含`**,此问题已反馈给环信官方,待解决中
+  * 群组的members属性以cbGetGroup回调为准
+  * **`Android的members包含群组的owner,而iOS并不包含`**,此问题已反馈给环信官方,待解决中
 
 ### 🍭EMChatterInfo json字符串返回值结构 
 
-key | 说明         
------ | -----
-chatter	 | 联系人的username或群组的groupId
-groupName | 群组名(仅群组有此值)
-chatType | 联系人类型 0-个人 1-群组
-unreadMsgCount | 未读消息数
-lastMsg | 最后一条消息 EMMessage格式的json字符串
+| key            | 说明                         |
+| -------------- | -------------------------- |
+| chatter        | 联系人的username或群组的groupId    |
+| groupName      | 群组名(仅群组有此值)                |
+| chatType       | 联系人类型 0-个人 1-群组            |
+| unreadMsgCount | 未读消息数                      |
+| lastMsg        | 最后一条消息 EMMessage格式的json字符串 |
 
 ### 🍭 "isGroup"参数废弃 改用"chatType"的相关说明
 
@@ -1340,18 +1361,9 @@ lastMsg | 最后一条消息 EMMessage格式的json字符串
 * 所有的调用API中,入参里的isGroup改为chatType
 * 所有的回调API中,isGroup属性改为chatType
 
-#4、更新历史<ignore>
+#4、更新历史<ignore>
 
-### iOS<ignore>
-
-API版本: `uexEasemob-4.0.0`
-
-最近更新时间:`2016-6-22`
-
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-
-### Android<ignore>
+### iOS<ignore>
 
 API版本: `uexEasemob-4.0.0`
 
@@ -1359,7 +1371,16 @@ API版本: `uexEasemob-4.0.0`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-#5 文档更新记录<ignore>
+
+### Android<ignore>
+
+API版本: `uexEasemob-4.0.0`
+
+最近更新时间:`2016-6-22`
+
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+#5 文档更新记录<ignore>
 **2016-5-7**
 
 - initEasemob接口新增isAutoAcceptGroupInvitation参数;
@@ -1406,25 +1427,25 @@ API版本: `uexEasemob-4.0.0`
 - 方法getMessageById根据消息id获取消息记录及其回调也支持iOS了
 
 **2015-05-06**
- 
+
 - 删去方法 设置是否自动登录 ,改为在 init初始化 中添加相关参数
 
 **2015-05-05**
- 
+
 - 更新环信iOS SDK版本至V2.1.6(2015-04-30版),部分代码做了优化以支持此新版本;
 - 现在所有的回调函数都会返回给进行 init初始化 操作的那个网页了.
 - cbGetLoginInfo现在也会返回 是否开启自动登录 的信息了.
 
 **2015-05-04**
-  
+
 - 新增方法 设置是否自动登录;
 - 现在iOS也支持回调 [1.10]onConnected 了.
-**2015-04-28**
-   
+  **2015-04-28**
+
 - 新增方法getChatterInfo获取聊天对象信息及其回调;
 
 **2015-04-20**
-   
+
 - 新增 getMessageById 方法及回调;
 - 修改了onNewMessage的回调值的结构;
 - 统一了Android和iOS返回的json对象的结构,对附录做了大量修订.
