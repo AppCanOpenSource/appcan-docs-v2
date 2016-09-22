@@ -30,7 +30,11 @@
 
 **参数:**
 
-```
+| 参数名称 | 参数类型   | 是否必选 | 说明           |
+| ---- | ------ | ---- | ------------ |
+| json | String | 是    | 接口所需数据，形式见下： |
+
+```javascript
 var json = {
     statusColor:,//(可选) 底部tab选中指示条的颜色,默认"#EA7C24"
     indicatorColor://(可选) 页面指示器的背景颜色,默认"#EA7C24"
@@ -81,7 +85,7 @@ var json = {
 
 **示例:**
 
-```
+```javascript
     var param1 = {
             statusColor:"#EA7C24",
             indicatorColor:"#ffffff",
@@ -199,7 +203,7 @@ var json = {
 
 **示例:**
 
-```
+```javascript
     uexTabBarWithPopMenu.close();
 ```
 
@@ -213,15 +217,25 @@ var json = {
 
 **参数:**
 
-```
+| 参数名称 | 参数类型   | 是否必选 | 说明           |
+| ---- | ------ | ---- | ------------ |
+| json | String | 是    | 接口所需数据，形式见下： |
+
+```javascript
 var json = {
-    index://(必选) tab菜单项索引
+    index:
 }
 ```
 
+各字段含义如下：
+
+| 字段名称  | 类型     | 是否必选 | 说明       |
+| ----- | ------ | ---- | -------- |
+| index | Number | 是    | tab菜单项索引 |
+
 **示例:**
 
-```
+```javascript
     var param1 = {
         index:1
     };
@@ -239,16 +253,25 @@ var json = {
 
 **参数:**
 
-```
+| 参数名称 | 参数类型   | 是否必选 | 说明           |
+| ---- | ------ | ---- | ------------ |
+| json | String | 是    | 接口所需数据，形式见下： |
+
+```javascript
 var json = {
-    indexes://(必选) tab菜单项索引数组
+    indexes:
 }
 ```
 
+各字段含义如下：
+
+| 字段名称    | 类型    | 是否必选 | 说明         |
+| ------- | ----- | ---- | ---------- |
+| indexes | Array | 是    | tab菜单项索引数组 |
 
 **示例:**
 
-```
+```javascript
     var param1 = {
         indexes:[0,1]
     };
@@ -265,16 +288,25 @@ var json = {
 
 **参数:**
 
-```
+| 参数名称 | 参数类型   | 是否必选 | 说明           |
+| ---- | ------ | ---- | ------------ |
+| json | String | 是    | 接口所需数据，形式见下： |
+
+```javascript
 var json = {
-    indexes://(可选) tab菜单项索引数组,不传移除所有徽标
+    indexes:
 }
 ```
 
+各字段含义如下：
+
+| 字段名称    | 类型    | 是否必选 | 说明                  |
+| ------- | ----- | ---- | ------------------- |
+| indexes | Array | 否    | tab菜单项索引数组,不传移除所有徽标 |
 
 **示例:**
 
-```
+```javascript
     var param1 = {
         indexes:[0,1]
     };
@@ -290,7 +322,7 @@ var json = {
 **参数:**
 
 - JSON 对象,内部字段:
-```
+```javascript
 var data = {
     index://(必选) 索引  默认分别从 0 开始计数
 }
@@ -299,7 +331,7 @@ var data = {
 
 **示例:**
 
-```
+```javascript
     uexTabBarWithPopMenu.onTabItemClick = function(data){
         alert("tabItemCallback:"+ data.index);
     }
@@ -312,7 +344,7 @@ var data = {
 **参数:**
 
 - JSON 对象,内部字段:
-```
+```javascript
 var json = {
     page:://(必选) 页数  默认分别从 0 开始计数
     index://(必选) 当前页的索引  默认分别从 0 开始计数
@@ -322,7 +354,7 @@ var json = {
 
 **示例:**
 
-```
+```javascript
     uexTabBarWithPopMenu.onPopMenuItemClick = function(data){
          alert("popItemCallback:"+"\npage:" +data.page +"\nindex"+data.index);
     }

@@ -49,7 +49,7 @@
 
 # 2、API概述 
 ## 2.1、方法
-### 🍭 open  打开地图
+### 🍭 open  打开地图 
 
 `uexGaodeMap.open(json)`
 
@@ -63,8 +63,8 @@
 | ---- | ------- | ---- | ---- |
 | json | json字符串 | 是    | 传入参数 |
 
-```
-var json = '{
+```javascript
+var json = {
     left:,
     top:,
     width:,
@@ -73,25 +73,25 @@ var json = '{
     longitude:,
     latitude:,
     APIKey:
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| left | Number | 否    | 左间距,默认0 |
-| top | Number | 否    | 上间距,默认0 |
-| width | Number | 否    | 地图宽度 |
-| height | Number | 否    | 地图高度 |
-| isScrollWithWeb | Boolean | 否    | 地图是否跟随网页滚动,默认为false |
-| longitude | Number | 否    | 中心点经度 |
-| latitude | Number | 否    | 中心点纬度 |
-| APIKey | String | 否    | 设置高德的APIKey(仅iOS,仅IDE本地打包) |
+| 参数名称            | 参数类型    | 是否必选 | 说明                         |
+| --------------- | ------- | ---- | -------------------------- |
+| left            | Number  | 否    | 左间距,默认0                    |
+| top             | Number  | 否    | 上间距,默认0                    |
+| width           | Number  | 否    | 地图宽度                       |
+| height          | Number  | 否    | 地图高度                       |
+| isScrollWithWeb | Boolean | 否    | 地图是否跟随网页滚动,默认为false        |
+| longitude       | Number  | 否    | 中心点经度                      |
+| latitude        | Number  | 否    | 中心点纬度                      |
+| APIKey          | String  | 否    | 设置高德的APIKey(仅iOS,仅IDE本地打包) |
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         left:0,
         top:0,
         width:800,
@@ -99,8 +99,8 @@ var json = '{
         isScrollWithWeb:true,
         longitude:114.402815,
         latitude:30.475798
-    }';
-    uexGaodeMap.open(json);
+    };
+    uexGaodeMap.open(JSON.stringify(json));
 ```
 
 ### 🍭  close  关闭地图
@@ -115,7 +115,7 @@ var json = '{
 
 **示例:**
 
-```
+```javascript
     uexGaodeMap.close();
 ```
 ### 🍭 setMapType 设置地图类型
@@ -129,24 +129,24 @@ var json = '{
 | json | json字符串 | 是    | 传入参数 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     type:
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称 | 参数类型   | 是否必选 | 说明                        |
+| ---- | ------ | ---- | ------------------------- |
 | type | Number | 是    | 地图类型,1-标准地图,2-卫星地图,3-夜景地图 |
 
 **示例:**
 
-```
-var json = '{
+```javascript
+var json = {
     type:1
-}';
-uexGaodeMap.setMapType(json);
+};
+uexGaodeMap.setMapType(JSON.stringify(json));
 ```
 
 ### 🍭 setTrafficEnabled  开启或关闭实时路况
@@ -160,24 +160,24 @@ uexGaodeMap.setMapType(json);
 | json | json字符串 | 是    | 传入参数 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     type:
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称 | 参数类型   | 是否必选 | 说明        |
+| ---- | ------ | ---- | --------- |
 | type | Number | 是    | 0-关闭,1-开启 |
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         type:1
-    }';
-    uexGaodeMap.setTrafficEnabled(json);
+    };
+    uexGaodeMap.setTrafficEnabled(JSON.stringify(json));
 ```
 
 ### 🍭 setCenter  设置地图中心点
@@ -191,27 +191,27 @@ var json = '{
 | json | json字符串 | 是    | 传入参数 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     longitude:,
     latitude:
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称      | 参数类型   | 是否必选 | 说明    |
+| --------- | ------ | ---- | ----- |
 | longitude | Number | 是    | 中心点经度 |
-| latitude | Number | 是    | 中心点纬度 |  
+| latitude  | Number | 是    | 中心点纬度 |
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         longitude:114.402815,
         latitude:30.475798
-    }';
-    uexGaodeMap.setCenter(json);
+    };
+    uexGaodeMap.setCenter(JSON.stringify(json));
 ```
 
 ### 🍭 setZoomLevel  设置地图缩放级别
@@ -225,25 +225,25 @@ var json = '{
 | json | json字符串 | 是    | 传入参数 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     level:
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明          |
+| ----- | ------ | ---- | ----------- |
 | level | Number | 是    | 级别,范围(3,20) |
- 
+
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         level:15
-        }';
-    uexGaodeMap.setZoomLevel(json);
+    };
+    uexGaodeMap.setZoomLevel(JSON.stringify(json));
 ```
 
 ### 🍭 zoomIn  放大一个地图级别
@@ -256,7 +256,7 @@ var json = '{
 
 **示例:**
 
-```
+```javascript
     uexGaodeMap.zoomIn();
 ```
 
@@ -271,7 +271,7 @@ var json = '{
 
 **示例:**
 
-```
+```javascript
 uexGaodeMap.zoomOut();
 ```
 
@@ -286,25 +286,25 @@ uexGaodeMap.zoomOut();
 | json | json字符串 | 是    | 传入参数 |
 
 
-````
-var json = '{
+````javascript
+var json = {
     angle:
-}'
+}
 ````
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明                                |
+| ----- | ------ | ---- | --------------------------------- |
 | angle | Number | 是    | 旋转角度,正北方向到地图方向逆时针旋转的角度,范围(0,360). |
-  
+
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         angle:90
-    }';
-    uexGaodeMap.rotate(json);
+    };
+    uexGaodeMap.rotate(JSON.stringify(json));
 ```
 
 ### 🍭 overlook  倾斜地图
@@ -318,24 +318,24 @@ var json = '{
 | json | json字符串 | 是    | 传入参数 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     angle:
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明              |
+| ----- | ------ | ---- | --------------- |
 | angle | Number | 是    | 地图倾斜度,范围(0,45). |
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         angle:23
-    }';
-    uexGaodeMap.overlook(json);
+    };
+    uexGaodeMap.overlook(JSON.stringify(json));
 ```
 
 ### 🍭 setZoomEnable  开启或关闭手势缩放
@@ -349,20 +349,20 @@ var json = '{
 | json | json字符串 | 是    | 传入参数 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     type://(必选) 0-关闭,1-开启
-}'
+}
 ```
 
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         type:1
-    }';
-    uexGaodeMap.setZoomEnable(json);
+    };
+    uexGaodeMap.setZoomEnable(JSON.stringify(json));
 ```
 
 ### 🍭setRotateEnable 开启或关闭手势旋转及手势倾斜
@@ -376,24 +376,24 @@ var json = '{
 | json | json字符串 | 是    | 传入参数 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     type:
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称 | 参数类型   | 是否必选 | 说明        |
+| ---- | ------ | ---- | --------- |
 | type | Number | 是    | 0-关闭,1-开启 |
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         type:1
-    }';
-    uexGaodeMap.setRotateEnable(json);
+    };
+    uexGaodeMap.setRotateEnable(JSON.stringify(json));
 ```
 
 ### 🍭 setCompassEnable  开启或关闭指南针
@@ -407,25 +407,25 @@ var json = '{
 | json | json字符串 | 是    | 传入参数 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     type:
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称 | 参数类型   | 是否必选 | 说明        |
+| ---- | ------ | ---- | --------- |
 | type | Number | 是    | 0-关闭,1-开启 |
-   
+
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         type:1
-    }';
-    uexGaodeMap.setCompassEnable(json);
+    };
+    uexGaodeMap.setCompassEnable(JSON.stringify(json));
 ```
 
 ### 🍭 setScrollEnable  开启或关闭手势移动
@@ -439,25 +439,25 @@ var json = '{
 | json | json字符串 | 是    | 传入参数 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     type:
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称 | 参数类型   | 是否必选 | 说明        |
+| ---- | ------ | ---- | --------- |
 | type | Number | 是    | 0-关闭,1-开启 |
- 
+
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         type:1
-    }';
-    uexGaodeMap.setScrollEnable(json);
+    };
+    uexGaodeMap.setScrollEnable(JSON.stringify(json));
 ```
 
 ### 🍭  addMarkersOverlay  添加标注
@@ -467,12 +467,12 @@ var json = '{
 **参数:**
 
 
-| 参数名称        | 参数类型    | 是否必选 | 说明                                |
-| ----------- | ------- | ---- | --------------------------------- |
-| json | json字符串 | 是    | 传入参数 |               |
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| json | json字符串 | 是    | 传入参数 |
 
-```
-var json = '[
+```javascript
+var json = [
     {
         id:,
         longitude:,
@@ -483,24 +483,24 @@ var json = '[
                 subTitle:
         }
     }
-]'
+]
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| id | Number | 是    | 唯一标识符 |
-| longitude | Number | 是    | 标注经度 |
-| latitude | Number | 是    | 标注纬度 |
-| icon | String | 否    | 标注图标 |
-| bubble | Number | 否    | 标注气泡 |
-| title | Number | 是    | 气泡标题 |
-| subTitle | Number | 否    | 气泡子标题 |
+| 参数名称      | 参数类型   | 是否必选 | 说明    |
+| --------- | ------ | ---- | ----- |
+| id        | Number | 是    | 唯一标识符 |
+| longitude | Number | 是    | 标注经度  |
+| latitude  | Number | 是    | 标注纬度  |
+| icon      | String | 否    | 标注图标  |
+| bubble    | Number | 否    | 标注气泡  |
+| title     | Number | 是    | 气泡标题  |
+| subTitle  | Number | 否    | 气泡子标题 |
 
 **示例:**
 
-```
-    var json = '[
+```javascript
+    var json = [
         {
             id:10001,
             longitude:114.402965,
@@ -520,8 +520,8 @@ var json = '[
                 subTitle:"subTitle2"
             }
         }
-    ]';
-    uexGaodeMap.addMarkersOverlay(json);
+    ];
+    uexGaodeMap.addMarkersOverlay(JSON.stringify(json));
 ```
 
 ### 🍭 setMarkerOverlay  修改标注
@@ -530,13 +530,13 @@ var json = '[
 
 **参数:**
 
-| 参数名称       | 参数类型   | 是否必选 | 说明                             |
-| ---------- | ------ | ---- | ------------------------------ |
-| json     | json字符串 | 是    | 传入参数 |
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| json | json字符串 | 是    | 传入参数 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     id:,
     longitude:,
     latitude:,
@@ -545,32 +545,32 @@ var json = '{
         title:,
         subTitle:
     }
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| id | Number | 是    | 唯一标识符 |
-| longitude | Number | 否    | 标注经度 |
-| latitude | Number | 否    | 标注纬度 |
-| icon | String | 否    | 标注图标 |
-| bubble | Object | 否    | 标注气泡 |
-| title | String | 是    | 气泡标题 |
-| subTitle | String | 否    | 气泡子标题 |
- 
+| 参数名称      | 参数类型   | 是否必选 | 说明    |
+| --------- | ------ | ---- | ----- |
+| id        | Number | 是    | 唯一标识符 |
+| longitude | Number | 否    | 标注经度  |
+| latitude  | Number | 否    | 标注纬度  |
+| icon      | String | 否    | 标注图标  |
+| bubble    | Object | 否    | 标注气泡  |
+| title     | String | 是    | 气泡标题  |
+| subTitle  | String | 否    | 气泡子标题 |
+
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         id:10002,
         bubble:{
             title:"change-title",
             subTitle:"change-subTitle"
         }
-    }';
-    uexGaodeMap.setMarkerOverlay(json);
+    };
+    uexGaodeMap.setMarkerOverlay(JSON.stringify(json));
 ```
 
 ### 🍭 addPolylineOverlay  添加折线覆盖物
@@ -579,14 +579,14 @@ var json = '{
 
 **参数:**
 
-| 参数名称         | 参数类型    | 是否必选 | 说明                        |
-| ------------ | ------- | ---- | ------------------------- |
-| json | json字符串 | 是    | 传入参数,折线覆盖物信息              |
+| 参数名称 | 参数类型    | 是否必选 | 说明           |
+| ---- | ------- | ---- | ------------ |
+| json | json字符串 | 是    | 传入参数,折线覆盖物信息 |
 
 
 
-```
-var json = '{
+```javascript
+var json = {
     id:,
     fillColor:,
     lineWidth:,
@@ -596,25 +596,25 @@ var json = '{
             latitude:
         }
     ]
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| id | Number | 是    | 唯一标识符 |
-| fillColor | String | 否    | 折线颜色 |
-| lineWidth | Number | 否    | 折线宽 |
-| property | Array | 是    | 数据 |
+| 参数名称      | 参数类型   | 是否必选 | 说明    |
+| --------- | ------ | ---- | ----- |
+| id        | Number | 是    | 唯一标识符 |
+| fillColor | String | 否    | 折线颜色  |
+| lineWidth | Number | 否    | 折线宽   |
+| property  | Array  | 是    | 数据    |
 | longitude | Number | 是    | 连接点经度 |
-| latitude | Number | 是    | 连接点纬度 |
+| latitude  | Number | 是    | 连接点纬度 |
 
  
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         id:151,
         fillColor:"#f00",
         lineWidth:10.0,
@@ -632,8 +632,8 @@ var json = '{
                 latitude:30.375845
             }
         ]
-    }';
-    uexGaodeMap.addPolylineOverlay(json);
+    };
+    uexGaodeMap.addPolylineOverlay(JSON.stringify(json));
 ```
 
 ### 🍭 removeOverlays  移除覆盖物
@@ -642,20 +642,20 @@ var json = '{
 
 **参数:**
 
-| 参数名称     | 参数类型    | 是否必选 | 说明                                       |
-| -------- | ------- | ---- | ---------------------------------------- |
+| 参数名称 | 参数类型    | 是否必选 | 说明                          |
+| ---- | ------- | ---- | --------------------------- |
 | json | json字符串 | 可选   | 传入参数,覆盖物唯一标识符数组,不传时移除所有覆盖物. |
 
 
-```
-var json = '[]';
+```javascript
+var json = [];
 ```
 
   
 
 **示例:**
 
-```
+```javascript
  	var params = [151,152];
     var json = JSON.stringify(params);
     uexGaodeMap.removeOverlays(json);
@@ -667,13 +667,13 @@ var json = '[]';
 
 **参数:**
 
-| 参数名称    | 参数类型    | 是否必选 | 说明                        |
-| ------- | ------- | ---- | ------------------------- |
-| json | json字符串 | 是    | 传入参数,弧形覆盖物信息              |
+| 参数名称 | 参数类型    | 是否必选 | 说明           |
+| ---- | ------- | ---- | ------------ |
+| json | json字符串 | 是    | 传入参数,弧形覆盖物信息 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     id:,
     strokeColor:,
     lineWidth:,
@@ -689,26 +689,29 @@ var json = '{
         longitude:,
         latitude:
     }
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| id | Number | 是    | 唯一标识符 |
-| strokeColor | String | 否    | 颜色 |
-| lineWidth | Number | 否    | 线宽 |
-| start | Object | 是    | 起点数据 |
-| center | Object | 是    | 中间点数据 |
-| end | Object | 是    | 终点数据 |
-| longitude | Number | 是    | 连接点经度 |
-| latitude | Number | 是    | 连接点纬度 |
+| 参数名称        | 参数类型   | 是否必选 | 说明    |
+| ----------- | ------ | ---- | ----- |
+| id          | Number | 是    | 唯一标识符 |
+| strokeColor | String | 否    | 颜色    |
+| lineWidth   | Number | 否    | 线宽    |
+| start       | Object | 是    | 起点数据  |
+| center      | Object | 是    | 中间点数据 |
+| end         | Object | 是    | 终点数据  |
+| longitude   | Number | 是    | 连接点经度 |
+| latitude    | Number | 是    | 连接点纬度 |
 
+**平台支持:**
+
+Android 4.0+
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         id:152,
         strokeColor:"#f00",
         lineWidth:12.0,
@@ -724,8 +727,8 @@ var json = '{
             longitude:114.402965,
             latitude:30.375845
         }
-    }';
-    uexGaodeMap.addArcOverlay(json);
+    };
+    uexGaodeMap.addArcOverlay(JSON.stringify(json));
 ```
 
 ### 🍭 addCircleOverlay  添加圆形覆盖物
@@ -734,13 +737,13 @@ var json = '{
 
 **参数:**
 
-| 参数名称       | 参数类型    | 是否必选 | 说明                        |
-| ---------- | ------- | ---- | ------------------------- |
-| json | json字符串 | 是    | 传入参数,圆形覆盖物信息              |
+| 参数名称 | 参数类型    | 是否必选 | 说明           |
+| ---- | ------- | ---- | ------------ |
+| json | json字符串 | 是    | 传入参数,圆形覆盖物信息 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     id:,//(必选) 唯一标识符
     longitude:,//(必选) 圆心经度
     latitude:,//(必选) 圆心纬度
@@ -748,26 +751,26 @@ var json = '{
     fillColor:,//(可选) 填充颜色
     strokeColor:,//(可选) 边框颜色
     lineWidth://(可选) 边框线宽
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| id | Number | 是    | 唯一标识符 |
-| longitude | Number | 是    | 圆心经度 |
-| latitude | Number | 是    | 圆心纬度 |
-| radius | Number | 是    | 半径 |
-| fillColor | String | 否    | 填充颜色 |
-| strokeColor | String | 否    | 边框颜色 |
-| lineWidth | Number | 否    | 边框线宽 |
+| 参数名称        | 参数类型   | 是否必选 | 说明    |
+| ----------- | ------ | ---- | ----- |
+| id          | Number | 是    | 唯一标识符 |
+| longitude   | Number | 是    | 圆心经度  |
+| latitude    | Number | 是    | 圆心纬度  |
+| radius      | Number | 是    | 半径    |
+| fillColor   | String | 否    | 填充颜色  |
+| strokeColor | String | 否    | 边框颜色  |
+| lineWidth   | Number | 否    | 边框线宽  |
 
 
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         id:153,
         longitude:114.402965,
         latitude:30.375845,
@@ -775,8 +778,8 @@ var json = '{
         fillColor:"#4169E1",
         strokeColor:"#990033",
         lineWidth:4
-    }';
-    uexGaodeMap.addCircleOverlay(json);
+    };
+    uexGaodeMap.addCircleOverlay(JSON.stringify(json));
 ```
 
 ### 🍭 addPolygonOverlay  添加多边形覆盖物
@@ -785,13 +788,13 @@ var json = '{
 
 **参数:**
 
-| 参数名称        | 参数类型    | 是否必选 | 说明                        |
-| ----------- | ------- | ---- | ------------------------- |
-| json | json字符串 | 是    | 传入参数,多边形覆盖物信息             |
+| 参数名称 | 参数类型    | 是否必选 | 说明            |
+| ---- | ------- | ---- | ------------- |
+| json | json字符串 | 是    | 传入参数,多边形覆盖物信息 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     id:,//(必选) 唯一标识符
     fillColor:,//(可选) 填充颜色
     strokeColor:,//(可选) 边框颜色
@@ -802,25 +805,25 @@ var json = '{
             latitude://(必选) 顶点纬度
         }
     ]
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| id | Number | 是    | 唯一标识符 |
-| fillColor | String | 否    | 填充颜色 |
-| strokeColor | String | 否    | 边框颜色 |
-| lineWidth | Number | 否    | 边框线宽 |
-| property | Array | 是    | 数据 |
-| longitude | Number | 是    | 顶点经度 |
-| latitude | Number | 是    | 顶点纬度 |
-  
+| 参数名称        | 参数类型   | 是否必选 | 说明    |
+| ----------- | ------ | ---- | ----- |
+| id          | Number | 是    | 唯一标识符 |
+| fillColor   | String | 否    | 填充颜色  |
+| strokeColor | String | 否    | 边框颜色  |
+| lineWidth   | Number | 否    | 边框线宽  |
+| property    | Array  | 是    | 数据    |
+| longitude   | Number | 是    | 顶点经度  |
+| latitude    | Number | 是    | 顶点纬度  |
+
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         id:154,
         fillColor:"#990033",
         strokeColor:"#990033",
@@ -843,8 +846,8 @@ var json = '{
                 latitude:30.375845
             }
         ]
-    }';
-    var overlay = uexGaodeMap.addPolygonOverlay(json);
+    };
+    var overlay = uexGaodeMap.addPolygonOverlay(JSON.stringify(json));
 ```
 
 ### 🍭 addGroundOverlay  添加图片覆盖物
@@ -853,13 +856,13 @@ var json = '{
 
 **参数:**
 
-| 参数名称       | 参数类型    | 是否必选 | 说明                        |
-| ---------- | ------- | ---- | ------------------------- |
-| json | json字符串 | 是    | 传入参数,图片覆盖物信息              |
+| 参数名称 | 参数类型    | 是否必选 | 说明           |
+| ---- | ------- | ---- | ------------ |
+| json | json字符串 | 是    | 传入参数,图片覆盖物信息 |
 
 
-```
-var json = '{
+```javascript
+var json = {
     id:,//(必选) 唯一标识符
     imageUrl:,//(必选) 图片地址
     transparency:,//(可选) 图片透明度(仅Android支持该参数)
@@ -869,25 +872,24 @@ var json = '{
             latitude://(必选) 顶点纬度
         }
     ]
-}'
+}
 ```
 **各字段含义:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| id | Number | 是    | 唯一标识符 |
-| imageUrl | String | 是    | 图片地址 |
-| transparency | Number | 否    | 图片透明度(仅Android支持该参数) |
-| property | Array | 是    | 数据,数组长度为2,第一个元素表示西南角的经纬度,第二个表示东北角的经纬度 |
-| longitude | Number | 是    | 顶点经度 |
-| latitude | Number | 是    | 顶点纬度 |
-  
+| 参数名称         | 参数类型   | 是否必选 | 说明                                    |
+| ------------ | ------ | ---- | ------------------------------------- |
+| id           | Number | 是    | 唯一标识符                                 |
+| imageUrl     | String | 是    | 图片地址                                  |
+| transparency | Number | 否    | 图片透明度(仅Android支持该参数)                  |
+| property     | Array  | 是    | 数据,数组长度为2,第一个元素表示西南角的经纬度,第二个表示东北角的经纬度 |
+| longitude    | Number | 是    | 顶点经度                                  |
+| latitude     | Number | 是    | 顶点纬度                                  |
+
 
 **示例:**
 
-```
-    
-    var json = '{
+```javascript
+    var json = {
         id:155,
         imageUrl:"http://img0.bdstatic.com/img/image/9baf75d938553886ce515def29441ed31409109131.jpg",
         transparency:0.5,
@@ -901,8 +903,8 @@ var json = '{
                 latitude:30.474845
             }
         ]
-    }';
-    uexGaodeMap.addGroundOverlay(json);
+    };
+    uexGaodeMap.addGroundOverlay(JSON.stringify(json));
 ```
 
 ### 🍭 removeMarkersOverlays  移除标注
@@ -911,20 +913,19 @@ var json = '{
 
 **参数:**
 
-| 参数名称    | 参数类型    | 是否必选 | 说明                                       |
-| ------- | ------- | ---- | ---------------------------------------- |
+| 参数名称 | 参数类型    | 是否必选 | 说明                        |
+| ---- | ------- | ---- | ------------------------- |
 | json | json字符串 | 否    | 传入参数,标注唯一标识符数组,不传时移除所有标注. |
 
-```
-var json = '[]';
-  
+```javascript
+var json = [];
 ```
 
 **示例:**
 
 ```javascript
-    var json = '[151,152]';
-    uexGaodeMap.removeMarkersOverlays(json);
+    var json = [151,152];
+    uexGaodeMap.removeMarkersOverlays(JSON.stringify(json));
 ```
 
 ### 🍭 poiSearch  兴趣点搜索
@@ -934,15 +935,15 @@ var json = '[]';
 
 **参数:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
+| json             | json字符串  | 是    | 传入参数 |
 | callBackFunction | Function | 是    | 回调函数 |
 
 **传入参数格式为**:
 
 ```javascript
-var json = '{
+var json = {
     searchKey:,//(可选) 搜索关键字
     poiTypeSet:,//(可选) Poi兴趣点,searchKey和poiTypeSet必须至少包含其中的一个
     city:,//(可选) 城市,不传时表示全国范围内(iOS无效,默认全国范围内搜索)
@@ -981,15 +982,15 @@ var json = '{
             }
         ]
 	}
-}'
+}
 ```
 
 **回调参数**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明               |
+| ----- | ------ | ---- | ---------------- |
 | error | Number | 是    | 0表示搜索成功,非0表示搜索失败 |
-| data | Array | 否    | error为0存在,搜索结果集合 |
+| data  | Array  | 否    | error为0存在,搜索结果集合 |
 
 ```javascript
    var data = [//搜索结果集合
@@ -1022,11 +1023,11 @@ var json = '{
 
 ```javascript
     示例1:
-    var json = '{
+    var json = {
         city:"武汉",
         searchKey:"加油站"
-    }';
-    uexGaodeMap.poiSearch(json,function(error,data){
+    };
+    uexGaodeMap.poiSearch(JSON.stringify(json),function(error,data){
       if(!error){
            alert("callback:" + JSON.stringify(data));
         }else{
@@ -1035,7 +1036,7 @@ var json = '{
     });
 
     示例2:
-    var json = '{
+    var json = {
         city:"武汉",
         poiTypeSet:"加油站",
         searchBound:{
@@ -1049,8 +1050,8 @@ var json = '{
                 isDistanceSort:true
             }
         }
-    }';
-    uexGaodeMap.poiSearch(json,function(error,data){
+    };
+    uexGaodeMap.poiSearch(JSON.stringify(json),function(error,data){
         if(!error){
            alert("callback:" + JSON.stringify(data));
         }else{
@@ -1060,7 +1061,7 @@ var json = '{
     });
 
     示例3:
-    var json = '{
+    var json = {
         poiTypeSet:"加油站",
         searchBound:{
             type:"rectangle",
@@ -1075,8 +1076,8 @@ var json = '{
                 }
             }
         }
-    }';
-    uexGaodeMap.poiSearch(json,function(data){
+    };
+    uexGaodeMap.poiSearch(JSON.stringify(json),function(data){
       if(!error){
            alert("callback:" + JSON.stringify(data));
         }else{
@@ -1085,7 +1086,7 @@ var json = '{
     });
 
     示例4:
-    var json = '{
+    var json = {
         poiTypeSet:"加油站",
         searchBound:{
             type:"polygon",
@@ -1108,8 +1109,8 @@ var json = '{
                 }
             ]
         }
-    }';
-    uexGaodeMap.poiSearch(json,function(error,data){
+    };
+    uexGaodeMap.poiSearch(JSON.stringify(json),function(error,data){
       if(!error){
            alert("callback:" + JSON.stringify(data));
         }else{
@@ -1125,31 +1126,31 @@ var json = '{
 
 **参数:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
-| callBackFunction | Function  | 是    | 回调函数 |
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
+| json             | json字符串  | 是    | 传入参数 |
+| callBackFunction | Function | 是    | 回调函数 |
 
 
 ```javascript
-var json = '{
+var json = {
     city:,
     address:
-}'
+}
 ```
 **各字段含义如下**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| city | String | 是    | 城市,不传时表示全国范围内 |
-| address | String | 是    |  具体地址 |
+| 参数名称    | 参数类型   | 是否必选 | 说明            |
+| ------- | ------ | ---- | ------------- |
+| city    | String | 是    | 城市,不传时表示全国范围内 |
+| address | String | 是    | 具体地址          |
 
 **回调参数**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| error | Number | 是    | 0表示地理编码成功,非0表示地理编码失败 |
-| data | Object | 否    | error为0存在,通过地址获得经纬度信息 |
+| 参数名称  | 参数类型   | 是否必选 | 说明                    |
+| ----- | ------ | ---- | --------------------- |
+| error | Number | 是    | 0表示地理编码成功,非0表示地理编码失败  |
+| data  | Object | 否    | error为0存在,通过地址获得经纬度信息 |
 
 ```javascript
 var data = {
@@ -1164,11 +1165,11 @@ var data = {
 **示例:**
 
 ```javascript
-    var json = '{
+    var json = {
         city:"武汉",
         address:"光谷软件园C6栋"
-    }';
-    uexGaodeMap.geocode(json,function(error,data){
+    };
+    uexGaodeMap.geocode(JSON.stringify(json),function(error,data){
                 if(!error){
                      alert("callback:" + JSON.stringify(data));
                  }else{
@@ -1185,30 +1186,30 @@ var data = {
 
 **参数:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
+| json             | json字符串  | 是    | 传入参数 |
 | callBackFunction | Function | 是    | 回调函数 |
 
 ```javascript
-var json = '{
+var json = {
     longitude:,
     latitude:
-}'
+}
 ```
 **各字段含义如下**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| longitude | Number | 是    | 经度 |
-| latitude | Number | 是    |  纬度 |
+| 参数名称      | 参数类型   | 是否必选 | 说明   |
+| --------- | ------ | ---- | ---- |
+| longitude | Number | 是    | 经度   |
+| latitude  | Number | 是    | 纬度   |
 
 **回调参数**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明                     |
+| ----- | ------ | ---- | ---------------------- |
 | error | Number | 是    | 0表示反地理编码成功,非0表示反地理编码失败 |
-| data | Object | 否    | error为0存在,将经纬度转换为地址信息 |
+| data  | Object | 否    | error为0存在,将经纬度转换为地址信息  |
 
 ```javascript
 var data = {
@@ -1222,11 +1223,11 @@ var data = {
 **示例:**
 
 ```javascript
-    var json = '{
+    var json = {
         longitude:114.402815,
         latitude:30.475798
-    }';
-    uexGaodeMap.reverseGeocode(json,function(error,data){
+    };
+    uexGaodeMap.reverseGeocode(JSON.stringify(json),function(error,data){
          if(!error){
                     alert("callback:" + JSON.stringify(data));
                 }else{
@@ -1242,16 +1243,16 @@ var data = {
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明   |
-| ---- | ------ | ---- | ---- |
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
 | callBackFunction | Function | 是    | 回调函数 |
 
 **回调参数**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| error | Number | 是    | 0表示成功,非0表示失败 |
-| data | Object | 否    | error为0存在,获取当前位置信息 |
+| 参数名称  | 参数类型   | 是否必选 | 说明                 |
+| ----- | ------ | ---- | ------------------ |
+| error | Number | 是    | 0表示成功,非0表示失败       |
+| data  | Object | 否    | error为0存在,获取当前位置信息 |
 
 ```javascript
 var data = {
@@ -1282,31 +1283,31 @@ var data = {
 
 **参数:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数,仅Android支持参数 |
+| 参数名称 | 参数类型   | 是否必选 | 说明                |
+| ---- | ------ | ---- | ----------------- |
+| json | Object | 是    | 传入参数,仅Android支持参数 |
 
-```
-var json = '{(仅Android支持参数)
+```javascript
+var json = {
     minTime:,
     minDistance:
-}'
+}
 ```
 **各字段含义如下**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| minTime | Number | 否    |  位置变化通知时间,单位:毫秒, 默认2000 |
-| minDistance | Number | 否    |  位置变化通知距离,单位:米,默认10 |
+| 参数名称        | 参数类型   | 是否必选 | 说明                     |
+| ----------- | ------ | ---- | ---------------------- |
+| minTime     | Number | 否    | 位置变化通知时间,单位:毫秒, 默认2000 |
+| minDistance | Number | 否    | 位置变化通知距离,单位:米,默认10     |
 
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         minTime:3000,
         minDistance:10
-    }';
+    };
     uexGaodeMap.startLocation(json);
 ```
 
@@ -1338,24 +1339,24 @@ var json = '{(仅Android支持参数)
 | ---- | ------- | ---- | ---- |
 | json | json字符串 | 是    | 传入参数 |
 
-```
-var json = '{
+```javascript
+var json = {
     type:
-}'
+}
 ```
 **各字段含义如下**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| type | Number | 是    |  0-隐藏,1-显示 |
+| 参数名称 | 参数类型   | 是否必选 | 说明        |
+| ---- | ------ | ---- | --------- |
+| type | Number | 是    | 0-隐藏,1-显示 |
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         type:1
-    }'
-    uexGaodeMap.setMyLocationEnable(json);
+    }
+    uexGaodeMap.setMyLocationEnable(JSON.stringify(json));
 ```
 
 ### 🍭 setUserTrackingMode  设置连续定位模式
@@ -1368,25 +1369,25 @@ var json = '{
 | ---- | ------- | ---- | ---- |
 | json | json字符串 | 是    | 传入参数 |
 
-```
-var json = '{
+```javascript
+var json = {
     type:
-}'
+}
 ```
 **各字段含义如下**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| type | Number | 是    |  模式,1-只在第一次定位移动到地图中心点;2-定位、移动到地图中心点并跟随;3-定位、移动到地图中心点,跟踪并根据方向旋转地图. |
+| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| type | Number | 是    | 模式,1-只在第一次定位移动到地图中心点;2-定位、移动到地图中心点并跟随;3-定位、移动到地图中心点,跟踪并根据方向旋转地图. |
 
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         type:1
-    }'
-    uexGaodeMap.setUserTrackingMode(json);
+    }
+    uexGaodeMap.setUserTrackingMode(JSON.stringify(json));
 ```
 ### 🍭 setScaleVisible  设置地图是否显示比例尺
 
@@ -1398,24 +1399,24 @@ var json = '{
 | ---- | ------- | ---- | ---- |
 | json | json字符串 | 是    | 传入参数 |
 
-```
-var json = '{
+```javascript
+var json = {
     visible: 
-}'
+}
 ```
 **各字段含义如下**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| visible | Boolean | 是    |  是否显示,true-显示;false-隐藏. |
+| 参数名称    | 参数类型    | 是否必选 | 说明                     |
+| ------- | ------- | ---- | ---------------------- |
+| visible | Boolean | 是    | 是否显示,true-显示;false-隐藏. |
 
 **示例:**
 
-```
-  var json = '{
+```javascript
+  var json = {
         visible:true
-    }'
-    uexGaodeMap.setScaleVisible(json);
+    }
+    uexGaodeMap.setScaleVisible(JSON.stringify(json));
 ```
 ### 🍭 setMyLocationButtonVisible 设置是否显示回到我的位置按钮,仅支持Android
 
@@ -1429,25 +1430,28 @@ var json = '{
 | ---- | ------- | ---- | ---- |
 | json | json字符串 | 是    | 传入参数 |
 
-```
-var json = '{
+```javascript
+var json = {
     visible:
-}'
+}
 ```
 **各字段含义如下**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| visible | Boolean | 是    |  是否显示,true-显示;false-隐藏. |
- 
+| 参数名称    | 参数类型    | 是否必选 | 说明                     |
+| ------- | ------- | ---- | ---------------------- |
+| visible | Boolean | 是    | 是否显示,true-显示;false-隐藏. |
+
+**平台支持:**
+
+Android 4.0+
 
 **示例:**
 
-```
-    var json = '{
+```javascript
+    var json = {
         visible:true
-    }'
-    uexGaodeMap.setMyLocationButtonVisible(json);
+    }
+    uexGaodeMap.setMyLocationButtonVisible(JSON.stringify(json));
 ```
 ### 🍭 setZoomVisible  设置是否显示放大缩小按钮,仅支持Android
 
@@ -1459,25 +1463,28 @@ var json = '{
 | ---- | ------- | ---- | ---- |
 | json | json字符串 | 是    | 传入参数 |
 
-````
-var json = '{
+````javascript
+var json = {
     visible:
-}'
+}
 ````
 **各字段含义如下**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| visible | Boolean | 是    |  是否显示,true-显示;false-隐藏. |
+| 参数名称    | 参数类型    | 是否必选 | 说明                     |
+| ------- | ------- | ---- | ---------------------- |
+| visible | Boolean | 是    | 是否显示,true-显示;false-隐藏. |
 
+**平台支持:**
+
+Android 4.0+
 
 **示例:**
 
-```
-   var json = '{
+```javascript
+   var json = {
         visible:true
-    }'
-    uexGaodeMap.setZoomVisible(json);
+    }
+    uexGaodeMap.setZoomVisible(JSON.stringify(json));
 ```
 ### 🍭 clear  清除地图上所有的标注和覆盖物
 
@@ -1501,13 +1508,12 @@ var json = '{
 
 **参数:**
 
-| 参数名称       | 参数类型    | 是否必选 | 说明                   |
-| ---------- | ------- | ---- | -------------------- |
-| buttonInfo | json字符串 | 是    | 传入参数,自定义按钮信息         |
-| button     | Object  | 是    | 返回自定义按钮对象,如果设置失败返回为空 |
+| 参数名称 | 参数类型    | 是否必选 | 说明           |
+| ---- | ------- | ---- | ------------ |
+| json | json字符串 | 是    | 传入参数,自定义按钮信息 |
 
 ```javascript
-var json = '{
+var json = {
    id:,
 	x:,
 	y:,
@@ -1517,21 +1523,21 @@ var json = '{
 	title:, 
 	titleColor:, 
 	titleSize: 
-}'
+}
 ```
 **各字段含义如下**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| id | Number| 是    |  按钮的唯一标识符 |
-| x | Number| 是    |  按钮横坐标 |
-| y | Number| 是    |  按钮纵坐标 |
-| width | Number| 是    |  按钮宽度 |
-| height | Number| 是    |  按钮高度 |
-| bgImage | String| 是    |  按钮背景图路径 |
-| title | String| 否    |  按钮文字  |
-| titleColor | String| 否    |  按钮文字颜色 |
-| titleSize | Number| 否    |  按钮文字大小 |
+| 参数名称       | 参数类型   | 是否必选 | 说明       |
+| ---------- | ------ | ---- | -------- |
+| id         | Number | 是    | 按钮的唯一标识符 |
+| x          | Number | 是    | 按钮横坐标    |
+| y          | Number | 是    | 按钮纵坐标    |
+| width      | Number | 是    | 按钮宽度     |
+| height     | Number | 是    | 按钮高度     |
+| bgImage    | String | 是    | 按钮背景图路径  |
+| title      | String | 否    | 按钮文字     |
+| titleColor | String | 否    | 按钮文字颜色   |
+| titleSize  | Number | 否    | 按钮文字大小   |
 
 **说明:**
 
@@ -1540,10 +1546,14 @@ var json = '{
 * x,y,width,height都是参考以地图左上角为原点的坐标系 单位为px 
 
 
+**返回值:**
+
+返回自定义按钮对象,如果设置失败返回null
+
 **示例:**
 
 ```javascript
-var json = '{
+var json = {
    id:11,
 	bgImage:"res://button1.png",
 	title:"title",
@@ -1552,8 +1562,8 @@ var json = '{
 	y:50,
 	width:35,
 	height:16
-}'
-uexGaodeMap.setCustomButton(json);
+}
+uexGaodeMap.setCustomButton(JSON.stringify(json));
 ```
 ### 🍭 showCustomButtons 显示自定义按钮
 
@@ -1561,12 +1571,13 @@ uexGaodeMap.setCustomButton(json);
 
 **参数:**
 
-| 参数名称    | 参数类型   | 是否必选 | 说明                                |
-| ------- | ------ | ---- | --------------------------------- |
-| json |  json字符串 | 是    | 由需显示按钮的唯一标识符构成的数组 |
-| data    | Object | 是    | 同步返回数据                              |
+| 参数名称 | 参数类型    | 是否必选 | 说明                |
+| ---- | ------- | ---- | ----------------- |
+| json | json字符串 | 是    | 由需显示按钮的唯一标识符构成的数组 |
 
 **返回值**
+
+Object类型，显示结果数据，形式见下:
 
 ```javascript
 var data = {
@@ -1584,8 +1595,8 @@ var data = {
 **示例:**
 
 ```javascript
-var json ='[11,12]';
-var data = uexGaodeMap.showCustomButtons(json);
+var json =[11,12];
+var data = uexGaodeMap.showCustomButtons(JSON.stringify(json));
 alert("callback:" + JSON.stringify(data));
 ```
 ### 🍭 hideCustomButtons 隐藏自定义按钮
@@ -1594,12 +1605,13 @@ alert("callback:" + JSON.stringify(data));
 
 **参数:**
 
-| 参数名称    | 参数类型   | 是否必选 | 说明                                |
-| ------- | ------ | ---- | --------------------------------- |
+| 参数名称 | 参数类型    | 是否必选 | 说明                        |
+| ---- | ------- | ---- | ------------------------- |
 | json | json字符串 | 否    | 内容是由需隐藏自定义按钮对象的唯一标识符构成的数组 |
-| data    | json对象 | 是    | 返回数据                              |
 
 **返回值:**
+
+Object类型，隐藏结果数据，形式见下:
 
 ```javascript
 var data = {
@@ -1617,8 +1629,8 @@ var data = {
 **示例:**
 
 ```javascript
-var json ='[11,12]';
-var data = uexGaodeMap.hideCustomButtons(json);
+var json =[11,12];
+var data = uexGaodeMap.hideCustomButtons(JSON.stringify(json));
 alert("callback:" + JSON.stringify(data));
 ```
 
@@ -1628,10 +1640,9 @@ alert("callback:" + JSON.stringify(data));
 
 **参数:**
 
-| 参数名称   | 参数类型   | 是否必选 | 说明                        |
-| ------ | ------ | ---- | ------------------------- |
-| id | String | 是    | 需要删除的按钮的唯一标识符 |
-| result | Boolean  | 是    | true为删除成功,false为删除失败      |
+| 参数名称 | 参数类型   | 是否必选 | 说明            |
+| ---- | ------ | ---- | ------------- |
+| id   | String | 是    | 需要删除的按钮的唯一标识符 |
 
 
 **说明:**
@@ -1639,6 +1650,8 @@ alert("callback:" + JSON.stringify(data));
 * 删除自定义按钮是全局的
 * 如果被删除的按钮已经被显示,会先隐藏按钮再删除
 
+**返回值:**
+Boolean类型，删除结果，true为删除成功,false为删除失败
 
 **示例:**
 
@@ -1660,8 +1673,6 @@ var result = uexGaodeMap.deleteCustomButton(id);
 无
 ```
 
-   
-
 **示例:**
 
 ```
@@ -1682,8 +1693,6 @@ var json = {
 }
 ```
 
-  
-
 **示例:**
 
 ```
@@ -1692,7 +1701,7 @@ var json = {
     }
 ```
 
-### 🍭 onMarkerBubbleClickListener 点击气泡的监听方法
+### 🍭 onMarkerBubbleClickListener 点击气泡的监听方法,仅支持Android
 
 `uexGaodeMap.onMarkerBubbleClickListener(json);`
 
@@ -1704,7 +1713,8 @@ var json = {
 }
 ```
 
-  
+**平台支持:**
+Android 4.0+
 
 **示例:**
 
@@ -1811,7 +1821,7 @@ uexGaodeMap.onCustomButtonClick = function(id) {
 
 # 3 离线地图
 ## 3.1 方法
-### download 开始下载
+### 🍭 download 开始下载
 
 `uexGaodeMap.download(json,callBackFunction)`
 
@@ -1821,11 +1831,11 @@ uexGaodeMap.onCustomButtonClick = function(id) {
 
 **参数:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
-| callBackFunction | Function  | 是    | 回调函数 |
-```
+| 参数名称             | 参数类型     | 是否必选 | 说明                                  |
+| ---------------- | -------- | ---- | ----------------------------------- |
+| json             | json字符串  | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
+| callBackFunction | Function | 是    | 回调函数                                |
+```javascript
 var json = [
     {
         city:,//(可选) 城市名称
@@ -1833,22 +1843,22 @@ var json = [
     }
 ]
 ```
-**各字段含义如下**:
+各字段含义如下:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| city | String | 否    |  城市名称 |
-| province |String | 否    |  省或直辖市名称 |
+| 参数名称     | 参数类型   | 是否必选 | 说明      |
+| -------- | ------ | ---- | ------- |
+| city     | String | 否    | 城市名称    |
+| province | String | 否    | 省或直辖市名称 |
 
 **回调参数**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明                   |
+| ----- | ------ | ---- | -------------------- |
 | error | Number | 是    | 0表示加入列表成功,非0表示加入列表失败 |
-| data | Object | 是    | 返回的数据 |
+| data  | Object | 是    | 返回的数据,形式见下：          |
 
 
-```
+```javascript
 var data = {
     name:,//(必选) 省或城市名称
     errorStr://(可选) 错误描述,error非0时,该值有效.
@@ -1859,7 +1869,7 @@ var data = {
 
 **示例:**
 
-```
+```javascript
     var params = [
         {
             city:'武汉'
@@ -1969,16 +1979,16 @@ var json = []//(必传) 省或城市名称数组
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明   |
-| ---- | ------ | ---- | ---- |
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
 | callBackFunction | Function | 是    | 回调函数 |
 
 **回调参数**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
 | error | Number | 是    | 0表示成功,非0表示失败 |
-| data | Array | 是    | 返回的数据 |
+| data  | Array  | 是    | 返回的数据        |
 ```
 var data = [
     {
@@ -2012,16 +2022,16 @@ var data = [
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明   |
-| ---- | ------ | ---- | ---- |
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
 | callBackFunction | Function | 是    | 回调函数 |
 
 **回调参数**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
 | error | Number | 是    | 0表示成功,非0表示失败 |
-| data | Array | 是    | 返回的数据 |
+| data  | Array  | 是    | 返回的数据        |
 
 ```
 var data = [
@@ -2065,16 +2075,16 @@ var data = [
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明   |
-| ---- | ------ | ---- | ---- |
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
 | callBackFunction | Function | 是    | 回调函数 |
 
 **回调参数**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
 | error | Number | 是    | 0表示成功,非0表示失败 |
-| data | Array | 是    | 返回的数据 |
+| data  | Array  | 是    | 返回的数据        |
 
 ```
 var data = [
@@ -2111,16 +2121,16 @@ var data = [
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明   |
-| ---- | ------ | ---- | ---- |
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
 | callBackFunction | Function | 是    | 回调函数 |
 
 **回调参数**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
 | error | Number | 是    | 0表示成功,非0表示失败 |
-| data | Array | 是    | 返回的数据 |
+| data  | Array  | 是    | 返回的数据        |
 
 ```
 var data = [
@@ -2156,12 +2166,12 @@ var data = [
 
 **参数:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
-| callBackFunction | Function  | 是    | 回调函数 |
+| 参数名称             | 参数类型     | 是否必选 | 说明                                  |
+| ---------------- | -------- | ---- | ----------------------------------- |
+| json             | json字符串  | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
+| callBackFunction | Function | 是    | 回调函数                                |
 
-```
+```javascript
 var json = {
     city:,//(可选) 城市名称
     province://(可选) 省或直辖市名称
@@ -2169,12 +2179,12 @@ var json = {
 ```
 **回调参数**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
 | error | Number | 是    | 0表示成功,非0表示失败 |
-| data | Array | 是    | 返回的数据 |
+| data  | Object | 是    | 返回的数据        |
 
-```
+```javascript
 var data = {
     name:,//(必选) 省或城市名称
     result://(可选) 是否有更新,0-有更新,1-没有更新
@@ -2184,7 +2194,7 @@ var data = {
 
 **示例:**
 
-```
+```javascript
     var params = 
         {
             city:'武汉'
@@ -2208,10 +2218,10 @@ var data = {
 
 **参数:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
-| callBackFunction | Function  | 是    | 回调函数 |
+| 参数名称             | 参数类型     | 是否必选 | 说明                                  |
+| ---------------- | -------- | ---- | ----------------------------------- |
+| json             | json字符串  | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
+| callBackFunction | Function | 是    | 回调函数                                |
 
 
 ```
@@ -2220,10 +2230,10 @@ var json = []//(可选,仅Android) 省或城市名称数组
 ```
 **回调参数**:
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
+| 参数名称  | 参数类型   | 是否必选 | 说明                |
+| ----- | ------ | ---- | ----------------- |
 | error | Number | 是    | 状态码,0-删除成功,非0-失败. |
-| data | Object | 是    | 返回数据,仅支持Android |
+| data  | Object | 是    | 返回数据,仅支持Android   |
 
 ```
 var data = {

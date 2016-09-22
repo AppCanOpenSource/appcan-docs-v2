@@ -9,7 +9,7 @@
 
 **config.xml配置插件的方法**，示例配置代码如下： 
 
-```
+```xml
 <config desc="uexUmeng" type="KEY">
 	<param platform="iOS" name="$uexUmeng_APPKey$" value="562df76b67e58e0592003544"/>  
 	<param platform="iOS" name="$uexUmeng_channel$" value="uex_umeng_plugin_channel"/> 
@@ -66,14 +66,10 @@
 
 **参数**
 
-param为json字符串，包含的参数如下
-
 | 参数名称       | 参数类型   | 是否必选 | 说明    | 默认值  |
 | ---------- | ------ | ---- | ----- | ---- |
 | eventName  | String | 是    | 事件的名称 | 无    |
 | jsonString | String | 否    | 事件的属性 | 无    |
-
-
 
 **示例**
 
@@ -91,21 +87,20 @@ uexUmeng.onEvent(eventName, data)
 
 **说明**
 获取设备的基本信息，根据用户的需求，可以将某个设备指定为测试设备，测试设备所产生的数据不会污染真实数据。测试设备的配置在http://www.umeng.com/test_devices/new
-该方法同步返回设备的基本信息。返回的参数格式如下：
+**参数**
 
-| 参数名称  | 参数类型   | 是否必选 | 说明     |
-| ----- | ------ | ---- | ------ |
-| param | JSON对象 | 是    | 设备基本信息 |
+无
 
-```java
-var param = {
+**返回值**
+
+Object类型设备的基本信息，返回的数据格式如下:
+
+```javascript
+{
 	"device_id":, //设备id
 	"mac": //设备Mac地址，仅Android支持
 }
 ```
-
-**参数**
-无
 
 
 **示例**

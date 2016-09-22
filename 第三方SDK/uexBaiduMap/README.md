@@ -36,15 +36,15 @@
 
 **参数**
 
-| 参数名称             | 参数类型   | 是否必选 | 说明       |
-| ---------------- | ------ | ---- | -------- |
-| x                | Number | 是    | x坐标      |
-| y                | Number | 是    | y坐标      |
-| width            | Number | 是    | 地图宽度     |
-| height           | Number | 是    | 地图高度     |
-| longitude        | Number | 是    | 地图中心点经度  |
-| latitude         | Number | 是    | 地图中心点纬度  |
-| callbackFunction | 函数     | 否    | 地图打开后的回调 |
+| 参数名称             | 参数类型     | 是否必选 | 说明       |
+| ---------------- | -------- | ---- | -------- |
+| x                | Number   | 是    | x坐标      |
+| y                | Number   | 是    | y坐标      |
+| width            | Number   | 是    | 地图宽度     |
+| height           | Number   | 是    | 地图高度     |
+| longitude        | Number   | 是    | 地图中心点经度  |
+| latitude         | Number   | 是    | 地图中心点纬度  |
+| callbackFunction | Function | 否    | 地图打开后的回调 |
 
 * x,y,width,height 的单位均为px
 * (x,y)表示地图左上角的坐标
@@ -70,16 +70,6 @@ uexBaiduMap.open(10,100,480,640,"116.309","39.977", function(){
 
 无
 
-
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
-
 **示例**
 
 ```
@@ -96,15 +86,6 @@ uexBaiduMap.close();
 **参数**
 
 无
-
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -124,15 +105,6 @@ uexBaiduMap.hideMap();
 
 无
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
-
 **示例**
 
 ```
@@ -149,18 +121,9 @@ uexBaiduMap.showMap();
 
 **参数**
 
-```
-type:(Number类型) 必选地图的类型(1-标准地图,2-卫星地图)
-```
-
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
+| 参数名称 | 参数类型   | 是否必选 | 说明                   |
+| ---- | ------ | ---- | -------------------- |
+| type | Number | 是    | 地图的类型(1-标准地图,2-卫星地图) |
 
 **示例**
 
@@ -182,15 +145,6 @@ uexBaiduMap.setMapType(1);
 | ---- | ------ | ---- | --------- |
 | type | Number | 是    | 0-关闭,1-开启 |
 
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
-
 **示例**
 
 ```
@@ -211,15 +165,6 @@ uexBaiduMap.setTrafficEnabled(1);
 | --------- | ------ | ---- | ----- |
 | longitude | Number | 是    | 中心点经度 |
 | latitude  | Number | 是    | 中心点纬度 |
-
-**平台支持**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
 
 **示例**
 
@@ -248,8 +193,6 @@ uexBaiduMap.setCenter(121.481,31.227);
 }
 ```
 如果失败,返回null
-
-
 
 **示例**
 
@@ -291,8 +234,6 @@ uexBaiduMap.setZoomLevel(10);
 **参数**
 
 无 
-
-
 
 **示例**
 
@@ -472,21 +413,23 @@ uexBaiduMap.setOverlookEnable(1);
 
 **参数**
 
-```
-json:(String类型) 必选添加到地图的标注信息的集合.该字符串为JSON格式.如下:
+| 参数名称 | 参数类型   | 是否必选 | 说明                            |
+| ---- | ------ | ---- | ----------------------------- |
+| json | String | 是    | 添加到地图的标注信息的集合.该字符串为JSON格式.如下: |
+
+```javascript
 var json=[
-		{
-		id:,//(可选)唯一标识符 
-		longitude:,//(必选)经度 
-		latitude:,//(必选)纬度 
-		icon:,//(可选)标注图标路径,支持类型:"res://""http://" 
-		bubble:{//(可选)自定义弹出气泡 
-			 title:,//(必选)自定义弹出气泡标题
-			 bgImage://(可选)自定义弹出气泡背景图片,格式:res://btn.png 
-			} 
-		}
-	] 
-		
+	{
+		id:,
+		longitude:,
+		latitude:,
+		icon:,
+		bubble:{
+			 title:,
+			 bgImage:
+		} 
+	}
+] 	
 ```
 各字段含义如下
 
@@ -541,8 +484,6 @@ var ids=uexBaiduMap.addMarkersOverlay(JSON.stringify(data));
 if(!ids){
 	alert("添加失败");
 }
- 
- 
 ```
 ### 🍭 setMarkerOverlay 更新设置标注信息
 
@@ -554,37 +495,46 @@ if(!ids){
 
 **参数**
 
-| 参数        | 参数类型   | 是否必选 | 说明          |
-| --------- | ------ | ---- | ----------- |
-| makerId   | String | 是    | 唯一标识符       |
-| makerInfo | String | 是    | 标注信息,json格式 |
+| 参数        | 参数类型   | 是否必选 | 说明                |
+| --------- | ------ | ---- | ----------------- |
+| makerId   | String | 是    | 唯一标识符             |
+| makerInfo | String | 是    | 标注信息,json格式，形式见下： |
 
-```
+```javascript
 var makerInfo={
-	longitude:,//标注经度
-	latitude:,//标注纬度
-	icon://标注图标 
-	bubble:{//气泡设置
-		title:,//气泡标题
-		bgImage://气泡背景图片
-		}
+	longitude:,
+	latitude:,
+	icon:,
+	bubble:{
+		title:,
+		bgImage:
 	}
+}
 ```
+
+
+各字段含义如下：
+
+| 字段名称      | 类型     | 是否必选 | 说明     |
+| --------- | ------ | ---- | ------ |
+| longitude | Number | 是    | 标注经度   |
+| latitude  | Number | 是    | 标注纬度   |
+| icon      | String | 否    | 标注图标   |
+| bubble    | Object | 是    | 气泡设置   |
+| title     | String | 是    | 气泡标题   |
+| bgImage   | String | 是    | 气泡背景图片 |
 
 **示例**
 
 ```javascript
-var makerInfo =
-	{
-	makerInfo: {
-		bubble: {
+var makerInfo ={
+	bubble:{
 		bgImage: "res://btn.png",
 		title: "这是标题"
 	},
-		latitude: "39.021514",
-		longitude: "116.232323"
-		
-	};
+	latitude: "39.021514",
+	longitude: "116.232323"	
+};
 var makerId = '10001';
 uexBaiduMap. setMarkerOverlay (makerId, makerInfo);
  
@@ -607,9 +557,9 @@ uexBaiduMap. setMarkerOverlay (makerId, makerInfo);
 
 **示例**
 
-```
+```javascript
 var makerId = '10001';
-uexBaiduMap. showBubble (makerId);
+uexBaiduMap.showBubble(makerId);
 ```
 ### 🍭 hideBubble 隐藏标注气泡 
 
@@ -622,8 +572,6 @@ uexBaiduMap. showBubble (makerId);
 **参数**
 
 无 
-
-
 
 **示例**
 
@@ -640,8 +588,11 @@ uexBaiduMap.hideBubble();
 
 **参数**
 
-```
-dotInfo:(String类型) 必选添加到地图上的圆点信息的集合.该字符串为JSON格式
+| 参数名称    | 参数类型   | 是否必选 | 说明                   |
+| ------- | ------ | ---- | -------------------- |
+| dotInfo | String | 是    | 添加到地图上的圆点信息的集合，形式见下： |
+
+```javascript
 var dotInfo={
 	id:,
 	fillColor:,
@@ -649,7 +600,6 @@ var dotInfo={
 	longitude:,
 	latitude:
 }
-
 ```
 
 各字段含义如下
@@ -691,22 +641,25 @@ if(!id){
 
 **参数**
 
+
+| 参数名称         | 参数类型   | 是否必选 | 说明                       |
+| ------------ | ------ | ---- | ------------------------ |
+| polylineInfo | String | 是    | 添加到地图上的折线信息。该字符串为JSON格式: |
+
 ```
-polylineInfo:(String类型) 必选添加到地图上的折线信息的集合.该字符串为JSON格式:
 var polylineInfo={
-	id:,
 	fillColor:,
 	lineWidth:,
 	property:
 		[
 			{
-			longitude:"116.357428",
-			latitude:"39.93923
-		},
+				longitude:"116.357428",
+				latitude:"39.93923
+			},
 			{
-			longitude:"116.347428",
-			latitude:"39.89923"
-		}
+				longitude:"116.347428",
+				latitude:"39.89923"
+			}
 		]
 	}
 ```
@@ -766,11 +719,12 @@ if(!id){
 
 **参数**
 
-```
-arcInfo:(String类型) 必选添加到地图上的弧形信息的集合.该字符串为JSON格式
+| 参数名称    | 参数类型   | 是否必选 | 说明                       |
+| ------- | ------ | ---- | ------------------------ |
+| arcInfo | String | 是    | 添加到地图上的弧形信息。该字符串为JSON格式: |
 
+```
 var arcInfo={
-	id:,
 	strokeColor:,
 	lineWidth:,
 	startLongitude:,
@@ -830,10 +784,13 @@ if(!id){
 
 **参数**
 
+
+| 参数名称       | 参数类型   | 是否必选 | 说明                         |
+| ---------- | ------ | ---- | -------------------------- |
+| circleInfo | String | 是    | 添加到地图上的圆形覆盖物信息。该字符串为JSON格式 |
+
 ```
-circleInfo:(String类型) 必选添加到地图上的圆形覆盖物信息的集合.该字符串为JSON格式
 var circleInfo={
-	id:,
 	longitude:,
 	latitude:,
 	radius:"1000",
@@ -886,10 +843,12 @@ if(!id){
 
 **参数**
 
+| 参数名称        | 参数类型   | 是否必选 | 说明                           |
+| ----------- | ------ | ---- | ---------------------------- |
+| polygonInfo | String | 是    | 添加到地图上的集合图形信息的集合。该字符串为JSON格式 |
+
 ```
-polygonInfo:(String类型) 必选添加到地图上的集合图形信息的集合.该字符串为JSON格式:
 var polygonInfo={
-	id:,
 	fillColor:,
 	strokeColor:,
 	lineWidth:,
@@ -962,11 +921,12 @@ if(!id){
 
 **参数**
 
-```json
-groundInfo:(String类型) 必选添加到地图上的地形图图层信息的集合.该字符串为JSON格式
+| 参数名称       | 参数类型   | 是否必选 | 说明                            |
+| ---------- | ------ | ---- | ----------------------------- |
+| groundInfo | String | 是    | 添加到地图上的地形图图层信息。该字符串为JSON格式如下： |
 
+```
 var groundInfo={
-	id:,
 	imageUrl:,
 	transparency:,
 	imageWidth:,
@@ -1033,11 +993,12 @@ if(!id){
 
 **参数**
 
-```
-textInfo:(String类型) 必选添加到地图上的文字覆盖物信息的集合.该字符串为JSON格式
+| 参数名称     | 参数类型   | 是否必选 | 说明                            |
+| -------- | ------ | ---- | ----------------------------- |
+| textInfo | String | 是    | 添加到地图上的文字覆盖物信息。该字符串为JSON格式如下： |
 
+```
 var textInfo = {
-	id:,
 	bgColor:,
 	fontSize:,
 	fontColor:,
@@ -1135,8 +1096,12 @@ if(!id){
 
 **参数**
 
+| 参数名称             | 参数类型     | 是否必选 | 说明                         |
+| ---------------- | -------- | ---- | -------------------------- |
+| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式，形式见下： |
+| callbackFunction | Function | 是    | 搜索结果的回调方法                  |
+
 ```json
-json:(String类型) 必选搜索所需要的信息.该字符串为JSON格式
 var json={
 	city:,
 	searchKey:,
@@ -1152,31 +1117,19 @@ var json={
 | searchKey | 是    | 关键字   |
 | pageNum   | 是    | 结果页索引 |
 
-**示例**
-
-```javascript
-var data={
-	city: "北京",
-	searchKey: "114",
-	pageNum: "0"
-};
-uexBaiduMap.poiSearchInCity(data, function(error,data) {
-	alert(JSON.stringify(data));
-});
-```
-
 **回调参数:**
 
 ```javascript
-var callbackFunction=function(error,data);
+var callbackFunction = function(error,data){}
 ```
 
-`error` :0表示成功,其他表示失败
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 搜索结果，0-成功，非0-失败 |
+| data  | Object | 成功时返回的数据，形式见下：  |
 
-`data`是JSON类型对象,其格式如下:
-
-```json
-{
+```javascript
+var data = {
 	totalPoiNum:,
 	totalPageNum:,
 	currentPageNum:,
@@ -1219,6 +1172,19 @@ var callbackFunction=function(error,data);
 | currentPageCapacity | 是    | 当前页的poi结果数                            |
 
 
+**示例**
+
+```javascript
+var data={
+	city: "北京",
+	searchKey: "114",
+	pageNum: "0"
+};
+uexBaiduMap.poiSearchInCity(data, function(error,data) {
+	alert(JSON.stringify(data));
+});
+```
+
 ### 🍭 poiNearbySearch 周边检索 
 
 `uexBaiduMap.poiNearbySearch(json, callbackFunction);`
@@ -1229,8 +1195,13 @@ var callbackFunction=function(error,data);
 
 **参数**
 
+
+| 参数名称             | 参数类型     | 是否必选 | 说明                         |
+| ---------------- | -------- | ---- | -------------------------- |
+| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式，形式见下： |
+| callbackFunction | Function | 是    | 搜索结果的回调方法                  |
+
 ```
-json:(String类型) 必选搜索所需要的信息.该字符串为JSON格式
 var json={
 	longitude:,
 	latitude:,
@@ -1250,6 +1221,59 @@ var json={
 | searchKey | 是    | 关键字     |
 | pageNum   | 是    | 结果页索引   |
 
+**回调参数:**
+
+```javascript
+var callbackFunction = function(error,data){}
+```
+
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 搜索结果，0-成功，非0-失败 |
+| data  | Object | 成功时返回的数据，形式见下：  |
+
+```javascript
+var data = {
+	totalPoiNum:,
+	totalPageNum:,
+	currentPageNum:,
+	currentPageCapacity:,
+	poiInfo:[
+		{
+			uid:,
+			poiType:,
+			phoneNum:,
+			address:,
+			name:,
+			longitude:,
+			latitude:,
+			distance:,
+			city:,
+			postCode:
+		}
+	]
+}
+```
+
+各字段含义如下
+
+| 参数                  | 是否必须 | 说明                                    |
+| ------------------- | ---- | ------------------------------------- |
+| poiInfo             | 是    | POI信息集合                               |
+| longitude           | 是    | 经度                                    |
+| latitude            | 是    | 纬度                                    |
+| distance            | 是    | 距离                                    |
+| name                | 是    | 名称                                    |
+| uid                 | 是    | 唯一标识符                                 |
+| address             | 是    | 地址                                    |
+| city                | 是    | 城市                                    |
+| phoneNum            | 是    | 电话                                    |
+| postCode            | 是    | 邮编                                    |
+| poiType             | 是    | 类型(POI类型,0:普通点1:公交站2:公交线路3:地铁站4:地铁线路) |
+| totalPoiNum         | 是    | 总结果数                                  |
+| totalPageNum        | 是    | 总页数                                   |
+| currentPageNum      | 是    | 当前页                                   |
+| currentPageCapacity | 是    | 当前页的poi结果数                            |
 
 **示例**
 
@@ -1266,8 +1290,6 @@ uexBaiduMap.poiNearbySearch (jsonStr, function(error,data) {
 });
 ```
 
-`callbackFunction`的参数`data` 是JSON类型对象, 其格式同`poiSearchInCity`中的回调数据格式一致
-
 
 ### 🍭 poiBoundSearch 区域检索
 
@@ -1279,8 +1301,13 @@ uexBaiduMap.poiNearbySearch (jsonStr, function(error,data) {
 
 **参数**
 
+
+| 参数名称             | 参数类型     | 是否必选 | 说明                         |
+| ---------------- | -------- | ---- | -------------------------- |
+| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式，形式见下： |
+| callbackFunction | Function | 是    | 搜索结果的回调方法                  |
+
 ```javascript
-json:(String类型) 必选搜索所需要的信息.该字符串为JSON格式
 var json={
 	searchKey:,
 	pageNum:,
@@ -1306,6 +1333,59 @@ var json={
 | longitude | 是    | 经度    |
 | latitude  | 是    | 纬度    |
 
+**回调参数:**
+
+```javascript
+var callbackFunction = function(error,data){}
+```
+
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 搜索结果，0-成功，非0-失败 |
+| data  | Object | 成功时返回的数据，形式见下：  |
+
+```javascript
+var data = {
+	totalPoiNum:,
+	totalPageNum:,
+	currentPageNum:,
+	currentPageCapacity:,
+	poiInfo:[
+		{
+			uid:,
+			poiType:,
+			phoneNum:,
+			address:,
+			name:,
+			longitude:,
+			latitude:,
+			distance:,
+			city:,
+			postCode:
+		}
+	]
+}
+```
+
+各字段含义如下
+
+| 参数                  | 是否必须 | 说明                                    |
+| ------------------- | ---- | ------------------------------------- |
+| poiInfo             | 是    | POI信息集合                               |
+| longitude           | 是    | 经度                                    |
+| latitude            | 是    | 纬度                                    |
+| distance            | 是    | 距离                                    |
+| name                | 是    | 名称                                    |
+| uid                 | 是    | 唯一标识符                                 |
+| address             | 是    | 地址                                    |
+| city                | 是    | 城市                                    |
+| phoneNum            | 是    | 电话                                    |
+| postCode            | 是    | 邮编                                    |
+| poiType             | 是    | 类型(POI类型,0:普通点1:公交站2:公交线路3:地铁站4:地铁线路) |
+| totalPoiNum         | 是    | 总结果数                                  |
+| totalPageNum        | 是    | 总页数                                   |
+| currentPageNum      | 是    | 当前页                                   |
+| currentPageCapacity | 是    | 当前页的poi结果数                            |
 
 **示例**
 
@@ -1327,8 +1407,6 @@ uexBaiduMap.poiBoundSearch(data, function(error,data) {
 });
 ```
 
-`callbackFunction`的参数`data`是JSON类型对象, 其格式同`poiSearchInCity`中的回调数据格式一致
-
 
 ### 🍭 busLineSearch 公交线路检索
 
@@ -1340,8 +1418,13 @@ uexBaiduMap.poiBoundSearch(data, function(error,data) {
 
 **参数**
 
+
+| 参数名称             | 参数类型     | 是否必选 | 说明                         |
+| ---------------- | -------- | ---- | -------------------------- |
+| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式，形式见下： |
+| callbackFunction | Function | 是    | 搜索结果的回调方法                  |
+
 ```
-json:(String类型) 必选索所需要的信息.该字符串为JSON格式.
 var json={
 	city:,
 	busLineName:
@@ -1355,19 +1438,28 @@ var json={
 | city        | 是    | 城市   |
 | busLineName | 是    | 公交名  |
 
-`callbackFunction`中的参数类型是JSON对象,格式如下:
+**回调参数:**
 
-```json
-{
+```javascript
+var callbackFunction = function(error,data){}
+```
+
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 搜索结果，0-成功，非0-失败 |
+| data  | Object | 成功时返回的数据，形式见下：  |
+
+```javascript
+var data ={
 	busLineName:,
 	busCompany:,
 	startTime:,
 	endTime:,
 	busStation:[
 		{
-			title:"史各庄(辛庄桥西)",
-			longitude:116.297604,
-			latitude:40.099629
+			title:,
+			longitude:,
+			latitude:
 		}
 	]
 }
@@ -1385,7 +1477,6 @@ var json={
 | longitude   | 是    | 站点的经度    |
 | latitude    | 是    | 站点的纬度    |
 | title       | 是    | 站点的名称    |
-
 
 **示例**
 
@@ -1457,7 +1548,7 @@ uexBaiduMap.nextBusLineNode();
 
 ### 🍭 searchRoutePlan 规划并显示路线 
 
-`uexBaiduMap.searchRoutePlan(json);`
+`uexBaiduMap.searchRoutePlan(json, callbackFunction);`
 
 **说明**
 
@@ -1465,8 +1556,13 @@ uexBaiduMap.nextBusLineNode();
 
 **参数**
 
+
+| 参数名称             | 参数类型     | 是否必选 | 说明               |
+| ---------------- | -------- | ---- | ---------------- |
+| json             | String   | 是    | 规划路线所需要的信息，形式见下： |
+| callbackFunction | Function | 是    | 回调方法             |
+
 ```javascript
-json:(String类型) 必选规划路线所需要的信息.该字符串为JSON格式.
 var json={
 	id:,
 	type:,
@@ -1497,7 +1593,15 @@ var json={
 | longitude | 否    | 经度,必须与latitude合用    |
 | latitude  | 否    | 纬度                  |
 
-callbackFunction的参数是errorCode, 其数据含义如下:
+**回调参数:**
+
+```javascript
+var callbackFunction = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明                       |
+| ----- | ------ | ------------------------ |
+| error | Number | 显示结果，0-成功，非0-失败，具体错误码见下： |
 
 | 错误码  | 说明               |
 | ---- | ---------------- |
@@ -1536,7 +1640,11 @@ var data = {
 		latitude: "40.056957"
 	}
 };
-var id=uexBaiduMap.searchRoutePlan(data);
+var id=uexBaiduMap.searchRoutePlan(data,function(error){
+  if(!error){
+    alert("成功");
+  }
+});
 alert(id);
 ```
 
@@ -1607,8 +1715,12 @@ alert(id);
 
 **参数**
 
+| 参数名称             | 参数类型     | 是否必选 | 说明                         |
+| ---------------- | -------- | ---- | -------------------------- |
+| json             | String   | 是    | 接口所需要的信息.该字符串为JSON格式，形式见下： |
+| callbackFunction | Function | 是    | 回调方法                       |
+
 ```
-json:(String类型) 必选地址该字符串为JSON格式
 var json={
 	city:,
 	address:
@@ -1628,10 +1740,13 @@ var json={
 var callbackFunction=function(error,data){}
 ```
 
-`data`是JSON对象, 其数据格式如下:
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 编码结果，0-成功，非0-失败 |
+| data  | Object | 成功时返回的数据，形式见下：  |
 
-```
-{
+```javascript
+var data = {
     longitude:,
     latitude:
 }
@@ -1661,11 +1776,20 @@ uexBaiduMap.geocode(data, function(error,data) {
 
 **参数**
 
-```
-json:(String类型) 必选经纬度该字符串为JSON格式.如下{longitude:"116.307827",latitude:"40.056957"}
+
+| 参数名称             | 参数类型     | 是否必选 | 说明                         |
+| ---------------- | -------- | ---- | -------------------------- |
+| json             | String   | 是    | 接口所需要的信息.该字符串为JSON格式，形式见下： |
+| callbackFunction | Function | 是    | 回调方法                       |
+
+```javascript
+var json = {
+  longitude:,
+  latitude:
+}
 ```
 
-各字段含义如下
+各字段含义如下：
 
 | 参数        | 是否必须 | 说明   |
 | --------- | ---- | ---- |
@@ -1678,10 +1802,13 @@ json:(String类型) 必选经纬度该字符串为JSON格式.如下{longitude:"1
 var callbackFunction=function(error,data){}
 ```
 
-`data`是JSON对象,其数据格式如下:
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 编码结果，0-成功，非0-失败 |
+| data  | Object | 成功时返回的数据，形式见下：  |
 
 ```json
-{
+var data = {
 	address://地理位置信息
 }
 ```
@@ -1706,16 +1833,26 @@ uexBaiduMap.reverseGeocode(data, function(error,data) {
 
 获取当前的位置信息,仅定位一次,执行完成后回调`callbackFunction`.
 
+**参数**
+
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
+| callbackFunction | Function | 是    | 回调方法 |
+
+
 **回调参数**
 
 ```javascript
 var callbackFunction=function(error,data){}
 ```
 
-`data`是JSON对象,其数据格式如下:
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 获取结果，0-成功，非0-失败 |
+| data  | Object | 成功时返回的数据，形式见下：  |
 
 ```javascript
-{
+var data = {
     longitude:, //经度
     latitude:,  //纬度
     timestamp:  //时间,格式如"2014-11-2217:46:37"
@@ -1836,7 +1973,7 @@ uexBaiduMap.zoomControlsEnabled(0)
 
 **说明**
 
-通过经纬度计算两点之间的距离,返回值是Number类型
+通过经纬度计算两点之间的距离
 
 **参数**
 
@@ -1847,10 +1984,12 @@ uexBaiduMap.zoomControlsEnabled(0)
 | lat2 | Number | 是    | 第二个坐标纬度 |
 | lon2 | Number | 是    | 第二个坐标经度 |
 
+**返回值**
+Number类型，两点之间距离值.
 
 **示例**
 
-```
+```javascript
 var distance = uexBaiduMap.getDistance(lat1,lon1,lat2,lon2);
 ```
 

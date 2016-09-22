@@ -40,7 +40,7 @@
 | params           | String   | 是    | 初始化布局所需参数 |
 | callbackFunction | Function | 是    | 回调函数      |
 
-```
+```javascript
 var params ={
     listViewId:,
     layout:{
@@ -61,13 +61,19 @@ var params ={
 | left       | Array  | 否    | 列表项向右滑动时左侧显示的布局 |
 | right      | Array  | 否    | 列表项向左滑动时右侧显示的布局 |
 
-**回调参数**
+**回调参数:**
 
-回调函数有Number类型的参数errorCode错误码,请参考[errorCode](#ErrorCode) 
+```javascript
+var callbackFunction = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明                                       |
+| ----- | ------ | ---------------------------------------- |
+| error | Number | 错误码,0-成功，非0-失败，请参考[errorCode](#ErrorCode) |
 
 **示例:**
 
-```
+```javascript
 var params = {
  	listViewId:"0",
  	layout:{
@@ -77,8 +83,8 @@ var params = {
  	}
 };
 var data = JSON.stringify(params);
-uexNBListView.initLayout(data, function(errorCode){
-    alert(errorCode);
+uexNBListView.initLayout(data, function(error){
+    alert(error);
 });
 ```
 
@@ -97,7 +103,7 @@ uexNBListView.initLayout(data, function(errorCode){
 | params           | String   | 是    | 设置列表相关参数 |
 | callbackFunction | Function | 是    | 回调函数     |
 
-```
+```javascript
 var params ={
     listViewId:,
     dataList:[//列表数据
@@ -122,13 +128,19 @@ var params ={
 
 **回调参数**
 
-回调函数有Number类型的参数errorCode错误码,请参考[errorCode](#ErrorCode) 
+```javascript
+var callbackFunction = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明                                       |
+| ----- | ------ | ---------------------------------------- |
+| error | Number | 错误码,0-成功，非0-失败，请参考[errorCode](#ErrorCode) |
 
 **示例:**
 
 layout_item1布局代码:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "1" layoutType = "${type1}">
     <linearlayout width = "-1" height = "250" background = "#ffffff"
@@ -172,7 +184,7 @@ layout_item1布局代码:
 
 layout_item2布局代码:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "2">
     <linearlayout id = "content" orientation = "horizontal" width = "-1"
@@ -203,7 +215,7 @@ layout_item2布局代码:
 
 layout_left布局代码:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "left">
     <linearlayout id = "content" orientation = "horizontal" width = "300" height = "-2">
@@ -215,7 +227,7 @@ layout_left布局代码:
 
 layout_right布局代码:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "right">
     <linearlayout id = "content" orientation = "horizontal" width = "400" height = "-2">
@@ -227,7 +239,7 @@ layout_right布局代码:
 
 setItems接口数据传入方式:
 
-```
+```javascript
 var params = {
  	listViewId:"0",
  	dataList:[
@@ -275,8 +287,8 @@ var params = {
 	]
 };
 var data = JSON.stringify(params);
-uexNBListView.setItems(data, function(errorCode){
-    alert(errorCode);
+uexNBListView.setItems(data, function(error){
+    alert(error);
 });
 ```
 
@@ -295,7 +307,7 @@ uexNBListView.setItems(data, function(errorCode){
 | params           | String   | 是    | 打开列表所需数据 |
 | callbackFunction | Function | 是    | 回调函数     |
 
-```
+```javascript
 var params ={
     listViewId:,
     left:,
@@ -344,11 +356,17 @@ var params ={
 
 **回调参数**
 
-回调函数有一个Number类型的参数errorCode错误码,请参考[errorCode](#ErrorCode) 
+```javascript
+var callbackFunction = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明                                       |
+| ----- | ------ | ---------------------------------------- |
+| error | Number | 错误码,0-成功，非0-失败，请参考[errorCode](#ErrorCode) |
 
 **示例:**
 
-```
+```javascript
 var params = {
  	listViewId:"0",
  	left: 0,
@@ -361,8 +379,8 @@ var params = {
  	refreshMode:0
  };
  var data = JSON.stringify(params);
- uexNBListView.open(data, function(errorCode){
-    alert(errorCode);
+ uexNBListView.open(data, function(error){
+    alert(error);
 });
 ```
 
@@ -376,13 +394,13 @@ var params = {
 
 **参数:**
 
-```
+```javascript
 var params = []//唯一标识符数组
 ```
 
 **示例:**
 
-```
+```javascript
         var params = [0];
         var data = JSON.stringify(params);
         uexNBListView.close(data);
@@ -403,7 +421,7 @@ var params = []//唯一标识符数组
 | params           | String   | 是    | 接口所需数据 |
 | callbackFunction | Function | 是    | 回调函数   |
 
-```
+```javascript
 var params ={
     listViewId:,
     index:,
@@ -430,11 +448,17 @@ var params ={
 
 **回调参数:**
 
-回调函数有一个Number类型的参数errorCode错误码,请参考[errorCode](#ErrorCode) 
+```javascript
+var callbackFunction = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明                                       |
+| ----- | ------ | ---------------------------------------- |
+| error | Number | 错误码,0-成功，非0-失败，请参考[errorCode](#ErrorCode) |
 
 **示例:**
 
-```
+```javascript
 var params = {
 	listViewId:"0",
 	index:1,
@@ -482,8 +506,8 @@ var params = {
  	]
  };
  var data = JSON.stringify(params);
- uexNBListView.insert(data, function(errorCode){
-    alert(errorCode);
+ uexNBListView.insert(data, function(error){
+    alert(error);
 });
 ```
 
@@ -502,7 +526,7 @@ var params = {
 | params           | String   | 是    | 接口所需数据 |
 | callbackFunction | Function | 是    | 回调函数   |
 
-```
+```javascript
 var params ={
     listViewId:,
     index:,
@@ -527,11 +551,17 @@ var params ={
 
 **回调参数:**
 
-回调函数有一个Number类型的参数errorCode错误码,请参考[errorCode](#ErrorCode) 
+```javascript
+var callbackFunction = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明                                       |
+| ----- | ------ | ---------------------------------------- |
+| error | Number | 错误码,0-成功，非0-失败，请参考[errorCode](#ErrorCode) |
 
 **示例:**
 
-```
+```javascript
 var params = {
 	listViewId:"0",
 	index:0,
@@ -542,8 +572,8 @@ var params = {
 		}
 	};
 var data = JSON.stringify(params);
-uexNBListView.update(data, function(errorCode){
-    alert(errorCode);
+uexNBListView.update(data, function(error){
+    alert(error);
 });
 ```
 
@@ -562,7 +592,7 @@ uexNBListView.update(data, function(errorCode){
 | params           | String   | 是    | 接口所需数据 |
 | callbackFunction | Function | 是    | 回调函数   |
 
-```
+```javascript
 var params ={
     listViewId:,//(必选) 唯一标识符
     indexes:[]//(必选) 索引数组
@@ -577,18 +607,24 @@ var params ={
 
 **回调参数:**
 
-回调函数有一个Number类型的参数errorCode错误码,请参考[errorCode](#ErrorCode) 
+```javascript
+var callbackFunction = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明                                       |
+| ----- | ------ | ---------------------------------------- |
+| error | Number | 错误码,0-成功，非0-失败，请参考[errorCode](#ErrorCode) |
 
 **示例:**
 
-```
+```javascript
 var params = {
 	listViewId:"0",
 	indexes:[0,1]
 };
 var data = JSON.stringify(params);
-uexNBListView.delete(data, function(errorCode){
-    alert(errorCode);
+uexNBListView.delete(data, function(error){
+    alert(error);
 });
 ```
 
@@ -602,7 +638,7 @@ uexNBListView.delete(data, function(errorCode){
 
 **参数:**
 
-```
+```javascript
 var params ={
     listViewId://(必选) 唯一标识符
 }
@@ -610,7 +646,7 @@ var params ={
 
 **示例:**
 
-```
+```javascript
 var params = {
 	listViewId:"0"
 };
@@ -628,7 +664,7 @@ uexNBListView.show(data);
 
 **参数:**
 
-```
+```javascript
 var params ={
     listViewId://(必选) 唯一标识符
 }
@@ -636,7 +672,7 @@ var params ={
 
 **示例:**
 
-```
+```javascript
 var params = {
 	listViewId:"0"
 };
@@ -654,7 +690,7 @@ uexNBListView.hide(data);
 
 **参数:**
 
-```
+```javascript
 var params = {
     listViewId://(必选) 唯一标识符
 }
@@ -662,7 +698,7 @@ var params = {
 
 **示例:**
 
-```
+```javascript
 var params = {
 	listViewId:"0"
 };
@@ -686,7 +722,7 @@ uexNBListView.setRefreshStatusCompleted(data);
 
 **示例:**
 
-```
+```javascript
 uexNBListView.sendHtmlEvent(data);
 ```
 
@@ -698,7 +734,7 @@ uexNBListView.sendHtmlEvent(data);
 
 **参数:**
 
-```
+```javascript
 var params ={
     status:
 }
@@ -712,7 +748,7 @@ var params ={
 
 **示例:**
 
-```
+```javascript
 uexNBListView.onPullRefreshHeader = function(data){
 	//alert("onPullRefreshHeader->" + data);
 }
@@ -724,7 +760,7 @@ uexNBListView.onPullRefreshHeader = function(data){
 
 **参数:**
 
-```
+```javascript
 var params ={
     status:
 }
@@ -738,7 +774,7 @@ var params ={
 
 **示例:**
 
-```
+```javascript
 uexNBListView.onPullRefreshFooter = function(data){
 	//alert("onPullRefreshFooter->" + data);
 }
@@ -750,11 +786,11 @@ uexNBListView.onPullRefreshFooter = function(data){
 
 **说明:**
 
-XXX表示名称开发者可自定义.给在布局中的元素设置onClick属性值,在该元素被点击时该监听方法被触发.
+XXX表示名称,开发者可自定义.给在布局中的元素设置onClick属性值,在该元素被点击时该监听方法被触发.
 
 **参数:**
 
-```
+```javascript
 var params ={
     listViewId:,
     index:,
@@ -768,13 +804,13 @@ var params ={
 | ---------- | ------ | ---- | ---------- |
 | listViewId | String | 是    | 列表唯一标识符    |
 | index      | String | 是    | 元素所在列表中的项数 |
-| id         | Number | 是    | 元素的唯一标识符   |
+| id         | String | 是    | 元素的唯一标识符   |
 
 **示例:**
 
 在布局文件中设置元素及其onClick属性,如下:
 
-```
+```javascript
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "left">
     <linearlayout id = "content" orientation = "horizontal" width = "300" height = "-2">
@@ -784,7 +820,7 @@ var params ={
 ```
 
 则需要在调用open的网页的uexOnload方法中添加如下注册:
-```
+```javascript
 uexNBListView.onLeftClick = function(data){
 	alert("onLeftClick->" + data);
 };
@@ -796,7 +832,7 @@ uexNBListView.onLeftClick = function(data){
 `uexNBListView.onHtmlEvent(info);`
 
 **参数:**
-```
+```javascript
 var info = {
     listViewId:,
     data:
@@ -819,7 +855,7 @@ Android3.0.1+
 
 **示例:**
 
-```
+```javascript
 uexNBListView.onHtmlEvent = function(data){
 	//alert("onHtmlEvent->" + data);
 }
@@ -902,7 +938,7 @@ API版本: `uexNBListView-4.0.0`
 uexNBListView在使用过程中,需要优先调用initLayout初始化布局方法,布局在定义时需要指定哪些数据在列表中是动态的,然后在setItems,insert或者update接口时对应的传入相应的数据.举例如下:
 布局文件:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <root layoutId = "2" layoutType = "${type}">
     <linearlayout id = "content" orientation = "horizontal" width = "-1"
@@ -918,7 +954,7 @@ uexNBListView在使用过程中,需要优先调用initLayout初始化布局方�
 其中跟根布局linearlayout的背景颜色和text的文本内容需要动态变化,则定义id为content的linearlayout的background属性为:${自定义变量名},这里的"自定义变量名"为backgroundColor.同理定义id为text的text属性为${title}.
 则在设置数据的时候,传入如下代码:
 
-```
+```javascript
         var params = {
             listViewId:0,
             dataList:[

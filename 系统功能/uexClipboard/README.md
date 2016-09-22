@@ -8,7 +8,7 @@
 ##1.2、UI展示
 
  ![](http://newdocx.appcan.cn/docximg/164619h2015x6t15y.png)
-  
+
 ##1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=205_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 ## 1.4、平台版本支持
@@ -32,14 +32,14 @@
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| text | String | 是 | 内容 |
+| 参数名称 | 参数类型   | 是否必选 | 说明   |
+| ---- | ------ | ---- | ---- |
+| text | String | 是    | 内容   |
 
 
 **示例:**
 
-```
+```javascript
 uexClipboard.copy("复制内容");
 ```
 ### 🍭 getContent 获取内容
@@ -52,14 +52,16 @@ uexClipboard.copy("复制内容");
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| info | String | 是 | 返回剪贴板上存放的文字 |
+无
+
+**返回值:**
+
+String类型，剪贴板上存放的内容
 
 
 **示例:**
 
-```
+```javascript
 var info = uexClipboard.getContent();
 alert(info);
 ```
