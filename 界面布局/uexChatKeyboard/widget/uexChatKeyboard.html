@@ -28,22 +28,32 @@
         margin:.4em .6em;
         font-size:1.2em;
         }
+        .divHeight{
+            height:auto;
+            min-height:3em;
+            width:95%;
+            border:1px dashed #C6C6C6;
+            padding:1%;
+            font-size:1.4em;
+            background:#FFF;
+            color:#474747;
+            margin:1%;
+        } 
     </style>
     <script src="js/zy_control.js">
     </script>
     <script src="js/zy_click.js">
+    </script>
+    <script src="js/emoji.js">
     </script>
     <script type="text/javascript">
         window.uexOnload = function() {
             uexWidgetOne.cbError = function(opid,type,data){
                 alert(data);
             }
-            uexChatKeyboard.onCommit = function(json){
-                alert("onCommit:"+json);
-                //uexChatKeyboard.hideKeyboard();
-            }
             uexChatKeyboard.onCommitJson = function(json){
-                alert("onCommitJson:"+json.emojiconsText);
+                console.log(JSON.stringify(json));
+                replaceInsertText(json);
             }
             uexChatKeyboard.onShareMenuItem = function(json){
                 alert("onShareMenuItem "+json);
@@ -52,22 +62,35 @@
             uexChatKeyboard.onVoiceAction = function(json){
 
             }
-            uexChatKeyboard.onAt=function() {
-                uexChatKeyboard.insertAfterAt("守望宝宝");
+            uexChatKeyboard.cbGetInputBarHeight = function(json){
+                alert("cbGetInputBarHeight : " + json);
+            }
+            uexChatKeyboard.onInputKeyword = function(json) {
+                var keyword = json.keyword;
+                if(keyword == '@'){
+                    insertTextByKeyword(keyword,'@守望宝宝','#FF0000','1');
+                }else if(keyword == '☺'){
+                    insertTextByKeyword(keyword,'[微笑]','#EEEEEE','1');
+                }else if(keyword == '正益'){
+                    insertTextByKeyword(keyword,'正益无线','#474747','1');
+                }else if(keyword == 'AppCan'){
+                    insertTextByKeyword(keyword,'测试插入效果','#00FF00','0');
+                }
             }
             uexChatKeyboard.onKeyBoardShow = function(json){
-                alert("onKeyBoardShow:"+json);
+                //alert("onKeyBoardShow:"+json);
                 setTimeout(function (){window.scrollTo(0, document.body.scrollHeight);},20);
             }
         }
 
         function openChatKeyboard(){
-            var jsonstr ={
+            var jsonstr = {
                 emojicons:"res://emojicons/emojicons.xml",
                 shares:"res://shares/shares.xml",
                 placeHold:"请输入内容",
                 touchDownImg:"res://3.png",
                 dragOutsideImg:"res://4.png",
+                inputTextColor:"#474747",
                 textColor:"#FFF",
                 textSize:"15.5",
                 sendBtnbgColorUp:"#45C01A",
@@ -75,17 +98,55 @@
                 sendBtnText:"发送",
                 //sendBtnTextSize:"15.5",
                 sendBtnTextColor:"#FFF",
+                keywords:['@','☺','正益','AppCan'],
                 inputMode:0
-        };
+            };
             uexChatKeyboard.open(JSON.stringify(jsonstr));
         }
 
         function closeChatKeyboard(){
             uexChatKeyboard.close();
         }
+
         function getHeight() {
-            var result=uexChatKeyboard.getInputBarHeight();
-            alert(result);
+            var result = uexChatKeyboard.getInputBarHeight();
+            //4.0可直接return 3.0需要添加回调
+            if (typeof(result) != "undefined") {
+                alert("getHeight : " + result);
+            }
+        }
+
+        function insertTextByKeyword(keyword,insertText,insertTextColor,isReplaceKeyword){
+            var insertParams = {
+                    keyword : keyword,
+                    insertText : insertText,
+                    insertTextColor : insertTextColor,
+                    isReplaceKeyword : isReplaceKeyword
+            };
+            uexChatKeyboard.insertTextByKeyword(JSON.stringify(insertParams));
+        }
+
+        //Utils
+        function replaceInsertText(json){
+            var emojiconsText = json.emojiconsText;
+            document.getElementById('callbackInfo').innerHTML = emojiconsText;
+            var emojiconsTextTemp = emojiconsText.split('');
+            var insertTexts = json.insertTexts;
+            for(i = 0;i < insertTexts.length; i++){
+                var insertTextObj = insertTexts[i];
+                var insertText = insertTextObj.insertText;
+                var color = insertTextObj.insertTextColor;
+                var start = insertTextObj.start;
+                var end = insertTextObj.end;
+                var font = '<font color=\"'+ color + '\">' + insertText + '</font>';
+                emojiconsTextTemp[start] = font;
+                for(j = start + 1;j < end;j++){
+                    emojiconsTextTemp[j] = '';
+                }
+            }
+            emojiconsText = emojiconsTextTemp.join('');
+            emojiconsText = emojiconsText.replace(EMOJI_EXPRESSION,getEmoji);
+            document.getElementById('sendInfo').innerHTML = emojiconsText;
         }
 
     </script>
@@ -104,6 +165,11 @@
                 <input type="button" value="关闭" onclick="closeChatKeyboard();">
                 <input type="button" value="showHeight" onclick="getHeight();">
             </div>
+            <span style="font-size:1.5em;">emojiconsText数据</span>
+            <div id="callbackInfo" class="divHeight"><font color="#CCC">这是回调数据</font></div>
+            <br>
+            <span style="font-size:1.5em;">keywords处理</span>
+            <div id="sendInfo" class="divHeight"><font color="#CCC">这是处理后的数据</font></div>
         </div>
     </div>
 </body>

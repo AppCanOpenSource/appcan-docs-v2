@@ -57,19 +57,7 @@ iOS 3.0.0+
 **示例:**
 
 ```
-var jsonstr = '{
-    "x": 200, 
-    "y": 500, 
-    "w": 150, 
-    "h": 40, 
-    "style": {
-        "styleId": 1, 
-        "pointNum": 4, 
-        "pointColor": [
-            "#ffffff"
-        ]
-    }
-}';
+var jsonstr = '{"x":80, "y":200, "w":150, "h":40, "style":{"styleId":1, "pointNum":4, "pointColor":["#ffffff"]}}';
 uexLoadingView.open(jsonstr);
 ```
 

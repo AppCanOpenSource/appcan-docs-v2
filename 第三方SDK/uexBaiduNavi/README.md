@@ -422,7 +422,7 @@ uexBaiduNavi.onExitDigitDog=function(){
 可以参考[百度地图的AppKEY申请指引](http://newdocx.appcan.cn/newdocx/docx?type=1384_975)
 	
 ## TTS语音平台授权
-SDK内置百度TTS语音播报功能,需要对应用进行授权验证才能够使用,因此需要主动注册应用相关信息。
+SDK内置百度TTS语音播报功能,需要对应用进行授权验证才能够使用（否则会报TTS授权失败等错误信息）,因此需要主动注册应用相关信息。
 
 可以在[导航TTS平台](http://app.navi.baidu.com/ttsregister/appinfo)中进行注册申请
 
@@ -453,6 +453,7 @@ SDK内置百度TTS语音播报功能,需要对应用进行授权验证才能够�
 
 如果需要使用语音播报,需要按照如下指引申请TTS白名单注册:
 http://developer.baidu.com/map/index.php?title=android-navsdk/guide/voice
+> 使用须知：配置的百度地图KEY与打包证书必须一致匹配，配合打包，否则会报授权失败等错误信息，无法正常使用百度导航sdk功能
 
 # 4、更新历史
 

@@ -83,7 +83,7 @@ uexContact.multiOpen();
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | name | String | 是 |  名称 |
-| num| Number | 是 | 电话号码 |
+| num| String | 是 | 电话号码 |
 | email | String | 是 | 邮件 |
 | option | String | 否 | 添加联系人配置,json格式字符串,如下: |
 
@@ -388,7 +388,7 @@ uexContact.modifyWithId(JSON.stringify(option));
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | name | String | 是 |  名称 |
-| num| Number | 是 | 电话号码 |
+| num| String | 是 | 电话号码 |
 | email | String | 是 | 邮件 |
 
 **平台支持:**

@@ -35,6 +35,7 @@ var viewInfo={
     "sendBtnText": ,//(可选)发送按钮展示文字
     "sendBtnTextSize": ,//(可选)发送按钮文字大小
     "sendBtnTextColor": ,//(可选)发送按钮文字颜色
+    "keywords": ['','',''....],//(可选)输入监听关键字(字符串数组)
     "inputMode"://(可选) 输入框默认输入方式,0-文字输入；1-语音输入。默认为0。
 }
 ```
@@ -112,6 +113,7 @@ var jsonstr ={
     "sendBtnText": "发送",
     "sendBtnTextSize": "15.5",
     "sendBtnTextColor": "#FFF",
+    "keywords": ['@','☺','正益'],
     "inputMode":1
 };
 uexChatKeyboard.open(jsonstr);
@@ -239,20 +241,35 @@ iOS 3.0.10+
 uexChatKeyboard.changeWebViewFrame(600);
 ```
 
-> ### insertAfterAt 添加字符串到@后面
+> ### insertTextByKeyword 通过关键字插入内容
 
-`uexChatKeyboard.insertAfterAt(name)`
+`uexChatKeyboard.insertTextByKeyword(jsonStr)`
 
 **说明:**
-
-@好友功能，收到`uexChatKeyboard.onAt`监听后，选择好友。选择完毕后调用此接口添加好友到@后面
+通过关键字插入内容功能
+例子:
+@好友功能，收到`uexChatKeyboard.onInputKeyword`监听关键字@后，选择好友。选择完毕后调用此接口添加好友到关键字@后面,或替换原有@字符。
 
 **参数:**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明   |
 | ---- | ------ | ---- | ---- |
-| name | String | 是    |      |
+| jsonStr | String | 是    |  插入信息参数,json格式如下:   |
 
+```
+var jsonStr  = {
+    'keyword' : ,//关键字
+    'insertText' : ,//插入的数据
+    'insertTextColor' : ,//插入的数据字体颜色
+    'isReplaceKeyword' : // 是否替换掉关键字,0:不替换;1:替换
+     };
+```
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| --------- | ------ | ---- | ------- |
+| keyword | String | 是 | 关键字 |
+| insertText | String | 是 | 插入的数据 |
+| insertTextColor | String | 是 | 插入的数据字体颜色 |
+| isReplaceKeyword | String | 是 | 是否替换掉关键字,0:不替换;1:替换 |
 **平台支持:**
 
 Android,iOS
@@ -261,7 +278,13 @@ Android,iOS
 **示例:**
 
 ```javascript
-uexChatKeyboard.insertAfterAt("守望宝宝");
+var params = {
+                    keyword : '@',
+                    insertText : '@守望宝宝',
+                    insertTextColor : '#FF0000',
+                    isReplaceKeyword : 1
+            };
+uexChatKeyboard.insertTextByKeyword(JSON.stringify(params));
 ```
 
 ## 2.2、回调方法
@@ -465,16 +488,33 @@ window.uexOnload = function(){
 `uexChatKeyboard.onCommitJson(json)`
 
 **参数:**
+| 参数名称          | 参数类型   | 是否必选 | 说明      |
+| ------------- | ------ | ---- | ------- |
+| json | JSON | 是    | 回调数据json格式如下 |
 
 ```
 var json = {
-    emojiconsText:
+    emojiconsText:,//输入框里的内容
+    insertTexts:[//插入过的关键字
+                    {
+                            insertText:,//插入的内容
+                            insertTextColor:,//插入内容的颜色
+                            start:,//插入的内容开始位置
+                            end:,//插入的内容结束位置
+                    },
+                    ...
+                    ]
 }
 ```
 
-| 参数名称          | 参数类型   | 是否必选 | 说明      |
-| ------------- | ------ | ---- | ------- |
-| emojiconsText | String | 是    | 输入框里的内容 |
+| 参数名称 | 参数类型 | 是否必选 | 说明      |
+| --------- | ------ | ---- | ------- |
+| emojiconsText | String | 是 | 输入框里的内容 |
+| insertTexts | Array | 是 | 插入过的关键字数组 |
+| insertText | String | 是 | 插入的内容 |
+| insertTextColor | String | 是 | 插入内容的颜色 |
+| start | String | 是 | 插入的内容开始位置 |
+| end | String | 是 | 插入的内容结束位置 |
 
 **支持平台:**
 Android2.2+    
@@ -496,21 +536,42 @@ window.uexOnload = function(){
 }
 ```
 
-> ### onAt 编辑框输入@之后的监听方法
+> ### onInputKeyword 编辑框输入监测的关键字之后的监听方法
 
-`uexChatKeyboard.onAt()`
+`uexChatKeyboard.onInputKeyword(json)`
 
 **参数:**
-无
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| --------- | -------- | ------- | ------ |
+| json | JSON | 是 | 回调数据json格式如下 |
+
+```
+var json = {
+    keyword:,//触发的关键字
+}
+```
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| --------- | ------ | ---- | ------- |
+| keyword | String | 是 | 触发的关键字 |
+
 
 **示例:**
 
 ```javascript
-function onAt() {
-    uexChatKeyboard.insertAfterAt("守望宝宝");
+function onInputKeyword() {
+    var keyword = json.keyword;
+    if(keyword == '@'){
+        var params = {
+                    keyword : '@',
+                    insertText : '@守望宝宝',
+                    insertTextColor : '#FF0000',
+                    isReplaceKeyword : 1
+            };
+        uexChatKeyboard.insertTextByKeyword(JSON.stringify(params));
+    }
 }
 window.uexOnload = function(){
-    uexChatKeyboard.onAt = onAt;
+    uexChatKeyboard.onInputKeyword = onInputKeyword;
 }
 ```
 
