@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+	<link rel="stylesheet" href="css/ui-res.css">
+	<style>
+		input{
+			color: black;
+			padding: 1px 6px;
+			margin-left:6px;
+		}
+		input[type="text"]{
+			padding: .2em .4em;
+			margin:.4em .6em;
+			font-size:1em;
+		}
+		input[type="button"]{
+			padding: .6em .8em;
+			margin:.4em .6em;
+			font-size:1.2em;
+		}
+	</style>
+    <script src="js/zy_control.js">
+    </script>
+    <script src="js/zy_click.js">
+    </script>
+    <script type="text/javascript">
+	 	window.uexOnload = function() {
+	 		uexAreaPickerView.onConfirmClick = function(json){
+	 			alert("onConfirmClick "+json);
+	 		}
+	 	}
+		function openAreaPickerView(){
+		    uexAreaPickerView.open();
+		}
+	</script>
+  </head>
+<body class="um-vp " ontouchstart>
+<div class="tit">AreaPickerView</div>
+	<div class="conbor">
+		<div class="consj">
+			<input type="button" value="打开" onclick="openAreaPickerView();">
+			<input type="button" value="关闭" onclick="uexAreaPickerView.close();">
+		</div>
+	</div>
+</body>
+<script>
+
+</script>
+</html>
