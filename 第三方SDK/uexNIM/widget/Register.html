@@ -51,7 +51,7 @@
     }
     function registerUser(){
         var param = {
-            userId:document.getElementById("registerUseruserId").value,//用户名
+            username:document.getElementById("registerUserusername").value,//用户名
             nickname:document.getElementById("registerUsernickname").value,//昵称
             password:document.getElementById("registerUserpassword").value,//密码
         };
@@ -59,14 +59,14 @@
     }
     function login(){
         var param = {
-            userId:document.getElementById("loginuserId").value,//用户名
+            userId:document.getElementById("loginusername").value,//用户名
             password:document.getElementById("loginpassword").value,//密码
         };
         uexNIM.login(JSON.stringify(param));
     }
     function autoLogin(){
         var param = {
-            userId:document.getElementById("loginuserId").value,//用户名
+            username:document.getElementById("loginusername").value,//用户名
             password:document.getElementById("loginpassword").value,//密码
         };
         uexNIM.autoLogin(JSON.stringify(param));
@@ -103,20 +103,13 @@
                         <input class='btn' type='button' value='调用接口' onclick='registerApp()'>
                                             
                             <div> </div><span>login</span>
-                            <div>userId:</div><input class="textbox" type="text" id="loginuserId" value="appcanuser1">
-                                <div>password:</div><input class="textbox" type="text" id="loginpassword" value="appcanuser1">
+                            <div>username:</div><input class="textbox" type="text" id="loginusername" value="user2">
+                                <div>password:</div><input class="textbox" type="text" id="loginpassword" value="123456">
                                     <input class='btn' type='button' value='Login调用接口' onclick='login()'>
                                     <input class='btn' type='button' value='autoLogin调用接口' onclick='autoLogin()'>
                                         
                                         <div> </div><span>logout</span>
                                         <input class='btn' type='button' value='调用接口' onclick='logout()'>
-                                            
-
-                                                     
-                                                                    <div>======回调记录==========</div>
-                                                                    <div id='TestCallBack'>原本内容</div>
-                                                                    <div id='TestData'>原本内容</div>
-                                                                    <div>======回调记录==========</div>
       </div>
         
          

@@ -26,7 +26,7 @@ JSON, XML转换工具
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| data | String | 是 | json格式字符串 或 res://, wgt://,wgts://, file:///sdcard/开头的文件路径 |
+| data | String | 是 | json格式字符串 或 res://, wgt://,wgts://, file:///sdcard/开头的文件路径 路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
 
 **平台支持:**
 
@@ -51,7 +51,7 @@ iOS6.0+
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| data | String | 是 |xml 格式字符串 或 res://, wgt://, wgts://, file:///sdcard/开头的文件路径|
+| data | String | 是 |xml 格式字符串 或 res://, wgt://, wgts://, file:///sdcard/开头的文件路径 路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
 
 **平台支持:**
 

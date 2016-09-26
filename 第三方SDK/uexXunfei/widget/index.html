@@ -9,7 +9,7 @@
     <script type="text/javascript">
     function init(){
         var params = {
-            appID:"56710b9c"
+            appID:"577df198"
         };
         var data = JSON.stringify(params);
         uexXunfei.init(data);
@@ -25,7 +25,8 @@
 
     function startSpeaking(){
         var params = {
-            text:"this is wuhan university of science and technology,college english test band four!"
+            //text:"this is wuhan university of science and technology,college english test band four!"
+            text:"今天天气怎么样"
         };
         var data = JSON.stringify(params);
         uexXunfei.startSpeaking(data);
@@ -49,14 +50,11 @@
         window.uexOnload = function(type){
             if(type == 0){
             uexXunfei.cbInit = cbInit;
-            uexXunfei.cbInitSpeaker = cbInitSpeaker;
             uexXunfei.onSpeakComplete = onSpeakComplete;
             uexXunfei.onSpeakBegin = onSpeakBegin;
             uexXunfei.onSpeakPaused = onSpeakPaused;
             uexXunfei.onSpeakResumed = onSpeakResumed;
-            uexXunfei.cbInitRecognizer = cbInitRecognizer;
             uexXunfei.onRecognizeError = onRecognizeError;
-            uexXunfei.onVolumeChanged = onVolumeChanged;
             uexXunfei.onBeginOfSpeech = onBeginOfSpeech;
             uexXunfei.onEndOfSpeech = onEndOfSpeech;
             uexXunfei.onRecognizeResult = onRecognizeResult;
@@ -64,10 +62,6 @@
         }
         function cbInit(info){
            alert('cbInit: '+info);
-       }
-
-       function cbInitSpeaker(info){
-           alert('cbInitSpeaker: '+info);
        }
 
        function onSpeakComplete(info){
@@ -85,17 +79,8 @@
        function onSpeakResumed(info){
            alert('onSpeakResumed: '+info);
        }
-
-       function cbInitRecognizer(info){
-           alert('cbInitRecognizer: '+info);
-       }
-
        function onRecognizeError(info){
            alert('onRecognizeError: '+info);
-       }
-
-       function onVolumeChanged(info){
-           alert('onVolumeChanged: '+info);
        }
 
        function onBeginOfSpeech(info){
@@ -104,11 +89,23 @@
 
        function onEndOfSpeech(info){
            alert('onEndOfSpeech: '+info);
+           content = '';
        }
-       
+       var content = '';
        function onRecognizeResult(info){
-           alert('onRecognizeResult: '+info);
-       }
+           //alert('onRecognizeResult:'+info);
+           var data = JSON.parse(info);
+           var infoArr = data.ws;
+           var isLast = data.ls;
+           for (var i=0,len=infoArr.length; i<len; i++)
+           {
+               var text = infoArr[i].cw[0].w;
+               content += text;
+           }
+           if(isLast){
+              alert(content);
+           }
+        }
 
     </script>
 </head>

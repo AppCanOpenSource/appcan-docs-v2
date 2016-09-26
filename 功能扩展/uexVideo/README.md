@@ -2,10 +2,10 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 视频播放插件
 ## 1.1、说明
-  封装视频播放和录制相关操作,支持本地路径和网络地址。Android 平台上支持的的视频文件格式有:MP4、3gp；IOS 平台上支持的视频文件格式有:MOV,MP4,M4V。
+ 封装视频播放和录制相关操作。
+视频播放时可实现指定播放进度及播放关闭后回调返回播放进度,支持本地路径和网络地址(支持所有H264编码的常见格式)；视频插件可实现自定义录制时间功能,录制后能压缩,Android 平台上支持的的视频文件格式有:MP4、3gp；IOS 平台上支持的视频文件格式有:MOV,MP4,M4V。
 ## 1.2、UI展示
- ![](http://newdocx.appcan.cn/docximg/152402p2015k6n7f.jpg)
- ![](http://newdocx.appcan.cn/docximg/151401g2015e6r7v.jpg)
+ ![](http://newdocx.appcan.cn/docximg/152402p2015k6n7f.jpg)![](http://newdocx.appcan.cn/docximg/151401g2015e6r7v.jpg)
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=194_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
@@ -25,12 +25,12 @@
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| path | String | 是 | 视频文件路径,路径协议详见CONSTANT中PathTypes |
+| path | String | 是 | 视频文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
 | orientation | Number | 否 | 1:强制横屏,仅iOS有效 |
 
 **平台支持:**
 
-Android2.2+
+Android2.2+  
 iOS6.0+
 
 **版本支持:**
@@ -49,7 +49,7 @@ uexVideo.open("res://1.mp4")
 
 **说明:**
 
-打开视频播放器
+打开视频播放器,查看视频播放状态触发[onPlayerStatusChange](#onPlayerStatusChange 播放器状态改变的监听方法 "onPlayerStatusChange")
 在播放器被关闭时会触发监听[onPlayerClosed 播放器被关闭时的监听方法](#onPlayerClosed 播放器被关闭时的监听方法)
 
 * 注意,一个网页内只允许存在一个视频播放器,
@@ -57,7 +57,7 @@ uexVideo.open("res://1.mp4")
 
 **参数:**
 
-param是JSON字符串,详细字段解释见下
+param是JSON字符串,详细字段解释见下:路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes 
 
 ```
 var param = {
@@ -83,12 +83,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例:**
@@ -124,12 +124,12 @@ uexVideo.openPlayer(JSON.stringify(param))
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例:**
@@ -174,12 +174,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例:**
@@ -204,7 +204,7 @@ uexVideo.record(JSON.stringify(params));
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType| Number | 是 | 参数类型详见CONSTANT中[Callback](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "Callback")dataType数据类型 |
 | data | String | 是 | 视频路径 |
 
 **版本支持:**
@@ -241,12 +241,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例**
@@ -275,12 +275,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例**
@@ -315,12 +315,12 @@ var param = {
 
 **系统支持**
 
-iOS 7.0+
+iOS 7.0+  
 Android 2.3+
 
 **版本支持:**
 
-iOS 3.0.5+
+iOS 3.0.5+  
 Android 3.0.6+
 
 **示例**
@@ -361,16 +361,46 @@ uexVideo.onExportWithProgress = function(data){
 }
 ```
 
+> ### onPlayerFinish 播放结束的监听方法
+  
+`uexVideo.onPlayerFinish()`
+
+**参数:**  
+无
+
+**系统支持**
+
+iOS 7.0+  
+Android 2.3+
+
+**版本支持:**
+
+iOS 3.0.5+  
+Android 3.0.8+
+
+**示例**
+
+```
+
+window.uexOnload = function(){
+    uexVideo.onPlayerFinish = function() {
+        alert("video completed!");
+    };
+}
+```
+
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexVideo-3.0.5`
+API版本:`uexVideo-3.0.7`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.7 | 修复在非全屏popover网页中使用强制全屏模式异常的问题 |
+| 3.0.6 | 现在在强制全屏模式下,一定会显示关闭按钮 |
 | 3.0.5 | 优化视频播放和录制,部分接口进行了重做 |
 | 3.0.4 | 改用bundle方式引入资源;支持IDE |
 | 3.0.3 | 重新编译,支持arm64 |
@@ -380,12 +410,14 @@ API版本:`uexVideo-3.0.5`
 
 ### Android
 
-API版本:`uexVideo-3.0.6`
+API版本:`uexVideo-3.0.8`
 
-最近更新时间:`2016-3-23`
+最近更新时间:`2016-7-19`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.8 | 新增播放完毕后的监听方法 |
+| 3.0.7 | 修正拼写错误 |
 | 3.0.6 | 优化视屏录制接口和视屏播放接口 |
 | 3.0.5 | 新增接口,实现自定义视频界面的大小和位置,支持扩展全屏,部分代码优化 |
 | 3.0.4 | 删除无用资源 |

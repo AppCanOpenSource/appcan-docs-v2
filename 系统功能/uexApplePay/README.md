@@ -8,7 +8,7 @@ Apple Pay 支付插件
 ## 1.2、UI展示
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/raw/master/%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD/uexApplePay/imgs/img1.jpg)
 ## 1.3、开源源码
-插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=578_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
@@ -31,7 +31,6 @@ params是JSON字符串
 ```
 var params = {
     networks:[],
-
 };
 ```
 
@@ -39,7 +38,7 @@ var params = {
 
 |  参数名称 | 参数类型  | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-| networks | Array | 否 | 指定进行ApplePay的支付网络,由UexApplePayNetworkKey构成的数组,详见[术语表-UexApplePayNetworkKey]。不传时默认为系统可选的所有支付网络 |
+| networks | Array | 否 | 指定进行ApplePay的支付网络,由UexApplePayNetworkKey构成的数组,详见[术语表-[UexApplePayNetworkKey](#UexApplePayNetworkKey "UexApplePayNetworkKey")]。不传时默认为系统可选的所有支付网络 |
 
 **返回值:**
 
@@ -47,7 +46,7 @@ var params = {
 | ----- | ----- | 
 | Number | 检测结果,是一个UexAppleCanMakePaymentStatus,详见[术语表-UexAppleCanMakePaymentStatus](#UexAppleCanMakePaymentStatus)|
 
-注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请用cbCanMakePayment回调方法获取返回值。
+注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请用[cbCanMakePayment ](#cbCanMakePayment 检测是否可以进行ApplePay支付的回调方法 "cbCanMakePayment ")回调方法获取返回值。
 
 **平台支持:**
 
@@ -79,7 +78,7 @@ if (result != 0){
 * 调用银联封装的ApplePay方法。
 * 开发者需[注册成为银联的商户并开通ApplePay支付功能](https://merchant.unionpay.com/join/product/detail?id=80),通过银联后台得到交易流水号,再调用此接口。
 * **和StartPay方法相比,此方法集成更加简单,但可定制化程度低,并且只支持中国银联支付。**
-* 调用此接口前,请先调用uexApplePay.canMakePayment接口并限定支付网络为`"ChinaUnionPay"`来检测是否可以进行支付。
+* 调用此接口前,请先调用[uexApplePay.canMakePayment](#cbCanMakePayment 检测是否可以进行ApplePay支付的回调方法 "uexApplePay.canMakePayment")接口并限定支付网络为`"ChinaUnionPay"`来检测是否可以进行支付
 
 **参数:**
 
@@ -107,7 +106,7 @@ var params = {
 | ----- | ----- | 
 | Number | 打开支付页面的结果,是一个UexApplePayStartPayResult,详见[术语表-UexApplePayStartPayResult](#UexApplePayStartPayResult)|
 
-注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请在cbStartChinaUnionPay回调方法获取返回值。
+注 : 仅3.3+的iOS引擎才会有返回值,对于旧版本的引擎,请在[cbStartChinaUnionPay](#cbStartChinaUnionPay 进行银联ApplePay支付的回调方法 "cbStartChinaUnionPay")回调方法获取返回值。
 
 **平台支持:**
 
@@ -142,7 +141,7 @@ if (result != 0 ){
 
 * 调用iOS原生的ApplePay方法。
 * **和startChinaUnionPay方法相比,此方法集成较复杂,但可定制化程度高,支持所有ApplePay支持的支付渠道**
-* 调用此接口前,请先调用uexApplePay.canMakePayment接口并限定支付网络为你的后台支持的支付网络来检测是否可以进行支付。
+* 调用此接口前,请先调用[uexApplePay.canMakePayment](#canMakePayment 检测是否可以进行ApplePay支付 "uexApplePay.canMakePayment")接口并限定支付网络为你的后台支持的支付网络来检测是否可以进行支付。
 
 **参数:**
 
@@ -185,7 +184,7 @@ var params = {
 | ----- | ----- | ----- | ----- |
 | merchantIdentifier | String | 是 | 在苹果开发者中心配置的merchant证书的ID |
 | merchantCapability | Number | 否 | 账单处理标准,是一个`UexApplePayMerchantCapability`,详见[术语表-UexApplePayMerchantCapability](#UexApplePayMerchantCapability),不传时默认为15 |
-| networks | Array | 否 | 进行ApplePay的支付网络,由`UexApplePayNetworkKey构成的数组`,详见[术语表-UexApplePayNetworkKey]。不传时默认为系统可选的所有支付网络|
+| networks | Array | 否 | 进行ApplePay的支付网络,由`UexApplePayNetworkKey构成的数组`,详见[术语表-UexApplePayNetworkKey](#UexApplePayNetworkKey "UexApplePayNetworkKey")。不传时默认为系统可选的所有支付网络|
 | currencyCode | String | 否 | `标准货币代码`,表示此次支付的默认货币。不传时默认为`"CNY"`,既人民币 |
 | countryCode | String | 否 | 2位的`ISO Country Code` ,表示处理此次支付的区域。不传时默认为`"CN"`,既中国 |
 | payment | Object | 是 | 是一个`Payment Object`,表示这个订单中的账单信息,各字段说明详见下方表格|

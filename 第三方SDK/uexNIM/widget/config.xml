@@ -13,8 +13,8 @@
 	<bgcolor>#fefefe</bgcolor>
 	<widgetOne version="[widgetOneVersion]" />
 	<orientation>15</orientation>
-    <config desc="uexNIM" type="KEY">
-        <param name="$appKey$" platform="Android" value="8ce4f10b741de88e2b6bd86fb9c27cc3"/>
-        <param name="$packageName$" platform="Android" value="com.appcan.nim"/>
-    </config>
+	<config desc="uexNIM" type="KEY">
+		<param name="$appKey$" platform="Android" value="8ce4f10b741de88e2b6bd86fb9c27cc3"/>
+		<param name="$packageName$" platform="Android" value="com.appcan.nim"/>
+	</config>
 </widget>

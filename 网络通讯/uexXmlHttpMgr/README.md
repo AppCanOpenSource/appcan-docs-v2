@@ -120,7 +120,7 @@ uexXmlHttpMgr.close(1);
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 请求对象的唯一标识符 |
-| dataType | Number | 是 |  请求中要发送的数据格式, 详见CONTANT中XmlHtttextareaquestDataType |
+| dataType | Number | 是 |  请求中要发送的数据格式, 详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#XmlHttpRequest "CONTANT")中XmlHtttextareaquestDataType |
 | key | String | 是 | 请求数据中的对应的键 |
 | value | String | 是 | 请求数据中的对应的值 |
 
@@ -135,7 +135,7 @@ iOS6.0+
 **  示例:**
 
 ```
-uexXmlHttpMgr.setPostData(2, "0", "field1", "Hello");
+uexXmlHttpMgr.setPostData(2, 0, "field1", "Hello");
 ```
 
 > ### setInputStream 设置一个本地文件地址
@@ -152,7 +152,7 @@ uexXmlHttpMgr.setPostData(2, "0", "field1", "Hello");
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 |  请求对象的唯一标识符 |
-| filePath | String | 是 | 文件路径,详见CONSTANT中PathTypes |
+| filePath | String | 是 | 文件路径,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path%20Types "CONSTANT")中PathTypes |
 
 **平台支持:**
 
@@ -278,7 +278,7 @@ uexXmlHttpMgr.setHeaders(1, headJson);
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 |  请求对象的唯一标识符 |
 | psw | String | 是 | 数字证书密码。当使用appcan默认证书时,此参数为空(或"")|
-| path | String | 是 | 证书路径,支持 file://,res://,wgt://等协议路径,详见CONSTANT中PathTypes。 当传入'default'时,本次请求将取appcan默认数字证书。|
+| path | String | 是 | 证书路径,支持 file://,res://,wgt://等协议路径,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path%20Types "CONSTANT")中PathTypes。 当传入'default'时,本次请求将取appcan默认数字证书。|
 
 **平台支持:**
 
@@ -295,6 +295,66 @@ iOS6.0+
 uexXmlHttpMgr.setCertificate(1, "" , "default");
 ```
 
+> ### getCookie 获取指定url的cookie信息
+
+`uexXmlHttpMgr.getCookie(url)`
+
+**说明:**
+
+获取指定url的cookie信息,结果可以通过回调方法[cbGetCookie](# cbGetCookie 回调指定url的cookie信息)获取到。
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| url | String | 是 | 想要获取的cookie所属对应的url |
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+**版本支持:**
+
+Android: 3.0.13+
+iOS: 3.0.6+
+
+**示例:**
+
+```
+uexXmlHttpMgr.getCookie("http://www.baidu.com/");
+```
+
+> ### clearCookie 清空cookie信息
+
+`uexXmlHttpMgr.clearCookie()`
+
+**说明:**
+
+清空cookie信息
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| 无| | | |
+
+**平台支持:**
+
+Android 2.2+
+iOS 6.0+
+
+** 版本支持:**
+
+Android: 3.0.19+
+iOS: 3.0.8+
+
+** 示例:**
+
+```
+uexXmlHttpMgr.clearCookie()
+```
+
 ## 2.2、监听方法
 > ### onData 请求发送完成的监听方法
 
@@ -306,7 +366,7 @@ uexXmlHttpMgr.setCertificate(1, "" , "default");
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | id | Number| 是 |  请求对象的唯一标识符 |
-| status | Number | 是 | 返回的状态详见CONSTANT中XmlHtttextareaquestStatus |
+| status | Number | 是 | 返回的状态详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#XmlHttpRequest "CONSTANT")中XmlHtttextareaquestStatus |
 | result | Number | 是 | 服务器返回的任意数据,包含错误 |
 | requestCode | Number | 否 | http请求返回的状态码 |
 | response | String | 否 | 服务器返回的信息,该字符串为JSON格式,如下:          {"responseHeaders":"","responseStatusCode":"", "responseStatusMessage":"","responseError":""} |
@@ -372,16 +432,63 @@ uexXmlHttpMgr.onPostProgress = function (inOpCode,inProgress){
     }
 }
 ```
+
+> ### cbGetCookie 回调指定url的cookie信息
+
+`uexXmlHttpMgr.cbGetCookie(opId,dataTpye,data)`
+
+**说明:**
+
+回调指定url的cookie信息
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId| Number| 是 | 下载对象的唯一标识符 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONTANT")中Callback方法dataType数据类型 |
+| data|String | 是 | 包含具体的cookie信息Json字符串,其中key为cookie的对应value就是cookie信息 |
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+** 版本支持:**
+
+Android: 3.0.13+
+iOS: 3.0.6+
+
+** 示例:**
+
+```
+uexXmlHttpMgr.cbGetCookie = function(opCode,dataType,data){
+    switch(dataType){
+    case cText:
+        alert("uex.cText");
+        break;
+    case cJson:
+        alert("cookie信息是:" + data);
+        break;
+    case cInt:
+        alert("uex.cInt");
+        break;
+    default:
+        alert("error");
+}
+```
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexXmlHttpMgr-3.0.15`
+API版本:`uexXmlHttpMgr-3.0.17`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.17 | setPostData支持Number类型的value;除assets-library下的路径的文件,插件不再对图片做额外处理 |
+| 3.0.16 | 用AFNetWorking重构 |
 | 3.0.15 | 添加IDE支持 |
 | 3.0.14 | 删除info.plist |
 | 3.0.13 | 添加国际化支持 |

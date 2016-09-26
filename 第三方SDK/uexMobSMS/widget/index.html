@@ -8,36 +8,34 @@
             <title>uexButton</title>
             <script type="text/javascript">
                 window.uexOnload = function() {
-                    uexMobSMS.cbSendClick = function(index){
-                        alert(index);
+                    uexMobSMS.cbSendClick = function(data){
+                        alert(JSON.stringify(data));
                     }
-                    uexMobSMS.cbCommitClick = function(index1){
-                        alert(index1);
+                    uexMobSMS.cbCommitClick = function(data){
+                        alert(JSON.stringify(data));
                     }
                 }
-            
-            
+
+
             function initButton(){
                 var params = {
                     "uexMobSMS_APPKey": "e5c90ea53640",
                     "uexMobSMS_APPSecret": "d2ec92c2e5de325c52fc53bdb63374fc"
                 };
                 uexMobSMS.init(JSON.stringify(params));
-                
+
             }
             function sendButton(){
-
                 var  phoneNum = document.getElementById("phoneNum").value;
-
                 var  countryCode= document.getElementById("countryCode").value;
                 var params = {
                     "phoneNum": phoneNum,
                     "countryCode": countryCode
                 };
                 uexMobSMS.sendCode(JSON.stringify(params));
-                
+
             }
-            
+
             function commitButton(){
                 var  phoneNum = document.getElementById("phoneNum").value;
                 var  countryCode = document.getElementById("countryCode").value;
@@ -51,7 +49,7 @@
             }
             </script>
             </head>
-    
+
     <body>
         <div class="tit" id = "tit">uexMobSMS</div>
         <div class="conbor">
@@ -65,7 +63,7 @@
                 <input id="validCode" class="btn" type="text" value=""
                     placeholder = "请输入收到的验证码"/>
                 <input class="btn" type="button" value="提交验证码" onclick="commitButton();"/>
-                
+
             </div>
         </div>
     </body>

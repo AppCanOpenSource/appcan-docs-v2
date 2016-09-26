@@ -177,7 +177,7 @@ uexSocketMgr.setInetAddressAndPort(1,"192.168.1.255",3001);
 
 **说明:**
 
-发送数据
+发送数据,回调方法[cbSendData](#cbSendData 发送数据的回调方法 "cbSendData")
 
 **参数:**
 
@@ -213,8 +213,8 @@ uexSocketMgr.sendData(1,"test");
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | UDP对象的唯一标识符 |
-| dataType | Number | 是 | 详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -246,9 +246,9 @@ iOS6.0+
  
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| opId | Number | 是 | TCP对象的唯一标识符 |
-| dataType | Number | 是 | 详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| opId | Number | 是 | UDP对象的唯一标识符 |
+| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -280,8 +280,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | UDP对象的唯一标识符 |
-| dataType | Number | 是 | 详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -313,8 +313,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | UDP对象的唯一标识符 |
-| dataType | Number | 是 | 详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number | 是 | 详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback%20Int%20Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -397,12 +397,13 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexSocketMgr-3.0.7`
+API版本:`uexSocketMgr-3.0.8`
 
-最近更新时间:`2016-3-23`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.8 | 更换为GCDAsyncSocket库,支持ipv6 |
 | 3.0.7 | 收发数据支持base64以及GBK编码 |
 | 3.0.6 | 添加IDE支持 |
 | 3.0.5 | 解决使用base64格式传输数据ios发送不成功的问题 |
@@ -414,12 +415,13 @@ API版本:`uexSocketMgr-3.0.7`
 
 ### Android
 
-API版本:`uexSocketMgr-3.0.4`
+API版本:`uexSocketMgr-3.0.5`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-4-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.5 | 添加创建连接时设置编码参数 |
 | 3.0.4 | 添加设置编码格式的接口 |
 | 3.0.3 | 修改直接点击发送DUP或发送TCP系统崩溃问题 |
 | 3.0.2 | 修改onData回调方法的参数 |

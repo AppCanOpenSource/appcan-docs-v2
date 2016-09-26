@@ -83,7 +83,7 @@ uexContact.multiOpen();
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | name | String | 是 |  名称 |
-| num| Number | 是 | 电话号码 |
+| num| String | 是 | 电话号码 |
 | email | String | 是 | 邮件 |
 | option | String | 否 | 添加联系人配置,json格式字符串,如下: |
 
@@ -116,6 +116,51 @@ var option = {
 uexContact.addItem("张三","13436827900","widgetone@3g2win.com",JSON.stringify(option));
 ```
 
+> ### deleteWithId 删除联系人
+
+`uexContact.deleteWithId(option)`
+
+**说明:**
+
+通过联系人id精确删除对应联系人
+由于手机端可能存在同名称的联系人导致原有deleteItem接口无法完全满足删除问题。
+删除联系人 回调方法[cbDeleteWithId](#cbDeleteWithId 通过id删除联系人的回调方法)
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| option | String | 是 |  要删除的联系人参数,json格式字符串,如下: |
+
+```
+var option = {
+    contactId://通过查询获取到的联系人id
+}
+```
+各字段含义如下:
+
+|  字段名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| contactId | String | 是 | 所删除的联系人的id(可通过search获取联系人id) |
+
+**平台支持:**
+
+Android2.2+    
+iOS6.0+
+
+**版本支持:**
+
+3.0.4+
+
+**示例:**
+
+```
+var option =  {
+    contactId:'405'
+}
+uexContact.deleteWithId(JSON.stringify(option));
+```
+
 > ### deleteItem 删除联系人
 
 `uexContact.deleteItem(name)`
@@ -144,6 +189,75 @@ iOS6.0+
 ```
 uexContact.deleteItem("张三");
 ```
+> ### search 查询联系人
+
+`uexContact.search(option)`
+
+**说明:**
+
+由于Android联系人的诸多信息要多次查询,因此建议如果有获取所有联系的人的需求的时候建议仅仅查询Name字段,其余字段可考虑设置不查询,以优化查询速度。
+查询联系人 回调方法[cbSearch](#cbSearch 查询联系人的回调方法)
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| option | String | 否 | 搜索配置,json格式字符串,如下: |
+
+```
+var option = {
+    resultNum:,//可选,单次返回数据数量,-1表示一次返回所有结果,默认50
+    searchName:,//和contactId字段二选一,通过名字查询联系人,传空默认查询所有。
+    contactId:,//和searchName字段二选一,可用于精确查找。(优先于Name)
+    isSearchNum:,//可选,true,false是否查询电话号码,默认为true(Android 推荐false)
+    isSearchEmail:,//可选,true,false是否查询Email,默认为true(Android 推荐false)
+    isSearchAddress:,//可选,true,false是否查询Address,默认为true(Android 推荐false)
+    isSearchCompany:,//可选,true,false是否查询Company,默认为true(Android 推荐false)
+    isSearchTitle:,//可选,true,false是否查询title,默认为true(Android 推荐false)
+    isSearchNote:,//可选,true,false是否查询Note,默认为true(Android 推荐false)
+    isSearchUrl:,//可选,true,false是否查询Url,默认为true(Android 推荐false)
+}
+```
+各字段含义如下:
+
+|  字段名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| resultNum | Number | 否 | 一次最多返回的结果条数,默认为50条,-1表示一次返回所有结果 |
+| searchName | String | 否 | 和contactId字段二选一,通过名字查询联系人,传空默认查询所有。 |
+| contactId | String | 否 | 和searchName字段二选一,可用于精确查找。(优先于Name) |
+| isSearchNum | Boolean | 否 | true,false是否查询电话号码,默认为true(Android 推荐false) |
+| isSearchEmail | Boolean | 否 | true,false是否查询Email,默认为true(Android 推荐false) |
+| isSearchAddress | Boolean | 否 | true,false是否查询Address,默认为true(Android 推荐false) |
+| isSearchCompany | Boolean | 否 | true,false是否查询Company,默认为true(Android 推荐false) |
+| isSearchTitle | Boolean | 否 | true,false是否查询Title,默认为true(Android 推荐false) |
+| isSearchNote | Boolean | 否 | true,false是否查询Note,默认为true(Android 推荐false) |
+| isSearchUrl | Boolean | 否 | true,false是否查询Url,默认为true(Android 推荐false) |
+
+**平台支持:**
+
+Android2.2+    
+iOS6.0+
+
+**版本支持:**
+
+3.0.4+
+
+**示例:**
+
+```
+var option = {
+    resultNum:-1//-1表示一次返回所有结果
+    searchName:'',//全部查询
+    isSearchNum:false,
+    isSearchEmail:false,
+    isSearchAddress:false,
+    isSearchCompany:false,
+    isSearchTitle:false,
+    isSearchNote:false,
+    isSearchUrl:false
+}
+uexContact.search(JSON.stringify(option));
+```
 
 > ### searchItem 查询联系人
 
@@ -162,7 +276,14 @@ uexContact.deleteItem("张三");
 
 ```
 var option = {
-    resultNum:
+    resultNum:-1,//-1表示一次返回所有结果
+    isSearchNum:,//可选,true,false是否查询电话号码,默认为true(Android 推荐false)
+    isSearchEmail:,//可选,true,false是否查询Email,默认为true(Android 推荐false)
+    isSearchAddress:,//可选,true,false是否查询Address,默认为true(Android 推荐false)
+    isSearchCompany:,//可选,true,false是否查询Company,默认为true(Android 推荐false)
+    isSearchTitle:,//可选,true,false是否查询title,默认为true(Android 推荐false)
+    isSearchNote:,//可选,true,false是否查询Note,默认为true(Android 推荐false)
+    isSearchUrl:,//可选,true,false是否查询Url,默认为true(Android 推荐false)
 }
 ```
 各字段含义如下:
@@ -170,6 +291,13 @@ var option = {
 |  字段名称 | 类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | resultNum | Number | 否 | 一次最多返回的结果条数,默认为50条,-1表示一次返回所有结果 |
+| isSearchNum | Boolean | 否 | true,false是否查询电话号码,默认为true(Android 推荐false) |
+| isSearchEmail | Boolean | 否 | true,false是否查询Email,默认为true(Android 推荐false) |
+| isSearchAddress | Boolean | 否 | true,false是否查询Address,默认为true(Android 推荐false) |
+| isSearchCompany | Boolean | 否 | true,false是否查询Company,默认为true(Android 推荐false) |
+| isSearchTitle | Boolean | 否 | true,false是否查询Title,默认为true(Android 推荐false) |
+| isSearchNote | Boolean | 否 | true,false是否查询Note,默认为true(Android 推荐false) |
+| isSearchUrl | Boolean | 否 | true,false是否查询Url,默认为true(Android 推荐false) |
 
 **平台支持:**
 
@@ -185,8 +313,66 @@ iOS6.0+
 ```
 var option = {
     resultNum:-1//-1表示一次返回所有结果
+    isSearchNum:false,
+    isSearchEmail:false,
+    isSearchAddress:false,
+    isSearchCompany:false,
+    isSearchTitle:false,
+    isSearchNote:false,
+    isSearchUrl:false
 }
 uexContact.searchItem("张三", JSON.stringify(option));
+```
+> ### modifyWithId 使用id修改联系人
+
+`uexContact.modifyWithId(option)`
+
+**说明:**
+
+修改联系人 回调方法[cbModifyWithId](#cbModifyWithId 通过id修改联系人的回调方法)
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| option | String | 否 | 修改配置,json格式字符串,如下: |
+
+```
+var option = {
+    contactId://联系人id
+    name:,//联系人名称
+    num:,//联系人电话
+    email:,//联系人Email
+}
+```
+各字段含义如下:
+
+|  字段名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| contactId | String | 是 | 所修改的联系人的id(可通过search获取联系人id) |
+| name | String | 是 | 联系人修改后的名称 |
+| num | String | 是 | 联系人修改后的电话 |
+| email | String | 是 | 联系人修改后的Email |
+
+**平台支持:**
+
+Android2.2+    
+iOS6.0+
+
+**版本支持:**
+
+  3.0.0+
+
+**示例:**
+
+```
+var option = {
+    contactId:'405',
+    name:'Appcan',
+    num:'15888888888',
+    email:'widgeton@zymobi.com'
+}
+uexContact.modifyWithId(JSON.stringify(option));
 ```
 
 > ### modifyItem 修改联系人
@@ -202,7 +388,7 @@ uexContact.searchItem("张三", JSON.stringify(option));
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | name | String | 是 |  名称 |
-| num| Number | 是 | 电话号码 |
+| num| String | 是 | 电话号码 |
 | email | String | 是 | 邮件 |
 
 **平台支持:**
@@ -226,7 +412,7 @@ uexContact.modifyItem("张三","13436827900","widgetone@3g2win.com");
 
 **说明:**
 
-添加联系人 回调方法[cbAddItem](#cbAddItem 添加联系人的回调方法)
+vCard方式添加联系人 回调方法[cbAddItem](#cbAddItem 添加联系人的回调方法)
 
 **参数:**
 
@@ -247,8 +433,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexContact.addItemWithVCard(`BEGIN:VCARD\nVERSION:3.0\nN:韩;超\nTEL:22334752\nEMAIL:zhuliang@ceair.com
-\nADR:;;绥宁路628号;;上海;200335\nORG:中国东方航空股有限公司\nTITLE:项目经理\nURL:mp.ceair.com\nNOTE:名\347\211\214二维码\nEND:VCARD`);
+uexContact.addItemWithVCard('BEGIN:VCARD\nVERSION:3.0\nN:韩;超\nTEL:22334752\nEMAIL:zhuliang@ceair.com\nADR:;;绥宁路628号;;上海;200335\nORG:中国东方航空股有限公司\nTITLE:项目经理\nURL:mp.ceair.com\nNOTE:名\347\211\214二维码\nEND:VCARD','');
 ```
 ## 2.2、回调方法
 
@@ -261,7 +446,7 @@ uexContact.addItemWithVCard(`BEGIN:VCARD\nVERSION:3.0\nN:韩;超\nTEL:22334752\n
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
 | data | Number | 是 | Key值uex.jkName、uex.jkNum、uex.jkEmail,详见CONSTANT中CallbackJson类型keyname |
 
 **版本支持:**
@@ -273,7 +458,7 @@ uexContact.addItemWithVCard(`BEGIN:VCARD\nVERSION:3.0\nN:韩;超\nTEL:22334752\n
 ```
 window.uexOnload = function(){
     uexContact.cbOpen = function(opCode, dataType, data) {
-        var obj = eval(`(` + data + `)`);
+        var obj = eval('('+ data + ')');
         alert(data);
    }
 }
@@ -288,7 +473,7 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
 | data | Number | 是 | Key值uex.jkName、uex.jkNum、uex.jkEmail,详见CONSTANT中CallbackJson类型keyname |
 
 **版本支持:**
@@ -314,8 +499,8 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **版本支持:**
 
@@ -340,8 +525,8 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **版本支持:**
 
@@ -356,6 +541,73 @@ window.uexOnload = function(){
     }
 }
 ```
+> ### cbDeleteWithId 通过id删除联系人的回调方法
+
+`uexContact.cbDeleteWithId(opId,dataType,data)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
+
+**版本支持:**
+
+3.0.0+
+
+**示例:**
+
+```
+window.uexOnload = function(){
+    uexContact.cbDeleteWithId = function(opCode, dataType, data){
+        alert(data);
+    }
+}
+```
+> ### cbSearch 查询联系人的回调方法
+
+`uexContact.cbSearch(jsonObj)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+
+```
+var jsonObj = {
+	result:,//0成功,非0失败
+	contactList://获取的联系人列表
+		[
+			 {
+				contactId:,//联系人id
+				...//其余Key值uex.jkName、uex.jkNum、uex.jkEmail,详见CONSTANT中CallbackJson类型keyname
+			}
+			...
+		]
+}
+```
+各字段含义如下:
+
+|  字段名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| result | Number | 是 | 标识查询成功还是失败,0成功,非0失败 |
+| contactId | String | 是 | 联系人id|
+
+**版本支持:**
+
+3.0.0+
+
+**示例:**
+
+```
+window.uexOnload = function(){
+    uexContact.cbSearch = function(data){
+        alert(JSON.stringify(data));
+    }
+}
+```
 
 > ### cbSearchItem 查询联系人的回调方法
 
@@ -366,7 +618,7 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
 | data | String | 是 | 返回的数据。Key值uex.jkName、uex.jkNum、uex.jkEmail,详见CONSTANT中CallbackJson类型keyname |
  
 
@@ -383,6 +635,31 @@ window.uexOnload = function(){
     }
 }
 ```
+> ### cbModifyWithId 通过id修改联系人的回调方法
+
+`uexContact.cbModifyWithId(opId,dataType,data)`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
+
+**版本支持:**
+
+3.0.0+
+
+**示例:**
+
+```
+window.uexOnload = function(){
+    uexContact.cbModifyWithId = function(opCode, dataType, data){
+        alert(data);
+    }
+}
+```
 
 > ### cbModifyItem 修改联系人的回调方法
 
@@ -393,8 +670,8 @@ window.uexOnload = function(){
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 |  操作ID,在此函数中不起作用,可忽略 |
-| dataType| Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **版本支持:**
 
@@ -414,12 +691,14 @@ window.uexOnload = function(){
 
 ### iOS
 
-API版本:`uexContact-3.0.8`
+API版本:`uexContact-3.0.10`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.10 | 修复cbSearch回调与安卓不一致,参数命名不一致的问题 |
+| 3.0.9 | 新增search,modifyWithId,deleteWithId接口以及对应回调 |
 | 3.0.8 | 改用bundle方式加载资源;添加IDE支持 |
 | 3.0.7 | searchItem接口增加返回信息条数配置;addItem接口增加是否弹出提示框配置 |
 | 3.0.6 | 修改配置文件,修改BUG |
@@ -432,12 +711,15 @@ API版本:`uexContact-3.0.8`
 
 ### Android
 
-API版本:`uexContact-3.0.2`
+API版本:`uexContact-3.0.5`
 
-最近更新时间:`2016-2-22`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.5 | addItem接口支持多个号码的添加,以分号分隔 |
+| 3.0.4 | 新增search,modifyWithId,deleteWithId接口以及对应回调.优化查询逻辑 |
+| 3.0.3 | 修复执行过慢影响UI线程的问题,修正当增删改查存在的部分回调错误问题 |
 | 3.0.2 | 修复打开联系人后邮箱错乱的问题 |
 | 3.0.1 | 1:searchItem接口增加返回信息条数配置;2:addItem接口增加是否弹出提示框配置 |
 | 3.0.0 | 联系人功能插件 |

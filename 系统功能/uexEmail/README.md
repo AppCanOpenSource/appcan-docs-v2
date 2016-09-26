@@ -32,7 +32,7 @@
 | receiverEmail | String | 是 | 接收者的邮件地址,如果收件人有多个,用英文逗号隔开,如varstr='123@qq.com,123@163.com' |
 | subject | String | 是 | 邮件主题 |
 | content | String | 否 | 邮件正文 |
-| attachmentPath | String | 否 | 邮件附件路径,支持的协议有:wgt://…,wgts://…,file://,等本地协议,详见CONSTANT中的PathTypes。如果有多个地址,请用英文逗号隔开,如varstr='wgt://xxx.txt,res://xxx.png' |
+| attachmentPath | String | 否 | 邮件附件路径,支持的协议有:wgt ://…,wgts://…,file://,等本地协议,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的PathTypes。如果有多个地址,请用英文逗号隔开,如varstr='wgt://xxx.txt,res://xxx.png' |
 
 **平台支持:**
 

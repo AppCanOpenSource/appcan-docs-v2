@@ -46,7 +46,14 @@
         var username = document.getElementById("sendTextusername").value;
         var chatType = document.getElementById("sendTextchatType").value;
         var content = document.getElementById("sendTextcontent").value;
-        uexNIM.sendText('{"sessionId":"'+username+'","sessionType":"'+chatType+'","content":"'+content+'","ext":"123"}');
+        var ext = document.getElementById("sendTextExt").value;
+        var params = {
+            sessionId: username,
+            sessionType : chatType,
+            content : content,
+            ext: JSON.parse(ext)
+        };
+        uexNIM.sendText(JSON.stringify(params));
     }
     
     //[2.6]
@@ -54,7 +61,33 @@
         var username = document.getElementById("sendPictureusername").value;
         var chatType = document.getElementById("sendPicturechatType").value;
         var filePath = document.getElementById("sendPicturefilePath").value;
-        uexNIM.sendImage('{"sessionId":"'+username+'","sessionType":"'+chatType+'","filePath":"'+filePath+'"}');
+        var ext = document.getElementById("sendImageExt").value;
+        var params = {
+            sessionId: username,
+            sessionType : chatType,
+            filePath : filePath,
+            ext: JSON.parse(ext)
+        };
+        uexNIM.sendImage(JSON.stringify(params));
+    }
+    
+    //[2.7]
+    function sendLocationMsg(){
+        var username = document.getElementById("sendLocationMsgusername").value;
+        var chatType = document.getElementById("sendLocationMsgchatType").value;
+        var locationAddress = document.getElementById("sendLocationMsglocationAddress").value;
+        var latitude = document.getElementById("sendLocationMsglatitude").value;
+        var longitude = document.getElementById("sendLocationMsglongitude").value;
+        var ext = document.getElementById("sendLocationMsgExt").value;
+        var params = {
+            sessionId: username,
+            sessionType : chatType,
+            title: locationAddress,
+            latitude: latitude,
+            longitude: longitude,
+            ext: JSON.parse(ext)
+        };
+        uexNIM.sendLocationMsg(JSON.stringify(params));
     }
     
     //[2.8]
@@ -62,7 +95,14 @@
         var username = document.getElementById("sendAudiousername").value;
         var chatType = document.getElementById("sendAudiochatType").value;
         var filePath = document.getElementById("sendAudiofilePath").value;
-        uexNIM.sendAudio('{"sessionId":"'+username+'","sessionType":"'+chatType+'","filePath":"'+filePath+'"}');
+        var ext = document.getElementById("sendAudioExt").value;
+        var params = {
+            sessionId: username,
+            sessionType : chatType,
+            filePath : filePath,
+            ext: JSON.parse(ext)
+        };
+        uexNIM.sendAudio(JSON.stringify(params));
     }
     
     //[2.9]
@@ -70,14 +110,28 @@
         var username = document.getElementById("sendVideousername").value;
         var chatType = document.getElementById("sendVideochatType").value;
         var filePath = document.getElementById("sendVideofilePath").value;
-        uexNIM.sendVideo('{"sessionId":"'+username+'","sessionType":"'+chatType+'","filePath":"'+filePath+'"}');
+        var ext = document.getElementById("sendVideoExt").value;
+        var params = {
+            sessionId: username,
+            sessionType : chatType,
+            filePath : filePath,
+            ext: JSON.parse(ext)
+        };
+        uexNIM.sendVideo(JSON.stringify(params));
     }
-    //[2.10]
+
     function sendFile() {
         var username = document.getElementById("sendFileusername").value;
         var chatType = document.getElementById("sendFilechatType").value;
         var filePath = document.getElementById("sendFilefilePath").value;
-        uexNIM.sendFile('{"sessionId":"'+username+'","sessionType":"'+chatType+'","filePath":"'+filePath+'"}');
+        var ext = document.getElementById("sendVideoExt").value;
+        var params = {
+            sessionId: username,
+            sessionType : chatType,
+            filePath : filePath,
+            ext: JSON.parse(ext)
+        };
+        uexNIM.sendFile(JSON.stringify(params));
     }
     function resendMessage(){
         uexNIM.resendMessage();
@@ -87,30 +141,23 @@
     }
     function deleteMessage(){
         var param={
-            sessionType:appcan.locStorage.getVal("sessionType"),//cbDidSendMessage处存的
-            sessionId:appcan.locStorage.getVal("sessionId"),//cbDidSendMessage处存的
-            messageId:appcan.locStorage.getVal("messageId"),//cbDidSendMessage处存的
+            sessionType:appcan.locStorage.getVal("sessionType"),
+            sessionId:appcan.locStorage.getVal("sessionId"),
+            messageId:appcan.locStorage.getVal("messageId"),
         }
         uexNIM.deleteMessage(JSON.stringify(param));
     }
     function deleteAllmessagesInSession(){
         var param={
-            sessionType:document.getElementById("deleteAllmessagesInSession_sessionType").value,
-            sessionId:document.getElementById("deleteAllmessagesInSession_sessionId").value,
-            removeRecentSession:document.getElementById("deleteAllmessagesInSession_removeRecentSession").value
+            sessionType:appcan.locStorage.getVal("sessionType"),
+            sessionId:appcan.locStorage.getVal("sessionId"),
+            removeRecentSession:true,
         }
         uexNIM.deleteAllmessagesInSession(JSON.stringify(param));
     }
-    function deleteRecentSession(){
-        var param={
-            sessionType:document.getElementById("deleteRecentSession_sessionType").value,
-            sessionId:document.getElementById("deleteRecentSession_sessionId").value
-        }
-        uexNIM.deleteRecentSession(JSON.stringify(param));
-    }
     function deleteAllMessages(){
         var param={
-            removeRecentSession:document.getElementById("deleteAllMessages_removeRecentSession").value
+            removeRecentSession:true,
         }
         uexNIM.deleteAllMessages(JSON.stringify(param));
     }
@@ -119,8 +166,8 @@
     }
     function markAllMessagesReadInSession(){
         var param={
-            sessionType:document.getElementById("markAllMessagesReadInSession_sessionType").value,
-            sessionId:document.getElementById("markAllMessagesReadInSession_sessionId").value
+            sessionType:appcan.locStorage.getVal("sessionType"),
+            sessionId:appcan.locStorage.getVal("sessionId"),
         }
         uexNIM.markAllMessagesReadInSession(JSON.stringify(param));
     }
@@ -150,7 +197,7 @@
             limit:50,
             order:0,
             startTime:0,
-            endTime:appcan.locStorage.getVal("endTime")
+            endTime:appcan.locStorage.getVal("endTime"),
         }
         uexNIM.searchMessages(JSON.stringify(param));
     }
@@ -180,46 +227,82 @@
             
              <div> </div><div>======Message==========</div>
             <div> </div><span>[2.5]  sendText</span>
-            <div>sessionId:</div><input class="textbox" type="text" id="sendTextusername" value="appcanuser2"></input>
+            <div>sessenId:</div><input class="textbox" type="text" id="sendTextusername" value="appcanuser2"></input>
             <div>sessionType:</div><input class="textbox" type="text" id="sendTextchatType" value="0"></input>
             <div>content:</div><input class="textbox" type="text" id="sendTextcontent" value="Textcontent"></input>
+            <div>ext:</div><input class="textbox" type="text" id="sendTextExt" value='{"ext": "extValueText"}'></input>
             <input class='btn' type='button' value='调用接口' onclick='sendText()'></input>
             
             <div> </div><span>[2.6]  sendImage</span>
-            <div>sessionId:</div><input class="textbox" type="text" id="sendPictureusername" value="appcanuser2"></input>
+            <div>sessenId:</div><input class="textbox" type="text" id="sendPictureusername" value="appcanuser2"></input>
             <div>sessionType:</div><input class="textbox" type="text" id="sendPicturechatType" value="0"></input>
             <div>filePath:</div><input class="textbox" type="text" id="sendPicturefilePath" value="res://2.jpg"></input>
-            <input class='btn' type='button' value='调用接口' onclick='sendImage()'></input>
+            <div>ext:</div><input class="textbox" type="text" id="sendImageExt" value='{"ext": "extValueImage"}'></input>
 
+            <input class='btn' type='button' value='调用接口' onclick='sendImage()'></input>
+            
+            <div> </div><span>[2.7]  sendLocationMsg</span>
+            <div>sessenId:</div><input class="textbox" type="text" id="sendLocationMsgusername" value="appcanuser2"></input>
+            <div>sessionType:</div><input class="textbox" type="text" id="sendLocationMsgchatType" value="0"></input>
+            <div>locationAddress:</div><input class="textbox" type="text" id="sendLocationMsglocationAddress" value=""></input>
+            <div>latitude:</div><input class="textbox" type="text" id="sendLocationMsglatitude" value=""></input>
+            <div>longitude:</div><input class="textbox" type="text" id="sendLocationMsglongitude" value=""></input>
+            <div>ext:</div><input class="textbox" type="text" id="sendLocationMsgExt" value='{"ext": "extValueLocation"}'></input>
+
+            <input class='btn' type='button' value='调用接口' onclick='sendLocationMsg()'></input>
             
             <div> </div><span>[2.8]  sendAudio</span>
-            <div>sessionId:</div><input class="textbox" type="text" id="sendAudiousername" value="appcanuser2"></input>
+            <div>sessenId:</div><input class="textbox" type="text" id="sendAudiousername" value="appcanuser2"></input>
             <div>sessionType:</div><input class="textbox" type="text" id="sendAudiochatType" value="0"></input>
             <div>filePath:</div><input class="textbox" type="text" id="sendAudiofilePath" value="res://callRing.mp3"></input>
+            <div>ext:</div><input class="textbox" type="text" id="sendAudioExt" value='{"ext": "extValueAudio"}'></input>
             <input class='btn' type='button' value='调用接口' onclick='sendAudio()'></input>
             
             <div> </div><span>[2.9]  sendVideo</span>
-            <div>sessionId:</div><input class="textbox" type="text" id="sendVideousername" value="appcanuser2"></input>
+            <div>sessenId:</div><input class="textbox" type="text" id="sendVideousername" value="appcanuser2"></input>
             <div>sessionType:</div><input class="textbox" type="text" id="sendVideochatType" value="0"></input>
             <div>filePath:</div><input class="textbox" type="text" id="sendVideofilePath" value="res://1.mp4"></input>
+            <div>ext:</div><input class="textbox" type="text" id="sendVideoExt" value='{"ext": "extValueVideo"}'></input>
             <input class='btn' type='button' value='调用接口' onclick='sendVideo()'></input>
 
             <div> </div><span>[2.10]  sendFile</span>
-            <div>sessionId:</div><input class="textbox" type="text" id="sendFileusername" value="appcanuser2"></input>
+            <div>sessenId:</div><input class="textbox" type="text" id="sendFileusername" value="appcanuser2"></input>
             <div>sessionType:</div><input class="textbox" type="text" id="sendFilechatType" value="0"></input>
             <div>filePath:</div><input class="textbox" type="text" id="sendFilefilePath" value="res://1.mp4"></input>
             <input class='btn' type='button' value='调用接口' onclick='sendFile()'></input>
             
-
-
+            <div> </div><span>[2.11]  resendMessage</span>
+            <input class='btn' type='button' value='调用接口' onclick='resendMessage()'></input>
+            
             <div> </div><span>[2.12]  allRecentSession</span>
             <input class='btn' type='button' value='调用接口' onclick='allRecentSession()'></input>
-
+            
+            <div> </div><span>[2.13]  deleteMessage</span>
+            <input class='btn' type='button' value='调用接口' onclick='deleteMessage()'></input>
+            
+            <div> </div><span>[2.14]  deleteAllmessagesInSession</span>
+            <input class='btn' type='button' value='调用接口' onclick='deleteAllmessagesInSession()'></input>
+            
+            <div> </div><span>[2.15]  deleteAllMessages</span>
+            <input class='btn' type='button' value='调用接口' onclick='deleteAllMessages()'></input>
+            
+            <div> </div><span>[2.16]  allUnreadCount</span>
+            <input class='btn' type='button' value='调用接口' onclick='allUnreadCount()'></input>
+            
+            <div> </div><span>[2.17]  markAllMessagesReadInSession</span>
+            <input class='btn' type='button' value='调用接口' onclick='markAllMessagesReadInSession()'></input>
+            
             <div>======4.历史消息==========</div>
-            <div>sessionId(下面几个接口共用此输入框):</div><input class="textbox" type="text" id="history_sessionId" value="appcanuser2"></input>
+            <div>sessenId(下面几个接口共用此输入框):</div><input class="textbox" type="text" id="history_sessionId" value="appcanuser2"></input>
             <div>sessionType(下面几个接口共用此输入框):</div><input class="textbox" type="text" id="history_sessionType" value="0"></input>
             <div> </div><span>[4.1] fetchMessageHistory</span>
             <input class='btn' type='button' value='调用接口' onclick='fetchMessageHistory()'></input>
+            
+            <div> </div><span>[4.2] messagesInSession</span>
+            <input class='btn' type='button' value='调用接口' onclick='messagesInSession()'></input>
+            
+            <div> </div><span>[4.3] searchMessages</span>
+            <input class='btn' type='button' value='调用接口' onclick='searchMessages()'></input>
         </div>
         
         <div>======回调区域==========</div>

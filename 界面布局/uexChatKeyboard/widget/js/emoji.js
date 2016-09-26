@@ -1,0 +1,72 @@
+//仅供参考
+var emoji = {
+    "[微笑]":"ace_emoji_1.png",
+    "[憋嘴]": "ace_emoji_2.png",
+    "[色]": "ace_emoji_3.png",
+    "[发呆]": "ace_emoji_4.png",
+    "[得意]": "ace_emoji_5.png",
+    "[流泪]": "ace_emoji_6.png",
+    "[害羞]": "ace_emoji_7.png",
+    "[闭嘴]": "ace_emoji_8.png",
+    "[睡]": "ace_emoji_9.png",
+    "[大哭]": "ace_emoji_10.png",
+    "[尴尬]": "ace_emoji_11.png",
+    "[发怒]": "ace_emoji_12.png",
+    "[调皮]": "ace_emoji_13.png",
+    "[呲牙]": "ace_emoji_14.png",
+    "[惊讶]": "ace_emoji_15.png",
+    "[难过]": "ace_emoji_16.png",
+    "[酷]": "ace_emoji_17.png",
+    "[冷汗]": "ace_emoji_18.png",
+    "[抓狂]": "ace_emoji_19.png",
+    "[吐]": "ace_emoji_20.png",
+    "[偷笑]": "ace_emoji_21.png",
+    "[愉快]": "ace_emoji_22.png",
+    "[白眼]": "ace_emoji_23.png",
+    "[傲慢]": "ace_emoji_24.png",
+    "[饥饿]": "ace_emoji_25.png",
+    "[困]": "ace_emoji_26.png",
+    "[惊恐]": "ace_emoji_27.png",
+    "[流汗]": "ace_emoji_28.png",
+    "[憨笑]": "ace_emoji_29.png",
+    "[悠闲]": "ace_emoji_30.png",
+    "[奋斗]": "ace_emoji_31.png",
+    "[咒骂]": "ace_emoji_32.png",
+    "[疑问]": "ace_emoji_33.png",
+    "[嘘]": "ace_emoji_34.png",
+    "[晕]": "ace_emoji_35.png",
+    "[疯了]": "ace_emoji_36.png",
+    "[衰]": "ace_emoji_37.png",
+    "[骷髅]": "ace_emoji_38.png",
+    "[敲打]": "ace_emoji_39.png",
+    "[再见]": "ace_emoji_40.png",
+    "[擦汗]": "ace_emoji_41.png",
+    "[抠鼻]": "ace_emoji_42.png",
+    "[鼓掌]": "ace_emoji_43.png",
+    "[糗大了]": "ace_emoji_44.png",
+    "[坏笑]": "ace_emoji_45.png",
+    "[左哼哼]": "ace_emoji_46.png",
+    "[右哼哼]": "ace_emoji_47.png",
+    "[哈欠]": "ace_emoji_48.png",
+    "[鄙视]": "ace_emoji_49.png",
+    "[委屈]": "ace_emoji_50.png",
+    "[快哭了]": "ace_emoji_51.png",
+    "[阴险]": "ace_emoji_52.png",
+    "[亲亲]": "ace_emoji_53.png",
+    "[吓]": "ace_emoji_54.png",
+    "[可怜]": "ace_emoji_55.png",
+    "[菜刀]": "ace_emoji_56.png",
+    "[西瓜]": "ace_emoji_57.png",
+    "[啤酒]": "ace_emoji_58.png",
+    "[篮球]": "ace_emoji_59.png",
+    "[乒乓]": "ace_emoji_60.png"
+}
+var EMOJI_EXPRESSION = /\[([^\]]+)\]/g   //emoji表情
+function getEmoji(s){
+    var emojiPath = emoji[s];
+    if (typeof(emojiPath) == "undefined") {
+        return s;
+    }
+    //增量更新的需要定位wgtRes为增量更新后的路径
+    return '<img style="width:1.5em;height:1.5em;" src="wgtRes/emojicons/'+ emojiPath +'" border="0" align="center">';
+}

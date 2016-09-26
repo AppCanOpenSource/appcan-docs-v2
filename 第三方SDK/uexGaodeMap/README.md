@@ -1546,6 +1546,33 @@ uexGaodeMap.hideCustomButtons(jsonStr);
 
 ## 2.2 回调方法:
 
+> ### cbOpen 打开地图的回调方法
+
+`uexGaodeMap.cbOpen(json);`
+
+**参数:**
+
+无
+
+**平台支持:**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持:**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例:**
+
+```
+    uexGaodeMap.cbOpen = function(json) {
+        alert("cbOpen");
+    }
+```
+
+
 > ### cbGetCurrentLocation 获取当前位置的回调方法
 
 `uexGaodeMap.cbGetCurrentLocation(json);`
@@ -2688,12 +2715,13 @@ API版本:`uexGaodeMap-3.0.9`
 
 ### Android
 
-API版本:`uexGaodeMap-3.0.12`
+API版本:`uexGaodeMap-3.0.13`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.13 | open接口添加回调 |
 | 3.0.12 | 修复闪退的问题 |
 | 3.0.11 | 修复闪退的问题 |
 | 3.0.10 | 去掉插件中的ActivityGroup,配合引擎升级 |

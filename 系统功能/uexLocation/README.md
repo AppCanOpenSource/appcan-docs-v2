@@ -13,15 +13,17 @@
 ## 2.1、方法
 > ### openLocation 打开定位功能,监听并返回设备所在地经纬度信息
 
-`uexLocation.openLocation()`
+`uexLocation.openLocation(tpye)`
 
 **说明:**
 
-位置信息将通过手机GPS、WIFI或移动网络信号获取。成功打开定位功能时回调[cbOpenLocation](#cbOpenLocation 定位功能是否成功打开的回调方法 "cbOpenLocation")方法,成功获取到位置信息时通过[onChange](#onChange 设备位置变化的监听方法 "onChange")回调方法返回。
+位置信息将通过手机GPS、WIFI或移动网络信号获取。成功打开定位功能时回调[cbOpenLocation](#cbOpenLocation 定位功能是否成功打开的回调方法 "cbOpenLocation")方法,成功获取到位置信息时通过[onChange](#onChange 设备位置变化的监听方法 "onChange")回调方法返回,并通过type指定采用何种坐标系返回。
 
 **参数:**
 
- 无
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| type             | String   | 否    | 指定坐标系类型,"wgs84":采用世界标准经纬度坐标; "bd09":采用百度地图的经纬度坐标; "gcj02":采用高德地图的经纬度坐标.不传,iOS默认返回高德地图的经纬度坐标,Android默认返回百度地图的经纬度坐标 |
 
 **平台支持:**
 
@@ -35,7 +37,7 @@ iOS 6.0+
 **示例:**
 
 ```
-uexLocation.openLocation();
+uexLocation.openLocation("bd09");
 ```
 
 > ### closeLocation 关闭定位功能
@@ -65,12 +67,12 @@ iOS6.0+
     uexLocation.closeLocation();
 ```
 
-> ### getAddress 获取经纬度对应的具体地址信息
+> ### getAddress 获取经纬度对应的具体地址信息，已废弃，请用getAddressByType
 
 `uexLocation.getAddress(inLatitude,inLongitude,flag)`
 
-** 说明:**
-根据经纬度获取对应的地址信息
+**说明:**
+根据经纬度获取对应的地址信息,注意:iOS默认采用世界标准的经纬度坐标,Android默认采用百度地图的经纬度坐标,
 回调 [cbGetAddress](#cbGetAddress 获取到位置信息返回经纬度数据的回调方法 "cbGetAddress")
 
 **参数:**
@@ -96,7 +98,119 @@ iOS6.0+
 **  示例:**
 
 ```
-    uexLocation.getAddress("30.475798", "114.402815");
+    uexLocation.getAddress(30.475798, 114.402815);
+```
+
+> ### getAddressByType 获取指定坐标系经纬度对应的具体地址信息
+
+`uexLocation.getAddressByType(params)`
+
+**说明:**
+根据经纬度获取对应的地址信息,并通过type指定传入经纬度所采用坐标系类型
+回调 [cbGetAddress](#cbGetAddress 获取到位置信息返回经纬度数据的回调方法 "cbGetAddress")
+
+**参数:**
+
+| 参数名称             | 参数类型     | 是否必选 | 说明                 |
+| ---------------- | -------- | ---- | ------------------ |
+| params           | Object   | 是    | 接口所需数据             |
+
+```javascript
+var params = {
+   latitude: ,
+   longitude: ,
+   type: ,
+   flag:
+}
+```
+
+各字段含义如下:
+
+| 参数名称      | 参数类型   | 是否必选 | 说明                                       |
+| --------- | ------ | ---- | ---------------------------------------- |
+| latitude  | Number | 是    | 纬度                                       |
+| longitude | Number | 是    | 经度                                       |
+| type      | String | 否    | 指定传入经纬度所采用坐标系类型,"wgs84":采用世界标准经纬度坐标; "bd09":采用百度地图的经纬度坐标; "gcj02":采用高德地图的经纬度坐标.不传,iOS默认采用世界标准的经纬度坐标,Android默认采用百度地图的经纬度坐标 |
+| flag      | Number | 否    | 值为1时返回地址详情(JSON格式), 非 1 时返回地址名称          |
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+** 版本支持:**
+3.0.0+
+
+**  示例:**
+
+```
+    var params = {
+            latitude:30.475798,
+            longitude:114.402815,
+            type:"gcj02",
+            flag:2
+    };
+    uexLocation.getAddressByType(params);
+```
+
+> ### convertLocation 转换坐标的方法
+
+`var data = uexLocation.convertLocation(params);`
+
+**说明:**
+
+通过此方法转换坐标,支持同步返回。
+
+**参数:**
+
+```
+var params ={
+    latitude:,
+    longitude:,
+    from:,
+    to:
+}
+```
+```
+同步返回结果:
+data = {
+    latitude:,
+    longitude:
+}
+```
+
+各字段含义如下:
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+|  latitude   | Number | 是 |  纬度|
+| longitude    | Number | 是 | 经度 |
+| from | String | 是 | 源坐标类型,具体含义请参考[附录](#4、附录)|
+| to | String | 是 | 目的坐标类型,具体含义请参考[附录](#4、附录)|
+
+**平台支持:**
+
+Android2.2+    
+iOS6.0+
+
+**版本支持:**
+
+Android3.0.0+    
+iOS3.0.0+
+
+**示例:**
+
+```
+var params = {
+     latitude:30.595997,
+     longitude:114.312047,
+     from:"wgs84",
+     to:"bd09"
+ };
+var data = uexLocation.convertLocation(JSON.stringify(params));
+var obj = JSON.parse(data)
+alert(obj.latitude+","+obj.longitude);//同步返回json字符串
+//alert(data);                  
 ```
 
 ## 2.2、回调方法
@@ -109,8 +223,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
-| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见CONTANT中CallbackInt类型数据 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
+| data|Number | 是 | 返回uex.cSuccess或uex.cFailed,详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONTANT")中CallbackInt类型数据 |
  
 
 **平台支持:**
@@ -137,7 +251,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作ID,在此函数中不起作用,可忽略 |
-| dataType|Number | 是 | 参数类型详见CONTANT中Callback方法数据类型 |
+| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
 | data|String | 是 | 返回获取的地址或者错误信息ErrorCode。|
  
 
@@ -189,12 +303,15 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexLocation-3.0.24`
+API版本:`uexLocation-3.0.27`
 
-最近更新时间:`2016-3-9`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.27 | 在应用不支持后台定位时,只会请求仅使用中进行定位的权限 |
+| 3.0.26 | 新增坐标转换接口 |
+| 3.0.25 | 修复3.3引擎下的参数问题;修复用户未决定是否支持定位时会回调可以定位的问题 |
 | 3.0.24 | 修改定位权限,支持后台定位 |
 | 3.0.23 | 添加IDE支持 |
 | 3.0.22 | 更改为ARC工程 |
@@ -223,12 +340,14 @@ API版本:`uexLocation-3.0.24`
 
 ### Android
 
-API版本:`uexLocation-3.0.7`
+API版本:`uexLocation-3.0.9`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.9 | 更新SDK版本到3.7.3;简化测试case |
+| 3.0.8 | 新增坐标系转换接口,支持wgs84,gcj02,bd09格式相互转换 |
 | 3.0.7 | 修复bug支持后台定位插件 |
 | 3.0.6 | sdk升级 |
 | 3.0.5 | 修复getAddress方法flag为1时返回json格式不 正确的问题 |
@@ -237,3 +356,11 @@ API版本:`uexLocation-3.0.7`
 | 3.0.2 | 修改uexLocation不能在关闭gprs 和wifi的 时候使用gps 获取坐标 |
 | 3.0.1 | 修改配置文件兼容IDE |
 | 3.0.0 | 定位功能插件 |
+# 4、附录
+
+|  String | 说明  |
+| ----- | ----- |
+| wgs84 | 世界标准地理坐标 |
+| bd09 | 百度地图采用的经纬度坐标 |
+| gcj02 | 高德地图、google地图、soso地图、aliyun地图、mapabc地图所用坐标,中国国测局地理坐标 |
+

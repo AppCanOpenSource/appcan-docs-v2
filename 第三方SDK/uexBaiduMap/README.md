@@ -5,7 +5,7 @@
 提供百度地图的相关相关功能。用户可以使用该插件在网页上嵌入一张地图,并实现对地图的基本操作, 例如放大缩小,移动,点击,隐藏,显示。另外还提供了定位功能,搜索功能,路线规划功能,地理编码功能 。
 ## 1.1、说明
 安卓&iOS插件已支持**config.xml文件**配置AK。
->注：IDE插件因为涉及到百度方面的ID与Key暂时无法使用，此插件之前需要进行config.xml相关配置，具体使用点击查看:[附录](http://newdocx.appcan.cn/newdocx/docx?type=1384_975 "百度地图插件接入指引")----->百度地图插件接入指引
+>注:IDE插件因为涉及到百度方面的ID与Key暂时无法使用,此插件之前需要进行config.xml相关配置,具体使用点击查看:[附录](http://newdocx.appcan.cn/newdocx/docx?type=1384_975 "百度地图插件接入指引")----->百度地图插件接入指引
 
 ## 1.2、UI展示
  ![](http://newdocx.appcan.cn/docximg/153918c2015z6c16q.png)
@@ -224,6 +224,36 @@ iOS6.0+
 ```
 uexBaiduMap.setCenter(121.481,31.227);
 ```
+
+> ### getCenter 得到地图的中心点
+
+`uexBaiduMap.getCenter()`
+
+**说明**
+
+得到当前地图的中心点经纬度
+回调 [cbGetCenter](#cbGetCenter 得到地图的中心点的回调方法 "cbGetCenter")
+
+**参数**
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 |
+| ----- | ----- | ----- | ----- |
+
+**平台支持**
+
+Android2.2+
+
+**版本支持**
+
+3.0.0+
+
+**示例**
+
+```
+uexBaiduMap.getCenter();
+```
+
+
 > ### setZoomLevel 设置地图的比例级别
 
 `uexBaiduMap.setZoomLevel(zoomLevel)`
@@ -631,8 +661,7 @@ iOS6.0+
 **示例**
 
 ```
-var makerInfo =
-	{
+var makerInfo ={
 	makerInfo: {
 		bubble: {
 		bgImage: "res://btn.png",
@@ -640,11 +669,11 @@ var makerInfo =
 },
 		latitude: "39.021514",
 		longitude: "116.232323"
-		
+		}
 	};
 var jsonStr=JSON.stringify(makerInfo);
 var makerId = '10001';
-uexBaiduMap. setMarkerOverlay (makerId, jsonStr);
+uexBaiduMap.setMarkerOverlay(makerId, jsonStr);
  
 ```
 
@@ -1489,7 +1518,7 @@ uexBaiduMap.removeBusLine();
 **平台支持**
 
 Android2.2+
-iOS6.0+
+iOS不支持
 
 **版本支持**
 
@@ -1516,7 +1545,7 @@ uexBaiduMap.preBusLineNode();
 **平台支持**
 
 Android2.2+
- iOS 6.0+
+ iOS不支持
 
 **版本支持**
 
@@ -2192,8 +2221,8 @@ uexBaiduMap.onReceiveLocation = function(data){
 
 ```
 level:(Number类型) 必选 缩放级别
-latitude:(Number类型) 必选 中心点纬度。
-longitude:(Number类型) 必选 中心点经度h
+latitude:(Number类型) 必选 中心点纬度
+longitude:(Number类型) 必选 中心点经度
 ```
 
 **版本支持**
@@ -2203,7 +2232,7 @@ longitude:(Number类型) 必选 中心点经度h
 **示例**
 
 ```
-uexBaiduMap.onSDKReceiverError = function(data){
+uexBaiduMap.onZoomLevelChangeListener = function(data){
 	alert(data);
 }
 ```
@@ -2428,16 +2457,15 @@ uexBaiduMap.cbBusLineSearchResult = function(data){
 
 > ### cbGetDistance 计算两点之间的距离的回调方法
 
-`uexBaiduMap.cbGetDistance(data)`
+`uexBaiduMap.cbGetDistance(opId,dataType,data)`
 
 **参数**
 
-```
-data:(String类型) 必选 两点之间的距离,单位为米
-
-var data = "142658.29447225234";
-
-```
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| opId | Number类型 | 必选 | 操作ID,此函数中不起作用,可忽略|
+| dataType | Number类型 | 必选 | 数据类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback dataType数据类型 |
+| data | String类型 | 必选 | 两点之间的距离,单位为米 |
 
 **版本支持**
 
@@ -2446,22 +2474,54 @@ var data = "142658.29447225234";
 **示例**
 
 ```
-uexBaiduMap.cbGetDistance = function(data){
+uexBaiduMap.cbGetDistance = function(opCode,dataType,data){
 	alert(data);
 }
 
 ```
 
+> ### cbGetCenter 得到地图的中心点的回调方法
+
+`uexBaiduMap.cbGetCenter(json)`
+
+**参数**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| json | String类型 | 必选 | json字符串，详细字段见下方 |
+
+json = {
+	"longitude":"114.402814999999995",   //中心点经度
+	"latitude":"30.475797932887406"      //中心点纬度
+}
+
+
+**版本支持**
+
+3.0.0+ 
+
+**示例**
+
+```
+uexBaiduMap.cbGetCenter = function(json){
+	alert(json);
+}
+
+```
+
+
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexBaiduMap-3.0.15`
+API版本:`uexBaiduMap-3.1.17`
 
-最近更新时间:`2015-12-03`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.1.17 | 修复removeMakersOverlay接口传不当参数会闪退的问题 |
+| 3.1.16 | 增加对多种类型参数的识别,支持3.3引擎 |
 | 3.0.15 | 修改插件,使其支持config配置APIKey |
 | 3.0.14 | 删去info.plist |
 | 3.0.13 | 国际化 |
@@ -2477,16 +2537,22 @@ API版本:`uexBaiduMap-3.0.15`
 | 3.0.3 | 修复公交路线搜索失败的问题 |
 | 3.0.2 | 修复cbPoiSearchResult接口回调信息不完整问题 |
 | 3.0.1 | 与安卓统一回调接口的参数 |
+| 3.1.0 | 百度地图iOS_SDK_2.5.0 |
 
 ### Android
 
-API版本:`uexBaiduMap-3.2.32`
+API版本:`uexBaiduMap-3.2.37`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-06-07`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段,返回距离 |
+| 3.2.37 | 更新SDK,增加getCenter得到地图中心点方法 |
+| 3.2.36 | 优化了getDistance的算法，使用新版本SDK自带工具类DistanceUtil进行计算，使计算值更为精准 |
+| 3.2.35 | 更新SDK后appkey验证广播机制改变，由于onSDKReceiverError回调只为前端开发者所提供，所以使用Toast替代 |
+| 3.2.34 | 修复了getCurrentLocation必须open才能使用的问题;修复了地理编码、反地理编码必须open才能使用的问题 |
+| 3.2.33 | 更新SDK版本,将百度地图所有库导入 |
+| 3.2.32 | 增加了getDistance得到两点间直线距离方法,在回调方法cbPoiSearchResult中增加distance字段,返回距离;修复了文档中cbGetDistance代码case说明不对的问题 |
 | 3.2.31 | 增加了,当不打开地图View时,也可以调用poi搜索功能(目前支持城市检索,周边检索,区域检索),修复了打开地图再关闭地图,搜索poi无效的问题 |
 | 3.2.30 | 修复了前端调用open方法时传入小数时抛出NumberFormatException的问题 |
 | 3.2.29 | 修复了持续定位时cbCurrentLocation回调不生效的问题 |

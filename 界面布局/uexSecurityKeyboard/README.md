@@ -39,6 +39,7 @@
          "y": ,
          "width": ,
          "height":
+         "isScrollWithWeb":
     }
 ```
 
@@ -53,6 +54,7 @@
 | y | Number | 是 | 输入框距屏幕顶部的距离 |
 | width | Number | 是 | 输入框的宽度 |
 | height | Number | 是 | 输入框的高度 |
+| isScrollWithWeb | bool | 否 | 是否随网页滚动，默认为false |
 
 **平台支持:**
 
@@ -74,7 +76,8 @@ iOS 3.0.0+
         "x":100,
         "y":100,
         "width":250,
-        "height":50
+        "height":50,
+        "isScrollWithWeb":true
     };
     uexSecurityKeyboard.open(JSON.stringify(params));
 ```
@@ -207,20 +210,23 @@ window.uexOnload=function(type){
 
 ### iOS
 
-API版本:`uexSecurityKeyboard-3.0.0`
+API版本:`uexSecurityKeyboard-3.0.2`
 
-最近更新时间:`2016-12-30`
+最近更新时间:`2016-7-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.2 | 新增isScrollWithWeb参数控制是否随网页滚动|
+| 3.0.1 | 修复一处与nblistview相冲突的问题 |
 | 3.0.0 | 带安全键盘的输入框插件 |
 
 ### Android
 
 API版本:`uexSecurityKeyboard-3.0.0`
 
-最近更新时间:`2016-02-24`
+最近更新时间:`2016-07-27`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.1 | 新增isScrollWithWeb参数控制是否随网页滚动|
 | 3.0.0 | 带安全键盘的输入框插件 |

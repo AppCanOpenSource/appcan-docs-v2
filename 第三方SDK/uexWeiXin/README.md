@@ -49,6 +49,10 @@ Path Types
 | wgts:// | /storage/emulated/0/widgetone/apps/xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
 | wgts:// | /storage/emulated/0/widgetone/widgets/ | /Documents/widgets/ |
 | file:///sdcard/ | /storage/emulated/0/ | 无 |
+
+## 1.5 错误返回码说明
+前端收到的回调中的错误返回码errCode可查看下方链接获取详细信息
+[微信官方全局返回码说明地址](http://mp.weixin.qq.com/wiki/17/fa4e1434e57290788bde25603fa2fcbd.html)
  
 # 2、API概览
    
@@ -90,7 +94,7 @@ iOS6.0+
 uexWeiXin.registerApp('wxd930ea5d5a258f4f');
 ```
 
-> ### weiXinLogin 微信授权登录
+> ### weiXinLogin 微信授权登录(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.weiXinLogin(scope,state)`
 
@@ -201,7 +205,7 @@ alert("cbGetWXAppInstallUrl:"+data);
 
 ```
 
-> ### getWeiXinLoginAccessToken 获取微信登录accessToken
+> ### getWeiXinLoginAccessToken 获取微信登录accessToken(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.getWeiXinLoginAccessToken(secret,grant_type)`
 
@@ -231,7 +235,7 @@ iOS6.0+
 
 见weiXinLogin方法
 
-> ### getWeiXinLoginCheckAccessToken 检验accessToken是否有效
+> ### getWeiXinLoginCheckAccessToken 检验accessToken是否有效(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.getWeiXinLoginCheckAccessToken(access_token,openid)`
 
@@ -261,7 +265,7 @@ iOS6.0+
 
 见weiXinLogin方法
 
-> ### getWeiXinLoginRefreshAccessToken 获取微信登录的刷新或续期access_token
+> ### getWeiXinLoginRefreshAccessToken 获取微信登录的刷新或续期access_token(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.getWeiXinLoginRefreshAccessToken(grant_type,refresh_token)`
 
@@ -291,7 +295,7 @@ iOS6.0+
 
 见weiXinLogin方法
 
-> ### getWeiXinLoginUnionID 获取用户个人信息
+> ### getWeiXinLoginUnionID 获取用户个人信息(`旧接口不推荐,请使用新接口`)
 
 `uexWeiXin.getWeiXinLoginUnionID(access_token,openid)`
 
@@ -375,14 +379,14 @@ alert(data);
 
 ```
 
-> ### getWXAppInstalUrl 获取微信itunes的安装地址
+> ### getWXAppInstallUrl 获取微信itunes的安装地址
 
-`uexWeiXin.getWXAppInstalUrl()`
+`uexWeiXin.getWXAppInstallUrl()`
 
 **说明:**
 
 获取微信itunes的安装地址 
-回调 [cbGetWXAppInstalUrl](#cbGetWXAppInstalUrl 获取微信的itunes安装地址的回调方法 "获取微信的itunes安装地址的回调方法")
+回调 [cbGetWXAppInstallUrl](#cbGetWXAppInstallUrl 获取微信的itunes安装地址的回调方法 "获取微信的itunes安装地址的回调方法")
 
 **参数:**
 
@@ -407,7 +411,7 @@ iOS6.0+
 <title>微信功能</title>
 <script type="text/javascript">
 window.uexOnload = function(){
-uexWeiXin.cbGetWXAppInstalUrl=function(opCode,dataType,data){
+uexWeiXin.cbGetWXAppInstallUrl=function(opCode,dataType,data){
 alert(data);
 }
 }
@@ -418,7 +422,7 @@ alert(data);
 <div class="conbor">
 <div class="consj">
 <span>获取微信安装地址 </span>
-<input class="btn" type="button" value="获取微信安装地址" onclick="uexWeiXin.getWXAppInstalUrl();">
+<input class="btn" type="button" value="获取微信安装地址" onclick="uexWeiXin.getWXAppInstallUrl();">
 </div>
 </div>
 </body>
@@ -782,7 +786,7 @@ function shareText(){
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| jsonData| String类型| 必选 | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type|
+| jsonData| String类型| 必选 | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type, Android不支持网络路径图片|
 
 ```
 jsonData {
@@ -946,7 +950,7 @@ iOS6.0+
 
 **参数:**
 
-参数说明及生成办法详见微信开放平台文档[统一下单接口参数说明](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1 "统一下单接口参数说明")中的"请求参数" 
+参数说明及生成办法详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"请求参数" 
 
 ```
 var json = {
@@ -1020,7 +1024,7 @@ uexWeiXin.getPrepayId(data1);
 
 **参数:**
 
-参数说明及生成办法详见微信开放平台文档[调起支付接口参数说明](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_12&index=2 "调起支付接口参数说明")中的"请求参数" 
+参数说明及生成办法详见微信开放平台文档[调起支付接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口参数说明")中的"请求参数" 
 
 ```
 var json ={
@@ -1976,9 +1980,9 @@ uexWeiXin.cbIsWXAppInstalled = function (opCode,dataType,data) {
 }
 ```
 
-> ### cbGetWXAppInstalUrl 获取微信的itunes安装地址的回调方法
+> ### cbGetWXAppInstallUrl 获取微信的itunes安装地址的回调方法
 
-`uexWeiXin.cbGetWXAppInstalUrl(opId,dataTpye,data)`
+`uexWeiXin.cbGetWXAppInstallUrl(opId,dataTpye,data)`
 
 **参数:**
 
@@ -1996,7 +2000,7 @@ uexWeiXin.cbIsWXAppInstalled = function (opCode,dataType,data) {
 **示例**
 
 ```
-uexWeiXin.cbGetWXAppInstalUrl = function (opCode,dataType,data) {
+uexWeiXin.cbGetWXAppInstallUrl = function (opCode,dataType,data) {
     alert(data);
 }
 ```
@@ -2199,7 +2203,7 @@ uexWeiXin.cbIsSupportPay = function (opCode,dataType,data) {
 
 **参数:**
 
-json格式数据,参数详见微信开放平台文档[统一下单接口参数说明](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果"
+json格式数据,参数详见微信开放平台文档[统一下单接口参数说明](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1 "统一下单接口参数说明")中的"返回结果"
 
 **版本支持:**
 
@@ -2219,7 +2223,7 @@ uexWeiXin.cbGetPrepayId = function(data){
 
 **参数:**
 
-参数说明及生成办法详见微信开放平台文档[调起支付接口](http://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_12&index=2 "调起支付接口")参数说明中的"返回结果"
+参数说明及生成办法详见微信开放平台文档[调起支付接口](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口")参数说明中的"返回结果"
 ```
 var json = {
     errCode:,//状态码。0:成功；-1:错误；-2:用户取消
@@ -2569,12 +2573,13 @@ uexWeiXin.cbGetLoginUnionID = function (data) {
 
 ### iOS
 
-API版本:`uexWeiXin-3.0.19`
+API版本:`uexWeiXin-3.0.20`
 
-最近更新时间:`2016-1-7`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.20 | 修复getWeiXinLoginAccessToken失败的bug |
 | 3.0.19 | 修复getWeiXinLoginAccessToken失败的bug |
 | 3.0.18 | 修改回调方式,支持setCallbackWindowName接口;部分支持IDE |
 | 3.0.17 | 新增一版微信登陆相关接口 |
@@ -2597,12 +2602,14 @@ API版本:`uexWeiXin-3.0.19`
 
 ### Android
 
-API版本:`uexWeiXin-3.1.33`
+API版本:`uexWeiXin-3.1.35`
 
-最近更新时间:`2015-12-21`
+最近更新时间:`2016-5-11`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.1.35 | 更新SDK,优化代码逻辑；文档中增加错误返回码说明 |
+| 3.1.34 | 支持https |
 | 3.1.33 | 修复和完善抛出异常的捕获 |
 | 3.1.32 | 新增setCallbackWindowName接口,解决偶尔收不到回调的问题 |
 | 3.1.31 | 更新微信登陆相关接口 |

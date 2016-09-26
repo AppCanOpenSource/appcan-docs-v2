@@ -25,7 +25,7 @@
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| json  | Number类型  |必选   | 折线数据  |
+| json  | String  |必选   | 折线数据  |
  
 
 ```
@@ -99,7 +99,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexBrokenLine.open("10","100","460","700","1"); 
+uexBrokenLine.open(10,100,460,700,1); 
 ```
 
 > ### close  关闭界面
@@ -128,7 +128,7 @@ iOS6.0+
 **示例:**
 
 ```
-uexBrokenLine.close("1"); 
+uexBrokenLine.close(1); 
 ```
 # 3、更新历史
 

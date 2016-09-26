@@ -7,12 +7,12 @@
 ##1.1、 说明
 封装了极光推送的相关功能:您可以主动、及时地向您的用户发起交互,向其发送聊天消息、日程提醒、活动预告、进度提示、动态更新等,精准的目标用户和有价值的推送内容可以提升用户忠诚度,提高留存率与收入。
 
- * 用户可以在 config.xml 配置参数。若打包平台不支持config.xml配置,用户需要自定义插件进行使用,详见**附录**
+ * 集成打包之前需要在 config.xml 配置参数,否则打包失败。若打包平台不支持config.xml配置,用户需要自定义插件进行使用,详见**[附录](#3、附录 "附录")**
  * 插件需要用到证书/包名,因此IDE打包下部分功能无法正常使用,**调试使用本插件时,请使用在线打包**。
  * 本插件为单例插件,用户可以在任意界面调用插件的接口,但回调始终传回给root页面。
  
 ##1.2、 开源源码
-[点击](http://plugin.appcan.cn/details.html?id=432_index)插件中心至插件详情页(插件测试用例与插件包已经提供)
+[点击](http://plugin.appcan.cn/details.html?id=432_index)插件中心至插件详情页(测试用例与插件源码已经提供)
 
  
 #2、API概览
@@ -471,6 +471,8 @@ uexJPush.disableLocalNotificationAlertView(1);
  
 ##2.3、回调方法
  ***
+ - 本插件为单例插件,用户可以在任意界面调用插件的接口,但回调始终传回给root页面(即root页面调用)。
+ 
 >### cbSetAlias  设置别名的回调方法
 
 `uexJPush.cbSetAlias(json)`
@@ -657,6 +659,7 @@ window.uexOnload=function(type){
 ```
 
 ##2.3、监听方法
+- 本插件为单例插件,用户可以在任意界面调用插件的接口,但回调始终传回给root页面(即root页面调用)。
 
 >### onReceiveMessage 收到了自定义消息
 
@@ -806,13 +809,19 @@ iOS 3.0.0+
 **示例**
 
 ```
-
 window.uexOnload=function(type){
-	
-	uexJPush.onReceiveConnectionChange=function(data){
-		alert(data);
-	}
-
+    uexJPush.onReceiveConnectionChange=function(data){
+    	var json = JSON.parse(data);
+        switch(json.connect)
+        {
+        	case '0':
+        	alert('已连接上');
+        	break;
+			case '1':
+        	alert('未连接');
+        	break;
+        }
+    }
 	...(其他回调或监听)
 }
 ```
@@ -945,12 +954,14 @@ $UEXJPUSH_APS_ENVIRONMENT$ ----->推送证书类型   0-开发者证书(develope
 
 ### iOS
 
-API版本:`uexJPush-3.0.7`
+API版本:`uexJPush-3.0.9`
 
-最近更新时间:`2015-12-1`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.9 | 更新JPush SDK到2.1.7 -支持IPv6 |
+| 3.0.8 | 更新JPush SDK到2.1.5 |
 | 3.0.7 | 现在应用在后台时,点击推送,会正确的触发onReceiveNotificationOpen |
 | 3.0.6 | 修复root页面回调失效的bug |
 | 3.0.5 | 新增接口disableLocalNotificationAlertView |
@@ -962,12 +973,17 @@ API版本:`uexJPush-3.0.7`
 
 ### Android
 
-API版本:`uexJPush-3.0.9`
+API版本:`uexJPush-3.0.14`
 
-最近更新时间:`2016-2-1`
+最近更新时间:`2016-05-12`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.14 | 修复了缺少配置GET_TASKS权限导致的部分机型程序崩溃问题;修复了数据库推送不自动清空的问题;升级SDK支持64位uid |
+| 3.0.13 | 优化了当应用程序正常退出后,依然可以收到推送(所有机型)；注:当用户手动清理内存(杀进程)后,收不到推送是正常现象;若想杀进程后依然收到推送,须手动将App配置进系统白名单 |
+| 3.0.12 | 修复了Manifest文件书写错误导致的应用崩溃的问题 |
+| 3.0.11 | 设置中转广播接收器,用来在另一个进程中启动App,并转发广播 |
+| 3.0.10 | 增加应用程序退出后仍能收到推送的功能,更新SDK版本从173到213 |
 | 3.0.9 | 修复setTags返回格式不正确的问题 |
 | 3.0.8 | 修复通知不含extras时闪退的问题 |
 | 3.0.7 | 修复setTags和setAlias返回错误的问题 |

@@ -64,7 +64,7 @@ uexAreaPickerView.close();
 
 >### onConfirmClick 完成选择的监听方法
 
-`uexAreaPickerView.onConfirmClick(json)`
+`uexAreaPickerView.onConfirmClick(jsonString)`
 
 **说明**
 
@@ -90,9 +90,9 @@ iOS 7.1+
 
 **示例:**
 
-```
-uexAreaPickerView.onConfirmClick = function(json){
- alert("onConfirmClick "+json);
+```javascript
+uexAreaPickerView.onConfirmClick = function(jsonString){
+ alert("onConfirmClick "+jsonString);
 }
 ```
 

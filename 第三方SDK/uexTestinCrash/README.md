@@ -205,13 +205,15 @@ uexTestinCrash.test();
 
 ### iOS
 
-API版本:`uexTestinCrash-3.0.1`
+API版本:`uexTestinCrash-3.0.2`
 
-最近更新时间:`2015-04-27`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.2 | SDK更新为CrashMaster.framework,支持ipv6 |
 | 3.0.1 | 云测崩溃大师发布 |
+| 3.0.0 | 云测崩溃分析 for iOS |
 
 ### Android
 

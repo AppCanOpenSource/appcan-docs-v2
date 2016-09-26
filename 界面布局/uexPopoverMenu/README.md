@@ -7,7 +7,7 @@
   
 
 ## 1.3、开源源码
-插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=573_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 # 2、API概览
 
@@ -72,8 +72,8 @@ iOS 3.0.0+
 
 ```
 var params = {
-    "x": window.screen.width＊0.02,
-    "y": window.screen.height＊0.1,
+    "x": window.screen.width*0.02,
+    "y": window.screen.height*0.1,
     "direction":2,
     "bgColor":'#FFC125',
     "dividerColor":'#FFC125',
@@ -103,8 +103,8 @@ uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
 或者
   
 var params = {
-    "x": window.screen.width＊0.02,
-    "y": window.screen.height＊0.1,
+    "x": window.screen.width*0.02,
+    "y": window.screen.height*0.1,
     "direction":2,
     "bgColor":'#FFC125',
     "dividerColor":'#FFC125',

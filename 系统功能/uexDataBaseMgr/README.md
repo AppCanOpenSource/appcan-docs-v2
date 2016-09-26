@@ -188,8 +188,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | 数据库对象的唯一标识符 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -221,8 +221,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | 数据库对象的唯一标识符 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -255,7 +255,7 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | 数据库对象的唯一标识符 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
+| dataType | Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback方法数据类型 |
 | data | Number | 是 | 返回查询到的数据,json数据格式|
 
 **平台支持:**
@@ -293,8 +293,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | 数据库对象的唯一标识符 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -327,8 +327,8 @@ iOS6.0+
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
 | opId | Number | 是 | 数据库对象的唯一标识符 |
-| dataType | Number | 是 | 参数类型详见CONSTANT中Callback方法数据类型 |
-| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见CONSTANT中Callbackint类型数据 |
+| dataType | Number | 是 | 参数类型详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中Callback方法数据类型 |
+| data | Number | 是 | 返回uex.cSuccess或者uex.cFailed,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中Callbackint类型数据 |
 
 **平台支持:**
 
@@ -355,12 +355,13 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexDataBaseMgr-3.0.4`
+API版本:`uexDataBaseMgr-3.0.5`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-5-17`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.5 | 修复数据包含特殊字符时回调结果错误的问题 |
 | 3.0.4 | 添加IDE支持 |
 | 3.0.3 | 重新解决uexDataBaseMgr插件IDE包创建表格失败的问题 |
 | 3.0.2 | 解决uexDataBaseMgr插件IDE包创建表格失败的问题 |
@@ -369,10 +370,11 @@ API版本:`uexDataBaseMgr-3.0.4`
 
 ### Android
 
-API版本:`uexDataBaseMgr-3.0.0`
+API版本:`uexDataBaseMgr-3.0.1`
 
-最近更新时间:`2015-06-19`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.1 | 修复多次打开同一数据库,关闭一次后,数据库全部关闭的问题。 |
 | 3.0.0 | 数据库功能插件 |

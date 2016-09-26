@@ -10,7 +10,7 @@
 * **如果用户需要设置静态shortcut,或者需要在shortcut里设置自定义图标,则需要自定义插件**。具体自定义的方法见附录。
 
 ## 1.2、开源源码
-[点击]()至插件详情页(插件测试用例与插件包已经提供)
+[点击](http://plugin.appcan.cn/details.html?id=511_pluginlist)至插件详情页(插件测试用例与插件源码已经提供)
 
 #2、 API预览
 
@@ -220,12 +220,13 @@ uex3DTouch.onLoadByShortcutClickEvent = function(data){
 
 ### iOS
 
-API版本:`uex3DTouch-3.0.1`
+API版本:`uex3DTouch-3.0.2`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-5-10`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.2 | 修复可能会与其他包含3DTouch功能的插件冲突的问题 |
 | 3.0.1 | 添加IDE支持 |
 | 3.0.0 | 3DTouch 功能插件 |
 

@@ -7,7 +7,7 @@
 
 ## 1.1、说明
 
-此插件内置了一个可以后台执行的JS上下文,用于进行一些后台操作。
+此插件内置了一个可以后台执行的JS上下文,用于进行一些后台操作。你可以在此JS上下文中中调用引擎和其他插件来进行一些需要在后台也需要执行的事件,比如后台定位并上报到服务器等,对于iOS系统,额外需要注意的事项,具体使用说明[查看](#start 开始运行后台JS "查看")API接口。
 
 ## 1.2、UI展示
 
@@ -21,7 +21,7 @@
 
 ## 2.1、方法
 
-> ### start() 开始运行后台JS
+> ###start 开始运行后台JS
 
 `uexBackground.start(param)`
 
@@ -43,7 +43,7 @@
 
 **参数**
 
-param 是JSON字符串
+param 是JSON字符串,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
 
 ```
 var param = {
@@ -79,7 +79,7 @@ var result = uexBackground.start(JSON.stringify(data));
 
 * 此示例中,用`"res://../"`获得了`widget`目录的路径,**这种方式仅本插件支持!**
 
-> ###stop() 停止当前正在运行的后台JS
+> ###stop 停止当前正在运行的后台JS
 
 `uexBackground.stop()`
 
@@ -272,12 +272,13 @@ uexBackground.XXX = function(count){
 
 ### iOS
 
-API版本:`uexBackground-3.0.0`
+API版本:`uexBackground-3.3.1`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-7-5`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.3.1 | 修复一处循环引用的错误 |
 | 3.0.0 | uexBackground for iOS |
 
 ### Android

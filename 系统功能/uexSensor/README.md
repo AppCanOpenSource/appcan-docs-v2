@@ -24,8 +24,8 @@
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-|  type  | Number | 否 | 传感器类型,详见CONSTANT中SensorType |
-|  rate  | Number | 否 | 传感器速率,详见CONSTANT中SensorRate |
+|  type  | Number | 否 | 传感器类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Sensor "CONSTANT")中SensorType |
+|  rate  | Number | 否 | 传感器速率,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Sensor "CONSTANT")中SensorRate |
 
 **平台支持:**
 
@@ -54,7 +54,7 @@ uexSensor.open(1,3);
 
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-|  type | Number | 否 | 传感器类型,详见CONSTANT中SensorType |
+|  type | Number | 否 | 传感器类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Sensor "CONSTANT")中SensorType |
 
 **平台支持:**
 

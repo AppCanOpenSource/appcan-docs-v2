@@ -30,13 +30,13 @@ var json = {
     "placeHold":,//输入框提示语
 }
 ```
+>参数emojicons的自定义表情配置文件为:"res://emojicons/emojicons.xml",详细配置步骤:
 
-自定义表情的配置文件配置步骤:
 1、在widget的wgtRes目录下创建emojicons目录；
 2、在emojicons中放入表情以及删除的图片资源,表情的默认命名格式:
 ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
 3、在emojicons中创建emojicons.xml文件,格式如下:
-
+```
 <?xml version="1.0" encoding="utf-8"?>
 <emojicons delete="ace_emoji_delete.png ">
   <key>[微笑]</key>
@@ -44,7 +44,7 @@ ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png；
    <key>[憋嘴]</key>
    <string> ace_emoji_2.png</string>
 </emojicons>
-
+```
 * delete:删除对应的图片名；
 * key:表情对应的文字；
 * string:表情对应的图片名
@@ -165,6 +165,10 @@ uexInputTextFieldView.changeWebViewFrame(600);
 
 `uexInputTextFieldView.onCommit(json)`
 
+**说明**
+
+使用此接口时,可能会出现json解析失败的情况,请使用[onCommitJson](http://newdocx.appcan.cn/newdocx/docx?type=1478_975#onCommitJson 点击发送的监听方法 "onCommitJson")方法
+
 **参数**
 
 ```
@@ -190,7 +194,41 @@ uexInputTextFieldView.onCommit = function(data){
     alert(data);
 }
 ```
- 
+> ### onCommitJson 点击发送的监听方法
+
+`uexInputTextFieldView.onCommitJson(json)`
+
+**参数:**
+
+```
+var json = {
+emojiconsText:
+}
+```
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| emojiconsText | String | 是 | 输入框里的内容 |
+
+**支持平台:**
+Android2.2+    
+iOS6.0+
+
+**版本支持:**
+
+Android 3.0.10+
+iOS 3.0.10+
+
+**示例:**
+
+```
+function onCommitJson(data) {
+alert(data);
+}
+window.uexOnload = function(){
+uexInputTextFieldView.onCommitJson = onCommitJson;
+}
+``` 
 > ### onKeyBoardShow 键盘弹出或收起时的监听方法
 
 `uexInputTextFieldView.onKeyBoardShow(json)`
@@ -227,41 +265,6 @@ uexInputTextFieldView.onKeyBoardShow = onKeyBoardShow;
 }
 ```
 
-> ### onCommitJson 点击发送的监听方法
-
-`uexInputTextFieldView.onCommitJson(json)`
-
-**参数:**
-
-```
-var json = {
-emojiconsText:
-}
-```
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| emojiconsText | String | 是 | 输入框里的内容 |
-
-**支持平台:**
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android 3.0.10+
-iOS 3.0.10+
-
-**示例:**
-
-```
-function onCommitJson(data) {
-alert(data);
-}
-window.uexOnload = function(){
-uexInputTextFieldView.onCommitJson = onCommitJson;
-}
-```
  
 
 # 3、更新历史
@@ -286,13 +289,16 @@ API版本:`uexInputTextFieldView-3.0.8`
 
 ### Android
 
-API版本:`uexInputTextFieldView-3.2.12`
+API版本:`uexInputTextFieldView-3.2.15`
 
-最近更新时间:`2016-2-1`
+最近更新时间:`2016-4-22`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.2.12 | 修改兼容性问题,添加新的接口和回调,调整优化代码逻辑,解决键盘遮蔽问题 |
+| 3.2.15 | 修正白屏问题的解决逻辑,修复键盘遮蔽的有时候页面推动过多的问题 |
+| 3.2.14 | 某些情况下可能出现白屏的问题 |
+| 3.2.13 | 解决有些机型上获取屏幕宽度不对的问题 |
+| 3.2.12 | 修改兼容性问题,添加getInputBarHeight接口以及onCommitJson和onKeyBoardShow,cbGetInputBarHeight的回调,调整优化代码逻辑,解决键盘遮蔽问题 |
 | 3.2.11 | 修复关闭输入框时,键盘未自动收起的问题 |
 | 3.0.10 | 去掉插件中的ActivityGroup,配合引擎升级 |
 | 3.0.9 | 增加输入框自动获取焦点接口 |

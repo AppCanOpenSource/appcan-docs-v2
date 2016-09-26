@@ -6,13 +6,13 @@
 科大讯飞语音插件
 
 ## 1.1、说明
-封装了科大讯飞语音识别和语音合成的相关功能,两个功能都需要在线合成  
+封装了科大讯飞语音识别和语音合成的相关功能,两个功能都需要在线合成 ，并且只能作为自定义插件使用。详情见**附录**.
 
 **插件为单例插件,所有的回调函数将会回调到调用`init()`所在的Window**  
 如:在root页面调用`uexXunfei.init()`,则回调都会发送到root window
 
 ## 1.2、开源源码
-[点击]()至插件详情页(插件测试用例与插件包已经提供)
+[点击](http://plugin.appcan.cn/details.html?id=603_pluginlist)至插件详情页(测试用例与插件源码已经提供)
 
 ***
 
@@ -499,7 +499,9 @@ iOS 3.0.0+
 
 ```
 var param={
-		error:,// 错误信息
+		errorCode:,// 错误码
+		errorDesc:,// 错误描述
+		errorType:,// 错误码类型
 }
 ```
 
@@ -573,7 +575,7 @@ iOS 3.0.0+
        }
 ```
 
->### onRecognizeResult 语音识别的结果
+>### onRecognizeResult 语音识别的结果(可能会多次回调)
 
 `uexXunfei.onRecognizeResult()`
 
@@ -581,14 +583,24 @@ iOS 3.0.0+
 
 | 参数名称 | 参数类型 | 是否必选 | 说明 |
 | ----- | ----- | ----- | ----- |
-|param|String|否|param是json字符串,详情见下|
+|json|String|否|param是json字符串,详情见下|
 
 ```
-var param={
-		text:,// 识别出来的文字
-		isLast://是否结束,true/false true表示已结束
-}
+var json = {"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":" 今天 ","sc":0}]},{"bg":0,"cw":[{"w":" 的","sc":0}]},{"bg":0,"cw":[{"w":" 天气 ","sc":0}]},{"bg":0,"cw":[{"w":" 怎么样 ","sc":0}]},{"bg":0,"cw":[{"w":" 。","sc":0}]}]};
 ```
+各字段含义如下
+
+|JSON字段|英文全称|类型|说明|
+|-----|-----|-----|-----|
+|sn|sentence|number|第几句
+|ls|last sentence |bool|是否最后一句
+|bg|begin    |number|开始
+|ed|end|number|结束
+|ws|words|array|词
+|cw|chinese word|array|中文分词
+|w|word|String|单字
+|sc|score|number|分数
+
 
 **平台支持**
 
@@ -609,54 +621,32 @@ iOS 3.0.0+
        }
 ```
 
-**语音识别结果说明**  
-
-|JSON字段|英文全称|类型|说明|
-|-----|-----|-----|-----|
-sn|sentence|number|第几句
-ls|last sentence |bool|是否最后一句
-bg|begin    |number|开始
-ed|end|number|结束
-ws|words|array|词
-cw|chinese word|array|中文分词
-w|word|String|单字
-sc|score|number|分数
-
-语音识别示例:  
-
-```
-{"sn":1,"ls":true,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"今天","sc":0}]},{"bg":0,"cw":{"w":"的","sc":0}]},{"bg":0,"cw":[{"w":"天气","sc":0}]},{"bg":0,"cw":[{"w":"怎么样","sc":0}]},{"bg":0,"cw":[{"w":"。","sc":0}]}]}  
-```
-多候选示例:  
-
-```
-{"sn":1,"ls":false,"bg":0,"ed":0,"ws":[{"bg":0,"cw":[{"w":"我想听","sc":0}]},{"bg":0,"cw":[{"w":"拉德斯基进行曲","sc":0},{"w":"拉得斯进行曲","sc":0}]}]}    
-```
-
 #3、 附录
 
 ##AppID申请
-AppID申请需要在讯飞官网申请完成。创建应用之后需要开通`语音听写` `在线语音合成`。目前暂时支持这两个功能,后续有需求会继承其他的功能
+AppID申请需要在讯飞官网申请完成。创建应用之后需要开通`语音听写` `在线语音合成`。 创建一个应用时，会自动关联一个Appid，Appid和对应的SDK具有一致性，故iOS插件建议在讯飞开放平台创建应用，生成Appid，并选中**组合服务SDK下载**，勾选`语音听写` `在线语音合成`，下载自定义sdk，用下载的sdk中的iflyMSC.framework替换掉插件包中的framework，作为自定义插件包使用。对于Android插件，开发者需要从讯飞官网下载应用对应的sdk，下载完成后，用sdk中的`libs`目录下的`Msc.jar`, `Sunflower.jar`替换插件包中的`jar`目录下的这两个文件，将sdk中的`libs/armeabi`下`libmsc.so`替换插件包中的`so`目录下的文件。
 
 # 4、更新历史
 
 ### iOS
 
-API版本:`uexXunfei-3.0.1`
+API版本:`uexXunfei-3.0.2`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-7-8`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.2 | 添加语音识别功能 |
 | 3.0.1 | 添加iflyMSC.framework |
 | 3.0.0 | 新增uexXunfei插件 |
 
 ### Android
 
-API版本:`uexXunfei-3.0.0`
+API版本:`uexXunfei-3.0.1`
 
-最近更新时间:`2015-12-18`
+最近更新时间:`2016-7-8`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.1 | 添加语音识别功能 |
 | 3.0.0 | 初始化版本 |

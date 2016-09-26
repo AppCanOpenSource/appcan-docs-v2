@@ -8,13 +8,11 @@
 该插件封装了Camera360开放SDK编辑图片的功能。
 
 ## 1.2、开源源码
-[点击]()至插件详情页(插件测试用例与插件包已经提供)
+[点击](http://plugin.appcan.cn/details.html?id=609_index)至插件详情页(插件测试用例与原生插件源码已经提供)
 
 ## 1.3、插件截图
 
-![screenshot1](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexCamera360/IMG/7.png "screenshot1")
-![screenshot2](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexCamera360/IMG/8.png "screenshot2")
-![screenshot3](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexCamera360/IMG/9.png "screenshot3")
+![](/docImg/975/camera360.png)
 
 # 2、API
 

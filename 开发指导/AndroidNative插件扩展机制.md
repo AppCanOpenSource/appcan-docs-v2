@@ -317,7 +317,7 @@ Eclipse中选中src文件夹->右键->Export->Java->JAR file.
 
 **2.1.3.5.资源文件的命名**
 
-  命名规则为plugin_+plugin对象名_+其他信息，例如plugin_uexdemo_xxx.png、plugin_uexdemo_yyy.xml、<string name=" plugin_uexdemo_zzz ">等等。
+    命名规则为plugin_+plugin对象名_+其他信息（须使用小写命名规范），例如plugin_uexdemo_xxx.png、plugin_uexdemo_yyy.xml、 `<string name=" plugin_uexdemo_zzz ">`等等。
 
 ### 2.2.插件开发注意事项
 
@@ -474,6 +474,7 @@ public class ViewDataVO implements Serializable{
     public static void onActivityPause(Context context)
     public static void onActivityStop(Context context)
     public static void onActivityDestroy(Context context)
+    public static void onActivityNewIntent(Context context, Intent intent)
 ````
 
   使用方式：
@@ -542,3 +543,6 @@ public class ViewDataVO implements Serializable{
 
   更改或添加了application节点下的相关属性(插件在最后打包时,不会提交application节点,故更改不起作用,开发者不要手动修改application节点)。
 
+
+<p class="text-center" > <a style="color:#fff"class="btn btn-primary btn-lg" href="http://dashboard.appcan.cn/register" role="button">免费注册，快速体验</a>
+</p>
