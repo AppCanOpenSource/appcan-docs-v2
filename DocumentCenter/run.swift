@@ -92,6 +92,7 @@ extension String{
         }
         return newStr;
     }
+
     
     func removePoundPrefix() -> String {
         var newStr = self;
@@ -107,9 +108,14 @@ for md in PluginMarkDown.allAvailable(){
     guard let source = md.source else{
         continue
     }
-    var editedSource: MarkDownSource = source.map{
+    var editedSource: MarkDownSource = source.flatMap{
         var line = $0
         let ignoreMark = "<ignore>"
+        let cleanedLine = (line as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) as String
+        if cleanedLine == "[TOC]" {
+            return nil
+        }
+        
         if line.hasSuffix(ignoreMark){
             line = line.substringToIndex(line.endIndex.advancedBy(-ignoreMark.characters.count));
         }

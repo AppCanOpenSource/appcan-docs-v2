@@ -3,7 +3,6 @@ Sort: 1
 Toc: 1
 */
 
-[TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/公测/gf.png)]()<ignore>
 ## 1.1、说明<ignore>
 分段选择器插件

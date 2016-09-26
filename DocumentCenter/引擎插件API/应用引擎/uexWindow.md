@@ -4,7 +4,6 @@ Toc: 1
 */
 
 
-[TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
 
 　 窗口对象.窗口对象是实现多窗口机制的基本单元.使用窗口对象构建Hybrid App,在性能方面更加接近Native App的体验.

@@ -3,7 +3,6 @@ Sort: 1
 Toc: 1
 */
 
-[TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
 ## 1.1、说明<ignore>
 本插件封装了多任务多线程下载,断点续传功能.只用简单的传入下载url和要保存路径等信息就可以进行下载.

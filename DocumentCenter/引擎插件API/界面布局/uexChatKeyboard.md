@@ -3,7 +3,6 @@ Sort: 1
 Toc: 1
 */
 
-[TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
 ## 1.1、说明<ignore>
 提供聊天输入相关的功能,集成了表情、拍照、从相册选取图片等分享功能,只需简单的widget配置即可实现自定义表情集和分享选项内容.

@@ -3,7 +3,6 @@ Sort: 1
 Toc: 1
 */
 
-[TOC]
 # 1、简介  <ignore>
 天翼RTC插件
 ## 1.1、说明<ignore>
