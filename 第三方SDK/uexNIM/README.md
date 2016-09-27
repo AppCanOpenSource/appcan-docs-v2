@@ -132,18 +132,17 @@ var param = {
 ```
 **回调函数** 
 ```
-var callbackFunction = function(error){}
+var callbackFunction = function(error, data){}
 ```
 
 | 参数名称  | 类型     | 说明                |
 | ----- | ------ | ----------------- |
-| error | Number | 0 表示成功,1 表示失败  |
-| data | 对象| 说明如下：  |
+| error | Number | 0 表示成功, 其它表示失败，error代码及说明见下方  |
+| data | 对象| 成功时返回userId, 格式如下：  |
 
 ```
 var param = {
-	error:,//失败错误码
-	userId:,//成功返回userId,失败返回为空
+	userId:,//成功返回userId
 };
 ```
 | error | 错误信息|
@@ -421,6 +420,24 @@ var data = {
 
 支持从云信服务器上远程获取之前的聊天历史记录.
 
+**参数**
+
+```
+var param = {
+    sessionId:, //会话ID,如果当前session为team,则sessionId为teamId,如果是P2P则为对方帐号
+    sessionType:, //会话类型,当前仅支持P2P(单聊)和Team（群聊）
+    messageId:,//起始查询消息的消息Id
+    limit:,//检索条数, 最大限制100条
+    startTime:,//起始时间,默认为0
+    endTime:,//结束时间,默认为0,
+    order:,//检索顺序,0:从新消息往旧消息查询,1:从旧消息往新消息查询
+    sync:,//同步数据: 是否在远程获取消息成功之后同步到本地数据库,如果选择同步,则同步之后不会触发消息添加的回调。默认同步(true),false为不同步。
+};
+```
+
+
+**回调函数参数**
+
 | 参数 | 参数详情 |
 | ----- | ----- |
 | error | 0:成功， 1：失败 |
@@ -431,18 +448,7 @@ data为聊天历史记录数据信息时，格式如下：
 ```
 var data = {
 	messages:[ 
-	{
-		sessionId:, //会话ID,如果当前session为team,则sessionId为teamId,如果是P2P则为对方帐号
-		sessionType:, //会话类型,当前仅支持P2P(单聊)和Team(群聊)
-		messageId:,//起始查询消息的消息Id
-		limit:,//检索条数, 最大限制100条
-		startTime:,//起始时间,默认为0
-		endTime:,//结束时间,默认为0,
-		order:,//检索顺序,0:从新消息往旧消息查询,1:从旧消息往新消息查询
-		sync:,//同步数据: 是否在远程获取消息成功之后同步到本地数据库,如果选择同步,则同步之后不会触发消息添加的回调.默认同步(true),false为不同步.
-	}, 
-	{
-	}
+	
 	]
 };
 ```
