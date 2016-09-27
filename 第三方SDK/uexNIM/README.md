@@ -459,7 +459,7 @@ var data = {
 多媒体管理 NIMMediaManager 提供了音频播放、高清语音录制的功能.需要注意的是 NIM SDK 中的语音播放和录制仅支持 aac ,如果需要更多格式的支持,APP 需要自己实现,但并不推荐.
 ### 🍭switchAudioOutputDevice  切换音频的输出设备
 
-**说明**：同步返回切换是否成功
+**说明**：同步返回切换是否成功, 返回值为boolean类型
 
 ```
 var param = {
@@ -478,7 +478,7 @@ var result = uexNIM.switchAudioOutputDevice(JSON.stringify(param));
 ```
 
 ### 🍭isPlaying  判断是否正在播放音频
-**说明**：同步返回是否正在播放音频状态
+**说明**：同步返回是否正在播放音频状态, 返回值为boolean类型
 
 **示例**
 
