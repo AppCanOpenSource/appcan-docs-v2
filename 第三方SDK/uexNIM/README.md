@@ -340,7 +340,7 @@ var param = {
 	progress:,//发送进度(0~1)
 };
 ```
-### 🍭onMessage(param) 消息发送完毕回调
+### 🍭onMessageSend(param) 消息发送完毕回调
 
 如果消息发送成功 error为空,反之 error 会被填充具体的失败原因.
 param为json字符串
@@ -487,27 +487,29 @@ var isPlaying = uexNIM.isPlaying();
 console.log('isPlaying:' + isPlaying);
 ```
 
-### 🍭playAudio(param, function(error, data)  播放音频
+### 🍭playAudio(param)  播放音频
 
 ```
 var param = {
 	filePath:,//音频文件的路径
 };
 ```
-**回调函数参数**
 
-|参数|说明|
-|----|----|
-|error|0:成功， 1: 失败|
-|data|返回的具体数据, JSON对象|
+播放状态的监听见`onBeganPlayAudio`, `onCompletedPlayAudio`
 
-`data`格式如下：
+### 🍭onBeganPlayAudio(param) 开始播放
 
 ```
-var data = {
-	filePath:, //文件路径,
-	status:, //1：准备播放 2: 播放完成
-}
+var param = {
+	filePath:,//音频文件的路径
+};
+```
+### 🍭onCompletedPlayAudio(param) 播放结束
+
+```
+var param = {
+	filePath:,//音频文件的路径
+};
 ```
 
 
