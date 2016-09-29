@@ -32,7 +32,7 @@ Toc: 1
 
 ##2.1、 方法<ignore>
 
-### 🍭 setDynamicShortcutItems 设置动态shortcut
+###  setDynamicShortcutItems 设置动态shortcut
 
 `uex3DTouch.setDynamicShortcutItems(itemArray)`
 
@@ -113,7 +113,7 @@ uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 
 ##2.2、监听方法<ignore>
 
-### 🍭 onLoadByShortcutClickEvent 程序被点击3DTouch Shortcut调起的监听方法
+###  onLoadByShortcutClickEvent 程序被点击3DTouch Shortcut调起的监听方法
 
 `  uex3DTouch.onLoadByShortcutClickEvent(data)`
 
@@ -155,7 +155,7 @@ uex3DTouch.onLoadByShortcutClickEvent = function(data){
 
 #3、术语表<ignore>
 
-### 🍭 shortcut
+###  shortcut
 
 #### 概要<ignore>
 
@@ -180,7 +180,7 @@ uex3DTouch.onLoadByShortcutClickEvent = function(data){
   * 由于菜单只容许至多4个shortcut,因此其他设置的shortcut将无效
   * 比如,若你设置了3个静态shortcut和2个动态shortcut,那么第二个动态shortcut将不会被显示
 
-### 🍭 shortcutIconTypes
+###  shortcutIconTypes
 
 * iOS 系统内部预设了一些shortcut图标供开发者使用,详见下表
 * 具体图标样式参见[苹果官方文档](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIApplicationShortcutIcon_Class/index.html#//apple_ref/swift/enum/c:@E@UIApplicationShortcutIconType),搜索相应的shortcutIconType关键字即可看到

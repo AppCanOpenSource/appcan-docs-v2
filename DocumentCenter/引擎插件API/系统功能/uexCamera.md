@@ -30,7 +30,7 @@ Toc: 1
 #2、API概览<ignore>
  ##2.1、方法<ignore>
 
-### 🍭 open 打开相机
+###  open 打开相机
 
 `uexCamera.open(comtextareass, quality, callbackFunction)`
 
@@ -68,7 +68,7 @@ uexCamera.open(comtextareass, quality, function(picPath) {
 });
 ```
 
-### 🍭 openInternal　打开自定义相机
+###  openInternal　打开自定义相机
 
 `uexCamera.openInternal(comtextareass, quality, callbackFunction)`
 
@@ -105,7 +105,7 @@ uexCamera.openInternal(comtextareass, quality, function(data) {
 });
 ```
 
-### 🍭 openViewCamera 打开自定义View照相机
+###  openViewCamera 打开自定义View照相机
 
 `uexCamera.openViewCamera(x, y, width, heigth, label, quality, callbackFunction)`
 
@@ -152,7 +152,7 @@ uexCamera.openViewCamera(x, y, w, h,label,quality, function(data) {
 });
 ```
 
-### 🍭 removeViewCameraFromWindow 从屏幕上移除自定义View相机
+###  removeViewCameraFromWindow 从屏幕上移除自定义View相机
 
 `uexCamera.removeViewCameraFromWindow()`
 
@@ -171,7 +171,7 @@ uexCamera.openViewCamera(x, y, w, h,label,quality, function(data) {
 uexCamera.removeViewCameraFromWindow();
 ```
 
-### 🍭 changeFlashMode 改变自定义相机View的闪光灯模式
+###  changeFlashMode 改变自定义相机View的闪光灯模式
 
 `uexCamera.changeFlashMode(flashMode)`
 
@@ -196,7 +196,7 @@ var mode = uexCamera.changeFlashMode(0);
 alert(mode);
 ```
 
-### 🍭 changeCameraPosition 改变自定义相机View的摄像头位置
+###  changeCameraPosition 改变自定义相机View的摄像头位置
 
 `uexCamera.changeCameraPosition(cameraPosition)`
 

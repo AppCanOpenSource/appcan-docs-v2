@@ -16,7 +16,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 open 打开进度条
+###  open 打开进度条
 
 `uexProgressView.open(json)`
 
@@ -159,7 +159,7 @@ iOS 3.0.0+
 运行效果:
 ![](http://i.imgur.com/hQ82Cq4.png)
 
-### 🍭 setProgress 设置进度值
+###  setProgress 设置进度值
 
 `uexProgressView.setProgress(json)`
 
@@ -217,7 +217,7 @@ iOS 3.0.0+
 
 ![](http://i.imgur.com/u3jwCGP.gif)
 
-### 🍭 close 关闭进度条
+###  close 关闭进度条
 
 `uexProgressView.close(json)`
 
@@ -255,7 +255,7 @@ iOS 3.0.0+
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onComplete 进度达到100%的监听方法
+###  onComplete 进度达到100%的监听方法
 
 `uexProgressView.onComplete(json);`
 

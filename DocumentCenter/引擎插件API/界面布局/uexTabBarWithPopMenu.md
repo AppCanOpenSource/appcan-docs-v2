@@ -24,7 +24,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 open 打开菜单
+###  open 打开菜单
 
 `uexTabBarWithPopMenu.open(json)`
 
@@ -190,7 +190,7 @@ var json = {
     uexTabBarWithPopMenu.open(data1);
 ```
 
-### 🍭 close 关闭菜单
+###  close 关闭菜单
 
 `uexTabBarWithPopMenu.close()`
 
@@ -211,7 +211,7 @@ var json = {
     uexTabBarWithPopMenu.close();
 ```
 
-### 🍭 setItemChecked 设置tab选中项
+###  setItemChecked 设置tab选中项
 
 `uexTabBarWithPopMenu.setItemChecked(json)`
 
@@ -247,7 +247,7 @@ var json = {
     uexTabBarWithPopMenu.setItemChecked(data1);
 ```
 
-### 🍭 setBadge 设置徽标
+###  setBadge 设置徽标
 
 `uexTabBarWithPopMenu.setBadge(json)`
 
@@ -282,7 +282,7 @@ var json = {
     var data1 = JSON.stringify(param1);
     uexTabBarWithPopMenu.setBadge(data1);
 ```
-### 🍭 removeBadge 移除徽标
+###  removeBadge 移除徽标
 
 `uexTabBarWithPopMenu.removeBadge(json)`
 
@@ -319,7 +319,7 @@ var json = {
 ```
 ## 2.2、监听方法<ignore>
 
-### 🍭 onTabItemClick tab菜单项被点击的监听方法
+###  onTabItemClick tab菜单项被点击的监听方法
 
 `uexTabBarWithPopMenu.onTabItemClick(data);`
 
@@ -341,7 +341,7 @@ var data = {
     }
 ```
 
-### 🍭 onPopMenuItemClick 弹出菜单项被点击的监听方法
+###  onPopMenuItemClick 弹出菜单项被点击的监听方法
 
 `uexTabBarWithPopMenu.onPopMenuItemClick(data);`
 

@@ -33,7 +33,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭start 开始运行后台JS
+### start 开始运行后台JS
 
 `uexBackground.start(param)`
 
@@ -94,7 +94,7 @@ var result = uexBackground.start(data);
 
 * 此示例中,用`"res://../"`获得了`wgtRes`的上级目录的路径,**这种方式仅本插件支持!**
 
-### 🍭stop 停止当前正在运行的后台JS
+### stop 停止当前正在运行的后台JS
 
 `uexBackground.stop()`
 
@@ -119,7 +119,7 @@ Boolean 是否stop成功
 var result = uexBackground.stop();
 ```
 
-### 🍭 addTimer 设置一个定时器
+###  addTimer 设置一个定时器
 
 `uexBackground.addTimer(param, cb)`
 
@@ -188,7 +188,7 @@ var result = uexBackground.addTimer(param,function(count){
 alert(result);
 ```
 
-### 🍭 cancelTimer 取消定时器
+###  cancelTimer 取消定时器
 
 `uexBackground.cancelTimer(param)`
 
@@ -217,7 +217,7 @@ uexBackground.cancelTimer(JSON.stringify(param));
 
 **重要:以下监听方法均需要在后台的JS文件中声明并使用!**
 
-### 🍭 onLoad 后台JS开始运行的监听方法
+###  onLoad 后台JS开始运行的监听方法
 
 `uexBackground.onLoad()`
 

@@ -28,7 +28,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 open 打开系统默认邮件发送程序界面,发送邮件
+###  open 打开系统默认邮件发送程序界面,发送邮件
 
 `uexEmail.open(receiverEmail,subject,content,attachmentPath,mimeType)`
 

@@ -32,7 +32,7 @@ Toc: 1
 
 ##2.1、方法<ignore>
 
-### 🍭add 注册通知		
+### add 注册通知		
 
 `uexLocalNotification.add(id,time,mode,message,buttonTitle,ringPath,cycle,notifyCount,extras)`
 
@@ -75,7 +75,7 @@ var extras = {
 
 ​		
 
-### 🍭remove 移除通知	
+### remove 移除通知	
 
 `uexLocalNotification.remove(id)`	
 ​		
@@ -102,7 +102,7 @@ uexLocalNotification.remove("alarm_1");
 
 
 
-### 🍭removeAll 移除所有通知
+### removeAll 移除所有通知
 
 `uexLocalNotification.removeAll()`	
 
@@ -121,7 +121,7 @@ uexLocalNotification.removeAll();
 ```
 ## 2.2、监听方法<ignore>
 
-### 🍭 onActive 用户退到后台,点击了通知监听		
+###  onActive 用户退到后台,点击了通知监听		
 `uexLocalNotification.onActive(notificationID,message,extras)`
 
 **说明:**
@@ -150,7 +150,7 @@ uexLocalNotification.onActive = function(notificationID,message,extras){
 
 
 
-### 🍭 onMessage 用户处于前台的通知监听		
+###  onMessage 用户处于前台的通知监听		
 `uexLocalNotification.onMessage(notificationID,message,extras)`
 
 **说明:**

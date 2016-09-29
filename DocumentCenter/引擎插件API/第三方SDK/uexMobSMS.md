@@ -29,7 +29,7 @@ Mob短信验证插件
 
 ##2.1、方法<ignore>
 
-### 🍭 init 初始化方法
+###  init 初始化方法
 
 `uexMobSMS.init(params);`
 
@@ -78,7 +78,7 @@ var params = {
  uexMobSMS.init(JSON.stringify(params));
 ```
 
-### 🍭 sendCode 发送短信验证码到手机
+###  sendCode 发送短信验证码到手机
 
 `uexMobSMS.sendCode(params, callbackFunction);`
 ​     
@@ -136,7 +136,7 @@ uexMobSMS.sendCode(JSON.stringify(params), function(error,data) {
 });
 ```
 
-### 🍭commitCode 提交短信验证码	
+### commitCode 提交短信验证码	
 
 `uexMobSMS.commitCode(params, callbackFunction)`	
 

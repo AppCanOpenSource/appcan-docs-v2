@@ -17,7 +17,7 @@ Toc: 1
 # 2、API概览<ignore>
 ## 2.1、方法<ignore>
 
-### 🍭 openCircle 创建全圆轮盘菜单
+###  openCircle 创建全圆轮盘菜单
 
 `uexWheel.openCircle(x,y,w,h,jsonData)`
 
@@ -113,7 +113,7 @@ iOS6.0+
 </html>
 
 ```
-### 🍭 closeCircle 移除全圆轮盘菜单
+###  closeCircle 移除全圆轮盘菜单
 
 `uexWheel.closeCircle()`
 
@@ -140,7 +140,7 @@ iOS6.0+
 
 见openCircle方法示例
 
-### 🍭 openSemicircle 创建半圆轮盘菜单
+###  openSemicircle 创建半圆轮盘菜单
 
 `uexWheel.openSemicircle(x,y,w,h,jsonData)  `
 
@@ -236,7 +236,7 @@ iOS6.0+
     </body>
 </html>
 ```
-### 🍭 closeSemicircle 移除半圆轮盘菜单
+###  closeSemicircle 移除半圆轮盘菜单
 
 `uexWheel.closeSemicircle()`
 
@@ -261,7 +261,7 @@ iOS6.0+
 
               见openSemicircle方法示例  
  
-### 🍭 openQuartercircle 创建四分之一圆轮盘菜单
+###  openQuartercircle 创建四分之一圆轮盘菜单
 
 `uexWheel.openQuartercircle(x,y,w,h,jsonData)`
 
@@ -350,7 +350,7 @@ iOS6.0+
 </html>
 
 ```
-### 🍭 closeQuartercircle 移除四分之一圆轮盘菜单
+###  closeQuartercircle 移除四分之一圆轮盘菜单
 
 `uexWheel.closeQuartercircle()`
 
@@ -376,7 +376,7 @@ iOS6.0+
               见openQuartercircle方法示例    
 
 ## 2.2、回调方法<ignore>
-### 🍭 cbSelect 点击按钮的监听方法
+###  cbSelect 点击按钮的监听方法
 
 `uexWheel.cbSelect(index1,index2)`
 
@@ -394,7 +394,7 @@ iOS6.0+
 
 ##2.3、监听方法<ignore>
 
-### 🍭 onClick 全圆轮盘菜单中心圆被点击的监听方法
+###  onClick 全圆轮盘菜单中心圆被点击的监听方法
 
 `uexWheel.onClick(index)`
 

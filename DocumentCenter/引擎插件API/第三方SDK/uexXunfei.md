@@ -30,7 +30,7 @@ Toc: 1
 
 ##2.1、 方法<ignore>
 
-### 🍭 init  初始化
+###  init  初始化
 
 `uexXunfei.init(param)`
 
@@ -75,7 +75,7 @@ function init(){
 
 boolean类型，初始化成功返回true, 失改返回false
 
-### 🍭 initSpeaker 初始化语音合成
+###  initSpeaker 初始化语音合成
 
 `uexXunfei.initSpeaker(param)`
 
@@ -119,7 +119,7 @@ var param={
     }
 ```
 
-### 🍭 startSpeaking 开始语音合成
+###  startSpeaking 开始语音合成
 
 `uexXunfei.startSpeaking(param)`
 
@@ -153,7 +153,7 @@ var param={
     }
 ```
 
-### 🍭 stopSpeaking 停止语音合成
+###  stopSpeaking 停止语音合成
 
 `uexXunfei.stopSpeaking()`
 
@@ -167,7 +167,7 @@ var param={
 uexXunfei.stopSpeaking();    
 ```
 
-### 🍭 pauseSpeaking 暂停语音合成
+###  pauseSpeaking 暂停语音合成
 
 `uexXunfei.pauseSpeaking()`
 
@@ -181,7 +181,7 @@ uexXunfei.stopSpeaking();
 uexXunfei.pauseSpeaking();    
 ```
 
-### 🍭 resumeSpeaking 继续语音合成
+###  resumeSpeaking 继续语音合成
 
 `uexXunfei.resumeSpeaking()`
 
@@ -195,7 +195,7 @@ uexXunfei.pauseSpeaking();
 uexXunfei.resumeSpeaking();    
 ```
 
-### 🍭 initRecognizer 初始化语音识别
+###  initRecognizer 初始化语音识别
 
 `uexXunfei.initRecognizer(param)`
 
@@ -236,7 +236,7 @@ var param={
     }
 ```
 
-### 🍭 startListening 开始语音识别
+###  startListening 开始语音识别
 
 `uexXunfei.startListening(param)`
 
@@ -257,7 +257,7 @@ iOS 7.0+
     }
 ```
 
-### 🍭 stopListening 停止语音识别
+###  stopListening 停止语音识别
 
 `uexXunfei.stopListening()`
 
@@ -271,7 +271,7 @@ iOS 7.0+
 uexXunfei.stopListening();    
 ```
 
-### 🍭 cancelListening 取消语音识别
+###  cancelListening 取消语音识别
 
 `uexXunfei.cancelListening()`
 
@@ -287,7 +287,7 @@ uexXunfei.cancelListening();
 
 ##2.2、 监听方法<ignore>
 
-### 🍭 onSpeakBegin 语音合成开始
+###  onSpeakBegin 语音合成开始
 
 `uexXunfei.onSpeakBegin()`
 
@@ -303,7 +303,7 @@ function onSpeakBegin(){
 }
 ```
 
-### 🍭 onSpeakPaused 语音合成暂停
+###  onSpeakPaused 语音合成暂停
 
 `uexXunfei.onSpeakPaused()`
 
@@ -319,7 +319,7 @@ function onSpeakBegin(){
        }
 ```
 
-### 🍭 onSpeakResumed 语音合成继续
+###  onSpeakResumed 语音合成继续
 
 `uexXunfei.onSpeakResumed()`
 
@@ -335,7 +335,7 @@ function onSpeakBegin(){
        }
 ```
 
-### 🍭 onSpeakComplete 语音合成完成
+###  onSpeakComplete 语音合成完成
 
 `uexXunfei.onSpeakComplete()`
 
@@ -351,7 +351,7 @@ function onSpeakBegin(){
        }
 ```
 
-### 🍭 onRecognizeError 语音识别出错
+###  onRecognizeError 语音识别出错
 
 `uexXunfei.onRecognizeError(param)`
 
@@ -375,7 +375,7 @@ var param={
        }
 ```
 
-### 🍭 onBeginOfSpeech 开始语音识别
+###  onBeginOfSpeech 开始语音识别
 
 `uexXunfei.onBeginOfSpeech()`
 
@@ -391,7 +391,7 @@ var param={
        }
 ```
 
-### 🍭 onEndOfSpeech 语音识别完成
+###  onEndOfSpeech 语音识别完成
 
 `uexXunfei.onEndOfSpeech()`
 
@@ -407,7 +407,7 @@ var param={
        }
 ```
 
-### 🍭 onRecognizeResult 语音识别的结果
+###  onRecognizeResult 语音识别的结果
 
 `uexXunfei.onRecognizeResult(param)`
 

@@ -29,7 +29,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 vibrate 开启设备震动
+###  vibrate 开启设备震动
 
 `uexDevice.vibrate(milliseconds)`
 
@@ -51,7 +51,7 @@ Toc: 1
     uexDevice.vibrate(500);
 ```
 
-### 🍭 cancelVibrate 关闭设备震动
+###  cancelVibrate 关闭设备震动
 
 `uexDevice.cancelVibrate()`
 
@@ -70,7 +70,7 @@ Toc: 1
     uexDevice.cancelVibrate();
 ```
 
-### 🍭 getInfo 获取设备信息
+###  getInfo 获取设备信息
 
 `uexDevice.getInfo(infoID)`
 
@@ -96,7 +96,7 @@ String类型对应设备信息.
  var systemVersion = uexDevice.getInfo('1');//获取系统版本
  alert(systemVersion);
 ```
-### 🍭 screenCapture 屏幕截图
+###  screenCapture 屏幕截图
 
 `uexDevice.screenCapture(quality, callbackFunction)`
 
@@ -138,7 +138,7 @@ var data = {
   }
 ```
 
-### 🍭 setVolume 调整音量 
+###  setVolume 调整音量 
 
 `uexDevice.setVolume(volume)`
 
@@ -158,7 +158,7 @@ var data = {
 ```
     uexDevice.setVolume(0.5);//设置系统音量
 ```
-### 🍭 getVolume 获取系统音量值
+###  getVolume 获取系统音量值
 
 `uexDevice.getVolume()`
 
@@ -181,7 +181,7 @@ Number类型音量值
  var volume = uexDevice.getVolume();//获取系统音量值
  alert(volume);
 ```
-### 🍭 setScreenAlwaysBright 屏幕常亮控制 
+###  setScreenAlwaysBright 屏幕常亮控制 
 
 `uexDevice.setScreenAlwaysBright(data)`
 
@@ -203,7 +203,7 @@ Number类型音量值
     uexDevice.setScreenAlwaysBright(1);//设置屏幕常亮
 ```
 
-### 🍭 setScreenBrightness 调整屏幕亮度
+###  setScreenBrightness 调整屏幕亮度
 
 `uexDevice.setScreenBrightness(brightness)`
 
@@ -225,7 +225,7 @@ Number类型音量值
     uexDevice.setScreenBrightness(0.5);//设置屏幕亮度
 ```
 
-### 🍭 getScreenBrightness 获取屏幕亮度
+###  getScreenBrightness 获取屏幕亮度
 
 `uexDevice.getScreenBrightness()`
 
@@ -248,7 +248,7 @@ Number类型屏幕亮度值
  alert(brightness);
 ```
 
-### 🍭 openWiFiInterface 打开WIFI设置页
+###  openWiFiInterface 打开WIFI设置页
 
 `uexDevice.openWiFiInterface()`
 
@@ -267,7 +267,7 @@ Number类型屏幕亮度值
     uexDevice.openWiFiInterface();//打开WIFI设置页面
 ```
 
-### 🍭 isFunctionEnable 判断某功能是否开启
+###  isFunctionEnable 判断某功能是否开启
 
 `uexDevice.isFunctionEnable(params, callbackFunction)`
 
@@ -316,7 +316,7 @@ uexDevice.isFunctionEnable(data, function(data) {
 });
 ```
 
-### 🍭 openSetting 打开设置界面
+###  openSetting 打开设置界面
 
 `uexDevice.openSetting(params)`
 
@@ -352,7 +352,7 @@ uexDevice.openSetting(data);
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onOrientationChange 屏幕旋转的监听方法
+###  onOrientationChange 屏幕旋转的监听方法
 
 `uexDevice.onOrientationChange(mode)`
 

@@ -29,7 +29,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 initLayout 初始化布局
+###  initLayout 初始化布局
 
 `uexNBListView.initLayout(params, callbackFunction);`
 
@@ -92,7 +92,7 @@ uexNBListView.initLayout(data, function(error){
 });
 ```
 
-### 🍭 setItems 设置列表数据
+###  setItems 设置列表数据
 
 `uexNBListView.setItems(params, callbackFunction);`
 
@@ -296,7 +296,7 @@ uexNBListView.setItems(data, function(error){
 });
 ```
 
-### 🍭 open 打开自定义布局列表
+###  open 打开自定义布局列表
 
 `uexNBListView.open(params, callbackFunction);`
 
@@ -388,7 +388,7 @@ var params = {
 });
 ```
 
-### 🍭 close 关闭自定义布局列表
+###  close 关闭自定义布局列表
 
 `uexNBListView.close(params);`
 
@@ -410,7 +410,7 @@ var params = []//唯一标识符数组
         uexNBListView.close(data);
 ```
 
-### 🍭 insert 插入数据
+###  insert 插入数据
 
 `uexNBListView.insert(params,callbackFunction);`
 
@@ -515,7 +515,7 @@ var params = {
 });
 ```
 
-### 🍭 update 更新数据
+###  update 更新数据
 
 `uexNBListView.update(params,callbackFunction);`
 
@@ -581,7 +581,7 @@ uexNBListView.update(data, function(error){
 });
 ```
 
-### 🍭 delete 删除数据
+###  delete 删除数据
 
 `uexNBListView.delete(params,callbackFunction);`
 
@@ -632,7 +632,7 @@ uexNBListView.delete(data, function(error){
 });
 ```
 
-### 🍭 show 显示自定义列表
+###  show 显示自定义列表
 
 `uexNBListView.show(params);`
 
@@ -658,7 +658,7 @@ var data = JSON.stringify(params);
 uexNBListView.show(data);
 ```
 
-### 🍭 hide 隐藏自定义列表
+###  hide 隐藏自定义列表
 
 `uexNBListView.hide(params);`
 
@@ -684,7 +684,7 @@ var data = JSON.stringify(params);
 uexNBListView.hide(data);
 ```
 
-### 🍭 setRefreshStatusCompleted 设置刷新完成状态
+###  setRefreshStatusCompleted 设置刷新完成状态
 
 `uexNBListView.setRefreshStatusCompleted(params);`
 
@@ -710,7 +710,7 @@ var data = JSON.stringify(params);
 uexNBListView.setRefreshStatusCompleted(data);
 ```
 
-### 🍭 sendHtmlEvent 头部或底部网页向主网页发送数据方法
+###  sendHtmlEvent 头部或底部网页向主网页发送数据方法
 
 `uexNBListView.sendHtmlEvent(data);`
 
@@ -732,7 +732,7 @@ uexNBListView.sendHtmlEvent(data);
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onPullRefreshHeader 下拉刷新的监听方法
+###  onPullRefreshHeader 下拉刷新的监听方法
 
 `uexNBListView.onPullRefreshHeader(params);`
 
@@ -758,7 +758,7 @@ uexNBListView.onPullRefreshHeader = function(data){
 }
 ```
 
-### 🍭 onPullRefreshFooter 上拉刷新的监听方法
+###  onPullRefreshFooter 上拉刷新的监听方法
 
 `uexNBListView.onPullRefreshFooter(params);`
 
@@ -784,7 +784,7 @@ uexNBListView.onPullRefreshFooter = function(data){
 }
 ```
 
-### 🍭 XXX 自定义布局内的元素被点击的监听方法
+###  XXX 自定义布局内的元素被点击的监听方法
 
 `uexNBListView.XXX(params);`
 
@@ -831,7 +831,7 @@ uexNBListView.onLeftClick = function(data){
 ```
 其中onLeftClick方法在id为txt的元素被点击时触发.
 
-### 🍭 onHtmlEvent 主网页收到头部或底部网页发送的数据的监听方法
+###  onHtmlEvent 主网页收到头部或底部网页发送的数据的监听方法
 
 `uexNBListView.onHtmlEvent(info);`
 

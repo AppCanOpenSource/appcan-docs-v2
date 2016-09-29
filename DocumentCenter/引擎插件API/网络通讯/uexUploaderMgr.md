@@ -28,7 +28,7 @@ Toc: 1
 # 2、API概览<ignore>
 
 ## 2.1、方法<ignore>
-### 🍭 create 创建上传对象
+###  create 创建上传对象
 
 `uexUploaderMgr.create(param)`
 
@@ -78,7 +78,7 @@ if(!uploader){
 }
 ```
 
-### 🍭 closeUploader 关闭上传对象
+###  closeUploader 关闭上传对象
 
 `uexUploaderMgr.closeUploader(uploader)`
 
@@ -105,7 +105,7 @@ var ret = uexUploaderMgr.closeUploader(uploader);
 alert(ret);
 ```
 
-### 🍭 setHeaders 设置请求头
+###  setHeaders 设置请求头
 
 `uexUploaderMgr.setHeaders(uploader, json)`
 
@@ -133,7 +133,7 @@ var ret = uexUploaderMgr.setHeaders(uploader, JSON.stringify(headJson));
 alert(ret);
 ```
 
-### 🍭 uploadFile 上传文件
+###  uploadFile 上传文件
 
 `uexUploaderMgr.uploadFile(uploader, filePath, field, quality, maxWidth,cb)`
 

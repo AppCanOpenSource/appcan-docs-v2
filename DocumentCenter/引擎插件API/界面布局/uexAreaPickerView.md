@@ -26,7 +26,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 open  打开区域选择
+###  open  打开区域选择
 
 `uexAreaPickerView.open();`
 
@@ -44,7 +44,7 @@ Toc: 1
 uexAreaPickerView.close();
 ```
 
-### 🍭 close 关闭区域选择
+###  close 关闭区域选择
 
 `uexAreaPickerView.close();`
 
@@ -62,7 +62,7 @@ uexAreaPickerView.close();
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onConfirmClick 完成选择的监听方法
+###  onConfirmClick 完成选择的监听方法
 
 `uexAreaPickerView.onConfirmClick(jsonString)`
 

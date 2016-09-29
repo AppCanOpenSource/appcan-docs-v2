@@ -44,7 +44,7 @@ Toc: 1
 ##  2.1、方法<ignore>
 
 
-### 🍭   setPayInfo 设置商户信息
+###    setPayInfo 设置商户信息
 
 `uexAliPay.setPayInfo(partner,seller,rsaPrivate,rsaPublic,notifyUrl)    `
 
@@ -81,7 +81,7 @@ function setInfo(){
 
 ```
 
-### 🍭  pay 支付功能
+###   pay 支付功能
 
 `uexAliPay.pay(num,subject,body,fee, callbackFunction)`
 

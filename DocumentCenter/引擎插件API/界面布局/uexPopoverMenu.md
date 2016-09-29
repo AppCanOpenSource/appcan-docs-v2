@@ -25,7 +25,7 @@ Toc: 1
 # 2、API概览<ignore>
 
 ## 2.1、方法<ignore>
-### 🍭 openPopoverMenu 创建弹出框
+###  openPopoverMenu 创建弹出框
 
 `uexPopoverMenu.openPopoverMenu(params)`  
 
@@ -134,7 +134,7 @@ uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
 ```
 ## 2.2、监听方法<ignore>
 
-### 🍭 onItemClicked 点击按钮的监听方法   
+###  onItemClicked 点击按钮的监听方法   
 
 `uexPopoverMenu.onItemClicked(index)  `
 

@@ -27,7 +27,7 @@ Toc: 1
 # 2、API概览<ignore>
 ## 2.1、方法<ignore>
 
-### 🍭 init 初始化阿里百川SDK
+###  init 初始化阿里百川SDK
 
 ` uexALiBaiChuan.init(cb)`
 
@@ -64,7 +64,7 @@ uexALiBaiChuan.init(function(error, msg) {
 	}
 }) ;
 ```
-### 🍭 login 登录
+###  login 登录
 
 ` uexALiBaiChuan.login(cb);`
 
@@ -101,7 +101,7 @@ uexALiBaiChuan.login(function(error, msg) {
 	}
 }) ;
 ```
-### 🍭 logout 退出登录
+###  logout 退出登录
 
 ` uexALiBaiChuan.logout(cb);`
 
@@ -138,7 +138,7 @@ uexALiBaiChuan.logout(function(error, msg) {
 }) ;
 ```
 
-### 🍭 getUserInfo 获取用户信息
+###  getUserInfo 获取用户信息
 
 `var info = uexALiBaiChuan.getUserInfo();`
 
@@ -186,7 +186,7 @@ JSON对象（用户信息），若用户未登录返回null。用户信息结构
  	alert('get userinfo fail');
  }              
 ```
-### 🍭 openMyCart 打开购物车
+###  openMyCart 打开购物车
 
 `  uexALiBaiChuan.openMyCart(params)`
 
@@ -219,7 +219,7 @@ var params = {
 };
 uexALiBaiChuan.openMyCart(JSON.stringify(params));
 ```
-### 🍭 openMyOrdersPage 打开订单列表
+###  openMyOrdersPage 打开订单列表
 
 ` uexALiBaiChuan.openMyOrdersPage()`
 
@@ -239,7 +239,7 @@ uexALiBaiChuan.openMyCart(JSON.stringify(params));
 uexALiBaiChuan.openMyOrdersPage();
 ```
 
-### 🍭 openItemDetailPageById 打开商品真实ID对应的详情页面
+###  openItemDetailPageById 打开商品真实ID对应的详情页面
 
 `uexALiBaiChuan.openItemDetailPageById(params)`
 
@@ -285,7 +285,7 @@ var params = {
 };    
 uexALiBaiChuan.openItemDetailPageById(JSON.stringify(params));
 ```
-### 🍭 openItemDetailPageByURL 通过URL打开指定商品页面
+###  openItemDetailPageByURL 通过URL打开指定商品页面
 
 `uexALiBaiChuan.openItemDetailPageByURL(params)`
 

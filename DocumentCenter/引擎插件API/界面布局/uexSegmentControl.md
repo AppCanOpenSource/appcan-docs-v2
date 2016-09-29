@@ -25,7 +25,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 open 打开分段选择器
+###  open 打开分段选择器
 
 `uexSegmentControl.open(jsonStr)`
 
@@ -110,7 +110,7 @@ var jsonStr = {
 点击按钮进入选择编辑状态:
 ![](/docImg/975/BrllwtC.png)
 
-### 🍭 close 关闭分段选择器
+###  close 关闭分段选择器
 
 `uexSegmentControl.close()`
 
@@ -128,7 +128,7 @@ var jsonStr = {
     uexSegmentControl.close()
 ```
 
-### 🍭 setCurrentItem 设置当前选中项
+###  setCurrentItem 设置当前选中项
 
 `uexSegmentControl.setCurrentItem(jsonStr)`
 
@@ -165,7 +165,7 @@ var jsonStr = {
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onItemClick item被点击的监听方法
+###  onItemClick item被点击的监听方法
 
 `uexSegmentControl.onItemClick(jsonObj);`
 
@@ -199,7 +199,7 @@ var jsonObj = {
     }
 ```
 
-### 🍭 onDataChange 数据发生变化的监听方法
+###  onDataChange 数据发生变化的监听方法
 
 `uexSegmentControl.onDataChange(jsonObj);`
 

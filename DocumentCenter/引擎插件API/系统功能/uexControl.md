@@ -24,7 +24,7 @@ Toc: 1
 # 2、API概览<ignore>
 ## 2.1、方法<ignore>
 
-### 🍭 openDatePicker 打开日期选择器
+###  openDatePicker 打开日期选择器
 
 `uexControl.openDatePicker(year, month, day, callbackFunction)`
 
@@ -69,7 +69,7 @@ uexControl.openDatePicker(1990,8,1, function(data) {
 });
 ```
 
-### 🍭 openTimePicker 打开时间选择器
+###  openTimePicker 打开时间选择器
 
 `uexControl.openTimePicker(hour, minute,  callbackFunction)`
 
@@ -111,7 +111,7 @@ uexControl.openTimePicker(10,23, function(data) {
 });
 ```
 
-### 🍭 openInputDialog 打开输入对话框
+###  openInputDialog 打开输入对话框
 
 `uexControl.openInputDialog(type,inputHint,btnText, callbackFunction)`
 
@@ -146,7 +146,7 @@ uexControl.openInputDialog(0,"默认数据","按钮", fuction(data) {
 }) 
 ```
 
-### 🍭 openDatePickerWithoutDay 打开只有年月的日期选择器
+###  openDatePickerWithoutDay 打开只有年月的日期选择器
 
 `uexControl.openDatePickerWithoutDay(year,month, callbackFunction)`
 
@@ -188,7 +188,7 @@ uexControl.openDatePickerWithoutDay(1990,8, function(data) {
 });
 ```
 
-### 🍭 openDatePickerWithConfig 打开带配置的日期选择器
+###  openDatePickerWithConfig 打开带配置的日期选择器
 
 `uexControl.openDatePickerWithConfig(params, callbackFunction)`
 
@@ -349,7 +349,7 @@ uexControl.openDatePickerWithConfig(data, callback);
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onError 参数传递错误时的监听方法
+###  onError 参数传递错误时的监听方法
 
 `uexControl.onError(data)`
 

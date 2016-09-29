@@ -38,7 +38,7 @@ AppCan平台中,维护了一个窗口堆栈,每个窗口以唯一的窗口名字
 
 ## 2.1、窗口类方法<ignore>
 
-### 🍭 open 打开窗口
+###  open 打开窗口
 
 `uexWindow.open(params)`
 
@@ -89,7 +89,7 @@ uexWindow.open({
 });
 ```
 
-### 🍭 openPresentWindow 打开一个位于最上层的window
+###  openPresentWindow 打开一个位于最上层的window
 
 `uexWindow.openPresentWindow(params)`
 
@@ -115,7 +115,7 @@ uexWindow.openPresentWindow({
 ```
 
 
-### 🍭 close 关闭窗口
+###  close 关闭窗口
 
 `uexWindow.close(params)`
 
@@ -143,7 +143,7 @@ uexWindow.close({
 });
 ```
 
-### 🍭 forward 前进到下一个页面
+###  forward 前进到下一个页面
 
 `uexWindow.forward()`
 
@@ -157,7 +157,7 @@ uexWindow.close({
 
 
 
-### 🍭 back 返回上一个页面
+###  back 返回上一个页面
 
 `uexWindow.back()`
 
@@ -171,7 +171,7 @@ uexWindow.close({
 
 
 
-### 🍭 pageForward 前进到下一个页面
+###  pageForward 前进到下一个页面
 
 `uexWindow.pageForward()`
 
@@ -189,7 +189,7 @@ Bool类型,true表示成功,false为失败
 
 
 
-### 🍭 pageBack 返回上一个页面
+###  pageBack 返回上一个页面
 
 `uexWindow.pageBack()`
 
@@ -207,7 +207,7 @@ Bool类型,true表示成功,false为失败
 
 
 
-### 🍭 windowForward 前进到下一个窗口
+###  windowForward 前进到下一个窗口
 
 `uexWindow.windowForward(params)`
 
@@ -226,7 +226,7 @@ params 为JSON对象,字段如下:
 
 
 
-### 🍭 windowBack 返回到上一个窗口
+###  windowBack 返回到上一个窗口
 
 `uexWindow.windowBack(params)`
 
@@ -246,7 +246,7 @@ params为JSON对象,字段如下:
 
 
 
-### 🍭 setWindowFrame 移动当前窗口位置
+###  setWindowFrame 移动当前窗口位置
 
 `uexWindow.setWindowFrame(params)`
 
@@ -276,7 +276,7 @@ uexWindow.setWindowFrame({
 });
 ```
 
-### 🍭 openSlibing 打开一个兄弟窗口
+###  openSlibing 打开一个兄弟窗口
 
 `uexWindow.openSlibing(params)`
 
@@ -307,7 +307,7 @@ uexWindow.openSlibing({
   h:75
 });
 ```
-### 🍭 closeSlibing 关闭一个兄弟窗口
+###  closeSlibing 关闭一个兄弟窗口
 
 `uexWindow.closeSlibing(type)`
 
@@ -329,7 +329,7 @@ uexWindow.openSlibing({
 uexWindow.closeSlibing(2);
 ```
 
-### 🍭 showSlibing 显示兄弟窗口
+###  showSlibing 显示兄弟窗口
 
 `uexWindow.showSlibing(type)`
 
@@ -352,7 +352,7 @@ uexWindow.showSlibing(1)
 ```
 
 
-### 🍭 evaluateScript 执行js脚本
+###  evaluateScript 执行js脚本
 
 `uexWindow.evaluateScrip(params)`
 
@@ -382,7 +382,7 @@ uexWindow.evaluateScript({
 });
 ```
 
-### 🍭 evaluatePopoverScript 在浮动窗口中执行js脚本
+###  evaluatePopoverScript 在浮动窗口中执行js脚本
 
 `uexWindow.evaluatePopoverScript(params)`
 
@@ -411,7 +411,7 @@ uexWindow.evaluatePopoverScript({
   js:"alert('执行去吧!!');"
 });
 ```
-### 🍭 evaluateMultiPopoverScript 在多页面浮动窗口中执行js脚本
+###  evaluateMultiPopoverScript 在多页面浮动窗口中执行js脚本
 
 `uexWindow.evaluateMultiPopoverScript(params)`
 
@@ -443,7 +443,7 @@ uexWindow.evaluateMultiPopoverScript({
 });
 ```
 
-### 🍭 openPopover 打开浮动窗口
+###  openPopover 打开浮动窗口
 
 `uexWindow.openPopover(params)`
 
@@ -494,7 +494,7 @@ uexWindow.openPopover({
 });
 ```
 
-### 🍭 closePopover 关闭浮动窗口
+###  closePopover 关闭浮动窗口
 
 `uexWindow.closePopover(popName)`
 
@@ -516,7 +516,7 @@ uexWindow.openPopover({
 uexWindow.closePopover('sss')
 ```
 
-### 🍭 preOpenStart 开始浮动窗口的预加载
+###  preOpenStart 开始浮动窗口的预加载
 
 `uexWindow.preOpenStart()`
 
@@ -583,7 +583,7 @@ B.html
     </html>
 ```
 
-### 🍭 preOpenFinish 结束浮动窗口的预加载
+###  preOpenFinish 结束浮动窗口的预加载
 
 `uexWindow.preOpenFinish()`
 
@@ -603,7 +603,7 @@ B.html
 uexWindow.preOpenFinish()
 ```
 
-### 🍭 setPopoverFrame 更改浮动窗口的位置和大小
+###  setPopoverFrame 更改浮动窗口的位置和大小
 
 `uexWindow.setPopoverFrame(params)`
 
@@ -637,7 +637,7 @@ uexWindow.setPopoverFrame({
 });
 ```
 
-### 🍭 openMultiPopover 打开多页面浮动窗口
+###  openMultiPopover 打开多页面浮动窗口
 
 `uexWindow.openMultiPopover(params)`
 
@@ -713,7 +713,7 @@ uexWindow.openMultiPopover({
 });
 ```
 
-### 🍭 closeMultiPopover 关闭多页面浮动窗口
+###  closeMultiPopover 关闭多页面浮动窗口
 
 `uexWindow.closeMultiPopover(popName)`
 
@@ -735,7 +735,7 @@ uexWindow.openMultiPopover({
 uexWindow.closeMultiPopover('sss');
 ```
 
-### 🍭 setSelectedPopOverInMultiWindow 设置多页面浮动窗口跳转到的子页面窗口的索引
+###  setSelectedPopOverInMultiWindow 设置多页面浮动窗口跳转到的子页面窗口的索引
 
 `uexWindow.setSelectedPopOverInMultiWindow(params)`
 
@@ -763,7 +763,7 @@ uexWindow.setSelectedPopOverInMultiWindow({
 });
 ```
 
-### 🍭 setMultiPopoverFrame 更改多页面浮动窗口的位置和大小
+###  setMultiPopoverFrame 更改多页面浮动窗口的位置和大小
 
 `uexWindow.setMultiPopoverFrame(params)`
 
@@ -797,7 +797,7 @@ uexWindow.setMultiPopoverFrame(
 );
 ```
 
-### 🍭 bringToFront 置顶当前浮动窗口
+###  bringToFront 置顶当前浮动窗口
 
 `uexWindow.bringToFront()`
 
@@ -883,7 +883,7 @@ B1.html
     </html>
 ```
 
-### 🍭 sendToBack 置底当前浮动窗口
+###  sendToBack 置底当前浮动窗口
 
 `uexWindow.sendToBack()`
 
@@ -903,7 +903,7 @@ B1.html
 uexWindow.sendToBack()
 ```
 
-### 🍭 insertAbove 将当前浮动窗口插入到指定浮动窗口之上
+###  insertAbove 将当前浮动窗口插入到指定浮动窗口之上
 
 `uexWindow.insertAbove(name)`
 
@@ -926,7 +926,7 @@ uexWindow.insertAbove('pop2');
 ```
 
 
-### 🍭 insertBelow 将当前浮动窗口插入到指定浮动窗口之下
+###  insertBelow 将当前浮动窗口插入到指定浮动窗口之下
 
 `uexWindow.insertBelow(name)`
 
@@ -950,7 +950,7 @@ uexWindow.insertAbove('pop2');
 uexWindow.insertBelow('pop2');
 ```
 
-### 🍭 bringPopoverToFront 置顶指定浮动窗口
+###  bringPopoverToFront 置顶指定浮动窗口
 
 `uexWindow.bringPopoverToFront(name)`
 
@@ -973,7 +973,7 @@ uexWindow.bringPopoverToFront("pop1");
 ```
 
 
-### 🍭 sendPopoverToBack 置底指定浮动窗口
+###  sendPopoverToBack 置底指定浮动窗口
 
 `uexWindow.sendPopoverToBack(name)`
 
@@ -995,7 +995,7 @@ uexWindow.bringPopoverToFront("pop1");
 uexWindow.sendPopoverToBack("pop1");
 ```
 
-### 🍭 insertPopoverAbovePopover 将指定浮动窗口插入到另一浮动窗口之上
+###  insertPopoverAbovePopover 将指定浮动窗口插入到另一浮动窗口之上
 
 `uexWindow.insertPopoverAbovePopover(nameA,nameB)`
 
@@ -1017,7 +1017,7 @@ uexWindow.sendPopoverToBack("pop1");
 uexWindow.insertPopoverAbovePopover("pop1","pop3");
 ```
 
-### 🍭 insertPopoverBelowPopover
+###  insertPopoverBelowPopover
 
 将指定浮动窗口插入到另一浮动窗口之下
 
@@ -1043,7 +1043,7 @@ uexWindow.insertPopoverBelowPopover("pop1","pop3");
 ```
 
 
-### 🍭 insertWindowAboveWindow 将指定窗口插入到另一窗口之上
+###  insertWindowAboveWindow 将指定窗口插入到另一窗口之上
 
 `uexWindow.insertWindowAboveWindow(nameA,nameB)`
 
@@ -1066,7 +1066,7 @@ uexWindow.insertPopoverBelowPopover("pop1","pop3");
 uexWindow.insertWindowAboveWindow("pop1","pop3");
 ```
 
-### 🍭 insertWindowBelowWindow 将指定窗口插入到另一窗口之下
+###  insertWindowBelowWindow 将指定窗口插入到另一窗口之下
 
 `uexWindow.insertWindowBelowWindow(nameA,nameB)`
 
@@ -1089,7 +1089,7 @@ uexWindow.insertWindowAboveWindow("pop1","pop3");
 uexWindow.insertWindowBelowWindow("pop1","pop3");
 ```
 
-### 🍭 setWindowHidden 设置当前窗口显示和隐藏
+###  setWindowHidden 设置当前窗口显示和隐藏
 
 `uexWindow.setWindowHidden(visible)`
 
@@ -1111,7 +1111,7 @@ uexWindow.insertWindowBelowWindow("pop1","pop3");
 uexWindow.setWindowHidden(1);
 ```
 
-### 🍭 toggleSlidingWindow 打开侧滑窗口
+###  toggleSlidingWindow 打开侧滑窗口
 
 `uexWindow.toggleSlidingWindow(json)`
 
@@ -1137,7 +1137,7 @@ var params  = {
 uexWindow.toggleSlidingWindow(params);
 ```
 
-### 🍭 setSlidingWindow 设置侧滑窗口
+###  setSlidingWindow 设置侧滑窗口
 
 `uexWindow.setSlidingWindow(json)`
 
@@ -1183,7 +1183,7 @@ uexWindow.setSlidingWindow({
  });
 ```
 
-### 🍭 setSlidingWindowEnabled 设置侧滑窗口是否可用
+###  setSlidingWindowEnabled 设置侧滑窗口是否可用
 
 `uexWindow.setSlidingWindowEnabled(enable)`
 
@@ -1205,7 +1205,7 @@ uexWindow.setSlidingWindow({
 uexWindow.setSlidingWindowEnabled(1);
 ```
 
-### 🍭 setMultilPopoverFlippingEnbaled 设置控件是否响应滑动事件
+###  setMultilPopoverFlippingEnbaled 设置控件是否响应滑动事件
 
 `uexWindow.setMultilPopoverFlippingEnbaled(enable)`
 
@@ -1228,7 +1228,7 @@ uexWindow.setMultilPopoverFlippingEnbaled(1);
 ```
 
 
-### 🍭 postGlobalNotification 发送全局消息
+###  postGlobalNotification 发送全局消息
 
 `uexWindow.postGlobalNotification(content)`
 
@@ -1356,7 +1356,7 @@ index2.html
     </html>
 ```
 
-### 🍭 subscribeChannelNotification 注册接收消息通知的监听器
+###  subscribeChannelNotification 注册接收消息通知的监听器
 
 `uexWindow.subscribeChannelNotification(channelId,functionName)`
 
@@ -1489,7 +1489,7 @@ index2.html
     </script>
     </html>
 ```
-### 🍭 publishChannelNotification 发布消息通知
+###  publishChannelNotification 发布消息通知
 
 `uexWindow.publishChannelNotification(channelId,content)`
 
@@ -1510,7 +1510,7 @@ index2.html
 uexWindow.publishChannelNotification("No1","channel 1 test just!");
 
 ```
-### 🍭 publishChannelNotificationForJson 发布Json类型消息通知
+###  publishChannelNotificationForJson 发布Json类型消息通知
 
 `uexWindow.publishChannelNotificationForJson(channelId,content)`
 
@@ -1537,7 +1537,7 @@ var json = ｛
 uexWindow.publishChannelNotificationForJson("No1",JSON.stringify(json));
 ```
 
-### 🍭 getState 获取当前窗口处于前台还是后台
+###  getState 获取当前窗口处于前台还是后台
 
 `uexWindow.getState()`
 
@@ -1560,7 +1560,7 @@ Number类型,0:前台;1:后台
 ```javascript
 uexWindow.getState()
 ```
-### 🍭 getHeight 获取window的高度
+###  getHeight 获取window的高度
 
 `uexWindow.getHeight()`
 
@@ -1577,7 +1577,7 @@ uexWindow.getState()
 
 
 
-### 🍭 getWidth 获取window的宽度
+###  getWidth 获取window的宽度
 
 `uexWindow.getWidth()`
 
@@ -1594,7 +1594,7 @@ uexWindow.getState()
 
 
 
-### 🍭 getUrlQuery 获取加载页面时传入的参数
+###  getUrlQuery 获取加载页面时传入的参数
 
 `uexWindow.getUrlQuery()`
 
@@ -1617,7 +1617,7 @@ String类型
 ```javascript
 var result=uexWindow.getUrlQuery();
 ```
-### 🍭 getSlidingWindowState 获取侧滑窗口显示情况
+###  getSlidingWindowState 获取侧滑窗口显示情况
 
 `uexWindow.getSlidingWindowState()`
 
@@ -1640,7 +1640,7 @@ var state=uexWindow.getSlidingWindowState();
 
 ## 2.2、系统UI类方法<ignore>
 
-### 🍭 alert 弹出alert对话框
+###  alert 弹出alert对话框
 
 `uexWindow.alert(json)`
 
@@ -1668,7 +1668,7 @@ uexWindow.alert({
 });
 ```
 
-### 🍭 confirm 弹出confirm对话框
+###  confirm 弹出confirm对话框
 
 `uexWindow.confirm(json,callback)`
 
@@ -1702,7 +1702,7 @@ uexWindow.confirm({
 });
 ```
 
-### 🍭 prompt 弹出prompt对话框
+###  prompt 弹出prompt对话框
 
 `uexWindow.prompt(json,callback)`
 
@@ -1743,7 +1743,7 @@ uexWindow.prompt({
 });
 ```
 
-### 🍭 toast 弹出消息提示框
+###  toast 弹出消息提示框
 
 `uexWindow.toast(json)`
 
@@ -1773,7 +1773,7 @@ uexWindow.toast({
 });
 ```
 
-### 🍭 closeToast 关闭消息提示框
+###  closeToast 关闭消息提示框
 
 `uexWindow.closeToast()`
 
@@ -1792,7 +1792,7 @@ uexWindow.toast({
 ```javascript
 uexWindow.closeToast()
 ```
-### 🍭 createProgressDialog 创建全局对话框
+###  createProgressDialog 创建全局对话框
 
 `uexWindow.createProgressDialog(json)`
 
@@ -1823,7 +1823,7 @@ uexWindow.createProgressDialog({
 });
 ```
 
-### 🍭 destroyProgressDialog 销毁全局对话框
+###  destroyProgressDialog 销毁全局对话框
 
 `uexWindow.destroyProgressDialog()`
 
@@ -1844,7 +1844,7 @@ uexWindow.createProgressDialog({
 ```javascript
 uexWindow.destroyProgressDialog();
 ```
-### 🍭 actionSheet 弹出菜单列表
+###  actionSheet 弹出菜单列表
 
 `uexWindow.actionSheet(json,callback)`
 
@@ -1878,7 +1878,7 @@ uexWindow.actionSheet({
 ```
 
 ## 2.3、系统control类方法<ignore>
-### 🍭 setOrientation 设置屏幕方向
+###  setOrientation 设置屏幕方向
 
 `uexWindow.setOrientation(orientation)`
 
@@ -1900,7 +1900,7 @@ uexWindow.actionSheet({
 uexWindow.setOrientation(1);
 ```
 
-### 🍭 setWindowScrollbarVisible 设置滚动条的显示和隐藏
+###  setWindowScrollbarVisible 设置滚动条的显示和隐藏
 
 `uexWindow.setWindowScrollbarVisible(visible)`
 
@@ -1943,7 +1943,7 @@ uexWindow.setOrientation(1);
     </body>
     </html>
 ```
-### 🍭 setReportKey 设置当前页面是否拦截某个按键
+###  setReportKey 设置当前页面是否拦截某个按键
 
 `uexWindow.setReportKey(keyCode,enable)`
 
@@ -1965,7 +1965,7 @@ uexWindow.setOrientation(1);
 ```javascript
 uexWindow.setReportKey(1,1)
 ```
-### 🍭 showSoftKeyboard 弹出软键盘
+###  showSoftKeyboard 弹出软键盘
 
 `uexWindow.showSoftKeyboard()`
 
@@ -1979,7 +1979,7 @@ uexWindow.setReportKey(1,1)
 
 
 
-### 🍭 hideSoftKeyboard 关闭软键盘
+###  hideSoftKeyboard 关闭软键盘
 
 `uexWindow.hideSoftKeyboard() `
 
@@ -1994,7 +1994,7 @@ uexWindow.setReportKey(1,1)
 **版本支持:**
 4.0.0+
 
-### 🍭 setSwipeRate 设置左右手势的灵敏度
+###  setSwipeRate 设置左右手势的灵敏度
 
 `uexWindow.setSwipeRate(rate)`
 
@@ -2010,7 +2010,7 @@ uexWindow.setReportKey(1,1)
 
 
 
-### 🍭 statusBarNotification 发送消息到状态栏
+###  statusBarNotification 发送消息到状态栏
 
 `uexWindow.statusBarNotification(title,msg)`
 
@@ -2031,7 +2031,7 @@ uexWindow.setReportKey(1,1)
 ```javascript
 uexWindow.statusBarNotification('title','msg');
 ```
-### 🍭 setStatusBarTitleColor 设置状态条上字体的颜色
+###  setStatusBarTitleColor 设置状态条上字体的颜色
 
 `uexWindow.setStatusBarTitleColor(color)`
 
@@ -2053,7 +2053,7 @@ uexWindow.statusBarNotification('title','msg');
 uexWindow.setStatusBarTitleColor(0);
 ```
 
-### 🍭 share 调用系统分享
+###  share 调用系统分享
 
 `uexWindow.share(jsonStr)`
 
@@ -2115,7 +2115,7 @@ function share(){
  	uexWindow.share(JSON.stringify(param));
 }
 ```
-### 🍭 setLoadingImagePath 设置启动图相关参数
+###  setLoadingImagePath 设置启动图相关参数
 
 `uexWindow.setLoadingImagePath(params)`
 
@@ -2149,7 +2149,7 @@ var paramStr = JSON.stringify(params);
 uexWindow.setLoadingImagePath(paramStr);
 ```
 
-### 🍭 setAutorotateEnable 设置窗口是否跟随设备自动旋转
+###  setAutorotateEnable 设置窗口是否跟随设备自动旋转
 
 `uexWindow.setAutorotateEnable()`
 
@@ -2171,7 +2171,7 @@ uexWindow.setLoadingImagePath(paramStr);
 uexWindow.setAutorotateEnable(1);
 ```
 
-### 🍭 setHardwareEnable 设置窗口的硬件加速
+###  setHardwareEnable 设置窗口的硬件加速
 
 `uexWindow.setHardwareEnable(flag)`
 
@@ -2192,7 +2192,7 @@ uexWindow.setAutorotateEnable(1);
 uexWindow.setHardwareEnable(1);
 ```
 
-### 🍭 setPopHardwareEnable 设置Popover的硬件加速功能
+###  setPopHardwareEnable 设置Popover的硬件加速功能
 
 `uexWindow.setPopHardwareEnable(name,flag)`
 
@@ -2215,7 +2215,7 @@ uexWindow.setHardwareEnable(1);
 ```
 uexWindow.setPopHardwareEnable('content',1);
 ```
-### 🍭 beginAnimition 开始设置动画的相关参数
+###  beginAnimition 开始设置动画的相关参数
 
 `uexWindow.beginAnimition()`
 
@@ -2235,7 +2235,7 @@ uexWindow.setPopHardwareEnable('content',1);
 uexWindow.beginAnimition()`
 ```
 
-### 🍭 setAnimitionDelay 设置动画延迟执行时间
+###  setAnimitionDelay 设置动画延迟执行时间
 
 `uexWindow.setAnimitionDelay(delay)`
 
@@ -2256,7 +2256,7 @@ uexWindow.beginAnimition()`
 uexWindow.setAnimitionDelay(200)
 ```
 
-### 🍭 setAnimitionDuration 设置动画持续时间
+###  setAnimitionDuration 设置动画持续时间
 
 `uexWindow.setAnimitionDuration(duration)`
 
@@ -2278,7 +2278,7 @@ uexWindow.setAnimitionDelay(200)
 uexWindow.setAnimitionDuration(4000);
 ```
 
-### 🍭 setAnimitionCurve 设置动画曲线类型
+###  setAnimitionCurve 设置动画曲线类型
 
 `uexWindow.setAnimitionCurve(curve)`
 
@@ -2300,7 +2300,7 @@ uexWindow.setAnimitionDuration(4000);
 uexWindow.setAnimitionCurve(1);
 ```
 
-### 🍭 setAnimitionRepeatCount 设置动画重复次数
+###  setAnimitionRepeatCount 设置动画重复次数
 
 `uexWindow.setAnimitionRepeatCount(count)`
 
@@ -2322,7 +2322,7 @@ uexWindow.setAnimitionCurve(1);
 uexWindow.setAnimitionRepeatCount(0);
 ```
 
-### 🍭 setAnimitionAutoReverse 设置动画结束后自动恢复位置和状态
+###  setAnimitionAutoReverse 设置动画结束后自动恢复位置和状态
 
 `uexWindow.setAnimitionAutoReverse(isReverse)`
 
@@ -2344,7 +2344,7 @@ uexWindow.setAnimitionRepeatCount(0);
 uexWindow.setAnimitionAutoReverse(1);
 ```
 
-### 🍭 makeTranslation 设置移动动画
+###  makeTranslation 设置移动动画
 
 `uexWindow.makeTranslation(toX,toY,toZ)`
 
@@ -2368,7 +2368,7 @@ uexWindow.setAnimitionAutoReverse(1);
 uexWindow.makeTranslation(100,0,0);
 ```
 
-### 🍭 makeScale 设置伸缩动画
+###  makeScale 设置伸缩动画
 
 `uexWindow.makeScale(toX,toY,toZ)`
 
@@ -2393,7 +2393,7 @@ uexWindow.makeScale(2,1,1);
 ```
 
 
-### 🍭 makeRotate 设置旋转动画
+###  makeRotate 设置旋转动画
 
 `uexWindow.makeRotate(degrees,toX,toY,toZ)`
 
@@ -2418,7 +2418,7 @@ uexWindow.makeScale(2,1,1);
 uexWindow.makeRotate(90, 1, 0, 1);
 ```
 
-### 🍭 makeAlpha 设置透明度动画
+###  makeAlpha 设置透明度动画
 
 `uexWindow.makeAlpha(alpha)`
 
@@ -2440,7 +2440,7 @@ uexWindow.makeRotate(90, 1, 0, 1);
 uexWindow.makeAlpha(0.5);
 ```
 
-### 🍭 commitAnimition 提交动画设置并开始执行动画
+###  commitAnimition 提交动画设置并开始执行动画
 
 `uexWindow.commitAnimition()`
 
@@ -2460,7 +2460,7 @@ uexWindow.makeAlpha(0.5);
 uexWindow.commitAnimition();
 ```
 
-### 🍭 getBounce 获取网页弹动状态
+###  getBounce 获取网页弹动状态
 
 `uexWindow.getBounce()`
 
@@ -2484,7 +2484,7 @@ Number类型,1:支持,0:不支持
 uexWindow.getBounce();
 ```
 
-### 🍭 setBounce 设置是否支持网页弹动
+###  setBounce 设置是否支持网页弹动
 
 `uexWindow.setBounce(flag)`
 
@@ -2505,7 +2505,7 @@ uexWindow.getBounce();
 uexWindow.setBounce(1);
 ```
 
-### 🍭 notifyBounceEvent 注册接收弹动事件
+###  notifyBounceEvent 注册接收弹动事件
 
 `uexWindow.notifyBounceEvent(type,status)`
 
@@ -2528,7 +2528,7 @@ uexWindow.setBounce(1);
 uexWindow.notifyBounceEvent(1,1);
 ```
 
-### 🍭 showBounceView 显示弹动效果
+###  showBounceView 显示弹动效果
 
 `uexWindow.showBounceView(json)`
 
@@ -2556,7 +2556,7 @@ uexWindow.showBounceView({
 });
 ```
 
-### 🍭 resetBounceView 设置弹动效果结束后显示的网页
+###  resetBounceView 设置弹动效果结束后显示的网页
 
 `uexWindow.resetBounceView(type)`
 
@@ -2578,7 +2578,7 @@ uexWindow.showBounceView({
 uexWindow.resetBounceView("1");
 ```
 
-### 🍭 setBounceParams 设置弹动参数
+###  setBounceParams 设置弹动参数
 
 `uexWindow.setBounceParams(type,status)`
 
@@ -2620,7 +2620,7 @@ var json={
 uexWindow.setBounceParams(0, json);
 ```
 
-### 🍭 hiddenBounceView 隐藏弹动效果
+###  hiddenBounceView 隐藏弹动效果
 
 `uexWindow.hiddenBounceView(type)`
 
@@ -2643,7 +2643,7 @@ uexWindow.hiddenBounceView(1);
 ```
 
 
-### 🍭 setIsSupportSlideCallback 设置网页是否支持滑动的相关监听方法
+###  setIsSupportSlideCallback 设置网页是否支持滑动的相关监听方法
 
 `uexWindow.setIsSupportSlideCallback(param)`
 
@@ -2678,7 +2678,7 @@ var param = {
 uexWindow.setIsSupportSlideCallback(param);
 ```
 
-### 🍭 setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法
+###  setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法
 
 `uexWindow.setIsSupportSwipeCallback(param)`
 
@@ -2711,7 +2711,7 @@ uexWindow.onSwipeLeft = function(){
 }
 ```
 
-### 🍭 disturbLongPressGesture 阻碍当前网页长按手势
+###  disturbLongPressGesture 阻碍当前网页长按手势
 
 `uexWindow.disturbLongPressGesture(flag)`
 
@@ -2754,7 +2754,7 @@ Android:
 uexWindow.disturbLongPressGesture(1);
 ```
 
-### 🍭 reload 重载当前页面
+###  reload 重载当前页面
 
 `uexWindow.reload();`
 
@@ -2777,7 +2777,7 @@ uexWindow.reload();
 
 ```
 
-### 🍭 topBounceViewRefresh 自动下拉刷新
+###  topBounceViewRefresh 自动下拉刷新
 
 `uexWindow.topBounceViewRefresh()`
 
@@ -2797,7 +2797,7 @@ uexWindow.reload();
 uexWindow.topBounceViewRefresh();
 ```
 
-### 🍭 createPluginViewContainer 创建插件容器
+###  createPluginViewContainer 创建插件容器
 
 `uexWindow.createPluginViewContainer(jsonStr);`
 
@@ -2842,7 +2842,7 @@ var params = {
 var result=uexWindow.createPluginViewContainer(JSON.stringify(params));
 ```
 
-### 🍭 closePluginViewContainer 关闭插件容器
+###  closePluginViewContainer 关闭插件容器
 
 `uexWindow.closePluginViewContainer(jsonStr);`
 
@@ -2877,7 +2877,7 @@ var params = {
 var result=uexWindow.closePluginViewContainer(JSON.stringify(params));
 ```
 
-### 🍭 setPageInContainer 设置插件容器当前要显示的页面
+###  setPageInContainer 设置插件容器当前要显示的页面
 
 `uexWindow.setPageInContainer(jsonStr);`
 
@@ -2911,7 +2911,7 @@ var params = {
         };
 uexWindow.setPageInContainer(JSON.stringify(params));
 ```
-### 🍭 hideStatusBar 隐藏状态栏
+###  hideStatusBar 隐藏状态栏
 
 `uexWindow.hideStatusBar()`
 
@@ -2929,7 +2929,7 @@ uexWindow.setPageInContainer(JSON.stringify(params));
 
 `uexWindow.hideStatusBar();`
 
-### 🍭 showStatusBar 显示状态栏
+###  showStatusBar 显示状态栏
 
 `uexWindow.showStatusBar()`
 
@@ -2949,7 +2949,7 @@ uexWindow.setPageInContainer(JSON.stringify(params));
 
 
 
-### 🍭 setSwipeCloseEnable 设置当前页面是否支持手势侧滑关闭
+###  setSwipeCloseEnable 设置当前页面是否支持手势侧滑关闭
 
 `uexWindow.setSwipeCloseEnable(jsonStr)`
 
@@ -2982,7 +2982,7 @@ var jsonStr = {
 
 
 
-### 🍭 putLocalData 存放本地数据
+###  putLocalData 存放本地数据
 
 `uexWindow.putLocalData(key,value)`
 
@@ -3006,7 +3006,7 @@ var jsonStr = {
 
 
 
-### 🍭 getLocalData 获取本地存储的数据
+###  getLocalData 获取本地存储的数据
 
 `uexWindow.getLocalData(key)`
 
@@ -3037,7 +3037,7 @@ console.log(name);
 
 ## 2.4 回调方法<ignore>
 
-### 🍭 cbOpenMultiPopover 打开多页面浮动窗口的回调方法
+###  cbOpenMultiPopover 打开多页面浮动窗口的回调方法
 
 `uexWindow.cbOpenMultiPopover(opId,dataType,data)`
 
@@ -3061,7 +3061,7 @@ data字符串中各字段含义如下:
 
 ## 2.5 监听方法<ignore>
 
-### 🍭 uexOnload 网页加载完成时的回调方法
+###  uexOnload 网页加载完成时的回调方法
 
 `window.uexOnload(type)`
 
@@ -3080,7 +3080,7 @@ window.uexOnload = function(type){
 }
 ```
 
-### 🍭 onSlipedUpward 上滑的监听方法,内容超过一屏时有效
+###  onSlipedUpward 上滑的监听方法,内容超过一屏时有效
 
 `uexWindow.onSlipedUpward()`
 
@@ -3098,7 +3098,7 @@ uexWindow.onSlipedUpward = function(){
 }
 ```
 
-### 🍭 onSlipedDownward 下滑的监听方法,内容超过一屏时有效
+###  onSlipedDownward 下滑的监听方法,内容超过一屏时有效
 
 `uexWindow.onSlipedDownward()`
 
@@ -3112,7 +3112,7 @@ uexWindow.onSlipedUpward = function(){
 
 类似onSlipedUpward
 
-### 🍭 onSlipedUpEdge 滑到顶部的监听方法,内容超过一屏时有效
+###  onSlipedUpEdge 滑到顶部的监听方法,内容超过一屏时有效
 
 `uexWindow.onSlipedUpEdge()`
 
@@ -3126,7 +3126,7 @@ uexWindow.onSlipedUpward = function(){
 
 类似onSlipedUpward
 
-### 🍭 onSlipedDownEdge 滑到底部的监听方法,内容超过一屏时有效
+###  onSlipedDownEdge 滑到底部的监听方法,内容超过一屏时有效
 
 `uexWindow.onSlipedDownEdge()`
 
@@ -3140,7 +3140,7 @@ uexWindow.onSlipedUpward = function(){
 
 类似onSlipedUpward
 
-### 🍭 onAnimationFinish 动画执行完成的监听方法,只对浮动窗口有效
+###  onAnimationFinish 动画执行完成的监听方法,只对浮动窗口有效
 
 `uexWindow.onAnimationFinish()`
 
@@ -3158,7 +3158,7 @@ function onAnimationFinish() {
 }
 ```
 
-### 🍭 onSetWindowFrameFinish 当前窗口位置移动完成的监听方法
+###  onSetWindowFrameFinish 当前窗口位置移动完成的监听方法
 
 `uexWindow.onSetWindowFrameFinish()`
 
@@ -3179,7 +3179,7 @@ function onSetWindowFrameFinish(){
 }
 ```
 
-### 🍭 onSwipeRight 向右滑动的监听方法
+###  onSwipeRight 向右滑动的监听方法
 
 `uexWindow.onSwipeRight()`
 使用之前需调用[setIsSupportSwipeCallback](#setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法 "setIsSupportSwipeCallback")设置当前网页是否支持滑动，主窗口浮动窗口分别调用之后，onSwipeRight、onSwipeRight左右监听方法才会生效。
@@ -3198,7 +3198,7 @@ uexWindow.onSwipeRight = function(){
 }
 ```
 
-### 🍭 onSwipeLeft 向左滑动的监听方法
+###  onSwipeLeft 向左滑动的监听方法
 
 `uexWindow.onSwipeLeft()`
 使用之前需调用[setIsSupportSwipeCallback](#setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法 "setIsSupportSwipeCallback")设置当前网页是否支持滑动，主窗口浮动窗口分别调用之后，onSwipeRight、onSwipeRight左右监听方法才会生效。
@@ -3210,7 +3210,7 @@ uexWindow.onSwipeRight = function(){
 **示例：**
 参考[setIsSupportSwipeCallback](#setIsSupportSwipeCallback 设置网页是否支持左右滑动的监听方法 "setIsSupportSwipeCallback")
 
-### 🍭 onBounceStateChange 弹动状态改变的监听方法
+###  onBounceStateChange 弹动状态改变的监听方法
 
 `uexWindow.onBounceStateChange(type,state)`
 
@@ -3243,7 +3243,7 @@ function onBounceStateChange(type, state){
 }
 ```
 
-### 🍭 onGlobalNotification 全局消息的监听方法
+###  onGlobalNotification 全局消息的监听方法
 
 `uexWindow.onGlobalNotification(data)`
 
@@ -3267,7 +3267,7 @@ function onGlobalNotification(ret){
 }
 ```
 
-### 🍭 onKeyPressed 按键事件的监听方法
+###  onKeyPressed 按键事件的监听方法
 
 `uexWindow.onKeyPressed (keyCode)`
 
@@ -3287,7 +3287,7 @@ uexWindow.onKeyPressed =function(keyCode){
 }
 ```
 
-### 🍭 onStateChange 窗口前后台状态变化的监听方法
+###  onStateChange 窗口前后台状态变化的监听方法
 
 `uexWindow.onStateChange(state)`
 
@@ -3308,7 +3308,7 @@ uexWindow.onStateChange=function(state){
 ```
 
 
-### 🍭 onPopoverLoadFinishInRootWnd 浮动窗口加载完成的监听方法
+###  onPopoverLoadFinishInRootWnd 浮动窗口加载完成的监听方法
 
 `uexWindow.onPopoverLoadFinishInRootWnd(name,url)`
 
@@ -3322,7 +3322,7 @@ uexWindow.onStateChange=function(state){
 
 
 
-### 🍭 onPluginContainerPageChange容器页面切换回调
+###  onPluginContainerPageChange容器页面切换回调
 
 `uexWindow.onPluginContainerPageChange(opId,dataType,data)`
 
@@ -3346,7 +3346,7 @@ window.uexOnload = function(type){
 }
 ```
 
-### 🍭 onSlidingWindowStateChanged 侧滑菜单状态改变的监听方法
+###  onSlidingWindowStateChanged 侧滑菜单状态改变的监听方法
 
 `uexWindow.onSlidingWindowStateChanged(state)`
 
@@ -3368,7 +3368,7 @@ uexWindow.onSlidingWindowStateChanged=function(state){
 
 #3 术语表<ignore>
 
-### 🍭 WindowAnimationId 窗口动画Id
+###  WindowAnimationId 窗口动画Id
 
 > **基础动画**
 

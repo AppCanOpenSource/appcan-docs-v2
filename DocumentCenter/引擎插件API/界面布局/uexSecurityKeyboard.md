@@ -32,7 +32,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 open 创建带安全键盘的输入框
+###  open 创建带安全键盘的输入框
 
 `uexSecurityKeyboard.open(params);`
 
@@ -85,7 +85,7 @@ Toc: 1
     var securityKeyboard = uexSecurityKeyboard.open(JSON.stringify(params));
 ```
 
-### 🍭 close 销毁带安全键盘的输入框
+###  close 销毁带安全键盘的输入框
 
 `uexSecurityKeyboard.close(securityKeyboard);`
 
@@ -106,7 +106,7 @@ Toc: 1
     uexSecurityKeyboard.close(securityKeyboard);
 ```
 
-### 🍭 getData 获取输入框中的内容
+###  getData 获取输入框中的内容
 
 `var content = uexSecurityKeyboard.getData(securityKeyboard);`
 

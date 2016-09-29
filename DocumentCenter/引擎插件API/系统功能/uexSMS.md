@@ -28,7 +28,7 @@ Toc: 1
 # 2、API概览<ignore>
 ##2.1、方法<ignore>
 
-### 🍭 open 打开系统默认发送短信程序的界面
+###  open 打开系统默认发送短信程序的界面
 
 `uexSMS.open(phoneNum,content)`	
 

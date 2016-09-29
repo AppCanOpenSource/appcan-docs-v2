@@ -26,7 +26,7 @@ Toc: 1
 
 ## 2.1、方法 <ignore>
 
-### 🍭open 打开日历
+### open 打开日历
 
 `uexCalendarView.open(params)`
 
@@ -70,7 +70,7 @@ var params ={
 uexCalendarView.open(params);
 ```
 
-### 🍭close  关闭日历
+### close  关闭日历
 
 `uexCalendarView.close()`
 
@@ -88,7 +88,7 @@ uexCalendarView.open(params);
 ```
 uexCalendarView.close()
 ```
-### 🍭setSelectedDate 设置被选中的日期
+### setSelectedDate 设置被选中的日期
 
 `uexCalendarView.setSelectedDate(params)`
 
@@ -136,7 +136,7 @@ uexCalendarView.setSelectedDate(params);
 
 ## 2.2、监听方法<ignore>
 
-### 🍭onItemClick  点击日期时的监听方法
+### onItemClick  点击日期时的监听方法
 
 `uexCalendarView.onItemClick(params)`
 

@@ -34,7 +34,7 @@ iOS 后台蓝牙功能须知
 
 ## 2.1、方法<ignore>
 
-### 🍭 init 初始化接口
+###  init 初始化接口
 
 `uexBluetoothLE.init()`
 
@@ -52,7 +52,7 @@ iOS 后台蓝牙功能须知
 
 **示例:**
 
-### 🍭 scanDevice 扫描蓝牙设备
+###  scanDevice 扫描蓝牙设备
 
 `uexBluetoothLE.scanDevice(serviceUUIDs)`
 
@@ -70,7 +70,7 @@ iOS 后台蓝牙功能须知
 
 
 
-### 🍭 stopScanDevice 停止扫描设备
+###  stopScanDevice 停止扫描设备
 
 `uexBluetoothLE.stopScanDevice()`
 
@@ -86,7 +86,7 @@ iOS 后台蓝牙功能须知
 
 
 
-### 🍭 connect 连接指定蓝牙设备
+###  connect 连接指定蓝牙设备
 
 `uexBluetoothLE.connect(param)`
 
@@ -106,7 +106,7 @@ var param={
 
 
 
-### 🍭 disconnect 断开蓝牙连接
+###  disconnect 断开蓝牙连接
 
 `uexBluetoothLE.disconnect()`
 
@@ -122,7 +122,7 @@ var param={
 
 
 
-### 🍭 searchForCharacteristic 从指定service中搜索characteristic
+###  searchForCharacteristic 从指定service中搜索characteristic
 
 `uexBluetoothLE.searchForCharacteristic(param)`
 
@@ -142,7 +142,7 @@ var param={
 
 
 
-### 🍭 searchForDescriptor 从指定characteristic中搜索descriptor
+###  searchForDescriptor 从指定characteristic中搜索descriptor
 
 `uexBluetoothLE.searchForDescriptor(param)`
 
@@ -163,7 +163,7 @@ var param={
 
 
 
-### 🍭 readCharacteristic 读取Characteristic
+###  readCharacteristic 读取Characteristic
 
 `uexBluetoothLE.readCharacteristic(param)`
 
@@ -184,7 +184,7 @@ var param={
 
 
 
-### 🍭 writeCharacteristic 写入数据到Characteristic
+###  writeCharacteristic 写入数据到Characteristic
 
 `uexBluetoothLE.writeCharacteristic(param)`
 
@@ -207,7 +207,7 @@ var param={
 
 
 
-### 🍭 readDescriptor 读取Descriptor
+###  readDescriptor 读取Descriptor
 
 `uexBluetoothLE.readDescriptor(param)`
 
@@ -229,7 +229,7 @@ var param={
 
 
 
-### 🍭 writeDescriptor 写入数据到Descriptor
+###  writeDescriptor 写入数据到Descriptor
 
 `uexBluetoothLE.writeDescriptor(param)`
 
@@ -253,7 +253,7 @@ var param={
 
 
 
-### 🍭 setCharacteristicNotification 监听某一个Characteristic
+###  setCharacteristicNotification 监听某一个Characteristic
 
 `uexBluetoothLE.setCharacteristicNotification(param)`
 
@@ -275,7 +275,7 @@ var param={
 
 
 
-### 🍭 readRemoteRssi 读取rssi
+###  readRemoteRssi 读取rssi
 
 `uexBluetoothLE.readRemoteRssi()`
 
@@ -295,7 +295,7 @@ var param={
 
 ## 2.2、回调方法<ignore>
 
-### 🍭 cbInit 初始化的回调方法
+###  cbInit 初始化的回调方法
 
 `uexBluetoothLE.cbInit(data)`
 
@@ -319,7 +319,7 @@ var data={
     }
 ```
 
-### 🍭 cbConnect 连接指定蓝牙设备的回调方法
+###  cbConnect 连接指定蓝牙设备的回调方法
 
 `uexBluetoothLE.cbConnect(data)`
 
@@ -343,7 +343,7 @@ var data={
     }
 ```
 
-### 🍭 cbSearchForCharacteristic 从指定service中搜索characteristic的回调方法
+###  cbSearchForCharacteristic 从指定service中搜索characteristic的回调方法
 
 `uexBluetoothLE.cbSearchForCharacteristic(data)`
 
@@ -368,7 +368,7 @@ uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说�
     }
 ```
 
-### 🍭 cbSearchForDescriptor 从指定characteristic中搜索descriptor的回调方法
+###  cbSearchForDescriptor 从指定characteristic中搜索descriptor的回调方法
 
 `uexBluetoothLE.cbSearchForDescriptor(data)`
 
@@ -394,7 +394,7 @@ uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
     }
 ```
 
-### 🍭 cbReadCharacteristic 读取Characteristic的回调方法
+###  cbReadCharacteristic 读取Characteristic的回调方法
 
 `uexBluetoothLE.cbReadCharacteristic(data)`
 
@@ -419,7 +419,7 @@ uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说�
     }
 ```
 
-### 🍭 cbWriteCharacteristic 写入数据到Characteristic的回调方法
+###  cbWriteCharacteristic 写入数据到Characteristic的回调方法
 
 `uexBluetoothLE.cbWriteCharacteristic(data)`
 
@@ -445,7 +445,7 @@ uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说�
     }
 ```
 
-### 🍭 cbReadDescriptor 读取Descriptor的回调方法
+###  cbReadDescriptor 读取Descriptor的回调方法
 
 `uexBluetoothLE.cbReadDescriptor(data)`
 
@@ -470,7 +470,7 @@ uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
     }
 ```
 
-### 🍭 cbWriteDescriptor 写入数据到Descriptor的回调方法
+###  cbWriteDescriptor 写入数据到Descriptor的回调方法
 
 `uexBluetoothLE.cbWriteDescriptor(data)`
 
@@ -497,7 +497,7 @@ uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
 
 ## 2.3、监听方法<ignore>
 
-### 🍭 onLeScan 扫描到设备的监听方法
+###  onLeScan 扫描到设备的监听方法
 
 `uexBluetoothLE.onLeScan(data)`
 
@@ -527,7 +527,7 @@ var data={
     }
 ```
 
-### 🍭 onConnectionStateChange 连接状态改变的监听方法
+###  onConnectionStateChange 连接状态改变的监听方法
 
 `uexBluetoothLE.onConnectionStateChange(data)`
 
@@ -551,7 +551,7 @@ var data={
     }
 ```
 
-### 🍭 onCharacteristicChanged Characteristic内容改变的监听方法
+###  onCharacteristicChanged Characteristic内容改变的监听方法
 
 `uexBluetoothLE.onCharacteristicChanged(data)`
 
@@ -575,7 +575,7 @@ var data={
 
 
 
-### 🍭 onReadRemoteRssi readRemoteRssi的监听方法
+###  onReadRemoteRssi readRemoteRssi的监听方法
 
 `uexBluetoothLE.onReadRemoteRssi(data)`
 

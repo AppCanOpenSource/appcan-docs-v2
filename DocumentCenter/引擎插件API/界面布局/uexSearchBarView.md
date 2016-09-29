@@ -24,7 +24,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 open 打开搜索框
+###  open 打开搜索框
 
 `uexSearchBarView.open(json)`  
 
@@ -98,7 +98,7 @@ var json = {
 运行效果:
 ![](/docImg/975/u10&#40;1&#41;.png)
 
-### 🍭 close 关闭搜索框  
+###  close 关闭搜索框  
 
 `uexSearchBarView.close()`
 
@@ -117,7 +117,7 @@ var json = {
     uexSearchBarView.close()
 ```
 
-### 🍭 clearHistory 清空搜索历史
+###  clearHistory 清空搜索历史
 
 `uexSearchBarView.clearHistory()`
 
@@ -137,7 +137,7 @@ var json = {
 ```
 ## 2.2、监听方法<ignore>
 
-### 🍭 onItemClick item被点击的监听方法
+###  onItemClick item被点击的监听方法
 
 `uexSearchBarView.onItemClick(json);`
 
@@ -160,7 +160,7 @@ var json = {
     }
 ```
 
-### 🍭 onSearch 用户点击搜索之后的回调
+###  onSearch 用户点击搜索之后的回调
 
 `uexSearchBarView.onSearch(json);`
 

@@ -18,7 +18,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 open 打开城市选择
+###  open 打开城市选择
 
 `uexCityListView.open(x,y,w,h)`
 
@@ -52,7 +52,7 @@ iOS6.0+
 uexCityListView.open("0","600","720","1230");
 ```
 
-### 🍭 setLocalCity 设置当前定位城市
+###  setLocalCity 设置当前定位城市
 
 `uexCityListView.setLocalCity(json);`
 
@@ -88,7 +88,7 @@ var localCity = '{"localCity":"北京"}';
 uexCityListView.setLocalCity(localCity);
 ```
 
-### 🍭 setHotCity 设置热门城市
+###  setHotCity 设置热门城市
 
 `uexCityListView.setLocalCity(json);`
 
@@ -123,7 +123,7 @@ var hotCity = '{"hotCity":["北京","重庆","成都","广州","厦门","杭州"
 uexCityListView.setHotCity(hotCity);
 ```
 
-### 🍭 setAllCity 设置所有的城市
+###  setAllCity 设置所有的城市
 
 `uexCityListView.setAllCity(jsonPath)`
 
@@ -165,7 +165,7 @@ iOS6.0+
 uexCityListView.setAllCity("res://city.json");
 ```
 
-### 🍭 setViewStyle 设置城市选择视图的样式
+###  setViewStyle 设置城市选择视图的样式
 
 `uexCityListView.setViewStyle(json);`
 
@@ -247,7 +247,7 @@ var params = '
 uexCityListView.setViewStyle(params);
 ```
 
-### 🍭 close 关闭城市选择视图
+###  close 关闭城市选择视图
 
 `uexCityListView.close();`
 
@@ -278,7 +278,7 @@ uexCityListView.close();
 
 ## 2.2、回调方法<ignore>
 
-### 🍭 onItemClick 点击城市之后的回调
+###  onItemClick 点击城市之后的回调
 
 `uexCityListView.onItemClick(city);`
 

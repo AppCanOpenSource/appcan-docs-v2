@@ -30,7 +30,7 @@ Toc: 1
 
 ##2.1、 方法<ignore>
 
-### 🍭 init  初始化
+###  init  初始化
 
 `uexBaiduNavi.init(param,callback)`
 
@@ -82,7 +82,7 @@ uexBaiduNavi.init(data,function(error,data){
 });
 ```
 
-### 🍭 startRoutePlan  开始路径规划
+###  startRoutePlan  开始路径规划
 
 `uexBaiduNavi.startRoutePlan(param,callback)`
 
@@ -151,7 +151,7 @@ uexBaiduNavi.startRoutePlan(data,function(error,data){
 });
 ```
 
-### 🍭 startNavi  开始导航
+###  startNavi  开始导航
 
 `uexBaiduNavi.startNavi(param)`
 
@@ -193,7 +193,7 @@ var data={
 uexBaiduNavi.startNavi(data);
 ```
 
-### 🍭 exitNavi  退出导航
+###  exitNavi  退出导航
 
 `uexBaiduNavi.exitNavi()`
 
@@ -213,7 +213,7 @@ uexBaiduNavi.startNavi(data);
 uexBaiduNavi.exitNavi();
 ```
 
-### 🍭 startDigitDog  开始巡航
+###  startDigitDog  开始巡航
 
 `uexBaiduNavi.startDigitDog(param)`
 
@@ -252,7 +252,7 @@ uexBaiduNavi.startDigitDog(data);
 
 ##2.2、 监听方法<ignore>
 
-### 🍭 onExitNavi 退出导航的监听方法
+###  onExitNavi 退出导航的监听方法
 
 `uexBaiduNavi.onExitNavi()`
 
@@ -272,7 +272,7 @@ uexBaiduNavi.onExitNavi=function(){
 }
 ```
 
-### 🍭 onExitDeclaration 退出导航声明页面的监听方法
+###  onExitDeclaration 退出导航声明页面的监听方法
 
 `uexBaiduNavi.onExitDeclaration()`
 
@@ -294,7 +294,7 @@ uexBaiduNavi.onExitDeclaration=function(){
 }
 ```
 
-### 🍭 onExitDigitDog 退出巡航的监听方法
+###  onExitDigitDog 退出巡航的监听方法
 
 `uexBaiduNavi.onExitDigitDog()`
 

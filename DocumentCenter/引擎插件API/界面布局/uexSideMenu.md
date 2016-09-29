@@ -14,7 +14,7 @@ Toc: 1
 # 2、API概览<ignore>
 
 ## 2.1、方法<ignore>
-### 🍭 open 打开菜单
+###  open 打开菜单
 
 `uexSideMenu.open(json)`
 
@@ -86,7 +86,7 @@ iOS 3.0.0+
 运行效果:
 ![](http://i.imgur.com/ketvg8l.png)
 
-### 🍭 close 关闭菜单
+###  close 关闭菜单
 
 `uexSideMenu.close()`
 
@@ -118,7 +118,7 @@ iOS 3.0.0+
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onItemClick item被点击的监听方法
+###  onItemClick item被点击的监听方法
 
 `uexSideMenu.onItemClick(json);`
 

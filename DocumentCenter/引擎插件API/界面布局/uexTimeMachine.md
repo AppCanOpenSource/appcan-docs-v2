@@ -17,7 +17,7 @@ Toc: 1
 #2、API概览<ignore>
  ##2.1              方法<ignore>
 
-### 🍭           open 打开旋转动画
+###            open 打开旋转动画
 
         
 
@@ -42,7 +42,7 @@ iOS6.0+
 3.0.0+                  
 **          示例:     **
       见setJsonData的示例                   
-### 🍭       close 关闭旋转动画
+###        close 关闭旋转动画
 
     
 
@@ -63,7 +63,7 @@ iOS6.0+
 3.0.0+          
 **      示例: **
                       见setJsonData的示例           
-### 🍭   setJsonData　
+###    setJsonData　
 
 设置旋转动画的数据源
 
@@ -140,7 +140,7 @@ iOS6.0+
 ```
 ## 2.2、回调方法<ignore>
 
-### 🍭cbOpen 打开旋转动画的回调方法
+### cbOpen 打开旋转动画的回调方法
 
     
 
@@ -159,7 +159,7 @@ iOS6.0+
 3.0.0+    
 
 ## 2.3、监听方法<ignore>
-### 🍭 onItemSelected　点击item的监听方法
+###  onItemSelected　点击item的监听方法
 
 `uexTimeMachine.onItemSelected(opId,index)`
 

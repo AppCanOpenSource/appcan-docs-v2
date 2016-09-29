@@ -26,7 +26,7 @@ JSON, XML转换工具
 
 ## 2.1、方法<ignore>
 
-### 🍭 json2xml 将json字符串转为xml
+###  json2xml 将json字符串转为xml
 
 `uexJsonXmlTrans.json2xml(param,cb)`
 
@@ -72,7 +72,7 @@ var param = {
     }
  });         
 ```
-### 🍭 xml2json 将xml格式字符串转为json格式
+###  xml2json 将xml格式字符串转为json格式
 
 `uexJsonXmlTrans.xml2json(param,cb);`
 

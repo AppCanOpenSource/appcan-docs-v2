@@ -27,7 +27,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 open 打开评论输入
+###  open 打开评论输入
 
 `uexInputTextFieldView.open(json)`
 
@@ -87,7 +87,7 @@ var data ={
 uexInputTextFieldView.open(data);
 ```
 
-### 🍭 close 关闭评论输入
+###  close 关闭评论输入
 
 `uexInputTextFieldView.close()`
 
@@ -108,7 +108,7 @@ uexInputTextFieldView.open(data);
 uexInputTextFieldView.close();
 ```
 
-### 🍭 setInputFocused 输入框自动获取焦点
+###  setInputFocused 输入框自动获取焦点
 
 `uexInputTextFieldView.setInputFocused()`
 
@@ -129,7 +129,7 @@ uexInputTextFieldView.setInputFocused();
 ```
 
 
-### 🍭 getInputBarHeight 获取输入工具条高度 
+###  getInputBarHeight 获取输入工具条高度 
 
 `uexInputTextFieldView.getInputBarHeight();  `
 
@@ -155,7 +155,7 @@ alert(result);
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onCommitJson 点击发送的监听方法
+###  onCommitJson 点击发送的监听方法
 
 `uexInputTextFieldView.onCommitJson(json)`
 
@@ -181,7 +181,7 @@ window.uexOnload = function(){
 	uexInputTextFieldView.onCommitJson = onCommitJson;
 }
 ```
-### 🍭 onKeyBoardShow 键盘弹出或收起时的监听方法
+###  onKeyBoardShow 键盘弹出或收起时的监听方法
 
 `uexInputTextFieldView.onKeyBoardShow(json)`
 

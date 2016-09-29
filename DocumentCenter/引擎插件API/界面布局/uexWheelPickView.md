@@ -25,7 +25,7 @@ Toc: 1
 #2、API概览<ignore>
 ## 2.1、方法<ignore>
 
-### 🍭 open 打开选择器
+###  open 打开选择器
 
 `uexWheelPickView.open(params)`
 
@@ -177,7 +177,7 @@ var params = {
   };
  uexWheelPickView.open(JSON.stringify(params));                   
 ```
-### 🍭 close 关闭选择器
+###  close 关闭选择器
 
 `uexWheelPickView.close();`
 
@@ -198,7 +198,7 @@ uexWheelPickView.close();
 ```
 
 ##2.2、监听方法<ignore>
-### 🍭 onConfirmClick　对确认按钮的监听方法
+###  onConfirmClick　对确认按钮的监听方法
 
 `uexWheelPickView.onConfirmClick(result)`
 

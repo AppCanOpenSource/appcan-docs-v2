@@ -32,7 +32,7 @@ Toc: 1
 
 ##2.1、 方法<ignore>
 
-### 🍭 init  初始化
+###  init  初始化
 
 `uexUnisound.init(params)`
 
@@ -69,7 +69,7 @@ var data = {
 uexUnisound.init(JSON.stringify(data));
 ```
 
-### 🍭 updateRecognizerSettings  更新语音识别设置
+###  updateRecognizerSettings  更新语音识别设置
 
 `uexUnisound.updateRecognizerSettings(params)`
 
@@ -120,7 +120,7 @@ var data = {
 uexUnisound.updateRecognizerSettings(JSON.stringify(data));
 ```
 
-### 🍭 start  开始语音识别
+###  start  开始语音识别
 
 `uexUnisound.start()`
 
@@ -143,7 +143,7 @@ uexUnisound.updateRecognizerSettings(JSON.stringify(data));
 uexUnisound.start();
 ```
 
-### 🍭 stop  停止语音识别
+###  stop  停止语音识别
 
 `uexUnisound.stop()`
 
@@ -162,7 +162,7 @@ uexUnisound.start();
 uexUnisound.stop();
 ```
 
-### 🍭 cancel  取消语音识别
+###  cancel  取消语音识别
 
 `uexUnisound.cancel()`
 
@@ -182,7 +182,7 @@ uexUnisound.stop();
 uexUnisound.cancel();
 ```
 
-### 🍭 runTextUnderstand 进行文本语义理解
+###  runTextUnderstand 进行文本语义理解
 
 `uexUnisound.runTextUnderstand(params)`
 
@@ -217,7 +217,7 @@ var data = {
 uexUnisound.runTextUnderstand(JSON.stringify(data));
 ```
 
-### 🍭 speaking 进行语音合成
+###  speaking 进行语音合成
 
 `uexUnisound.speaking(params)`
 
@@ -257,7 +257,7 @@ var data = {
 uexUnisound.speaking(JSON.stringify(data));
 ```
 
-### 🍭 cancelSpeaking 取消语音合成
+###  cancelSpeaking 取消语音合成
 
 `uexUnisound.cancelSpeaking()`
 
@@ -280,7 +280,7 @@ uexUnisound.cancelSpeaking();
 
 ##2.2、 监听方法<ignore>
 
-### 🍭 onRecognizerStart 语音识别开始的监听方法
+###  onRecognizerStart 语音识别开始的监听方法
 
 `uexUnisound.onRecognizerStart()`
 
@@ -309,7 +309,7 @@ window.uexOnload = function(type){
 }
 ```
 
-### 🍭 onSpeechStart 检测到开始说话的监听方法
+###  onSpeechStart 检测到开始说话的监听方法
 
 `uexUnisound.onSpeechStart()`
 
@@ -334,7 +334,7 @@ window.uexOnload = function(type){
 }
 ```
 
-### 🍭 onReceiveRecognizerResult 收到语音识别结果的监听方法
+###  onReceiveRecognizerResult 收到语音识别结果的监听方法
 
 `uexUnisound.onReceiveRecognizerResult(param)`
 
@@ -377,7 +377,7 @@ window.uexOnload = function(type){
 }
 ```
 
-### 🍭 onEnd 语音识别任务结束的监听方法
+###  onEnd 语音识别任务结束的监听方法
 
 `uexUnisound.onEnd(param)`
 
@@ -417,7 +417,7 @@ window.uexOnload = function(type){
 	}
 }
 ```
-### 🍭 onVADTimeout 录音超时的监听方法
+###  onVADTimeout 录音超时的监听方法
 
 `uexUnisound.onVADTimeout()`
 
@@ -440,7 +440,7 @@ window.uexOnload = function(type){
 }
 ```
 
-### 🍭 onUpdateVolume 录音过程中音量大小的监听方法
+###  onUpdateVolume 录音过程中音量大小的监听方法
 
 `uexUnisound.onUpdateVolume(param)`
 
@@ -473,7 +473,7 @@ window.uexOnload = function(type){
 }
 ```
 
-### 🍭 onReceiveUnderstanderResult 收到语义理解结果的监听方法
+###  onReceiveUnderstanderResult 收到语义理解结果的监听方法
 
 `uexUnisound.onReceiveUnderstanderResult(param)`
 
@@ -507,7 +507,7 @@ window.uexOnload = function(type){
 }
 ```
 
-### 🍭 onSpeakingStart 语音合成开始的监听方法
+###  onSpeakingStart 语音合成开始的监听方法
 
 `uexUnisound.onSpeakingStart()`
 
@@ -529,7 +529,7 @@ window.uexOnload = function(type){
 }
 ```
 
-### 🍭 onSpeakingFinish 语音合成结束的监听方法
+###  onSpeakingFinish 语音合成结束的监听方法
 
 `uexUnisound.onSpeakingFinish()`
 
@@ -551,7 +551,7 @@ window.uexOnload = function(type){
 }
 ```
 
-### 🍭 onSpeakingCancel 语音合成被取消的监听方法
+###  onSpeakingCancel 语音合成被取消的监听方法
 
 `uexUnisound.onSpeakingCancel()`
 
@@ -573,7 +573,7 @@ window.uexOnload = function(type){
 }
 ```
 
-### 🍭 onSpeakingErrorOccur 语音合成过程出错的监听方法
+###  onSpeakingErrorOccur 语音合成过程出错的监听方法
 
 `uexUnisound.onSpeakingErrorOccur(param)`
 

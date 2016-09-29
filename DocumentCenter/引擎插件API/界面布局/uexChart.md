@@ -18,7 +18,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 openPieChart 打开饼状图
+###  openPieChart 打开饼状图
 
 `uexChart.openPieChart(json)`
 
@@ -182,7 +182,7 @@ iOS 3.0.0+
 运行效果:
  
 ![](/docImg/975/2.png)
-### 🍭 closePieChart 关闭饼状图
+###  closePieChart 关闭饼状图
 
   
 `uexChart.closePieChart(json)`
@@ -220,7 +220,7 @@ iOS 3.0.0+
     uexChart.closePieChart();//关闭所有饼状图
 ```
 
-### 🍭 openLineChart 打开曲线图
+###  openLineChart 打开曲线图
 
 **说明:**
 
@@ -455,7 +455,7 @@ iOS 3.0.0+
 运行效果:
  
 ![](/docImg/975/4.png)
-### 🍭 closeLineChart 关闭曲线图
+###  closeLineChart 关闭曲线图
 
 `uexChart.closeLineChart(json)`
 
@@ -491,7 +491,7 @@ iOS 3.0.0+
     uexChart.closeLineChart();//关闭所有曲线图
 ```
 
-### 🍭 openBarChart 打开直方图
+###  openBarChart 打开直方图
  
 `uexChart.openBarChart(json)`
 
@@ -674,7 +674,7 @@ iOS 3.0.0+
 运行效果:
  
 ![](/docImg/975/6.png)
-### 🍭 closeBarChart 关闭直方图
+###  closeBarChart 关闭直方图
 
 `uexChart.closeBarChart(json)`
 
@@ -713,7 +713,7 @@ iOS 3.0.0+
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onValueSelected 图表中元素被点击的监听方法
+###  onValueSelected 图表中元素被点击的监听方法
 
 `uexChart.onValueSelected(json);`
 

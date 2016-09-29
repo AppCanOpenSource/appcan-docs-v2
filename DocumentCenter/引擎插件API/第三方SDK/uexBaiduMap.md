@@ -30,7 +30,7 @@ Toc: 1
 
 # 2、API概览<ignore>
 ## 2.1、方法<ignore>
-### 🍭 open 打开地图
+###  open 打开地图
 
 `uexBaiduMap.open(x,y,width,height,longitude,latitude, callbackFunction)`
 
@@ -62,7 +62,7 @@ uexBaiduMap.open(10,100,480,640,"116.309","39.977", function(){
 });
 ```
 
-### 🍭 close 关闭地图
+###  close 关闭地图
 
 `uexBaiduMap.close()`
 
@@ -79,7 +79,7 @@ uexBaiduMap.open(10,100,480,640,"116.309","39.977", function(){
 ```
 uexBaiduMap.close();
 ```
-### 🍭 hideMap 隐藏地图 
+###  hideMap 隐藏地图 
 
 `uexBaiduMap.hideMap()`
 
@@ -97,7 +97,7 @@ uexBaiduMap.close();
 uexBaiduMap.hideMap();
 ```
 
-### 🍭 showMap 显示地图
+###  showMap 显示地图
 
 `uexBaiduMap.showMap()`
 
@@ -115,7 +115,7 @@ uexBaiduMap.hideMap();
 uexBaiduMap.showMap();
 ```
 
-### 🍭 setMapType 设置地图的类型
+###  setMapType 设置地图的类型
 
 `uexBaiduMap.setMapType(type)`
 
@@ -135,7 +135,7 @@ uexBaiduMap.showMap();
 uexBaiduMap.setMapType(1);
 ```
 
-### 🍭 setTrafficEnabled 开启或关闭交通图 
+###  setTrafficEnabled 开启或关闭交通图 
 
 `uexBaiduMap.setTrafficEnabled(type)`
 
@@ -155,7 +155,7 @@ uexBaiduMap.setMapType(1);
 uexBaiduMap.setTrafficEnabled(1);
 ```
 
-### 🍭 setCenter 设置地图的中心点
+###  setCenter 设置地图的中心点
 
 `uexBaiduMap.setCenter(longitude,latitude)`
 
@@ -176,7 +176,7 @@ uexBaiduMap.setTrafficEnabled(1);
 uexBaiduMap.setCenter(121.481,31.227);
 ```
 
-### 🍭 getCenter 得到地图的中心点
+###  getCenter 得到地图的中心点
 
 `uexBaiduMap.getCenter()`
 
@@ -206,7 +206,7 @@ alert('data:' + JSON.stringify(data));
 ```
 
 
-### 🍭 setZoomLevel 设置地图的比例级别
+###  setZoomLevel 设置地图的比例级别
 
 `uexBaiduMap.setZoomLevel(zoomLevel)`
 
@@ -227,7 +227,7 @@ alert('data:' + JSON.stringify(data));
 uexBaiduMap.setZoomLevel(10);
 ```
 
-### 🍭 zoomIn 放大一个地图级别
+###  zoomIn 放大一个地图级别
 
 `uexBaiduMap.zoomIn()`
 
@@ -245,7 +245,7 @@ uexBaiduMap.setZoomLevel(10);
 uexBaiduMap.zoomIn();
 ```
 
-### 🍭 zoomOut 缩小一个地图级别 
+###  zoomOut 缩小一个地图级别 
 
 `uexBaiduMap.zoomOut()`
 
@@ -264,7 +264,7 @@ uexBaiduMap.zoomIn();
 uexBaiduMap.zoomOut();
 ```
 
-### 🍭 rotate 旋转地图
+###  rotate 旋转地图
 
 `uexBaiduMap.rotate(angle)`
 
@@ -284,7 +284,7 @@ uexBaiduMap.zoomOut();
 ```
 uexBaiduMap.rotate(90);
 ```
-### 🍭 overlook 俯视地图 
+###  overlook 俯视地图 
 
 `uexBaiduMap.overlook(angle)`
 
@@ -305,7 +305,7 @@ uexBaiduMap.rotate(90);
 uexBaiduMap.overlook(-30);
 ```
 
-### 🍭 setZoomEnable 开启或关闭缩放 
+###  setZoomEnable 开启或关闭缩放 
 
 `uexBaiduMap.setZoomEnable(type)`
 
@@ -325,7 +325,7 @@ uexBaiduMap.overlook(-30);
 uexBaiduMap.setZoomEnable(1);
 ```
 
-### 🍭 setRotateEnable 开启或关闭旋转 
+###  setRotateEnable 开启或关闭旋转 
 
 `uexBaiduMap.setRotateEnable(type)`
 
@@ -346,7 +346,7 @@ uexBaiduMap.setZoomEnable(1);
 uexBaiduMap.setRotateEnable(1);
 ```
 
-### 🍭 setCompassEnable 开启或关闭指南针
+###  setCompassEnable 开启或关闭指南针
 
 `uexBaiduMap.setCompassEnable(type)`
 
@@ -367,7 +367,7 @@ uexBaiduMap.setRotateEnable(1);
 uexBaiduMap.setCompassEnable(1);
 ```
 
-### 🍭 setScrollEnable 开启或关闭平移
+###  setScrollEnable 开启或关闭平移
 
 `uexBaiduMap.setScrollEnable(type)`
 
@@ -387,7 +387,7 @@ uexBaiduMap.setCompassEnable(1);
 ```
 uexBaiduMap.setScrollEnable(1);
 ```
-### 🍭 setOverlookEnable 开启或关闭俯视 
+###  setOverlookEnable 开启或关闭俯视 
 
 `uexBaiduMap.setOverlookEnable(type)`
 
@@ -407,7 +407,7 @@ uexBaiduMap.setScrollEnable(1);
 ```
 uexBaiduMap.setOverlookEnable(1);
 ```
-### 🍭 addMarkersOverlay 添加标注
+###  addMarkersOverlay 添加标注
 
 `uexBaiduMap.addMarkersOverlay(json);`
 
@@ -489,7 +489,7 @@ if(!ids){
 	alert("添加失败");
 }
 ```
-### 🍭 setMarkerOverlay 更新设置标注信息
+###  setMarkerOverlay 更新设置标注信息
 
 `uexBaiduMap.setMarkerOverlay(makerId,makerInfo);`
 
@@ -544,7 +544,7 @@ uexBaiduMap. setMarkerOverlay (makerId, makerInfo);
  
 ```
 
-### 🍭 showBubble 显示标注气泡 
+###  showBubble 显示标注气泡 
 
 `uexBaiduMap.showBubble(makerId);`
 
@@ -565,7 +565,7 @@ uexBaiduMap. setMarkerOverlay (makerId, makerInfo);
 var makerId = '10001';
 uexBaiduMap.showBubble(makerId);
 ```
-### 🍭 hideBubble 隐藏标注气泡 
+###  hideBubble 隐藏标注气泡 
 
 `uexBaiduMap.hideBubble();`
 
@@ -582,7 +582,7 @@ uexBaiduMap.showBubble(makerId);
 ```
 uexBaiduMap.hideBubble();
 ```
-### 🍭 addDotOverlay 添加点覆盖物 
+###  addDotOverlay 添加点覆盖物 
 
 `uexBaiduMap.addDotOverlay(dotInfo);`
 
@@ -635,7 +635,7 @@ if(!id){
 	alert("添加失败");
 }
 ```
-### 🍭 addPolylineOverlay 添加折线覆盖物
+###  addPolylineOverlay 添加折线覆盖物
 
 `uexBaiduMap.addPolylineOverlay(polylineInfo);`
 
@@ -713,7 +713,7 @@ if(!id){
 }
 ```
 
-### 🍭 addArcOverlay 添加弧形覆盖物 
+###  addArcOverlay 添加弧形覆盖物 
 
 `uexBaiduMap.addArcOverlay(arcInfo);`
 
@@ -778,7 +778,7 @@ if(!id){
 }
 ```
 
-### 🍭 addCircleOverlay 添加圆形覆盖物 
+###  addCircleOverlay 添加圆形覆盖物 
 
 `uexBaiduMap.addCircleOverlay(circleInfo);` 
 
@@ -837,7 +837,7 @@ if(!id){
 }
 ```
 
-### 🍭 addPolygonOverlay 添加几何图形覆盖物 
+###  addPolygonOverlay 添加几何图形覆盖物 
 
 `uexBaiduMap.addPolygonOverlay(polygonInfo);`
 
@@ -915,7 +915,7 @@ if(!id){
 }
 ```
 
-### 🍭 addGroundOverlay 添加地形图图层覆盖物 
+###  addGroundOverlay 添加地形图图层覆盖物 
 
 `uexBaiduMap.addGroundOverlay(groundInfo);`
 
@@ -987,7 +987,7 @@ if(!id){
 	alert("添加失败");
 }
 ```
-### 🍭 addTextOverlay 添加文字覆盖物 
+###  addTextOverlay 添加文字覆盖物 
 
 `uexBaiduMap.addTextOverlay(textInfo);`
 
@@ -1047,7 +1047,7 @@ if(!id){
 	alert("添加失败");
 }
 ```
-### 🍭 removeMakersOverlay 移除标注 
+###  removeMakersOverlay 移除标注 
 
 `uexBaiduMap.removeMakersOverlay(ids);`
 
@@ -1069,7 +1069,7 @@ if(!id){
  uexBaiduMap.removeMakersOverlay(ids);
 ```
 
-### 🍭 removeOverlay 移除覆盖物 
+###  removeOverlay 移除覆盖物 
 
 `uexBaiduMap.removeOverlay(id);`
 
@@ -1090,7 +1090,7 @@ if(!id){
  uexBaiduMap.removeOverlay("150");
 ```
 
-### 🍭 poiSearchInCity 城市内检索 
+###  poiSearchInCity 城市内检索 
 
 `uexBaiduMap.poiSearchInCity(json, callbackFunction);`
 
@@ -1189,7 +1189,7 @@ uexBaiduMap.poiSearchInCity(data, function(error,data) {
 });
 ```
 
-### 🍭 poiNearbySearch 周边检索 
+###  poiNearbySearch 周边检索 
 
 `uexBaiduMap.poiNearbySearch(json, callbackFunction);`
 
@@ -1295,7 +1295,7 @@ uexBaiduMap.poiNearbySearch (jsonStr, function(error,data) {
 ```
 
 
-### 🍭 poiBoundSearch 区域检索
+###  poiBoundSearch 区域检索
 
 `uexBaiduMap.poiBoundSearch(json, callbackFunction);`
 
@@ -1412,7 +1412,7 @@ uexBaiduMap.poiBoundSearch(data, function(error,data) {
 ```
 
 
-### 🍭 busLineSearch 公交线路检索
+###  busLineSearch 公交线路检索
 
 `uexBaiduMap.busLineSearch(json, callbackFunction);`
 
@@ -1494,7 +1494,7 @@ uexBaiduMap.busLineSearch(data, function(error,data) {
 });
 ```
 
-### 🍭 removeBusLine 清除公交线路
+###  removeBusLine 清除公交线路
 
 `uexBaiduMap.removeBusLine();`
 
@@ -1512,7 +1512,7 @@ uexBaiduMap.busLineSearch(data, function(error,data) {
 uexBaiduMap.removeBusLine(); 
 ```
 
-### 🍭 preBusLineNode 显示上一个公交站点 
+###  preBusLineNode 显示上一个公交站点 
 
 `uexBaiduMap.preBusLineNode();`
 
@@ -1531,7 +1531,7 @@ uexBaiduMap.removeBusLine();
 uexBaiduMap.preBusLineNode();
 ```
 
-### 🍭 nextBusLineNode 显示下一个公交站点 
+###  nextBusLineNode 显示下一个公交站点 
 
 `uexBaiduMap.nextBusLineNode();`
 
@@ -1550,7 +1550,7 @@ uexBaiduMap.preBusLineNode();
 uexBaiduMap.nextBusLineNode(); 
 ```
 
-### 🍭 searchRoutePlan 规划并显示路线 
+###  searchRoutePlan 规划并显示路线 
 
 `uexBaiduMap.searchRoutePlan(json, callbackFunction);`
 
@@ -1652,7 +1652,7 @@ var id=uexBaiduMap.searchRoutePlan(data,function(error){
 alert(id);
 ```
 
-### 🍭 preRouteNode 显示上一个线路节点 
+###  preRouteNode 显示上一个线路节点 
 
 `uexBaiduMap.preRouteNode();`
 
@@ -1670,7 +1670,7 @@ alert(id);
  uexBaiduMap.preRouteNode(); 
 ```
 
-### 🍭 removeRoutePlan 清除线路规划 
+###  removeRoutePlan 清除线路规划 
 
 `uexBaiduMap.removeRoutePlan(id);` 
 
@@ -1691,7 +1691,7 @@ alert(id);
  uexBaiduMap.removeRoutePlan("rp345");
 ```
 
-### 🍭 nextRouteNode 显示下一个线路节点
+###  nextRouteNode 显示下一个线路节点
 
 `uexBaiduMap.nextRouteNode();`
 
@@ -1709,7 +1709,7 @@ alert(id);
 ```
  uexBaiduMap.nextRouteNode();
 ```
-### 🍭 geocode 地理编码 
+###  geocode 地理编码 
 
 `uexBaiduMap.geocode(json, callbackFunction)`
 
@@ -1770,7 +1770,7 @@ uexBaiduMap.geocode(data, function(error,data) {
 });
 ```
 
-### 🍭 reverseGeocode 反地理编码 
+###  reverseGeocode 反地理编码 
 
 `uexBaiduMap.reverseGeocode(json, callbackFunction)`
 
@@ -1829,7 +1829,7 @@ uexBaiduMap.reverseGeocode(data, function(error,data) {
 });
 ```
 
-### 🍭 getCurrentLocation 获取当前位置 
+###  getCurrentLocation 获取当前位置 
 
 `uexBaiduMap.getCurrentLocation(callbackFunction)`
 
@@ -1872,7 +1872,7 @@ var data = {
  }); 
 ```
 
-### 🍭 startLocation 开始连续定位 
+###  startLocation 开始连续定位 
 
 `uexBaiduMap.startLocation()` 
 
@@ -1891,7 +1891,7 @@ var data = {
  uexBaiduMap.startLocation(); 
 ```
 
-### 🍭 stopLocation 停止连续定位 
+###  stopLocation 停止连续定位 
 
 `uexBaiduMap.stopLocation()`
 
@@ -1910,7 +1910,7 @@ var data = {
  uexBaiduMap.stopLocation(); 
 ```
 
-### 🍭 setMyLocationEnable 显示或隐藏用户位置 
+###  setMyLocationEnable 显示或隐藏用户位置 
 
 `uexBaiduMap.setMyLocationEnable(type)`
 
@@ -1930,7 +1930,7 @@ var data = {
  uexBaiduMap.setMyLocationEnable(1); 
 ```
 
-### 🍭 setUserTrackingMode 设置跟踪模式 
+###  setUserTrackingMode 设置跟踪模式 
 
 `uexBaiduMap.setUserTrackingMode(mode)`
 
@@ -1951,7 +1951,7 @@ var data = {
  uexBaiduMap.setUserTrackingMode(0); 
 ```
 
-### 🍭 zoomControlsEnabled 显示或隐藏缩放控件 
+###  zoomControlsEnabled 显示或隐藏缩放控件 
 
 `uexBaiduMap.zoomControlsEnabled(mode)`
 
@@ -1971,7 +1971,7 @@ var data = {
 uexBaiduMap.zoomControlsEnabled(0) 
 ```
 
-### 🍭 getDistance 计算两点之间的距离 
+###  getDistance 计算两点之间的距离 
 
 `uexBaiduMap.getDistance(lat1,lon1,lat2,lon2)`
 
@@ -1999,7 +1999,7 @@ var distance = uexBaiduMap.getDistance(lat1,lon1,lat2,lon2);
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onMapClickListener 点击地图的监听方法 
+###  onMapClickListener 点击地图的监听方法 
 
 `uexBaiduMap.onMapClickListener(data)`
 
@@ -2021,7 +2021,7 @@ var data={
 | latitude  | 是    | 纬度   |
 
 
-### 🍭 onMapDoubleClickListener 双击地图的监听方法
+###  onMapDoubleClickListener 双击地图的监听方法
 
 `uexBaiduMap.onMapDoubleClickListener(data)`
 
@@ -2030,7 +2030,7 @@ var data={
 同onMapClickListener
 
 
-### 🍭 onMapLongClickListener 长按地图的监听方法 
+###  onMapLongClickListener 长按地图的监听方法 
 
 `uexBaiduMap.onMapLongClickListener(data)`
 
@@ -2039,7 +2039,7 @@ var data={
 同onMapClickListener
 
 
-### 🍭 onMapStatusChangeListener 地图状态改变的监听方法
+###  onMapStatusChangeListener 地图状态改变的监听方法
 
 `uexBaiduMap.onMapStatusChangeListener(json);`
 
@@ -2082,7 +2082,7 @@ uexBaiduMap.onMapStatusChangeListener = function(data){
 	alert(data);
 }
 ```
-### 🍭 onMarkerClickListener 点击标注的监听方法 
+###  onMarkerClickListener 点击标注的监听方法 
 
 `uexBaiduMap.onMarkerClickListener(markerId)`
 
@@ -2100,7 +2100,7 @@ uexBaiduMap.onMarkerClickListener = function(data){
 	alert(data);
 }
 ```
-### 🍭 onMarkerBubbleClickListener 点击标注气泡的监听方法
+###  onMarkerBubbleClickListener 点击标注气泡的监听方法
 
 `uexBaiduMap.onMarkerBubbleClickListener(markerId)`
 
@@ -2119,7 +2119,7 @@ uexBaiduMap.onMarkerBubbleClickListener = function(data){
 }
 ```
 
-### 🍭 onSDKReceiverError 初始化地图时,key非法、网络错误时的监听方法
+###  onSDKReceiverError 初始化地图时,key非法、网络错误时的监听方法
 
 `uexBaiduMap.onSDKReceiverError(data)`
 
@@ -2139,7 +2139,7 @@ uexBaiduMap.onSDKReceiverError = function(data){
 	alert(data);
 }
 ```
-### 🍭 onReceiveLocation 开始定位后的监听方法 
+###  onReceiveLocation 开始定位后的监听方法 
 
 `uexBaiduMap.onReceiveLocation(data)`
 
@@ -2170,7 +2170,7 @@ uexBaiduMap.onReceiveLocation = function(data){
 }
 ```
 
-### 🍭 onSearchRoutePlan 线路规划搜索结果的监听
+###  onSearchRoutePlan 线路规划搜索结果的监听
 
 `uexBaiduMap.onSearchRoutePlan(id)`
 
@@ -2178,7 +2178,7 @@ uexBaiduMap.onReceiveLocation = function(data){
 
  id:(Number类型) 必选 线路规划id.
 
-### 🍭 onZoomLevelChangeListener 缩放级别改变时,获取缩放级别和中心点的监听方法 
+###  onZoomLevelChangeListener 缩放级别改变时,获取缩放级别和中心点的监听方法 
 
 `uexBaiduMap.onZoomLevelChangeListener(level,latitude,longitude)`
 

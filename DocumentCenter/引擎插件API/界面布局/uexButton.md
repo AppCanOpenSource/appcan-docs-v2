@@ -24,7 +24,7 @@ Button插件
 # 2、API概览<ignore>
 
 ## 2.1、方法<ignore>
-### 🍭 create  创建按钮
+###  create  创建按钮
 
 `var btnObj = uexButton.create(param)`  
 
@@ -87,7 +87,7 @@ var param = {
    var btnOjb =  uexButton.create(param);
 ```
 
-### 🍭 close  移除按钮
+###  close  移除按钮
 
 `uexButton.close(btnOjb)`
 
@@ -110,7 +110,7 @@ uexButton.close(btnObj);
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onClick 点击按钮的监听方法   
+###  onClick 点击按钮的监听方法   
 
 `uexButton.onClick(button)  `
 

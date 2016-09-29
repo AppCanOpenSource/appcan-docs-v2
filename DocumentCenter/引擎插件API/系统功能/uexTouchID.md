@@ -26,7 +26,7 @@ TouchID苹果指纹识别功能插件
 ## 2.1、方法<ignore>
 
 
-### 🍭 canAuthenticate 是否支持TouchID
+###  canAuthenticate 是否支持TouchID
 
 `uexTouchID.canAuthenticate()`  
 
@@ -51,7 +51,7 @@ alert(ret);
 ```
 
 
-### 🍭 authenticate 校验TouchID
+###  authenticate 校验TouchID
 
 `uexTouchID.canAuthenticate(data,cb)`  
 

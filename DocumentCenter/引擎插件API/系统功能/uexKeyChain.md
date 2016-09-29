@@ -28,7 +28,7 @@ KeyChain(钥匙串)插件
 
 ## 2.1、方法<ignore>
 
-### 🍭 setItem 设置一个keyChain item
+###  setItem 设置一个keyChain item
 
 `uexKeyChain.setItem(param,cb)`
 
@@ -124,7 +124,7 @@ uexKeyChain.setItem(param,function(err,data){
 });
 ```
 
-### 🍭 getItem 获取KeyChain item数据
+###  getItem 获取KeyChain item数据
 
 `uexKeyChain.getItem(param,cb)`
 
@@ -196,7 +196,7 @@ uexKeyChain.getItem(param,function(err,data){
 });
 ```
 
-### 🍭 removeItem 移除一个KeyChain item
+###  removeItem 移除一个KeyChain item
 
 `uexKeyChain.removeItem(param,cb)`
 
@@ -265,7 +265,7 @@ uexKeyChain.removeItem(param,function(err,data){
 });
 ```
 
-### 🍭 getDeviceUniqueIdentifier 生成设备唯一标识
+###  getDeviceUniqueIdentifier 生成设备唯一标识
 
 `uexKeyChain.getDeviceUniqueIdentifier()`
 
@@ -292,7 +292,7 @@ alert(uid);
 
 #3、术语表<ignore>
 
-### 🍭 KeyChain 说明
+###  KeyChain 说明
 
 * keyChain是iOS系统里一个独立的数据库系统,存储于应用沙盒之外
 * 一般来说每个应用只能访问自己的KeyChain
@@ -302,7 +302,7 @@ alert(uid);
 * 存放在KeyChain中的非设备限制的数据可以备份,也可以通过iCloud在不同的iOS或者OSX设备间共享
 * **可以通过keyChain在iOS 7+系统上实现唯一标识符的功能**
 
-### 🍭 accessibility KeyChain数据保护设置说明
+###  accessibility KeyChain数据保护设置说明
 
 | accessibility值 | 对应的属性                                    | 说明                         | 备注              |
 | -------------- | ---------------------------------------- | -------------------------- | --------------- |

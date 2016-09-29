@@ -18,7 +18,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 [setPrismParam](#setPrismParam) 设置数据
+###  [setPrismParam](#setPrismParam) 设置数据
 
 `uexHexagonal.setPrismParam(param)  `
 
@@ -91,7 +91,7 @@ uexHexagonal.setPrismParam(jsonData)
 
 ```
 
-### 🍭 [open](#open) 打开
+###  [open](#open) 打开
 
 `uexHexagonal.open(x,y,width,height);`
 
@@ -127,7 +127,7 @@ var height = 200;
 uexHexagonal.open(x,y,width,height);
 
 ```
-### 🍭 [close](#close) 关闭
+###  [close](#close) 关闭
 
 `uexHexagonal.close();`
 
@@ -156,7 +156,7 @@ uexHexagonal.close();
 ```
 ## 2.2、监听方法<ignore>
 
-### 🍭 onClickItem  点击item的监听方法
+###  onClickItem  点击item的监听方法
 
 `uexHexagonal.onItemClick(index)    `   
 

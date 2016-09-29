@@ -29,7 +29,7 @@ Apple Pay 支付插件
 
 ## 2.1、方法<ignore>
 
-### 🍭 canMakePayment 检测是否可以进行ApplePay支付
+###  canMakePayment 检测是否可以进行ApplePay支付
 
 `uexApplePay.canMakePayment(params)`
 
@@ -73,7 +73,7 @@ if (result != 0){
 }
 ```
 
-### 🍭 startChinaUnionPay 调起银联ApplePay支付
+###  startChinaUnionPay 调起银联ApplePay支付
 
 `uexApplePay.startChinaUnionPay(params)`
 
@@ -127,7 +127,7 @@ if (result != 0 ){
 
 注:从`http://101.231.114.216:1725/sim/getacptn`可以获取测试用的orderInfo.
 
-### 🍭 startPay 调起Apple Pay支付
+###  startPay 调起Apple Pay支付
 
 `uexApplePay.startPay(params)`
 
@@ -281,7 +281,7 @@ if (result != 0 ){
 }
 ```
 
-### 🍭 commitPaymentMethodChange 确认支付方式变化
+###  commitPaymentMethodChange 确认支付方式变化
 
 `uexApplePay.commitPaymentMethodChange(params)`
 
@@ -344,7 +344,7 @@ if(!result){
 	//此时应该重新调用uexApplePay.commitPaymentMethodChange方法
 }
 ```
-### 🍭 commitShippingMethodChange 确认物流方式变化
+###  commitShippingMethodChange 确认物流方式变化
 
 `uexApplePay.commitShippingMethodChange(params)`
 
@@ -408,7 +408,7 @@ if(!result){
 	//此时应该重新调用uexApplePay.commitShippingMethodChange方法
 }
 ```
-### 🍭 commitShippingContactChange 确认物流信息变化
+###  commitShippingContactChange 确认物流信息变化
 
 `uexApplePay.commitShippingContactChange(params)`
 
@@ -473,7 +473,7 @@ if(!result){
 }
 ```
 
-### 🍭 commitAuthorizedResult 确认订单支付结果
+###  commitAuthorizedResult 确认订单支付结果
 
 `uexApplePay.commitAuthorizedResult(params)`
 
@@ -517,7 +517,7 @@ if(!result){
 }
 ```
 
-### 🍭 addButton 添加ApplePay按钮
+###  addButton 添加ApplePay按钮
 
 `uexApplePay.addButton(params)`
 
@@ -579,7 +579,7 @@ var suc = uexApplePay.addButton(JSON.stringify(data));
 alert(suc)
 ```
 
-### 🍭 removeButton 移除ApplePay按钮
+###  removeButton 移除ApplePay按钮
 
 `uexApplePay.removeButton(params)`
 
@@ -621,7 +621,7 @@ alert(suc)
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onChinaUnionPayFinish 银联ApplePay支付结束的监听方法
+###  onChinaUnionPayFinish 银联ApplePay支付结束的监听方法
 
 `uexApplePay.onChinaUnionPayFinish(params)`
 
@@ -660,7 +660,7 @@ uexApplePay.onChinaUnionPayFinish = function(info){
 }
 ```
 
-### 🍭 onPaymentMethodChange 支付方式变化的监听方法
+###  onPaymentMethodChange 支付方式变化的监听方法
 
 `uexApplePay.onPaymentMethodChange(params)`
 
@@ -704,7 +704,7 @@ uexApplePay.onPaymentMethodChange = function(info){
 }
 ```
 
-### 🍭 onShippingContactChange 物流联系人变化的监听方法
+###  onShippingContactChange 物流联系人变化的监听方法
 
 `uexApplePay.onShippingContactChange(params)`
 
@@ -757,7 +757,7 @@ uexApplePay.onShippingContactChange = function(info){
 }
 ```
 
-### 🍭 onShippingMethodChange 物流方式变化的监听方法
+###  onShippingMethodChange 物流方式变化的监听方法
 
 `uexApplePay.onShippingMethodChange(params)`
 
@@ -792,7 +792,7 @@ uexApplePay.onShippingMethodChange = function(info){
 }
 ```
 
-### 🍭 onPaymentAuthorized 用户进行支付的监听方法
+###  onPaymentAuthorized 用户进行支付的监听方法
 
 `uexApplePay.onPaymentAuthorized(params)`
 
@@ -851,7 +851,7 @@ uexApplePay.onPaymentAuthorized = function(info){
 }
 ```
 
-### 🍭 onCommitError ApplePay支付提交变化发生错误的监听方法
+###  onCommitError ApplePay支付提交变化发生错误的监听方法
 
 `uexApplePay.onCommitError(params)`
 
@@ -882,7 +882,7 @@ uexApplePay.onCommitError = function(info){
 
 ```
 
-### 🍭 onPayFinish ApplePay支付结束的监听方法
+###  onPayFinish ApplePay支付结束的监听方法
 
 `uexApplePay.onPayFinish(params)`
 
@@ -910,7 +910,7 @@ uexApplePay.onPayFinish = function(info){
 }
 ```
 
-### 🍭 onButtonClick ApplePay支付按钮被点击的监听方法
+###  onButtonClick ApplePay支付按钮被点击的监听方法
 
 `uexApplePay.onButtonClick(params)`
 

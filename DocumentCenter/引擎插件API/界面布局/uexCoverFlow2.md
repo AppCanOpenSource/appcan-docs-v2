@@ -27,7 +27,7 @@ CoverFlow 功能,封装的HTML5代码片段,通过配合的样式和JS对象 ,�
 
 ## 2.1、方法<ignore>
 
-### 🍭 create 打开视图
+###  create 打开视图
 
 `uexCoverFlow2.create(params)`
 
@@ -87,7 +87,7 @@ var params = {
 };
 var coverFlow = uexCoverFlow2.create(JSON.stringify(params));
 ```
-### 🍭 close 关闭视图
+###  close 关闭视图
 
 `uexCoverFlow2.close(coverFlow)`
 
@@ -108,7 +108,7 @@ uexCoverFlow2.close(coverFlow);
 ```
 ##2.2、监听方法<ignore>
 
-### 🍭 onItemSelected 点击item的监听方法
+###  onItemSelected 点击item的监听方法
 
 `uexCoverFlow2.onItemSelected(coverFlow,index)`
 

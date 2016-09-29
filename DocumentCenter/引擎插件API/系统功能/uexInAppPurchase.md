@@ -26,7 +26,7 @@ iOS开发的收入有三种来源:出售应用、内购和广告.国内用户通
 
 ##2.1、方法<ignore>
 
-### 🍭 getProductList 获取有效的产品列表
+###  getProductList 获取有效的产品列表
 
 `uexInAppPurchase.getProductList(params,callback);`     
 
@@ -100,7 +100,7 @@ uexInAppPurchase.getProductList(params,function(error,data){
     }
 });
 ```
-### 🍭 canMakePay 测试设备是否支持支付功能
+###  canMakePay 测试设备是否支持支付功能
 
 `var result = uexInAppPurchase.canMakePay();`
  
@@ -130,7 +130,7 @@ uexInAppPurchase.getProductList(params,function(error,data){
  
  alert(result);
 ```
-### 🍭 purchase 购买单一产品
+###  purchase 购买单一产品
 
 uexInAppPurchase.purchase(params);
      
@@ -168,7 +168,7 @@ var params = {
 uexInAppPurchase.purchase(params);
 ```
 
-### 🍭restorePurchase 恢复购买方法
+### restorePurchase 恢复购买方法
 
 `uexInAppPurchase.restorePurchase();`	
 
@@ -190,7 +190,7 @@ uexInAppPurchase.restorePurchase();
 
 ## 2.1、监听方法<ignore>
 
-### 🍭 onRequestState 对发送产品请求进行监听
+###  onRequestState 对发送产品请求进行监听
 
 `onRequestState(result)`
 
@@ -229,7 +229,7 @@ window.uexOnload = function(){
     uexInAppPurchase.onRequestState = onRequestState;
 }
 ```
-### 🍭 onPurchaseState 对产品购买状态的监听方法
+###  onPurchaseState 对产品购买状态的监听方法
 
 `onPurchaseState(result)`
 
@@ -268,7 +268,7 @@ window.uexOnload = function(){
 ```
 
 
-### 🍭 onTransactionState 对产品交易状态和信息的监听方法
+###  onTransactionState 对产品交易状态和信息的监听方法
 
 `onTransactionState(result)`
 
@@ -332,7 +332,7 @@ window.uexOnload = function(){
 ```
 
 
-### 🍭 onRestoreState 对产品恢复购买的状态进行监听
+###  onRestoreState 对产品恢复购买的状态进行监听
 
 `onRestoreState(result)`
 

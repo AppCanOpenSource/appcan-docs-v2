@@ -15,7 +15,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 startWidget 加载一个widget 
+###  startWidget 加载一个widget 
 
 `uexWidget.startWidget(data,cb)`
 
@@ -61,7 +61,7 @@ uexWidget.startWidget(data,function(error){
 ```
 
 
-### 🍭 finishWidget 退出一个widget
+###  finishWidget 退出一个widget
 
   
 
@@ -91,7 +91,7 @@ uexWidget.startWidget(data,function(error){
   });
 
 ```
-### 🍭 removeWidget 删除一个widget
+###  removeWidget 删除一个widget
 
 `  uexWidget.removeWidget(appId)`
 
@@ -116,7 +116,7 @@ Bool 类型,true表示成功,false表示失败
 var result=uexWidget.removeWidget("12345");
 ```
 
-### 🍭 checkUpdate 检查更新
+###  checkUpdate 检查更新
 
 `  uexWidget.checkUpdate(callback)`
 
@@ -161,7 +161,7 @@ uexWidget.checkUpdate(function(error,data){
   	}
 });
 ```
-### 🍭 loadApp 启动第三方应用(iOS)
+###  loadApp 启动第三方应用(iOS)
 
  ` uexWidget.loadApp(scheme)`
 
@@ -189,7 +189,7 @@ Boolean类型,true为成功,false为失败
 var scheme = "weixin://";//微信的URLScheme
 uexWidget.loadApp(scheme);
 ```
-### 🍭 startApp 启动第三方应用(Android)
+###  startApp 启动第三方应用(Android)
 
 `uexWidget.startApp(startMode,mainInfo,addInfo,optInfo,extra)`
 
@@ -424,7 +424,7 @@ var extra='{data:"http://www.appcan.cn/"}';
 uexWidget.startApp(0, "com.tencent.mtt","com.tencent.mtt.MainActivity",optInfo,extra);
 ```
 
-### 🍭 getOpenerInfo 获取widget的相关信息
+###  getOpenerInfo 获取widget的相关信息
 
  ` uexWidget.getOpenerInfo()`
 
@@ -448,7 +448,7 @@ String类型 本widget的打开者通过startWidget函数打开本widget时传�
  var result=uexWidget.getOpenerInfo()
 ```
 
-### 🍭 installApp 安装apk
+###  installApp 安装apk
 
  ` uexWidget.installApp(appPath)`
 
@@ -470,7 +470,7 @@ String类型 本widget的打开者通过startWidget函数打开本widget时传�
  var path = "res://pay.apk"; 
  uexWidget.installApp(path);
 ```
-### 🍭 getPushInfo 获取推送消息  
+###  getPushInfo 获取推送消息  
 
  ` uexWidget.getPushInfo(type)`
 
@@ -505,7 +505,7 @@ var data={
 ```javascript
 var data=uexWidget.getPushInfo();
 ```
-### 🍭 setPushNotifyCallback 设置Push消息到达时的回调函数
+###  setPushNotifyCallback 设置Push消息到达时的回调函数
 
  `   uexWidget.setPushNotifyCallback(cbFunction)`
 
@@ -526,7 +526,7 @@ uexWidget.setPushNotifyCallback(function pushCallback(){
 	alert("收到推送消息");
 });
 ```
-### 🍭setPushInfo 设置推送用户信息
+### setPushInfo 设置推送用户信息
 
 `  uexWidget.setPushInfo(json)`
 
@@ -550,7 +550,7 @@ uexWidget.setPushInfo({
 });
 ```
 
-### 🍭 setPushState 设置推送服务的状态
+###  setPushState 设置推送服务的状态
 
   `uexWidget.setPushState(state)`
 
@@ -571,7 +571,7 @@ uexWidget.setPushInfo({
 uexWidget.setPushState(0);
 
 ```
-### 🍭 getPushState 获取推送服务的状态
+###  getPushState 获取推送服务的状态
 
  ` uexWidget.getPushState()` 
 
@@ -593,7 +593,7 @@ Bool 类型,true为开启,false为关闭
 var reuslt=uexWidget.getPushState()
 ```
 
-### 🍭 isAppInstalled 是否安装某第三方应用
+###  isAppInstalled 是否安装某第三方应用
 
  ` uexWidget.isAppInstalled(json)`
 
@@ -628,7 +628,7 @@ Boolean类型返回值:当应用已安装时会返回`true`,当应用未安装�
 ````
 
 
-### 🍭 closeLoading 关闭loading图
+###  closeLoading 关闭loading图
 
  ` uexWidget.closeLoading()`
 
@@ -650,7 +650,7 @@ Boolean类型返回值:当应用已安装时会返回`true`,当应用未安装�
   uexWidget.closeLoading();
 ```
 
-### 🍭 moveToBack 运行到后台,不退出程序
+###  moveToBack 运行到后台,不退出程序
 
  ` uexWidget.moveToBack()`
 
@@ -670,7 +670,7 @@ Boolean类型返回值:当应用已安装时会返回`true`,当应用未安装�
     uexWidget.moveToBack();
   ````
 
-### 🍭 reloadWidgetByAppId 根据appId重载widget
+###  reloadWidgetByAppId 根据appId重载widget
 
 `uexWidget.reloadWidgetByAppId(appId);`
 
@@ -689,7 +689,7 @@ Boolean类型返回值:当应用已安装时会返回`true`,当应用未安装�
 uexWidget.reloadWidgetByAppId(sdk2015);
 ````
 
-### 🍭 setKeyboardMode 设置键盘模式
+###  setKeyboardMode 设置键盘模式
 
 `uexWidget.setKeyboardMode(json)`
 
@@ -715,7 +715,7 @@ uexWidget.setKeyboardMode({
 };);
 ````
 
-### 🍭 getMBaaSHost 获取MBaaS主机内容
+###  getMBaaSHost 获取MBaaS主机内容
 
  ` uexWidget.getMBaaSHost()`
 
@@ -738,7 +738,7 @@ String类型,MBaaS主机内容
 
 * ***所有的监听方法都得在root页面进行监听***
 
-### 🍭 onLoadByOtherApp 被第三方应用调起的监听方法
+###  onLoadByOtherApp 被第三方应用调起的监听方法
 
   
 
@@ -791,7 +791,7 @@ function onLoadByOtherApp(jsonData){
 	alert(jsonData);
 } 
 ```
-### 🍭 onSuspend 程序挂起的监听方法
+###  onSuspend 程序挂起的监听方法
 
 `uexWidget.onSuspend()`
 
@@ -806,7 +806,7 @@ uexWidget.onSuspend = function(){
 }
 ```
 
-### 🍭 onResume 程序恢复的监听方法
+###  onResume 程序恢复的监听方法
 
 `uexWidget.onResume()`
 

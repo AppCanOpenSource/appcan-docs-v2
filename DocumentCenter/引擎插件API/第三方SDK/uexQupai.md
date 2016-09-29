@@ -27,7 +27,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 init 初始化趣拍sdk
+###  init 初始化趣拍sdk
 
 `uexQupai.init(param, cb)`
 
@@ -93,7 +93,7 @@ uexQupai.init(JSON.stringify(params),function(error, code){
 });
 ```
 
-### 🍭 config 初始化拍摄的相关参数
+###  config 初始化拍摄的相关参数
 
 `uexQupai.config(param)`
 
@@ -144,7 +144,7 @@ var params={
 uexQupai.config(JSON.stringify(params));
 ```
 
-### 🍭 record 打开视频录制界面
+###  record 打开视频录制界面
 
 `uexQupai.record(callbackFunction)`
 

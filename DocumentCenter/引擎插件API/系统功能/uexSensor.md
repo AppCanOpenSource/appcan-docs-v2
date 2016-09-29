@@ -24,7 +24,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 open 打开传感器
+###  open 打开传感器
 
 `uexSensor.open(type, rate)`
 
@@ -46,7 +46,7 @@ Toc: 1
 uexSensor.open(1,3);
 ```
 
-### 🍭 close 关闭传感器
+###  close 关闭传感器
 
 `uexSensor.close(type)`
 
@@ -69,7 +69,7 @@ uexSensor.close(1);
 
 ## 2.2、监听方法<ignore>
 
-### 🍭 onAccelerometerChange 加速度传感器的监听方法
+###  onAccelerometerChange 加速度传感器的监听方法
 
 `uexSensor.onAccelerometerChange(x,y,z)`
 
@@ -95,7 +95,7 @@ function accelerometerChange(x, y, z){
 }
 ```
 
-### 🍭  onOrientationChange 方向传感器的监听方法(仅支持Android)
+###   onOrientationChange 方向传感器的监听方法(仅支持Android)
 
 `uexSensor.onOrientationChange(x,y,z)`
 
@@ -122,7 +122,7 @@ function orientation(x, y, z){
 }
 ```
 
-### 🍭 onMagneticChange 磁场传感器的监听方法
+###  onMagneticChange 磁场传感器的监听方法
 
 `uexSensor.onMagneticChange(x,y,z)`
 
@@ -146,7 +146,7 @@ function magneticChange(x, y, z){
 }
 ```
 
-### 🍭 onLightChange 亮度传感器的监听方法(仅支持Android)
+###  onLightChange 亮度传感器的监听方法(仅支持Android)
 
 `uexSensor.onLightChange(light)`
 

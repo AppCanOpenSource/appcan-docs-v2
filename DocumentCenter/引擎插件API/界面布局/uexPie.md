@@ -17,7 +17,7 @@ Toc: 1
 #2、API概述<ignore>
 ## 2.1、方法<ignore>
 
-### 🍭 open　打开饼状图
+###  open　打开饼状图
 
 `uexPie.open(id,x,y,w,h)`
 
@@ -52,7 +52,7 @@ iOS6.0+
     uexPie.open(1,100,500,800,800);
 ```
 
-### 🍭 close　关闭饼状图
+###  close　关闭饼状图
 
 `uexPie.close()`
 
@@ -79,7 +79,7 @@ iOS6.0+
     uexPie.close();
 ```
 
-### 🍭 setJsonData　设置饼状图的数据源
+###  setJsonData　设置饼状图的数据源
 
 `uexPie.setJsonData(jsonStr)`
 
@@ -170,7 +170,7 @@ iOS6.0+
     uexPie.setJsonData(JSON.stringify(jsonStr));
 ```
 ## 2.2、回调方法<ignore>
-### 🍭 cbOpen　打开饼状图的回调方法
+###  cbOpen　打开饼状图的回调方法
 
 `uexPie.cbOpen(opId,dataType,data)`
 

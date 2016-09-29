@@ -16,7 +16,7 @@ Toc: 1
 # 2、API概览<ignore>
 
 ## 2.1、方法<ignore>
-### 🍭 open 打开图片浏览界面
+###  open 打开图片浏览界面
 
 `uexImageBrowser.open(imageUrlSet,activeIndex)`
 
@@ -46,7 +46,7 @@ iOS6.0+
 var array = new Array("http://192.168.1.38:8080/bug/TestImageWatcher/1.jpg","http://192.168.1.38:8080/bug/TestImageWatcher/2.jpg");
 uexImageBrowser.open(array, 1);
 ```
-### 🍭 pick 从相册中选取一张图片,并返回路径
+###  pick 从相册中选取一张图片,并返回路径
 
 `uexImageBrowser.pick(param)`
 
@@ -76,7 +76,7 @@ iOS6.0+
 ```
 uexImageBrowser.pick();
 ```
-### 🍭 save 保存图片到系统相册
+###  save 保存图片到系统相册
 
 `uexImageBrowser.save(imgPath)`
 
@@ -104,7 +104,7 @@ iOS6.0+
 ```
 uexImageBrowser.save("res://pano_l.jpg");
 ```
-### 🍭 cleanCache 清除图片缓存
+###  cleanCache 清除图片缓存
 
 `uexImageBrowser.cleanCache()`
 
@@ -133,7 +133,7 @@ iOS6.0+
 ```
 uexImageBrowser.cleanCache();
 ```
-### 🍭 pickMulti 从相册中选取多张图片,并返回路径
+###  pickMulti 从相册中选取多张图片,并返回路径
 
 `uexImageBrowser.pickMulti(maxCount)`
 
@@ -161,7 +161,7 @@ iOS6.0+
 ```
 uexImageBrowser.pickMulti();
 ```
-### 🍭 cropImage 截取本地相册图片
+###  cropImage 截取本地相册图片
  
 `uexImageBrowser.cropImage()`
 
@@ -188,7 +188,7 @@ iOS6.0+
 uexImageBrowser.cropImage();
 ```
 ## 2.2、回调方法<ignore>
-### 🍭 cbPick 成功选取图片后的回调方法
+###  cbPick 成功选取图片后的回调方法
  
 `uexImageBrowser.cbPick(opId,dataType,data)`
 
@@ -214,7 +214,7 @@ window.uexOnload = function(){
     uexImageBrowser.cbPick = cbPick ;
 }
 ```
-### 🍭 cbSave 保存后的回调方法
+###  cbSave 保存后的回调方法
 
 `uexImageBrowser.cbSave(opId,dataType,data)`
 
@@ -240,7 +240,7 @@ window.uexOnload = function(){
     uexImageBrowser.cbSave = cbSave ;
 }
 ```
-### 🍭 cbCropImage 成功截取图片后的回调方法
+###  cbCropImage 成功截取图片后的回调方法
  
 `uexImageBrowser.cbCropImage(opId,dataType,data)`
 

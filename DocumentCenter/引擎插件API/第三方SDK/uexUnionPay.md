@@ -29,7 +29,7 @@ UnionPay银联支付插件
 # 2、API概览<ignore>
 
 ## 2.1、方法<ignore>
-### 🍭 startPay 支付
+###  startPay 支付
 
 `uexUnionPay.startPay(params,cb)`
 

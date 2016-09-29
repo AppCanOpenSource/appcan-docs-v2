@@ -119,8 +119,15 @@ for md in PluginMarkDown.allAvailable(){
         if line.hasSuffix(ignoreMark){
             line = line.substringToIndex(line.endIndex.advancedBy(-ignoreMark.characters.count));
         }
-        guard line.removeBlankPrefix().hasPrefix("#") && !functionEmoji.isFunctionLine(line) else{
+        if !line.removeBlankPrefix().hasPrefix("#"){
             return line
+        }
+        if functionEmoji.isFunctionLine(line){
+            var lineStr = line
+            for emoji in functionEmoji.Emoji.allEmoji{
+                lineStr = lineStr.stringByReplacingOccurrencesOfString(emoji, withString: "")
+            }
+            return lineStr
         }
         return line + ignoreMark
     }

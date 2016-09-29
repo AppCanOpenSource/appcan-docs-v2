@@ -19,7 +19,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 open 打开弧形菜单
+###  open 打开弧形菜单
 
 `uexPathArcMenu.open(json)`
 
@@ -66,7 +66,7 @@ var data1 = JSON.stringify(param1);
 uexPathArcMenu.open(data1);
 ```
 
-### 🍭 close 关闭弧形菜单
+###  close 关闭弧形菜单
 
 `uexPathArcMenu.close()`
 
@@ -92,7 +92,7 @@ iOS 3.0.0+
 uexPathArcMenu.close();
 ```
 
-### 🍭 setStyle 设置弧形菜单显示位置
+###  setStyle 设置弧形菜单显示位置
 
 `uexPathArcMenu.setStyle(json)`
 
@@ -128,7 +128,7 @@ uexPathArcMenu.setStyle(data1);
 
 ## 2.2、回调方法<ignore>
 
-### 🍭 onItemClick 菜单中元素被点击的监听方法
+###  onItemClick 菜单中元素被点击的监听方法
 
 `uexPathArcMenu.onItemClick(json);`
 

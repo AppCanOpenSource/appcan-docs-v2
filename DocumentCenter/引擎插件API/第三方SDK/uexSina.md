@@ -62,7 +62,7 @@ Path Types
 # 2、API概览<ignore>
 ##  2.1、方法<ignore>
 
-### 🍭 login 登录
+###  login 登录
 
 `uexSina.login(appKey,registerUrl, callbackFunction); `
 
@@ -113,7 +113,7 @@ uexSina.login(appKey,registerUrl,function(error,data){
 ```
 
 
-### 🍭 getUserInfo 获取用户基本信息
+###  getUserInfo 获取用户基本信息
 
 `uexSina.getUserInfo(callbackFunction); `
 
@@ -148,7 +148,7 @@ var commonCallback = function(data) {
 uexSina.getUserInfo(commonCallback);
 ```
 
-### 🍭 logout 退出
+###  logout 退出
 
 `uexSina.logout(callbackFunction); `
 
@@ -180,7 +180,7 @@ uexSina.logout(function(data) {
 });
 ```
 
-### 🍭 sendTextContent 分享文字
+###  sendTextContent 分享文字
 
 `uexSina.sendTextContent(txt, callbackFunction)`
 
@@ -216,7 +216,7 @@ uexSina.sendTextContent(txt, function(data) {
 });
 ```
 
-### 🍭 sendImageContent 分享图片
+###  sendImageContent 分享图片
 
 `uexSina.sendImageContent(imagePath,txt, callbackFunction)`
 

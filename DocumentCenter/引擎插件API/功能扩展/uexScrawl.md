@@ -27,7 +27,7 @@ Toc: 1
 #2、API概览<ignore>
  ##2.1、方法<ignore>
 
-### 🍭 open 打开画板
+###  open 打开画板
 
 `uexScrawl.open(params,callback)`
 

@@ -53,7 +53,7 @@ Toc: 1
 
 # 2、API概述 <ignore>
 ## 2.1、方法<ignore>
-### 🍭 open  打开地图 
+###  open  打开地图 
 
 `uexGaodeMap.open(json)`
 
@@ -107,7 +107,7 @@ var json = {
     uexGaodeMap.open(JSON.stringify(json));
 ```
 
-### 🍭  close  关闭地图
+###   close  关闭地图
 
 `uexGaodeMap.close()`
 
@@ -122,7 +122,7 @@ var json = {
 ```javascript
     uexGaodeMap.close();
 ```
-### 🍭 setMapType 设置地图类型
+###  setMapType 设置地图类型
 
 `uexGaodeMap.setMapType(json)`
 
@@ -153,7 +153,7 @@ var json = {
 uexGaodeMap.setMapType(JSON.stringify(json));
 ```
 
-### 🍭 setTrafficEnabled  开启或关闭实时路况
+###  setTrafficEnabled  开启或关闭实时路况
 
 `uexGaodeMap.setTrafficEnabled(json)`
 
@@ -184,7 +184,7 @@ var json = {
     uexGaodeMap.setTrafficEnabled(JSON.stringify(json));
 ```
 
-### 🍭 setCenter  设置地图中心点
+###  setCenter  设置地图中心点
 
 `uexGaodeMap.setCenter(json)`
 
@@ -218,7 +218,7 @@ var json = {
     uexGaodeMap.setCenter(JSON.stringify(json));
 ```
 
-### 🍭 setZoomLevel  设置地图缩放级别
+###  setZoomLevel  设置地图缩放级别
 
 `uexGaodeMap.setZoomLevel(json)`
 
@@ -250,7 +250,7 @@ var json = {
     uexGaodeMap.setZoomLevel(JSON.stringify(json));
 ```
 
-### 🍭 zoomIn  放大一个地图级别
+###  zoomIn  放大一个地图级别
 
 `uexGaodeMap.zoomIn()`
 
@@ -264,7 +264,7 @@ var json = {
     uexGaodeMap.zoomIn();
 ```
 
-### 🍭  zoomOut  缩小一个地图级别
+###   zoomOut  缩小一个地图级别
 
 `uexGaodeMap.zoomOut()`
 
@@ -279,7 +279,7 @@ var json = {
 uexGaodeMap.zoomOut();
 ```
 
-### 🍭 rotate  旋转地图
+###  rotate  旋转地图
 
 `uexGaodeMap.rotate(json)`
 
@@ -311,7 +311,7 @@ var json = {
     uexGaodeMap.rotate(JSON.stringify(json));
 ```
 
-### 🍭 overlook  倾斜地图
+###  overlook  倾斜地图
 
 `uexGaodeMap.overlook(json)`
 
@@ -342,7 +342,7 @@ var json = {
     uexGaodeMap.overlook(JSON.stringify(json));
 ```
 
-### 🍭 setZoomEnable  开启或关闭手势缩放
+###  setZoomEnable  开启或关闭手势缩放
 
 `uexGaodeMap.setZoomEnable(json)`
 
@@ -369,7 +369,7 @@ var json = {
     uexGaodeMap.setZoomEnable(JSON.stringify(json));
 ```
 
-### 🍭setRotateEnable 开启或关闭手势旋转及手势倾斜
+### setRotateEnable 开启或关闭手势旋转及手势倾斜
 
 `uexGaodeMap.setRotateEnable(json)`
 
@@ -400,7 +400,7 @@ var json = {
     uexGaodeMap.setRotateEnable(JSON.stringify(json));
 ```
 
-### 🍭 setCompassEnable  开启或关闭指南针
+###  setCompassEnable  开启或关闭指南针
 
 `uexGaodeMap.setCompassEnable(json)`
 
@@ -432,7 +432,7 @@ var json = {
     uexGaodeMap.setCompassEnable(JSON.stringify(json));
 ```
 
-### 🍭 setScrollEnable  开启或关闭手势移动
+###  setScrollEnable  开启或关闭手势移动
 
 `uexGaodeMap.setScrollEnable(json)`
 
@@ -464,7 +464,7 @@ var json = {
     uexGaodeMap.setScrollEnable(JSON.stringify(json));
 ```
 
-### 🍭  addMarkersOverlay  添加标注
+###   addMarkersOverlay  添加标注
 
 ` uexGaodeMap.addMarkersOverlay(json)`
 
@@ -528,7 +528,7 @@ var json = [
     uexGaodeMap.addMarkersOverlay(JSON.stringify(json));
 ```
 
-### 🍭 setMarkerOverlay  修改标注
+###  setMarkerOverlay  修改标注
 
 `uexGaodeMap.setMarkerOverlay(json)`
 
@@ -577,7 +577,7 @@ var json = {
     uexGaodeMap.setMarkerOverlay(JSON.stringify(json));
 ```
 
-### 🍭 addPolylineOverlay  添加折线覆盖物
+###  addPolylineOverlay  添加折线覆盖物
 
 `uexGaodeMap.addPolylineOverlay(json)`
 
@@ -640,7 +640,7 @@ var json = {
     uexGaodeMap.addPolylineOverlay(JSON.stringify(json));
 ```
 
-### 🍭 removeOverlays  移除覆盖物
+###  removeOverlays  移除覆盖物
 
 `uexGaodeMap.removeOverlays(json)`
 
@@ -665,7 +665,7 @@ var json = [];
     uexGaodeMap.removeOverlays(json);
 ```
 
-### 🍭 addArcOverlay  添加弧形覆盖物,仅Android支持
+###  addArcOverlay  添加弧形覆盖物,仅Android支持
 
 `uexGaodeMap.addArcOverlay(json)`
 
@@ -735,7 +735,7 @@ Android 4.0+
     uexGaodeMap.addArcOverlay(JSON.stringify(json));
 ```
 
-### 🍭 addCircleOverlay  添加圆形覆盖物
+###  addCircleOverlay  添加圆形覆盖物
 
 `uexGaodeMap.addCircleOverlay(json)`
 
@@ -786,7 +786,7 @@ var json = {
     uexGaodeMap.addCircleOverlay(JSON.stringify(json));
 ```
 
-### 🍭 addPolygonOverlay  添加多边形覆盖物
+###  addPolygonOverlay  添加多边形覆盖物
 
 `uexGaodeMap.addPolygonOverlay(json)`
 
@@ -854,7 +854,7 @@ var json = {
     var overlay = uexGaodeMap.addPolygonOverlay(JSON.stringify(json));
 ```
 
-### 🍭 addGroundOverlay  添加图片覆盖物
+###  addGroundOverlay  添加图片覆盖物
 
 `uexGaodeMap.addGroundOverlay(json)`
 
@@ -911,7 +911,7 @@ var json = {
     uexGaodeMap.addGroundOverlay(JSON.stringify(json));
 ```
 
-### 🍭 removeMarkersOverlays  移除标注
+###  removeMarkersOverlays  移除标注
 
 `uexGaodeMap.removeMarkersOverlays(json)`
 
@@ -932,7 +932,7 @@ var json = [];
     uexGaodeMap.removeMarkersOverlays(JSON.stringify(json));
 ```
 
-### 🍭 poiSearch  兴趣点搜索
+###  poiSearch  兴趣点搜索
 
 
 `uexGaodeMap.poiSearch(json,callBackFunction)`
@@ -1123,7 +1123,7 @@ var json = {
     });
 ```
 
-### 🍭 geocode  地理编码,通过地址获得经纬度信息
+###  geocode  地理编码,通过地址获得经纬度信息
 
 
 `uexGaodeMap.geocode(json,callBackFunction)`
@@ -1183,7 +1183,7 @@ var data = {
     });
 ```
 
-### 🍭 reverseGeocode  反地理编码,将经纬度转换为地址信息
+###  reverseGeocode  反地理编码,将经纬度转换为地址信息
 
 
 `uexGaodeMap.reverseGeocode(json,callBackFunction)`
@@ -1240,7 +1240,7 @@ var data = {
     });
 ```
 
-### 🍭 getCurrentLocation  获取当前位置
+###  getCurrentLocation  获取当前位置
 
 
 `uexGaodeMap.getCurrentLocation(callBackFunction)`
@@ -1281,7 +1281,7 @@ var data = {
     });
 ```
 
-### 🍭 startLocation  开始连续定位
+###  startLocation  开始连续定位
 
 `uexGaodeMap.startLocation(json)`
 
@@ -1315,7 +1315,7 @@ var json = {
     uexGaodeMap.startLocation(json);
 ```
 
-### 🍭 stopLocation  停止连续定位
+###  stopLocation  停止连续定位
 
 `uexGaodeMap.stopLocation()`
 
@@ -1333,7 +1333,7 @@ var json = {
     uexGaodeMap.stopLocation();
 ```
 
-### 🍭 setMyLocationEnable  显示或隐藏我的位置
+###  setMyLocationEnable  显示或隐藏我的位置
 
 `uexGaodeMap.setMyLocationEnable(json)`
 
@@ -1363,7 +1363,7 @@ var json = {
     uexGaodeMap.setMyLocationEnable(JSON.stringify(json));
 ```
 
-### 🍭 setUserTrackingMode  设置连续定位模式
+###  setUserTrackingMode  设置连续定位模式
 
 `uexGaodeMap.setUserTrackingMode(json)`
 
@@ -1393,7 +1393,7 @@ var json = {
     }
     uexGaodeMap.setUserTrackingMode(JSON.stringify(json));
 ```
-### 🍭 setScaleVisible  设置地图是否显示比例尺
+###  setScaleVisible  设置地图是否显示比例尺
 
 `uexGaodeMap.setScaleVisible(json)`
 
@@ -1422,7 +1422,7 @@ var json = {
     }
     uexGaodeMap.setScaleVisible(JSON.stringify(json));
 ```
-### 🍭 setMyLocationButtonVisible 设置是否显示回到我的位置按钮,仅支持Android
+###  setMyLocationButtonVisible 设置是否显示回到我的位置按钮,仅支持Android
 
   设置是否显示回到我的位置按钮,注意回到我的位置按钮点击生效的前提条件是开启定位.
 
@@ -1457,7 +1457,7 @@ Android 4.0+
     }
     uexGaodeMap.setMyLocationButtonVisible(JSON.stringify(json));
 ```
-### 🍭 setZoomVisible  设置是否显示放大缩小按钮,仅支持Android
+###  setZoomVisible  设置是否显示放大缩小按钮,仅支持Android
 
 `uexGaodeMap.setZoomVisible(json)`
 
@@ -1490,7 +1490,7 @@ Android 4.0+
     }
     uexGaodeMap.setZoomVisible(JSON.stringify(json));
 ```
-### 🍭 clear  清除地图上所有的标注和覆盖物
+###  clear  清除地图上所有的标注和覆盖物
 
 `uexGaodeMap.clear()`
 
@@ -1506,7 +1506,7 @@ Android 4.0+
     uexGaodeMap.clear();
 ```
 
-### 🍭 setCustomButton 设置自定义按钮
+###  setCustomButton 设置自定义按钮
 
 `uexGaodeMap.setCustomButton(json)`
 
@@ -1569,7 +1569,7 @@ var json = {
 }
 uexGaodeMap.setCustomButton(JSON.stringify(json));
 ```
-### 🍭 showCustomButtons 显示自定义按钮
+###  showCustomButtons 显示自定义按钮
 
 `var data = uexGaodeMap.showCustomButtons(json)`
 
@@ -1603,7 +1603,7 @@ var json =[11,12];
 var data = uexGaodeMap.showCustomButtons(JSON.stringify(json));
 alert("callback:" + JSON.stringify(data));
 ```
-### 🍭 hideCustomButtons 隐藏自定义按钮
+###  hideCustomButtons 隐藏自定义按钮
 
 `var data = uexGaodeMap.hideCustomButtons(json)`
 
@@ -1638,7 +1638,7 @@ var data = uexGaodeMap.hideCustomButtons(JSON.stringify(json));
 alert("callback:" + JSON.stringify(data));
 ```
 
-### 🍭 deleteCustomButton 删除自定义按钮
+###  deleteCustomButton 删除自定义按钮
 
 `var result = uexGaodeMap.deleteCustomButton(id)`
 
@@ -1667,7 +1667,7 @@ var result = uexGaodeMap.deleteCustomButton(id);
 
 
 ## 2.2、 监听方法<ignore>
-### 🍭 onMapLoadedListener 地图加载完成的监听方法
+###  onMapLoadedListener 地图加载完成的监听方法
 
 `uexGaodeMap.onMapLoadedListener();`
 
@@ -1685,7 +1685,7 @@ var result = uexGaodeMap.deleteCustomButton(id);
     }
 ```
 
-### 🍭 onMarkerClickListener 点击标注的监听方法
+###  onMarkerClickListener 点击标注的监听方法
 
 `uexGaodeMap.onMarkerClickListener(json);`
 
@@ -1705,7 +1705,7 @@ var json = {
     }
 ```
 
-### 🍭 onMarkerBubbleClickListener 点击气泡的监听方法,仅支持Android
+###  onMarkerBubbleClickListener 点击气泡的监听方法,仅支持Android
 
 `uexGaodeMap.onMarkerBubbleClickListener(json);`
 
@@ -1728,7 +1728,7 @@ Android 4.0+
     }
 ```
 
-### 🍭 onReceiveLocation 位置变化的监听方法
+###  onReceiveLocation 位置变化的监听方法
 
 `uexGaodeMap.onReceiveLocation(json);`
 
@@ -1752,7 +1752,7 @@ var json = {
     }
 ```
 
-### 🍭 onMapClickListener 点击地图的监听方法
+###  onMapClickListener 点击地图的监听方法
 
 `uexGaodeMap.onMapClickListener(json);`
 
@@ -1775,7 +1775,7 @@ var json = {
     }
 ```
 
-### 🍭 onMapLongClickListener 长按地图的监听方法
+###  onMapLongClickListener 长按地图的监听方法
 
 `uexGaodeMap.onMapLongClickListener(json);`
 
@@ -1798,7 +1798,7 @@ var json = {
     }
 ```
 
-### 🍭 onCustomButtonClick 自定义按钮被点击的监听方法
+###  onCustomButtonClick 自定义按钮被点击的监听方法
 
 `uexGaodeMap.onCustomButtonClick(button);`
 
@@ -1825,7 +1825,7 @@ uexGaodeMap.onCustomButtonClick = function(id) {
 
 # 3 离线地图<ignore>
 ## 3.1 方法<ignore>
-### 🍭 download 开始下载
+###  download 开始下载
 
 `uexGaodeMap.download(json,callBackFunction)`
 
@@ -1893,7 +1893,7 @@ var data = {
     });
 ```
 
-### 🍭 onDownload 下载监听方法
+###  onDownload 下载监听方法
 
 
 `uexGaodeMap.onDownload(json)`
@@ -1936,7 +1936,7 @@ var json = {
     }
 ```
 
-### 🍭 pause 暂停下载
+###  pause 暂停下载
 
 `uexGaodeMap.pause(json)`
 
@@ -1955,7 +1955,7 @@ var json = []//(必传) 省或城市名称数组
     uexGaodeMap.pause(data);
 ```
 
-### 🍭 restart 继续下载
+###  restart 继续下载
 
 
 `uexGaodeMap.restart(json)`
@@ -1976,7 +1976,7 @@ var json = []//(必传) 省或城市名称数组
     uexGaodeMap.restart(data);
 ```
 
-### 🍭 getAvailableCityList 获取可下载离线地图的城市列表
+###  getAvailableCityList 获取可下载离线地图的城市列表
 
 
 `uexGaodeMap.getAvailableCityList(callBackFunction)`
@@ -2020,7 +2020,7 @@ var data = [
 
 
 
-### 🍭 getAvailableProvinceList 获取可下载离线地图的省和城市列表
+###  getAvailableProvinceList 获取可下载离线地图的省和城市列表
 
 `uexGaodeMap.getAvailableProvinceList(callBackFunction)`
 
@@ -2072,7 +2072,7 @@ var data = [
 
 
 
-### 🍭 getDownloadList 获取已下载列表
+###  getDownloadList 获取已下载列表
 
 
 `uexGaodeMap.getDownloadList(callBackFunction)`
@@ -2118,7 +2118,7 @@ var data = [
 
 
 
-### 🍭 getDownloadingList 获取正在下载列表
+###  getDownloadingList 获取正在下载列表
 
 
 `uexGaodeMap.getDownloadingList(callBackFunction)`
@@ -2163,7 +2163,7 @@ var data = [
 
 
 
-### 🍭 isUpdate 检查已下载的离线地图数据是否需要更新
+###  isUpdate 检查已下载的离线地图数据是否需要更新
 
 
 `uexGaodeMap.isUpdate(json,callBackFunction)`
@@ -2216,7 +2216,7 @@ var data = {
 
 
 
-### 🍭 delete  删除已下载或者正在下载数据
+###  delete  删除已下载或者正在下载数据
 
 `uexGaodeMap.delete(json,callBackFunction)`
 

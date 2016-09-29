@@ -17,7 +17,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭  open 打开系统发送彩信界面
+###   open 打开系统发送彩信界面
 
 `uexMMS.open(phoneNum, subject, content, mediaPath)`
 

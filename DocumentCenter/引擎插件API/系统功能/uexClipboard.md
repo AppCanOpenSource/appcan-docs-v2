@@ -26,7 +26,7 @@ Toc: 1
 本插件所有API默认在插件版本**4.0.0+**可用.
 #2、API概览<ignore>
 ##2.1、方法<ignore>
-### 🍭 copy 复制
+###  copy 复制
 
 `uexClipboard.copy(text)`
 
@@ -46,7 +46,7 @@ Toc: 1
 ```javascript
 uexClipboard.copy("复制内容");
 ```
-### 🍭 getContent 获取内容
+###  getContent 获取内容
 
 `var info = uexClipboard.getContent()`
 

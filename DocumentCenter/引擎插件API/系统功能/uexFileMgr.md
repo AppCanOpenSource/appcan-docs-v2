@@ -38,7 +38,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 create 创建文件
+###  create 创建文件
 
 `uexFileMgr.create(param)`
 
@@ -81,7 +81,7 @@ if(!file){
 }
 ```
 
-### 🍭 mkdir 创建文件夹
+###  mkdir 创建文件夹
 
 `uexFileMgr.mkdir(param)`
 
@@ -121,7 +121,7 @@ var ret = uexFileMgr.mkdir({
 alert(ret);
 ```
 
-### 🍭 open 打开文件
+###  open 打开文件
 
 `uexFileMgr.open(param)`
 
@@ -168,7 +168,7 @@ if(!file){
 }
 ```
 
-### 🍭 deleteFileByPath 根据路径删除文件
+###  deleteFileByPath 根据路径删除文件
 
 `uexFileMgr.deleteFileByPath(path)`
 
@@ -193,7 +193,7 @@ var ret = uexFileMgr.deleteFileByPath("wgt://data/test.txt");
 alert(ret);
 ```
 
-### 🍭 isFileExistByPath 根据路径判断文件是否存在
+###  isFileExistByPath 根据路径判断文件是否存在
 
 `uexFileMgr.isFileExistByPath(path)`
 
@@ -219,7 +219,7 @@ var ret = uexFileMgr.isFileExistByPath("wgt://data/test.txt");
 alert(ret);
 ```
 
-### 🍭 getFileTypeByPath 根据路径获取文件类型
+###  getFileTypeByPath 根据路径获取文件类型
 
 `uexFileMgr.getFileTypeByPath(path)`
 
@@ -244,7 +244,7 @@ var ret = uexFileMgr.getFileTypeByPath("wgt://data/test.txt");
 alert(ret);
 ```
 
-### 🍭 explorer 文件管理器
+###  explorer 文件管理器
 
 `uexFileMgr.explorer(folderPath,cbFunc)`
 
@@ -279,7 +279,7 @@ uexFileMgr.explorer("/sdcard/widgetone",function(err,path){
 });
 ```
 
-### 🍭 multiExplorer 文件管理器(多选)
+###  multiExplorer 文件管理器(多选)
 
 `uexFileMgr.multiExplorer(path,cb)`
 
@@ -313,7 +313,7 @@ uexFileMgr.multiExplorer("/sdcard/widgetone",function(err,path){
 });
 ```
 
-### 🍭 seekFile 定位到文件某一位置
+###  seekFile 定位到文件某一位置
 
 `uexFileMgr.seekFile(file,len)`
 
@@ -343,7 +343,7 @@ var ret = uexFileMgr.seekFile(file, 1);
 alert(ret);
 ```
 
-### 🍭 seekBeginOfFile 定位到起始位置
+###  seekBeginOfFile 定位到起始位置
 
 `uexFileMgr.seekBeginOfFile(file)`
 
@@ -372,7 +372,7 @@ var ret = uexFileMgr.seekBeginOfFile(file);
 alert(ret);
 ```
 
-### 🍭 seekEndOfFile 定位到结束位置
+###  seekEndOfFile 定位到结束位置
 
 `uexFileMgr.seekEndOfFile(file)`
 
@@ -401,7 +401,7 @@ var ret = uexFileMgr.seekEndOfFile(file);
 alert(ret);
 ```
 
-### 🍭 writeFile 写文件
+###  writeFile 写文件
 
 `uexFileMgr.writeFile(file,flag,data,cb)`
 
@@ -447,7 +447,7 @@ uexFileMgr.writeFile(file, 0, "test",function(err){
 });
 ```
 
-### 🍭 readFile 读文件
+###  readFile 读文件
 
 `uexFileMgr.readFile(file,len,flag,cb)`
 
@@ -499,7 +499,7 @@ uexFileMgr.readFile(file, -1,0,function(error,data){
 });
 ```
 
-### 🍭 getFileSize 获取文件大小
+###  getFileSize 获取文件大小
 
 `uexFileMgr.getFileSize(file)`
 
@@ -528,7 +528,7 @@ var size = uexFileMgr.getFileSize(file);
 alert(size);
 ```
 
-### 🍭 getFilePath 获取文件路径
+###  getFilePath 获取文件路径
 
 `uexFileMgr.getFilePath(file)`
 
@@ -557,7 +557,7 @@ var file = uexFileMgr.open({
 var path = uexFileMgr.getFilePath(file);
 alert(path);
 ```
-### 🍭 getFileRealPath 获取文件实际路径
+###  getFileRealPath 获取文件实际路径
 
 `uexFileMgr.getFileRealPath(path)`
 
@@ -583,7 +583,7 @@ var realPath = uexFileMgr.getFileRealPath("wgt://data/test.txt");
 alert(realPath);
 ```
 
-### 🍭 closeFile 关闭文件
+###  closeFile 关闭文件
 
 `uexFileMgr.closeFile(file)`
 
@@ -611,7 +611,7 @@ var file = uexFileMgr.open({
 var ret = uexFileMgr.closeFile(file);
 alert(ret);
 ```
-### 🍭 getReaderOffset 获取文件偏移值
+###  getReaderOffset 获取文件偏移值
 
 `uexFileMgr.getReaderOffset(file)`
 
@@ -640,7 +640,7 @@ var offset = uexFileMgr.getReaderOffset(file);
 alert(offset);
 ```
 
-### 🍭 readPercent 读百分比对应位置的字符
+###  readPercent 读百分比对应位置的字符
 
 `uexFileMgr.readPercent(file,percent,len,cb)`
 
@@ -683,7 +683,7 @@ uexFileMgr.readPercent(file,20,3,function(error,data){
 });
 ```
 
-### 🍭 readNext 读取下一页字符
+###  readNext 读取下一页字符
 
 `uexFileMgr.readNext(file,len,cb)`
 
@@ -726,7 +726,7 @@ uexFileMgr.readNext(file, 20,function(error,data){
 });
 ```
 
-### 🍭 readPre 读取上一页字符
+###  readPre 读取上一页字符
 
 `uexFileMgr.readPre(file,len,cb)`
 
@@ -767,7 +767,7 @@ uexFileMgr.readPre(file,20,function(error,data){
 });
 ```
 
-### 🍭 openWithPassword 使用密码打开文件
+###  openWithPassword 使用密码打开文件
 
 `uexFileMgr.openWithPassword(param)`
 
@@ -818,7 +818,7 @@ if(!file){
 
 
 
-### 🍭 createWithPassword 使用密码创建文件
+###  createWithPassword 使用密码创建文件
 
 `uexFileMgr.createWithPassword(param)`
 
@@ -863,7 +863,7 @@ if(!file){
 }
 ```
 
-### 🍭 renameFile 重命名文件
+###  renameFile 重命名文件
 
 `uexFileMgr.renameFile(param,cb)`
 
@@ -923,7 +923,7 @@ uexFileMgr.renameFile(JSON.stringify(data),function(err){
 });
 ```
 
-### 🍭 search 搜索文件
+###  search 搜索文件
 
 `uexFileMgr.search(param,cb)`
 
@@ -999,7 +999,7 @@ uexFileMgr.search(JSON.stringify(data),function(err,result){
 });
 ```
 
-### 🍭 getFileListByPath 获取某路径下的所有文件
+###  getFileListByPath 获取某路径下的所有文件
 
 `uexFileMgr.getFileListByPath(path)`
 
@@ -1044,7 +1044,7 @@ var result = uexFileMgr.getFileListByPath(path);
 alert(result);
 ```
 
-### 🍭 getFileSizeByPath 通过路径获取文件大小
+###  getFileSizeByPath 通过路径获取文件大小
 
 `uexFileMgr.getFileSizeByPath(params,cb)`
 
@@ -1112,7 +1112,7 @@ uexFileMgr.getFileSizeByPath(data,function(err,info){
 });
 ```
 
-### 🍭 copy 复制 
+###  copy 复制 
 
 `uexFileMgr.copy(param,cbFunc);`
 

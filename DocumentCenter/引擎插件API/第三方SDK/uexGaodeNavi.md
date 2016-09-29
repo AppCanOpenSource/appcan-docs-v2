@@ -29,7 +29,7 @@ Toc: 1
 
 ##2.1、 方法<ignore>
 
-### 🍭 init  初始化
+###  init  初始化
 
 `uexGaodeNavi.init(param,cb)`
 
@@ -78,7 +78,7 @@ var cb = function(error){}
 uexGaodeNavi.init();
 ```
 
-### 🍭 calculateWalkRoute  开始步行路径规划
+###  calculateWalkRoute  开始步行路径规划
 
 `uexGaodeNavi.calculateWalkRoute(param,cb)`
 
@@ -129,7 +129,7 @@ uexGaodeNavi.calculateWalkRoute({
 	});
 ```
 
-### 🍭 calculateDriveRoute  开始驾车路径规划
+###  calculateDriveRoute  开始驾车路径规划
 
 `uexGaodeNavi.calculateDriveRoute(param,cb)`
 
@@ -193,7 +193,7 @@ uexGaodeNavi.calculateDriveRoute({
 	});
 ```
 
-### 🍭 startNavi  开始导航
+###  startNavi  开始导航
 
 `uexGaodeNavi.startNavi(param)`
 
@@ -229,7 +229,7 @@ uexGaodeNavi.startNavi({
 });
 ```
 
-### 🍭 stopNavi 停止导航
+###  stopNavi 停止导航
 
 `uexGaodeNavi.stopNavi()`
 
@@ -251,7 +251,7 @@ uexGaodeNavi.stopNavi();
 
 ##2.2、 监听方法<ignore>
 
-### 🍭 onArriveDestination 到达目的地
+###  onArriveDestination 到达目的地
 
 `uexGaodeNavi.onArriveDestination()`
 
@@ -271,7 +271,7 @@ uexGaodeNavi.onArriveDestination = function(){
 };
 ```
 
-### 🍭 onGetNavigationText 导航播报的监听方法
+###  onGetNavigationText 导航播报的监听方法
 
 `uexGaodeNavi.onGetNavigationText()`
 
@@ -300,7 +300,7 @@ uexGaodeNavi.onGetNavigationText = function(param){
 }
 ```
 
-### 🍭 onReCalculateRouteForTrafficJam 驾车导航时,如果前方遇到拥堵时重新计算路径的回调
+###  onReCalculateRouteForTrafficJam 驾车导航时,如果前方遇到拥堵时重新计算路径的回调
 
 `uexGaodeNavi.onReCalculateRouteForTrafficJam()`
 
@@ -323,7 +323,7 @@ uexGaodeNavi.onReCalculateRouteForTrafficJam = function(){
 }
 ```
 
-### 🍭 onReCalculateRouteForYaw 步行或驾车导航时,出现偏航后重新计算路径的回调函数
+###  onReCalculateRouteForYaw 步行或驾车导航时,出现偏航后重新计算路径的回调函数
 
 `uexGaodeNavi.onReCalculateRouteForYaw()`
 
@@ -343,7 +343,7 @@ uexGaodeNavi.onReCalculateRouteForYaw = function(){
 }
 ```
 
-### 🍭 onStartNavi 导航开始的回调
+###  onStartNavi 导航开始的回调
 
 `uexGaodeNavi.onStartNavi()`
 
@@ -363,7 +363,7 @@ uexGaodeNavi.onStartNavi = function(){
 }
 ```
 
-### 🍭 onNaviCancel 导航取消的回调
+###  onNaviCancel 导航取消的回调
 
 `uexGaodeNavi.onNaviCancel()`
 

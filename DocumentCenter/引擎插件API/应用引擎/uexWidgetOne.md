@@ -6,7 +6,7 @@ Toc: 1
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()<ignore>
 系统全局对象
 ## 1.1、属性  <ignore>
-### 🍭 platformName 系统名称
+###  platformName 系统名称
 
 `uexWidgetOne.platformName`
 
@@ -19,7 +19,7 @@ Toc: 1
 alert('系统为:' + uexWidgetOne.platformName);    
 ```
 
-### 🍭 platformVersion 系统版本
+###  platformVersion 系统版本
 
 `uexWidgetOne.platformVersion`
 
@@ -33,7 +33,7 @@ alert('系统为:' + uexWidgetOne.platformName);
 alert('系统版本为:' + uexWidgetOne.platformVersion);
 ```
 
-### 🍭 isFullScreen 应用全屏判断
+###  isFullScreen 应用全屏判断
 
 `uexWidgetOne.isFullScreen`
 
@@ -58,7 +58,7 @@ alert('应用是否为全屏:' + uexWidgetOne.isFullScreen)";
 
 ##2.1、方法<ignore>
 
-### 🍭 getPlatform 获取平台信息
+###  getPlatform 获取平台信息
 
 `uexWidgetOne.getPlatform()`
 
@@ -83,7 +83,7 @@ Number类型,0为iOS,1为Android
 ```
 uexWidgetOne.getPlatform();
 ```
-### 🍭 exit 退出
+###  exit 退出
 
 `uexWidgetOne.exit(flag)`
 
@@ -100,7 +100,7 @@ flag:(Number类型) 可选  是否弹出关闭提示框,0-不弹,否则弹提示
 ```
 uexWidgetOne.exit(0);
 ```
-### 🍭 getCurrentWidgetInfo 获取当前widget信息
+###  getCurrentWidgetInfo 获取当前widget信息
 
 `uexWidgetOne.getCurrentWidgetInfo()`
 
@@ -130,7 +130,7 @@ Json对象,各参数如下:
 var widgetInfo=uexWidgetOne.getCurrentWidgetInfo();
 console.log(widgetInfo.name)
 ```
-### 🍭 cleanCache 清除缓存
+###  cleanCache 清除缓存
 
 `uexWidgetOne.cleanCache()`
 
@@ -144,7 +144,7 @@ console.log(widgetInfo.name)
 uexWidgetOne.cleanCache();
 ```
 
-### 🍭 getMainWidgetId 获取主widget的appId
+###  getMainWidgetId 获取主widget的appId
 
 `uexWidgetOne.getMainWidgetId()`
 
@@ -167,7 +167,7 @@ var appId=uexWidgetOne.getMainWidgetId();
 ```
 
 
-### 🍭 getEngineVersion 获取当前引擎版本
+###  getEngineVersion 获取当前引擎版本
 
 `uexWidgetOne.getEngineVersion()`
 
@@ -189,7 +189,7 @@ var appId=uexWidgetOne.getMainWidgetId();
 alert("engine version:" + uexWidgetOne.getEngineVersion());
 ```
 
-### 🍭 getEngineVersionCode 获取当前引擎版本号
+###  getEngineVersionCode 获取当前引擎版本号
 
 `uexWidgetOne.getEngineVersionCode()`
 
@@ -219,7 +219,7 @@ alert("engine version code:" + uexWidgetOne.getEngineVersionCode());
 
 
 ##2.2、回调方法<ignore>
-### 🍭 cbError 出现异常时的回调方法
+###  cbError 出现异常时的回调方法
 
 `uexWidgetOne.cbError(opId,errorCode,errorInfo)`
 

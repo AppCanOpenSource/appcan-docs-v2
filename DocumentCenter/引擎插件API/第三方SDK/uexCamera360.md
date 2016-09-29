@@ -32,7 +32,7 @@ Toc: 1
 
 ## 2.1、方法<ignore>
 
-### 🍭 edit 编辑图片
+###  edit 编辑图片
 
 `uexCamera360.edit(params,callbackFunction);`
 
@@ -103,7 +103,7 @@ var info = {
         }
 ```
 
-### 🍭 setAPIKey 设置APIKey
+###  setAPIKey 设置APIKey
 
 `uexCamera360.setAPIKey(params);`
 

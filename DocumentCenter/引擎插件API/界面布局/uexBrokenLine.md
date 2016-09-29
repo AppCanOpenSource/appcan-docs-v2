@@ -17,7 +17,7 @@ Toc: 1
 
 # 2、API概览<ignore>
 ## 2.1方法:<ignore>
-### 🍭 setData 设置数据
+###  setData 设置数据
 
 `uexBrokenLine.setData(json)`
 
@@ -72,7 +72,7 @@ var jsd='{"y":{"min":"10","max":"70","step":"5"},"x":
 uexBrokenLine.setData(jsd);
 ```
 
-### 🍭 open  打开界面
+###  open  打开界面
 
 `  uexBrokenLine.open(x,y,width,height,id)`
 
@@ -106,7 +106,7 @@ iOS6.0+
 uexBrokenLine.open(10,100,460,700,1); 
 ```
 
-### 🍭 close  关闭界面
+###  close  关闭界面
 
 `uexBrokenLine.close(id)`
 

@@ -23,7 +23,7 @@ Toc: 1
 # 2、API概览<ignore>
 
 ## 2.1、方法<ignore>
-### 🍭 openCreditCardRec 开启识别
+###  openCreditCardRec 开启识别
 
 `uexCreditCardRec.openCreditCardRec(token,cb)`
 

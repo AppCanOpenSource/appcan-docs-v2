@@ -24,7 +24,7 @@ Toc: 1
 
 # 2、API概览<ignore>
 ## 2.1、方法<ignore>
-### 🍭 create 创建下载对象
+###  create 创建下载对象
 
 `uexDownloaderMgr.create()`
 
@@ -50,7 +50,7 @@ if(!downloader){
 }
 ```
 
-### 🍭 setHeaders 设置请求头
+###  setHeaders 设置请求头
 
 `uexDownloaderMgr.setHeaders(downloader, json)`
 
@@ -73,7 +73,7 @@ var headJson = '{"Content-type":"application/json;charset=utf-8"}';
 uexDownloaderMgr.setHeaders(downloader, headJson);
 ```
 
-### 🍭 download 下载文件
+###  download 下载文件
 
 `uexDownloaderMgr.download(downloader,serverURL,savePath,mode,cb)`
 
@@ -128,7 +128,7 @@ uexDownloaderMgr.download(downloader,
 });
 ```
 
-### 🍭 cancelDownload 取消下载
+###  cancelDownload 取消下载
 
 `uexDownloaderMgr.cancelDownload(serverURL,clearMode)`
 
@@ -151,7 +151,7 @@ uexDownloaderMgr.download(downloader,
 uexDownloaderMgr.cancelDownload("http://wallpaper.pocketdigi.com/upload/1/bigImage/1284565196.jpg");
 ```
 
-### 🍭 closeDownloader 关闭下载对象
+###  closeDownloader 关闭下载对象
 
 `uexDownloaderMgr.closeDownloader(downloader)`
 
@@ -175,7 +175,7 @@ var downloader = ...//由create接口创建的下载对象
 uexDownloaderMgr.closeDownloader(downloader);
 ```
 
-### 🍭 getInfo 获取下载对象的相关信息
+###  getInfo 获取下载对象的相关信息
 
 `uexDownloaderMgr.getInfo(serverURL)`
 

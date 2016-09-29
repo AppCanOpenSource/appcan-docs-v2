@@ -27,7 +27,7 @@ Toc: 1
 
 ##2.1、 方法<ignore>
 
-### 🍭 openPicker 打开照片选择器
+###  openPicker 打开照片选择器
 
 `uexImage.openPicker(param,callback);`
 
@@ -129,7 +129,7 @@ uexImage.openPicker(data,function(error,info){
 });
 ```
 
-### 🍭 openBrowser 打开图片浏览器
+###  openBrowser 打开图片浏览器
 
 `uexImage.openBrowser(param,callback);`
 
@@ -214,7 +214,7 @@ uexImage.openBrowser(data,function(){
 	alert("browser closed!");
 });
 ```
-### 🍭 openCropper 打开图片裁剪器
+###  openCropper 打开图片裁剪器
 
 `uexImage.openCropper(param,callback);`
 
@@ -291,7 +291,7 @@ uexImage.openCropper(data,function(error,info){
 });
 ```
 
-### 🍭 saveToPhotoAlbum 储存到相册
+###  saveToPhotoAlbum 储存到相册
 
 `uexImage.saveToPhotoAlbum(param,callback);`
 
@@ -342,7 +342,7 @@ uexImage.saveToPhotoAlbum(data,function(err,errStr){
 	}
 });
 ```
-### 🍭 clearOutputImages 清除由本插件导出的所有图片文件
+###  clearOutputImages 清除由本插件导出的所有图片文件
 
 `uexImage.clearOutputImages();`
 
@@ -368,7 +368,7 @@ var ret = uexImage.clearOutputImages();
 alert(ret);
 ```
 
-### 🍭 setIpadPopEnable 设置iPad是否启用pop窗口
+###  setIpadPopEnable 设置iPad是否启用pop窗口
 
 `uexImage.setIpadPopEnable(flag);`
 
