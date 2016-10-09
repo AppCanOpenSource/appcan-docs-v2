@@ -92,10 +92,11 @@ iOS6.0+
 Android2.2+
 iOS6.0+
 
-** 版本支持:**
+**版本支持:**
+
 3.0.0+
 
-**  示例:**
+**示例:**
 
 ```
     uexLocation.getAddress(30.475798, 114.402815);
@@ -132,13 +133,17 @@ var params = {
 | longitude | Number | 是    | 经度                                       |
 | type      | String | 否    | 指定传入经纬度所采用坐标系类型,"wgs84":采用世界标准经纬度坐标; "bd09":采用百度地图的经纬度坐标; "gcj02":采用高德地图的经纬度坐标.不传,iOS默认采用世界标准的经纬度坐标,Android默认采用百度地图的经纬度坐标 |
 | flag      | Number | 否    | 值为1时返回地址详情(JSON格式), 非 1 时返回地址名称          |
+````
+格式如下: {"formatted_address":"北京市海淀区海淀中街15号","location":{"lat":39.983197,"lng":116.317383},"addressComponent":{"province":"北京市","street_number":"15号","district":"海淀区","street":"海淀中街","city":"北京市"}} 
+````
 
 **平台支持:**
 
 Android2.2+
 iOS6.0+
 
-** 版本支持:**
+**版本支持:**
+
 3.0.0+
 
 **  示例:**
@@ -195,8 +200,8 @@ iOS6.0+
 
 **版本支持:**
 
-Android3.0.0+    
-iOS3.0.0+
+3.0.0+    
+
 
 **示例:**
 
@@ -209,8 +214,7 @@ var params = {
  };
 var data = uexLocation.convertLocation(JSON.stringify(params));
 var obj = JSON.parse(data)
-alert(obj.latitude+","+obj.longitude);//同步返回json字符串
-//alert(data);                  
+alert(obj.latitude+","+obj.longitude);//同步返回json字符串                 
 ```
 
 ## 2.2、回调方法
@@ -232,7 +236,8 @@ alert(obj.latitude+","+obj.longitude);//同步返回json字符串
 Android2.2+
 iOS6.0+
 
-** 版本支持:**
+**版本支持:**
+
 3.0.0+
 
 **  示例:**
@@ -252,15 +257,33 @@ iOS6.0+
 | ----- | ----- | ----- | ----- |
 | opId| Number| 是 | 操作ID,在此函数中不起作用,可忽略 |
 | dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中Callback方法数据类型 |
-| data|String | 是 | 返回获取的地址或者错误信息ErrorCode。|
- 
+| data|String | 是 | 返回获取的地址或者错误信息,iOS会提示"无网络连接,请检查你的网络"|
+
+
+```javascript
+var data = '{
+    "formatted_address": "北京市海淀区海淀中街15号",
+    "location": {
+        "lat": 39.983197,
+        "lng": 116.317383
+    },
+    "addressComponent": {
+        "province": "北京市",
+        "street_number": "15号",
+        "district": "海淀区",
+        "street": "海淀中街",
+        "city": "北京市"
+    }
+}'
+```
 
 **平台支持:**
 
 Android2.2+
 iOS6.0+
 
-**  版本支持:**
+**版本支持:**
+
 3.0.0+
 
 **  示例:**
@@ -289,7 +312,8 @@ iOS6.0+
 Android2.2+
 iOS6.0+
 
-**  版本支持:**
+**版本支持:**
+
 3.0.0+
 
 **  示例:**
@@ -363,4 +387,5 @@ API版本:`uexLocation-3.0.9`
 | wgs84 | 世界标准地理坐标 |
 | bd09 | 百度地图采用的经纬度坐标 |
 | gcj02 | 高德地图、google地图、soso地图、aliyun地图、mapabc地图所用坐标,中国国测局地理坐标 |
+
 

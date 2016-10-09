@@ -1546,6 +1546,33 @@ uexGaodeMap.hideCustomButtons(jsonStr);
 
 ## 2.2 回调方法:
 
+> ### cbOpen 打开地图的回调方法
+
+`uexGaodeMap.cbOpen(json);`
+
+**参数:**
+
+无
+
+**平台支持:**
+
+Android 2.2+    
+iOS 6.0+    
+
+**版本支持:**
+
+Android 3.0.0+    
+iOS 3.0.0+    
+
+**示例:**
+
+```
+    uexGaodeMap.cbOpen = function(json) {
+        alert("cbOpen");
+    }
+```
+
+
 > ### cbGetCurrentLocation 获取当前位置的回调方法
 
 `uexGaodeMap.cbGetCurrentLocation(json);`
