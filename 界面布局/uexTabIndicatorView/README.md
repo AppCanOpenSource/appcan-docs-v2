@@ -50,16 +50,16 @@ var params ={
 
 各字段含义如下:
 
-| 参数名称           | 参数类型   | 是否必选 | 说明                    |
-| -------------- | ------ | ---- | --------------------- |
-| x              | Number | 否    | 距离屏幕左边距离,默认为0         |
-| y              | Number | 否    | 距离屏幕顶部距离,不传时视图在屏幕底部显示 |
-| w              | Number | 否    | 宽                     |
-| h              | Number | 否    | 高                     |
-| bgColor        | String | 否    | 整个view 的背景色           |
-| dividerColor   | String | 否    | 每两个tab之间的间隔线的颜色       |
-| indicatorColor | String | 否    | 滚动指示器的颜色              |
-| containerId    | String | 否    | 容器ID                  |
+| 参数名称           | 参数类型   | 是否必选 | 说明              |
+| -------------- | ------ | ---- | --------------- |
+| x              | Number | 否    | 距离屏幕左边距离,默认为0   |
+| y              | Number | 否    | 距离屏幕顶部距离,默认为0   |
+| w              | Number | 否    | 宽               |
+| h              | Number | 否    | 高               |
+| bgColor        | String | 否    | 整个view 的背景色     |
+| dividerColor   | String | 否    | 每两个tab之间的间隔线的颜色 |
+| indicatorColor | String | 否    | 滚动指示器的颜色        |
+| containerId    | String | 否    | 容器ID            |
 
 **示例:**
 
