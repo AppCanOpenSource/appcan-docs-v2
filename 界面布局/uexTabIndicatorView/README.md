@@ -21,7 +21,7 @@
 #2、API概览
 ## 2.1、方法
 
-### 🍭 open 打开选择器
+### 🍭 open 打开指示器插件
 
 `uexTabIndicatorView.open(params)`
 
