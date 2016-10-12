@@ -1,0 +1,130 @@
+[TOC]
+
+ # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+ 导航菜单指示器插件
+##1.1、说明
+该插件需要与容器配合使用 
+
+##1.2、UI展示
+
+##1.3、开源源码
+插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明. 
+
+#2、API概览
+## 2.1、方法
+
+### 🍭 open 打开选择器
+
+`uexTabIndicatorView.open(params)`
+
+**说明:**
+
+通过此方法打开导航指示器视图
+
+**参数:**
+
+| 参数名称   | 参数类型   | 是否必选 | 说明           |
+| ------ | ------ | ---- | ------------ |
+| params | String | 是    | 接口所需数据，形式见下： |
+
+```javascript
+var params ={
+    x:,
+    y:,
+    w:,
+    h:,
+    bgColor:,
+    dividerColor:,
+  	indicatorColor:,
+  	containerId:
+}
+```
+
+各字段含义如下:
+
+| 参数名称           | 参数类型   | 是否必选 | 说明                    |
+| -------------- | ------ | ---- | --------------------- |
+| x              | Number | 否    | 距离屏幕左边距离,默认为0         |
+| y              | Number | 否    | 距离屏幕顶部距离,不传时视图在屏幕底部显示 |
+| w              | Number | 否    | 宽                     |
+| h              | Number | 否    | 高                     |
+| bgColor        | String | 否    | 整个view 的背景色           |
+| dividerColor   | String | 否    | 每两个tab之间的间隔线的颜色       |
+| indicatorColor | String | 否    | 滚动指示器的颜色              |
+| containerId    | String | 否    | 容器ID                  |
+
+**示例:**
+
+```javascript
+var containerId="123";                       
+uexWindow.createPluginViewContainer({        
+    id:containerId,                          
+    x:0,                                     
+    y:500,                                   
+    w:1080,                                  
+    h:1920,                                  
+    titles:["头条","精选","轻松一刻","娱乐","热点","体育"] 
+});                                          
+uexXXXX.xxx(containerId);//在容器上添加相关插件       
+var param = {                                
+   x:0,                                      
+   y:150,                                    
+   w:1080,                                   
+   h:150,                                    
+   textColor:"#F44336",                      
+   bgColor:"#FFFFFF",                        
+   dividerColor:"#D32F2F",                   
+   indicatorColor:"#D32F2F",                 
+   containerId:containerId                   
+};                                           
+uexTabIndicatorView.open(param);                                   
+```
+### 🍭 close 关闭
+
+`uexTabIndicatorView.close();`
+
+**说明:**
+
+通过此方法关闭View.
+
+**参数:**
+
+```
+无
+```
+
+**示例:**
+
+```javascript
+uexTabIndicatorView.close();
+```
+
+#3、更新历史 
+
+### iOS
+
+API版本: `uexTabIndicatorView-4.0.0`
+
+最近更新时间:`2016-10-12`
+
+| 历史发布版本 | 更新内容 |
+| ------ | ---- |
+|        |      |
+
+### Android
+
+API版本: `uexTabIndicatorView-4.0.0`
+
+最近更新时间:`2016-7-27`
+
+| 历史发布版本 | 更新内容 |
+| ------ | ---- |
+|        |      |
