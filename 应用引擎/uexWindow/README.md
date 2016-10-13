@@ -1917,11 +1917,11 @@ uexWindow.destroyProgressDialog()
 
 **参数:**
 
-| 参数名称        | 参数类型   | 是否必选 | 说明          |
-| ----------- | ------ | ---- | ----------- |
-| title       | String | 是    | 标题          |
-| cancel      | String | 是    | 显示在取消按钮上的文本 |
-| buttonLable | Array  | 是    | 按钮列表文字      |
+| 参数名称        | 参数类型   | 是否必选 | 说明             |
+| ----------- | ------ | ---- | -------------- |
+| title       | String | 是    | 标题             |
+| cancel      | String | 是    | 显示在取消按钮上的文本    |
+| buttonLable | String | 是    | 按钮列表文字（注:逗号分隔） |
 
 **平台支持：**
 Android2.2+
