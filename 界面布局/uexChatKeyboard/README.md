@@ -213,34 +213,6 @@ iOS 3.0.10+
     uexChatKeyboard.hideKeyboard();
 ```
 
-> ### changeWebViewFrame 改变webview的高度以适应弹出的键盘
-
-`uexChatKeyboard.changeWebViewFrame(height)`
-
-**说明:**
-
-收到 [onKeyBoardShow](#onKeyBoardShow 键盘弹出或收起时的监听方法 "onKeyBoardShow")回调,并且status为1时调用这个方法传入当前div(表示文本输入框的高度)的高度,键盘会根据高度将聊天内容推上去
-
-**参数:**
-
-| 参数名称   | 参数类型   | 是否必选 | 说明     |
-| ------ | ------ | ---- | ------ |
-| height | Number | 是    | div的高度 |
-
-**平台支持:**
-
-iOS6.0+
-
-**版本支持:**
-
-iOS 3.0.10+
-
-**示例:**
-
-```
-uexChatKeyboard.changeWebViewFrame(600);
-```
-
 > ### insertTextByKeyword 通过关键字插入内容
 
 `uexChatKeyboard.insertTextByKeyword(jsonStr)`
@@ -252,38 +224,40 @@ uexChatKeyboard.changeWebViewFrame(600);
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明   |
-| ---- | ------ | ---- | ---- |
-| jsonStr | String | 是    |  插入信息参数,json格式如下:   |
+| 参数名称    | 参数类型   | 是否必选 | 说明               |
+| ------- | ------ | ---- | ---------------- |
+| jsonStr | String | 是    | 插入信息参数,json格式如下: |
 
 ```
 var jsonStr  = {
     'keyword' : ,//关键字
     'insertText' : ,//插入的数据
-    'insertTextColor' : ,//插入的数据字体颜色
     'isReplaceKeyword' : // 是否替换掉关键字,0:不替换;1:替换
      };
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| --------- | ------ | ---- | ------- |
-| keyword | String | 是 | 关键字 |
-| insertText | String | 是 | 插入的数据 |
-| insertTextColor | String | 是 | 插入的数据字体颜色 |
-| isReplaceKeyword | String | 是 | 是否替换掉关键字,0:不替换;1:替换 |
+| 参数名称             | 参数类型   | 是否必选 | 说明                  |
+| ---------------- | ------ | ---- | ------------------- |
+| keyword          | String | 是    | 关键字                 |
+| insertText       | String | 是    | 插入的数据               |
+| isReplaceKeyword | Number | 是    | 是否替换掉关键字,0:不替换;1:替换 |
 **平台支持:**
+Android4.0+    
+iOS7.0+
 
-Android,iOS
+**版本支持:**
+
+Android 3.0.10+
+iOS 3.0.29+
 
 
 **示例:**
 
 ```javascript
 var params = {
-                    keyword : '@',
-                    insertText : '@守望宝宝',
-                    insertTextColor : '#FF0000',
-                    isReplaceKeyword : 1
-            };
+  	keyword : '@',
+	insertText : '@守望宝宝',
+ 	isReplaceKeyword : 1
+};
 uexChatKeyboard.insertTextByKeyword(JSON.stringify(params));
 ```
 
@@ -433,9 +407,7 @@ iOS 6.0+
 
 **版本支持:**
 
-  
-
-3.0.0+  
+  3.0.0+  
 
 **示例**
 
@@ -463,7 +435,7 @@ var json = {
 | ------ | ------ | ---- | ---------------- |
 | status | Number | 是    | 键盘状态  0-收起  1-弹出 |
 
-**支持平台:**
+**平台支持:**
 Android2.2+    
 iOS6.0+
 
@@ -488,8 +460,8 @@ window.uexOnload = function(){
 `uexChatKeyboard.onCommitJson(json)`
 
 **参数:**
-| 参数名称          | 参数类型   | 是否必选 | 说明      |
-| ------------- | ------ | ---- | ------- |
+| 参数名称 | 参数类型 | 是否必选 | 说明           |
+| ---- | ---- | ---- | ------------ |
 | json | JSON | 是    | 回调数据json格式如下 |
 
 ```
@@ -507,16 +479,16 @@ var json = {
 }
 ```
 
-| 参数名称 | 参数类型 | 是否必选 | 说明      |
-| --------- | ------ | ---- | ------- |
-| emojiconsText | String | 是 | 输入框里的内容 |
-| insertTexts | Array | 是 | 插入过的关键字数组 |
-| insertText | String | 是 | 插入的内容 |
-| insertTextColor | String | 是 | 插入内容的颜色 |
-| start | String | 是 | 插入的内容开始位置 |
-| end | String | 是 | 插入的内容结束位置 |
+| 参数名称            | 参数类型   | 是否必选 | 说明        |
+| --------------- | ------ | ---- | --------- |
+| emojiconsText   | String | 是    | 输入框里的内容   |
+| insertTexts     | Array  | 是    | 插入过的关键字数组 |
+| insertText      | String | 是    | 插入的内容     |
+| insertTextColor | String | 是    | 插入内容的颜色   |
+| start           | String | 是    | 插入的内容开始位置 |
+| end             | String | 是    | 插入的内容结束位置 |
 
-**支持平台:**
+**平台支持:**
 Android2.2+    
 iOS6.0+
 
@@ -541,37 +513,44 @@ window.uexOnload = function(){
 `uexChatKeyboard.onInputKeyword(json)`
 
 **参数:**
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| --------- | -------- | ------- | ------ |
-| json | JSON | 是 | 回调数据json格式如下 |
+| 参数名称 | 参数类型          | 是否必选 | 说明           |
+| ---- | ------------- | ---- | ------------ |
+| json | JSON String类型 | 是    | 回调数据json格式如下 |
 
 ```
 var json = {
     keyword:,//触发的关键字
 }
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| --------- | ------ | ---- | ------- |
-| keyword | String | 是 | 触发的关键字 |
+| 参数名称    | 参数类型   | 是否必选 | 说明     |
+| ------- | ------ | ---- | ------ |
+| keyword | String | 是    | 触发的关键字 |
 
+**平台支持:**
+Android4.0+    
+iOS7.0+
+
+**版本支持:**
+
+Android 3.0.10+
+iOS 3.0.20+
 
 **示例:**
 
 ```javascript
-function onInputKeyword() {
-    var keyword = json.keyword;
-    if(keyword == '@'){
-        var params = {
-                    keyword : '@',
-                    insertText : '@守望宝宝',
-                    insertTextColor : '#FF0000',
-                    isReplaceKeyword : 1
-            };
-        uexChatKeyboard.insertTextByKeyword(JSON.stringify(params));
-    }
-}
+
 window.uexOnload = function(){
-    uexChatKeyboard.onInputKeyword = onInputKeyword;
+    uexChatKeyboard.onInputKeyword = function(json) {
+    	var keyword = JSON.parse(json).keyword;
+    	if(keyword == '@'){
+      		var params = {
+ 	 			keyword : '@',
+   				insertText : '@守望宝宝',
+ 				isReplaceKeyword : 1
+			};
+        	uexChatKeyboard.insertTextByKeyword(JSON.stringify(params));
+    	}
+	}
 }
 ```
 
