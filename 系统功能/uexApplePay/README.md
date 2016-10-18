@@ -1439,5 +1439,5 @@ API版本:`uexApplePay-3.0.0`
 
 ### Android
 
-**uexApplePay目前不支持Android**
+**uexApplePay不支持Android**
 
