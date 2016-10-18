@@ -12,7 +12,7 @@ iOS开发的收入有三种来源:出售应用、内购和广告.国内用户通
 ## 1.4、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=567) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 ## 1.5、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+本插件的所有API默认只支持***iOS7.0+**操作系统，**不支持Android**.
 有特殊版本要求的API会在文档中额外说明.
 
 ## 1.6、接口有效性
@@ -381,5 +381,5 @@ API版本: `uexInAppPurchase-4.0.0`
 | 4.0.0 | 内购插件4.0 |
 ### Android
 
-**uexInAppPurchase目前不支持Android**
+**uexInAppPurchase不支持Android**
 
