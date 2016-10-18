@@ -3,11 +3,11 @@
 
 #1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 
-极光推送插件
+小米推送插件
 ##1.1、 说明
 *  在使用小米推送服务前，开发者需要先登录小米开发者网站http://developer.xiaomi.com ，注册app，申请AppId, AppKey,AppSecret。其中AppId和AppKey是客户端的身份标识，在客户端SDK初始化时使用；AppSecret是服务器端的身份标识，在使用Server SDK向客户端发送消息时使用。
 
-*  客户端在注册成功后，会得到服务器颁发的regId，然后可以通过订阅topic、设置alias来接收推送消息。
+*  客户端在注册成功后，会得到服务器颁发的regId，然后可以通过订阅topic、设置alias来接收推送消息。详见小米推送文档[基础概念](http://dev.xiaomi.com/doc/p=6724/index.html "基础概念")
 
 *  小米推送目前支持两种消息传递方式：透传方式和通知栏方式。透传消息到达手机端后，SDK会将消息通过广播方式传给onReceivePassThroughMessage；对于通知栏消息，SDK会根据消息中设置的信息弹出通知栏通知，通知消息到达时会到达onNotificationMessageArrived方法,用户点击之后再传给onNotificationMessageClicked方法；对于应用在前台时不弹出通知的通知消息，SDK会将消息通过广播方式传给onNotificationMessageArrived方法(在MIUI上，如果没有收到onNotificationMessageArrived回调，是因为使用的MIUI版本还不支持该特性，需要升级到MIUI7之后。非MIUI手机都可以收到这个回调)。
 
@@ -22,7 +22,7 @@
 
 ##1.2、 开源源码
 
-[点击]()插件中心至插件详情页(测试用例与插件源码已经提供)
+[点击](http://plugin.appcan.cn/details.html?id=673_index)插件中心至插件详情页(测试用例与插件源码已经提供)，beta版本自定义插件下载
 
 ## 1.3、接口有效性
 
@@ -177,7 +177,7 @@ uexMiPush.unsetUserAccount("123456");
 
 | 参数名称  | 参数类型   | 是否必选 | 说明   |
 | ----- | ------ | ---- | ---- |
-| topic | String | 是    |      |
+| topic | String | 是    |   　   |
 
 **示例**
 
@@ -199,7 +199,7 @@ uexMiPush.subscribe("AppCan");
 
 | 参数名称  | 参数类型   | 是否必选 | 说明   |
 | ----- | ------ | ---- | ---- |
-| topic | String | 是    |      |
+| topic | String | 是    |    　  |
 
 **示例**
 
@@ -209,23 +209,20 @@ uexMiPush.unsubscribe("AppCan");
 
 
 
-> #### setAcceptTime 设置接收服务推送的时段
+> ### setAcceptTime 设置接收服务推送的时段
 
 `uexMiPush.setAcceptTime(params)`
 
 **说明**
 
-设置接收MiPush服务推送的时段，不在该时段的推送消息会被缓存起来，到了合适的时段再向app推送原先被缓
-
-存的消息。
+设置接收MiPush服务推送的时段，不在该时段的推送消息会被缓存起来，到了合适的时段再向app推送原先被缓存的消息。
 
 这里采用24小时制，如果开始时间早于结束时间，则这个时段落在一天内；否则，这个时间将会跨越凌晨0点。
 
 这里使用与regId相关联的alias和topic推送消息，也会受到限制。
 
-如果时间设置为0:00-0:00，就是暂停push推送服务，
-
-如果时间设置为0:00-23:59，就是恢复push推送服务，即全天接收push推送消息
+如果时间设置为0 : 00-0 :00，就是暂停push推送服务，
+如果时间设置为0: 00-23 :59，就是恢复push推送服务，即全天接收push推送消息
 
 **参数**
 
@@ -262,7 +259,8 @@ var params={
 > ### getRegId 获取客户端的RegId
 
 `uexMiPush.getRegId()`
-
+**说明**
+获取客户端的RegId，支持同步返回。
 **参数**
 
 无
@@ -279,10 +277,11 @@ var regId=uexMiPush.getRegId();
 
 
 
-> ### getAllAlias 获取客户端所有设置的别名。
+> ### getAllAlias 获取客户端所有设置的别名
 
 `uexMiPush.getAllAlias()`
-
+**说明**
+取客户端所有设置的别名。回调cbGetAllAlias
 **参数**
 
 无
@@ -301,7 +300,7 @@ uexMiPush.getAllAlias();
 
 **说明**
 
-为某个用户取消某个订阅主题
+getAllAlias获取客户端所有设置的别名的回调函数
 
 **参数**
 
@@ -321,7 +320,8 @@ uexMiPush.cbGetAllAlias=function (data) {
 > ### getAllTopic 获取客户端所有订阅的主题
 
 `uexMiPush.getAllTopic()`
-
+**说明**
+获取客户端所有订阅的主题，回调cbGetAllTopic
 **参数**
 
 无
@@ -337,7 +337,8 @@ uexMiPush.getAllTopic();
 > ### cbGetAllTopic getAllTopic的回调函数
 
 `uexMiPush.cbGetAllTopic()`
-
+**说明**
+获取客户端所有订阅的主题的回调函数
 **参数**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明           |
@@ -451,8 +452,7 @@ var params={
 调用unsubscribe()，返回"unsubscibe-topic"
 调用setAcceptTime()，返回"accept-time"
 **/
-  command:,//String类型 
-  
+  command:,//String类型 ，如上说明描述
   resultCode:,//Number类型 表示调用命令的结果。如果成功，返回0；否则返回错误类型值。
   reason:,//String类型 表示调用命令失败的原因。如果失败，则返回失败原因，否则返回为null。
   commandArguments://String 数组类型  表示命令的参数。例如:注册app就会返回app本次初始化所对应MiPush推送服务的唯一标识regId，alias就会返回alias的内容，订阅和取消订阅主题就会返回topic，setAcceptTime就会返回时间段。
@@ -489,15 +489,8 @@ uexMiPush.onReceiveRegisterResult=function (data) {
 
 #3、更新历史
 
-### iOS
-
-| 历史发布版本 | 更新内容  |
-| ------ | ----- |
-| 3.3.0  | 初始化版本 |
 
 ### Android
-
-
 
 | 历史发布版本 | 更新内容  |
 | ------ | ----- |

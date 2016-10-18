@@ -14,7 +14,7 @@
     hasIcon : true or false  /*是否有图标*/, 
     hasAnim : true or false   /*切换时是否有动画*/ 
     hasLabel : true or false   /*是否有文字*/, 
-    hasBadge : false or false  /*是否有badge*/ 
+    hasBadge : true or false  /*是否有badge*/ 
     data :[{ /*选项卡数据*/ label : "全部", /*显示文字*/ icon: "fa-home" /*显示Font Awesome 图标*/ }, { label : "待办", icon: "icon-edit ub-img",/*显示图片图标*/ }, { label : "已办", icon: "fa-home", badge: 1 /*显示badge数字*/ }]  
 ````
 #### 方法
