@@ -70,8 +70,7 @@ var params = {
 	appKey:"502711a31753d62be9d08a5340229b2d",
 	channel:"testin"
 };
-var result=uexTestinCrash.init(params);
-alert(result);
+uexTestinCrash.init(params);
 ```
 
 ### 🍭 setUserInfo 设置用户名

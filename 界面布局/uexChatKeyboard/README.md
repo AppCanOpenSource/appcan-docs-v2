@@ -224,25 +224,45 @@ iOS7.0+
 uexChatKeyboard.changeWebViewFrame(600);
 ```
 
-### 🍭 insertAfterAt 添加字符串到@后面
+### 🍭 insertTextByKeyword 通过关键字插入内容
 
-`uexChatKeyboard.insertAfterAt(name)`
+
+`uexChatKeyboard.insertTextByKeyword(jsonStr)`
 
 **说明:**
-
-@好友功能,收到`uexChatKeyboard.onAt`监听后,选择好友.选择完毕后调用此接口添加好友到@后面
+通过关键字插入内容功能
+例子:
+@好友功能，收到`uexChatKeyboard.onInputKeyword`监听关键字@后，选择好友。选择完毕后调用此接口添加好友到关键字@后面,或替换原有@字符。
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明   |
-| ---- | ------ | ---- | ---- |
-| name | String | 是    | 好友昵称 |
+| 参数名称    | 参数类型   | 是否必选 | 说明               |
+| ------- | ------ | ---- | ---------------- |
+| jsonStr | String | 是    | 插入信息参数,json格式如下: |
 
+```
+var jsonStr  = {
+    'keyword' : ,//关键字
+    'insertText' : ,//插入的数据
+    'isReplaceKeyword' : // 是否替换掉关键字,0:不替换;1:替换
+     };
+```
+
+| 参数名称             | 参数类型   | 是否必选 | 说明                  |
+| ---------------- | ------ | ---- | ------------------- |
+| keyword          | String | 是    | 关键字                 |
+| insertText       | String | 是    | 插入的数据               |
+| isReplaceKeyword | Number | 是    | 是否替换掉关键字,0:不替换;1:替换 |
 
 **示例:**
 
 ```javascript
-uexChatKeyboard.insertAfterAt("守望宝宝");
+var params = {
+  	keyword : '@',
+	insertText : '@守望宝宝',
+ 	isReplaceKeyword : 1
+};
+uexChatKeyboard.insertTextByKeyword(JSON.stringify(params));
 ```
 
 
@@ -381,21 +401,43 @@ window.uexOnload = function(){
 }
 ```
 
-### 🍭 onAt 编辑框输入@之后的监听方法
+### 🍭 onInputKeyword 编辑框输入监测的关键字之后的监听方法
 
-`uexChatKeyboard.onAt()`
+``uexChatKeyboard.onInputKeyword(json)`
 
 **参数:**
-无
+
+| 参数名称 | 参数类型          | 是否必选 | 说明           |
+| ---- | ------------- | ---- | ------------ |
+| json | JSON String类型 | 是    | 回调数据json格式如下 |
+
+```
+var json = {
+    keyword:,//触发的关键字
+}
+```
+
+| 参数名称    | 参数类型   | 是否必选 | 说明     |
+| ------- | ------ | ---- | ------ |
+| keyword | String | 是    | 触发的关键字 |
+
+
 
 **示例:**
 
 ```javascript
-function onAt() {
-    uexChatKeyboard.insertAfterAt("守望宝宝");
-}
 window.uexOnload = function(){
-    uexChatKeyboard.onAt = onAt;
+    uexChatKeyboard.onInputKeyword = function(json) {
+    	var keyword = JSON.parse(json).keyword;
+    	if(keyword == '@'){
+      		var params = {
+ 	 			keyword : '@',
+   				insertText : '@守望宝宝',
+ 				isReplaceKeyword : 1
+			};
+        	uexChatKeyboard.insertTextByKeyword(JSON.stringify(params));
+    	}
+	}
 }
 ```
 

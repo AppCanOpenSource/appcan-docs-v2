@@ -48,14 +48,14 @@ AppCan平台中,维护了一个窗口堆栈,每个窗口以唯一的窗口名字
 
 
 | 参数名称         | 参数类型   | 是否必选 | 说明                                       |
-| ------------ | ------ | ----- | ---------------------------------------- |
-| name         | String |  是   | 窗口名字,可为空,不能为"root",若已经打开过该名字的窗口,则直接跳转至该窗口. |
-| dataType     | Number |  否   | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入,默认为0   |
-| data         | String |  是   | url或html数据,支持"wgtroot://" 协议头,此协议头用于某些将项目部署在服务器上 的appcan应用,在应用执行过程中加载本地网页用.当dataType为0时,url支持相对路径、 绝对路径.其中,当url以"wgtroot://" 协议开头时,支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件.  例如:当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页,如果在xxx.html页面中open一个窗口时,传入的data为"wgtroot://index.html", 那么本次open执行时,引擎将会到本应用沙箱目录的widget路径下去寻找此页面, 例如Android上找到的路径会是:file:///android_assert/widget/index.html 当dataType为1时,把相应html的内容传进去(不建议) |
-| animID       | Number |  是   | 动画ID,详见术语表-[WindowAnimationId 窗口动画Id](http://newdocx.appcan.cn/newdocx/docx?type=978_975) |
-| flag         | Number |  是   | 窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
-| animDuration | Number |  否   | 动画持续时长,单位为毫秒,默认为260毫秒                    |
-| extras       | String |  否   | 扩展参数,设置值时,animDuration参数必传,json格式如下      |
+| ------------ | ------ | ---- | ---------------------------------------- |
+| name         | String | 是    | 窗口名字,可为空,不能为"root",若已经打开过该名字的窗口,则直接跳转至该窗口. |
+| dataType     | Number | 否    | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入,默认为0   |
+| data         | String | 是    | url或html数据,支持"wgtroot://" 协议头,此协议头用于某些将项目部署在服务器上 的appcan应用,在应用执行过程中加载本地网页用.当dataType为0时,url支持相对路径、 绝对路径.其中,当url以"wgtroot://" 协议开头时,支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件.  例如:当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页,如果在xxx.html页面中open一个窗口时,传入的data为"wgtroot://index.html", 那么本次open执行时,引擎将会到本应用沙箱目录的widget路径下去寻找此页面, 例如Android上找到的路径会是:file:///android_assert/widget/index.html 当dataType为1时,把相应html的内容传进去(不建议) |
+| animID       | Number | 是    | 动画ID,详见术语表-[WindowAnimationId 窗口动画Id](http://newdocx.appcan.cn/newdocx/docx?type=978_975) |
+| flag         | Number | 是    | 窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
+| animDuration | Number | 否    | 动画持续时长,单位为毫秒,默认为260毫秒                    |
+| extras       | String | 否    | 扩展参数,设置值时,animDuration参数必传,json格式如下      |
 
 ```javascript
 var extras = {
@@ -216,9 +216,9 @@ Bool类型,true表示成功,false为失败
 params 为JSON对象,字段如下:
 
 | 参数名称         | 参数类型   | 是否必选 | 说明                                       |
-| ------------ | ------ | ----- | ---------------------------------------- |
-| animID       | Number |  否   | 动画ID,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window AnimiID "CONSTANT")中WindowAnimiID |
-| animDuration | Number |  否   | 动画持续时长,单位为毫秒,默认为260毫秒                    |
+| ------------ | ------ | ---- | ---------------------------------------- |
+| animID       | Number | 否    | 动画ID,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window AnimiID "CONSTANT")中WindowAnimiID |
+| animDuration | Number | 否    | 动画持续时长,单位为毫秒,默认为260毫秒                    |
 
 
 
@@ -235,9 +235,9 @@ params 为JSON对象,字段如下:
 params为JSON对象,字段如下:
 
 | 参数名称         | 参数类型   | 是否必选 | 说明                   |
-| ------------ | ------ | ----- | -------------------- |
-| animID       | Number |  否   | 动画ID                 |
-| animDuration | Number |  否   | 动画持续时长,单位为毫秒,默认250毫秒 |
+| ------------ | ------ | ---- | -------------------- |
+| animID       | Number | 否    | 动画ID                 |
+| animDuration | Number | 否    | 动画持续时长,单位为毫秒,默认250毫秒 |
 
 
 
@@ -255,10 +255,10 @@ params为JSON对象,字段如下:
 `params`为JSON对象,各字段如下:
 
 | 参数名称         | 参数类型   | 是否必选 | 说明                    |
-| ------------ | ------ | ----- | --------------------- |
-| x            | Number |  是   | x坐标                   |
-| y            | Number |  是   | y坐标                   |
-| animDuration | Number |  否   | 动画持续时长,单位为毫秒,默认为260毫秒 |
+| ------------ | ------ | ---- | --------------------- |
+| x            | Number | 是    | x坐标                   |
+| y            | Number | 是    | y坐标                   |
+| animDuration | Number | 否    | 动画持续时长,单位为毫秒,默认为260毫秒 |
 
 
 
@@ -282,13 +282,13 @@ uexWindow.setWindowFrame({
 
 **参数:**
 
-| 参数名称     | 参数类型    | 是否必选 | 说明                                       |
-| -------- | ------- | ---- | ---------------------------------------- |
-| type     | Number  |  是   | 窗口的类型,1-头部;2-底部                          |
-| dataType | String |  是   | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入; 2:既有url方式,又有html内容方式 |
-| url      | Number  |  是   | 窗口路径                                     |
-| data     | String  |  是   | 数据,可为空                                   |
-| h        | Number  |  是   | 窗口高度,支持百分数,默认为屏幕高度                       |
+| 参数名称     | 参数类型   | 是否必选 | 说明                                       |
+| -------- | ------ | ---- | ---------------------------------------- |
+| type     | Number | 是    | 窗口的类型,1-头部;2-底部                          |
+| dataType | String | 是    | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入; 2:既有url方式,又有html内容方式 |
+| url      | Number | 是    | 窗口路径                                     |
+| data     | String | 是    | 数据,可为空                                   |
+| h        | Number | 是    | 窗口高度,支持百分数,默认为屏幕高度                       |
 
 
 
@@ -361,10 +361,10 @@ uexWindow.showSlibing(1)
 `params`为JSON对象,各字段如下:
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                                       |
-| ---- | ------ | ----- | ---------------------------------------- |
-| name | String |  是   | 窗口名称,默认空为当前窗口(可以是主窗口、root窗口、浮动窗口)        |
-| type | Number |  是   | 窗口的类型,uex.cWindowTypeNormal,uex.cWindowTypeTop 或uex.cWindowTypeBottom,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Types "CONSTANT")中WindowTypes |
-| js   | String |  是   | js脚本内容                                   |
+| ---- | ------ | ---- | ---------------------------------------- |
+| name | String | 是    | 窗口名称,默认空为当前窗口(可以是主窗口、root窗口、浮动窗口)        |
+| type | Number | 是    | 窗口的类型,uex.cWindowTypeNormal,uex.cWindowTypeTop 或uex.cWindowTypeBottom,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Types "CONSTANT")中WindowTypes |
+| js   | String | 是    | js脚本内容                                   |
 
 
 
@@ -391,10 +391,10 @@ uexWindow.evaluateScript({
 `params`为JSON对象,各字段如下:
 
 | 参数名称       | 参数类型   | 是否必选 | 说明                           |
-| ---------- | ------ | ----- | ---------------------------- |
-| windowName | String |  是   | 窗口名称,默认空为当前窗口(只能为主窗口、root窗口) |
-| popName    | String |  是   | 浮动窗口名称                       |
-| js         | String |  是   | js脚本内容                       |
+| ---------- | ------ | ---- | ---------------------------- |
+| windowName | String | 是    | 窗口名称,默认空为当前窗口(只能为主窗口、root窗口) |
+| popName    | String | 是    | 浮动窗口名称                       |
+| js         | String | 是    | js脚本内容                       |
 
 
 
@@ -452,19 +452,19 @@ uexWindow.evaluateMultiPopoverScript({
 `params`为JSON对象,各字段如下:
 
 | 参数名称         | 参数类型   | 是否必选 | 说明                                       |
-| ------------ | ------ | ----- | ---------------------------------------- |
-| name         | String |  是   | 名称                                       |
-| dataType     | Number |  否   | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入;2:既有url方式, 又有html内容方式.默认为0 |
-| url          | String |  是   | url类型数据,支持"wgtroot://" 协议头,此协议头用于某些将项目部署在服务器上的appcan应用,在应用执行过程中 加载本地网页用.当dataType为0时,url支持相对路径、绝对路径.其中,当url以"wgtroot://" 协议开头时,支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件. 例如:当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页,如果在xxx.html页面中open一个窗口时,传入的data为"wgtroot://index.html" ,  那么本次open执行时,引擎将会到本应用沙箱目录的widget路径下去寻找此页面, 例如Android上找到的路径会是:file:///android_assert/widget/index.html . |
-| data         | String |  否   | data类型数据,用于当dataType为1时,把相应html的内容传进去.比如传入的是一个'<div>hello,world!</div>' |
-| x            | Number |  否   | x坐标,默认为0                                 |
-| y            | Number |  否   | y坐标,默认为0                                 |
-| w            | Number |  否   | 宽度,为空时默认为window的宽度                       |
-| h            | Number |  否   | 高度,为空时默认为window的高度                       |
-| fontSize     | Number |  否   | 字体大小                                     |
-| flag         | Number |  否   | 浮动窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
-| bottomMargin | Number |  否   | 浮动窗口相对父窗口底部的距离.当值不等于0时,h参数无效.            |
-| extras    | Object |  否   | json格式如下: {"extraInfo":{"opaque":"true","bgColor":"#011","delayTime":"250"}} |
+| ------------ | ------ | ---- | ---------------------------------------- |
+| name         | String | 是    | 名称                                       |
+| dataType     | Number | 否    | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入;2:既有url方式, 又有html内容方式.默认为0 |
+| url          | String | 是    | url类型数据,支持"wgtroot://" 协议头,此协议头用于某些将项目部署在服务器上的appcan应用,在应用执行过程中 加载本地网页用.当dataType为0时,url支持相对路径、绝对路径.其中,当url以"wgtroot://" 协议开头时,支持从服务器网页中打开本地应用沙箱中相应widget目录下的网页文件. 例如:当前窗口加载的是服务器上的`http://www.xxx.com/xxx.html` 网页,如果在xxx.html页面中open一个窗口时,传入的data为"wgtroot://index.html" ,  那么本次open执行时,引擎将会到本应用沙箱目录的widget路径下去寻找此页面, 例如Android上找到的路径会是:file:///android_assert/widget/index.html . |
+| data         | String | 否    | data类型数据,用于当dataType为1时,把相应html的内容传进去.比如传入的是一个'<div>hello,world!</div>' |
+| x            | Number | 否    | x坐标,默认为0                                 |
+| y            | Number | 否    | y坐标,默认为0                                 |
+| w            | Number | 否    | 宽度,为空时默认为window的宽度                       |
+| h            | Number | 否    | 高度,为空时默认为window的高度                       |
+| fontSize     | Number | 否    | 字体大小                                     |
+| flag         | Number | 否    | 浮动窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
+| bottomMargin | Number | 否    | 浮动窗口相对父窗口底部的距离.当值不等于0时,h参数无效.            |
+| extras       | Object | 否    | json格式如下: {"extraInfo":{"opaque":"true","bgColor":"#011","delayTime":"250"}} |
 
 关于`extraInfo`中字段的说明如下:
 
@@ -646,18 +646,18 @@ uexWindow.setPopoverFrame({
 `params`为JSON对象,各字段如下
 
 | 参数名称          | 参数类型   | 是否必选 | 说明                                       |
-| ------------- | ------ | ----- | ---------------------------------------- |
-| content       | JSON对象 |  是   | 多页面窗口数据格式为json.不可为空. json格式如下:    '{"content":[{"inPageName":"p1","inUrl":"xxx1.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}, {"inPageName":"p2","inUrl":"xxx2.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}]}' |
-| name          | String |  是   | 浮动窗口名称                                   |
-| dataType      | Number |  否   | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入;2:既有url方式, 又有html内容方式,默认为0 |
-| x             | Number |  是   | x坐标                                      |
-| y             | Number |  是   | y坐标                                      |
-| w             | Number |  是   | 宽度,为空时默认为window的宽度                       |
-| h             | Number |  是   | 高度,为空时默认为window的高度                       |
-| fontSize      | Number |  是   | 字体大小                                     |
-| flag          | Number |  是   | 浮动窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
-| indexSelected | Number |  是   | 默认打开的页面索引,默认为0                           |
-| extras     | Object |  否   | 扩展参数,json格式如下:{"extraInfo":{"opaque":"true","bgColor":"#011", "delayTime":"250"}} |
+| ------------- | ------ | ---- | ---------------------------------------- |
+| content       | JSON对象 | 是    | 多页面窗口数据格式为json.不可为空. json格式如下:    '{"content":[{"inPageName":"p1","inUrl":"xxx1.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}, {"inPageName":"p2","inUrl":"xxx2.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}]}' |
+| name          | String | 是    | 浮动窗口名称                                   |
+| dataType      | Number | 否    | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入;2:既有url方式, 又有html内容方式,默认为0 |
+| x             | Number | 是    | x坐标                                      |
+| y             | Number | 是    | y坐标                                      |
+| w             | Number | 是    | 宽度,为空时默认为window的宽度                       |
+| h             | Number | 是    | 高度,为空时默认为window的高度                       |
+| fontSize      | Number | 是    | 字体大小                                     |
+| flag          | Number | 是    | 浮动窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
+| indexSelected | Number | 是    | 默认打开的页面索引,默认为0                           |
+| extras        | Object | 否    | 扩展参数,json格式如下:{"extraInfo":{"opaque":"true","bgColor":"#011", "delayTime":"250"}} |
 
 `content json`中各字段的说明:
 
@@ -744,9 +744,9 @@ uexWindow.closeMultiPopover('sss');
 `params`是JSON对象,各字段如下
 
 | 参数名称  | 参数类型   | 是否必选 | 说明     |
-| ----- | ------ | ----- | ------ |
-| name  | String |  是   | 浮动窗口名称 |
-| index | Number |  是   | 索引     |
+| ----- | ------ | ---- | ------ |
+| name  | String | 是    | 浮动窗口名称 |
+| index | Number | 是    | 索引     |
 
 
 
@@ -772,12 +772,12 @@ uexWindow.setSelectedPopOverInMultiWindow({
 `params` 为JSON对象,各字段如下
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                 |
-| ---- | ------ | ----- | ------------------ |
-| name | String |  是   | 浮动窗口名称             |
-| x    | Number |  否   | x坐标,默认为0           |
-| y    | Number |  否   | y坐标,默认为0           |
-| w    | Number |  否   | 宽度,为空时默认为window的宽度 |
-| h    | Number |  否   | 高度,为空时默认为window的高度 |
+| ---- | ------ | ---- | ------------------ |
+| name | String | 是    | 浮动窗口名称             |
+| x    | Number | 否    | x坐标,默认为0           |
+| y    | Number | 否    | y坐标,默认为0           |
+| w    | Number | 否    | 宽度,为空时默认为window的宽度 |
+| h    | Number | 否    | 高度,为空时默认为window的高度 |
 
 
 
@@ -1676,10 +1676,10 @@ uexWindow.alert({
 
 `json`为JSON对象,各字段如下
 
-| 参数名称        | 参数类型   | 是否必选 | 说明                   |
-| ----------- | ------ | ---- | -------------------- |
-| title       | String | 是    | 标题                   |
-| message     | String | 是    | 内容                   |
+| 参数名称         | 参数类型   | 是否必选 | 说明                   |
+| ------------ | ------ | ---- | -------------------- |
+| title        | String | 是    | 标题                   |
+| message      | String | 是    | 内容                   |
 | buttonLabels | String | 是    | 显示在按钮上的文字的集合,中间以逗号隔开 |
 
 callback为Function类型,参数为用户点击的按钮索引
@@ -1715,7 +1715,7 @@ uexWindow.confirm({
 | title        | String | 是    | 标题                           |
 | message      | String | 是    | 对话框内容,不需要时请传空字符串`""`         |
 | defaultValue | String | 是    | 输入框默认文字,不需要时请传空字符串`""`       |
-| buttonLabels  | String | 是    | 显示在按钮上的文字的集合 ,多个按钮之间用逗号`,`分隔 |
+| buttonLabels | String | 是    | 显示在按钮上的文字的集合 ,多个按钮之间用逗号`,`分隔 |
 | hint         | String | 否    | 输入框中的提示文字,在输入框中内容为空时显示       |
 `callback`为Function类型,参数如下:
 
@@ -1855,7 +1855,7 @@ uexWindow.destroyProgressDialog();
 | ------- | ------ | ---- | -------------- |
 | title   | String | 是    | 标题             |
 | cancel  | String | 是    | 显示在取消按钮上的文本    |
-| buttons | Array  | 是    | 按钮列表文字,多个以逗号隔开 |
+| buttons | String | 是    | 按钮列表文字,多个以逗号隔开 |
 
 `callback`为Function类型,参数为用户点击的按钮索引
 
@@ -2883,8 +2883,8 @@ var result=uexWindow.closePluginViewContainer(JSON.stringify(params));
 
 **参数:**
 
-| 参数名称    | 参数类型 | 是否必选 | 说明          |
-| ------- | ---- | ---- | ----------- |
+| 参数名称    | 参数类型   | 是否必选 | 说明          |
+| ------- | ------ | ---- | ----------- |
 | jsonStr | String | 是    | 设置当前展示容器的信息 |
 
 ```
@@ -2988,10 +2988,10 @@ var jsonStr = {
 
 **参数:**  
 
-| 参数名称    | 参数类型 | 是否必选 | 说明 |
-| ------- | ---- | ---- | ----------- |
-| key | String | 是    | 数据的key |
-| value | String | 是    | 数据的值 |
+| 参数名称  | 参数类型   | 是否必选 | 说明     |
+| ----- | ------ | ---- | ------ |
+| key   | String | 是    | 数据的key |
+| value | String | 是    | 数据的值   |
 
 
 **示例:**
@@ -3012,9 +3012,9 @@ var jsonStr = {
 
 **参数:**  
 
-| 参数名称    | 参数类型 | 是否必选 | 说明 |
-| ------- | ---- | ---- | ----------- |
-| key | String | 是    | 数据的key |
+| 参数名称 | 参数类型   | 是否必选 | 说明     |
+| ---- | ------ | ---- | ------ |
+| key  | String | 是    | 数据的key |
 
 **返回值:**
 
@@ -3246,8 +3246,8 @@ function onBounceStateChange(type, state){
 **参数:**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                               |
-| ---- | ------ | ----- | -------------------------------- |
-| data | String |  是   | 消息,postGlobalNotification发送的消息数据 |
+| ---- | ------ | ---- | -------------------------------- |
+| data | String | 是    | 消息,postGlobalNotification发送的消息数据 |
 
 
 
