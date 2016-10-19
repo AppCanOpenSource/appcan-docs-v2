@@ -87,6 +87,33 @@ var data = {
 uexScanner.setJsonData(JSON.stringify(data));
 
 ```
+
+### recognizeFromImage 识别条形码、二维码图片
+
+`var result = uexScanner.recognizeFromImage(imagePath)`
+
+**说明:**
+
+传入条形码、二维码图片路径，同步返回识别结果。图片路径支持http https ,还有 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
+
+**参数:**
+
+| 参数名称   | 参数类型   | 是否必选 | 说明             |
+| ------ | ------ | ---- | -------------- |
+| imagePath | String | 是    | 条形码、二维码图片路径 |
+
+**返回结果:**
+
+| 参数名称  | 类型     | 说明                                  |
+| ----- | ------ | ----------------------------------- |
+| result | String | 识别图片后返回对应的信息 |
+
+**示例:**
+
+```javascript
+ var result = uexScanner.recognizeFromImage("res://scanner.png");
+```
+
 ## 2.2、回调方法
 > ### cbOpen 扫描结果的回调方法
 
@@ -144,10 +171,14 @@ API版本:`uexScanner-3.1.8`
 
 API版本:`uexScanner-3.0.18`
 
-最近更新时间:`2016-7-5`
+最近更新时间:`2016-10-19`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 3.0.22  |新增图像识别接口|
+| 3.0.21  |优化扫描速度，解决图像变形问题|
+| 3.0.20  |修复初始化相机抛出异常，导致应用崩溃的问题|
+| 3.0.19  |修复了某些手机上（小米note）上扫描线drawable固定宽度为0导致的应用程序崩溃|
 | 3.0.18 | 修复了在魅族MX5等手机在不允许camera权限时会挂掉的问题 |
 | 3.0.17 | 修复了当扫描线高度过小时,获取View的高度小于等于0造成的程序崩溃问题 |
 | 3.0.16 | 添加是否显示从相册选择按钮配置开关 |
