@@ -138,7 +138,7 @@ uexScanner.setJsonData(jsonData);
 **示例:**
 
 ```javascript
- var result = uexScanner.uexScanner.recognizeFromImage("res://scanner.png");
+ var result = uexScanner.recognizeFromImage("res://scanner.png");
 ```
 # 3、更新历史
 
