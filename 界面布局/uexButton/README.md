@@ -43,7 +43,8 @@ var param = {
            title: ,
            titleColor: ,
            bgImage: ,
-           textSize:
+           textSize:，
+           isAlwaysInFront：
        }
    }
 ```
@@ -60,6 +61,8 @@ var param = {
 | titleColor | String | 是    | 按钮内容颜色                                   |
 | textSize   | String | 是    | 按钮内容字号                                   |
 | bgImage    | String | 是    | 按钮背景图的路径,支持 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| isAlwaysInFront   | boolean | 否    | 是否置顶（显示在屏幕最上层）                                   |
+
 
 **返回值:**
 
