@@ -88,7 +88,7 @@ uexScanner.setJsonData(JSON.stringify(data));
 
 ```
 
-### recognizeFromImage 识别条形码、二维码图片
+> ### recognizeFromImage 识别条形码、二维码图片
 
 `var result = uexScanner.recognizeFromImage(imagePath)`
 
