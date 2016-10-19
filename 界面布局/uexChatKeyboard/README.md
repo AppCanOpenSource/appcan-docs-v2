@@ -516,7 +516,7 @@ window.uexOnload = function(){
 
 | 参数名称 | 参数类型          | 是否必选 | 说明           |
 | ---- | ------------- | ---- | ------------ |
-| json | JSON String类型 | 是    | 回调数据json格式如下 |
+| json | JSON Object类型 | 是    | 回调数据json格式如下 |
 
 ```
 var json = {
@@ -543,7 +543,7 @@ iOS 3.0.20+
 
 window.uexOnload = function(){
     uexChatKeyboard.onInputKeyword = function(json) {
-    	var keyword = JSON.parse(json).keyword;
+    	var keyword = json.keyword;
     	if(keyword == '@'){
       		var params = {
  	 			keyword : '@',
