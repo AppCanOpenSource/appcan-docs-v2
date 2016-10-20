@@ -86,7 +86,7 @@ uexUmeng.onEvent(eventName, data)
 `uexUmeng.getDeviceInfo();`
 
 **说明**
-获取设备的基本信息，根据用户的需求，可以将某个设备指定为测试设备，测试设备所产生的数据不会污染真实数据。测试设备的配置在http://www.umeng.com/test_devices/new
+获取设备的基本信息，根据用户的需求，可以将某个设备指定为测试设备，测试设备所产生的数据不会污染真实数据。测试设备的配置在http://mobile.umeng.com/test_devices
 **参数**
 
 无
