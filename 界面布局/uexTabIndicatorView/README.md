@@ -132,7 +132,23 @@ var param = {
 uexTabIndicatorView.open(param);
 ```
 
+### 🍭 setVisible 设置隐藏或显示
 
+`uexTabIndicatorView.setVisible(params);`
+
+**说明:**
+
+通过此方法隐藏和显示View.
+
+**参数:**
+
+params 为0或1 ，0为隐藏，1为显示
+
+**示例:**
+
+```javascript
+uexTabIndicatorView.setVisible(1);
+```
 
 ### 🍭 close 关闭
 
