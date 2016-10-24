@@ -44,24 +44,30 @@ var params ={
     bgColor:,
     dividerColor:,
   	indicatorColor:,
+    bindMode:,
+  	multiPopName:,
   	containerId:
 }
 ```
 
 各字段含义如下:
 
-| 参数名称           | 参数类型   | 是否必选 | 说明              |
-| -------------- | ------ | ---- | --------------- |
-| x              | Number | 否    | 距离屏幕左边距离,默认为0   |
-| y              | Number | 否    | 距离屏幕顶部距离,默认为0   |
-| w              | Number | 否    | 宽               |
-| h              | Number | 否    | 高               |
-| bgColor        | String | 否    | 整个view 的背景色     |
-| dividerColor   | String | 否    | 每两个tab之间的间隔线的颜色 |
-| indicatorColor | String | 否    | 滚动指示器的颜色        |
-| containerId    | String | 否    | 容器ID            |
-
+| 参数名称           | 参数类型   | 是否必选 | 说明                              |
+| -------------- | ------ | ---- | ------------------------------- |
+| x              | Number | 否    | 距离屏幕左边距离,默认为0                   |
+| y              | Number | 否    | 距离屏幕顶部距离,默认为0                   |
+| w              | Number | 否    | 宽                               |
+| h              | Number | 否    | 高                               |
+| bgColor        | String | 否    | 整个view 的背景色                     |
+| dividerColor   | String | 否    | 每两个tab之间的间隔线的颜色                 |
+| indicatorColor | String | 否    | 滚动指示器的颜色                        |
+| containerId    | String | 否    | 容器ID （bindMode为0时需要传）           |
+| multiPopName   | String | 否    | multiPop 的name （bindMode为1时需要传） |
+| bindMode       | int    | 否    | 绑定模式 0：与容器绑定，1：与multiPop绑定，默认为0 |
+| titles         | Array  | 是    | 顶部titles，String类型数组             |
 **示例:**
+
+与容器绑定：
 
 ```javascript
 var containerId="123";                       
@@ -87,6 +93,47 @@ var param = {
 };                                           
 uexTabIndicatorView.open(param);                                   
 ```
+与MultiPopover绑定：
+
+```javascript
+var top=1000;
+var tabHeight=150;
+var params ={
+    content: [
+              {
+              inPageName:"p1",
+              inUrl:"http://www.baidu.com",
+              inData:""
+              },
+              {
+              inPageName:"p2",
+              inUrl:"https://www.taobao.com/",
+              inData:""
+              }
+              ]
+};
+
+var paramStr = JSON.stringify(params);
+uexWindow.openMultiPopover(paramStr,"multipop",0,0,top+tabHeight,1080,500,'',0,0);
+uexWindow.setSelectedPopOverInMultiWindow("multipop", 1);
+var param = {
+        x:0,
+        y:top,
+        w:1080,
+        h:tabHeight,
+        textColor:"#F44336",
+        bgColor:"#FFFFFF",
+        multiPopName:"multipop",
+        bindMode:1,
+        dividerColor:"#D32F2F",
+        indicatorColor:"#D32F2F",
+        titles:["baidu","taobao"]
+};
+uexTabIndicatorView.open(param);
+```
+
+
+
 ### 🍭 close 关闭
 
 `uexTabIndicatorView.close();`
