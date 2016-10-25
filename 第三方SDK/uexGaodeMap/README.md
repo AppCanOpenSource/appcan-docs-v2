@@ -37,7 +37,7 @@
 
 # 2、API概述 
 ## 2.1、方法:
-> ###### **open  打开地图**
+> ### open  打开地图
 
 `uexGaodeMap.open(json)`
 
