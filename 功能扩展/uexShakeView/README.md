@@ -36,7 +36,11 @@ var params = {
 	x:,
 	y:,
 	w:,
-	h:
+	h:,
+	backgroundImagePath:,
+	upImagePath:,
+	downImagePath:
+
 }
 ```
 
@@ -48,6 +52,12 @@ var params = {
 | y    | Number | 是    | view距离当前网页顶部的距离(px)  |
 | w    | Number | 是    | view宽度(px)           |
 | h    | Number | 是    | view高度(px)           |
+| backgroundImagePath | String | 否    | 背景图，支持`res://`格式的路径          |
+| upImagePath    | String | 否    |  上半截图片，支持`res://`格式的路径          |
+| downImagePath   | String | 否    | 下半截图片，支持`res://`格式的路径      |
+
+**说明:** 当用户在摇手机的时候，`upImagePath`对应的图片会先向上移动，再向下移动，同时`downImagePath`会先向下移动再向上移动
+
 **示例**
 
 ```
