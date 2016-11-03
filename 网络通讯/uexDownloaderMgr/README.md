@@ -86,7 +86,7 @@ uexDownloaderMgr.setHeaders(1, headJson);
 | ----- | ----- | ----- | ----- |
 | id | Number | 是 | 用户自定义的下载对象唯一标识符 |
 | serverURL | String | 是 | 服务器地址 |
-| savePath | String | 是 | 本地保存地址 |
+| savePath | String | 是 | 本地保存地址,请参考 [Constant](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "Constant") AppCan协议路径 |
 | mode | Number | 是 | 是否支持断点续传,0:不支持,1:支持|
 
 **平台支持:**

@@ -207,7 +207,11 @@ uexXmlHttpMgr.setBody(2, "body content");
 
 **说明:**
 
-设置是否在请求头中加入appVerify字段,字段格式如下`appVerify:md5=appid:appKey:ts；ts=`本次请求的时间戳,这些是插件内部处理。
+设置是否在请求头中加入appVerify字段,字段格式如下
+```
+appVerify:md5=appid:appKey:ts;ts=
+```
+本次请求的时间戳,这些是插件内部处理。
 
 **参数:**
 
