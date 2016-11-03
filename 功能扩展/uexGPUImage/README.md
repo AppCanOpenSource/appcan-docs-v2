@@ -94,15 +94,12 @@ uexGPUImage.open({
 **示例:**
 
 ```javascript
-uexGPUImage.open({
-    path: "res://girl.jpg"
-}, function(error, path) {
-    if (!error) {
-        console.log(path);
-    } else {
-        console.log("user canceled");
-    }
-})
+uexGPUImage.openView({
+  w:720,
+  h:720,
+  type:"InkWell",  
+  path: "res://girl.jpg"
+});
 ```
 
 ### 🍭 closeView 关闭View
