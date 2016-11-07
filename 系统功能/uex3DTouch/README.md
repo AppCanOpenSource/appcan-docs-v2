@@ -228,7 +228,7 @@ API版本: `uex3DTouch-4.0.0`
 
 ### Android
 
-**uex3DTouch目前不支持Android**
+**uex3DTouch不支持Android**
 
 #5、附录
 

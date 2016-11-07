@@ -1,7 +1,7 @@
 [TOC]
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 ## 1.1、说明
-提供聊天输入相关的功能,集成了表情、拍照、从相册选取图片等分享功能,只需简单的widget配置即可实现自定义表情集和分享选项内容.
+提供聊天输入相关的功能,集成了表情、拍照、从相册选取图片等分享功能，支持通过关键字插入内容如评论中@好友功能,只需简单的widget配置即可实现自定义表情集和分享选项内容。具体配置使用详见各接口说明。
 ## 1.2、UI展示
 
 ## 1.3、开源源码
@@ -54,8 +54,8 @@ var viewInfo={
 
 | 字段名称               | 类型     | 是否必选 | 说明                            |
 | ------------------ | ------ | ---- | ----------------------------- |
-| emojicons          | String | 是    | 自定义表情配置文件的widget路径            |
-| shares             | String | 是    | 自定义分享选项配置文件的widget路径          |
+| emojicons          | String | 是    | 自定义表情配置文件的路径res协议，详见配置如下            |
+| shares             | String | 是    | 自定义分享选项配置文件的路径res协议，详见配置如下          |
 | placeHold          | String | 否    | 输入框提示语                        |
 | touchDownImg       | String | 否    | 录音按钮按下时提示控件的背景                |
 | dragOutsideImg     | String | 否    | 按下录音按钮后滑动到录音范围之外时提示控件的背景      |
@@ -68,7 +68,7 @@ var viewInfo={
 | sendBtnTextColor   | String | 否    | 发送按钮文字颜色                      |
 | inputMode          | Number | 否    | 输入框默认输入方式,0-文字输入;1-语音输入.默认为0. |
 
->参数emojicons的自定义表情配置文件为:"res://emojicons/emojicons.xml"[widget路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "widget路径"),详细配置步骤:
+参数emojicons的自定义表情配置文件为:"res://emojicons/emojicons.xml"[res协议路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "res协议路径"),详细配置步骤:
 
 1、在widget的wgtRes目录下创建emojicons目录;
 2、在emojicons目录中放入表情以及删除的图片资源,表情的默认命名格式:
@@ -91,7 +91,7 @@ ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png;
 * 表情目录、图片名以及配置文件名都可以自定义命名,但是必须保
   证配置文件中的图片名与资源图片对应.
 
->参数shares的自定义分享选项配置文件为:"res://shares/shares.xml"[widget路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "widget路径"),详细配置步骤:
+>参数shares的自定义分享选项配置文件为:"res://emojicons/emojicons.xml"[res协议路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "res协议路径"),详细配置步骤:
 
 1、在widget的wgtRes目录下创建shares目录;
 2、在shares中放入分享选项的图片资源,图片的默认命名格式:
@@ -224,25 +224,45 @@ iOS7.0+
 uexChatKeyboard.changeWebViewFrame(600);
 ```
 
-### 🍭 insertAfterAt 添加字符串到@后面
+### 🍭 insertTextByKeyword 通过关键字插入内容
 
-`uexChatKeyboard.insertAfterAt(name)`
+
+`uexChatKeyboard.insertTextByKeyword(jsonStr)`
 
 **说明:**
-
-@好友功能,收到`uexChatKeyboard.onAt`监听后,选择好友.选择完毕后调用此接口添加好友到@后面
+通过关键字插入内容功能。调用此接口之前先监听，监听方法[uexChatKeyboard.onInputKeyword](#onInputKeyword 编辑框输入监测的关键字之后的监听方法 "uexChatKeyboard.onInputKeyword")
+例子:
+@好友功能，收到关键字“@”的监听[uexChatKeyboard.onInputKeyword](#onInputKeyword编辑框输入监测的关键字之后的监听方法"uexChatKeyboard.onInputKeyword")之后，选择好友。选择完毕后调用此接口添加好友到关键字@后面,或替换原有@字符。
 
 **参数:**
 
-| 参数名称 | 参数类型   | 是否必选 | 说明   |
-| ---- | ------ | ---- | ---- |
-| name | String | 是    | 好友昵称 |
+| 参数名称    | 参数类型   | 是否必选 | 说明               |
+| ------- | ------ | ---- | ---------------- |
+| jsonStr | String | 是    | 插入信息参数,json格式如下: |
 
+```
+var jsonStr  = {
+    'keyword' : ,//关键字
+    'insertText' : ,//插入的数据
+    'isReplaceKeyword' : // 是否替换掉关键字,0:不替换;1:替换
+     };
+```
+
+| 参数名称             | 参数类型   | 是否必选 | 说明                  |
+| ---------------- | ------ | ---- | ------------------- |
+| keyword          | String | 是    | 关键字                 |
+| insertText       | String | 是    | 插入的数据               |
+| isReplaceKeyword | Number | 是    | 是否替换掉关键字,0:不替换;1:替换 |
 
 **示例:**
 
 ```javascript
-uexChatKeyboard.insertAfterAt("守望宝宝");
+var params = {
+  	keyword : '@',
+	insertText : '@守望宝宝',
+ 	isReplaceKeyword : 1
+};
+uexChatKeyboard.insertTextByKeyword(JSON.stringify(params));
 ```
 
 
@@ -381,21 +401,43 @@ window.uexOnload = function(){
 }
 ```
 
-### 🍭 onAt 编辑框输入@之后的监听方法
+### 🍭 onInputKeyword 编辑框输入监测的关键字之后的监听方法
 
-`uexChatKeyboard.onAt()`
+``uexChatKeyboard.onInputKeyword(json)`
 
 **参数:**
-无
+
+| 参数名称 | 参数类型          | 是否必选 | 说明           |
+| ---- | ------------- | ---- | ------------ |
+| json | JSON Object类型 | 是    | 回调数据json格式如下 |
+
+```
+var json = {
+    keyword:,//触发的关键字
+}
+```
+
+| 参数名称    | 参数类型   | 是否必选 | 说明     |
+| ------- | ------ | ---- | ------ |
+| keyword | String | 是    | 触发的关键字 |
+
+
 
 **示例:**
 
 ```javascript
-function onAt() {
-    uexChatKeyboard.insertAfterAt("守望宝宝");
-}
 window.uexOnload = function(){
-    uexChatKeyboard.onAt = onAt;
+    uexChatKeyboard.onInputKeyword = function(json) {
+    	var keyword = json.keyword;
+    	if(keyword == '@'){
+      		var params = {
+ 	 			keyword : '@',
+   				insertText : '@守望宝宝',
+ 				isReplaceKeyword : 1
+			};
+        	uexChatKeyboard.insertTextByKeyword(JSON.stringify(params));
+    	}
+	}
 }
 ```
 
