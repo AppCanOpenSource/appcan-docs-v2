@@ -119,7 +119,31 @@ var jsonData = {
 uexScanner.setJsonData(jsonData);
 ```
 
+###  recognizeFromImage 识别条形码、二维码图片
 
+`var result = uexScanner.recognizeFromImage(imagePath)`
+
+**说明:**
+
+传入条形码、二维码图片路径，同步返回识别结果。图片路径支持http https ,还有 wgt:// wgts:// res:// file://  路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes
+
+**参数:**
+
+| 参数名称   | 参数类型   | 是否必选 | 说明             |
+| ------ | ------ | ---- | -------------- |
+| imagePath | String | 是    | 条形码、二维码图片路径 |
+
+**返回结果:**
+
+| 参数名称  | 类型     | 说明                                  |
+| ----- | ------ | ----------------------------------- |
+| result | String | 识别图片后返回对应的信息 |
+
+**示例:**
+
+```javascript
+ var result = uexScanner.recognizeFromImage("res://scanner.png");
+```
 # 3、更新历史<ignore>
 
 ### iOS<ignore>

@@ -65,31 +65,66 @@ Path Types
 
 #2、API概述		<ignore>
 ##2.1、初始化<ignore>
-***
-###  registerApp(param)  初始化
-f
+
+###  registerApp 初始化
+
+`registerApp(param, callbackFunction)`
+
+**说明:**
+初始化  
+
+**参数**
+
+| 参数名称             | 参数类型     | 是否必选 | 说明                               |
+| ---------------- | -------- | ---- | -------------------------------- |
+| param            | JSON String   | 是    | 配置参数 |
+| callbackFunction | Function | 是    | 回调函数,用来获取操作结果                 |
+
 param为json字符串
 
 ```
-  var param{
+var param = {
 	appKey:,//区别app的标识   
 	apnsCertName:,//iOS中推送证书名称(仅iOS)
 };
 ```
-###  cbRegisterApp(param)  初始化
 
-param为json字符串
+各字段含义如下:
+
+| 参数名称           | 是否必选 | 说明                      |
+| ----------------  | ---- | -------------------------------- |
+| appKey            | 是    | 区别app的标识 |
+| apnsCertName | 是    | iOS中推送证书名称(仅iOS)  |
+
+**回调参数:**
 
 ```
-  var param{
-	result:,//true ,false
-	error:,//result为false时才有,0:已经初始化,1:参数错误
+var callbackFunction = function(error){}
+```
+
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 0表示注册成功,非0表示注册失败  |
+
+**示例:**
+
+```
+var param={
+		appKey:"8ce4f10b741de88e2b6bd86fb9c27cc3",
+		apnsCertName:"ENTERPRISE",//iOS中推送证书名称(仅iOS)
 };
+uexNIM.registerApp(JSON.stringify(param), function(error) {
+		if (!error) {
+				alert('registerApp success');
+		} else {
+				alert('registerApp fail');
+		}
+});
 ```
 
 ##2.2、登录与登出<ignore>
-***
-###  login(param)   手动登录
+
+###  login(param,function(error, data){})  手动登录
 
 param为json字符串
 
@@ -99,16 +134,19 @@ var param = {
 	password:,//密码
 };
 ```
+**回调函数** 
+```
+var callbackFunction = function(error, data){}
+```
 
-### cbLogin(param)  手动登录回调
-
-param为json字符串
+| 参数名称  | 类型     | 说明                |
+| ----- | ------ | ----------------- |
+| error | Number | 0 表示成功, 其它表示失败，error代码及说明见下方  |
+| data | 对象| 成功时返回userId, 格式如下：  |
 
 ```
 var param = {
-	result:,//true ,false
-	error:,//失败错误码
-	userId:,//成功返回userId,失败返回为空
+	userId:,//成功返回userId
 };
 ```
 | error | 错误信息|
@@ -116,6 +154,7 @@ var param = {
 | 408 | 请求超时.引起这个错误的原因往往是客户端网络状 况不良,请检查网络状况 |
 | 415 | 连接服务器出错 |
 | 302 | 认证失败.登录的用户名和密码不匹配.请检查输入的 用户名密码是否和服务器设置的有出入 |
+
 ###  autoLogin(param)  自动登录
 
 NIM SDK 有两种自动登录的场景:
@@ -168,14 +207,12 @@ var param = {
 | type | Android:1, iOS:2, PC:4, WEB:16, REST API:32 |
 | os | 操作系统 |
 | timestamp | 登录时间 |
-### logout()   退出登录
-### cbLogout()   退出登录回调
+### logout(function(error, msg)   退出登录
 
-```
-var param = {
-	error:,失败错误码,成功为空
-};
-```
+| 参数 | 参数详情 |
+| ----- | ----- |
+| error | 0:成功， 1：失败 |
+| msg | 失败时的错误消息 |
 
 ##2.3、基础消息功能<ignore>
 ***
@@ -307,7 +344,7 @@ var param = {
 	progress:,//发送进度(0~1)
 };
 ```
-### cbDidSendMessage(param) 消息发送完毕回调
+### onMessageSend(param) 消息发送完毕回调
 
 如果消息发送成功 error为空,反之 error 会被填充具体的失败原因.
 param为json字符串
@@ -356,47 +393,67 @@ var param = {
 };
 ```
 
-### allRecentSession 获取最近会话
+### allRecentSession(function(error, data){}) 获取最近会话
 
 获取最近会话,一般用于首页显示会话列表 .开发者无法自己添加最近消息,最近消息会在发送或者收到消息的时候自动添加,并触发增加最近会话的回调.
-### cbAllRecentSession 获取最近会话会话的回调
-返回最近会话信息组成的一列数组sessions,
+
+| 参数 | 参数详情 |
+| ----- | ----- |
+| error | 0:成功， 1：失败 |
+| data | 成功时返回的最近会话信息数据信息，JSON 对象格式; 失败时则返回错误信息 |
+
+data为最近会话信息数据信息时，格式如下：
 
 ```
-var param = {sessions:[{
-	lastMessage:,//最后一条消息
-	unreadCount:,//未读消息数
-	sessionId:,//当前会话id,仅iOS支持
-	sessionType:,//当前会话type
-	},{
-	}
-]};
+var data = {
+	sessions:[{
+		lastMessage:,//最后一条消息
+		unreadCount:,//未读消息数
+		sessionId:,//当前会话id,仅iOS支持
+		sessionType:,//当前会话type
+		},
+		{
+		}
+	]
+};
 ```
 
 ##2.4、历史记录<ignore>
 ***
-### fetchMessageHistory(param) 云端记录 
+### fetchMessageHistory(param, function(error, data) {}) 云端记录 
 
 支持从云信服务器上远程获取之前的聊天历史记录.
 
-```
-var param = {
-	sessionId:, //会话ID,如果当前session为team,则sessionId为teamId,如果是P2P则为对方帐号
-	sessionType:, //会话类型,当前仅支持P2P(单聊)和Team(群聊)
-	messageId:,//起始查询消息的消息Id
-	limit:,//检索条数, 最大限制100条
-	startTime:,//起始时间,默认为0
-	endTime:,//结束时间,默认为0,
-	order:,//检索顺序,0:从新消息往旧消息查询,1:从旧消息往新消息查询
-	sync:,//同步数据: 是否在远程获取消息成功之后同步到本地数据库,如果选择同步,则同步之后不会触发消息添加的回调.默认同步(true),false为不同步.
-};
-```
-### cbFetchMessageHistory(param) 云端记录回调 
+**参数**
 
 ```
 var param = {
-	messages:,//message组成的数组
-	error:,//错误码,如果成功则error为空
+    sessionId:, //会话ID,如果当前session为team,则sessionId为teamId,如果是P2P则为对方帐号
+    sessionType:, //会话类型,当前仅支持P2P(单聊)和Team（群聊）
+    messageId:,//起始查询消息的消息Id
+    limit:,//检索条数, 最大限制100条
+    startTime:,//起始时间,默认为0
+    endTime:,//结束时间,默认为0,
+    order:,//检索顺序,0:从新消息往旧消息查询,1:从旧消息往新消息查询
+    sync:,//同步数据: 是否在远程获取消息成功之后同步到本地数据库,如果选择同步,则同步之后不会触发消息添加的回调。默认同步(true),false为不同步。
+};
+```
+
+
+**回调函数参数**
+
+| 参数 | 参数详情 |
+| ----- | ----- |
+| error | 0:成功， 1：失败 |
+| data | 成功时返回的聊天历史记录数据信息，JSON 对象格式; 失败时则返回错误信息 |
+
+data为聊天历史记录数据信息时，格式如下：
+
+```
+var data = {
+	messages:[ 
+	
+	]
 };
 ```
 
@@ -406,26 +463,34 @@ var param = {
 多媒体管理 NIMMediaManager 提供了音频播放、高清语音录制的功能.需要注意的是 NIM SDK 中的语音播放和录制仅支持 aac ,如果需要更多格式的支持,APP 需要自己实现,但并不推荐.
 ### switchAudioOutputDevice  切换音频的输出设备
 
+**说明**：同步返回切换是否成功, 返回值为boolean类型
+
 ```
 var param = {
 	outputDevice:,//0:听筒,1:扬声器
 };
 ```
-### cbSwitchAudioOutputDevice  切换音频的输出设备回调
+
+**示例**
 
 ```
 var param = {
-	result:,//true,false
+    outputDevice: 1,
+    //0:听筒,1:扬声器
 };
+var result = uexNIM.switchAudioOutputDevice(JSON.stringify(param));
 ```
+
 ### isPlaying  判断是否正在播放音频
-### cbIsPlaying(param)  判断是否正在播放音频回调
+**说明**：同步返回是否正在播放音频状态, 返回值为boolean类型
 
+**示例**
+
+``` 
+var isPlaying = uexNIM.isPlaying();
+console.log('isPlaying:' + isPlaying);
 ```
-var param = {
-	result:,//true or false
-};
-```
+
 ### playAudio(param)  播放音频
 
 ```
@@ -433,22 +498,25 @@ var param = {
 	filePath:,//音频文件的路径
 };
 ```
-### cbBeganPlayAudio(param)  开始播放音频回调
+
+播放状态的监听见`onBeganPlayAudio`, `onCompletedPlayAudio`
+
+### onBeganPlayAudio(param) 开始播放
 
 ```
 var param = {
 	filePath:,//音频文件的路径
-	error:,错误码,如果成功则error为空
 };
 ```
-### cbCompletedPlayAudio(param)  播放音频结束回调
+### onCompletedPlayAudio(param) 播放结束
 
 ```
 var param = {
 	filePath:,//音频文件的路径
-	error:,错误码,如果成功则error为空
 };
 ```
+
+
 ### stopPlay  停止播放音频
 
 该操作会触发回调cbCompletedPlayAudio.
@@ -464,30 +532,23 @@ var param = {
 * 高级群:
 高级群在权限上有更多的限制,权限分为群主、管理员、以及群成员.
 
-### allMyTeams  获取群组
+### allMyTeams(function(error,data)  获取群组
 
 NIM SDK 在程序启动时会对本地群信息进行同步,所以只需要调用本地缓存接口获取群就可以了. SDK 提供了批量获取自己的群接口、以及根据单个群 ID 查询的接口.同样 SDK 也提供了远程获取群信息的接口.
-### cbAllMyTeams(param)  获取群组回调
+
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data|成功时返回的具体数据, JSON对象； 失败时返回错误信息|
 
 ```
-var param = {
-	teams:,  //team array,team内详细参数见cbTeamById下表;
+var data = {
+	teams:,  //team array,team内详细参数如下
 };
 ```
-### teamById(param)  本地获取群组信息
 
-```
-var param = {
-	teamId:,//群组Id
-};
-```
-### cbTeamById(param)  获取群组信息回调
-
-```
-var param = {
-	team:,//team内详细参数见下表;
-};
-```
 | team参数 | 参数信息|
 | ----- | ----- |
 | teamId | 群ID |
@@ -504,7 +565,7 @@ var param = {
 | clientCustomInfo | 群客户端自定义信息,应用方可以自行拓展这个字段做个性化配置,客户端可以修改这个字段 |
 | notifyForNewMsg | 群消息是否需要通知,这个设置影响群消息的APNS推送 |
 
-### fetchTeamInfo(param)  远程获取群组信息
+### teamById(param, function(error,data) {})  本地获取群组信息
 
 ```
 var param = {
@@ -512,15 +573,44 @@ var param = {
 };
 ```
 
-### cbFetchTeamInfo(param)  远程获取群组信息回调
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data|成功时返回的Team信息, JSON对象，数据结构参看allMyTeams中的定义； 失败时返回错误信息|
+data格式如下：
+```
+var data = {
+	team:,
+}
+```
+
+
+
+### fetchTeamInfo(param, function(error, data){})  远程获取群组信息
 
 ```
 var param = {
-	team:,//team内详细参数见cbTeamById表;
-	error:,//获取成功,error为空.
+	teamId:,//群组Id
 };
 ```
-### createTeam(param)  创建群组
+
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data|成功时返回的Team信息, JSON对象，数据结构参看allMyTeams中的定义； 失败时返回错误信息|
+data格式如下：
+
+```
+var param = {
+	team:,
+};
+```
+
+### createTeam(param, function(error, data) {})  创建群组
 
 ```
 var param = {
@@ -536,15 +626,22 @@ var param = {
 ```
 在创建群组成功后,邀请的群成员会收到系统通知,可以从 [onReceiveSystemNotification](#onReceiveSystemNotification内置系统通知监听 "onReceiveSystemNotification") 回调中获取相关的信息.
 
-### cbCreateTeam(param)  创建群组回调
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data|成功时返回的Team信息, JSON对象，数据结构参看allMyTeams中的定义； 失败时返回错误信息|
+data格式如下：
 
 ```
-var param = {
+var data = {
 	teamId:,//群Id
 	error:,//错误信息,如果成功则error为空
 };
 ```
-### addUsers(param)  邀请用户入群
+
+### addUsers(param, function(error, msg) {})  邀请用户入群
 
 请求完成后,如果是普通群,被邀请者将直接入群;如果是高级群,云信服务器会下发一条系统消息到目标用户,目标用户可以选择同意或者拒绝入群.
 
@@ -556,16 +653,15 @@ var param = {
 };
 ```
 
-### cbAddUsers(param)  邀请用户入群回调
+**回调函数参数**
 
-```
-var param = {
-	error:,//发送成功,error为空. 
-};
-对于android,如果返回的error为810,表示发出邀请成功了,但是还需要对方同意
-```
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|msg |失败时的错误信息|
 
-### acceptInviteWithTeam(param)  同意群邀请(仅限高级群)
+
+### acceptInviteWithTeam(param, function(error, msg) {})  同意群邀请(仅限高级群)
 
 被邀请通知通过 [onReceiveSystemNotification](#onReceiveSystemNotification内置系统通知监听 "onReceiveSystemNotification") 收到系统通知接口监听
 
@@ -576,15 +672,16 @@ var param = {
 };
 ```
 
-### cbAcceptInviteWithTeam(param)  同意群邀请回调(仅限高级群)
+**回调函数参数**
 
-```
-var param = {
-	error:,//发送成功,error为空.
-};
-```
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|msg |失败时的错误信息|
 
-### rejectInviteWithTeam(param)  拒绝群邀请(仅限高级群)
+
+
+### rejectInviteWithTeam(param, function(error, msg) {})  拒绝群邀请(仅限高级群)
 
 ```
 var param = {
@@ -593,16 +690,16 @@ var param = {
 	rejectReason:,//拒绝原因
 };
 ```
+**回调函数参数**
 
-### cbRejectInviteWithTeam(param)  拒绝群邀请回调(仅限高级群)
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|msg |失败时的错误信息|
 
-```
-var param = {
-	error:,//发送成功,error为空.
-};
-```
 
-### applyToTeam(param)  主动申请入群
+
+### applyToTeam(param, function(error,data) {})  主动申请入群
 
 请求完成后,如果是普通群,将直接入群;如果是高级群,云信服务器会下发一条系统消息给群管理员,管理员可以选择通过或者拒绝申请.
 
@@ -613,19 +710,24 @@ var param = {
 };
 ```
 
-### cbApplyToTeam(param)  主动申请入群回调
+**回调函数参数**
 
-请求完成后,如果是普通群,将直接入群;如果是高级群,云信服务器会下发一条系统消息给群管理员,管理员可以选择通过或者拒绝申请.
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
+
+data的数据格式如下:
 
 ```
 var param = {
-	error:,//发送成功,error为空.
-	applyStatus:,//0:无效状态,1:已经在群里,2:申请等待通过.
+	error:,//错误代码
+	applyStatus:,//1:已经在群里,2:申请等待通过.
 };
 
 ```
 
-### passApplyToTeam(param)  通过申请(仅限高级群)
+### passApplyToTeam(param, function(error, data){})  通过申请(仅限高级群)
 
 ```
 var param = {
@@ -633,12 +735,18 @@ var param = {
 	userId:,//用户Id
 };
 ```
+**回调函数参数**
 
-### cbPassApplyToTeam(param)  发送通过申请回调(仅限高级群)
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
+
+data的数据格式如下:
 
 ```
-var param = {
-	error:,//发送成功,error为空.
+var data = {
+	error:,//错误代码
 	applyStatus:,//0:无效状态,1:已经在群里
 };
 
@@ -653,16 +761,21 @@ var param = {
 	rejectReason:,//拒绝原因
 };
 ```
+**回调函数参数**
 
-### cbRejectApplyToTeam(param)  发送拒绝申请回调(仅限高级群)
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
 
 ```
-var param = {
-	error:,//发送成功,error为空.
+var data = {
+	error:,//错误信息
 };
+
 ```
 
-### updateTeamName(param)  修改群名称
+### updateTeamName(param, function(error, data){})  修改群名称
 
 ```
 var param = {
@@ -670,16 +783,21 @@ var param = {
 	teamName:,//群组名称
 };
 ```
+**回调函数参数**
 
-### cbUpdateTeamName(param)  修改群名称回调
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
 
 ```
-var param = {
-	error:,//错误码,修改成功error为空.
+var data = {
+	error:,//错误信息
 };
 ```
 
-### updateTeamIntro(param)  修改群介绍(仅限高级群)
+
+### updateTeamIntro(param, function(error, data){})  修改群介绍(仅限高级群)
 
 ```
 var param = {
@@ -688,15 +806,19 @@ var param = {
 };
 ```
 
-### cbUpdateTeamIntro(param)  修改群介绍回调(仅限高级群)
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
 
 ```
-var param = {
-	error:,//修改成功,error为空.
+var data = {
+	error:,//错误信息
 };
 ```
-
-### updateTeamAnnouncement(param)  修改群公告(仅限高级群)
+### updateTeamAnnouncement(param, function(error, data){})  修改群公告(仅限高级群)
 
 ```
 var param = {
@@ -705,15 +827,20 @@ var param = {
 };
 ```
 
-### cbUpdateTeamAnnouncement(param)  修改群公告回调(仅限高级群)
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
 
 ```
-var param = {
-	error:,//修改成功,error为空.
+var data = {
+	error:,//错误信息
 };
 ```
 
-### updateTeamJoinMode(param)  修改群验证方式(仅限高级群)
+### updateTeamJoinMode(param , function(error, data){})  修改群验证方式(仅限高级群)
 
 ```
 var param = {
@@ -722,29 +849,20 @@ var param = {
 };
 ```
 
-### cbUpdateTeamJoinMode(param)  修改群验证方式回调(仅限高级群)
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
 
 ```
-var param = {
-	error:,//成功error为空.
+var data = {
+	error:,//错误信息
 };
 ```
-### addManagersToTeam(param)  提升管理员(仅限高级群),参数中的用户必须是已经加入了该群
 
-```
-var param = {
-	teamId:,//群Id
-	users:,//userId组成的数组
-};
-```
-### cbAddManagersToTeam(param)  提升管理员回调(仅限高级群)
-
-```
-var param = {
-	error:,//错误码,成功error为空.
-};
-```
-### removeManagersFromTeam(param)  移除管理员(仅限高级群)
+### addManagersToTeam(param, , function(error, data){})  提升管理员(仅限高级群),参数中的用户必须是已经加入了该群
 
 ```
 var param = {
@@ -752,14 +870,43 @@ var param = {
 	users:,//userId组成的数组
 };
 ```
-### cbRemoveManagersFromTeam(param)  移除管理员回调(仅限高级群)
+
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
+
+```
+var data = {
+	error:,//错误信息
+};
+```
+
+### removeManagersFromTeam(param, function(error, data) {})  移除管理员(仅限高级群)
 
 ```
 var param = {
-	error:,//错误码,成功error为空.
+	teamId:,//群Id
+	users:,//userId组成的数组
 };
 ```
-### transferManagerWithTeam(param)  转让群(仅限高级群)
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
+
+```
+var data = {
+	error:,//错误信息
+};
+```
+
+
+### transferManagerWithTeam(param,function(error, data) {})  转让群(仅限高级群)
 
 ```
 var param = {
@@ -768,14 +915,21 @@ var param = {
 	isLeave:,//是否同时离开群组,true离开
 };
 ```
-### cbTransferManagerWithTeam(param)  转让群回调(仅限高级群)
+
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
 
 ```
-var param = {
-	error:,//错误码,成功error为空.
+var data = {
+	error:,//错误信息
 };
 ```
-### fetchTeamMembers(param)  获取群成员
+
+### fetchTeamMembers(param, function(error, data) {})  获取群成员
 
 获取到的群成员只有云信服务器托管的群相关数据,需要开发者结合自己管理的用户数据进行界面显示
 
@@ -784,14 +938,18 @@ var param = {
 	teamId:,//群Id
 };
 ```
-### cbFetchTeamMembers(param)  获取群成员回调
 
-获取到的群成员只有云信服务器托管的群相关数据,需要开发者结合自己管理的用户数据进行界面显示
+**回调函数参数**
 
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |JSON对象类型，成功时返回成员信息，失败时返回错误信息|
+
+成功时data的数据结构：
 ```
-var param = {
+var data = {
 	members:,//member组成的数组,member详细参数见下表
-	error:,//错误码,成功error为空
 };
 ```
 | member | 参数信息|
@@ -802,7 +960,16 @@ var param = {
 | type | 群成员类型,0:普通群员,1:群拥有者,2:群管理员,3:申请加入用户 |
 | nickname | 群昵称 |
 
-### quitTeam(param)  用户退群
+失败时data的数据结构：
+
+```
+var data = {
+	error:,//
+};
+```
+
+
+### quitTeam(param, function(error, data) {})  用户退群
 
 用户退群成功后,相关会话信息仍然会保留,但不再能接收关于此群的消息.
 
@@ -811,14 +978,21 @@ var param = {
 	teamId:,//群Id
 };
 ```
-### cbQuitTeam(param)  用户退群回调
+
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
 
 ```
-var param = {
-	error:,//错误码,成功error为空.
+var data = {
+	error:,//错误信息
 };
 ```
-### kickUsers(param)  踢出用户
+
+### kickUsers(param, function(error, data){})  踢出用户
 
 被踢出的用户相关会话信息仍然会保留,但不再能接收关于此群的消息.
 当前android只支持每次踢一个用户,故参数users对应的只能是一个用户id.
@@ -828,14 +1002,22 @@ var param = {
 	users:,userId组成的数组
 };
 ```
-### cbKickUsers(param)  踢出用户回调
+
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
 
 ```
-var param = {
-	error:,//错误码,成功error为空.
+var data = {
+	error:,//错误信息
 };
 ```
-### dismissTeam(param)  解散群
+
+
+### dismissTeam(param, function(error,data) {})  解散群
 
 群解散后,所有群用户关于此群会话会被保留,但是不能能够在此群会话里收发消息
 
@@ -844,14 +1026,22 @@ var param = {
 	teamId:,//群Id
 };
 ```
-### cbDismissTeam(param)  解散群回调
+
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
 
 ```
-var param = {
-	error:,//错误码,成功error为空.
+var data = {
+	error:,//错误信息
 };
 ```
-### updateNotifyStateForTeam(param)  修改群消息通知状态
+
+
+### updateNotifyStateForTeam(param, function(error, data) {})  修改群消息通知状态
 
 群组通知是一种消息类型 ,用户在创建群或者进入群成功之后,任何关于群的变动,云信服务器都会下发一条群通知消息.群通知消息和其他消息一样,可从提供的消息查询接口中获取.
 
@@ -867,11 +1057,16 @@ var param = {
 	notify:,//notify为 false 时,群内消息将不会有 APNS 通知
 };
 ```
-### cbUpdateNotifyStateForTeam(param)  修改群消息通知状态回调
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
 
 ```
-var param = {
-	error:,//成功error为空.
+var data = {
+	error:,//错误信息
 };
 ```
 
@@ -899,38 +1094,42 @@ var param = {
 | read | 是否已读 |
 
 
-### fetchSystemNotifications(param)  获取本地存储的内置系统通知
+### fetchSystemNotifications(param,function(error, data) {})  获取本地存储的内置系统通知
 
 ```
 var param = {
 	limit:,//最大获取数
 };
 ```
-### cbFetchSystemNotifications(param)  获取本地存储的内置系统通知回调
+
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |成功时，返回系统通知消息；失败时返回错误信息|
 
 ```
-var param = {
+var data = {
 	notifications:,// 内置系统通知array
 };
 ```
 
-### allNotificationsUnreadCount  获取本地存储的内置系统未读数
-### cbAllNotificationsUnreadCount(param)  获取本地存储的内置系统未读数回调
 
+### allNotificationsUnreadCount  获取本地存储的内置系统未读数
+**说明**： 同步返回消息数，返回值是number类型
+**示例**
 ```
-var param = {
-	count:,// 
-};
+var count = uexNIM.allNotificationsUnreadCount();
 ```
 ### deleteAllNotifications  删除本地存储的全部内置系统通知
 ### markAllNotificationsAsRead  标记本地存储的全部内置系统通知为已读
-### cbMarkAllNotificationsAsRead  标记本地存储的全部内置系统通知为已读回调
+**说明**： 同步返回操作是否成功。返回值为boolean型
+**示例**
+```
+var result = uexNIM. markAllNotificationsAsRead();
+```
 
-```
-var param = {
-	result:,// 
-};
-```
 ### sendCustomNotification(param)  发送自定义通知(客户端)
 
 除了内置系统通知外,NIM SDK 也额外提供了自定义系统给开发者,方便开发者进行业务逻辑的通知.这个通知既可以由客户端发起也可以由开发者服务器发起.
@@ -950,13 +1149,9 @@ var param = {
 };
 ```
 客户端发起的自定义通知目前支持自定义如下字段:通知内容,推送文案(如果没有则不进行 APNS 推送),是否只发给在线用户.最后一个字段的意义在于区分自定义通知的使用场景.sendToOnlineUsersOnly选择只发给在线用户,当目标用户不在线时这条通知会被云信服务器丢弃,这种实现比较适合发送即时通知,如正在输入.反之云信服务器会缓存当前通知(有上限),并在目标用户上线后推送给目标用户.
-### cbSendCustomNotification(param)  发送自定义通知回调(客户端)
 
-```
-var param = {
-	error:,// 
-};
-```
+**说明**： 同步返回发送是否成功，返回boolean类型数据
+
 ### onReceiveCustomSystemNotification(param)  接受自定义通知监听
 
 除了内置系统通知外,NIM SDK 也额外提供了自定义系统给开发者,方便开发者进行业务逻辑的通知.这个通知既可以由客户端发起也可以由开发者服务器发起.
@@ -1031,7 +1226,7 @@ var param = {
 ```
 
 ## 2.9 聊天室<ignore>
-###  enterChatRoom(param)  用户加入聊天室
+###  enterChatRoom(param, function(error, data) {})  用户加入聊天室
 
 用户加入聊天室
 
@@ -1045,13 +1240,19 @@ var param = {
 };
 ```
 
-### cbEnterChatRoom(param)  用户加入聊天室回调
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时的错误信息|
 
 ```
-var param = {
-	error:,//错误码,成功error为空.
+var data = {
+	error:,// 失败时的错误信息
 };
 ```
+
 
 ###  exitChatRoom(param)  用户退出聊天室
 
@@ -1063,7 +1264,7 @@ var param = {
 };
 ```
 
-###  getChatRoomHistoryMsg(param)  获取聊天室历史消息
+###  getChatRoomHistoryMsg(param, function(error, data) {})  获取聊天室历史消息
 
 聊天室支持获取云端消息记录的功能.以 startTime(单位毫秒) 为时间戳,拉取 limit 条消息.拉取到的消息中也包含成员操作的通知消息.
 
@@ -1074,17 +1275,29 @@ var param = {
 	limit// 消息条数,非必须,默认为10
 };
 ```
+**回调函数参数**
 
-###  cbGetChatRoomHistoryMsg 获取聊天室历史消息的回调
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |成功时返回message 列表，失败时返回错误信息|
 
+成功时data的数据结构:
 ```
-var param = {
-	messages:,//message组成的数组
-	error:,//错误码,如果成功则error为空
-};
+var data = {
+	messages:, //message组成的数组
+}
 ```
 
-###  getChatRoomInfo(param)  获取聊天室信息
+失败时:
+```
+var data = {
+	error:, //错误码
+}
+```
+
+
+###  getChatRoomInfo(param, function(error, msg) {])  获取聊天室信息
 
 聊天室支持获取云端消息记录的功能.以 startTime(单位毫秒) 为时间戳,拉取 limit 条消息.拉取到的消息中也包含成员操作的通知消息.
 
@@ -1094,14 +1307,27 @@ var param = {
 };
 ```
 
-###  cbGetChatRoomInfo 获取聊天室信息的回调
+**回调函数参数**
 
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|msg |成功时返回聊天室信息，失败时返回错误信息|
+
+成功时msg的数据结构:
 ```
-var param = {
-	data:,//聊天室信息
-	error:,//错误码,如果成功则error为空
-};
+var msg = {
+	data:, //聊天室信息
+}
 ```
+
+失败时:
+```
+var msg = {
+	error:, //错误码
+}
+```
+
 
 data的结构为:
 
@@ -1119,7 +1345,7 @@ data的结构为:
 
 ```
 
-###  getChatRoomMembers 查询聊天室中的成员
+###  getChatRoomMembers(param, function(error, msg) {}) 查询聊天室中的成员
 ```
 var param = {
 	roomId:,//聊天室Id, 必须
@@ -1130,13 +1356,21 @@ var param = {
 };
 ```
 
-###  cbGetChatRoomMembers  返回聊天室中的成员
+
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|msg |成功时返回聊天室中的成员信息，失败时返回错误信息|
+
+
 ```
-var param = {
-	data:,//聊天室中成员列表信息
-	error:,//错误码,如果成功则error为空
-};
+var msg = {
+	data:, //聊天室成员信息
+}
 ```
+
 data的结构为:
 
 ```
@@ -1158,7 +1392,16 @@ data的结构为:
 ]
 ```
 
-###  getChatRoomMembersByIds  根据id获取聊天室成员
+失败时:
+
+```
+var msg = {
+	error:, //错误码
+}
+```
+
+
+###  getChatRoomMembersByIds(param, function(error,data){})  根据id获取聊天室成员
 
 通过用户id 批量获取指定成员在聊天室中的信息
 
@@ -1169,13 +1412,14 @@ var param = {
 };
 ```
 
-###  cbGetChatRoomMembers  返回聊天室中的成员
-```
-var param = {
-	data:,//聊天室中成员列表信息
-	error:,//错误码,如果成功则error为空
-};
-```
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |成功时返回聊天室中的成员信息，失败时返回错误信息|
+
+data数据结构参看`getChatRoomMembers `
 
 ###  onChatRoomStatusChanged 聊天室在线状态变化的监听
 
@@ -1192,7 +1436,7 @@ var param = {
 | 2 | 进入聊天室失败 |
 | 3 | 和聊天室失去链接 |
 
-###  addUserToBlackList 加入/移出黑名单
+###  addUserToBlackList(param, function(error, data) {}) 加入/移出黑名单
 
 将用户加入或移出黑名单单.加入或移出黑名单时,都会收到聊天室通知消息
 ```
@@ -1202,16 +1446,17 @@ var param = {
 	isAdd:,//默认true, 即将用户加入黑名单,非必须.
 };
 ```
+**回调函数参数**
 
-###  cbAddUserToBlackList 加入/移出黑名单的回调
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时错误信息|
 
-```
-var param = {
-	error:,//错误码,成功error为空.
-};
-```
 
-###  muteUser 加入用户到禁言名单/取消某用户的禁言
+
+
+###  muteUser(param, function(error, data){}) 加入用户到禁言名单/取消某用户的禁言
 
 加入用户到禁言名单/取消某用户的禁言时,都会收到聊天室通知消息
 
@@ -1222,16 +1467,16 @@ var param = {
 	isMute:,//默认true, 即将用户加入到禁言名单,非必须.
 };
 ```
+**回调函数参数**
 
-###  cbMuteUser 加入用户到禁言名单/取消某用户的禁言的回调
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时错误信息|
 
-```
-var param = {
-	error:,//错误码,成功error为空.
-};
-```
 
-###  setAdmin 设置/取消管理员
+
+###  setAdmin(param, function(error, data){}) 设置/取消管理员
 
 将某用户设置为管理员或者取消某用户的管理员资格, 操作成功后会收到聊天室通知消息
 
@@ -1242,16 +1487,16 @@ var param = {
 	isAdmin:,//默认true, 将用户设置为管理员,非必须.
 };
 ```
+**回调函数参数**
 
-###  cbSetAdmin 设置/取消管理员的回调
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时错误信息|
 
-```
-var param = {
-	error:,//错误码,成功error为空.
-};
-```
 
-###  setNormal 设置/移除普通成员
+
+###  setNormal(param, function(error, data){}) 设置/移除普通成员
 
 即将游客变为固定成员中的普通成员身份.可以将游客设置为普通成员或者移除某个普通成员,将其变成游客
 
@@ -1263,15 +1508,15 @@ var param = {
 };
 ```
 
-###  cbSetNormal 设置/移除普通成员的回调
+**回调函数参数**
 
-```
-var param = {
-	error:,//错误码,成功error为空.
-};
-```
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时错误信息|
 
-###  kickMemberFromChatRoom 从聊天室中移除某个用户
+
+###  kickMemberFromChatRoom(param, function(error, data) {}) 从聊天室中移除某个用户
 
 踢出成员,仅管理员可以踢;如目标是管理员仅创建者可以踢.
 
@@ -1283,13 +1528,13 @@ var param = {
 };
 ```
 
-###  cbKickMemberFromChatRoom 从聊天室中移除某个用户的回调
+**回调函数参数**
 
-```
-var param = {
-	error:,//错误码,成功error为空.
-};
-```
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时错误信息|
+
 
 ###  onChatRoomKickOutEvent 被踢出聊天室的监听
 
@@ -1316,7 +1561,7 @@ var param = {
 ***
 网易云信提供了用户帐号资料管理.以下几个接口仅当选择云信托管用户资料时有效,如果开发者不希望云信获取自己的用户数据,则需自行维护用户资料.
 
-### userInfo(param) 获取本地用户资料
+### userInfo(param, function(error, data) {}) 获取本地用户资料
 
 用户资料除自己之外,不保证其他用户资料实时更新.其他用户数据更新时机为:
 
@@ -1333,10 +1578,17 @@ var param = {
 	userId:, //用户帐号
 }
 ```
-### cbUserInfo(param) 获取本地用户资料回调
 
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |成功时返回本地用户资料，失败时返回错误信息|
+
+成功时`data`的数据结构
 ```
-var param = {
+var data = {
 	userId:,
 	alias:,//备注名,长度限制为128个字符
 	notifyForNewMsg:,//是否需要消息提醒
@@ -1344,16 +1596,6 @@ var param = {
 	userInfo:,//详细参数见下表
 }
 ```
-| 参数 | 参数详情 |
-| ------ | ------ |
-| nickName | 用户昵称 |
-| avatarUrl | 用户头像 |
-| sign | 用户签名 |
-| gender | 用户性别0:未知性别,1:男,2:女 |
-| email | 邮箱 |
-| birth | 生日 |
-| mobile | 电话号码 |
-| ext | 用户自定义扩展字段 |
 
 ### onUserInfoChanged(param) 用户资料更新监听
 
@@ -1364,7 +1606,7 @@ var param = {
 	user:, //user对象, 对象类型
 }
 ```
-### fetchUserInfos(param) 获取服务器用户资料
+### fetchUserInfos(param, function(error, data) {]) 获取服务器用户资料
 
 此接口可以批量从服务器获取用户资料,出于用户体验和流量成本考虑,不建议应用频繁调用此接口.对于用户数据实时性要求不高的页面,应尽量调用读取本地缓存接口.当获取用户成功后,会触发监听onUserInfoChanged.
 
@@ -1375,14 +1617,22 @@ var param = {
 	userIds:,//用户id列表
 }
 ```
-### cbFetchUserInfos(param) 获取服务器用户资料回调
+
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |成功时返回本地用户资料，失败时返回错误信息|
+成功时`data`的数据结构
 
 ```
-var param = {
+var data = {
 	users:,//user array用户信息列表
 }
 ```
-### updateMyUserInfo(param)   更新当前用户信息
+
+### updateMyUserInfo(param, function(error, data){})   更新当前用户信息
 
 param为json字符串
 
@@ -1403,30 +1653,36 @@ var param = {
 
 	注:此方法主要为了在苹果推送时能够推送昵称(nickname)而不是userid,一般可以在登陆成功后从自己服务器获取到个人信息,然后拿到nick更新到网易云信服务器.并且,在个人信息中如果更改个人的昵称,也要把网易云信服务器更新下nickname 防止显示差异.
 	
-### cbUpdateMyUserInfo(param)   更新当前用户信息回调
+**回调函数参数**
 
-```
-var param = {
-	error:,
-}
-```
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时错误信息|
+
 
 ##2.11、用户关系托管<ignore>
 ***
 网易云信提供了用户用户关系管理,以及对用户会话的消息设置.在云信中,不是好友也允许聊天.用户关系如果不托管给云信,开发者需要自己在应用服务器维护.
-### myFriends   获取好友列表
-### cbMyFriends(param)   获取好友列表回调
+### myFriends(function(error,data){})   获取好友列表
 
 好友列表有本地缓存,缓存会在手动/自动登录后与服务器自动进行同步更新.接口返回的是 User 列表. User 封装了开发者向云信托管的好友ID,对此好友的会话设置(是否需要消息提醒,是否是拉黑用户等), 以及用户的详细信息 UserInfo (需要将用户信息交给云信托管).
 
-param为json字符串
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |成功时返回用户信息列表，失败时错误信息|
+
+成功时`data`的数据结构：
 
 ```
-var param = {	
+var data = {	
 	users:,//用户信息列表
 };
 ```
-### requestFriend(param)   好友请求
+### requestFriend(param, function(error, data){})   好友请求
 
 好友请求包括请求添加好友以及同意/拒绝好友请求两种;
 验证方式有不需要验证方式(一旦请求后双方直接互为好友)和需要验证的两种.
@@ -1440,13 +1696,15 @@ var param = {
 	message:,//自定义验证消息
 };
 ```
-### cbRequestFriend(param)   好友请求发送回调
 
-```
-var param = {	
-	error:,
-};
-```
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时错误信息|
+
+
 ### onFriendChanged(param)   好友状态发生变化监听
 
 param为json字符串
@@ -1456,7 +1714,7 @@ var param = {
 	user:,
 };
 ```
-### deleteFriend(param)   删除好友
+### deleteFriend(param，function(error, data){})   删除好友
 
 解除成功后,会同时修改本地的缓存数据,并触发onFriendChanged
 
@@ -1466,30 +1724,33 @@ var param = {
 	userId:,
 };
 ```
+**回调函数参数**
 
-### cbDeleteFriend(param)   删除好友回调
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时错误信息|
 
-```
-var param = {	
-	error:,
-};
-```
-
-### myBlackList(param)   获取黑名单成员列表
+### myBlackList(param, function(error, data){})   获取黑名单成员列表
 
 云信中,黑名单和好友关系是互相独立的,即修改好友关系不会影响黑名单关系,同时,修改黑名单也不会对好友关系进行操作.
 黑名单列表有本地缓存,缓存会在手动/自动登录后与服务器自动进行同步更新.接口返回的是User 列表
 
-### cbMyBlackList(param)   获取黑名单成员列表回调
+**回调函数参数**
 
-param为json字符串
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |成功时返回黑名单列表，失败时返回错误信息|
+
+成功时`data`的数据结构
 
 ```
 var param = {	
 	users:,//用户信息列表
 };
 ```
-### addToBlackList(param)   添加用户到黑名单
+### addToBlackList(param, function(error, data) {})   添加用户到黑名单
 
 拉黑成功后,会同时修改本地缓存,并触发回调onBlackListChanged
 
@@ -1501,14 +1762,15 @@ var param = {
 };
 ```
 
-### cbAddToBlackList(param)   添加用户到黑名单回调
+**回调函数参数**
 
-```
-var param = {	
-	error:,
-};
-```
-### removeFromBlackBlackList(param)   将用户从黑名单移除
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时返回错误信息|
+
+
+### removeFromBlackBlackList(param, function(error, data){})   将用户从黑名单移除
 
 移除成功后,会同时修改本地缓存,并触发回调onBlackListChanged
 
@@ -1519,15 +1781,16 @@ var param = {
 	userId:,
 };
 ```
-### cbRemoveFromBlackBlackList(param)   将用户从黑名单移除
+**回调函数参数**
 
-```
-var param = {	
-	error:,
-};
-```
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时返回错误信息|
+
+
 ### onBlackListChanged   用户黑名单更新监听
-### isUserInBlackList(param)   将判断用户是否在自己的黑名单内
+### isUserInBlackList(param, function(error, data) {})   将判断用户是否在自己的黑名单内
 
 此接口是根据本地缓存数据来判断是否拉黑的,在调用时请保证本地缓存是正确的(登录后有正常完成数据同步).
 
@@ -1538,31 +1801,35 @@ var param = {
 	userId:,
 };
 ```
-### cbIsUserInBlackList(param)   将判断用户是否在自己的黑名单内回调
+**回调函数参数**
 
-param为json字符串
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |成功时返回具体业务数据，失败时返回错误信息|
+成功时`data`为boolean类型数据，true 表示在黑名单中，false 不在黑名单中
 
-```
-var param = {	
-	result:, //true,false
-};
-```
-### myMuteUserList   获取静音成员列表
+### myMuteUserList(function(error, data){})   获取静音成员列表
 
 云信中,可以单独设置是否开启某个用户的消息提醒,即对某个用户静音.静音关系和好友关系是互相独立的,修改好友关系不会影响静音关系,同时,修改静音关系也不会对好友关系进行操作.
 
 静音列表有本地缓存,缓存会在手动/自动登录后与服务器自动进行同步更新.接口返回的是 User 列表. User 封装了开发者向云信托管的好友ID,对此好友的会话设置(是否需要消息提醒,是否是拉黑用户等), 以及用户的详细信息 UserInfo (需要将用户信息交给云信托管).
-### cbMyMuteUserList(param)   获取静音成员列表回调
 
-param为json字符串
+**回调函数参数**
+
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |成功时返回具体业务数据，失败时返回错误信息|
+成功时`data`的数据结构如下：
 
 ```
-var param = {	
+var data = {	
 	users:, //用户信息列表
 };
 ```
 
-### updateNotifyStateForUser(param)   设置消息提醒
+### updateNotifyStateForUser(param, function(error, data) {})   设置消息提醒
 
 设置成功之后,同时更新本地缓存数据.
 
@@ -1575,19 +1842,15 @@ var param = {
 };
 ```
 
-### cbUpdateNotifyStateForUser(param)   设置消息提醒回调
+**回调函数参数**
 
-设置成功之后,同时更新本地缓存数据.
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |失败时返回错误信息|
 
-param为json字符串
 
-```
-var param = {	
-	error:,//
-};
-```
-
-### notifyForNewMsgForUser(param)   判断是否需要消息通知
+### notifyForNewMsgForUser(param, funtion(error, data){})   判断是否需要消息通知
 
 此接口是根据本地缓存数据来判断是否是拉黑的,在调用时请保证本地缓存是正确的(登录后有正常完成数据同步).当设置成功后,会触发监听onUserInfoChanged
 
@@ -1598,15 +1861,14 @@ var param = {
 	userId:, //
 };
 ```
-### cbNotifyForNewMsgForUser(param)   判断是否需要消息通知回调
+**回调函数参数**
 
-param为json字符串
+|参数|说明|
+|----|----|
+|error|0:成功， 1: 失败|
+|data |操作成功返回具体的业务信息， 失败时返回错误信息|
 
-```
-var param = {	
-	result:, //true,false
-};
-```
+成功时`data`是boolean类型数据，true代表需要消息通知，false表示不需要消息通知
 
 
 #3、附录<ignore>
@@ -1688,7 +1950,7 @@ var param = {
 
 API版本: `uexNIM-4.0.0`
 
-最近更新时间:`2016-01-16`
+最近更新时间:`2016-9-25`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
@@ -1697,7 +1959,7 @@ API版本: `uexNIM-4.0.0`
 
 API版本: `uexNIM-4.0.0`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-9-25`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
