@@ -12,57 +12,63 @@ typealias MarkDownEditResult = (result: MarkDownSource,hasChanged: Bool)
 
 struct PluginMarkDown {
     struct Constant {
-        static let gitPath       = "/Users/appcan_git/dev/appcan_git/appcan-docs-v2"
+        static let gitPath       = "/Users/appcan_git/dev/appcan_git/appcan-docs-v2/"
         static let pluginType    = ["系统功能","网络通讯","界面布局","功能扩展","第三方SDK","应用引擎"]
-        static let ignorePlugins = []
+        static let ignorePlugins = [String]()
     }
     
     let name: String
     let path: String
     var source: MarkDownSource?{
         get{
-            return try? String(contentsOfFile: path).componentsSeparatedByString("\n")
+            return try? String(contentsOfFile: path).components(separatedBy: "\n")
         }
     }
     init?(name aName: String,path aPath: String){
-        guard NSFileManager.defaultManager().fileExistsAtPath(aPath) else{
+        guard FileManager.default.fileExists(atPath: aPath) else{
             return nil
         }
         name = aName
         path = aPath
     }
     static func allAvailable() -> [PluginMarkDown]{
-        let fm = NSFileManager.defaultManager()
-        guard let allPaths = try? fm.contentsOfDirectoryAtPath(Constant.gitPath) else{
+        let fm = FileManager.default
+        guard let allPaths = try? fm.contentsOfDirectory(atPath: Constant.gitPath) else{
             fatalError()
         }
-        let result: [PluginMarkDown] = allPaths
-                .filter{Constant.pluginType.contains($0)}
-                .map{Constant.gitPath.stringByAppendingPathComponent($0)}
-                .flatMap{path in
-                    try? fm
-                        .contentsOfDirectoryAtPath(path)
-                        .map{path.stringByAppendingPathComponent($0)}
+        
+        let pluginPaths: [String] = allPaths
+            .filter{Constant.pluginType.contains($0)}
+            .map{Constant.gitPath.appending($0)}
+            .reduce([]){ arr,dir in
+                var tmp = [String]()
+                if let subPaths = try? fm
+                        .contentsOfDirectory(atPath: dir)
+                        .map({ str in
+                            return dir.stringByAppendingPathComponent(str)
+                        }){
+                    tmp = subPaths
                 }
-                .flatten()
-                .flatMap{ path in
-                    let name = path.lastPathComponent()
-                    
-                    let newPath = path.stringByAppendingPathComponent("README.md")
-                    return PluginMarkDown(name: name, path: newPath)
-                }
+                return arr + tmp
+            }
+        let result: [PluginMarkDown] = pluginPaths
+            .flatMap{ path in
+                let name = path.lastPathComponent()
+                let newPath = path.stringByAppendingPathComponent("README.md")
+                return PluginMarkDown(name: name, path: newPath)
+        }
         return result
     }
 }
 
 struct functionEmoji{
-    private struct Emoji {
+    fileprivate struct Emoji {
         static let normal = "🍭"
         static let new = "🆕"
         static let deprecated = "🚫"
         static let allEmoji = [normal,new,deprecated]
     }
-    static func isFunctionLine(str: String) -> Bool {
+    static func isFunctionLine(_ str: String) -> Bool {
         guard str.hasPrefix("###") && !str.hasPrefix("####") else{
             return false
         }
@@ -76,28 +82,30 @@ struct functionEmoji{
 }
 
 extension String{
-    func stringByAppendingPathComponent(str: String) -> String {
-        return (self as NSString).stringByAppendingPathComponent(str)
+    func stringByAppendingPathComponent(_ str: String) -> String {
+        return (self as NSString).appendingPathComponent(str)
     }
     func lastPathComponent() -> String {
         return (self as NSString).lastPathComponent
     }
     func stringByDeletingLastPathComponent() -> String {
-        return (self as NSString).stringByDeletingLastPathComponent
+        return (self as NSString).deletingLastPathComponent
     }
     func removeBlankPrefix() -> String {
         var newStr = self;
         while newStr.hasPrefix(" ") {
-            newStr = newStr.substringFromIndex(newStr.startIndex.advancedBy(1));
+            
+            newStr = newStr.substring(from: newStr.index(startIndex, offsetBy: 1)) //newStr.substringFromIndex(newStr.startIndex.advancedBy(1));
         }
         return newStr;
     }
-
+    
     
     func removePoundPrefix() -> String {
         var newStr = self;
         while newStr.hasPrefix("#") {
-            newStr = newStr.substringFromIndex(newStr.startIndex.advancedBy(1));
+            newStr = newStr.substring(from: newStr.index(startIndex, offsetBy: 1));
+            
         }
         return newStr;
     }
@@ -108,16 +116,23 @@ for md in PluginMarkDown.allAvailable(){
     guard let source = md.source else{
         continue
     }
+    
+    
     var editedSource: MarkDownSource = source.flatMap{
-        var line = $0
+        
+        var line: String = $0
         let ignoreMark = "<ignore>"
-        let cleanedLine = (line as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) as String
+        
+        
+        let cleanedLine = (line as NSString).trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines) as String
         if cleanedLine == "[TOC]" {
             return nil
         }
         
+        
+        
         if line.hasSuffix(ignoreMark){
-            line = line.substringToIndex(line.endIndex.advancedBy(-ignoreMark.characters.count));
+            line = line.substring(to: line.index(line.endIndex , offsetBy: -ignoreMark.characters.count))
         }
         if !line.removeBlankPrefix().hasPrefix("#"){
             return line
@@ -125,7 +140,8 @@ for md in PluginMarkDown.allAvailable(){
         if functionEmoji.isFunctionLine(line){
             var lineStr = line
             for emoji in functionEmoji.Emoji.allEmoji{
-                lineStr = lineStr.stringByReplacingOccurrencesOfString(emoji, withString: "")
+                
+                lineStr = lineStr.replacingOccurrences(of: emoji, with: "")
             }
             return lineStr
         }
@@ -142,14 +158,14 @@ for md in PluginMarkDown.allAvailable(){
         .stringByAppendingPathComponent("引擎插件API")
         .stringByAppendingPathComponent(type)
         .stringByAppendingPathComponent(md.name + ".md")
-    let fm = NSFileManager.defaultManager()
-    if !fm.fileExistsAtPath(requiredPath) {
-            fm.createFileAtPath(requiredPath, contents: nil, attributes: nil);
+    let fm = FileManager.default
+    if !fm.fileExists(atPath: requiredPath) {
+        fm.createFile(atPath: requiredPath, contents: nil, attributes: nil);
     }
     do{
         try editedSource
-            .joinWithSeparator("\n")
-            .writeToFile(requiredPath, atomically: true, encoding: NSUTF8StringEncoding)
+            .joined(separator: "\n")
+            .write(toFile: requiredPath, atomically: true, encoding: String.Encoding.utf8)
     }catch{
         exit(1)
     }
