@@ -2174,6 +2174,8 @@ uexBaiduMap.onReceiveLocation = function(data){
 
  status:(Number类型) 必选 线路规划搜索结果.0-表示成功，非0-表示失败
 
+**示例**
+
 ```javascript
 uexBaiduMap.onSearchRoutePlan = function(status){
 	alert(status);
