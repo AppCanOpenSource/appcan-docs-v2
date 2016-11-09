@@ -2168,11 +2168,17 @@ uexBaiduMap.onReceiveLocation = function(data){
 
 ### 🍭 onSearchRoutePlan 线路规划搜索结果的监听
 
-`uexBaiduMap.onSearchRoutePlan(id)`
+`uexBaiduMap.onSearchRoutePlan(status)`
 
 **参数**
 
- id:(Number类型) 必选 线路规划id.
+ status:(Number类型) 必选 线路规划搜索结果.0-表示成功，非0-表示失败
+
+```javascript
+uexBaiduMap.onSearchRoutePlan = function(status){
+	alert(status);
+}
+```
 
 ### 🍭 onZoomLevelChangeListener 缩放级别改变时,获取缩放级别和中心点的监听方法 
 
