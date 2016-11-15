@@ -91,5 +91,5 @@ API版本:`uexTouchID-3.0.1`
 
 ### Android
 
-**uexTouchID目前不支持Android**
+**uexTouchID不支持Android**
 

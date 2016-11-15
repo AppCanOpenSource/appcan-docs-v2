@@ -40,6 +40,7 @@ jsonData={
     titleColor:,//按钮内容颜色
     textSize:,//按钮内容字号
     bgImage:,//按钮背景图
+    isAlwaysInFront:,//是否置顶(显示在最顶层)
 }
 ```
 

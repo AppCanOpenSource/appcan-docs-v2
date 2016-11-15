@@ -382,5 +382,5 @@ API版本:`uexKeyChain-3.0.2`
 
 ### Android
 
-**uexKeyChain目前不支持Android**
+**uexKeyChain不支持Android**
 

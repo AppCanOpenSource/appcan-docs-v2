@@ -484,5 +484,5 @@ API版本:`uexInAppPurchase-3.0.4`
 
 ### Android
 
-**uexInAppPurchase目前不支持Android**
+**uexInAppPurchase不支持Android**
 
