@@ -28,50 +28,36 @@
 			font-size:1.2em;
 		}
 	</style>
-    <script src="js/zy_control.js">
-    </script>
-    <script src="js/zy_click.js">
-    </script>
     <script type="text/javascript">
-    window.uexOnload = function() {
-            
-        uexImage.onPickerClosed=function(info){
-                alert(info);
-        }
-        uexImage.onBrowserClosed=function(info){
-            alert(info);
-        }
-        uexImage.onCropperClosed=function(info){
-            alert(info);
-        }
-        uexImage.cbSaveToPhotoAlbum=function(info){
-            alert(info);
-        }
-        
-            
-    }
-    
-    
+
+
     
     function openPicker(){
-        var data={
-            min:2,
-            max:3,
-            title:"ttttt",
+        var data = {
+            min:1,
+            max:2,
             quality:0.8,
             //usePng:true,
             detailedInfo:true
         }
-        var json=JSON.stringify(data);
-
-        uexImage.openPicker(json);
+        var json = JSON.stringify(data);
+        uexImage.openPicker(json,function(info){
+                        if(info.isCancelled){
+                            alert("cancelled!");
+                        }else{
+                            alert(info.data);
+                            if(info.detailedImageInfo){
+                                alert(JSON.stringify(info.detailedImageInfo));
+                            }
+                        }
+                    });
     }
     
     function openBrowser(){
-        var data ={
+        var data = {
             displayActionButton:true,
             displayNavArrows:true,
-            enableGrid:true,
+            enableGrid:false,
             //startOnGrid:true,
             startIndex:2,
             data:["res://photo1.jpg",
@@ -85,32 +71,52 @@
                   desc:"22222222222222"
                   },
                   {
-                  src:"http://it-eproducts.com/images/3-1347760443.jpg",
+                  src:"http://bizhi.33lc.com/uploadfile/2014/0729/20140729112727686.jpg",
                   thumb:"res://photo4t.jpg",
                   desc:"22222222222222"
                   }]
         }
-        var json=JSON.stringify(data);
-        
-        uexImage.openBrowser(json);
+
+        var json = JSON.stringify(data);
+        uexImage.openBrowser(json,function(){
+                                alert("browser close!");
+                             });
     }
+    
     function openCropper(){
-        var data={
+        var data = {
             //src:"res://photo5.jpg",
             mode:2
         }
-        var json=JSON.stringify(data);
-        uexImage.openCropper(json);
+        var json = JSON.stringify(data);
+        uexImage.openCropper(json,function(info){
+                                if(info.isCancelled){
+                                    alert("cancelled!");
+                                }else{
+                                    alert(info.data);
+                                }
+                             });
     }
     
     function saveToPhotoAlbum(){
-        var data={
-            localPath:"res://photo4.jpg",
-            extraInfo:"wwwwww"
-        }
-        var json=JSON.stringify(data);
-        alert("xx");
-        uexImage.saveToPhotoAlbum(json);
+        
+        var data = {
+            localPath:"res://photo4.jpg"
+        };
+        var json = JSON.stringify(data);
+        uexImage.saveToPhotoAlbum(json,function(info){
+                                    if(info.isSuccess){
+                                        alert("储存成功!");
+                                    }else{
+                                        alert("储存失败:" + info.errorStr);
+                                    }
+                                  });
+         
+    }
+    
+    function clearOutputImages(){
+        var ret = uexImage.clearOutputImages();
+        alert(ret);
     }
     
 		</script>
@@ -129,7 +135,7 @@
                 <input type="button" value="打开浏览器" onclick="openBrowser();"/>
                 <input type="button" value="打开裁剪器" onclick="openCropper();"/>
                 <input type="button" value="储存图片到相册" onclick="saveToPhotoAlbum();"/>
-                <input type="button" value="清除缓存的图片文件" onclick="uexImage.clearOutputImages();"/>
+                <input type="button" value="清除缓存的图片文件" onclick="clearOutputImages();"/>
 	        </div>
 	    </div>
 	</div>

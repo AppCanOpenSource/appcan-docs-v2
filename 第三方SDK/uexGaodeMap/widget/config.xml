@@ -5,7 +5,7 @@
 	<author email="3g2win@mail.com">3g2win</author>
 	<icon src="icon.png"></icon>
 	<license href="http://3g2win.com"></license>
-	<content src="uexGaodeMap.html" encoding="utf-8"></content>
+	<content src="uexGaodeMap_content.html" encoding="utf-8"></content>
 	<logserverip>192.168.1.28</logserverip>
 	<obfuscation>false</obfuscation>
 	<updateurl>http://192.168.1.28:8080/widget/update</updateurl>

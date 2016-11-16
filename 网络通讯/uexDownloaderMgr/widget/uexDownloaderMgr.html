@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport"
+    content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+    <link rel="stylesheet" href="css/ui-res.css">
+    <link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript">
+    
+    var downloader = null;
+    function download() {
+        downloader = uexDownloaderMgr.create();
+        if(!downloader){
+            alert("创建失败!");
+            return;
+        }
+        alert("创建成功");
+        var headJson = JSON.stringify({
+          myHeader:"myHeaderValue"
+        });
+        uexDownloaderMgr.setHeaders(downloader, headJson);
+        uexDownloaderMgr.download(downloader, 
+            document.getElementById('downloadPath').value, 
+            document.getElementById('savedPath').value, 
+            1,
+            function(fileSize, percent, status){
+              switch (status) {
+                  case 0:
+                  document.getElementById('percentage').innerHTML = "文件大小：" + fileSize + "字节<br>下载进度：" + percent;
+                  return;
+                  break;
+                  case 1:
+                  alert("下载完成");
+                  break;
+                  case 2:
+                  alert("下载失败");
+                  break;
+              }
+              uexDownloaderMgr.closeDownloader(downloader)
+          });
+  
+    }
+    window.uexOnload = function() {
+    }
+    
+    function closeDownload() {
+        alert("closeDownloader:" + uexDownloaderMgr.closeDownloader(downloader));
+    }
+
+    function getInfo() {
+        var info = uexDownloaderMgr.getInfo(document.getElementById('downloadPath').value);
+        document.getElementById('fileInfo').innerHTML = "文件路径：" + info.savePath + "<br>文件大小：" + info.fileSize + "<br>已下载：" + info.currentSize + "<br>下载时间：" + info.lastTime;
+    }
+    function cancelDownload() {
+        var path = document.getElementById('downloadPath').value;
+        alert("cancelDownload:" + uexDownloaderMgr.cancelDownload(path, 0));
+        
+    }
+    </script>
+</head>
+<body class="um-vp " ontouchstart>
+    <div class="conbor">
+        <div class="consj">
+            <span>下载地址：</span>
+            <input class="textbox" id="downloadPath" type="text" value="http://newdocx.appcan.cn/images/u11.png" >
+            <span>保存地址：</span>
+            <input class="textbox" id="savedPath" type="text" value="wgt://data/down/a.apk" >
+            <input  class="btn" type="button" value="下载文件" onclick="download();">
+            <span>文件下载状态</span>
+            <div class="tcxx" id="percentage"></div>
+            <span>结束下载</span>
+            <input  class="btn" type="button" value="取消下载" onclick="cancelDownload();">
+            <input  class="btn" type="button" value="结束下载" onclick="closeDownload();">
+            <span>得到下载信息</span>
+            <input  class="btn" type="button" value="得到下载信息" onclick="getInfo();">
+            <span>文件信息</span>
+            <div class="tcxx" id="fileInfo"></div>
+            <br>
+        </div>
+    </div>
+</body>
+<script></script>
+</html>

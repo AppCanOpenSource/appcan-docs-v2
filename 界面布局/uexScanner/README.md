@@ -12,37 +12,63 @@
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=184_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.  
+
+
 # 2、API概览
 
 ## 2.1、方法
-> ### open 启动扫描
+### 🍭 open 启动扫描
 
-`uexScanner.open()`
+`uexScanner.open(callbackFunction)`
 
 **说明:**
 
-开启扫描功能,当扫描窗口开启后会回调[cbOpen](#cbOpen 扫描结果的回调方法 "cbOpen")方法。
+开启扫描功能,当扫描完成后会执行回调函数
 
 **参数:**
 
-无
+| 参数名称             | 参数类型     | 是否必选 | 说明         |
+| ---------------- | -------- | ---- | ---------- |
+| callbackFunction | Function | 是    | 扫描成功后的回调函数 |
 
-**平台支持:**
+**回调参数:**
 
-Android 2.2+
-iOS 6.0+
+```javascript
+var callbackFunction = function(error,data){}
+```
 
-**版本支持:**
+| 参数名称  | 类型     | 说明                                  |
+| ----- | ------ | ----------------------------------- |
+| error | Number | 扫描结果,0-成功,非0-失败,打开失败通常是因为没有开启摄像头权限. |
+| data  | Object | 扫描成功的数据,形式如下:                       |
 
-3.0.0+
-
+```javascript
+var data = {
+    code:, 
+    type:
+}
+```
 **示例:**
 
-```
-uexScanner.open();
+```javascript
+var callback = function(error,data) {
+  if(!error){
+    alert("data:" + JSON.stringify(data));
+  }else{
+    alert("failed!");
+  }
+};
+uexScanner.open(callback);
 ```
 
-> ### setJsonData 设置数据
+### 🍭 setJsonData 设置数据
 
 `uexScanner.setJsonData(params)`
 
@@ -53,42 +79,43 @@ uexScanner.open();
 
 **参数:**
 
-```
+| 参数名称   | 参数类型   | 是否必选 | 说明             |
+| ------ | ------ | ---- | -------------- |
+| params | Object | 是    | 接口所需相关数据,形式见下: |
+
+```javascript
 var params = {
-    "lineImg": , //扫描时移动的光线,可选
-    "pickBgImg": , //扫描区域边框图片, 可选
-    "tipLabel": ,  //扫描区下部提示语,可选
-    "title": ,//扫描界面顶部标题 (仅iOS支持),可选
-    "charset": ,//设置字符编码,可选
-    "isGallery": ,//新增字段,用来控制是否显示右上角的从相册扫描功能,0表示不显示,非0或者不传表示显示
+    lineImg: ,
+    pickBgImg: ,
+    tipLabel: ,
+    title: ,
+    charset:
 }
 ```
 
-**平台支持:**
+各字段含义如下:
 
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-3.0.0+
+| 字段名称      | 类型     | 是否必选     | 说明       |
+| --------- | ------ | -------- | -------- |
+| lineImg   | String | 否        | 扫描时移动的光线 |
+| pickBgImg | String | 否        | 扫描区域边框图片 |
+| tipLabel  | String | 否        | 扫描区下部提示语 |
+| title     | String | 否,仅iOS支持 | 扫描界面顶部标题 |
+| charset   | String | 否        | 设置字符编码   |
 
 **示例:**
 
+```javascript
+var jsonData = {
+  lineImg:"res://line.png",
+  pickBgImg:"res://pick_bg.png",
+  tipLabel:"对准二维码/条形码,即可自动扫描",
+  title:"扫一下"
+};
+uexScanner.setJsonData(jsonData);
 ```
 
-var data = {
-            lineImg:"res://line.png",
-            pickBgImg:"res://pick_bg.png",
-            tipLabel:"对准二维码/条形码,即可自动扫描",
-            title:"扫一下",
-            isGallery:"0"
-        }; 
-uexScanner.setJsonData(JSON.stringify(data));
-
-```
-
-> ### recognizeFromImage 识别条形码、二维码图片
+### 🍭 recognizeFromImage 识别条形码、二维码图片
 
 `var result = uexScanner.recognizeFromImage(imagePath)`
 
@@ -113,88 +140,22 @@ uexScanner.setJsonData(JSON.stringify(data));
 ```javascript
  var result = uexScanner.recognizeFromImage("res://scanner.png");
 ```
-
-## 2.2、回调方法
-> ### cbOpen 扫描结果的回调方法
-
-`uexScanner.cbOpen(opId,dataType,data)`
-
-**参数:**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId| Number| 是 | 操作ID,open失败时为1,正常时为0,失败时一般是用户禁止了APP摄像头权限 |
-| dataType|Number | 是 | 参数类型详见[CONTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONTANT")中CallbackdataType数据类型 |
-| data|JSONString | 是 | 扫描结果,摄像头打开失败时此参数无效。(code:扫描结果数据；type:条形码/二维码类型) |
-
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-**版本支持**
-
-3.0.0+
-
-**示例**
-
-```
-function ScannerSuccessCallBack(opCode, dataType, data) {
-    alert(data);
-}
-window.uexOnload = function(){
-    uexScanner.cbOpen = ScannerSuccessCallBack;
-}
-```
-
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexScanner-3.1.8`
+API版本: `uexScanner-4.0.0`
 
-最近更新时间:`2016-7-5`
+最近更新时间:`2016-6-11`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.1.8 | 解决相机权限受限APP闪退的问题 |
-| 3.1.7 | 修改为ios7.0以上调用系统库扫描 |
-| 3.1.6 | 修复横屏扫描时图像显示异常的BUG |
-| 3.1.5 | 添加可选参数charset,支持GBK编码的二维码 |
-| 3.1.4 | 重构:改用ZXing识别二维码;添加IDE支持 |
-| 3.0.3 | 修改二维码扫描UI图片 |
-| 3.0.2 | 修改资源图片 |
-| 3.0.1 | UI适配iOS7以下系统 |
-| 3.0.0 | 二维码插件UI优化 |
+| 历史发布版本 | 更新内容                      |
+| ------ | ------------------------- |
 
 ### Android
 
-API版本:`uexScanner-3.0.18`
+API版本: `uexScanner-4.0.0`
 
-最近更新时间:`2016-10-19`
+最近更新时间:`2016-6-11`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.22  |新增图像识别接口|
-| 3.0.21  |优化扫描速度，解决图像变形问题|
-| 3.0.20  |修复初始化相机抛出异常，导致应用崩溃的问题|
-| 3.0.19  |修复了某些手机上（小米note）上扫描线drawable固定宽度为0导致的应用程序崩溃|
-| 3.0.18 | 修复了在魅族MX5等手机在不允许camera权限时会挂掉的问题 |
-| 3.0.17 | 修复了当扫描线高度过小时,获取View的高度小于等于0造成的程序崩溃问题 |
-| 3.0.16 | 添加是否显示从相册选择按钮配置开关 |
-| 3.0.15 | 添加charset字段设置编码 |
-| 3.0.14 | 调整扫描框为正方形 |
-| 3.0.13 | 拍照权限被禁止情况处理 |
-| 3.0.12 | 去掉读取联系人权限 |
-| 3.0.11 | 添加扫描本地二维码图片功能 |
-| 3.0.10 | 二维码优化 |
-| 3.0.9 | 优化UI效果 |
-| 3.0.8 | ZBar更新UI,增加setJsonData接口 |
-| 3.0.7 | 修复uexScanner扫码画面颠倒问题 |
-| 3.0.6 | 修复插件包打包错误问题 |
-| 3.0.5 | 优化扫描界面。提供下载:[旧版二维码](/docAttach/975/uexScanner-3.0.5.zip "旧版二维码") |
-| 3.0.4 | CreateBarCode不能调用问题 |
-| 3.0.3 | 新增生成条形码和二维码接口 |
-| 3.0.2 | 修复手动输入条形码崩溃问题 |
-| 3.0.1 | 修复资源问题 |
-| 3.0.0 | 条形码二维码扫描功能插件 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |

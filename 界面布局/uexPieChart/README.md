@@ -2,7 +2,7 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
  旋转饼状图功能插件
 ## 1.1、说明
- 旋转饼状图功能插件。
+ 旋转饼状图功能插件.
 ## 1.2、公告 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fnew.gif)]() 
 此插件官方停止维护(**插件源码已经开放**),请开发者及时做好更新准备,欢迎使用新插件uexChart,详情查看对应文档
 ## 1.3、UI展示
@@ -14,7 +14,7 @@
 # 2、API概览
 ## 2.1、方法
 
-> ### open 打开饼状图
+### 🍭 open 打开饼状图
 
 `uexPieChart.open(id,x,y,w,h)`
 
@@ -49,7 +49,7 @@ iOS6.0+
     uexPieChart.open(1,100,500,800,800);
 ```
 
-> ### close 关闭饼状图
+### 🍭 close 关闭饼状图
 
 `uexPieChart.close()`
 
@@ -76,7 +76,7 @@ iOS6.0+
     uexPieChart.close();
 ```
 
-> ### setJsonData 设置饼状图的数据源
+### 🍭 setJsonData 设置饼状图的数据源
 
 `uexPieChart.setJsonData(jsonStr)`
 
@@ -159,7 +159,7 @@ iOS6.0+
     uexPieChart.setJsonData(JSON.stringify(jsonStr));
 ```
 ## 2.2、回调方法
-> ### cbOpen 打开饼状图的回调方法
+### 🍭 cbOpen 打开饼状图的回调方法
 
 `uexPieChart.cbOpen(opId,dataType,data)`
 
@@ -191,7 +191,7 @@ iOS6.0+
 ```
 
 ## 2.3、监听方法
-> ### onTouchUp 手指离开时的监听方法
+### 🍭 onTouchUp 手指离开时的监听方法
 
 `uexPieChart.onTouchUp(opId,dataType,data)`
 
@@ -221,7 +221,7 @@ iOS6.0+
         console.log("onTouchUp:" + data);
     }
 ```
-> ### onData 旋转时的监听方法
+### 🍭 onData 旋转时的监听方法
 
 `uexPieChart.onData(opId,dataType,data)`
 
@@ -256,24 +256,18 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexPieChart-3.0.3`
+API版本: `uexPieChart-4.0.0`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.3 | 添加IDE支持 |
-| 3.0.2 | 使用新版Xcode重新编译,支持arm64 |
-| 3.0.1 | 统一回调方法名,统一回调参数 |
-| 3.0.0 | 旋转饼状图功能插件 |
 
 ### Android
 
-API版本:`uexPieChart-3.0.1`
+API版本: `uexPieChart-4.0.0`
 
 最近更新时间:`2015-11-06`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.1 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.0 | 旋转饼状图功能插件 |
