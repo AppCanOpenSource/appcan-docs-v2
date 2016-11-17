@@ -4,7 +4,7 @@
 Document阅读器插件
 
 ## 1.1、说明
-Document阅读器,是用来阅读Office文件的,包括PPT幻灯片,Excel表格,.doc或.docx文档,以及txt,pdf格式文件的。
+Document阅读器,是用来阅读Office文件的,包括PPT幻灯片,Excel表格,.doc或.docx文档,以及txt,pdf格式文件的.
 
 ## 1.2、UI展示
 
@@ -12,12 +12,20 @@ Document阅读器,是用来阅读Office文件的,包括PPT幻灯片,Excel表格,
 
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=168_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+## 1.4、平台版本支持
 
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
+
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.5、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用.
 # 2、API概览
 
 ## 2.1、方法
 
-> ### openDocumentReader打开阅读器
+### 🍭 openDocumentReader打开阅读器
 
 `uexDocumentReader.openDocumentReader(documentPath)`
 
@@ -30,15 +38,8 @@ Document阅读器,是用来阅读Office文件的,包括PPT幻灯片,Excel表格,
  
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| documentPath | String | 是 | 文档路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes。 |
+| documentPath | String | 是 | 文档路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes. |
 
-**平台支持:**
-
-Android2.2+
-iOS6.0+
-
-** 版本支持:**
-3.0.0+
 
 **示例:**
 
@@ -50,26 +51,18 @@ uexDocumentReader.openDocumentReader("wgt://Doc Document.doc");
 
 ### iOS
 
-API版本:`uexDocumentReader-3.0.4`
+API版本: `uexDocumentReader-4.0.0`
 
-最近更新时间:`2015-12-26`
+最近更新时间:`2016-6-30`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.4 | 添加IDE支持 |
-| 3.0.3 | 修复因文件路径为空造成的奔溃和读取txt文件乱码的问题 |
-| 3.0.2 | 解决读取txt文件乱码,无法读取xls文件的bug |
-| 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
-| 3.0.0 | 阅读器功能插件 |
 
 ### Android
 
-API版本:`uexDocumentReader-3.0.2`
+API版本: `uexDocumentReader-4.0.0`
 
-最近更新时间:`2015-10-23`
+最近更新时间:`2016-6-30`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.2 | 修改打开不存在文件时崩溃的问题 |
-| 3.0.1 | 国际化 |
-| 3.0.0 | 阅读器功能插件 |

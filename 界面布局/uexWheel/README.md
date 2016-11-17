@@ -13,7 +13,7 @@
 # 2、API概览
 ## 2.1、方法
 
-> ### openCircle 创建全圆轮盘菜单
+### 🍭 openCircle 创建全圆轮盘菜单
 
 `uexWheel.openCircle(x,y,w,h,jsonData)`
 
@@ -109,7 +109,7 @@ iOS6.0+
 </html>
 
 ```
-> ### closeCircle 移除全圆轮盘菜单
+### 🍭 closeCircle 移除全圆轮盘菜单
 
 `uexWheel.closeCircle()`
 
@@ -136,7 +136,7 @@ iOS6.0+
 
 见openCircle方法示例
 
-> ### openSemicircle 创建半圆轮盘菜单
+### 🍭 openSemicircle 创建半圆轮盘菜单
 
 `uexWheel.openSemicircle(x,y,w,h,jsonData)  `
 
@@ -232,7 +232,7 @@ iOS6.0+
     </body>
 </html>
 ```
-> ### closeSemicircle 移除半圆轮盘菜单
+### 🍭 closeSemicircle 移除半圆轮盘菜单
 
 `uexWheel.closeSemicircle()`
 
@@ -257,7 +257,7 @@ iOS6.0+
 
               见openSemicircle方法示例  
  
-> ### openQuartercircle 创建四分之一圆轮盘菜单
+### 🍭 openQuartercircle 创建四分之一圆轮盘菜单
 
 `uexWheel.openQuartercircle(x,y,w,h,jsonData)`
 
@@ -346,7 +346,7 @@ iOS6.0+
 </html>
 
 ```
-> ### closeQuartercircle 移除四分之一圆轮盘菜单
+### 🍭 closeQuartercircle 移除四分之一圆轮盘菜单
 
 `uexWheel.closeQuartercircle()`
 
@@ -372,7 +372,7 @@ iOS6.0+
               见openQuartercircle方法示例    
 
 ## 2.2、回调方法
-> ### cbSelect 点击按钮的监听方法
+### 🍭 cbSelect 点击按钮的监听方法
 
 `uexWheel.cbSelect(index1,index2)`
 
@@ -390,7 +390,7 @@ iOS6.0+
 
 ##2.3、监听方法
 
-> ### onClick 全圆轮盘菜单中心圆被点击的监听方法
+### 🍭 onClick 全圆轮盘菜单中心圆被点击的监听方法
 
 `uexWheel.onClick(index)`
 
@@ -398,7 +398,7 @@ iOS6.0+
 
 |参数名称|参数类型 | 是否必选|  说明 |
 |-----|-----|-----|----- |
-|index|Number类型|必选|索引,为0。|
+|index|Number类型|必选|索引,为0.|
  
 
 **版本支持:**
@@ -409,47 +409,18 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexWheel-3.0.14`
+API版本: `uexWheel-4.0.0`
 
 最近更新时间:`2016-1-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.14 | 修复和天翼RTC插件一起打包时会冲突的bug |
-| 3.0.13 | 添加IDE支持 |
-| 3.0.12 | 修复openSemicircle接口,点击按钮后页面无法操作问题 |
-| 3.0.11 | 修复全圆轮盘菜单调用close方法无效的问题 |
-| 3.0.10 | 添加监听方法uexWheel.onClick,当点击轮盘中心圆时触发 |
-| 3.0.9 | 转动轮盘,不触发事件(不回调),只有点击转到当前轮盘最上 面的一个才触发事件(有回调)点击轮盘中间圆球,触发事 件(回调) |
-| 3.0.8 | 修复进入下一个页面,轮盘插件的button按钮仍 然显示的问题 |
-| 3.0.7 | 小图标大小根据轮盘大小确定 |
-| 3.0.6 | 允许横向菜单创建多余5个,并支持滚动 |
-| 3.0.5 | 转动轮盘不收回,只有点击导航图片才收回 |
-| 3.0.4 | 修改open方法效果,在一调用插件就先动画展 开,点击导航图片再收缩 |
-| 3.0.3 | 根据宽高 确定轮盘位置和大小 |
-| 3.0.2 | 关闭窗口时关闭轮盘菜单 |
-| 3.0.1 | 修复点击崩溃问题 |
-| 3.0.0 | 轮盘菜单插件 |
 
 ### Android
 
-API版本:`uexWheel-3.0.15`
+API版本: `uexWheel-4.0.0`
 
 最近更新时间:`2015-11-06`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.15 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.14 | 修复四分之一圆盘在页面切换之后不能正常打开的问题 |
-| 3.0.13 | 修复图标概率重叠的问题 |
-| 3.0.12 | 修改全圆轮盘回调区分点击item和圆盘中心 |
-| 3.0.11 | 修改全圆轮盘回调时机 |
-| 3.0.10 | 修复全圆轮盘在页面切换时显示不一致的问题 |
-| 3.0.9 | 修复全圆轮盘菜单中图标太小的问题 |
-| 3.0.8 | 修复全圆轮盘菜单中圆形区域外也可以滑动 的问题 |
-| 3.0.7 | 修改openCircle接口参数 |
-| 3.0.6 | 修复高度太小图片被截断的问题 |
-| 3.0.5 | 修复在低端机上调用接口崩溃的问题 |
-| 3.0.4 | 修改openQuartercircle接口参数 |
-| 3.0.3 | 初始版本 |
-| 3.0.0 | 轮盘菜单插件 |

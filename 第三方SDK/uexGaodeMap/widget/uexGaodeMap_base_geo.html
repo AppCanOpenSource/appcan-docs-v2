@@ -33,7 +33,7 @@
     <script src="js/main.js">
     </script>
     <script type="text/javascript">
-    
+
 
         var isSetLoc = 0;
              window.uexOnload = function() {
@@ -43,12 +43,6 @@
                 uexGaodeMap.onSDKReceiverError = function(json) {
                      alert("onSDKReceiverError: "+json);
                  }
-                uexGaodeMap.cbGeocode = function(json) {
-                     alert("cbGeocode: "+json);
-                 }
-                uexGaodeMap.cbReverseGeocode = function(json) {
-                     alert("cbReverseGeocode: "+json);
-                 }
                  uexGaodeMap.onMapLoadedListener = onMapLoadedListener;
              }
         function onMapLoadedListener(){
@@ -57,7 +51,7 @@
             function closeMap(){
                 uexGaodeMap.close();
             }
-            
+
             function openmap(){
                 var divTop = document.getElementById("topDiv").offsetTop + document.getElementById("topDiv").offsetHeight + 60;
                 var w = screen.availWidth-20;
@@ -74,17 +68,19 @@
                 var data = JSON.stringify(params);
                 uexGaodeMap.open(data);
             }
-            
+
             function geocode(){
                 var jsonstr = {
                     city:"湖北省",
                     address:"武汉市光谷软件园C6栋"
                 };
                 var data = JSON.stringify(jsonstr);
-                uexGaodeMap.geocode(data);
+                uexGaodeMap.geocode(data,function(data){
+                                    alert("callback:"+JSON.stringify(data));
+                                    });
 
             }
-            
+
             function reverseGeocode(){
                 var jsonstr = {
                     longitude:114.402815,
@@ -92,8 +88,10 @@
                     type:0
                 };
                 var data = JSON.stringify(jsonstr);
-                uexGaodeMap.reverseGeocode(data);
-            }                                                                     
+                uexGaodeMap.reverseGeocode(data,function(data){
+                                           alert("callback:"+JSON.stringify(data));
+                                           });
+            }
     </script>
 </head>
 <body class="um-vp " ontouchstart>

@@ -17,7 +17,7 @@
 
 ## 2.1、方法
 
-> ### open 打开气泡菜单
+### 🍭 open 打开气泡菜单
 
 `uexPopTipsView.open(json)`
 
@@ -81,7 +81,7 @@ var data1 = JSON.stringify(param1);
 uexPopTipsView.open(data1);
 ```
 
-> ### close 关闭气泡菜单
+### 🍭 close 关闭气泡菜单
 
 `uexPopTipsView.close()`
 
@@ -114,7 +114,7 @@ uexPopTipsView.close();
 
 ## 2.2、监听方法
 
-> ### onItemSelected 元素被点击的监听方法
+### 🍭 onItemSelected 元素被点击的监听方法
 
 `uexPopTipsView.onItemSelected(json);`
 
@@ -157,23 +157,18 @@ uexPopTipsView.onItemSelected = function(data){
 
 ### iOS
 
-API版本:`uexPopTipsView-3.0.2`
+API版本: `uexPopTipsView-4.0.0`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.2 | 按要求,修改UI,改进功能 |
-| 3.0.1 | 适配iOS5的版本 |
-| 3.0.0 | uexPopTipsView插件 |
 
 ### Android
 
-API版本:`uexPopTipsView-3.0.1`
+API版本: `uexPopTipsView-4.0.0`
 
 最近更新时间:`2015-11-06`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.1 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.0 | uexPopTipsView插件 |

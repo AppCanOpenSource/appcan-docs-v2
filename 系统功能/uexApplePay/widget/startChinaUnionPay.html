@@ -50,8 +50,8 @@ var startChinaUnionPay = function(){
     
     var data = {
         merchantIdentifier:"merchant.com.zywx.devTest",
-        orderInfo:"201603011028451152878",//从http://101.231.114.216:1725/sim/getacptn可以获取测试用的orderInfo
-        mode:"01",
+        orderInfo:"201607141735281547408",//从http://101.231.114.216:1725/sim/getacptn可以获取测试用的orderInfo
+        mode:"00",
     };
     var result = uexApplePay.startChinaUnionPay(JSON.stringify(data));
     CCLog("syncCallback:" + result);

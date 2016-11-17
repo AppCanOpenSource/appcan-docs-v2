@@ -5,11 +5,11 @@
 友盟插件
 
 ## 1.1、说明
-封装了友盟sdk的相关功能，包括启动次数、事件、页面等app数据的统计。APP接入集成友盟统计之前需要配置config，您首先需要到友盟官网注册并且添加新应用，获得Appkey用于统计。
+封装了友盟sdk的相关功能，事件的发送
 
 **config.xml配置插件的方法**，示例配置代码如下： 
 
-```
+```xml
 <config desc="uexUmeng" type="KEY">
 	<param platform="iOS" name="$uexUmeng_APPKey$" value="562df76b67e58e0592003544"/>  
 	<param platform="iOS" name="$uexUmeng_channel$" value="uex_umeng_plugin_channel"/> 
@@ -36,6 +36,17 @@
 ## 1.2、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=286_index)至插件详情页（插件测试用例与插件包已经提供）
 
+## 1.3、平台版本支持
+
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统
+
+有特殊版本要求的API会在文档中额外说明
+
+## 1.4、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用
+
+在后续版本中新添加的接口会在文档中额外说明
 ***
 
 #2、 API预览
@@ -44,7 +55,7 @@
 
 
 
-> ### onEvent 发送事件
+### 🍭 onEvent 发送事件
 
 `uexUmeng.onEvent(eventName, jsonString);`
 
@@ -55,113 +66,69 @@
 
 **参数**
 
-param为json字符串，包含的参数如下
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 默认值 |
-| --- | --- | --- | --- | --- | --- |
-| eventName | String | 是 | 事件的名称| 无 | 
-| jsonString | String | 否| 事件的属性 | 无| 
-
-
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
+| 参数名称       | 参数类型   | 是否必选 | 说明    | 默认值  |
+| ---------- | ------ | ---- | ----- | ---- |
+| eventName  | String | 是    | 事件的名称 | 无    |
+| jsonString | String | 否    | 事件的属性 | 无    |
 
 **示例**
 
-```
+```javascript
 var eventName = "sell_event"
-var data = {"item":"apple"}
-
-var json = JSON.stringify(data);
-uexUmeng.onEvent(eventName, json)
-
+var data = {
+  "item":"apple"
+}
+uexUmeng.onEvent(eventName, data)
 ```
 
-> ### getDeviceInfo 获取设备的基本信息
+###🍭  getDeviceInfo 获取设备的基本信息
 
 `uexUmeng.getDeviceInfo();`
 
 **说明**
 获取设备的基本信息，根据用户的需求，可以将某个设备指定为测试设备，测试设备所产生的数据不会污染真实数据。测试设备的配置在http://mobile.umeng.com/test_devices
-
-相关 [cbGetDeviceInfo](#cbGetDeviceInfo 返回设备信息) 返回设备信息的回调方法
-
 **参数**
+
 无
 
-**平台支持**
+**返回值**
 
-Android 2.2+ 
-iOS 7.0+ 
+Object类型设备的基本信息，返回的数据格式如下:
 
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
-**示例**
-
-```
-uexUmeng.getDeviceInfo();
-
-```
-
-
-##2.2、 回调方法
-
->### cbGetDeviceInfo 返回设备信息
-
-`uexUmeng.cbGetDeviceInfo(param);`
-
-**说明**
-
-* 获取设备基本信息的回调
-
-**参数** 
-
-param为json字符串，包含的参数如下
-
-| 参数名称 | 参数类型 | 是否必选 | 说明 | 
-| --- | --- | --- | --- | --- |
-| param | String | 是 | 设备基本信息，格式如：Android格式:{"device_id": "your_device_id", "mac": "your_device_mac"} ;iOS格式:{"oid": "your_device_id"}|
-
-
-**平台支持**
-
-Android 2.2+ 
-iOS 7.0+ 
-
-**版本支持**
-
-Android 3.0.0+ 
-iOS 3.0.0+ 
-
-**示例**
-
-```
-window.uexOnload=function(type){
-  uexUmeng.cbGetDeviceInfo = function(info){
-    alert(info);
-  }
+```javascript
+{
+	"device_id":, //设备id
+	"mac": //设备Mac地址，仅Android支持
 }
 ```
 
 
+**示例**
+
+```javascript
+var info = uexUmeng.getDeviceInfo();
+alert(JSON.stringify(info));
+```
 
 # 3、更新历史
- 
 
-`API 版本:uexUmeng-3.0.0(iOS) uexUmeng-3.0.0(Android)`
 
-`最近更新时间:2015-10-23`
+### iOS
 
-| 历史发布版本 | iOS更新 | 安卓更新 |
-| ----- | ----- | ----- |
-| 3.0.0 | uexUmeng 发布 | uexUmeng 发布 |
+API版本:`uexUmeng-4.0.0`
+
+最近更新时间:`2016-8-16`
+
+| 历史发布版本 | 更新内容        |
+| ------ | ----------- |
+| 4.0.0  | uexUmeng 发布 |
+
+### Android
+
+API版本:`uexUmeng-4.0.0`
+
+最近更新时间:`2016-8-16`
+
+| 历史发布版本 | 更新内容        |
+| ------ | ----------- |
+| 4.0.0  | uexUmeng 发布 |

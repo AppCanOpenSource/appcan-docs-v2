@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+<head>
+	<title>
+	</title>
+	<meta charset="utf-8">
+	<meta name="viewport"
+	content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="css/ui-base.css">
+	<link rel="stylesheet" href="css/ui-box.css">
+	<link rel="stylesheet" href="css/ui-color.css">
+	<link rel="stylesheet" href="css/ui-res.css">
+	<link rel="stylesheet" href="css/ui-btn.css">
+	<link rel="stylesheet" href="css/index.css">
+    <style>input{color:red}</style>
+
+	<script type="text/javascript">
+	function upload(){
+    var uploader = uexUploaderMgr.create({
+      url: document.getElementById('serverURL').value,
+      type: getRadioValue("uploaderType")
+    });
+    if (!uploader) {
+      alert("创建uploader失败!")
+      return;
+    };
+    uexUploaderMgr.setHeaders(uploader,JSON.stringify({
+      myHeaderKey:"myHeaderValue"
+    }));
+    uexUploaderMgr.uploadFile(uploader,
+      document.getElementById('imagePath').value,
+      document.getElementById('imageField').value,
+      getRadioValue("imageQuaility"),
+      document.getElementById('imageMaxWidth').value,
+      function(fileSize,percent,response,status){
+        switch (status) {
+          case 0:
+          document.getElementById('percentage').innerHTML = "packageSize："+fileSize+"<br>progress："+percent+"%";
+          return;
+          case 1:
+          alert("upload SUCCESS!");
+          alert(response);
+          break;
+          case 2:
+          alert("upload FAILED!");
+          break;
+
+          uexUploaderMgr.closeUploader(uploader);
+        }
+      });
+  }
+    
+    
+	window.uexOnload = function(){
+	}
+
+
+	var getRadioValue = function(name){
+		var radios = document.getElementsByName(name);
+		var value;
+		for(var i = 0;i<radios.length;i++){
+			var radio = radios[i];
+			if(radio.checked){
+				value = radio.value;
+			}
+		}
+		return value;
+	}
+
+	</script>
+</head>
+<body class="um-vp " ontouchstart>
+	<div class="conbor">
+		<div class="consj">
+			<h1>file upload</h1>
+			
+			<span>serverURL:</span>
+      <input style="width:20em" type="text" id="serverURL" value="http://192.168.1.4:45678/post"/>
+			<span>UploaderType:</span>
+			default<input type="radio" checked="checked" name="uploaderType" value="0" />
+			global<input type="radio" name="uploaderType" value="1"/>
+			background<input type="radio" name="uploaderType" value="2"/>
+			<br/>
+<!--			<span>a normal file</span>-->
+<!--			filePath:-->
+<!--			<input type="text" id="filePath" value="res://test.pdf"/><br/>-->
+<!--			field:-->
+<!--			<input type="text" id="fileField" value="myFile"/><br/>-->
+			<span>a image file</span>
+			filePath:
+			<input type="text" id="imagePath" value="res://image.jpg"/><br/>
+			field:
+			<input type="text" id="imageField" value="myImage"/><br/>
+			maxWidth:
+			<input type="text" id="imageMaxWidth" value="400"/><br/>
+			quality:
+			source<input type="radio" checked="checked" name="imageQuaility" value="0"/>
+			high<input type="radio" name="imageQuaility" value="1"/>
+			medium<input type="radio" name="imageQuaility" value="2"/>
+			low<input type="radio" name="imageQuaility" value="3"/>
+			<br/>
+
+			<input class="btn" type="button" value="upload" onclick="upload();">
+			<span>status</span>
+			<div class="tcxx" id="percentage"></div>
+
+
+			<br>
+		</div>
+	</div>
+</body>
+<script>
+
+</script>
+</html>
