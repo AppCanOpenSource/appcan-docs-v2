@@ -1,9 +1,9 @@
 [TOC]
 ## 说明
 
-本教程基于Android Studio（推荐），AppCan 引擎3.8版本以上
+本教程基于Android Studio（推荐），AppCan 引擎4.0版本以上
 
-Eclipse 开发请参考链接：
+Eclipse 开发请参考链接：[AndroidNative插件扩展机制](http://newdocx.appcan.cn/newdocx/docx?type=1366_1291)
 
 ## 1.开发环境搭建
 
