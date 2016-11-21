@@ -30,7 +30,7 @@ Eclipse 开发请参考链接：[AndroidNative插件扩展机制](http://newdocx
 
 ##### 1. 插件开发基础工程搭建
 
-Demo地址：https://github.com/android-plugin/AppcanPluginDemo-Gradle
+Demo地址：https://github.com/AppCanOpenSource/appcan-plugin-demo-android/tree/master
 
 将Demo代码 下载或者clone到本地，然后用Android Studio导入工程：
 
@@ -355,7 +355,7 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
 
 该文件夹中存放插件中**新增**的.so文件。且只能包含插件源码中libs目录下armeabi文件夹中新增的.so文件。
 
-> 没有其他类型如"x86"的so是因为很多三方sdk没有提供全部类型的so,应用会崩溃。如果自己的插件需要AppCan其他类型的so，可以到https://github.com/AppCanOpenSource/appcan-plugin-demo-android下载。
+> 没有其他类型如"x86"的so是因为很多三方sdk没有提供全部类型的so,应用会崩溃。如果自己的插件需要AppCan其他类型的so，可以到https://github.com/AppCanOpenSource/appcan-plugin-demo-android/tree/eclipse下载。
 >
 > 把其他类型的so文件夹放入插件so目录下,然后加上对应类型AppCan的so即可，打包时会合并
 >
