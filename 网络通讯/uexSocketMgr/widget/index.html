@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <meta name="viewport"
+        content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+    <link rel="stylesheet" href="css/ui-res.css">
+    <link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="./js/moment.js"></script>
+    <script>
+
+
+const HOST = "192.168.1.4";
+const HOST_TCP_PORT = 40000;
+const HOST_UDP_PORT = 40001;
+const LOCAL_UDP_PORT = 6666;
+
+
+var tcp,udp;
+
+var CCLog = function(x){
+    uexWindow.log && uexWindow.log(x);//Xcode Log
+    console.log && console.log(x);//AS Log
+
+    var blank = document.getElementById('BLANK');
+    blank.innerHTML = blank.innerHTML + '<div>' + moment().format('[[]hh:mm:ss[]]') + x + '</div>'
+}
+var ramdomString = function(length){
+    var mask = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\\r\n\t一二三四五六七啊是的发个好就看';
+    var result = '';
+    for (var i = length; i > 0; --i) result += mask[Math.floor(Math.random() * mask.length)];
+    return result;
+}
+
+
+var write = function () {
+    if(!tcp) return;
+
+    uexSocketMgr.write(tcp,{
+        data: ramdomString(10)
+    },function(err){
+        CCLog(err ? "TCP ~> write fail!" : "TCP ~> write secceed!");
+    });
+}
+var send = function(){
+    if(!udp) return;
+
+    uexSocketMgr.send(udp,{
+        data: ramdomString(10),
+        port: HOST_UDP_PORT,
+        host: HOST
+    },function(err){
+        CCLog(err ? "UDP ~> send fail!" : "UDP ~> send secceed!");
+    });
+}
+var createTCP = function(){
+    return uexSocketMgr.createTCP({
+        timeout: 10000
+    },
+    function(status) {
+        switch(status){
+            case 0 : {
+                CCLog("TCP ~> onConnect!");
+                break;
+            }
+            case 1 : {
+                CCLog("TCP ~> onDisconnect!");
+                break;
+            }
+            default: break;
+        }
+    },
+    function(info){
+        CCLog("TCP ~> receive data: " + info.data);
+        setTimeout(send,1000);
+    });
+
+}
+
+var createUDP = function(){
+    return uexSocketMgr.createUDP({
+        port: LOCAL_UDP_PORT
+    },function(info){
+        CCLog("UDP ~> [from " + info.host + ":" + info.port + "] receive data: " + info.data);
+        setTimeout(write,1000);
+    });
+}
+
+var start = function(){
+    document.getElementById('BLANK').innerHTML = "";
+    CCLog("========TEST START=========!");
+    tcp = createTCP();
+    udp = createUDP();
+
+    uexSocketMgr.connect(tcp,{
+        host: HOST,
+        port: HOST_TCP_PORT
+    },function(err){
+        CCLog(err ? "TCP ~> connect fail!" : "TCP ~> connect succeed");
+    });
+}
+
+var stop = function(){
+    var config = {
+        flag: 1
+    }
+    uexSocketMgr.close(tcp,config,function(err){
+        CCLog(err ? "TCP ~> close fail!" : "TCP ~> close succeed!");
+        tcp = null;
+    });
+    uexSocketMgr.close(udp,config,function(err){
+        CCLog(err ? "UDP ~> close fail!" : "UDP ~> close succeed!")
+        udp = null;
+    });
+    
+    
+    CCLog("========TEST STOP=========!");
+}
+
+</script>
+</head>
+<body class="um-vp " ontouchstart>
+    <div class="conbor">
+        <div class="consj">
+<body class="um-vp " ontouchstart>
+	<div class="conbor">
+        <input class="btn" type="button" value="testStart" onclick="start();"/>
+        <input class="btn" type="button" value="testStop"  onclick="stop();"/>
+        <div id="BLANK"></div>
+    </div>
+</div>
+</body>
+
+</html>

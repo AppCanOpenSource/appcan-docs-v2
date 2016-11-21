@@ -47,11 +47,6 @@
                      alert("cbPoiSearch:" + json);
                      //poiSearchDetail(array[0].id)
                  }
-                uexGaodeMap.cbPoiSearchDetail = function(json){
-                    alert("cbPoiSearchDetail:" + json);
-                }
-                uexGaodeMap.cbBusLineSearchResult = function makerListner(json) {
-                 }
                  uexGaodeMap.onMapLoadedListener = onMapLoadedListener;
              }
         function onMapLoadedListener(){
@@ -60,7 +55,7 @@
             function closeMap(){
                 uexGaodeMap.close();
             }
-            
+
             function openmap(){
                 var divTop = document.getElementById("topDiv").offsetTop + document.getElementById("topDiv").offsetHeight + 60;
                 var w = screen.availWidth-20;
@@ -77,11 +72,7 @@
                 var data = JSON.stringify(params);
                 uexGaodeMap.open(data);
             }
-                               
-            function suggestionSearch(){
-                uexGaodeMap.suggestionSearch("酒店");
-            }
-            
+
             function poiSearch(){
                 var jsonstr = {
                     //city:"武汉",//yes
@@ -137,38 +128,12 @@
                     }*/
                 };
                 var data = JSON.stringify(jsonstr);
-                uexGaodeMap.poiSearch(data);
+                uexGaodeMap.poiSearch(data,function(data){
+                                      alert("callback:"+JSON.stringify(data));
+                                      });
             }
-            
-            function poiSearchDetail(id){
-                var params = {
-                    id:id
-                }
-                var data = JSON.stringify(params);
-                uexGaodeMap.poiSearchDetail(data);
-            }
-            
-            function poiBoundSearch(){
-                var jsonstr = '{"searchKey": "电影院","pageNum": "0","northeast": {"longitude": "116.326664","latitude": "39.991418"},"southwest": {"longitude": "116.312705","latitude": "39.981730"}}';
-                uexGaodeMap.poiBoundSearch(jsonstr);
-            }
-            
-            function busLineSearch(){
-                var jsonstr = '{"city":"北京","busLineName":"114"}';
-                uexGaodeMap.busLineSearch(jsonstr);
-            }
-            
-            function removeBusLine(){
-                uexGaodeMap.removeBusLine();
-            }
-            
-            function preBusLineNode(){
-                uexGaodeMap.preBusLineNode();
-            }
-            
-            function nextBusLineNode(){
-                uexGaodeMap.nextBusLineNode();
-            }
+
+
 
     </script>
 </head>

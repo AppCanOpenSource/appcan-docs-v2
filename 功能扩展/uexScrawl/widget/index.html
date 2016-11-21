@@ -8,15 +8,20 @@
             <title>uexScrawl</title>
             <script type="text/javascript">
                 window.uexOnload = function() {
-                    uexScrawl.cbSave = function(data){
-                        alert(data);
-                    }
+                    openButton();
                 }
                 function openButton(){
                     var params = {
                         "src":"res://car.png"
                     };
-                    uexScrawl.open(JSON.stringify(params));
+                    uexScrawl.open(params,function(error,result){
+                        if(!error){
+                            alert(result);
+                        }else{
+                            alert("Error!");
+                        }
+
+                    });
                 }
             
             </script>

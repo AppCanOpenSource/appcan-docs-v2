@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+<head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <!--    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">-->
+    <meta name="viewport"
+          content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+    <link rel="stylesheet" href="css/ui-res.css">
+    <link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/zy_control.js">
+    </script>
+    <script src="js/zy_click.js">
+    </script>
+    <script src="js/main.js">
+    </script>
+</head>
+<body class="um-vp " ontouchstart>
+<div class="conbor">
+    <div class="consj">
+        <span>1.压缩</span>
+        <input class="btn" type="button" value="启动文件浏览器" onclick="zipExplorer();">
+        <span>要压缩的文件路径为：</span>
+        <input type="hidden" id="hidText">
+        <div class="tcxx" id="filePath"></div>
+        <span>输入压缩后保存的文件路径：</span>
+        <input type="text" class="textbox" id="inPath" value="wgt://data/test.zip"></input>
+        <input class="btn" type="button" value="压缩"
+               onclick="zip();">
+        <span>压缩密码：</span>
+        <input type="text" class="textbox" id="pwd1" value="12345"></input>
+        <input class="btn" type="button" value="压缩带密码"
+               onclick="zipWithPassword();">
+        <span>2.解压</span>
+        <input class="btn" type="button" value="启动文件浏览器" onclick="unZipExplorer();">
+        <span>要解压的文件路径为：</span>
+        <div class="tcxx" id="unzipPath"></div>
+        <input type="hidden" id="hidunZip">
+        <span>输入解压后保存的文件路径：</span>
+        <input type="text" class="textbox" id="outPath" value="wgt://data/test/"></input>
+        <input class="btn" type="button" value="解压缩"
+               onclick="unZip();">
+        <span>解压缩密码：</span>
+        <input type="text" class="textbox" id="pwd2" value="12345"></input>
+        <input class="btn" type="button" value="解压缩带密码"
+               onclick="unzipWithPassword();">
+        <br>
+    </div>
+</div>
+</body>
+<script>
+
+</script>
+</html>

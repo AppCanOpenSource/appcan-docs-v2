@@ -7,11 +7,21 @@
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击]( ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.4、平台版本支持
+
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
+
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.5、接口有效性
+
+本插件所有API默认在插件版本**4.0.0+**可用.
+
 # 2、API概览
 
 ## 2.1、方法
 
-> ### open 打开分段选择器
+### 🍭 open 打开分段选择器
 
 `uexSegmentControl.open(jsonStr)`
 
@@ -21,42 +31,50 @@
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonStr | String | 是 | 选择器相关参数设置 |
+| 参数名称    | 参数类型   | 是否必选 | 说明        |
+| ------- | ------ | ---- | --------- |
+| jsonStr | String | 是    | 选择器相关参数设置 |
 
-```
+```javascript
 var jsonStr = {
-    left:,//(可选) 左间距,默认0
-    top:,//(可选) 上间距,默认0
-    width:,//(可选) 宽度,默认屏幕宽度
-    height:,//(可选) 高度,默认屏幕高度
-    dataInfo:{//(必选) 数据
-        allData:[],//(必选) 所有选择项的集合
-        showData:[],//(必选) 导航条上显示的选择项的集合
-        maxShow:,//(必选) 导航条上最多显示的选择项的个数
-        isExpand:,//(可选) 是否支持可扩展的功能,0不会出现扩展按钮,默认1.
-        expandOpenIcon:,//(可选) 导航条上扩展打开扩展功能的按钮图标
-        expandCloseIcon:,//(可选) 导航条上扩展关闭扩展功能的按钮图标
-        showedLable:,//(可选) 扩展栏目的已展示栏目标题
-        addLable://(可选) 扩展栏目的可添加栏目标题
+    left:,
+    top:,
+    width:,
+    height:,
+    dataInfo:{
+        allData:[],
+        showData:[],
+        maxShow:,
+        isExpand:,
+        expandOpenIcon:,
+        expandCloseIcon:,
+        showedLable:,
+        addLable:
     }
 }
 ```
 
-**平台支持:**
+各字段含义如下:
 
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
+| 字段名称            | 类型     | 是否必选 | 说明                        |
+| --------------- | ------ | ---- | ------------------------- |
+| left            | Number | 否    | 左间距,默认0                   |
+| top             | Number | 否    | 上间距,默认0                   |
+| width           | Number | 否    | 宽度,默认屏幕宽度                 |
+| height          | Number | 否    | 高度,默认屏幕高度                 |
+| dataInfo        | Object | 是    | 数据关键字                     |
+| allData         | Array  | 是    | 所有选择项的集合                  |
+| showData        | Array  | 是    | 导航条上显示的选择项的集合             |
+| maxShow         | Number | 是    | 导航条上最多显示的选择项的个数           |
+| isExpand        | Number | 否    | 是否支持可扩展的功能,0不会出现扩展按钮,默认1. |
+| expandOpenIcon  | String | 否    | 导航条上扩展打开扩展功能的按钮图标         |
+| expandCloseIcon | String | 否    | 导航条上扩展关闭扩展功能的按钮图标         |
+| showedLable     | String | 否    | 扩展栏目的已展示栏目标题              |
+| addLable        | String | 否    | 扩展栏目的可添加栏目标题              |
 
 **示例:**
 
-```
+```javascript
     var width = window.screen.width;
     var height = window.screen.height - 300;
     var param1 = {
@@ -79,8 +97,7 @@ iOS 3.0.0+
             addLable:'点击添加'
         }
     };
-    var data1 = JSON.stringify(param1);
-    uexSegmentControl.open(data1);
+    uexSegmentControl.open(param1);
 ```
 **运行效果:**
 默认打开状态:
@@ -89,7 +106,7 @@ iOS 3.0.0+
 点击按钮进入选择编辑状态:
 ![](/docImg/975/BrllwtC.png)
 
-> ### close 关闭分段选择器
+### 🍭 close 关闭分段选择器
 
 `uexSegmentControl.close()`
 
@@ -101,25 +118,13 @@ iOS 3.0.0+
 
 无
 
-**平台支持:**
-
-Android 2.2+
-
-iOS 6.0+
-
-**版本支持:**
-
-Android 3.0.0+
-
-iOS 3.0.0+
-
 **示例:**
 
-```
+```javascript
     uexSegmentControl.close()
 ```
 
-> ### setCurrentItem 设置当前选中项
+### 🍭 setCurrentItem 设置当前选中项
 
 `uexSegmentControl.setCurrentItem(jsonStr)`
 
@@ -129,104 +134,92 @@ iOS 3.0.0+
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonStr | String | 是 | 设置当前选中项相关参数 |
+| 参数名称    | 参数类型   | 是否必选 | 说明                |
+| ------- | ------ | ---- | ----------------- |
+| jsonStr | String | 是    | 设置当前选中项相关参数,形式见下: |
 
-```
+```javascript
 var jsonStr = {
-    index://(必选) 索引
+    index:
 }
 ```
 
-**平台支持:**
+各字段含义如下:
 
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
+| 字段名称  | 类型     | 是否必选 | 说明   |
+| ----- | ------ | ---- | ---- |
+| index | Number | 是    | 索引   |
 
 **示例:**
 
-```
+```javascript
     var param = {
         index:0
     };
-    var data = JSON.stringify(param);
-    uexSegmentControl.setCurrentItem(data);
+    uexSegmentControl.setCurrentItem(param);
 ```
 
 ## 2.2、监听方法
 
-> ### onItemClick item被点击的监听方法
+### 🍭 onItemClick item被点击的监听方法
 
 `uexSegmentControl.onItemClick(jsonObj);`
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonObj | jsonObject | 是 |  回调数据 |
+| 参数名称    | 参数类型       | 是否必选 | 说明   |
+| ------- | ---------- | ---- | ---- |
+| jsonObj | jsonObject | 是    | 回调数据 |
 
-```
-var json = {
-    index:,//(必选) 被点击的元素的索引
-    name://(必选) 被点击的元素的名称
+```javascript
+var jsonObj = {
+    index:,
+    name:
 }
 ```
 
-**平台支持:**
+各字段含义如下:
 
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
+| 字段名称  | 类型     | 说明        |
+| ----- | ------ | --------- |
+| index | Number | 被点击的元素的索引 |
+| name  | String | 被点击的元素的名称 |
 
 **示例:**
 
-```
+```javascript
     uexSegmentControl.onItemClick = function(jsonObj){
         var index = jsonObj.index;
         var name = jsonObj.name;
-        alert(JSON.stringify(jsonObj));
+        alert(index + "," + name);
     }
 ```
 
-> ### onDataChange 数据发生变化的监听方法
+### 🍭 onDataChange 数据发生变化的监听方法
 
 `uexSegmentControl.onDataChange(jsonObj);`
 
 **参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| jsonObj | jsonObject | 是 |  回调数据 |
+| 参数名称    | 参数类型       | 是否必选 | 说明   |
+| ------- | ---------- | ---- | ---- |
+| jsonObj | jsonObject | 是    | 回调数据 |
 
 ```
 var jsonObj = {
-    shows:[]//(必选) 当前显示在导航条上的选择项集合
+    shows:[]
 }
 ```
 
-**平台支持:**
+各字段含义如下:
 
-Android 2.2+
-iOS 6.0+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
+| 字段名称  | 类型    | 说明              |
+| ----- | ----- | --------------- |
+| shows | Array | 当前显示在导航条上的选择项集合 |
 
 **示例:**
 
-```
+```javascript
     uexSegmentControl.onDataChange = function(jsonObj){
         alert(JSON.stringify(jsonObj));
     }
@@ -236,27 +229,18 @@ iOS 3.0.0+
 
 ### iOS
 
-API版本:`uexSegmentControl-3.0.4`
+API版本: `uexSegmentControl-4.0.0`
 
-最近更新时间:`2016-7-5`
+最近更新时间:`2016-3-2`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.4 | 修复BUG,和安卓统一参数 |
-| 3.0.3 | 修复onItemClick接口回调参数与文档及安卓不一致的BUG |
-| 3.0.2 | 按要求修改结构布局 |
-| 3.0.1 | 修改资源图片不显示问题,适配iOS5以上的版本 |
-| 3.0.0 | 分段选择器插件 |
 
 ### Android
 
-API版本:`uexSegmentControl-3.0.4`
+API版本: `uexSegmentControl-4.0.0`
 
 最近更新时间:`2016-4-13`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.4 | 修正无选中效果的问题,优化选中逻辑 |
-| 3.0.3 | 修正资源命名隐患,修正部分部分bug,参照文档修正接口逻辑,修正回调类型,添加开源声明. |
-| 3.0.2 | 更新适配机型使用的方法 |
-| 3.0.0 | 分段选择器插件 |
