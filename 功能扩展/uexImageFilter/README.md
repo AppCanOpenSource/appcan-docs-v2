@@ -2,7 +2,7 @@
 # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 图片处理插件
 ## 1.1、说明
-改插件实现了仿Instagram  的图像处理功能。**插件需要引擎3.8以上版本**
+改插件实现了仿Instagram  的图像处理功能。**插件需要引擎4.0以上版本**
 
 ![preview](preview/preview.png)
 
@@ -26,7 +26,7 @@
 ## 2.1、方法
 ### 🍭 open 打开图片处理界面
 
-`uexGPUImage.open(json,callback)`
+`uexImageFilter.open(json,callback)`
 
 **说明:**
 
@@ -72,7 +72,7 @@ uexGPUImage.open({
 
 ### 🍭 openView 打开View
 
-`uexGPUImage.open(json)`
+`uexImageFilter.open(json)`
 
 **说明:**
 
@@ -104,7 +104,7 @@ uexGPUImage.openView({
 
 ### 🍭 closeView 关闭View
 
-`uexGPUImage.closeView()`
+`uexImageFilter.closeView()`
 
 **说明:**
 
@@ -117,7 +117,7 @@ uexGPUImage.openView({
 **示例:**
 
 ```javascript
-uexGPUImage.closeView()
+uexImageFilter.closeView()
 ```
 
 # 
@@ -126,7 +126,7 @@ uexGPUImage.closeView()
 
 ### iOS
 
-API版本: `uexGPUImage-4.0.0`
+API版本: `uexImageFilter-4.0.0`
 
 最近更新时间:`2016-11-03`
 
@@ -136,7 +136,7 @@ API版本: `uexGPUImage-4.0.0`
 
 ### Android
 
-API版本: `uexGPUImage-4.0.0`
+API版本: `uexImageFilter-4.0.0`
 
 最近更新时间:`2016-11-03`
 
