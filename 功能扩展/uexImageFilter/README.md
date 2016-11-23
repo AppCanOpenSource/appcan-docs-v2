@@ -94,7 +94,7 @@ uexImageFilter.open({
 **示例:**
 
 ```javascript
-uexGPUImage.openView({
+uexImageFilter.openView({
   w:720,
   h:720,
   type:"InkWell",  
