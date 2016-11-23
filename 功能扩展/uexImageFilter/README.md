@@ -58,7 +58,7 @@ callback=funciton(error,path){}
 **示例:**
 
 ```javascript
-uexGPUImage.open({
+uexImageFilter.open({
     path: "res://girl.jpg"
 }, function(error, path) {
     if (!error) {
@@ -94,7 +94,7 @@ uexGPUImage.open({
 **示例:**
 
 ```javascript
-uexGPUImage.openView({
+uexImageFilter.openView({
   w:720,
   h:720,
   type:"InkWell",  
