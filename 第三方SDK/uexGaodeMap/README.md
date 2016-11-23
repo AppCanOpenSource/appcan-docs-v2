@@ -573,6 +573,82 @@ var json = {
     uexGaodeMap.setMarkerOverlay(JSON.stringify(json));
 ```
 
+### 🍭 addMultiInfoWindow 添加多个文本信息窗
+
+`uexGaodeMap.addMultiInfoWindow(data)`
+
+**参数:**
+
+| 参数名称 | 参数类型    | 是否必选 | 说明           |
+| ---- | ------- | ---- | ------------ |
+| json | json字符串 | 是    | 传入参数, 信息窗信息 |
+
+
+```javascript
+var json = {
+    id:,
+    longitude:,
+    latitude:,
+    title:,
+    titleSize:,
+    titleColor:,
+    subTitle:,
+    subTitleSize:,
+    subTitleColor: 
+}
+```
+**各字段含义:**
+
+| 参数名称      | 参数类型   | 是否必选 | 说明    |
+| --------- | ------ | ---- | ----- |
+| id        | Number | 是    | 唯一标识符 |
+| longitude | float | 否    | 经度  |
+| latitude | float | 否    | 纬度   |
+| title  | Array  | 是    | 标题    |
+| titleSize | Number | 是    | 标题字号大小，默认是32px |
+| titleColor  | String | 是    | 标题字体颜色, 默认黑色 |
+| subTitle  | String  | 否    | 子标题   |
+| subTitleSize  | Number | 否    | 子标题字号大小, 默认是28px |
+| subTitleColor | String | 否    | 子标题字体颜色，默认黑色 |
+
+
+示例:
+
+```javascript
+var param = [
+    {
+        id:11002,
+        longitude:114.409308,
+        latitude:30.476229,
+        title:"国创光谷上城",
+        titleSize: 32,
+        titleColor: "#DC143C",
+        subTitle:"90000",
+        subTitleColor: "#555555",
+        subTitleSize: 28
+    },
+    {
+        id:11004,
+        longitude:114.402965,
+        latitude:30.475845,
+        title:"国创光谷上城",
+        titleSize: 32,
+        titleColor: "#3e3e3e",
+        subTitle:"7888",
+        subTitleColor: "#DC143C",
+        subTitleSize: 28
+    },
+    {
+        id:11006,
+        longitude:114.405065,
+        latitude:30.475845,
+        title:"清江山水"
+    }
+    ];
+var data = JSON.stringify(param);
+uexGaodeMap.addMultiInfoWindow(data);
+```
+
 ### 🍭 addPolylineOverlay  添加折线覆盖物
 
 `uexGaodeMap.addPolylineOverlay(json)`
