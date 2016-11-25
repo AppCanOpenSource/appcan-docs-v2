@@ -112,7 +112,7 @@ var json = {
     uexChart.openPieChart(data1);
 ```
 运行效果:(网页背景色为蓝色)
-![](http://i.imgur.com/5fLUv88.png)
+![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexChart/img/p1.png)
 
 示例2
 
@@ -176,9 +176,7 @@ var json = {
 ```
 运行效果:
 
-![]()
-
-![](/docImg/975/2.png)
+![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexChart/img/p2.png)
 
 ### 🍭 closePieChart 关闭饼状图
 
@@ -362,7 +360,7 @@ var json = {
 
 运行效果:(网页背景色为蓝色)
 
-![](/docImg/975/3.png)
+![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexChart/img/l1.png)
 示例2
 
 ```javascript
@@ -434,7 +432,7 @@ var json = {
 ```
 运行效果:
 
-![](/docImg/975/4.png)
+![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexChart/img/l2.png)
 ### 🍭 closeLineChart 关闭曲线图
 
 `uexChart.closeLineChart(json)`
@@ -565,7 +563,7 @@ var json = {
 ```
 运行效果:(网页背景色为蓝色)
 
-![](/docImg/975/5.png)
+![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexChart/img/b1.png)
 示例2
 
 ```javascript
@@ -633,7 +631,7 @@ var json = {
 ```
 运行效果:
 
-![](/docImg/975/6.png)
+![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexChart/img/b2.png)
 ### 🍭 closeBarChart 关闭直方图
 
 `uexChart.closeBarChart(json)`
