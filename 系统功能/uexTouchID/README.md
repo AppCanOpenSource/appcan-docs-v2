@@ -66,7 +66,7 @@ alert(ret);
 
 ### 🍭 authenticate 校验TouchID
 
-`uexTouchID.canAuthenticate(data,cb)`  
+`uexTouchID.authenticate(data,cb)`  
 
 **说明:**
 
