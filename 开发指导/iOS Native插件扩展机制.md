@@ -80,15 +80,13 @@
 ​	
 ### 3.1 编写插件入口类
 
-* 在AppCan插件开发包中,打开`AppCan引擎头文件`文件夹，找到engineHeader，将此文件夹引入插件工程，如下图所示
-
-  ![image](./img/iOS5.png)  
+* 在AppCan插件开发包中,打开`AppCan插件依赖库`文件夹，找到`AppCanKit.framework`，并引入插件工程
 
 * 新建插件入口类EUExPlugin。如果你的插件静态库工程名就是EUExDemoPlugin，那么这个类应该已经自动生成了，此步可跳过。
-* 在EUExDemoPlugin这个类的头文件中引入`EUExBase.h` 并使得EUExDemoPlugin类继承自EUExBase
+* 在EUExDemoPlugin这个类的头文件中引入`<AppCanKit/AppCanKit.h>` 并使得EUExDemoPlugin类继承自`EUExBase`
 * *在此类中实现生命周期方法`initWithWebViewEngine:`和`clean`*
 
-```
+```objc
 - (instancetype)initWithWebViewEngine:(id<AppCanWebViewEngineObject>)engine{
     self = [super initWithWebViewEngine:engine];
     if (self) {
@@ -107,10 +105,10 @@
 * 插件的入口类**必须**命名为`EUEx`开头的类名;
 * 插件中其他的类**无命名限制，但建议增加独特的前缀**，以避免和引擎以及其他插件中的类产生类名冲突，导致打包失败
 
-#####EUExBase.h简介
+#####`EUExBase`简介
 
-* EUExBase是AppCan插件入口的基类，所有的插件入口类都必须继承自此类。
-* EUExBase拥有1个实例变量和3个实例方法
+* `EUExBase`是AppCan插件入口的基类，所有的插件入口类都必须继承自此类。
+* `EUExBase`拥有1个实例变量和3个实例方法
 * 实例变量`webViewEngine`是一个**弱引用**，指向了AppCan的网页引擎。任何对网页的操作都会通过此对象进行。
 * 实例方法`initWithWebViewEngine:`是默认的初始化方法。
   * 每当一个网页里调用某插件的方法时(比如uexDemoPlugin.test();),都会先去寻找插件的入口实例(EUExDemoPlugin),如果不存在，则会通过此方法创建一个新的实例并持有它。
@@ -129,7 +127,7 @@
 ​	
 * 在EUExDemoPlugin类中实现一个方法`helloWorld:`
 
-```
+```objc
 - (void)helloWorld:(NSMutableArray *)inArguments{
     //打印 hello world!
     NSLog(@"hello world!");
@@ -143,7 +141,7 @@
 * 在主工程的plugin.xml中添加此接口的信息，规则如下
 
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
     <plugin name="uexDemoPlugin">
@@ -152,21 +150,26 @@
 </uexplugins>
 ```
 
+***
+
 #####plugin.xml中注册插件方法的基本规则
+
 1.每一个插件唯一对应了一个`<plugin>`节点,节点中必须声明此插件的名字 用`name`字段表示
-2.在插件<plugin>节点内，每个 `<method>`节点对应了一个暴露给网页的插件方法,方法名字用`name`字段表示
+2.在插件`<plugin>`节点内，每个 `<method>`节点对应了一个暴露给网页的插件方法,方法名字用`name`字段表示
+
+***
 
 * 在网页中写一个按钮,在点击按钮的JS事件中调用`uexDemoPlugin.helloWorld();`
 
 html部分
 
-```
+```html
 <input type="button" value="helloWorld" onclick="helloWorld();"/>
 ```
 
 JavaScript部分
 
-```
+```js
 var helloWorld = function(){
     uexDemoPlugin.helloWorld();
 }
@@ -183,7 +186,7 @@ var helloWorld = function(){
 ​	
 * 在EUExDemoPlugin类中实现一个方法`sendValue:`
 
-```
+```objc
 - (void)sendValue:(NSMutableArray *)inArguments{
     //打印传入的参数个数
     NSLog(@"arguments count : %@",@(inArguments.count));
@@ -196,7 +199,7 @@ var helloWorld = function(){
 ```
 * 在plugin.xml中添加方法
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
     <plugin name="uexDemoPlugin">
@@ -208,7 +211,7 @@ var helloWorld = function(){
 
 * 在网页中调用的JS如下
 
-```
+```js
 uexDemoPlugin.sendValue("aaa",12,true,["x","y"],{key:"value"});
 ```
 * 结果如下
@@ -233,23 +236,23 @@ uexDemoPlugin.sendValue("aaa",12,true,["x","y"],{key:"value"});
 
 #### 3.2.3 解析网页传递的数据
 
-* 有时,JS传递过来的值可能并不是你所期望的类型,此时直接从参数数组中取值,可能会由于类型错误导致闪退.比如
+* 有时JS传递过来的值可能并不是你所期望的类型,此时直接从参数数组中取值,可能会由于类型错误导致闪退.比如
 
 ```objc
+NSString *identifier = inArguments[0];
 //如果前端传值"1",则代码正常运作
 //如果前端传值1,则此段代码会导致unrecognized selector错误
 //因为此时identifier是一个NSNumber,并没有length方法
-NSString *identifier = inArguments[0];
 BOOL isIDValid = identidier.length > 0;
 ```
 
-* 因此建议使用AppCanKit中提供的宏`ACArgsUnpack`来解析参数
+* 因此建议使用`AppCanKit`中提供的宏`ACArgsUnpack`来解析参数
 * 在EUExDemoPlugin类中实现一个方法`sendArguments:`,并在config.xml中添加相应的方法。
 
 ```objc
 - (void)sendArguments:(NSMutableArray *)inArguments{
+  	//ACArgsUnpack的详细用法请参考AppCanKit内的注释
     ACArgsUnpack(NSString *arg1,NSNumber *arg2,NSArray *arg3,NSDictionary *arg4) = inArguments;
-    
     for(id arg in @[arg1,arg2,arg3,arg4]){
         ACLogDebug(@"value : %@ , class : %@ ",[arg description],[[arg class] description]);
     }
@@ -258,7 +261,7 @@ BOOL isIDValid = identidier.length > 0;
 
 * 在网页中调用的JS如下
 
-```
+```js
 uexDemoPlugin.sendArguments(123,"45",JSON.stringify([6,7]),JSON.stringify({key: "value"}))
 ```
 * 结果如下
@@ -289,26 +292,26 @@ uexDemoPlugin.sendArguments(123,"45",JSON.stringify([6,7]),JSON.stringify({key: 
       }
       alert(result);
   }
-
-
   //注册回调函数必须要在window.uexOnload 或者AppCan.ready(如果你已经引入了appcan.js)中进行
   //插件调试时,建议使用window.uexOnload,避免AppCan JSSDK可能的干扰
   window.uexOnload = function(){
       uexDemoPlugin.cbDoCallback = function(jsonStr){
-          //回调的参数是JSON字符串，需要解析成Object
-          var json = JSON.parse(jsonStr);
-          //查看回调结果
-          showDetails(jsonStr,json,json.key);
-      }
+        //回调的参数是JSON字符串，需要解析成Object
+        var json = JSON.parse(jsonStr);
+        //查看回调结果
+        showDetails(jsonStr,json,json.key);
+    }
   };
   ```
 
-  ​
+
 
 
 * 在EUExDemoPlugin类中实现一个方法`doCallback:`,并在config.xml中添加相应的方法。
 
-```objc
+
+
+```objective-c
 - (void)doCallback:(NSMutableArray *)inArguments{
     NSDictionary *dict = @{
                            @"key":@"value"
@@ -354,7 +357,7 @@ uexDemoPlugin.sendArguments(123,"45",JSON.stringify([6,7]),JSON.stringify({key: 
 
 * 在网页中如下所示调用JS进行测试
 
-```
+```js
 //将获取的返回值赋值给obj
 var obj = uexDemoPlugin.doSyncCallback();
 //查看obj的结构
@@ -609,7 +612,7 @@ uexDemoPlugin.onControllerClose = function(){
 * plugin.xml主要记录了插件的接口信息
 * 此plugin.xml和插件调试工程中的plugin.xml完全一样，您可以直接拷贝过来
   * 如果您的调试工程在同时调试多个插件,那么在拷贝完成之后应删去`<uexplugins>`节点中其他插件的信息
-* 或者以下列文本为基础,在`<uexplugins>`节点中按照[plugin.xml中注册插件方法的基本规则](#plugin.xml中注册插件方法的基本规则)和[如何在plugin.xml中注册一个同步方法](#如何在plugin.xml中注册一个同步方法)完成plugin.xml的编辑
+* 或者以下列文本为基础,在`<uexplugins>`节点中按照[plugin.xml中注册插件方法的基本规则](#plugin.xml中注册插件方法的基本规则)完成plugin.xml的编辑
 
 plugin.xml空白模板,是一个标准的xml文件
 ```xml
@@ -628,7 +631,7 @@ plugin.xml空白模板,是一个标准的xml文件
         <method name="sendValue"></method>
         <method name="sendJSONValue"></method>
         <method name="doCallback"></method>
-        <method name="doSyncCallback" sync="true"></method>
+        <method name="doSyncCallback"></method>
         <method name="addView"></method>
         <method name="removeView"></method>
         <method name="presentController"></method>
@@ -863,7 +866,7 @@ AppCan引擎会额外分发如下事件至每个插件入口类
   * 解决方法:添加同时拥有armv7和arm64架构的第三方库并重新生成插件包进行在线打包
 * 缺少系统依赖库.
   * 如果这个库的依赖iOS版本比AppCan引擎的依赖版本高,那么此插件只能配合自定义引擎使用
-  * 反之,请去[AppCan引擎github](https://github.com/AppCanOpenSource/appcan-ios/issues)提issue或者在[AppCan官方论坛](http://bbs.AppCan.cn)发帖说明,我们会第一时间进行反馈.
+  * 反之,请去[AppCan引擎github提交issue](https://github.com/AppCanOpenSource/appcan-ios/issues)或者在[AppCan官方论坛](http://bbs.AppCan.cn)发帖说明,我们会第一时间进行反馈.
   * 目前AppCan引擎的依赖版本为iOS 8.0
 
 ####在线打包时出现`duplicate symbols for architecture xxx`类型的报错:
