@@ -89,9 +89,7 @@ var callback=function(error,data){
 
 **说明：**
 
-
-* 会触发[cbSubscribe]()
-
+无
 
 **参数：**
 
@@ -120,8 +118,7 @@ var callback=function(error,topic){
 
 **说明：**
 
-* 会触发[cbUnsubscribe]()，
-
+无
 
 **参数：**
 
@@ -150,7 +147,7 @@ var callback=function(error,topic){
 
 **说明：**
 
-* 会触发[cbPublish]()
+无
 
 **参数：**
 
