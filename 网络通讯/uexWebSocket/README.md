@@ -113,50 +113,6 @@ uexWebSocket.onConnect = function() {
 **参数**
 
 | 参数名称 | 参数类型   | 是否必选 | 说明 |
-| ----- | ------ | ---- | -------------- |
-| data | String | 是    | 接收到的消息数据|
-
-**示例**
-```
-uexWebSocket.onMessage = function(data) {
-    console.log('[received]' + data);
-}
-```
-
-
-### 🍭 onClose 关闭webSocket链接的监听
-`uexWebSocket.onClose()`
-
-**参数**
-无
-
-**示例**
-```
-uexWebSocket.onClose = function() {
-    console.log('[close]');
-}
-```
-
-
-# 3、更新历史
-
-### iOS
-
-API版本: `uexWebSocket-4.0.0`
-
-最近更新时间:`2016-11-23`
-
-| 历史发布版本 | 更新内容   |
-| ------ | ------ |
-
-### Android
-
-API版本: `uexWebSocket-4.0.0`
-
-最近更新时间:`2016-11-23`
-
-| 历史发布版本 | 更新内容   |
-| ------ | ------ |
 [TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 webSocket 插件
