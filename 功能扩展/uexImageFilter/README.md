@@ -5,7 +5,7 @@
 改插件实现了仿Instagram  的图像处理功能。**插件需要引擎4.0以上版本**
 
 ![preview](preview/preview.png)
-
+![preview](preview/preview-ios.png)
 
 
 ## 1.2、开源源码

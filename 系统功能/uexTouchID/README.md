@@ -24,7 +24,7 @@ TouchID苹果指纹识别功能插件
 
 ### 🍭 canAuthenticate 是否支持TouchID
 
-`uexTouchID.canAuthenticate()`  
+`uexTouchID.canAuthenticate(data)`  
 
 **说明:**
 
@@ -32,7 +32,22 @@ TouchID苹果指纹识别功能插件
 
 **参数:**
 
-无
+| 参数名称 | 参数类型     | 是否必选 | 说明                     |
+| ---- | -------- | ---- | ---------------------- |
+| data | Object   | 是    | 指纹验证的配置,不需要进行配置时请传null |
+
+```javascript
+var data = {
+  mode:
+}
+```
+
+
+各字段含义如下:
+
+| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| mode | Number | 否    | 指纹验证模式,详见[附录-AuthenticateMode](#AuthenticateMode 验证模式),不传时默认为0 |
 
 **返回值**
 
@@ -42,14 +57,16 @@ TouchID苹果指纹识别功能插件
 **示例**
 
 ```javascript
-var ret = uexTouchID.canAuthenticate();
+var ret = uexTouchID.canAuthenticate({
+    mode: 0
+});
 alert(ret);
 ```
 
 
 ### 🍭 authenticate 校验TouchID
 
-`uexTouchID.canAuthenticate(data,cb)`  
+`uexTouchID.authenticate(data,cb)`  
 
 **说明:**
 

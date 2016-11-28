@@ -602,9 +602,9 @@ var json = {
 | 参数名称      | 参数类型   | 是否必选 | 说明    |
 | --------- | ------ | ---- | ----- |
 | id        | Number | 是    | 唯一标识符 |
-| longitude | float | 否    | 经度  |
-| latitude | float | 否    | 纬度   |
-| title  | Array  | 是    | 标题    |
+| longitude | float | 是    | 经度  |
+| latitude | float | 是    | 纬度   |
+| title  | String  | 是    | 标题    |
 | titleSize | Number | 是    | 标题字号大小，默认是32px |
 | titleColor  | String | 是    | 标题字体颜色, 默认黑色 |
 | subTitle  | String  | 否    | 子标题   |
