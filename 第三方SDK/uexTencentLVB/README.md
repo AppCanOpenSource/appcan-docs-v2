@@ -1,7 +1,7 @@
  # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
  视频直播插件
 ##1.1、说明
- 该插件对腾讯云的视频直播播放器SDK进行相关封装。使用腾讯云直播的用户需要单独购买其产品来获得直播或点播相关的地址
+ 该插件对腾讯云的视频直播播放器SDK进行相关封装。使用腾讯云直播的用户需要单独购买其产品来获得直播或点播相关的地址，详细说明请参考腾讯云帮助和文档[链接地址](https://www.qcloud.com/document/product/267/2819)。
 
 ##1.2、UI展示
 ![preview](preview/preview-ios.png)
