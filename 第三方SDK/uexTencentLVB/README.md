@@ -57,7 +57,7 @@ uexTencentLVB.livePlay(JSON.stringify(params));
 
 > ### vodPlay 点播
 
-`uexQcloudAV.vodplay()`
+`uexTencentLVB.vodPlay()`
 
 **说明:**
 
