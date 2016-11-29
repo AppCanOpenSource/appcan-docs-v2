@@ -38,6 +38,12 @@
 
 `true` 或 `false`
 
+**示例：**
+
+```javascript
+uexMQTT.init();
+```
+
 
 ### 🍭 connect 连接到MQTT服务器
 
@@ -83,6 +89,31 @@ var callback=function(error,data){
 **返回值**
 
 	如果当前已经有一个连接存在,则会返回false,其他情况返回true
+**示例**
+
+```javascript
+     uexMQTT.connect({
+         server: "test.mosquitto.org", //String,必选,服务器地址
+         port: 1883, //Number,必选,服务器端口
+         keepAliveInterval: 30, //Number,必选,心跳包发送频率,单位:秒
+         // LWT:{//Object,可选,Last Will and Testament相关设置
+         //   enable:true,//Boolean, 是否启用LWT
+         //   topic:"willTopic",//String,willMessage的topic
+         //   qos:1,//Number,willMessage的qos
+         //   data:"willData",//String,willMessage的data
+         //   retainFlag:true,//Boolean,willMessage的retainFlag
+         // }
+     },function (error, data) {
+         if (!error){
+             alert("connect success...")
+         }else{
+             alert("failed. "+data)
+         }
+     });
+```
+
+
+
 ### 🍭 subscribe 订阅一个topic
 
 `uexMQTT.subscribe(param,callback)`
@@ -112,6 +143,23 @@ var callback=function(error,topic){
 }
 ```
 
+**示例**
+
+```javascript
+     uexMQTT.subscribe({
+         topic: "b1e57467c92140e299022deb808cdd24/000000/get", //String,必选,要订阅的topic
+         qos: 1, //Number,必选 此topic的qos
+     },function (error, data) {
+         if (!error){
+             alert("subscribe success..."+data)
+         }else{
+             alert("failed. "+data)
+         }
+     });
+```
+
+
+
 ### 🍭 unsubscribe 取消订阅一个topic
 
 `uexMQTT.unsubscribe(param,callback)`
@@ -137,6 +185,20 @@ var callback=function(error,topic){
   	//error 为0时表示成功，其他表示失败
   	//topic String,要订阅的topic,error非0(即错误)时返回相关的错误信息
 }
+```
+
+**示例**
+
+```javascript
+     uexMQTT.unsubscribe({
+         topic: "b1e57467c92140e299022deb808cdd24/000000/get", //String,必选,要订阅的topic
+     },function (error, data) {
+         if (!error){
+             alert("unsubscribe success..."+data)
+         }else{
+             alert("failed. "+data)
+         }
+     });
 ```
 
 
@@ -177,8 +239,28 @@ var callback=function(error,data){
 * qos = 1或者2时, 返回此消息的mid
 
 
+**示例**
+
+```javascript
+     uexMQTT.publish({
+         id: "uid123456", //String,必选,自定义id,用于在cbPublish中区分消息
+         topic: "b1e57467c92140e299022deb808cdd24/000000/set", //String,必选,发布消息的topic
+         qos: 0, //Number,必选,要发布消息的qos
+         data: "heeello!", //String,必选,要发布的消息数据
+         retainFlag: false //Boolean,可选. MQTT broker是否要保留此消息,默认false
+     },function (error, data) {
+         if (!error){
+             alert("publish success...")
+         }else{
+             alert("failed. "+data)
+         }
+     });
+```
+
+
 
 ### 🍭 disconnect 中断与服务器的连接
+
 `uexMQTT.disconnect(callback)`
 
 **说明：**
@@ -197,12 +279,30 @@ var callback=function(error,data){
 }
 ```
 
+**示例**
+
+```javascript
+ var disconnect = function() {
+     uexMQTT.disconnect(function (error, data) {
+         if (!error){
+             alert("disconnect success...")
+         }else{
+             alert("disconnect failed...")
+         }
+     });
+ }
+```
+
+
+
 ## 2.2、监听方法
 
 
 ### 🍭 onStatusChange MQTT状态变化的监听
 
 `uexMQTT.onStatusChange(param)`
+
+**参数**
 
 param是JSON Object
 
@@ -212,8 +312,24 @@ var param = {
 }
 ```
 
+**示例**
+
+```javascript
+ window.uexOnload = function() {
+
+     uexMQTT.onStatusChange = function(data) {
+		alert("status: "+data.status);
+     }
+ }
+```
+
+
+
 ### 🍭 onNewMessage 收到新消息的监听
+
 `uexMQTT.onNewMessage(param)`
+
+**参数**
 
 param是JSON Object
 
@@ -226,6 +342,18 @@ var param = {
 	mid:,//Number,必选,消息的mid
 }
 ```
+
+**示例**
+
+```javascript
+ window.uexOnload = function() {
+     uexMQTT.onNewMessage = function(data) {
+         alert("receive message!\nmid: " + data.mid + "\non topic: " + data.topic + "\nqos: " + data.qos + "\nretainFlag: " + data.retainFlag + "\ndata: " + data.data);
+     }
+ }
+```
+
+
 
 ## 2.3、附录
 
