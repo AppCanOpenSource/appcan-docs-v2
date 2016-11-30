@@ -346,7 +346,7 @@ uexWeiXin.shareTextContent(jsonstr, function(error){
 
 | 参数名称     | 参数类型     | 是否必选 | 说明                                       |
 | -------- | -------- | ---- | ---------------------------------------- |
-| jsonData | String   | 是    | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type, Android不支持网络路径图片 |
+| jsonData | String   | 是    | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type |
 | cbFun    | Function | 是    | 分享结束后的回调函数                               |
 
 ```javascript
@@ -363,7 +363,7 @@ var jsonData = {
 | 字段名称     | 类型     | 是否必选 | 说明                     |
 | -------- | ------ | ---- | ---------------------- |
 | thumbImg | String | 是    | 缩略图地址Url(大小必须小于32k)    |
-| image    | String | 是    | 图片地址                   |
+| image    | String | 是    | 图片地址, Android不支持网络路径图片|
 | scene    | Number | 是    | 发送的目标场景 0-会话场景 1-朋友圈场景 |
 | title    | String | 否    | 图片标题(仅iOS)             |
 
