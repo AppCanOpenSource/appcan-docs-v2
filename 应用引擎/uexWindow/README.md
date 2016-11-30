@@ -1733,7 +1733,7 @@ uexWindow.prompt({
   title:"提示",
   message:"请输入内容:",
   defalutValue:"",
-  buttonLables:"OK,Cancel"
+  buttonLabels:"OK,Cancel"
 },function(index,data){
   
 });
