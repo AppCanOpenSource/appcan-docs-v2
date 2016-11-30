@@ -1,33 +1,44 @@
+/*
+Sort: 11
+Toc: 1
+Tips: 极光推送
+keywords: appcan开发文档,插件API,uexJPush 
+description: uexJPush 封装了极光推送的相关功能:您可以主动、及时地向您的用户发起交互,向其发送聊天消息、日程提醒、活动预告、进度提示、动态更新等,精准的目标用户和有价值的推送内容可以提升用户忠诚度,提高留存率与收入.更多appcan开发文档，请见http://newdocx.appcan.cn
+Show: /newdocx/docx?type=1479_975
+*/
 
-[TOC]
 
-#1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+
+#### **1、简介** *[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()*<ignore>
 
 极光推送插件
-##1.1、说明
+###### **1.1、说明**<ignore>
 封装了极光推送的相关功能:您可以主动、及时地向您的用户发起交互,向其发送聊天消息、日程提醒、活动预告、进度提示、动态更新等,精准的目标用户和有价值的推送内容可以提升用户忠诚度,提高留存率与收入.
 
-* 集成打包之前需要在 config.xml 配置参数,否则打包失败.若打包平台不支持config.xml配置,用户需要自定义插件进行使用,详见**[附录](#3、附录 "附录")**
+**温馨提示：**
+* 集成打包之前需要在 config.xml 配置参数,否则打包失败.若打包平台不支持config.xml配置,用户需要自定义插件进行使用,详见**[附录](#-3-ignore- "附录")**
 * 插件需要用到证书/包名,因此IDE打包下部分功能无法正常使用,**调试使用本插件时,请使用在线打包**.
 * 本插件为单例插件,用户可以在任意界面调用插件的接口,但回调始终传回给root页面.
+* iOS版极光插件，使用之前须在config.xml配置推送权限，[配置文档](/dev-guide/ios10#-entitlements-)
 
-##1.2、开源源码
-[点击](http://plugin.appcan.cn/details.html?id=432_index)插件中心至插件详情页(测试用例与插件源码已经提供)
+**插件集成使用说明：**（已集成到平台[公共插件](/dev-guide/platform-services/app-dev#-4-5-ignore-)，直接勾选打包）
+###### **1.2、开源源码**<ignore>
+<a href="http://plugin.appcan.cn/details.html?id=432_index" target="_blank">点击</a>插件中心至插件详情页(测试用例与插件源码已经提供)
 
 
-## 1.3、平台版本支持
+###### **1.3、平台版本支持**<ignore>
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.4、接口有效性
+###### ** 1.4、接口有效性**<ignore>
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明. 
 
 
-#2、API概览
-##2.1、方法
+#### **2、API概览**<ignore>
+###### **2.1、方法**<ignore>
 
-### 🍭 stopPush  停止推送服务,仅支持Android
+>###### **stopPush //停止推送服务**
 
 `uexJPush.stopPush()`
 
@@ -47,7 +58,7 @@ Android 4.0+
 uexJPush.stopPush();
 ```
 
-### 🍭 resumePush  恢复推送服务,仅支持Android
+>###### **resumePush //恢复推送服务**
 
 `uexJPush.resumePush()`
 
@@ -67,7 +78,7 @@ Android 4.0+
 uexJPush.resumePush();
 ```
 
-### 🍭 setAlias   设置别名
+>###### **setAlias //设置别名**
 
 `uexJPush.setAlias(json, callbackFunction)`
 
@@ -120,7 +131,7 @@ uexJPush.setAlias(json, function(error,data) {
 });
 ```
 
-### 🍭 setTags  设置标签
+>###### **setTags //设置标签**
 
 `uexJPush.setTags(json, callbackFunction)`
 
@@ -175,7 +186,7 @@ uexJPush.setTags(json, function(error,data) {
 });
 ```
 
-### 🍭 setAliasAndTags  同时设置别名与标签
+>###### **setAliasAndTags //同时设置别名与标签**
 
 `uexJPush.setAliasAndTags(json, callbackFunction)`
 
@@ -228,7 +239,7 @@ uexJPush.setAliasAndTags(json, function(error,data) {
 });
 ```
 
-### 🍭 getRegistrationID 取得应用程序对应的 RegistrationID
+>###### **getRegistrationID //取得应用程序对应的 RegistrationID**
 
 `uexJPush.getRegistrationID()`
 
@@ -249,7 +260,7 @@ var id = uexJPush.getRegistrationID();
 alert(id);
 ```
 
-### 🍭 clearAllNotifications 清除所有通知,仅支持Android
+>###### **clearAllNotifications //清除所有通知**,仅支持Android
 
 `uexJPush.clearAllNotifications()`
 
@@ -269,7 +280,7 @@ Android 4.0+
 uexJPush.clearAllNotifications();
 ```
 
-### 🍭 clearNotificationById  根据Id清除某条通知,仅支持Android
+>###### **clearNotificationById //根据Id清除某条通知**,仅支持Android
 
 `uexJPush.clearNotificationById(json)`
 
@@ -295,7 +306,7 @@ var data = JSON.stringify(params);
 uexJPush.clearNotificationById(data);
 ```
 
-### 🍭 getConnectionState 获取推送连接状态
+>###### **getConnectionState //获取推送连接状态**
 
 `uexJPush.getConnectionState(callbackFunction)`
 
@@ -330,7 +341,7 @@ uexJPush.getConnectionState(function(error) {
 });
 ```
 
-### 🍭 addLocalNotification  添加一个本地通知
+>###### **addLocalNotification //添加一个本地通知**
 
 `uexJPush.addLocalNotification(json)`
 
@@ -365,7 +376,7 @@ var json = {
 uexJPush.addLocalNotification(json);
 ```
 
-### 🍭 removeLocalNotification 移除一个本地通知
+>###### **removeLocalNotification //移除一个本地通知**
 
 `uexJPush.removeLocalNotification(json)`
 
@@ -391,7 +402,7 @@ var json = {
 uexJPush.removeLocalNotification(json);
 ```
 
-### 🍭 clearLocalNotifications  移除所有的通知
+>###### **clearLocalNotifications //移除所有的通知**
 
 `uexJPush.clearLocalNotifications()`
 
@@ -427,7 +438,7 @@ iOS 7.0+
 uexJPush.setBadgeNumber(0);
 ```
 
-### 🍭 disableLocalNotificationAlertView  禁止前台本地通知提示框,仅支持iOS
+>###### **disableLocalNotificationAlertView //禁止前台本地通知提示框**,仅支持iOS
 
 `uexJPush.disableLocalNotificationAlertView(flag)`
 
@@ -456,7 +467,7 @@ uexJPush.disableLocalNotificationAlertView(1);
 
 ##2.2、监听方法
 
-### 🍭 onReceiveMessage 收到了自定义消息
+>###### **onReceiveMessage //收到了自定义消息**
 
 `uexJPush.onReceiveMessage(json)`
 
@@ -480,7 +491,7 @@ window.uexOnload=function(type){
 }
 ```
 
-### 🍭 onReceiveNotification 收到了通知
+>###### **onReceiveNotification //收到了通知**
 
 `uexJPush.onReceiveNotification(json)`
 
@@ -511,7 +522,7 @@ window.uexOnload=function(type){
 }
 ```
 
-### 🍭 onReceiveNotificationOpen  用户点击了通知
+>###### **onReceiveNotificationOpen //用户点击了通知**  
 
 `uexJPush.onReceiveNotificationOpen(json)`
 
@@ -542,7 +553,7 @@ window.uexOnload=function(type){
 }
 ```
 
-### 🍭 onReceiveConnectionChange  连接状态变化
+>###### **onReceiveConnectionChange //连接状态变化** 
 
 `uexJPush.onReceiveConnectionChange(json)`
 
@@ -565,7 +576,7 @@ window.uexOnload=function(type){
 }
 ```
 
-### 🍭 onReceiveRegistration  应用程序注册监听
+>###### **onReceiveRegistration //应用程序注册监听**
 
 `uexJPush.onReceiveRegistration(json)`
 
@@ -587,9 +598,9 @@ window.uexOnload=function(type){
 	}
 }
 ```
-#3、附录
+#### **3、附录**<ignore>
 
-##3.1、别名/标签 错误代码解释
+###### **3.1、别名/标签 错误代码解释**<ignore>
 |error|描述|详细解释|
 |-----|-----|-----|
 |6001|无效的设置,tag/alias 不应参数都为 null	
@@ -602,21 +613,21 @@ window.uexOnload=function(type){
 |6008|	tag/alias 超出总长度限制	|总长度最多 1K 字节
 |6011|	10s内设置tag或alias大于10次|	短时间内操作过于频繁
 
-##3.2、 通知/自定义消息/本地通知的接收情况
+###### **3.2、 通知/自定义消息/本地通知的接收情况**<ignore>
 |操作系统|通知|自定义消息|本地通知|
 |-----|-----|-----|
 |Andriod|前台/后台 均能接收|前台/后台 均能接收|前台/后台 均能接收	
 |iOS|	前台/后台/进程关闭状态 均能接收	|仅前台|前台/后台 均能接收
 
 
-##3.3、 Android插件配置说明
+###### **3.3、 Android插件配置说明**<ignore>
 **如果不使用config.xml配制方法,那么本插件需要下载插件包配置`AndroidManifest.xml`文件后作为自定义插件上传才能正常使用.(只针对未升级打包服务的企业用户)**
 
 插件需要在`AndroidManifest.xml`中查找替换所有的`$UEXJPUSH_PACKAGE$`改为自己的包名(一共应该是五处).
 
 并将`$UEXJPUSH_APPKEY$`替换为自己在极光推送申请的appkey
 
-##3.4、 iOS插件配置说明
+###### **3.4、 iOS插件配置说明**<ignore>
 **如果不使用config.xml配制方法,那么本插件需要下载插件包配置`PushConfig.plist`文件后作为自定义插件上传才能正常使用.**
 
 所需配置的文件为插件包解压缩后的文件夹中的`uexJPushGroup\PushConfig.plist`.
@@ -634,13 +645,13 @@ APS_FOR_PRODUCTION
 
 ```
 
-##3.5 通过config.xml配置插件的方法
+###### **3.5 通过config.xml配置插件的方法**<ignore>
 
 * 将配置代码添加到`config.xml`中即可完成插件配置,无需进行自定义插件相关步骤
 * 详见[打包服务器公测](http://newdocx.appcan.cn/newdocx/docx?type=1472_1291)
 * 该公测已完成,现在也支持正式版大众打包服务器
 
-#### Android
+###### ** Android**<ignore>
 
 示例配置代码如下:
 
@@ -658,7 +669,7 @@ $UEXJPUSH_APPKEY$ -----> AppKey 填极光推送官网申请的AppKey
 
 ```
 
-#### iOS
+###### **iOS**<ignore>
 示例配置代码如下:
 
 ```xml
@@ -676,9 +687,9 @@ $UEXJPUSH_PUSH_CHANNEL$ -----> apns推送频道 填任意字符串
 $UEXJPUSH_APS_ENVIRONMENT$ ----->推送证书类型   0-开发者证书(developement)  1-发布证书(distribution)
 ```
 
-#4、更新历史
+###### **4、更新历史**<ignore>
 
-### iOS
+###### **iOS**<ignore>
 
 API版本: `uexJPush-4.0.0`
 
@@ -687,7 +698,7 @@ API版本: `uexJPush-4.0.0`
 | 历史发布版本 | 更新内容                                     |
 | ------ | ---------------------------------------- |
 
-### Android
+###### **Android**<ignore>
 
 API版本: `uexJPush-4.0.0`
 

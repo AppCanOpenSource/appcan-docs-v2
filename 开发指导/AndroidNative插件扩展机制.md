@@ -1,34 +1,44 @@
-[TOC]
-## 说明
+/*
+Sort: 3            //文档排序，值为数值。冒号为英文冒号，且后带一个英文空格。
+Toc: 1             //是否显示常用入口字段，代替之前的层级目录。1:显示，0或不写:不显示。冒号为英文冒号，且后带一个英文空格。
+Title: AndroidNative插件扩展机制
+keywords: appcan开发文档,AndroidNative插件扩展机制 
+description: Android的开发环境搭建主要包括JDK、Eclipse、Android SDK的安装。本文档对于环境的配置以及扩展插件的开发都做了详细介绍。更多appcan开发文档，请见http://newdocx.appcan.cn
+*/
+
+
+
+
+# **说明**
 
 本教程基于Android Studio（推荐），AppCan 引擎4.0版本以上
 
 Eclipse 开发请参考链接：[AndroidNative插件扩展机制](http://newdocx.appcan.cn/newdocx/docx?type=1366_1291)
 
-## 1.开发环境搭建
+# **1.开发环境搭建**
 
 已经有Android开发环境的可以略过本段
 
  Android的开发环境搭建主要包括JDK、Android Studio的安装。
 
-###  1.1.JDK安装验证
+####  **1.1.JDK安装验证**
 
   安装完成之后，可以在检查JDK是否安装成功。打开终端，输入java –version 查看JDK的版本信息。出现类似下面的画面表示安装成功了：
 
- ![QQ20161104-3@2x](img/QQ20161104-3@2x.png)
+ ![QQ20161104-3@2x](/docximg/openSource-native-capability-dev/QQ20161104-3@2x.png)
 
-### 1.2.Android Studio
+#### **1.2.Android Studio**
 
  Android Studio 的安装教程网上有很多，请自行搜索一下，可能需要使用代理
 
 官网地址：https://developer.android.com/studio/index.html 
 
-## 2.扩展插件的开发
+# **2.扩展插件的开发**
 
-### 2.1.开发流程
-#### 2.1.1.插件开发基本流程
+#### **2.1.开发流程**
+###### **2.1.1.插件开发基本流程**
 
-##### 1. 插件开发基础工程搭建
+** 1. 插件开发基础工程搭建**
 
 Demo地址：https://github.com/AppCanOpenSource/appcan-plugin-demo-android/tree/master
 
@@ -36,11 +46,11 @@ Demo地址：https://github.com/AppCanOpenSource/appcan-plugin-demo-android/tree
 
 `File`-->`New`—>`Import Project...`,选择你下载的文件夹之后，等待导入完成：
 
- ![QQ20161104-0@2x](img/QQ20161104-0@2x.png)
+ ![QQ20161104-0@2x](/docximg/openSource-native-capability-dev/QQ20161104-0@2x.png)
 
 点击左上角的`Android`切换为`Project`：
 
- ![QQ20161104-1@2x](img/QQ20161104-1@2x.png)
+ ![QQ20161104-1@2x](/docximg/openSource-native-capability-dev/QQ20161104-1@2x.png)
 
 此工程为插件开发基础工程,工程内res及assets文件夹含有插件开发的必要文件,开发者不要随意删除。
 
@@ -54,7 +64,7 @@ Demo地址：https://github.com/AppCanOpenSource/appcan-plugin-demo-android/tree
 ├── gradle.properties
 ├── gradlew
 ├── gradlew.bat
-├── img
+├── /docximg/openSource-native-capability-dev
 ├── local.properties 
 ├── settings.gradle
 └── uexDemo //插件开发工程module
@@ -86,9 +96,9 @@ Demo地址：https://github.com/AppCanOpenSource/appcan-plugin-demo-android/tree
 
 
 
-##### 2. Gradle 相关的一些说明
+** 2. Gradle 相关的一些说明**
 
-1. 引擎采用远程aar依赖的方式，插件moudle级别目录下`build.gradle`如下部分：
+1）. 引擎采用远程aar依赖的方式，插件moudle级别目录下`build.gradle`如下部分：
 
 ```groovy
 dependencies {
@@ -109,13 +119,13 @@ repositories {
 
 
 
-2. 生成插件包的gradle 部分也采用远程依赖的方式，方便统一处理问题
+2）. 生成插件包的gradle 部分也采用远程依赖的方式，方便统一处理问题
 
 ```groovy
 apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/master/buildPlugin.gradle"
 ```
 
-3. 引擎已经开启multiDex，因此插件工程中需要该配置：
+3）. 引擎已经开启multiDex，因此插件工程中需要该配置：
 
    ```groovy
     defaultConfig {
@@ -126,9 +136,9 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
     }
    ```
 
-4. 目前插件工程的`target` 不能设置为19以上，否则前端页面会错乱，建议14
+4）.  目前插件工程的`target` 不能设置为19以上，否则前端页面会错乱，建议14
 
-##### 3. 插件入口类编写
+** 3. 插件入口类编写**
 
   编写插件代码时，应当有至少一个入口类，需要说明的是，此类须继承基础类EUExBase类，并实现或重写父类的相关方法，随后我们就可以按照自己的功能需求编写代码了。
 
@@ -175,7 +185,7 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
 
  	 如上代码中定义了`test_startActivityForResult`方法和`uexDemo.cbStartActivityForResult`回调方法。
 
-##### 4. 插件配置文件编写
+** 4. 插件配置文件编写**
 
   入口类中定义好方法后，需要在配置文件(res/xml/plugin.xml)中做一些配置才能被调用。只有方法需要在插件配置文件中配置，回调方法不需要在配置文件中配置。配置文件代码如下：
 ```xml
@@ -189,7 +199,7 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
 ```
   在`plugin.xml`文件中，最外部的标签统一`<uexplugins>`,接下来配置`<plugin>`标签,此标签包含两个属性，`className`为入口类的包名加类名(引擎通过该属性反射调用入口类，因此不能配置错)，`uexName`即是插件名称（即注入给前端的对象）。最后需要配置子标签`<method>`，子标签的`name`属性即为入口类内已经编写好的方法。
 
-##### 5. Html页面调用插件配置
+** 5. Html页面调用插件配置**
 
   入口类和插件配置文件都配置完毕,现在需要在html页面调用插件的方法。
 
@@ -224,11 +234,11 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
     }
 ```
 
-##### 6. AndroidManifest.xml配置
+** 6. AndroidManifest.xml配置**
 
   AndroidManifest.xml文件，引擎的aar已经内置了一部分权限。可以通过`Merged Manifest`查看已经存在的权限等信息：
 
- ![QQ20161104-2@2x](img/QQ20161104-2@2x.png)
+ ![QQ20161104-2@2x](/docximg/openSource-native-capability-dev/QQ20161104-2@2x.png)
 
 开发者只需要向该文件中添加一些插件所需的内容，比如新添加一个activity或者service的注册，新添加一个权限等。
 
@@ -237,11 +247,11 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
     <activity android:name="com.test.HelloAppCanNativeActivity"/>
 ```
 
-##### 7. 测试插件
+** 7. 测试插件**
 
  运行程序,即可跳转到`index.html`界面;点击对应按钮,即可实现方法的调用。
 
-#### 2.1.2.生成插件包
+###### **2.1.2.生成插件包**
 
 插件开发调试完毕后，就可以生成插件包了。
 
@@ -254,7 +264,7 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
 ├── gradle.properties
 ├── gradlew
 ├── gradlew.bat
-├── img
+├── /docximg/openSource-native-capability-dev
 │   └── buildPlugin.gif
 ├── local.properties
 ├── settings.gradle
@@ -303,10 +313,10 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
 
 下面详细介绍每一部分的生成方法。
 
-##### **2.1.2.1.plugin.xml文件**
+###### **2.1.2.1.plugin.xml文件**
 
 **该文件为必须文件**。将Project根目录`uexDemo/res/xml/plugin.xml`拷贝至插件包根目录即可
-##### **2.1.2.2.info.xml文件**
+###### **2.1.2.2.info.xml文件**
 
 **该文件为必须文件**。主要用于说明插件版本信息和更新内容等。info.xml文件的内容如下：
 ```xml
@@ -326,7 +336,7 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
 
 >**info**：代表当前插件版本修改信息，打包服务器可通过解析info.xml文件得到插件的版本更新内容。
 
-##### **2.1.2.3.AndroidManifest.xml**
+###### **2.1.2.3.AndroidManifest.xml**
 
   配置本插件中用到的activity、service、receiver权限，以及应用的属性，例如横竖屏启动等等。可参考AppcanPluginDemo3.0 工程中的AndroidManifest.xml文件。
 **注意：**
@@ -347,11 +357,11 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
 </manifest>
 ```
 
-##### **2.1.2.4.jar文件夹**
+###### **2.1.2.4.jar文件夹**
 
 插件module libs下自己添加的Jar拷贝至此目录。如本例中就没有第三方jar文件。
 
-##### **2.1.2.5.so文件夹**
+###### **2.1.2.5.so文件夹**
 
 该文件夹中存放插件中**新增**的.so文件。且只能包含插件源码中libs目录下armeabi文件夹中新增的.so文件。
 
@@ -377,7 +387,7 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
 >
 > ```
 
-##### **2.1.2.6.res文件夹**
+###### **2.1.2.6.res文件夹**
 
 该文件夹中存放插件中**新增**的资源文件，不包含Demo中原有的资源文件。注意存放的时候需要保持文件的相对路径。
 这里的新增包含两个部分：
@@ -395,11 +405,11 @@ apply from: "https://raw.githubusercontent.com/android-plugin/gradle-plugin/mast
 
 资源文件的相对位置需要保持，如在插件源码里面，colors.xml的目录结构为`res/values/colors.xml`。那么在插件包uexDemo文件夹中colors.xml文件需要建立同样的目录结构。具体参考Demo中的uexDemo插件包示例。
 
-##### **2.1.2.7.dex文件夹**
+###### **2.1.2.7.dex文件夹**
 
 IDE打包时使用，该文件夹内容由脚本自动生成，开发者无需关心
 
-##### 2.1.2.8.生成插件包
+###### **2.1.2.8.生成插件包**
 
 前几步操作完成之后，有两种方式生成插件包
 
@@ -411,15 +421,15 @@ gradle buildPlugin
 
 2：找到 `Gradle(IDE右上角)—>XXX—>Tasks—>other—>buildPlugin  `双击即可
 
- ![buildPlugin](img/buildPlugin.gif)
+ ![buildPlugin](/docximg/openSource-native-capability-dev/buildPlugin.gif)
 
 > 如果生成插件失败，请检查`info.xml`是否配置正确，插件包的文件夹名是否正确
 
-#### 2.1.3.插件包目录结构命名规范
+###### **2.1.3.插件包目录结构命名规范**
 
   插件文件的命名可任意，但在AppCan中有统一的命名规范，为了保持一致扩展插件的开发也要符合命名规范。
 
-##### **2.1.3.1.plugin.xml中类及方法的命名**
+###### **2.1.3.1.plugin.xml中类及方法的命名**
 
   plugin.xml文件位于res目录下的xml目录中，是配置自定义native Plugin调用对象的xml文件，如果需要自定义对象和开发原生插件，必须在此文件中配置自定义js对象名和java类的包名类名。下面以AppcanPluginDemo3.0 插件为例：
 ```xml
@@ -443,27 +453,27 @@ gradle buildPlugin
 
 >**method**：插件对象中的方法名称，依旧符合驼峰命名法，回调网页的函数不需要写入到此文件中，但是应写到插件的API文档中。
 
-##### **2.1.3.2.类的命名**
+###### **2.1.3.2.类的命名**
 
   插件入口类的命名前缀为EUEx，即类的命名规范为EUEx+对象英文名称，例如EUExDemo。当然这个命名规范不是必须的，但是必须保证插件入口类的类名和plugin.xml中的类名一致即可。
 
-##### **2.1.3.3.方法的命名**
+###### **2.1.3.3.方法的命名**
 
   方法名符合驼峰命名法，例如下载插件中的创建下载对象“createDownloader”，和下载“download”。值得注意的是，这里的方法名要与plugin.xml中的相应类下的method name保持一致，否则会调用失败。
 
-##### **2.1.3.4.jar包的命名**
+###### **2.1.3.4.jar包的命名**
 
   扩展插件最终是以“.jar”的形式提交到服务器，也要符合我们的命名规范，即plugin_+插件名称。其中插件名称要和plugin.xml中的uexName一致。例如plugin_uexDemo.jar，和下载管理插件plugin_DownloaderMgr.jar等。
 
-##### **2.1.3.5.资源文件的命名**
+###### **2.1.3.5.资源文件的命名**
 
 命名规则为plugin_+plugin对象名_+其他信息（须使用小写命名规范），例如`plugin_uexdemo_xxx.png`、`plugin_uexdemo_yyy.xml`、 ``<string name=" plugin_uexdemo_zzz ">`等等。
 
-### 2.2.插件开发注意事项
+#### **2.2.插件开发注意事项**
 
 编写插件代码时，应当有至少一个入口类，提供给前端使用，此类须继承plugin的基础类EUExBase类，然后实现或重写相关函数，并添加自定义的接口方法与plugin.xml中的method对应。开发插件中可能遇到的常见问题，请查看下文中的插件开发中常见问题部分。
 
-#### 2.2.1.插件与前端通讯
+###### **2.2.1.插件与前端通讯**
 
 定义插件中的方法时参数必须为字符串类型的数组，如下：
 ```
@@ -480,7 +490,7 @@ gradle buildPlugin
 ```
 其中参数形式必须为`String[] parm`(即使不需要接收参数，方法也必须带字符串数组的参数),`parm`字符串数组的长度即为定义的接口参数的个数。如Demo中`test_addView`接口需要传递四个参数，开发者有两种方式定义参数样式。
 
-##### **2.2.1.1.传统方式**
+###### **2.2.1.1.传统方式**
 
 接口方法代码如下：
 ```
@@ -498,7 +508,7 @@ gradle buildPlugin
 
 这种方式传递参数理论上是可以的，但并非是最优的方案。对于插件的扩展性来说存在缺陷。因此建议开发者在定义接口方法时采用json数据格式传递。如下：
 
-##### **2.2.1.2.json数据格式方式**
+###### **2.2.1.2.json数据格式方式**
 
 接口方法代码如下：
 ```
@@ -573,7 +583,7 @@ public class ViewDataVO implements Serializable{
 
 **注意前端的json字段关键字必须和ViewDataVO中变量名称对应。**该种方式便于扩展，并且可以用json关键字简明表示参数含义，也便于理解。因此建议开发者采用第二种json数据格式传递方式。
 
-##### 2.2.1.3.支持前端Funtion传入
+###### **2.2.1.3.支持前端Funtion传入**
 
 现在前端调用插件时可以直接传入Function。
 
@@ -620,7 +630,7 @@ function(error,...){
 }
 ```
 
-##### 2.2.1.3.同步返回
+###### **2.2.1.3.同步返回**
 
 如果接口不是耗时操作，且需要返回值。应尽量采用同步返回的方式。如Demo中的`openv()`接口。支持直接返回对象。
 
@@ -630,7 +640,7 @@ function(error,...){
 
 
 
-#### 2.2.2.获取资源文件id
+###### **2.2.2.获取资源文件id**
 
 获取资源文件的id必须通过EUExUtil工具类获取，不能直接通过R文件引用方式。如要引用布局资源文件，可通过如下代码获取布局资源文件id：
 
@@ -659,7 +669,7 @@ function(error,...){
 >
 > 最后查找“你的AndroidManifest.xml 中设置的包名.R”看是否替换完全
 
-#### 2.2.3.在窗口上添加原生布局
+###### **2.2.3.在窗口上添加原生布局**
 
 由于从2015年11月13日之后的引擎版本做了比较大的升级，去掉了引擎中的ActivityGroup机制，于是在窗口上添加原生布局的方案不能再使用ActivityGroup来管理。而是使用自定义View的形式或者fragment机制。
 
@@ -675,7 +685,7 @@ function(error,...){
 
 **需特别注意，原来自定义插件时添加了原生布局并且用的是ActivityGroup结合LocalActivityManager机制方式的已经不能和最新引擎打包使用，需要开发者及时做出更改。**
 
-#### 2.2.4.拦截Application和Activity的生命周期
+###### **2.2.4.拦截Application和Activity的生命周期**
 
 引擎中封装了一些可拦截的生命周期方法，如下：
 ````java
@@ -707,9 +717,9 @@ function(error,...){
 ````
 **注意不可在生命周期方法内做耗时的操作，否则会出现页面卡死的现象。**
 
-## 3.插件开发中常见问题
+# **3.插件开发中常见问题**
 
-### 3.1.插件在测试中未正确运行
+#### **3.1.插件在测试中未正确运行**
 
   > 表现：
 
@@ -729,7 +739,7 @@ function(error,...){
 
 
 
-### 3.2.插件上传后打包应用失败
+#### **3.2.插件上传后打包应用失败**
 
  >  表现：
 
@@ -745,7 +755,7 @@ function(error,...){
 
 
 
-### 3.3.AndroidManifest常见问题
+#### **3.3.AndroidManifest常见问题**
 
 >  表现：
 
@@ -755,6 +765,5 @@ function(error,...){
 
   更改或添加了application节点下的相关属性(插件在最后打包时,不会提交application节点,故更改不起作用,开发者不要手动修改application节点)。
 
-
-<p class="text-center" > <a style="color:#fff"class="btn btn-primary btn-lg" href="http://dashboard.appcan.cn/register" role="button">免费注册，快速体验</a>
+<p class="text-center" > <a style="color:#fff"class="btn btn-primary btn-lg" href="http://dashboard.appcan.cn/register" target="_blank" role="button">免费注册，快速体验</a>
 </p>

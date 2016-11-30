@@ -1,25 +1,39 @@
- # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+/*
+
+Sort: 14
+
+Toc: 1
+keywords: appcan开发文档,插件API,uexTencentLVB 
+description: uexTencentLVB 该插件对腾讯云的视频直播播放器SDK进行相关封装。使用腾讯云直播的用户需要单独购买其产品来获得直播或点播相关的地址
+
+*/
+
+ #### **1、简介** *[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()*<ignore>
  视频直播插件
-##1.1、说明
+###### **1.1、说明**<ignore>
  该插件对腾讯云的视频直播播放器SDK进行相关封装。使用腾讯云直播的用户需要单独购买其产品来获得直播或点播相关的地址，详细说明请参考腾讯云帮助和文档[链接地址](https://www.qcloud.com/document/product/267/2819)。
 
-##1.2、UI展示
+ 
+**插件集成使用说明：**（已集成到平台[公共插件](/dev-guide/platform-services/app-dev#-4-5-ignore-)，直接勾选打包）
+###### **1.2、UI展示**<ignore>
 ![preview](preview/preview-ios.png)
-##1.3、开源源码
-插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4、平台版本支持
+###### **1.3、开源源码**<ignore>
+插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=683_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+
+4.0插件测试用例：[点击下载](http://plugin.appcan.cn/download/appcan-4.0-release/测试用例/pluginTestcase/pluginTestcase_download.zip "最新插件测试用例参考")
+###### ** 1.4、平台版本支持**<ignore>
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+###### ** 1.5、接口有效性**<ignore>
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明.
 
-#2、API概览
- ##2.1、方法
+#### **2、API概览**<ignore>
+###### **2.1、方法**<ignore>
 
-> ### livePlay 打开直播页面
+>###### ** livePlay //打开直播页面**
 
 `uexTencentLVB.livePlay(params)`
 
@@ -55,9 +69,9 @@ var params = {
 uexTencentLVB.livePlay(JSON.stringify(params));
 ```
 
-> ### vodPlay 点播
+>###### ** vodPlay //点播**
 
-`uexTencentLVB.vodPlay()`
+`uexQcloudAV.vodplay()`
 
 **说明:**
 
@@ -90,7 +104,7 @@ var params = {
 
 uexTencentLVB.vodPlay(JSON.stringify(params));
 ```
-> ### publish 发布直播
+>###### ** publish //发布直播**
 
 `uexTencentLVB.publish`
 
@@ -124,9 +138,9 @@ var params = {
 uexTencentLVB.publish(JSON.stringify(params));
 ```
 
-> ### 2、更新历史
+#### **2、更新历史** <ignore>
 
-### iOS
+###### **iOS**<ignore>
 
 API版本:`uexTencentLVB-3.0.0`
 
@@ -136,7 +150,7 @@ API版本:`uexTencentLVB-3.0.0`
 | ------ | ------ |
 | 3.0.0  | 视频直播插件 |
 
-### Android
+###### **Android**<ignore>
 
 API版本:`uexTencentLVB-3.0.0`
 
@@ -146,4 +160,7 @@ API版本:`uexTencentLVB-3.0.0`
 | ------ | --------- |
 | 3.0.0  | 腾讯云视频直播插件 |
 
+
+ 
+ 
 
