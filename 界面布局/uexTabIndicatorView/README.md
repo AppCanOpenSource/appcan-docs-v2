@@ -1,28 +1,43 @@
-[TOC]
+/*
 
- # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+Sort: 29
+
+Toc: 1
+Tips: 导航菜单指示器
+keywords: appcan开发文档,插件API,uexTabIndicatorView 
+description: uexTabIndicatorView 导航菜单指示器插件
+
+*/
+
+
+
+
+#### **1、简介** *[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()*<ignore>
  导航菜单指示器插件
-##1.1、说明
+###### **1.1、说明**<ignore>
 该插件需要与容器配合使用 
 
-##1.2、UI展示
+**插件集成使用说明：**（已集成到平台[公共插件](/dev-guide/platform-services/app-dev#-4-5-ignore-)，直接勾选打包）
+###### **1.2、UI展示**<ignore>
 ![preview](preview/preview-ios.png)
 
-##1.3、开源源码
-插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+###### **1.3、开源源码**<ignore>
+插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=684_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4、平台版本支持
+4.0插件测试用例：[点击下载](http://plugin.appcan.cn/download/appcan-4.0-release/测试用例/pluginTestcase/pluginTestcase_download.zip "最新插件测试用例参考")
+
+###### ** 1.4、平台版本支持**<ignore>
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+###### ** 1.5、接口有效性**<ignore>
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明. 
 
-#2、API概览
-## 2.1、方法
+#### **2、API概览**<ignore>
+###### **2.1、方法**<ignore>
 
-### 🍭 open 打开指示器插件
+>###### ** open //打开指示器插件**
 
 `uexTabIndicatorView.open(params)`
 
@@ -133,7 +148,7 @@ var param = {
 uexTabIndicatorView.open(param);
 ```
 
-### 🍭 setVisible 设置隐藏或显示
+>###### ** setVisible //设置隐藏或显示**
 
 `uexTabIndicatorView.setVisible(params);`
 
@@ -151,7 +166,7 @@ params 为0或1 ，0为隐藏，1为显示
 uexTabIndicatorView.setVisible(1);
 ```
 
-### 🍭 close 关闭
+>###### ** close //关闭**
 
 `uexTabIndicatorView.close();`
 
@@ -171,9 +186,9 @@ uexTabIndicatorView.setVisible(1);
 uexTabIndicatorView.close();
 ```
 
-#3、更新历史 
+#### **3、更新历史** <ignore> 
 
-### iOS
+###### **iOS**<ignore>
 
 API版本: `uexTabIndicatorView-4.0.0`
 
@@ -183,7 +198,7 @@ API版本: `uexTabIndicatorView-4.0.0`
 | ------ | ---- |
 |        |      |
 
-### Android
+###### **Android**<ignore>
 
 API版本: `uexTabIndicatorView-4.0.0`
 
@@ -192,3 +207,5 @@ API版本: `uexTabIndicatorView-4.0.0`
 | 历史发布版本 | 更新内容 |
 | ------ | ---- |
 |        |      |
+
+
