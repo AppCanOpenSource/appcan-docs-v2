@@ -6,11 +6,29 @@
 config.xml文件是AppCan移动App的配置文件，用于指定应用的显示名称、图标、应用起始页地址及需要使用的设备权限等信息，用户可通过AppCan IDE的可视化界面视图或者源码视图来配置移动App的信息。
 *  在IDE中创建“项目”应用后后都会在工程下生成config.xml文件，在“项目管理器”中**双击**即可打开 或 **右键config文件**选择打开方式![](/docImg/1291/QQ图片20160408115820.png)进行代码编辑。
 
-*  config.xml中的`<widget>`节点内会有**一个或多个**`<config>`块(如下所示)
+**配置规范：**config.xml中的<widget>节点内会有一个或多个<config>块(如下所示参考)
 ```
-<config desc="" type="">
-	XXXX
-</config>
+<?xml version="1.0" encoding="utf-8" ?>
+<widget widgetId="" pid="" appId="2222" channelCode="0000" version="00.00.0000" viewmode="application" width="320" height="480" sreensize="4.5">
+ <name>2222</name>
+ <description></description>
+ <author email=""> </author>
+ <icon src="icon.png" />
+ <license href=""></license>
+ <content src="index.html" encoding="utf-8" ></content>
+ <updateurl></updateurl>
+ <logserverip></logserverip> 
+ <showmyspace>false</showmyspace>
+ <obfuscation>true</obfuscation>
+ <bgcolor>#fefefe</bgcolor>
+ <orientation>15</orientation>
+<!-- 这里开始写配置-->
+ <config desc="" type="">
+    XXXX
+ </config>
+<!-- .........-->
+<!-- 以上区域为配置-->
+</widget>
 ```
 	* 其中`desc`为此config块的描述（无实际作用）
 	* 打包服务器会**逐条处理**每个`<config>`块，根据不同的`type`进行相应的操作
@@ -83,7 +101,7 @@ config.xml文件是AppCan移动App的配置文件，用于指定应用的显示�
 * 目前支持如下权限设置
 	* iOS 设置APP后台权限
 	* iOS 设置APP的urlScheme白名单
-
+	* iOS 设置APP的隐私权限 参考.iOS10适配配置
 ### 设置APP后台权限
 ####例子
 
@@ -111,7 +129,7 @@ config.xml文件是AppCan移动App的配置文件，用于指定应用的显示�
 |256|`<string>remote-notification</string>`|通过点击推送消息后台下载内容|仅iOS 7.0+|
 
 * 要配置多个权限时，将这些权限所对应的flag值相加后再传入
-* **用户需慎重配置后台权限，不当的权限设置会导致APP上架审核失败**
+>**用户需慎重配置后台权限，不当的权限设置会导致APP上架审核失败**
 
 ### 设置urlScheme白名单
 
@@ -167,7 +185,8 @@ config.xml文件是AppCan移动App的配置文件，用于指定应用的显示�
 
 ##type="ENTITLEMENTS" 授权信息管理（仅iOS）
 
-
+主适用于用于iOS系统，目前支持如下需要配置的主要有uexApplePay插件apple pay、iOS推送功能apns。
+iOS推送功能apns配置参考.iOS10适配配置
 
 ###设置merchant商户信息
 
@@ -187,3 +206,20 @@ config.xml文件是AppCan移动App的配置文件，用于指定应用的显示�
 *  type是必传参数，配置merchant商户信息时,传`"merchant"`;
 *  value是必传参数，传你配置的商户信息的merchantIdentifier;
 *  如果此App内需要同时用到多个商户信息，配置多个`<entitlement>`条目即可
+
+## **.自定义错误页面error配置**
+主要用于当打开的页面或open一个新窗口出错，页面网络异常等场景。
+
+1、只需将以下配置代码写进config.xml文件里实现。
+
+2、自定义错误页面，可以自行UI设计，路径只支持"res://","wgt://"协议，详见[Constant](/plugin-API/·Constant#-path-types- "Constant")。
+````
+<error src="error_content.html"/>
+````
+## **.沉浸式状态栏（仅android）**
+主适用于用于安卓系统，对于iOS系统 ios状态栏 是系统的无需设置。
+
+1、只需将以下配置代码写进config.xml文件里实现。
+````
+<statusbar color="#00000000"/>
+````

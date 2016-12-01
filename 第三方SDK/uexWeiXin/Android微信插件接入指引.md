@@ -5,29 +5,29 @@
 #1. 获取apk相关的包名和签名
   
 ## 1.1包名
-   
-###  1.1.1 APPCAN平台默认包名
+** 自定义包名（推荐使用）**
 
- APPCAN平台默认包名为：org.zywx.wbpalmstar.widgetone.uex加上应用id，如下：
-![](http://newdocx.appcan.cn/docximg/135101v2014q11l27h.png) 
->则默认的包名为：org.zywx.wbpalmstar.widgetone.uex11370920。
-
-###  1.1.2 自定义包名
-
- APPCAN大众版打包时，在"云端打包"项中可以自定义包名，如下：
+ APPCAN大众版打包时，在"云端打包"项中可以自定义包名，如下：建议配合使用自定义安卓证书（其中应用打包选项，证书管理里提供一键创建安卓证书功能）。
 ![](http://newdocx.appcan.cn/docximg/135111u2014t11o27g.png) 
-例如包名为org.zywx.wbpalmstar.widgetone.uexweixin，若该处不填，则为默认包名。
+例如包名为org.zywx.wbpalmstar.widgetone.uexweixin，若该处不填，则为默认包名。  
+
+>**备注：APPCAN平台默认包名（仅供测试参考）**
+
+APPCAN平台默认包名为：org.zywx.wbpalmstar.widgetone.uex加上应用id，如下：
+![](http://newdocx.appcan.cn/docximg/135101v2014q11l27h.png) 
+则默认的包名为：org.zywx.wbpalmstar.widgetone.uex11370920。
+
+
 
 ## 1.2签名
 
-### 1.2.1 APPCAN平台默认签名
 
-  “云端打包”中“选择证书”一项选择APPCAN证书，打包出来的apk的签名即为默认签名，默认（MD5值）为：d382d671c6672cba4b87980992cd9d77
-###  1.2.2 自定义签名   
+**  自定义签名  （推荐使用） **
 
  在APPCAN 大众版打包时，在“证书管理”项中可以上传应用打包所需的自定义签名文件，并在"云端打包"时，“选择证书”一项选择自定义证书。该证书打出来的包签名应该在生成此证书时可以得到。或者可以通过微信开发平台提供的操作流程获取应用的签名，[https://open.weixin.qq.com/cgi-bin/frame?t=resource/res_main_tmpl&verify=1&lang=zh_CN](https://open.weixin.qq.com/cgi-bin/frame?t=resource/res_main_tmpl&verify=1&lang=zh_CN) 上下载签名获取工具获取签名，如下：
 ![](http://newdocx.appcan.cn/docximg/135121e2014r11s27y.png) 
-
+>**备注： APPCAN平台默认签名 （仅供测试参考）**
+  “云端打包”中“选择证书”一项选择APPCAN测试证书，打包出来的apk的签名即为默认签名，默认（MD5值）为：d382d671c6672cba4b87980992cd9d77
 
 #  2. 通过包名和签名申请微信接入AppID
 
@@ -74,3 +74,24 @@
 #####  6.2 安卓偶尔收不到回调的问题
 
 要设置接收回调窗口，API接口可以使用setCallbackWindowName方法
+#####  6.3 微信分享提示无法分享到微信的问题
+
+当微信分享时提示：“无法分享到微信，用于用户投诉，当前你分享的内容存在诱导分享行为，无法分享到微信”错误，如下图所示
+ ![](/docImg/975/weixinerror.png)
+ 
+**可能原因：**
+(1)、你的应用真的有违规行为，那就没办法。
+(2)、你的应用在云端打包Android应用时选择了使用默认AppCan证书所致(大众版打包为AppCan测试证书，企业版打包为AppCan证书)
+大众版：
+![](/docImg/975/test.png)
+由于测试证书被很多应用所使用，安全性非常低，更有可能有人使用了此证书分享了一些违规信息，导致现在微信官方已将此证书封禁，所有使用该证书签名的App注册的微信应用，微信分享都会出现此问题。（由于iOS与Android在微信开放平台注册时是同一个appid，因此如果Android使用了AppCan测试证书，iOS也会“躺枪”）。
+
+**解决方案：**
+在应用程序云端打包时，先使用证书管理上传安全的自定义证书，再在云端打包上使用安全的自定义证书进行打包，并发布最新版本应用程序。
+由于Android的机制不支持中途更换证书，所以发布新版本时需要对用户进行安装引导，详见注意事项。
+**注意事项：**
+由于Android的安全机制不支持应用程序更换证书，所以当应用程序的证书改变时，覆盖安装会提示安装失败；
+此时应对用户做一定的引导，说明更换证书的特殊原因（微信分享不能正常使用），引导用户先卸载之前的应用程序，安装更换新证书的应用程序。
+#####  6.4 微信分享/支付之后，界面一闪而过的现象
+
+有用户在使用的过程中出现过调用分享之后，界面一闪而过的现象，该问题主要是因为打包Apk中的包名签名与微信的AppID不配套导致的。请确认包名签名证书和申请的AppID
