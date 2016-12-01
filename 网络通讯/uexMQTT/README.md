@@ -28,15 +28,11 @@
 
 **说明：**
 
-会触发[onStatusChange]()
+会触发[onStatusChange](#🍭 onStatusChange)
 
 **参数：**
 
 无
-
-**返回值：**
-
-`true` 或 `false`
 
 **示例：**
 
@@ -52,7 +48,7 @@ uexMQTT.init();
 **说明：**
 
 * 目前不支持SSL验证.
-* 会触发[onStatusChange]()，[cbConnect]()
+* 会触发[onStatusChange](#🍭 onStatusChange)
 
 
 **参数：**
@@ -86,9 +82,6 @@ var callback=function(error,data){
 }
 ```
 
-**返回值**
-
-	如果当前已经有一个连接存在,则会返回false,其他情况返回true
 **示例**
 
 ```javascript
