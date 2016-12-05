@@ -522,7 +522,7 @@ var makerInfo={
 | icon      | String | 否    | 标注图标   |
 | bubble    | Object | 是    | 气泡设置   |
 | title     | String | 是    | 气泡标题   |
-| bgImage   | String | 是    | 气泡背景图片 |
+| bgImage   | String | 否    | 气泡背景图片 |
 
 **示例**
 
