@@ -392,6 +392,241 @@ uexImage.setIpadPopEnable(0);
 ```
 
 
+### 🍭 openLabelViewContainer 打开LabelView依赖的背景图片
+
+`uexImage.openLabelViewContainer(param)`
+
+**说明**
+打开LabelView依赖的背景图片, 所有的标签(labelView)都会添加到这个上面。
+`openLabelViewContainer`, `addLabelView`, `getPicInfoWithLabelViews`,`showLabelViewPic`, `onLabelClicked`这几个接口都是用来处理在图片上添加标签功能，需配合使用。
+具体的操作步骤：
+1. 调用`openLabelViewContainer`,打开一个图片，所有的标签都会添加在图片上。
+2. 调用`addLabelView`添加标签到图片上，标签添加后可以手动拖动来定位图片的热点， 标签的三角箭头指向的区域便是热点
+3. 调用`getPicInfoWithLabelViews`获取当前图片的信息，包含有每一个标签相对于图片的位置信息
+当需要显示这个带有标签信息的图片时：
+4. 调用`showLabelViewPic`接口，将步骤3中的得到的标签和图片信息， 和指定图片路径一起传入。一个包含有标签信息的图片便会显示出来，当用户点击到图片的热点时，便后触发`onLabelClick`事件，返回标签的id
+
+**参数**
+
+| 参数名称  | 参数类型     | 是否必选 | 说明              |
+| ----- | -------- | ---- | --------------- |
+| param | String   | 否    | 背景图片的相关参数配置  |
+
+`param`的数据结构为:
+```
+var param = {
+  width:
+  height:
+  x:
+  y:
+  image: //背景图片的路径
+
+}
+```
+
+**版本支持:**
+Android 4.0.5+
+
+**示例**
+```
+var data = {
+  "width": 600,
+  "height": 333,
+  "image":"res://photo2.jpg",
+  "x":50,
+  "y":500,
+}
+uexImage.openLabelViewContainer(data);
+```
+
+
+### 🍭 addLabelView 添加标签
+`uexImage.addLabelView(param)`
+
+**说明**
+* 添加标签， 标签会被添加到`openLabelViewContainer`接口打开的图片上。标签添加后，用户可以手动拖动标签到合适的位置。添加标签时，标签上的三角箭头所指向的便是热点。标签指向的热点区域默认在标签的左边。
+* 可以同时添加一个或多个标签
+**参数**
+
+| 参数名称  | 参数类型     | 是否必选 | 说明              |
+| ----- | -------- | ---- | --------------- |
+| param | JSON对象或JSON数组  | 是|  要添加的标签数据|
+
+`param`的数据结构为:
+```
+var param = ［
+  {
+    id: //Number类型， 标签的id, 在onLabelViewClicked接口中回调给开发者
+    content://String 类型， label上的文本
+    x: //标签相对于外部容器左上角的x坐标
+    y://标签相对于外部容器左上角的y坐标
+	｝
+］
+```
+
+添加一个标签时，`param`的数据结构为
+```
+var param = {
+  id: //Number类型， 标签的id, 在onLabelViewClicked接口中回调给开发者
+  content://String 类型， label上的文本
+  x: //标签相对于外部容器左上角的x坐标
+  y://标签相对于外部容器左上角的y坐标
+}
+```
+
+**版本支持:**
+Android 4.0.5+
+
+**示例**
+```
+var data = [
+  {"id": 1, "content": "content", x: 20, y: 40}, 
+  {"id": 2, "content": "label content 2", x:50, y: 100},
+  {"id": 3, "content": "label content 3444", x:100, y: 200}
+]
+uexImage.addLabelView(JSON.stringify(data));
+```
+
+### 🍭 getPicInfoWithLabelViews 获取标签及图片的信息
+
+`var data = uexImage.getPicInfoWithLabelViews()`
+**说明**
+获取标签及图片的信息, 会同步返回图片的宽高，及标签相对图片的位置信息。
+
+**参数**
+无
+
+**返回的数据格式, 及说明**
+```
+{
+    "width": 600, // 外层图片（label 的载体）的宽度
+    "height": 333,  // 外层图片的高度
+    "labels": [     //所有的label
+        {
+        "id": "1",  //label id, 当用户点击图片时， 若点到了label所标识的热点，会触发onLabelClicked方法，该方法会返回id
+        "content": "content", //label内容
+        "left": "0.033", //label左侧距其外层图片左侧的距离和外部图片宽度的比值。
+        "right": "0.342", //label右侧距其外层图片左侧的距离和外部图片宽度的比值。
+        "top": "0.120", //label顶部距其外层图片顶部的距离和外部图片高度的比值。
+        "bottom": "0.276", //label底部距其外层图片顶部的距离和外部图片高度的比值。
+        "targetPointMode": 0  //label所指向的热点相对label的位置，0： 在label左侧， 1: 在label右侧
+        },
+        ...
+    ]
+}
+```
+
+**版本支持:**
+Android 4.0.5+
+
+**示例**
+```
+var data = uexImage.getPicInfoWithLabelViews();
+```
+
+
+### 🍭 showLabelViewPic 显示带有标签信息的图片
+
+`uexImage.showLabelViewPic(data)`
+
+**说明**
+显示带有标签信息的图片，该图片上并不会显示label
+
+**参数**
+| 参数名称  | 参数类型  | 是否必选 | 说明  |
+| ----- | -------- | ---- | --------------- |
+| param | JSON数组   | 是|  标签及图片信息 |
+
+`param`的格式说明：
+
+```
+var data = {
+  "width": 720, //图片的宽度
+  "height": 400, //图片的高度
+  "image":"res://photo2.jpg",   //背景图片
+  "x":0,   //图片相对于父布局左上角的x坐标
+  "y":0,   //图片相对于父布局右上角的y坐标
+  "labels": [
+      {
+        "id": "1",
+        "content": "content",
+        "left": "0.033",  //label左侧距其外层图片左侧的距离和外部图片宽度的比值。
+        "right": "0.358",  //label右侧距其外层图片右侧的距离和外部图片宽度的比值。 标签的宽度＝(right-left) * 外部图片的宽度
+        "top": "0.120",   //label顶部距其外层图片顶部的距离和外部图片高度的比值。
+        "bottom": "0.276" //label底部距其外层图片顶部的距离和外部图片高度的比值。
+        "targetPointMode": 0  //label所指向的热点相对label的位置，0： 在label左侧， 1: 在label右侧, 默认为0
+      },
+  ]
+};
+```
+
+**版本支持:**
+Android 4.0.5+
+
+**示例**
+
+```
+var data = {
+  "width": 720,
+  "height": 400,
+  "image":"res://photo2.jpg",
+  "x":0,
+  "y":0,
+  "labels": [
+      {
+        "id": "1",
+        "content": "content",
+        "left": "0.033",
+        "right": "0.358",
+        "top": "0.120",
+        "bottom": "0.276"
+      },
+      {
+        "id": "2",
+        "content": "label content 2",
+        "left": "0.083",
+        "right": "0.578",
+        "top": "0.300",
+        "bottom": "0.456",
+        "targetPointMode":0
+      },
+      {
+        "id": "3",
+        "content": "label content 3444",
+        "left": "0.167",
+        "right": "0.752",
+        "top": "0.601",
+        "bottom": "0.757",
+        "targetPointMode":1
+      }
+  ]
+};
+uexImage.showLabelViewPic(JSON.stringify(data));
+```
+
+##2.1、 监听方法
+
+### 🍭 onLabelClicked 点击标签的回调
+`uexImage.onLabelClicked(id)`
+
+**说明**
+在带有标签信息的图片上，点击到标签后的回调，回调中包含点击的标签id。
+
+**参数**
+
+| 参数   | 参数类型   | 是否必须 | 说明              |
+| ---- | ------ | ---- | --------------- |
+| id | String | 是    | 点击到的标签id |
+
+**示例**
+```
+uexImage.onLabelClicked = function(id) {
+  alert('id:' + id);
+}
+```
+
+
+
 # 3、更新历史
 
 ### iOS
