@@ -117,12 +117,7 @@
                                             };
                                             uexGaodeMap.setZoomVisible(JSON.stringify(params));
                                         }
-                                        function setMyLocationButtonVisible(visible){
-                                            var params = {
-                                                visible:visible
-                                            };
-                                            uexGaodeMap.setMyLocationButtonVisible(JSON.stringify(params));
-                                        }
+                                        
                                         function setScaleVisible(visible){
                                             var params = {
                                                 visible:visible
@@ -166,9 +161,7 @@
                                                                 
                                                                 <input type="button" value="显示缩放" onclick="setZoomVisible(true)">
                                                                     <input type="button" value="隐藏缩放" onclick="setZoomVisible(false)">
-                                                                        
-                                                                        <input type="button" value="显示位置按钮" onclick="setMyLocationButtonVisible(true);">
-                                                                            <input type="button" value="隐藏位置按钮" onclick="setMyLocationButtonVisible(false);">
+                                                            
                                                                                 
                                                                                 <input type="button" value="显示比例尺" onclick="setScaleVisible(true);">
                                                                                     <input type="button" value="隐藏比例尺" onclick="setScaleVisible(false);">

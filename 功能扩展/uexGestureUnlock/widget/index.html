@@ -11,17 +11,10 @@
             uexWindow.open(name, '0', name+".html", '2', '', '', 1024);
         }
         window.uexOnload = function(type){
-            uexGestureUnlock.onEventOccur=function(info){
-                //alert(info);
-            }
-            uexGestureUnlock.cbIsGestureCodeSet=function(info){
-                alert(info);
-            }
-            uexGestureUnlock.cbVerify=function(info){
-                alert(info);
-            }
-            uexGestureUnlock.cbCreate=function(info){
-                alert(info);
+            uexGestureUnlock.onEventOccur = function(info){
+                if(uexWindow.log){
+                    uexWindow.log("event:" + info)
+                }
             }
         }
     function config(){
@@ -29,10 +22,11 @@
             backgroundImage:"res://bgImage.jpg",
             iconImage:"res://icon.png",
             normalThemeColor:"#F1F1F1",
-            selectedThemeColor:"#00ff00",
-            errorThemeColor:"#ff0000",
+            selectedThemeColor:"rgb(33,233,164)",
+            errorThemeColor:"rgba(253,196,215,0.6)",
             cancelVerificationButtonTitle:"切换其他账号",
-            minimumCodeLength:5
+            minimumCodeLength:5,
+            successRemainInterval:2000
         }
         uexGestureUnlock.config(JSON.stringify(data));
     }
@@ -40,11 +34,22 @@
         setTimeout("uexGestureUnlock.cancel();",5000);
     }
 
-    function createGesture(){
-        var data={
-            isNeedVerifyBeforeCreate:true
-        }
-        uexGestureUnlock.create(JSON.stringify(data));
+
+
+    function verify(){
+        uexGestureUnlock.verify(function(info){
+                            alert(JSON.stringify(info))
+                            });
+    }
+    
+    function isGestureCodeSet(){
+        alert(uexGestureUnlock.isGestureCodeSet());
+    }
+    
+    function create(){
+        uexGestureUnlock.create(null,function(info){
+                                alert(JSON.stringify(info));
+                                })
     }
     </script>
 </head>
@@ -53,13 +58,13 @@
     <div class="tit">uexGestureUnlock</div>
     <div class="conbor">
         <div class="consj">
-            <input class="btn" type="button" value="isGestureCodeSet" onclick="uexGestureUnlock.isGestureCodeSet();"/>
+            <input class="btn" type="button" value="isGestureCodeSet" onclick="isGestureCodeSet();"/>
             <input class="btn" type="button" value="resetGestureCode" onclick="uexGestureUnlock.resetGestureCode();"/>
             <input class="btn" type="button" value="config" onclick="config();"/>
             
             <br>
-            <input class="btn" type="button" value="verify" onclick="uexGestureUnlock.verify();"/>
-            <input class="btn" type="button" value="create" onclick="createGesture()">
+            <input class="btn" type="button" value="verify" onclick="verify();"/>
+            <input class="btn" type="button" value="create" onclick="create();">
             <br>
             <input class="btn" type="button" value="点击此按钮后5s,执行cancel" onclick="cancel()">
             

@@ -62,7 +62,7 @@ BaiduMobStatLogStrategyCustom=2,//根据开发者设定的时间间隔接口发�
 
 |  协议头 |  Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径  |
 | ------------ | ------------ | ------------ |
-| res:// |widget/wgtRes/   |widget/wgtRes   |
+| res:// |widget/wgtRes/  （备注：即phone根目录新建的wgtRes文件夹）  |widget/wgtRes （备注：同安卓 ）  |
 |  wgt:// | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/  |  /Documents/apps/xxx(widgetAppId)/ |
 |  wgts:// |  /storage/emulated/0/widgetone/widgets/ |  /Documents/widgets/ |
 |  file:///sdcard/ | /storage/emulated/0/  | 无  |

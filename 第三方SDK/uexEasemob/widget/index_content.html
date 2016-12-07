@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        input{
+            color: black;
+            padding: 1px 6px;
+            margin-left:6px;
+        }
+        input[type="text"]{
+            padding: .2em .4em;
+            margin:.4em .6em;
+            font-size:1em;
+        }
+        input[type="button"]{
+            padding: .6em .8em;
+            margin:.4em .6em;
+            font-size:1.2em;
+        }
+    </style>
+    <script src="js/zy_control.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+    window.uexOnload = function(type){
+        uexWindow.subscribeChannelNotification("1", "easemobDemoGlobalPost");
+        uexWindow.easemobDemoGlobalPost=globalPost;
+
+    }
+   
+
+
+ 
+    function openTest(name){
+        var jsStr = 'cp("'+name+'");';
+        uexWindow.evaluateScript('root',0,jsStr);
+        openNewWin(name, name+".html");
+        
+    }
+    
+        </script>
+  </head>
+<body class="um-vp " ontouchstart>
+    <div class="conbor">
+        <div class="consj">
+            <div id='globalPostArea'>全局广播显示区域</div><br><br>
+            <div onclick="openTest('Initialization')" class="testbtn">Initialization</div><br>
+            <div onclick="openTest('Message')" class="testbtn">Message</div><br>
+            <div onclick="openTest('Conversation')" class="testbtn">Conversation</div><br>
+            <div onclick="openTest('Friend')" class="testbtn">Friend</div><br>
+            <div onclick="openTest('Group')" class="testbtn">Group</div><br>
+            <div onclick="openTest('Call')" class="testbtn">Call</div><br>
+            <div onclick="openTest('Apns')" class="testbtn">Apns</div><br>
+            <!--<div onclick="openTest('dev')" class="testbtn">dev</div><br>-->
+            
+            
+            
+            <div>======回调记录==========</div>
+            <div id='TestCallBack'>原本内容</div>
+            <div id='TestData'>原本内容</div>
+            <div>======回调记录==========</div>
+        </div>
+    </div>
+</body>
+</html>

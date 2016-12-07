@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+<head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+    <link rel="stylesheet" href="css/ui-res.css">
+    <link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/zy_control.js">
+    </script>
+    <script src="js/zy_click.js">
+    </script>
+    <script src="js/main.js">
+    </script>
+</head>
+
+<body class="um-vp " ontouchstart>
+    <div class="tit">DataBaseMgr</div>
+    <div class="conbor">
+        <div class="consj">
+            <span>1.打开数据库：</span>
+            <span>数据库名称：</span>
+            <input class="textbox" id="name" type="text" value="uexDB">
+            <!--<span>数据库版本号：</span>
+        <input class="textbox" id="ver" type="text" value="1" > -->
+            <input class="btn" type="button" value="打开数据库" onclick="createDB();">
+            <span>2.创建表：</span>
+            <textarea class="tcxx" id="createTable">
+                CREATE TABLE testTable (_id INTEGER PRIMARY KEY,name TEXT)</textarea>
+            <input class="btn" type="button" value="创建表" onclick="createTable();">
+            <span>3.插入数据：</span>
+            <textarea class="tcxx" id="insertData">
+                INSERT INTO testTable (name) VALUES ('这是测试')</textarea>
+            <input class="btn" type="button" value="插入数据" onclick="insertData();">
+            <span>4.更改数据：</span>
+            <textarea class="tcxx" id="updateData">
+                UPDATE testTable SET name='这是更改' WHERE _id = 1</textarea>
+            <input class="btn" type="button" value="更改数据" onclick="updateData();">
+            <span>5.查询数据：</span>
+            <textarea class="tcxx" id="selectData">
+                SELECT * FROM testTable</textarea>
+            <input class="btn" type="button" value="查询数据" onclick="selectData();">
+            <span>6.事务：</span>
+            <textarea class="tcxx" id="transactiontData">
+                DELETE FROM testTable WHERE _id = 1</textarea>
+            <input class="btn" type="button" value="事务" onclick="transaction();">
+            <span>7.关闭数据库：</span>
+            <input class="btn" type="button" value="关闭数据库" onclick="closeDataBase();">
+            <br>
+        </div>
+    </div>
+</body>
+<script>
+</script>
+
+</html>

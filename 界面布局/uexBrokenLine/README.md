@@ -13,7 +13,7 @@
 
 # 2、API概览
 ## 2.1方法:
-> ### setData 设置数据
+### 🍭 setData 设置数据
 
 `uexBrokenLine.setData(json)`
 
@@ -25,7 +25,7 @@
 
 |   参数名称|参数类型   | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| json  | Number类型  |必选   | 折线数据  |
+| json  |  String  |必选   | 折线数据  |
  
 
 ```
@@ -68,13 +68,13 @@ var jsd='{"y":{"min":"10","max":"70","step":"5"},"x":
 uexBrokenLine.setData(jsd);
 ```
 
-> ### open  打开界面
+### 🍭 open  打开界面
 
 `  uexBrokenLine.open(x,y,width,height,id)`
 
 **说明:**
 
-同一个页面可以打开多个界面。
+同一个页面可以打开多个界面.
 
 **参数:**
 
@@ -99,10 +99,10 @@ iOS6.0+
 **示例:**
 
 ```
-uexBrokenLine.open("10","100","460","700","1"); 
+uexBrokenLine.open(10,100,460,700,1); 
 ```
 
-> ### close  关闭界面
+### 🍭 close  关闭界面
 
 `uexBrokenLine.close(id)`
 
@@ -128,33 +128,24 @@ iOS6.0+
 **示例:**
 
 ```
-uexBrokenLine.close("1"); 
+uexBrokenLine.close(1); 
 ```
 # 3、更新历史
 
 ### iOS
 
-API版本:`uexBrokenLine-3.0.3`
+API版本: `uexBrokenLine-4.0.0`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.3 | 添加IDE支持 |
-| 3.0.2 | 修复打开直线图比较慢的bug |
-| 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
-| 3.0.0 | 折线图功能插件 |
 
 ### Android
 
-API版本:`uexBrokenLine-3.0.4`
+API版本: `uexBrokenLine-4.0.0`
 
 最近更新时间:`2015-06-19`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.4 | 更新适配机型使用的方法 |
-| 3.0.3 | 样式同步ios |
-| 3.0.2 | 机型适配 |
-| 3.0.1 | 修复创建Bitmap内存溢出 |
-| 3.0.0 | 折线图功能插件 |

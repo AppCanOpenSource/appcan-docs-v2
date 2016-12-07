@@ -14,7 +14,7 @@
 
 ## 2.1、方法
 
-> ### [setPrismParam](#setPrismParam) 设置数据
+### 🍭 [setPrismParam](#setPrismParam) 设置数据
 
 `uexHexagonal.setPrismParam(param)  `
 
@@ -87,7 +87,7 @@ uexHexagonal.setPrismParam(jsonData)
 
 ```
 
-> ### [open](#open) 打开
+### 🍭 [open](#open) 打开
 
 `uexHexagonal.open(x,y,width,height);`
 
@@ -123,7 +123,7 @@ var height = 200;
 uexHexagonal.open(x,y,width,height);
 
 ```
-> ### [close](#close) 关闭
+### 🍭 [close](#close) 关闭
 
 `uexHexagonal.close();`
 
@@ -152,7 +152,7 @@ uexHexagonal.close();
 ```
 ## 2.2、监听方法
 
-> ### onClickItem  点击item的监听方法
+### 🍭 onClickItem  点击item的监听方法
 
 `uexHexagonal.onItemClick(index)    `   
 
@@ -184,27 +184,18 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexHexagonal-3.0.3`
+API版本: `uexHexagonal-4.0.0`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.3 | 添加IDE支持 |
-| 3.0.2 | 使用新版Xcode重新编译,支持arm64 |
-| 3.0.1 | 统一回调方法名,统一回调参数 |
-| 3.0.0 | 六面体功能插件 |
 
 ### Android
 
-API版本:`uexHexagonal-3.0.4`
+API版本: `uexHexagonal-4.0.0`
 
 最近更新时间:`2016-3-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.4 | 修复open参数无效的问题 |
-| 3.0.3 | 修复点击图片打开新窗口后六棱柱显示在窗口上层问题 |
-| 3.0.2 | 增加cbOpenHexagonal函数回调接口 |
-| 3.0.1 | 修复图片顺序问题 |
-| 3.0.0 | 六面体功能插件 |

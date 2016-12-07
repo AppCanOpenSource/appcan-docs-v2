@@ -45,11 +45,18 @@ root页面收到回调后,可以通过uexWindow的相关方法传递到各个网
 Path Types
 
 | 协议头             | Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径                           |
-| ----- | ----- | ----- |
+| --------------- | ---------------------------------------- | --------------------------------- |
 | res://          | widget/wgtRes/                           | widget/wgtRes                     |
 | wgts://         | /storage/emulated/0/widgetone/apps/ xxx(widgetAppId)/ | /Documents/apps/xxx(widgetAppId)/ |
 | wgts://         | /storage/emulated/0/widgetone/widgets/   | /Documents/widgets/               |
 | file:///sdcard/ | /storage/emulated/0/                     | 无                                 |
+## 1.5、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.6、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
 #2、API概述		
 
 使用该插件需要先在[融云官网](http://www.rongcloud.cn/)申请AppKey。
@@ -63,7 +70,7 @@ Path Types
 ##2.1、初始化
 ***
 >### init  初始化
-`uexRongCloud.init(param)`
+>`uexRongCloud.init(param,callback)`
 
 **说明:**
 
@@ -72,75 +79,41 @@ Path Types
 
 **参数:**
 
-param为json字符串
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```
 var param = {
 	appKey:   
 };
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  appKey   | String | 是 | 融云官网申请的appKey |
+| 参数名称   | 参数类型   | 是否必选 | 说明            |
+| ------ | ------ | ---- | ------------- |
+| appKey | String | 是    | 融云官网申请的appKey |
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+    
-iOS6.0+
+```javascript
+var callback = function (error,data){}
+```
 
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
 **示例:**
 
 ```
 var param = {
       appKey:'bmdehs6pdprts'
   };
-var data = JSON.stringify(param);
-uexRongCloud.init(data);                   
-```
->### cbInit  初始化的回调方法
-`uexRongCloud.cbInit(param)`
-
-**说明:**
-
-初始化融云sdk(init)的回调方法。
-
-**参数:**
-
-param为json字符串
-
-```
-  var param = {
-	result:
-};
-```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  result   | bool | 是 |true为初始化成功，false为初始化失败  |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-**示例:**
-
-```
-window.uexOnload = function() {
-    uexRongCloud.cbInit = cbInit;
-};
-function cbInit(param) {
-  alert('cbInit:' + param.result);
-}                  
+uexRongCloud.init(param,function(error,data){
+    if(!error){
+    alert("初始化成功")!
+  }
+});                   
 ```
 
 ##2.2、登录与登出
@@ -148,7 +121,8 @@ function cbInit(param) {
 ***
 **写在前面：**在您连接融云服务器之前，您需要请求您的 App Server，您的 App Server通过Server API 获取 Token 并返回给您的客户端，客户端获取到这个 Token 即可进入下一步连接融云服务器。可参考其[官方文档](http://www.rongcloud.cn/docs/ "官方文档")
 >### connect  与融云服务器建立连接
-`uexRongCloud.connect(param)`
+
+`uexRongCloud.connect(param,callback)`
 
 **说明:**
 
@@ -158,85 +132,47 @@ function cbInit(param) {
 
 **参数:**
 
-param为json字符串
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```
 var param = {
 	token:
 };
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  token   | String | 是 | 从您服务器端获取的token(用户身份令牌) |
 
-**平台支持:**
+| 参数名称  | 参数类型   | 是否必选 | 说明                     |
+| ----- | ------ | ---- | ---------------------- |
+| token | String | 是    | 从您服务器端获取的token(用户身份令牌) |
 
-Android2.2+    
-iOS6.0+
+**回调参数:**
 
-**版本支持:**
+```javascript
+var callback = function (error,data){}
+```
 
-Android3.0.0+    
-iOS3.0.0+
-
-
+| 参数名称  | 类型     | 说明                     |
+| ----- | ------ | ---------------------- |
+| error | Number | 0表示成功,非0表示失败           |
+| data  | String | 失败时返回相关的原因, 成功返回userId |
 **示例:**
 
 ```
 var param = {
       token:'g3fqLjRWtJdOkUCd+uqMRFYLsaBj7tK6QZ9/KFrx+0H22Ki0yw2VryZSnIEN2vTPv9T56shgMwGSAC9SfCY27A=='
   };
-var data = JSON.stringify(param);
-uexRongCloud.connect(data);                   
+uexRongCloud.connect(param,function(error,data){
+     if(!error){
+         alert("userId为:"+data)!
+    }
+});                   
 ```
 
 
->###cbConnect  与融云服务器建立连接回调
-`uexRongCloud.cbConnect(param)`
-
-**说明:**
-
-与融云服务器建立连接的回调。
-
-**参数:**
-
-param为json字符串
-
-```
-var param = {
-	resultCode:,
-	userId:
-};
-```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  resultCode   | Number | 是 | 错误标示码,成功返回为0。token错误返回-1。其他错误码信息参见[附录](#3、附录 "附录") |
-|  userId   | String | 是 | 成功返回userId,失败不返回 |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
-**示例:**
-
-```
-window.uexOnload = function() {
-   uexRongCloud.cbConnect = cbConnect;
-};
-function cbConnect(info) {
-  alert('cbConnect: resultCode' + info.resultCode);
-  alert('cbConnect: userId' + info.userId);
-}                  
-```
 >### disconnect   断开与融云服务器建立连接
-`uexRongCloud.disconnect(param)`
+>`uexRongCloud.disconnect(param)`
 
 **说明:**
 
@@ -245,26 +181,19 @@ function cbConnect(info) {
 **注意：因为SDK在前后台切换或者网络出现异常都会自动重连,会保证连接的可靠性。 所以除非您的App逻辑需要登出,否则一般不需要调用此方法进行手动断开。**
 
 **参数:**
-param为json字符串
+
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
 ```
 var param = {
 	isReceivePush:
 };
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  isReceivePush   | bool | 是 | 断开与融云服务器的连接之后,是否还接收远程推送。true:接收,false:不接收 |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
+| 参数名称          | 参数类型    | 是否必选 | 说明                                       |
+| ------------- | ------- | ---- | ---------------------------------------- |
+| isReceivePush | Boolean | 是    | 断开与融云服务器的连接之后,是否还接收远程推送。true:接收,false:不接收 |
 
 
 **示例:**
@@ -273,21 +202,24 @@ iOS3.0.0+
 var param = {
       isReceivePush:false
   };
-var data = JSON.stringify(param);
-uexRongCloud.disconnect(data);                   
+uexRongCloud.disconnect(param);                   
 ```
 ##2.3、基础消息功能
 ***
 **写在前面：**群组关系和群组列表由您的 App 维护，客户端的所有群组操作都需要请求您的 App Server， 您的 App Server 可以根据自己的逻辑进行管理和控制，然后通过 Server API 接口进行群组操作，并将结果返回给客户端。可参考其[官方文档](http://www.rongcloud.cn/docs/ "官方文档")
 >### sendMessage 发送消息
-`uexRongCloud.sendMessage(param)`
+>`uexRongCloud.sendMessage(param,callback)`
 
 **说明:**
 
 发送消息,包括文字消息、语音消息、图片消息、图文消息、位置消息、命令消息，并根据objectName字段区分。
 
 **参数:**
-param为json字符串
+
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```
 var param = {
@@ -297,149 +229,154 @@ var param = {
     conversationType:,
     targetId:,
     extra:,
-    localId:,
+    
      
      ---私有参数---
     //objectName 为"RC:TxtMsg"时(文字消息) 需要传以下参数
-    text:,//String,消息的文字内容
+    text:,
     
     //objectName 为"RC:VcMsg"时(语音消息) 需要传以下参数
-    voicePath:, //String,语音文件的路径 
-    duration:, //Number,语音消息的时长,单位为秒
+    voicePath:,  
+    duration:,
           
     //objectName 为"RC:ImgMsg"时(图片消息) 需要传以下参数
-    imgPath:,  //String,图片的本地路径
+    imgPath:, 
       
     //objectName 为"RC:ImgTextMsg"时(图文消息) 需要传以下参数
-    title:, //String,消息的标题
-    description:, //String,消息的内容描述
-    imgPath:, //String,图文消息的图片URL
-    url: //String,图文消息中包含的需要跳转到的URL
+    title:, 
+    description:, 
+    imgPath:, 
+    url: 
       
     //objectName 为"RC:LBSMsg"时(位置消息) 需要传以下参数
-    latitude:, //String,维度
-    longitude:, //String,经度
-    poi:, //String,地理位置的名称
-    imgPath:, //String,地图略缩图的路径
+    latitude:, 
+    longitude:, 
+    poi:, 
+    imgPath:, 
             
     //objectName 为"RC:CmdNtf"时(命令消息) 需要传以下参数
-    name:, //String,命令的名称
-    data:, //String,命令的数据
+    name:, 
+    data:, 
       
 };
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  objectName   | String | 是 |消息类型, "RC:TxtMsg":文字消息;"RC:VcMsg":语音消息;"RC:ImgMsg":图片消息;"RC:ImgTextMsg":图文消息;"RC:LBSMsg":位置消息;"RC:CmdMsg":命令消息|
-|  conversationType   | String | 是 | 会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
-|  targetId   | String | 是 | 消息的接收方Id。根据不同的 conversationType,可能是用户Id、讨论组Id、群组Id或聊天室Id等 |
-|  extra   | String | 否 | 消息的附加字段 |
-|  localId   | Number | 否 | 消息的唯一id,用于标识接收发送回调的处理,不传返回0 |
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| objectName       | String | 是    | 消息类型, "RC:TxtMsg":文字消息;"RC:VcMsg":语音消息;"RC:ImgMsg":图片消息;"RC:ImgTextMsg":图文消息;"RC:LBSMsg":位置消息;"RC:CmdMsg":命令消息 |
+| conversationType | String | 是    | 会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
+| targetId         | String | 是    | 消息的接收方Id。根据不同的 conversationType,可能是用户Id、讨论组Id、群组Id或聊天室Id等 |
+| extra            | String | 否    | 消息的附加字段                                  |
 
+**objectName 为"RC:TxtMsg"时(文字消息) 需要传以下参数:**
 
-**平台支持:**
+| 参数名称 | 参数类型   | 是否必选 | 说明      |
+| ---- | ------ | ---- | ------- |
+| text | String | 是    | 消息的文字内容 |
 
-Android2.2+    
-iOS6.0+
+**objectName 为"RC:VcMsg"时(语音消息) 需要传以下参数:**
 
-**版本支持:**
+| 参数名称      | 参数类型   | 是否必选 | 说明           |
+| --------- | ------ | ---- | ------------ |
+| voicePath | String | 是    | 语音文件的路径      |
+| duration  | Number | 是    | 语音消息的时长,单位为秒 |
 
-Android3.0.0+    
-iOS3.0.0+
+**objectName 为"RC:ImgMsg"时(图片消息) 需要传以下参数:**
 
+| 参数名称    | 参数类型   | 是否必选 | 说明      |
+| ------- | ------ | ---- | ------- |
+| imgPath | String | 是    | 图片的本地路径 |
 
+**objectName 为"RC:ImgTextMsg"时(图文消息) 需要传以下参数:**
+
+| 参数名称        | 参数类型   | 是否必选 | 说明                |
+| ----------- | ------ | ---- | ----------------- |
+| title       | String | 是    | 消息的标题             |
+| description | String | 是    | 消息的内容描述           |
+| imgPath     | String | 是    | 发送图片的网络路径         |
+| url         | String | 是    | 图文消息中包含的需要跳转到的URL |
+
+**objectName 为"RC:LBSMsg"时(位置消息) 需要传以下参数:**
+
+| 参数名称      | 参数类型   | 是否必选 | 说明       |
+| --------- | ------ | ---- | -------- |
+| latitude  | String | 是    | 纬度       |
+| longitude | String | 是    | 经度       |
+| poi       | String | 是    | 地理位置的名称  |
+| imgPath   | String | 是    | 地图略缩图的路径 |
+
+**objectName 为"RC:CmdMsg"时(命令消息) 需要传以下参数:**
+
+| 参数名称 | 参数类型   | 是否必选 | 说明    |
+| ---- | ------ | ---- | ----- |
+| name | String | 是    | 命令的名称 |
+| data | String | 是    | 命令的数据 |
+
+**回调参数:**
+
+```javascript
+var callback=function (status,messageId){}
+```
+
+| 参数名称   | 类型     | 说明                         |
+| ------ | ------ | -------------------------- |
+| status | Number | 发送结果 0:准备发送 1.发送成功, 2:发送失败 |
+| messageId | String | 发送消息的ID     
 **示例:**
 
 ```
 
-var params = {
+var param = {
     objectName: "RC:ImgMsg",//发图片消息
     conversationType: "PRIVATE",
     targetId: "55666",
-    extra: "extra info ...", 
-    localId: 111, 
+    extra: "extra info ...",  
     imgPath: 'res://img.png' //图片的本地路径
   };
-  var data = JSON.stringify(params);
-  uexRongCloud.sendMessage(data); 
+  uexRongCloud.sendMessage(param,function(status,messageId){
+     if(status==0){
+         alert("准备发送 messageId: " + messageId);
+     }else if(status==1){
+         alert("发送成功 messageId: " + messageId);
+     }else{
+       alert("发送失败 messageId: " + messageId);
+     }
+  }); 
    
     或  
-    var params = {
+    
+    var param = {
     objectName: "RC:TxtMsg",//发文字消息
     conversationType: "PRIVATE",
     targetId: "55666",
-    extra: "extra info ...",
-    localId: 111, 
+    extra: "extra info ...", 
     text: "text content ...", //消息的文字内容
   };
-  var data = JSON.stringify(params);
-  uexRongCloud.sendMessage(data);              
-```
->### cbSendMessage 发送消息的回调  
-`uexRongCloud.cbSendMessage(param)`
-
-**说明:**
-
-发送消息的回调。
-
-**参数:**
-param为json字符串
-
-```
-var params={
-     localId:,
-     resultCode:, 
-     messageId:,
-     progress:
-}
-
-```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  localId   | Number | 否 | 消息的唯一id,用于标识接收发送回调的处理 |
-|  resultCode   | Number | 是 | 发送结果, 0:准备发送 1.发送成功, 2:发送失败,3:发送进度 |
-|  messageId   | Number | 是 | 发送消息的ID |
-|   progress   | Number | 否 | 发送图片的进度，当objectName为 "RC:ImgMsg"时存在 |
-
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
-**示例:**
-
-```
-window.uexOnload = function() {
-   uexRongCloud.cbSendMessage = cbSendMessage;
-};
-function cbSendMessage(info) {
-  if (info.resultCode == 0) {
-    alert('准备发送 localId: ' + info.localId + "  messageId: " + info.messageId);
-  } else if (info.resultCode == 1) {
-    alert("发送成功 messageId: " + info.messageId);
-  }
-}                
+  uexRongCloud.sendMessage(param,function(status,messageId){
+     if(status==0){
+         alert("准备发送 messageId: " + messageId);
+     }else if(status==1){
+         alert("发送成功 messageId: " + messageId);
+     }else{
+       alert("发送失败 messageId: " + messageId);
+     }
+  });               
 ```
 
 >### onMessageReceived 收到消息
-`uexRongCloud.onMessageReceived(param)`
+>`uexRongCloud.onMessageReceived(result)`
 
 **说明:**
 
 发送消息的回调。
 
 **参数:**
-param为json字符串
+
+| 参数名称   | 参数类型   | 是否必选 | 说明    |
+| ------ | ------ | ---- | ----- |
+| result | Object | 是    | 形式见下： |
 
 ```
-var params={
+var result = {
     message:
         {
             content: { //格式见:message -> content字段， 如：文字消息内容
@@ -460,19 +397,19 @@ var params={
 }
 
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  content   | JSON对象 | 是 | 消息内容,格式见:message -> content字段 |
-|  conversationType   | String | 是 | 会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
-|  messageDirection   | JSON对象 | String | 消息方向,发送:SEND  接收:RECEIVE |
-|  targetId   | String | 是 | 对应消息发送者的 userId |
-|  objectName   | String | 是 |消息类型, "RC:TxtMsg":文字消息;"RC:VcMsg":语音消息;"RC:ImgMsg":图片消息;"RC:ImgTextMsg":图文消息;"RC:LBSMsg":位置消息;"RC:CmdMsg":命令消息|
-|  sentStatus   | String | 是 | 发送状态，DESTROYED:对方已销毁 ;FAILED:发送失败; READ:对方已读; RECEIVED:对方已接收; SENDING:发送中; SENT:已发送 |
-|  senderUserId  | String | 是 | 发送者userId |
-|  messageId   | Number | 是 | 消息的ID,本地存储的消息的唯一值（数据库索引唯一值） |
-|  sentTime   | Number | 是 | 发送消息的时间戳,从1970年1月1日0点0分0秒开始到现在的毫秒数 |
-|  receivedTime   | Number | 是 | 收到消息的时间戳,从1970年1月1日0点0分0秒开始到现在的毫秒数 |
-|  left   | Number | 是 | 剩余的未接收的消息数 |
+| 参数名称             | 参数类型   | 是否必选   | 说明                                       |
+| ---------------- | ------ | ------ | ---------------------------------------- |
+| content          | JSON对象 | 是      | 消息内容,格式见:message -> content字段            |
+| conversationType | String | 是      | 会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
+| messageDirection | JSON对象 | String | 消息方向,发送:SEND  接收:RECEIVE                 |
+| targetId         | String | 是      | 对应消息发送者的 userId                          |
+| objectName       | String | 是      | 消息类型, "RC:TxtMsg":文字消息;"RC:VcMsg":语音消息;"RC:ImgMsg":图片消息;"RC:ImgTextMsg":图文消息;"RC:LBSMsg":位置消息;"RC:CmdMsg":命令消息 |
+| sentStatus       | String | 是      | 发送状态，DESTROYED:对方已销毁 ;FAILED:发送失败; READ:对方已读; RECEIVED:对方已接收; SENDING:发送中; SENT:已发送 |
+| senderUserId     | String | 是      | 发送者userId                                |
+| messageId        | Number | 是      | 消息的ID,本地存储的消息的唯一值（数据库索引唯一值）              |
+| sentTime         | Number | 是      | 发送消息的时间戳,从1970年1月1日0点0分0秒开始到现在的毫秒数       |
+| receivedTime     | Number | 是      | 收到消息的时间戳,从1970年1月1日0点0分0秒开始到现在的毫秒数       |
+| left             | Number | 是      | 剩余的未接收的消息数                               |
 
 ### message -> content字段
 
@@ -512,18 +449,6 @@ var params={
     data:,//命令的数据
     
 ```
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
 **示例:**
 
 ```
@@ -534,22 +459,26 @@ function onMessageReceived(info) {
   alert('onMessageReceived: ' + JSON.stringify(info));
 }                
 ```
-##2.3、会话功能
+##2.4、会话功能
 ***
 
 >### getConversationList 获取会话列表
-`var param = getConversationList();`
+>`var result = getConversationList();`
 
 **说明:**
 
 获取会话列表,同步返回。
 
-**参数:**
+**参数**
 
-param为json字符串
+无
+
+**返回值**
+
+返回值result为json字符串,各字段如下所示:
 
 ```
-var params={
+var result = {
     resultCode:,// Number  0 返回成功,其他为失败
     conversations:[
         {
@@ -557,7 +486,7 @@ var params={
             conversationType:, 
             draft:, 
             targetId:, 
-            latestMessage: {
+            latestMessage: { //objectName 为"RC:TxtMsg"时(文字消息)
                 text:,
                 extra:
             }, // 最后一条消息的内容，格式和onMessageReceived的message -> content字段相同
@@ -576,45 +505,35 @@ var params={
 }
 
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  resultCode   | Number | 是 | 0为返回成功,其他为失败 |
-|  conversationTitle   | String | 是 |  会话的标题 |
-|  draft   | String | 是 | 文字消息草稿的内容 |
-|  targetId   | String | 是 | 目标会话ID |
-|  latestMessage   | JSON对象 | 是 | 最后一条消息的内容，格式和[onMessageReceived](#message -> content字段 "onMessageReceived")的message -> content字段相同 |
-|  sentStatus   | String | 是 | 发送状态:DESTROYED:对方已销毁 ;FAILED:发送失败; READ:对方已读; RECEIVED:对方已接收; SENDING:发送中; SENT:已发送; |
-|  objectName   | String | 是 |会话中最后一条消息的类型, "RC:TxtMsg":文字消息;"RC:VcMsg":语音消息;"RC:ImgMsg":图片消息;"RC:ImgTextMsg":图文消息;"RC:LBSMsg":位置消息;"RC:CmdMsg":命令消息|
-|  receivedStatus   | String | 是 | 会话中最后一条消息的接收状态,"UNREAD":未读；"READ":已读；"LISTENED":已听，仅用于语音消息;"DOWNLOADED":已下载 |
-|  senderUserId   | String | 是 | 会话中最后一条消息的发送者用户ID |
-| unreadMessageCount   | Number | 是 | 本会话的未读消息数 |
-| receivedTime   | Number | 是 | 会话中最后一条消息的接收时间,从1970年1月1日0点0分0秒开始到现在的毫秒数 |
-| sentTime   | Number | 是 | 会话中最后一条消息的发送时间,从1970年1月1日0点0分0秒开始到现在的毫秒数 |
-| isTop   | bool | 是 | 是否置顶，true为置顶，false为不置顶 |
-| latestMessageId   | Number | 是 | 会话中最后一条消息的消息ID |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
+| 参数名称               | 参数类型   | 是否必选 | 说明                                       |
+| ------------------ | ------ | ---- | ---------------------------------------- |
+| resultCode         | Number | 是    | 0为返回成功,其他为失败                             |
+| conversationTitle  | String | 是    | 会话的标题                                    |
+| draft              | String | 是    | 文字消息草稿的内容                                |
+| targetId           | String | 是    | 目标会话ID                                   |
+| latestMessage      | JSON对象 | 是    | 最后一条消息的内容，格式和[onMessageReceived](#message -> content字段 "onMessageReceived")的message -> content字段相同 |
+| sentStatus         | String | 是    | 发送状态:DESTROYED:对方已销毁 ;FAILED:发送失败; READ:对方已读; RECEIVED:对方已接收; SENDING:发送中; SENT:已发送; |
+| objectName         | String | 是    | 会话中最后一条消息的类型, "RC:TxtMsg":文字消息;"RC:VcMsg":语音消息;"RC:ImgMsg":图片消息;"RC:ImgTextMsg":图文消息;"RC:LBSMsg":位置消息;"RC:CmdMsg":命令消息 |
+| receivedStatus     | String | 是    | 会话中最后一条消息的接收状态,"UNREAD":未读；"READ":已读；"LISTENED":已听，仅用于语音消息;"DOWNLOADED":已下载 |
+| senderUserId       | String | 是    | 会话中最后一条消息的发送者用户ID                        |
+| unreadMessageCount | Number | 是    | 本会话的未读消息数                                |
+| receivedTime       | Number | 是    | 会话中最后一条消息的接收时间,从1970年1月1日0点0分0秒开始到现在的毫秒数 |
+| sentTime           | Number | 是    | 会话中最后一条消息的发送时间,从1970年1月1日0点0分0秒开始到现在的毫秒数 |
+| isTop              | bool   | 是    | 是否置顶，true为置顶，false为不置顶                   |
+| latestMessageId    | Number | 是    | 会话中最后一条消息的消息ID                           |
 
 
 **示例:**
 
 ```
-var params = uexRongCloud.getConversationList();
-  alert(params);     
+var result = uexRongCloud.getConversationList();
+  alert(result);     
           
 ```
 
 >### getConversation 获取某一会话信息
 >
-`var result = uexRongCloud.getConversation(param);`
+>`var result = uexRongCloud.getConversation(param);`
 
 **说明:**
 
@@ -622,7 +541,9 @@ var params = uexRongCloud.getConversationList();
 
 **参数:**
 
-param为json字符串
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
 ```
 var param = {
@@ -631,7 +552,12 @@ var param = {
 }
 
 ```
-result为json字符串
+**返回值**
+
+```javascript
+var result = uexRongCloud.getConversation(param);
+```
+返回值result为json字符串,字段如下所示：
 
 ```
 var result = {
@@ -654,17 +580,6 @@ var result = {
 } 
 ```
 
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
 **示例:**
 
 ```
@@ -679,14 +594,18 @@ var params = {
 
 ```
 >### removeConversation 从会话列表中移除某一会话,但是不删除会话内的消息
-`uexRongCloud.removeConversation(param);`
+>`uexRongCloud.removeConversation(param,callback);`
 
 **说明:**
 
 从会话列表中移除某一会话,但是不删除会话内的消息。
 
 **参数:**
-param为json字符串
+
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```
 var params={
@@ -695,78 +614,41 @@ var params={
 }
 
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  conversationType   | String | 是 | 会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
-|  targetId   | String | 是 |  消息目标 Id |
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| conversationType | String | 是    | 会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
+| targetId         | String | 是    | 消息目标 Id                                  |
 
-**平台支持:**
+**回调参数**
 
-Android2.2+    
-iOS6.0+
+```javascript
+var callback=function(error,data){}
+```
 
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
 
 
 **示例:**
 
 ```
-var params = {
+var param = {
     conversationType: "PRIVATE",
     targetId: "55666"
   };
-  var data = JSON.stringify(params);
-  uexRongCloud.removeConversation(data);
+  uexRongCloud.removeConversation(param,function(error, data){
+     if(!error){
+         alert("移除会话成功");
+     }
+  });
 
 
-```
->### cbRemoveConversation removeConversation的回调
-`uexRongCloud.cbRemoveConversation(param);`
-
-**说明:**
-
-removeConversation的回调。
-
-**参数:**
-param为json对象
-
-```
-var params={
-    resultCode:
-}
-
-```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  resultCode   | Number | 是 | 0表示成功,其他为失败 |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
-**示例:**
-
-```
-window.uexOnload = function() {
-   uexRongCloud.cbRemoveConversation = cbRemoveConversation;
-};
-function cbRemoveConversation(info) {
-  alert('cbRemoveConversation: ' + JSON.stringify(info));
-}                
 ```
 
 >### clearConversations 清空所有会话及会话消息
-`uexRongCloud.clearConversations(param);`
+>`uexRongCloud.clearConversations(param,callback);`
 
 **说明:**
 
@@ -774,7 +656,10 @@ function cbRemoveConversation(info) {
 
 **参数:**
 
-param为json字符串
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```
 var params={
@@ -782,19 +667,21 @@ var params={
 }
 
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  conversationTypes   | Array | 是 | 消息的会话类型数组,内部元素由conversationType构成 会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统  |
+| 参数名称              | 参数类型  | 是否必选 | 说明                                       |
+| ----------------- | ----- | ---- | ---------------------------------------- |
+| conversationTypes | Array | 是    | 消息的会话类型数组,内部元素由conversationType构成 会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+    
-iOS6.0+
+```javascript
+var callback = function (error,data){}
+```
 
-**版本支持:**
 
-Android3.0.0+    
-iOS3.0.0+
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
 
 
 **示例:**
@@ -802,57 +689,19 @@ iOS3.0.0+
 ```
  var types = new Array();
  types[0] = "PRIVATE";
- var params = {
+ var param = {
     conversationTypes: types
  };
- var data = JSON.stringify(params);
- uexRongCloud.clearConversations(data);              
+ uexRongCloud.clearConversations(param,function(error, data){
+     if(!error){
+         alert("清空成功");
+     }
+ });              
 ```
 
->### cbClearConversations  clearConversations的回调
-`uexRongCloud.cbClearConversations(param);`
-
-**说明:**
-
-clearConversations的回调。
-
-**参数:**
-param为json对象
-
-```
-var params={
-    resultCode:
-}
-
-```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  resultCode   | Number | 是 | 0表示成功,其他为失败 |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
-**示例:**
-
-```
-window.uexOnload = function() {
-   uexRongCloud.cbClearConversations = cbClearConversations;
-};
-function cbClearConversations(info) {
-  alert('cbClearConversations: ' + JSON.stringify(info));
-}                
-```
 
 >### setConversationToTop 设置会话置顶
-`uexRongCloud.setConversationToTop(param);`
+>`uexRongCloud.setConversationToTop(param,callback);`
 
 **说明:**
 
@@ -860,7 +709,10 @@ function cbClearConversations(info) {
 
 **参数:**
 
-param为json字符串
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```
 var params={
@@ -870,268 +722,165 @@ var params={
 }
 
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  conversationType   | String | 是 | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统  |
-|  targetId   | String | 是 | 消息目标 Id |
-|  isTop   | bool | 是 | true 或false 是否置顶 |
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| conversationType | String | 是    | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
+| targetId         | String | 是    | 消息目标 Id                                  |
+| isTop            | bool   | 是    | true 或false 是否置顶                         |
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+    
-iOS6.0+
+```javascript
+var callback = function(error,data){}
+```
 
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
 
 
 
 **示例:**
 
 ```
-var params = {
+var param = {
     conversationType: "PRIVATE",
     targetId: "55666",
     isTop: true
   };
-  var data = JSON.stringify(params);
-  uexRongCloud.setConversationToTop(data);
+  uexRongCloud.setConversationToTop(param,function(error,data){
+     if(!error){
+         alert("置顶成功");
+     }
+  });
             
-```
->### cbSetConversationToTop   setConversationToTop 的回调
-`uexRongCloud.cbSetConversationToTop(param);`
-
-**说明:**
-
-setConversationToTop 的回调。
-
-**参数:**
-param为json对象
-
-```
-var params={
-    resultCode://Number 0表示成功,其他为失败
-}
-
-```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  resultCode   | Number | 是 | 0表示成功,其他为失败 |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
-
-**示例:**
-
-```
-window.uexOnload = function() {
-   uexRongCloud.cbSetConversationToTop = cbSetConversationToTop;
-};
-function cbSetConversationToTop(info) {
-  alert('cbRemoveConversation: ' + JSON.stringify(info));
-}                
 ```
 
 >### getConversationNotificationStatus 获取某一会话的通知状态 
-`uexRongCloud.getConversationNotificationStatus(param);`
+>`uexRongCloud.getConversationNotificationStatus(param,callback);`
 
 **说明:**
 
 获取某一会话的通知状态。
 
-**参数:**
-param为json字符串
+**参数**
+
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```
-var params={
+var param={
     conversationType:,
     targetId:
 }
 
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  conversationType   | String | 是 | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统  |
-|  targetId   | String | 是 | 消息目标 Id |
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| conversationType | String | 是    | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
+| targetId         | String | 是    | 消息目标 Id                                  |
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+    
-iOS6.0+
+```javascript
+var callback=function (error,data){}
+```
 
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
+| 参数名称  | 类型     | 说明               |
+| ----- | ------ | ---------------- |
+| error | Number | 0表示成功,非0表示失败     |
+| data  | Number | 状态码,0:免打扰 / 1:提醒 |
 
 
 
 **示例:**
 
 ```
-var params = {
+var param = {
     conversationType: "PRIVATE",
     targetId: "55666"
   };
-  var data = JSON.stringify(params);
-  uexRongCloud.getConversationNotificationStatus(data);
+  uexRongCloud.getConversationNotificationStatus(param,function (error, data) {
+    if(!error){
+       alert("获取某一会话的通知状态成功");
+    }
+});
             
 ```
 
->### cbGetConversationNotificationStatus  getConversationNotificationStatus 的回调
-`uexRongCloud.cbGetConversationNotificationStatus(param);`
-
-**说明:**
-
-getConversationNotificationStatus 的回调。
-
-**参数:**
-
-param为json对象
-
-```
-var params={
-    resultCode://Number 
-    status:,//Number 状态码,0:免打扰 / 1:提醒
-}
-
-```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  resultCode   | Number | 是 | 0表示成功,其他为失败 |
-|  status   | Number | 是 | 状态码,0:免打扰 ; 1:新消息提醒 ；当resultCode为0生效|
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
-**示例:**
-
-```
-window.uexOnload = function() {
-   uexRongCloud.cbGetConversationNotificationStatus = cbGetConversationNotificationStatus;
-};
-function cbGetConversationNotificationStatus(info) {
-  alert('cbGetConversationNotificationStatus:' + JSON.stringify(info));
-}                
-```
 >### setConversationNotificationStatus 设置某一会话的通知状态
-`uexRongCloud.setConversationNotificationStatus(param);`
+>`uexRongCloud.setConversationNotificationStatus(param,callback);`
 
 **说明:**
 
 设置某一会话的通知状态。
 
 **参数:**
-param为json字符串
+
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```
-var params={
+var param={
     conversationType:,
     targetId:,
     status:
 }
 
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  conversationType   | String | 是 | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统  |
-|  targetId   | String | 是 | 消息目标 Id |
-|  status   | Number | 是 | 状态码,0:免打扰 ; 1:新消息提醒 |
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| conversationType | String | 是    | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
+| targetId         | String | 是    | 消息目标 Id                                  |
+| status           | Number | 是    | 状态码,0:免打扰 ;1:新消息提醒                       |
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+    
-iOS6.0+
+```javascript
+var callback=function (error,data){}
+```
 
-**版本支持:**
+| 参数名称  | 类型     | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 0表示成功,非0表示失败    |
+| data  | Number | 状态码,0:免打扰 ;1:提醒 |
 
-Android3.0.0+    
-iOS3.0.0+
 
 
 **示例:**
 
 ```
-var params = {
+var param = {
     conversationType: "PRIVATE",
     targetId: "55666",
     status: 1
   };
-  var data = JSON.stringify(params);
-  uexRongCloud.setConversationNotificationStatus(data);              
-```
->### cbSetConversationNotificationStatus  setConversationNotificationStatus 的回调
-`uexRongCloud.cbSetConversationNotificationStatus(param);`
-
-**说明:**
-
-setConversationNotificationStatus 的回调。
-
-**参数:**
-param为json对象
-
-```
-var params={
-    resultCode:
-    status:
-}
-
-```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  resultCode   | Number | 是 | 0表示成功,其他为失败 |
-|  status   | Number | 是 | 会话设置的消息提醒状态,0:免打扰 ; 1:新消息提醒 ；当resultCode为0生效|
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
-**示例:**
-
-```
-window.uexOnload = function() {
-   uexRongCloud.cbSetConversationNotificationStatus = cbSetConversationNotificationStatus;
-};
-function cbSetConversationNotificationStatus(info) {
-  alert('cbSetConversationNotificationStatus:' + JSON.stringify(info));
-}                
+  uexRongCloud.setConversationNotificationStatus(param, function (error, data) {
+  if(!error){
+       alert("设置某一会话的通知状态成功");
+    }
+    
+});             
 ```
 
 >### getLatestMessages 获取某一会话的最新消息记录
-`uexRongCloud.getLatestMessages(param);`
+>`uexRongCloud.getLatestMessages(param,callback);`
 
 **说明:**
 
 获取某一会话的最新消息记录。
 
 **参数:**
-param为json字符串
+
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```
 var params={
@@ -1141,47 +890,27 @@ var params={
 }
 
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  conversationType   | String | 是 | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统  |
-|  targetId   | String | 是 | 消息目标 Id |
-|  count   | Number | 是 | 要获取的消息数量 |
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| conversationType | String | 是    | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
+| targetId         | String | 是    | 消息目标 Id                                  |
+| count            | Number | 是    | 要获取的消息数量                                 |
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
-**示例:**
-
-```
-var params = {
-    conversationType: "PRIVATE",
-    targetId: "55666",
-    count: 20
-  };
-  var data = JSON.stringify(params);
-  uexRongCloud.getLatestMessages(data);              
+```javascript
+var callback=function (error,data){}
 ```
 
->### cbGetLatestMessages  getLatestMessages 的回调
-`uexRongCloud.cbGetLatestMessages(param);`
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | json对象 | 消息记录         |
 
-**说明:**
-
-getLatestMessages 的回调。
-
-**参数:**
-param为json对象
+`data`各字段如下：
 
 ```
-var params=[
+var data = [
         {
             content: {
                 text: ,
@@ -1203,36 +932,35 @@ var params=[
 
 ```
 
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
 
 **示例:**
 
 ```
-window.uexOnload = function() {
-   uexRongCloud.cbGetLatestMessages = cbGetLatestMessages;
-};
-function cbGetLatestMessages(info) {
-  alert('cbGetLatestMessages:' + JSON.stringify(info));
-}                
+var param = {
+    conversationType: "PRIVATE",
+    targetId: "55666",
+    count: 20
+  };
+  uexRongCloud.getLatestMessages(param, function (error, data) {
+    if(!error){
+       alert(JSON.stringify(data));
+    }
+});              
 ```
+
 >### getHistoryMessages 获取某一会话的历史消息记录
-`uexRongCloud.getHistoryMessages(param);`
+>`uexRongCloud.getHistoryMessages(param,callback);`
 
 **说明:**
 
 获取某一会话的历史消息记录。
 
 **参数:**
-param为json字符串
+
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```
 var params={
@@ -1243,46 +971,25 @@ var params={
 }
 
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  conversationType   | String | 是 | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统  |
-|  targetId   | String | 是 | 消息目标 Id |
-|  count   | Number | 是 | 要获取的消息数量 |
-|  oldestMessageId   | Number | 是 |截止的消息ID,获取此消息之前的 count 条消息,没有消息第一次调用应设置为: -1。如：oldestMessageId为10，count为2，会返回messageId为9和8的消息列表 |
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| conversationType | String | 是    | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
+| targetId         | String | 是    | 消息目标 Id                                  |
+| count            | Number | 是    | 要获取的消息数量                                 |
+| oldestMessageId  | Number | 是    | 截止的消息ID,获取此消息之前的 count 条消息,没有消息第一次调用应设置为: -1。如：oldestMessageId为10，count为2，会返回messageId为9和8的消息列表 |
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
-**示例:**
-
+```javascript
+var callback = function (error,data){}
 ```
-  var params = {
-    conversationType: "PRIVATE",
-    targetId: "55666",
-    count: 2,
-    oldestMessageId: 10
-  };
-  var data = JSON.stringify(params);
-  uexRongCloud.getHistoryMessages(data);
-      
-```
->### cbGetHistoryMessages   getHistoryMessages 的回调
-`uexRongCloud.cbGetHistoryMessages(param);`
 
-**说明:**
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | Json对象 | 历史消息记录       |
 
-getHistoryMessages 的回调。
-
-**参数:**
-param为json对象
+`data`各字段如下：
 
 ```
 var params=[
@@ -1307,56 +1014,56 @@ var params=[
 
 ```
 
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
 **示例:**
 
 ```
-window.uexOnload = function() {
-   uexRongCloud.cbGetHistoryMessages = cbGetHistoryMessages;
-};
-function cbGetHistoryMessages(info) {
-  alert('cbGetHistoryMessages:' + JSON.stringify(info));
-}                
+  var param = {
+    conversationType: "PRIVATE",
+    targetId: "55666",
+    count: 2,
+    oldestMessageId: 10
+  };
+  uexRongCloud.getHistoryMessages(param, function (error, data) {
+     if(!error){
+        alert(JSON.stringify(data));
+     }
+});
+      
 ```
 >### deleteMessages 删除消息
-`uexRongCloud.deleteMessages(param);`
+>`uexRongCloud.deleteMessages(param,callback);`
 
 **说明:**
 
 删除消息。
 
 **参数:**
-param为json字符串
+
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
 
 ```
-var params={
+var param = {
     messageIds:
 }
 
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  messageIds   | Array | 是 | 要删除的消息Id数组,内部元素由messageId构成 |
+| 参数名称       | 参数类型  | 是否必选 | 说明                          |
+| ---------- | ----- | ---- | --------------------------- |
+| messageIds | Array | 是    | 要删除的消息Id数组,内部元素由messageId构成 |
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+    
-iOS6.0+
+```javascript
+var callback = function (error,data){}
+```
 
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
 
 
 
@@ -1365,163 +1072,86 @@ iOS3.0.0+
 ```
   var ids = new Array();
   ids[0]= 12;
-  var params = {
+  var param = {
    messageIds: ids
   };
-  var data = JSON.stringify(params);
-  uexRongCloud.deleteMessages(data);
+  uexRongCloud.deleteMessages(param, function (error, data) {
+   if(!error){
+      alert("删除成功");
+   }
+});
       
 ```
 
->### cbDeleteMessages deleteMessages 的回调
-`uexRongCloud.cbDeleteMessages(param);`
-
-**说明:**
-
-deleteMessages 的回调。
-
-**参数:**
-param为json对象
-
-```
-var params={
-    resultCode:
-}
-
-```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  resultCode   | Number | 是 | 0表示成功,其他为失败 |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
-**示例:**
-
-```
-window.uexOnload = function() {
-   uexRongCloud.cbDeleteMessages = cbDeleteMessages;
-};
-function cbDeleteMessages(info) {
-  alert('cbDeleteMessages:' + JSON.stringify(info));
-}                
-```
-
 >### clearMessages   清空某一会话的所有聊天消息记录
-`uexRongCloud.clearMessages(param);`
+>`uexRongCloud.clearMessages(param,callback);`
 
 **说明:**
 
 清空某一会话的所有聊天消息记录。
 
 **参数:**
-param为json字符串
+
+| 参数名称     | 参数类型     | 是否必选 | 说明           |
+| -------- | -------- | ---- | ------------ |
+| param    | Object   | 是    | 接口所需数据，形式见下： |
+| callback | Function | 是    | 回调方法         |
+
 
 ```
-var params={
+var param = {
     conversationType:,
     targetId:
 }
 
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  conversationType   | String | 是 | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
-|  targetId   | String | 是 | 消息目标 Id |
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| conversationType | String | 是    | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
+| targetId         | String | 是    | 消息目标 Id                                  |
 
-**平台支持:**
+**回调参数:**
 
-Android2.2+    
-iOS6.0+
+```javascript
+var callback = function (error,data){}
+```
 
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
+| 参数名称  | 类型     | 说明           |
+| ----- | ------ | ------------ |
+| error | Number | 0表示成功,非0表示失败 |
+| data  | String | 失败时返回相关的原因   |
 
 
 **示例:**
 
 ```
-  var params = {
+  var param = {
     conversationType: "PRIVATE",
     targetId: "55666"
   };
-  var data = JSON.stringify(params);
-  uexRongCloud.clearMessages(data);
+  uexRongCloud.clearMessages(param, function (error, data) {
+     if(!error){
+        alert("清空成功");
+     }
+});
       
 ```
->### cbClearMessages  clearMessages 的回调
-`uexRongCloud.cbClearMessages(param);`
-
-**说明:**
-
-clearMessages 的回调。
-
-**参数:**
-param为json对象
-
-```
-var params={
-    resultCode:
-}
-
-```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  resultCode   | Number | 是 | 0表示成功,其他为失败 |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
-
-**示例:**
-
-```
-window.uexOnload = function() {
-   uexRongCloud.cbClearMessages = cbClearMessages;
-};
-function cbClearMessages(info) {
-  alert('cbClearMessages:' + JSON.stringify(info));
-}                
-```
 >### getTotalUnreadCount 获取所有未读消息数
-`var count = uexRongCloud.getTotalUnreadCount();`
+>`var count = uexRongCloud.getTotalUnreadCount();`
 
 **说明:**
 
-获取所有未读消息数。支持同步返回
+获取所有未读消息数。
 
-**参数:**
+**参数**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  count   | Number | 是 | 所有的未读消息数 |
+无
 
-**平台支持:**
+**返回值**
 
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
+| 参数名称  | 参数类型   | 是否必选 | 说明       |
+| ----- | ------ | ---- | -------- |
+| count | Number | 是    | 所有的未读消息数 |
 
 
 **示例:**
@@ -1531,14 +1161,17 @@ var count = uexRongCloud.getTotalUnreadCount();
 alert(count);             
 ```
 >### getUnreadCount  获取来自某用户某会话的未读消息数
-`var count = uexRongCloud.getUnreadCount(param);`
+>`var count = uexRongCloud.getUnreadCount(param);`
 
 **说明:**
 
-获取来自某用户(某会话)的未读消息数。支持同步返回
+获取来自某用户(某会话)的未读消息数。
 
 **参数:**
-param为json字符串
+
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
 ```
 var params={
@@ -1546,162 +1179,134 @@ var params={
     targetId:
 }
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  conversationType   | String | 是 | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
-|  targetId   | String | 是 | 消息目标 Id |
-|  count   | Number | 是 | 返回来自某用户(某会话)的未读消息数 |
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| conversationType | String | 是    | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
+| targetId         | String | 是    | 消息目标 Id                                  |
 
-**平台支持:**
+**返回值**
 
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
+| 参数名称  | 参数类型   | 是否必选 | 说明                 |
+| ----- | ------ | ---- | ------------------ |
+| count | Number | 是    | 返回来自某用户(某会话)的未读消息数 |
 
 
 **示例:**
 
 ```
-var params = {
+var param = {
     conversationType:"PRIVATE",
     targetId:"55666"
   };
-  var data = JSON.stringify(params);
-  var count = uexRongCloud.getUnreadCount(data);
+  var count = uexRongCloud.getUnreadCount(param);
   alert(count);              
 ```
 >### getUnreadCountByConversationTypes  获取某(些)会话类型的未读消息数
-`var count = uexRongCloud.getUnreadCountByConversationTypes(param);`
+>`var count = uexRongCloud.getUnreadCountByConversationTypes(param);`
 
 **说明:**
 
 获取某(些)会话类型的未读消息数。支持同步返回
 
 **参数:**
-param为json字符串
+
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
 ```
-var params={
+var param ={
     conversationTypes:,//消息的会话类型,是conversationType的数组
 }
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  conversationTypes   | Array | 是 | 消息的会话类型数组,由conversationType构成 |
-|  count   | Number | 是 | 返回某(些)会话类型的未读消息数 |
+| 参数名称              | 参数类型  | 是否必选 | 说明                            |
+| ----------------- | ----- | ---- | ----------------------------- |
+| conversationTypes | Array | 是    | 消息的会话类型数组,由conversationType构成 |
 
-**平台支持:**
+**返回值**
 
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
+| 参数名称  | 参数类型   | 是否必选 | 说明               |
+| ----- | ------ | ---- | ---------------- |
+| count | Number | 是    | 返回某(些)会话类型的未读消息数 |
 
 **示例:**
 
 ```
   var types = new Array();
     types[0]= "PRIVATE";
-    var params = {
+    var param = {
     conversationTypes: types
     };
-    var data = JSON.stringify(params);
-    var count = uexRongCloud.getUnreadCountByConversationTypes(data);
+    var count = uexRongCloud.getUnreadCountByConversationTypes(param);
     alert(count);    
 ```
 >### setMessageReceivedStatus  设置接收到的消息状态
-`uexRongCloud.setMessageReceivedStatus(param);`
+>`uexRongCloud.setMessageReceivedStatus(param);`
 
 **说明:**
 
 设置接收到的消息状态。
 
 **参数:**
-param为json字符串
+
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
 ```
-var params={
+var param = {
     messageId:,
     receivedStatus:
 }
 ```
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  messageId   | Number | 是 | 消息的Id |
-|  receivedStatus   | String | 是 | 消息的接收状态,"UNREAD":未读；"READ":已读；"LISTENED":已听，仅用于语音消息;"DOWNLOADED":已下载 |
-
-**平台支持:**
-
-Android2.2+    
-iOS6.0+
-
-**版本支持:**
-
-Android3.0.0+    
-iOS3.0.0+
-
+| 参数名称           | 参数类型   | 是否必选 | 说明                                       |
+| -------------- | ------ | ---- | ---------------------------------------- |
+| messageId      | Number | 是    | 消息的Id                                    |
+| receivedStatus | String | 是    | 消息的接收状态,"UNREAD":未读；"READ":已读；"LISTENED":已听，仅用于语音消息;"DOWNLOADED":已下载 |
 
 **示例:**
 
 ```
-  var params = {
+  var param = {
     messageId: 12, 
     receivedStatus: "READ"
   };
-  var data = JSON.stringify(params);
-  uexRongCloud.setMessageReceivedStatus(data);
+  uexRongCloud.setMessageReceivedStatus(param);
      
 ```
->### clearMessagesUnreadStatus   清除某一会话的消息未读状态
-`uexRongCloud.clearMessagesUnreadStatus(param);`
+>### clearMessagesUnreadStatus   清除某一会话的消息未读状态,仅支持Android
+>`uexRongCloud.clearMessagesUnreadStatus(param);`
 
 **说明:**
 
 清除某一会话的消息未读状态，iOS不支持
 
 **参数:**
-param为json字符串
+
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| param | Object | 是    | 接口所需数据，形式见下： |
 
 ```
-var params={
+var param = {
     conversationType:,
     targetId:
 }
 ```
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-|  conversationType   | String | 是 | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
-|  targetId   | String | 是 | 消息目标 Id |
-
-**平台支持:**
-
-Android2.2+    
-
-
-**版本支持:**
-
-Android3.0.0+    
-
-
+| 参数名称             | 参数类型   | 是否必选 | 说明                                       |
+| ---------------- | ------ | ---- | ---------------------------------------- |
+| conversationType | String | 是    | 消息的会话类型, 'PRIVATE':单聊 ;'DISCUSSION':讨论组 'GROUP':群组 ;'CHATROOM':聊天室 ;'CUSTOMER_SERVICE':客服 ;'SYSTEM':系统 |
+| targetId         | String | 是    | 消息目标 Id                                  |
 
 **示例:**
 
 ```
-  var params = {
+  var param = {
     conversationType: "PRIVATE",
     targetId: "55666"
   };
-  var data = JSON.stringify(params);
-  uexRongCloud.clearMessagesUnreadStatus(data);
+  uexRongCloud.clearMessagesUnreadStatus(param);
      
 ```
 
@@ -1709,7 +1314,7 @@ Android3.0.0+
 >### 建立连接返回的错误码
 
 | error | 错误信息                                     |
-| ----- | ----- |
+| ----- | ---------------------------------------- |
 | 30000 | 导航路由失败,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。    |
 | 30001 | 连接已被释放, 建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。   |
 | 30002 | 连接不可用,建立连接的临时错误码,SDK会做好自动重连,开发者无须处理。     |
@@ -1745,7 +1350,7 @@ Android3.0.0+
 >### 具体业务错误码
 
 | code  | 详细描述                               |
-| ----- | ----- |
+| ----- | ---------------------------------- |
 | -1    | 未知错误(预留)                           |
 | 405   | 已被对方加入黑名单                          |
 | 5004  | 超时                                 |
@@ -1767,22 +1372,22 @@ Android3.0.0+
 
 ### iOS
 
-API版本:`uexRongCloud-3.0.0`
+API版本:`uexRongCloud-4.0.0`
 
-最近更新时间:`2016-01-16`
+最近更新时间:`2016-9-9`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.0 | 融云IM(uexRongCloud)插件 for iOS |
+| 历史发布版本 | 更新内容                         |
+| ------ | ---------------------------- |
+| 4.0.0  | 融云IM(uexRongCloud)插件 for iOS |
 
 ### Android
 
-API版本:`uexRongCloud-3.0.0`
+API版本:`uexRongCloud-4.0.0`
 
-最近更新时间:`2016-4-11`
+最近更新时间:`2016-9-9`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.0 | 融云IM(uexRongCloud)插件 |
+| 历史发布版本 | 更新内容                 |
+| ------ | -------------------- |
+| 4.0.0  | 融云IM(uexRongCloud)插件 |
 #5 文档更新记录
 

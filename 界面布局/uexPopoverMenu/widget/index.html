@@ -8,10 +8,12 @@
             <title>uexPopoverMenu</title>
             <script type="text/javascript">
                 window.uexOnload = function() {
+                /*
                     uexPopoverMenu.cbItemSelected = function(selectRow){
                         alert("select index "+selectRow);
                     }
-                    
+                    */
+
                 }
                 function clickButton(){
                     var params = {
@@ -64,22 +66,24 @@
                               }
                               ]
                     };
-                    uexPopoverMenu.openPopoverMenu(JSON.stringify(params));
+                    uexPopoverMenu.openPopoverMenu(JSON.stringify(params), function(index) {
+                        alert('callback index:' + index);
+                    });
                     //uexPopoverMenu.openPopoverMenu(JSON.stringify(params2));
 
                 }
 
                 </script>
             </head>
-    
+
     <body>
         <div class="tit" id = "tit">uexPopoverMenu</div>
         <div class="conbor">
             <div class="consj">
                 <br><br><br><br><br><br><br>
                 <input class="btn" type="button" value="open" onclick="clickButton();"/>
-                
-                
+
+
             </div>
         </div>
     </body>

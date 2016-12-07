@@ -33,7 +33,7 @@
     <script src="js/main.js">
     </script>
     <script type="text/javascript">
-    
+
 
         var isSetLoc = 0;
              window.uexOnload = function() {
@@ -57,7 +57,7 @@
             function closeMap(){
                 uexGaodeMap.close();
             }
-            
+
             function openmap(){
                 var divTop = document.getElementById("topDiv").offsetTop + document.getElementById("topDiv").offsetHeight + 60;
                 var w = screen.availWidth-20;
@@ -74,19 +74,21 @@
                 var data = JSON.stringify(params);
                 uexGaodeMap.open(data);
             }
-            
+
             function getCurrentLocation(){
-                uexGaodeMap.getCurrentLocation();
+                uexGaodeMap.getCurrentLocation(function(data){
+                    alert("callback:"+JSON.stringify(data));
+                });
             }
-            
+
             function startLocation(){
                 uexGaodeMap.startLocation();
             }
-            
+
             function stopLocation(){
                 uexGaodeMap.stopLocation();
             }
-            
+
             function setMyLocationEnable(v){
                 var params = {
                     type:v
@@ -94,7 +96,7 @@
                 var data = JSON.stringify(params);
                 uexGaodeMap.setMyLocationEnable(data);
             }
-            
+
             function setUserTrackingMode(v){
                 var params = {
                     type:v
@@ -118,13 +120,13 @@
      </div>
      <!--header结束--><!--content开始-->
      <div id="content" class="ub-f1 tx-l t-bla" style="">
-            
+
      <div class="conbor">
         <div class="consj" id="topDiv">
-        
+
         <input type="button" value="打开" onclick="openmap();">
         <input type="button" value="关闭" onclick="closeMap();">
-        <input type="button" value="获得当前位置" onclick="getCurrentLocation();"> 
+        <input type="button" value="获得当前位置" onclick="getCurrentLocation();">
         <input type="button" value="普通模式" onclick="setUserTrackingMode(1);">
         <input type="button" value="跟随模式" onclick="setUserTrackingMode(2);">
         <input type="button" value="罗盘模式" onclick="setUserTrackingMode(3);">
@@ -132,12 +134,12 @@
         <input type="button" value="停止定位" onclick="stopLocation();">
         <input type="button" value="显示用户位置" onclick="setMyLocationEnable(1);">
         <input type="button" value="隐藏用户位置" onclick="setMyLocationEnable(0);">
-        <p></p><br> 
-                
+        <p></p><br>
+
         </div>
       </div>
-        
-         
+
+
     </div>
 </body>
 <script>

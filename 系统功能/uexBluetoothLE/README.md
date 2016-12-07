@@ -4,49 +4,51 @@
 蓝牙BLE插件
 
 ## 1.1、说明
-蓝牙BLE插件。
+蓝牙BLE插件.
 iOS 后台蓝牙功能须知
-* iOS设备要在后台使用蓝牙功能,必须首先设置相应的后台蓝夜权限；
+* iOS设备要在后台使用蓝牙功能,必须首先设置相应的后台蓝夜权限;
 * 如果要在后台进行音频操作,还需要设置后台音乐权限;
-* 在后台扫描蓝牙设备时,serviceUUIDs参数必传,不能无限制扫描；
-* 后台获取到数据如要通知前台,请用LocalNotification；
+* 在后台扫描蓝牙设备时,serviceUUIDs参数必传,不能无限制扫描;
+* 后台获取到数据如要通知前台,请用LocalNotification;
 
 **注:由于本插件的特殊性,暂时没法提供方法的示例,整体示例请参考开源源码中的示例**
 
 ## 1.2、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=465_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
+## 1.3、平台版本支持
+本插件的所有API默认支持**Android4.4+**和**iOS7.1+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.4、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
+
+
+
 # 2、API概览
 
 ## 2.1、方法
 
-> ### init 初始化接口
+### 🍭 init 初始化接口
 
 `uexBluetoothLE.init()`
 
 **说明:**
 
 回调方法[cbInit](#cbInit 初始化的回调方法 "cbInit")
-* 所有的回调都会传给执行init()的页面,请务必不要关闭此页面；
-* 建议在root页面执行init()；
+
+* 请在root页面执行init();
+* 本插件为单例插件,您可以在任意页面调用本插件的接口,但所有的回调均直接回调给root;
 
 **参数:**
 
  无
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
-> ### scanDevice 扫描蓝牙设备
+### 🍭 scanDevice 扫描蓝牙设备
 
 `uexBluetoothLE.scanDevice(serviceUUIDs)`
 
@@ -58,21 +60,13 @@ iOS 3.0.0+
 
 | 参数名称         | 参数类型  | 是否必选 | 说明                                       |
 | ------------ | ----- | ---- | ---------------------------------------- |
-| serviceUUIDs | Array | 否    | 由service的UUID字符串组成的数组。	serviceUUIDs不传时,插件会扫描所有蓝牙设备；否则,插件会只扫描包含数组中的指定service的蓝牙设备；iOS系统,在进行后台蓝牙设备扫描时,该参数必须,若前台扫描则该参数为可选。 |
-
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
+| serviceUUIDs | Array | 否    | 由service的UUID字符串组成的数组.	serviceUUIDs不传时,插件会扫描所有蓝牙设备;否则,插件会只扫描包含数组中的指定service的蓝牙设备;iOS系统,在进行后台蓝牙设备扫描时,该参数必须,若前台扫描则该参数为可选. |
 
 **示例:**
 
-> ### stopScanDevice 停止扫描设备
+
+
+### 🍭 stopScanDevice 停止扫描设备
 
 `uexBluetoothLE.stopScanDevice()`
 
@@ -84,168 +78,120 @@ iOS 3.0.0+
 
 无
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-> ### connect 连接指定蓝牙设备
+
+
+### 🍭 connect 连接指定蓝牙设备
 
 `uexBluetoothLE.connect(param)`
 
 **说明:**
 
-连接指定蓝牙设备。回调方法[cbConnect](#cbConnect 连接指定蓝牙设备的回调方法 "cbConnect")
+连接指定蓝牙设备.回调方法[cbConnect](#cbConnect 连接指定蓝牙设备的回调方法 "cbConnect")
 
 **参数:**
 
-```
+```javascript
 var param={
     address://(必选)要连接的蓝牙地址
-};
+}
 ```
-
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
-> ### disconnect 断开蓝牙连接
+
+
+### 🍭 disconnect 断开蓝牙连接
 
 `uexBluetoothLE.disconnect()`
 
 **说明:**
 
-断开蓝牙连接。成功断开后会回调[onConnectionStateChange](#onConnectionStateChange 连接状态改变的监听方法 "onConnectionStateChange")方法
+断开蓝牙连接.成功断开后会回调[onConnectionStateChange](#onConnectionStateChange 连接状态改变的监听方法 "onConnectionStateChange")方法
 
 **参数:**
 
 无
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-> ### searchForCharacteristic 从指定service中搜索characteristic
+
+
+### 🍭 searchForCharacteristic 从指定service中搜索characteristic
 
 `uexBluetoothLE.searchForCharacteristic(param)`
 
 **说明:**
 
-从指定service中搜索characteristic。回调方法[cbSearchForCharacteristic](#cbSearchForCharacteristic 从指定service中搜索characteristic的回调方法 "cbSearchForCharacteristic")
+从指定service中搜索characteristic.回调方法[cbSearchForCharacteristic](#cbSearchForCharacteristic 从指定service中搜索characteristic的回调方法 "cbSearchForCharacteristic")
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID://(必选)string,要搜索的service的UUID
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-> ### searchForDescriptor 从指定characteristic中搜索descriptor
+
+
+### 🍭 searchForDescriptor 从指定characteristic中搜索descriptor
 
 `uexBluetoothLE.searchForDescriptor(param)`
 
 **说明:**
 
-从指定characteristic中搜索descriptor。回调方法[cbSearchForDescriptor](#cbSearchForDescriptor 从指定characteristic中搜索descriptor的回调方法 "cbSearchForDescriptor")
+从指定characteristic中搜索descriptor.回调方法[cbSearchForDescriptor](#cbSearchForDescriptor 从指定characteristic中搜索descriptor的回调方法 "cbSearchForDescriptor")
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID:,//(必选)被搜索的characteristic所在的service的UUID
 	characteristicUUID://(必选)string 要搜索的characteristics的UUID
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-> ### readCharacteristic 读取Characteristic
+
+
+### 🍭 readCharacteristic 读取Characteristic
 
 `uexBluetoothLE.readCharacteristic(param)`
 
 **说明:**
 
-读取Characteristic。回调方法[cbReadCharacteristic](#cbReadCharacteristic 读取Characteristic的回调方法 "cbReadCharacteristic")
+读取Characteristic.回调方法[cbReadCharacteristic](#cbReadCharacteristic 读取Characteristic的回调方法 "cbReadCharacteristic")
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID://(必选)service的UUID
 	characteristicUUID://(必选)characteristic的UUID
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-> ### writeCharacteristic 写入数据到Characteristic
+
+
+### 🍭 writeCharacteristic 写入数据到Characteristic
 
 `uexBluetoothLE.writeCharacteristic(param)`
 
 **说明:**
 
-写入数据到Characteristic。回调方法[cbWriteCharacteristicJson](#cbWriteCharacteristicJson 写入数据到Characteristic的回调方法)。监听方法[onCharacteristicChanged](#onCharacteristicChanged Characteristic内容改变的监听方法 "onCharacteristicChanged")
+写入数据到Characteristic.回调方法[cbWriteCharacteristic](#cbWriteCharacteristic 写入数据到Characteristic的回调方法 "cbWriteCharacteristic").监听方法[onCharacteristicChanged](#onCharacteristicChanged Characteristic内容改变的监听方法 "onCharacteristicChanged")
 用户需要将实际要写入的值先base64编码成String,再调用此方法.
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID:,//service的UUID
 	characteristicUUID:,//characteristic的UUID
@@ -253,59 +199,21 @@ var param={
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-> ### setCharacteristicNotification 监听某一个Characteristic
 
-`uexBluetoothLE.setCharacteristicNotification(param)`
 
-**说明:**
-
-监听某一个Characteristic数据变化。监听方法[onCharacteristicChanged](#onCharacteristicChanged Characteristic内容改变的监听方法 "onCharacteristicChanged")
-
-**参数:**
-
-```
-var param={
-	serviceUUID:,//service的UUID
-	characteristicUUID:,//characteristic的UUID
-	enable://true 或false，开启或关闭监听
-}
-```
-
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
-**示例:**
-
-> ### readDescriptor 读取Descriptor
+### 🍭 readDescriptor 读取Descriptor
 
 `uexBluetoothLE.readDescriptor(param)`
 
 **说明:**
 
-读取Descriptor。回调方法[cbReadDescriptor](#cbReadDescriptor 读取Descriptor的回调方法 "cbReadDescriptor")。
+读取Descriptor.回调方法[cbReadDescriptor](#cbReadDescriptor 读取Descriptor的回调方法 "cbReadDescriptor").
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID://service的UUID
 	characteristicUUID://characteristic的UUID
@@ -313,30 +221,22 @@ var param={
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-> ### writeDescriptor 写入数据到Descriptor
+
+
+### 🍭 writeDescriptor 写入数据到Descriptor
 
 `uexBluetoothLE.writeDescriptor(param)`
 
 **说明:**
 
-写入数据到Descriptor。回调方法[cbWriteDescriptor](#cbWriteDescriptor 写入数据到Descriptor的回调方法 "cbWriteDescriptor")。
+写入数据到Descriptor.回调方法[cbWriteDescriptor](#cbWriteDescriptor 写入数据到Descriptor的回调方法 "cbWriteDescriptor").
 用户需要将实际要写入的值先base64编码成String,再调用此方法.
 
 **参数:**
 
-```
+```javascript
 var param={
 	serviceUUID://service的UUID
 	characteristicUUID://characteristic的UUID
@@ -345,71 +245,68 @@ var param={
 }
 ```
 
-**平台支持:**
+**示例:**
 
-Android 4.3+
-iOS 7.1+
 
-**版本支持:**
 
-Android 3.0.0+
-iOS 3.0.0+
+### 🍭 setCharacteristicNotification 监听某一个Characteristic
+
+`uexBluetoothLE.setCharacteristicNotification(param)`
+
+**说明:**
+
+监听某一个Characteristic数据变化.监听方法[onCharacteristicChanged](#onCharacteristicChanged Characteristic内容改变的监听方法 "onCharacteristicChanged")
+
+**参数:**
+
+```javascript
+var param={
+	serviceUUID:,//service的UUID
+	characteristicUUID:,//characteristic的UUID
+	enable://true 或false,开启或关闭监听
+}
+```
 
 **示例:**
 
-> ### readRemoteRssi 读取rssi
+
+
+### 🍭 readRemoteRssi 读取rssi
 
 `uexBluetoothLE.readRemoteRssi()`
 
 **说明:**
 
-读取已连接设备的Rssi。监听方法[onReadRemoteRssi](#onReadRemoteRssi readRemoteRssi的监听方法)。
+读取已连接设备的Rssi.监听方法[onReadRemoteRssi](#onReadRemoteRssi readRemoteRssi的监听方法).
 
 **参数:**
 
 无
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
+
+
 
 
 
 ## 2.2、回调方法
 
-> ### cbInit 初始化的回调方法
+### 🍭 cbInit 初始化的回调方法
 
 `uexBluetoothLE.cbInit(data)`
 
 **参数:**
 
-```
+```javascript
 var data={
 	resultCode://(必选) 0-BLE启动成功,1-BLE启动失败
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbInit = cbInit;
     }
@@ -418,31 +315,22 @@ iOS 3.0.0+
     }
 ```
 
-> ### cbConnect 连接指定蓝牙设备的回调方法
+### 🍭 cbConnect 连接指定蓝牙设备的回调方法
 
 `uexBluetoothLE.cbConnect(data)`
 
 **参数:**
 
-```
+```javascript
 var data={
 	services://(必选) service的UUID构成的数组
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbConnect = cbConnect;
     }
@@ -451,13 +339,13 @@ iOS 3.0.0+
     }
 ```
 
-> ### cbSearchForCharacteristic 从指定service中搜索characteristic的回调方法
+### 🍭 cbSearchForCharacteristic 从指定service中搜索characteristic的回调方法
 
 `uexBluetoothLE.cbSearchForCharacteristic(data)`
 
 **参数:**
 
-```
+```javascript
 var data={
 	serviceUUID:,//(必选)被搜索的service的UUID
 	characteristics://(必选)list<uexBLECharacteristic> 此service下的uexBLECharacteristic结构构成的数组
@@ -465,19 +353,9 @@ var data={
 ```
 uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明)
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbSearchForCharacteristic = cbSearchForCharacteristic;
     }
@@ -486,13 +364,13 @@ iOS 3.0.0+
     }
 ```
 
-> ### cbSearchForDescriptor 从指定characteristic中搜索descriptor的回调方法
+### 🍭 cbSearchForDescriptor 从指定characteristic中搜索descriptor的回调方法
 
 `uexBluetoothLE.cbSearchForDescriptor(data)`
 
 **参数:**
 
-```
+```javascript
 var data={
 	serviceUUID://被搜索的characteristic所在的service的UUID
 	characteristicUUID:,//被搜索的characteristic的UUID
@@ -501,19 +379,9 @@ var data={
 ```
 uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbSearchForDescriptor = cbSearchForDescriptor;
     }
@@ -522,13 +390,13 @@ iOS 3.0.0+
     }
 ```
 
-> ### cbReadCharacteristic 读取Characteristic的回调方法
+### 🍭 cbReadCharacteristic 读取Characteristic的回调方法
 
 `uexBluetoothLE.cbReadCharacteristic(data)`
 
 **参数:**
 
-```
+```javascript
 var data={
 	resultCode://0-成功,1-失败
 	data://uexBLECharacteristic的Json格式
@@ -536,19 +404,9 @@ var data={
 ```
 uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明)
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbReadCharacteristic = cbReadCharacteristic;
     }
@@ -557,9 +415,8 @@ iOS 3.0.0+
     }
 ```
 
-> ### cbWriteCharacteristic 写入数据到Characteristic的回调方法
+### 🍭 cbWriteCharacteristic 写入数据到Characteristic的回调方法
 
-**已废弃，建议使用`cbWriteCharacteristicJson`方法**
 `uexBluetoothLE.cbWriteCharacteristic(data)`
 
 **参数:**
@@ -572,19 +429,10 @@ var data={
 ```
 uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明)
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbWriteCharacteristic = cbWriteCharacteristic;
     }
@@ -593,48 +441,13 @@ iOS 3.0.0+
     }
 ```
 
-> ### cbWriteCharacteristicJson 写入数据到Characteristic的回调方法
-
-`uexBluetoothLE.cbWriteCharacteristicJson(data)`
-
-**参数:**
-data是Json对象
-```
-var data={
-	resultCode://0-成功,1-失败
-	data:uexBLECharacteristic的Json格式
-}
-```
-uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明)
-
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
-**示例:**
-
-```
-    window.uexOnload = function(type){
-        uexBluetoothLE.cbWriteCharacteristicJson = cbWriteCharacteristicJson;
-    }
-    function cbWriteCharacteristicJson(data){
-        alert("cbWriteCharacteristic:" + data);
-    }
-```
-
-> ### cbReadDescriptor 读取Descriptor的回调方法
+### 🍭 cbReadDescriptor 读取Descriptor的回调方法
 
 `uexBluetoothLE.cbReadDescriptor(data)`
 
 **参数:**
 
-```
+```javascript
 var data={
 	resultCode://0-成功,1-失败
 	data://uexBLEDescriptor的Json格式
@@ -642,19 +455,9 @@ var data={
 ```
 uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbReadDescriptor = cbReadDescriptor;
     }
@@ -663,13 +466,13 @@ iOS 3.0.0+
     }
 ```
 
-> ### cbWriteDescriptor 写入数据到Descriptor的回调方法
+### 🍭 cbWriteDescriptor 写入数据到Descriptor的回调方法
 
 `uexBluetoothLE.cbWriteDescriptor(data)`
 
 **参数:**
 
-```
+```javascript
 var data={
 	resultCode://0-成功,1-失败
 	data:uexBLEDescriptor的Json格式
@@ -677,19 +480,9 @@ var data={
 ```
 uexBLEDescriptor结构说明见[附录](#3.1 uexBLEDescriptor结构说明)
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
-
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.cbWriteDescriptor = cbWriteDescriptor;
     }
@@ -700,13 +493,13 @@ iOS 3.0.0+
 
 ## 2.3、监听方法
 
-> ### onLeScan 扫描到设备的回调方法
+### 🍭 onLeScan 扫描到设备的监听方法
 
 `uexBluetoothLE.onLeScan(data)`
 
 **参数:**
 
-```
+```javascript
 var data={
 	address:,
 	name:
@@ -716,22 +509,12 @@ var data={
 
 | 参数名称    | 参数类型   | 是否必选 | 说明                                       |
 | ------- | ------ | ---- | ---------------------------------------- |
-| address | String | 是    | Android的address参数传回的是设备的mac地址；iOS的address参数传回的是设备的UUID |
+| address | String | 是    | Android的address参数传回的是设备的mac地址;iOS的address参数传回的是设备的UUID |
 | name    | String | 是    | 蓝牙设备名称                                   |
-
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.onLeScan = onLeScan;
     }
@@ -740,31 +523,22 @@ iOS 3.0.0+
     }
 ```
 
-> ### onConnectionStateChange 连接状态改变的监听方法
+### 🍭 onConnectionStateChange 连接状态改变的监听方法
 
 `uexBluetoothLE.onConnectionStateChange(data)`
 
 **参数:**
 
-```
+```javascript
 var data={
 	resultCode://(必选)0-已连接上,1-已断开
 }
 ```
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.onConnectionStateChange = onConnectionStateChange;
     }
@@ -773,7 +547,7 @@ iOS 3.0.0+
     }
 ```
 
-> ### onCharacteristicChanged Characteristic内容改变的监听方法
+### 🍭 onCharacteristicChanged Characteristic内容改变的监听方法
 
 `uexBluetoothLE.onCharacteristicChanged(data)`
 
@@ -783,19 +557,10 @@ iOS 3.0.0+
 | ---- | ---- | ---- | ---------------------------------------- |
 | data | Json | 是    | uexBLECharacteristic的Json格式数据,uexBLECharacteristic结构说明见[附录](#3.2 uexBLECharacteristic结构说明) |
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.onCharacteristicChanged = onCharacteristicChanged;
     }
@@ -804,7 +569,9 @@ iOS 3.0.0+
     }
 ```
 
-> ### onReadRemoteRssi readRemoteRssi的监听方法
+
+
+### 🍭 onReadRemoteRssi readRemoteRssi的监听方法
 
 `uexBluetoothLE.onReadRemoteRssi(data)`
 
@@ -814,19 +581,10 @@ iOS 3.0.0+
 | ---- | ------ | ---- | --------- |
 | data | Json对象 | 是    | rssi的相关数据 |
 
-**平台支持:**
-
-Android 4.3+
-iOS 7.1+
-
-**版本支持:**
-
-Android 3.0.0+
-iOS 3.0.0+
 
 **示例:**
 
-```
+```javascript
     window.uexOnload = function(type){
         uexBluetoothLE.onReadRemoteRssi = onReadRemoteRssi;
     }
@@ -835,9 +593,10 @@ iOS 3.0.0+
     }
 ```
 
+
 # 3、附录
 ## 3.1 uexBLEDescriptor结构说明
-```
+```javascript
 	var uexBLEDescriptor{
 		serviceUUID:,//此descriptor所属的service的UUID
 		characteristicUUID:,//此descriptor所属的characteristic的UUID
@@ -847,10 +606,9 @@ iOS 3.0.0+
 	}
 ```
 `permissions`权限说明请参考[permissions权限说明](#3.3 permissions权限说明)
-``
 
 ## 3.2 uexBLECharacteristic结构说明
-```
+```javascript
 	var uexBLECharacteristic{
 		serviceUUID:,//string,此Characteristic所属的service的UUID
 		UUID:,//string,此Characteristic的UUID 
@@ -887,28 +645,18 @@ iOS 3.0.0+
 
 ### iOS
 
-API版本:`uexBluetoothLE-3.0.4`
+API版本: `uexBluetoothLE-4.0.0`
 
 最近更新时间:`2016-1-5`
 
-| 历史发布版本 | 更新内容                          |
-| ------ | ----------------------------- |
-| 3.0.4  | 修复cbInit回调参数错误的bug            |
-| 3.0.3  | 添加IDE支持                       |
-| 3.0.2  | 修复一个会导致Characteristic写入失败的bug |
-| 3.0.1  | 修改读写的字符串均为为Base64编码           |
-| 3.0.0  | 低功耗蓝牙插件 for iOS               |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
 
 ### Android
 
-API版本:`uexBluetoothLE-3.0.4`
+API版本: `uexBluetoothLE-4.0.0`
 
 最近更新时间:`2016-2-16`
 
-| 历史发布版本 | 更新内容              |
-| ------ | ----------------- |
-| 3.0.4  | 修改回调函数名称与文档一致     |
-| 3.0.3  | 修正回调数据不正确的问题      |
-| 3.0.2  | init时自动调用开启蓝牙     |
-| 3.0.1  | js接口数据传输用Base64编码 |
-| 3.0.0  | 蓝牙BLE插件           |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
