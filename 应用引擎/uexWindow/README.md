@@ -3029,6 +3029,33 @@ console.log(name);
 
 
 
+### 🍭 setInlineMediaPlaybackEnable
+
+###  设置当前页面是否允许内联视频播放
+
+`uexWindow.setInlineMediaPlaybackEnable(flag)`
+
+**说明:**
+
+当此属性设置为true时,可以让配置了`webkit-playsinline`属性的`video`标签以非全屏方式播放视频
+
+***此方法仅支持iOS***
+
+对于iPhone或者iPod,此属性默认值为false;
+对于iPad,此属性默认值为true;
+
+**参数:**
+
+flag为Boolean, true表示允许内联视频播放,false表示禁止
+
+  
+
+**示例:**
+
+```JavaScript
+ uexWindow.setInlineMediaPlaybackEnable(true);
+```
+
 
 
 ## 2.4 回调方法
