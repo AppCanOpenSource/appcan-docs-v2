@@ -122,10 +122,10 @@ var data={
 		actionSheetList:[//按钮数据数组
 			{
 			name:"新浪微博"//item名称
-			}
+			},
 			{
 			name:"腾讯微博"//item名称
-			}
+			},
 			{
 			name:"分享"//item名称
 			}
