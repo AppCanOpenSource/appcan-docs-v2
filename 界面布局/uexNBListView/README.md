@@ -865,7 +865,12 @@ uexNBListView.onHtmlEvent = function(data){
 
 ### iOS
 
-**uexNBListView目前不支持iOS**
+API版本: `uexNBListView-4.0.0`
+
+最近更新时间:`2016-7-27`
+
+| 历史发布版本 | 更新内容                  |
+| ------ | --------------------- |
 
 ### Android
 
