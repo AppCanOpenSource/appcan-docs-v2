@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/ui-btn.css">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+    <link rel="stylesheet" href="css/ui-res.css">
+    <style>
+        input{
+            color: black;
+            padding: 1px 6px;
+            margin-left:6px;
+        }
+        input[type="text"]{
+            padding: .2em .4em;
+            margin:.4em .6em;
+            font-size:1em;
+        }
+        input[type="button"]{
+            padding: .6em .8em;
+            margin:.4em .6em;
+            font-size:1.2em;
+        }
+    </style>
+    <script src="js/zy_control.js">
+    </script>
+    <script src="js/main.js">
+    </script>
+    <script type="text/javascript">
+        window.uexOnload = function(type){
+            uexWindow.subscribeChannelNotification("1", "easemobDemoGlobalPost");
+            uexWindow.easemobDemoGlobalPost=globalPost;
+        }
+    
+
+    
+    
+    //[7.1]
+    function registerRemoteNotification(){
+        uexEasemob.registerRemoteNotification('');
+    }
+    
+    //[7.3]
+    function updatePushOptions(){
+        var nickname = document.getElementById("updatePushOptionsnickname").value;
+        var displayStyle = document.getElementById("updatePushOptionsdisplayStyle").value;
+        var noDisturbingStyle = document.getElementById("updatePushOptionsnoDisturbingStyle").value;
+        var noDisturbingStartH = document.getElementById("updatePushOptionsnoDisturbingStartH").value;
+        var noDisturbingEndH = document.getElementById("updatePushOptionsnoDisturbingEndH").value;
+        uexEasemob.updatePushOptions('{"nickname":"'+nickname+'","displayStyle":"'+displayStyle+'","noDisturbingStyle":"'+noDisturbingStyle+'","noDisturbingStartH":"'+noDisturbingStartH+'","noDisturbingEndH":"'+noDisturbingEndH+'"}');
+    }
+    
+    //[7.5]
+    function ignoreGroupPushNotification(){
+        var groupId = document.getElementById("ignoreGroupPushNotificationgroupId").value;
+        var isIgnore = document.getElementById("ignoreGroupPushNotificationisIgnore").value;
+        uexEasemob.ignoreGroupPushNotification('{"groupId":"'+groupId+'","isIgnore":"'+isIgnore+'"}');
+    }
+       </script>
+</head>
+<body class="um-vp " ontouchstart>
+    <div id="page_0" class="up ub ub-ver" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh t-wh ub" style="background: #27A73F;">
+                <div class="umw4 ub ub-ac ub-pc" ontouchstart="zy_touch()" onclick="closeWin()">
+                    <div ontouchstart="zy_touch('btn-act')" class="btn uba b-bla uinn5 c-blu c-m1 uc-a t-wh" style="background: -webkit-gradient(linear,0 0,0 100%,from(#FFCD00),color-stop(50%,#FFBC00),color-stop(50%,orange));border: 1px solid #FFA700;-webkit-border-radius: 8px;  text-align: center;color: #712000;  display: block; font-size: 1em; padding: 0.2em;">返回</div>
+                </div>
+                <h1 class="ut ub-f1 ulev0 ut-s tx-c" tabindex="0">Apns</h1>
+                <div class="umw4" ontouchstart="zy_touch()" onclick="">
+                <!--插入按钮控件-->
+                </div>
+     </div>
+     <!--header结束--><!--content开始-->
+     <div id="content" class="ub-f1 tx-l t-bla" style="">
+         
+     <div class="conbor">
+        <div class="consj" id="topDiv">
+            <div id='globalPostArea'>onNewMessage</div><br><br>
+            
+            
+             <div> </div><div>======Apns==========</div>
+             <div> </div><span>registerRemoteNotification</span>
+             <input class='btn' type='button' value='调用接口' onclick='registerRemoteNotification()'></input>
+             
+             <div> </div><span>updatePushOptions</span>
+             <div>nickname:</div><input class="textbox" type="text" id="updatePushOptionsnickname" value=""></input>
+             <div>displayStyle:</div><input class="textbox" type="text" id="updatePushOptionsdisplayStyle" value=""></input>
+             <div>noDisturbingStyle:</div><input class="textbox" type="text" id="updatePushOptionsnoDisturbingStyle" value=""></input>
+             <div>noDisturbingStartH:</div><input class="textbox" type="text" id="updatePushOptionsnoDisturbingStartH" value=""></input>
+             <div>noDisturbingEndH:</div><input class="textbox" type="text" id="updatePushOptionsnoDisturbingEndH" value=""></input>
+             <input class='btn' type='button' value='调用接口' onclick='updatePushOptions()'></input>
+             
+             <div> </div><span>ignoreGroupPushNotification</span>
+             <div>groupId:</div><input class="textbox" type="text" id="ignoreGroupPushNotificationgroupId" value=""></input>
+             <div>isIgnore:</div><input class="textbox" type="text" id="ignoreGroupPushNotificationisIgnore" value=""></input>
+             <input class='btn' type='button' value='调用接口' onclick='ignoreGroupPushNotification()'></input>
+        
+        <div>======回调区域==========</div>
+        <div id='TestCallBack'>原本内容</div>
+        <div id='TestData'>原本内容</div>
+        <div>======回调区域==========</div>
+    </div>
+    </div>
+</body>
+<script>
+
+</script>
+</html>

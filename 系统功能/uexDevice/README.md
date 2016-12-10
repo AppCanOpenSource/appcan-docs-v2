@@ -312,6 +312,30 @@ uexDevice.isFunctionEnable(data, function(data) {
 });
 ```
 
+### 🍭 getIP 获取系统IP
+
+`uexDevice.getIP()`
+
+**说明:**
+
+获取系统IP，同步返回内网地址
+
+**参数:**
+
+无
+
+**返回值:**
+
+String 内网IP
+
+
+**示例:**
+
+```
+ var ip = uexDevice.getIP();
+ alert(ip);
+```
+
 ### 🍭 openSetting 打开设置界面
 
 `uexDevice.openSetting(params)`

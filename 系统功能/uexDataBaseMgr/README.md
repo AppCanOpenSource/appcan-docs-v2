@@ -38,9 +38,10 @@
 **参数:**
 
 
-| 参数名称   | 参数类型   | 是否必选 | 说明    |
-| ------ | ------ | ---- | ----- |
-| dbName | String | 是    | 数据库名称 |
+| 参数名称      | 参数类型   | 是否必选 | 说明         |
+| --------- | ------ | ---- | ---------- |
+| dbName    | String | 是    | 数据库名称      |
+| dbVersion | Number | 否    | 数据库版本，默认为1 |
 
 **返回值:**
 
@@ -199,6 +200,61 @@ uexDataBaseMgr.transactionEx(db,JSON.stringify(sqls), function(error) {
 var result = uexDataBaseMgr.close(db);
 alert(result);
 ```
+
+
+
+### 🍭 copyDataBaseFile 拷贝内置数据库
+
+`uexDataBaseMgr.copyDataBaseFile(path,callback)`
+
+**说明:**
+
+需要APP使用内置数据库时使用。先将数据库文件放置在`res://`目录下，然后调用该接口。后面使用与之前一致。
+
+如果数据库的版本不为1，需要在`open`接口传入数据库的版本号
+
+**注：该接口只需要调用一次，再次调用会覆盖之前的数据库**
+
+**参数:**
+
+| 参数名称     | 参数类型     | 是否必选 | 说明                           |
+| -------- | -------- | ---- | ---------------------------- |
+| path     | String   | 是    | 存放数据库的路径，支持AppCan 协议，不支持网络路径 |
+| callback | Function | 是    | 拷贝完成的回调                      |
+
+```javascript
+var callback=function(error){
+  	//!error 表示成功 
+}
+```
+
+**示例:**
+
+```javascript
+uexDataBaseMgr.copyDataBaseFile("res://musicEx.db",function (error) {
+    if (!error) {
+
+        var db = uexDataBaseMgr.open("musicEx.db", 1017);
+        if (db != null) {
+            var sql = "SELECT * FROM Song";
+            uexDataBaseMgr.select(db, sql, function (error, data) {
+                if (error) {
+                    console.log("failed");
+                } else {
+                    console.log(JSON.stringify(data));
+                }
+                db.close();
+            });
+        } else {
+            console.log("failed");
+        }
+    }else{
+        console.log("failed");
+    }
+});
+```
+
+
 
 #3、更新历史
 
