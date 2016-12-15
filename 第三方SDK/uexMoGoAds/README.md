@@ -1,32 +1,32 @@
 [TOC]
-# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+# 1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 
 芒果广告插件
 
-## 1.1、说明
+## 1.1､说明
 
-该插件对芒果SDK进行相关封装,包含AdMob、百度、点入、多盟、广点通、InMobi、艾德思奇、易积分主流广告平台。
+该插件对芒果SDK进行相关封装,包含AdMob､百度､点入､多盟､广点通､InMobi､艾德思奇､易积分主流广告平台｡
 
-## 1.2、UI展示
+## 1.2､UI展示
 
 ![preview](preview/banner.png)
 ![preview](preview/interstitial.png)
 
-## 1.3、开源源码
+## 1.3､开源源码
 
 插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
-## 1.4、平台版本支持
+## 1.4､平台版本支持
 
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+## 1.5､接口有效性
 
 本插件所有API默认在插件版本**4.0.0+**可用.
-# 2、API概览
+# 2､API概览
 
-## 2.1、方法
+## 2.1､方法
 
 ### 🍭 init 初始化插件
 
@@ -48,7 +48,7 @@
 
 | 名称                  | 类型     | 是否必选 | 说明                                       |
 | ------------------- | ------ | ---- | ---------------------------------------- |
-| appKey | String | 是    | 芒果ID，需要到芒果官网申请,[链接地址](http://my.adsmogo.com/Account/LogOn?ReturnUrl=%2fApps%2fNetwork%2f79ebd13536fd43eaaddd2b5e57d4a127%3fadType%3d1&adType=1)。 |
+| appKey | String | 是    | 芒果ID,需要到芒果官网申请,[链接地址](http://my.adsmogo.com/Account/LogOn?ReturnUrl=%2fApps%2fNetwork%2f79ebd13536fd43eaaddd2b5e57d4a127%3fadType%3d1&adType=1)｡ |
 
 
 **示例:**
@@ -105,17 +105,17 @@ var params = {
    uexMoGoAds.startInterstitial();
 ```
 
-# 3、更新历史
+# 3､更新历史
 
 ### iOS
 
 API版本: `uexMoGoAds-4.0.0`
 
-最近更新时间:`2016-12-05`
+最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容         |
-| ------ | ------------ |
-| 4.00| 芒果广告4.0插件 |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.0 | 芒果广告4.0插件 |
 
 ### Android
 
@@ -123,6 +123,6 @@ API版本: `uexMoGoAds-4.0.0`
 
 最近更新时间:`2016-12-05`
 
-| 历史发布版本 | 更新内容         |
-| ------ | ------------ |
-| 4.00| 芒果广告4.0插件 |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.0 | 芒果广告4.0插件 |

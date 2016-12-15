@@ -1,27 +1,27 @@
 [TOC]
 
-# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
  阿里百川插件
-## 1.1、说明
- 封装了阿里百川sdk,百川是阿里巴巴旗下的无线开放平台,基于世界级的后端服务和成熟的商业组件,快速搭建App和提供卓越用户体验,开拓广告、商品、生活服务等无线新商业.此版本实现了阿里百川的基础功能:手淘授权登陆、退出登陆、获取登录者的信息、打开购物车、打开我的订单、通过itemid打开宝贝详情等.
+## 1.1､说明
+ 封装了阿里百川sdk,百川是阿里巴巴旗下的无线开放平台,基于世界级的后端服务和成熟的商业组件,快速搭建App和提供卓越用户体验,开拓广告､商品､生活服务等无线新商业.此版本实现了阿里百川的基础功能:手淘授权登陆､退出登陆､获取登录者的信息､打开购物车､打开我的订单､通过itemid打开宝贝详情等.
  ```
   注意:该插件会与uexAliPay(支付宝插件)相冲突,不建议两者同时使用.
  ```
 
-## 1.2、UI展示
+## 1.2､UI展示
 
-## 1.3、开源源码
+## 1.3､开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=623_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4、平台版本支持
+## 1.4､平台版本支持
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+## 1.5､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明.
-# 2、API概览
-## 2.1、方法
+# 2､API概览
+## 2.1､方法
 
 ### 🍭 init 初始化阿里百川SDK
 
@@ -150,7 +150,7 @@ uexALiBaiChuan.logout(function(error, msg) {
 
 **返回值:**  
 
-JSON对象（用户信息），若用户未登录返回null。用户信息结构如下：
+JSON对象(用户信息),若用户未登录返回null｡用户信息结构如下:
 
 ```json
 {
@@ -194,7 +194,7 @@ JSON对象（用户信息），若用户未登录返回null。用户信息结构
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 否    | 接口所需数据，形式见下： |
+| params | String | 否    | 接口所需数据,形式见下: |
 
 ```javascript
 var params ={
@@ -247,7 +247,7 @@ uexALiBaiChuan.openMyOrdersPage();
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```javascript
 var params ={
@@ -293,7 +293,7 @@ uexALiBaiChuan.openItemDetailPageById(JSON.stringify(params));
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```javascript
 var params ={
@@ -322,8 +322,8 @@ uexALiBaiChuan.openItemDetailPageByURL(JSON.stringify(params));
 ```
 
 
-#3、附录
-##3.1、如何获取mmpid及插件使用说明
+#3､附录
+##3.1､如何获取mmpid及插件使用说明
 * 打开阿里百川官网,创建应用,进入控制台,点击SDK下载,iOS中输入bundleid,勾选电商能力包和淘宝登录基础包,生成阿里百川SDK,SDK会包含安全图片,图片名称为:yw_1222.jpg(**请勿修改**),该图片后面会使用到.生成的安全图片会包含bundleid的相关信息.若两者不匹配会导致移动端SDK初始化会失败或使用报错.
    ![image](./img/12.png) 
    ![image](./img/09.png) 
@@ -350,7 +350,7 @@ uexALiBaiChuan.openItemDetailPageByURL(JSON.stringify(params));
 给你看看成功的订单,
 ![image](./img/07.png)
 另外,阿里的规则(每月1号结算上一个月成功订单的返现金额,20号将钱给你,到时候你要到结算中心,把他提现转到支付宝)
-##3.2、iOS插件配置说明
+##3.2､iOS插件配置说明
 * 本插件需要下载插件包,将生成的sdk中的安全图片替换掉uexALiBaiChuanGroup文件下原有的安全图片作为自定义插件上传才能正常使用.
 * 本插件需要config.xml配置Url Scheme,才能实现应用间的跳转,如:
 
@@ -361,22 +361,24 @@ uexALiBaiChuan.openItemDetailPageByURL(JSON.stringify(params));
 ```
 * tbopen23367326 分为两个部分: tbopen + App Key(23367326),tbopen为淘宝标识;App Key为在阿里百川控制台-->证书管理权限下的App Key,需要自己配置.
 
-#4、更新历史 
+#4､更新历史 
 
 ### iOS
 
 API版本: `uexALiBaiChuan-4.0.0`
 
-最近更新时间:`2016-5-18`
+最近更新时间:`2016-12-15`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 新增阿里百川插件 |
 
 ### Android
 
 API版本: `uexALiBaiChuan-4.0.0`
 
-最近更新时间:`2016-5-18`
+最近更新时间:`2016-12-15`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 阿里百川插件 |

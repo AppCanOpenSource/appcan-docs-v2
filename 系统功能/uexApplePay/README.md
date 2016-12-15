@@ -1,29 +1,29 @@
 [TOC]
 
-# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 Apple Pay 支付插件
-## 1.1、说明
+## 1.1､说明
  该插件实现了iPhone手机的Apple Pay 支付功能.
 
-## 1.2、UI展示
+## 1.2､UI展示
 ![](https://github.com/AppCanOpenSource/appcan-docs-v2/raw/master/%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD/uexApplePay/imgs/img1.jpg)
-## 1.3、开源源码
+## 1.3､开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=578_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4、平台版本支持
+## 1.4､平台版本支持
 本插件的所有API默认支持仅**iOS9.2+**操作系统,***不支持Android***.  
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+## 1.5､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明.
 
 
-# 2、API概览
+# 2､API概览
 
-在进行插件调试之前,请先阅读[接入指引](#5、 接入指引)并按其步骤进行接入操作,否则无法进行支付操作.
+在进行插件调试之前,请先阅读[接入指引](#5､ 接入指引)并按其步骤进行接入操作,否则无法进行支付操作.
 
-## 2.1、方法
+## 2.1､方法
 
 ### 🍭 canMakePayment 检测是否可以进行ApplePay支付
 
@@ -99,7 +99,7 @@ var params = {
 | 参数名称               | 参数类型   | 是否必选 | 说明                                       |
 | ------------------ | ------ | ---- | ---------------------------------------- |
 | orderInfo          | String | 是    | 银联提供的交易流水号.                              |
-| mode               | String | 是    | 测试类型,取值为"00"、"01"."00"表示银联正式环境,若开发者已经入网银联支付,可用正式环境测试;"01"表示银联测试环境,测试环境仅用于测试插件功能是否正常 |
+| mode               | String | 是    | 测试类型,取值为"00"､"01"."00"表示银联正式环境,若开发者已经入网银联支付,可用正式环境测试;"01"表示银联测试环境,测试环境仅用于测试插件功能是否正常 |
 | merchantIdentifier | String | 是    | 在苹果开发者中心配置的merchant证书的ID                 |
 
 **返回值:**
@@ -550,8 +550,8 @@ var params = {
 | y             | Number  | 是    | 按钮距离屏幕上方的距离,单位px                     |
 | width         | Number  | 是    | 按钮宽度,单位px                            |
 | height        | Number  | 是    | 按钮宽度,单位px                            |
-| type          | Number  | 否    | 按钮类型,插件提供了3中不同的按钮类型,请传0、1或者2,不传时默认为0 |
-| style         | Number  | 否    | 按钮风格,插件提供了3中不同的按钮风格,请传0、1或者2,不传时默认为0 |
+| type          | Number  | 否    | 按钮类型,插件提供了3中不同的按钮类型,请传0､1或者2,不传时默认为0 |
+| style         | Number  | 否    | 按钮风格,插件提供了3中不同的按钮风格,请传0､1或者2,不传时默认为0 |
 | scrollWithWeb | Boolean | 否    | 设置按钮是否跟随网页滑动,不传时默认为false             |
 
 **返回值:**
@@ -615,7 +615,7 @@ var suc = uexApplePay.removeButton(JSON.stringify(data));
 alert(suc)
 ```
 
-## 2.2、监听方法
+## 2.2､监听方法
 
 ### 🍭 onChinaUnionPayFinish 银联ApplePay支付结束的监听方法
 
@@ -853,7 +853,7 @@ uexApplePay.onPaymentAuthorized = function(info){
 
 **说明:**
 
-* 在调用uexApplePay.commitShippingMethodChange、uexApplePay.commitShippingContactChange、uexApplePay.commitPaymentMethodChange、uexApplePay.commitAuthorizedResult这4个接口后,若提交失败,会触发此方法
+* 在调用uexApplePay.commitShippingMethodChange､uexApplePay.commitShippingContactChange､uexApplePay.commitPaymentMethodChange､uexApplePay.commitAuthorizedResult这4个接口后,若提交失败,会触发此方法
 * 提交失败的原因多为必要参数缺失/参数格式错误/参数内容不合法引起
 
 **参数:**
@@ -934,7 +934,7 @@ uexApplePay.onButtonClick = function(info){
 }
 ```
 
-# 3、 术语表
+# 3､ 术语表
 
 ## UexApplePayNetworkKey
 
@@ -1031,7 +1031,7 @@ UexApplePayNetworkKey 是一系列**字符串**,代表了各个银行卡发行�
 | 3    | Prepaid,部分商家的预付费卡                        |
 | 4    | Store,部分商家联合银行发行的联名信用卡,比如Amazon Store Card |
 
-# 4、 FAQ常见问题
+# 4､ FAQ常见问题
 
 #### startPay 和 startChinaUnionPay 这2个接口都能进行ApplePay支付,我该用哪个?
 
@@ -1064,20 +1064,20 @@ ApplePay有如下原因会导致您的应用审核被拒
 * **在不能进行ApplePay支付的设备上提示或者可以选择进行Apple Pay支付**(正确的做法是先判断是否可以进行ApplePay支付,再展示ApplePay支付的UI)
 
 
-# 5、 接入指引
+# 5､ 接入指引
 
 开发者集成及使用此插件,需要到Apple开发者中心申请Merchant证书,并且在Config.xml中配置相关的MerchantIdentifier才能使用.以下是具体步骤.
 
-### 一、注册商用ID标识
+### 一､注册商用ID标识
 
 * 在[Apple开发者中心](https://developer.apple.com)登录后,选择"Certificates,Identifiers&Profiles"
 * 在Identifiers下,选择Merchant IDs
 * 在右上角点击"+"按钮
-* 在Description栏、ID栏输入相应信息,点击"Continue".**此处配置的ID,即为merchantIdentifier.**
+* 在Description栏､ID栏输入相应信息,点击"Continue".**此处配置的ID,即为merchantIdentifier.**
 * 浏览下配置参数,点击"Register"
 * 点击"Done"
 
-### 二、为你的商用ID标识配置一个证书
+### 二､为你的商用ID标识配置一个证书
 * 在[Apple开发者中心](https://developer.apple.com)登录后,选择"Certificates,Identifiers&Profiles"
 * 在Identifiers下,选择Merchant IDs
 * 选择列表中的商用ID标识,点击Edit
@@ -1088,9 +1088,9 @@ ApplePay有如下原因会导致您的应用审核被拒
   * 但上传不适配的.CSR文件只影响最后支付的结果
   * 由于从支付渠道申请.CSR文件可以需要一定的时间,因此可以先上传自己生成的.CSR文件进行插件与前端页面调试,待正式的.CSR文件申请成功之后再进行替换,并测试前后端交互.
 
-**如果你需要为不同的支付项目配置不同的商用ID标识,步骤一、和二、会进行多次.**
+**如果你需要为不同的支付项目配置不同的商用ID标识,步骤一､和二､会进行多次.**
 
-### 三、在你的APP中使用商用ID标识
+### 三､在你的APP中使用商用ID标识
 * 在[Apple开发者中心](https://developer.apple.com)登录后,选择"Certificates,Identifiers&Profiles"
 * 在Identifiers下,选择App IDs
 * 选择你的App,点击Edit
@@ -1100,7 +1100,7 @@ ApplePay有如下原因会导致您的应用审核被拒
 
 **注意:每当你编辑了你的App ID,你都需要重新下载mobileprovision文件并用新的mobileprovision文件去打包,否则你的更改将不会生效**
 
-### 四、在config.xml中配置商用ID标识
+### 四､在config.xml中配置商用ID标识
 
 * 在config.xml中添加如下配置
 
@@ -1113,18 +1113,18 @@ ApplePay有如下原因会导致您的应用审核被拒
 
 * **其中`<entitlement>`节点数量取决于你的App中会用到的商用ID标识数量.你应该为每一个商用ID标识设置一个`<entitlement>`节点,并修改其中的`value`值为此商用ID标识的merchantIdentifier**.(type值不要更改!)
 
-# 6、更新历史
+# 6､更新历史
 
 ### iOS
 
 API版本: `uexApplePay-4.0.0`
 
-最近更新时间:`2016-3-2`
+最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容           |
-| ------ | -------------- |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.0 | uexApplePay for iOS |
 
 ### Android
 
-**uexApplePay不支持Android**
-
+**暂不支持!**
