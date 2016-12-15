@@ -1,40 +1,40 @@
 [TOC]
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
  mqtt 插件
-## 1.1、说明
+## 1.1､说明
 本插件封装了mqtt 
-## 1.3、开源源码
+## 1.3､开源源码
 插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 
-## 1.4、平台版本支持
+## 1.4､平台版本支持
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+## 1.5､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明.
 
 
-# 2、API概览
+# 2､API概览
 
 
-## 2.1、 方法
+## 2.1､ 方法
 
 
 ### 🍭 init 初始化
 
 `uexMQTT.init()`
 
-**说明：**
+**说明:**
 
 会触发[onStatusChange](#🍭 onStatusChange)
 
-**参数：**
+**参数:**
 
 无
 
-**示例：**
+**示例:**
 
 ```javascript
 uexMQTT.init();
@@ -45,13 +45,13 @@ uexMQTT.init();
 
 `uexMQTT.connect(param,callback)`
 
-**说明：**
+**说明:**
 
 * 目前不支持SSL验证.
 * 会触发[onStatusChange](#🍭 onStatusChange)
 
 
-**参数：**
+**参数:**
 
 `param`是JSON Object
 
@@ -77,7 +77,7 @@ var param = {
 
 ```javascript
 var callback=function(error,data){
-  	//error 为0时表示成功，其他表示失败
+  	//error 为0时表示成功,其他表示失败
   	//data 错误时返回相关的错误信息
 }
 ```
@@ -111,11 +111,11 @@ var callback=function(error,data){
 
 `uexMQTT.subscribe(param,callback)`
 
-**说明：**
+**说明:**
 
 无
 
-**参数：**
+**参数:**
 
 param是JSON Object
 
@@ -131,7 +131,7 @@ var param = {
 
 ```javascript
 var callback=function(error,topic){
-  	//error 为0时表示成功，其他表示失败
+  	//error 为0时表示成功,其他表示失败
   	//topic String,要订阅的topic,error非0(即错误)时返回相关的错误信息
 }
 ```
@@ -157,11 +157,11 @@ var callback=function(error,topic){
 
 `uexMQTT.unsubscribe(param,callback)`
 
-**说明：**
+**说明:**
 
 无
 
-**参数：**
+**参数:**
 
 param是JSON Object
 
@@ -175,7 +175,7 @@ var param = {
 
 ```javascript
 var callback=function(error,topic){
-  	//error 为0时表示成功，其他表示失败
+  	//error 为0时表示成功,其他表示失败
   	//topic String,要订阅的topic,error非0(即错误)时返回相关的错误信息
 }
 ```
@@ -200,11 +200,11 @@ var callback=function(error,topic){
 
 `uexMQTT.publish(param,callback)`
 
-**说明：**
+**说明:**
 
 无
 
-**参数：**
+**参数:**
 
 param是JSON Object
 
@@ -221,7 +221,7 @@ var param = {
 
 ```javascript
 var callback=function(error,data){
-  	//error 为0时表示成功，其他表示失败
+  	//error 为0时表示成功,其他表示失败
   	//topic error非0(即错误)时返回相关的错误信息
 }
 ```
@@ -256,18 +256,18 @@ var callback=function(error,data){
 
 `uexMQTT.disconnect(callback)`
 
-**说明：**
+**说明:**
 
 * 会触发[onStatusChange]()
 
 
-**参数：**
+**参数:**
 
 `callback`是一个Function
 
 ```javascript
 var callback=function(error,data){
-  	//error 为0时表示成功，其他表示失败
+  	//error 为0时表示成功,其他表示失败
   	//data 错误时返回相关的错误信息
 }
 ```
@@ -288,7 +288,7 @@ var callback=function(error,data){
 
 
 
-## 2.2、监听方法
+## 2.2､监听方法
 
 
 ### 🍭 onStatusChange MQTT状态变化的监听
@@ -348,7 +348,7 @@ var param = {
 
 
 
-## 2.3、附录
+## 2.3､附录
 
 ### MQTTStatus
 
@@ -376,3 +376,7 @@ var param = {
 | 1~255   | MQTT Protocol ErrorCode  |
 
 * MQTT协议错误码详见[这里](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)
+
+# 3､ 更新历史
+
+
