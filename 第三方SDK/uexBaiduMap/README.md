@@ -1,31 +1,31 @@
 
 [TOC]
 
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 提供百度地图的相关相关功能.用户可以使用该插件在网页上嵌入一张地图,并实现对地图的基本操作, 例如放大缩小,移动,点击,隐藏,显示.另外还提供了定位功能,搜索功能,路线规划功能,地理编码功能 .
-## 1.1、说明
+## 1.1､说明
 安卓&iOS插件已支持**config.xml文件**配置AK.
 >注:IDE插件因为涉及到百度方面的ID与Key暂时无法使用,此插件之前需要进行config.xml相关配置,具体使用点击查看:[附录](http://newdocx.appcan.cn/newdocx/docx?type=1384_975 "百度地图插件接入指引")----->百度地图插件接入指引
 
-## 1.2、UI展示
+## 1.2､UI展示
  ![](http://newdocx.appcan.cn/docximg/153918c2015z6c16q.png)
-## 1.3、公告
+## 1.3､公告
 安卓百度定位sdk升级,配合安卓打包服务升级,插件已经跟新至最新版本,已经公测通过,请使用最新版本(已支持config.xml文件配置AK)
 > 旧版uexBaiduMap 插件已经下架,官方不再维护,如需使用,请[跳转](http://bbs.appcan.cn/forum.php?mod=viewthread&tid=25876 "跳转")到详细官方通告
 
-## 1.4、开源源码
+## 1.4､开源源码
 [点击](http://plugin.appcan.cn/details.html?id=281_index)插件中心至插件详情页(插件测试用例与插件源码已经提供)
 
-## 1.5、平台版本支持
+## 1.5､平台版本支持
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.6、接口有效性
+## 1.6､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明.
 
-# 2、API概览
-## 2.1、方法
+# 2､API概览
+## 2.1､方法
 ### 🍭 open 打开地图
 
 `uexBaiduMap.open(x,y,width,height,longitude,latitude, callbackFunction)`
@@ -498,7 +498,7 @@ if(!ids){
 | 参数        | 参数类型   | 是否必选 | 说明                |
 | --------- | ------ | ---- | ----------------- |
 | makerId   | String | 是    | 唯一标识符             |
-| makerInfo | String | 是    | 标注信息,json格式，形式见下： |
+| makerInfo | String | 是    | 标注信息,json格式,形式见下: |
 
 ```javascript
 var makerInfo={
@@ -513,7 +513,7 @@ var makerInfo={
 ```
 
 
-各字段含义如下：
+各字段含义如下:
 
 | 字段名称      | 类型     | 是否必选 | 说明     |
 | --------- | ------ | ---- | ------ |
@@ -590,7 +590,7 @@ uexBaiduMap.hideBubble();
 
 | 参数名称    | 参数类型   | 是否必选 | 说明                   |
 | ------- | ------ | ---- | -------------------- |
-| dotInfo | String | 是    | 添加到地图上的圆点信息的集合，形式见下： |
+| dotInfo | String | 是    | 添加到地图上的圆点信息的集合,形式见下: |
 
 ```javascript
 var dotInfo={
@@ -644,7 +644,7 @@ if(!id){
 
 | 参数名称         | 参数类型   | 是否必选 | 说明                       |
 | ------------ | ------ | ---- | ------------------------ |
-| polylineInfo | String | 是    | 添加到地图上的折线信息。该字符串为JSON格式: |
+| polylineInfo | String | 是    | 添加到地图上的折线信息｡该字符串为JSON格式: |
 
 ```
 var polylineInfo={
@@ -721,7 +721,7 @@ if(!id){
 
 | 参数名称    | 参数类型   | 是否必选 | 说明                       |
 | ------- | ------ | ---- | ------------------------ |
-| arcInfo | String | 是    | 添加到地图上的弧形信息。该字符串为JSON格式: |
+| arcInfo | String | 是    | 添加到地图上的弧形信息｡该字符串为JSON格式: |
 
 ```
 var arcInfo={
@@ -787,7 +787,7 @@ if(!id){
 
 | 参数名称       | 参数类型   | 是否必选 | 说明                         |
 | ---------- | ------ | ---- | -------------------------- |
-| circleInfo | String | 是    | 添加到地图上的圆形覆盖物信息。该字符串为JSON格式 |
+| circleInfo | String | 是    | 添加到地图上的圆形覆盖物信息｡该字符串为JSON格式 |
 
 ```
 var circleInfo={
@@ -845,7 +845,7 @@ if(!id){
 
 | 参数名称        | 参数类型   | 是否必选 | 说明                           |
 | ----------- | ------ | ---- | ---------------------------- |
-| polygonInfo | String | 是    | 添加到地图上的集合图形信息的集合。该字符串为JSON格式 |
+| polygonInfo | String | 是    | 添加到地图上的集合图形信息的集合｡该字符串为JSON格式 |
 
 ```
 var polygonInfo={
@@ -923,7 +923,7 @@ if(!id){
 
 | 参数名称       | 参数类型   | 是否必选 | 说明                            |
 | ---------- | ------ | ---- | ----------------------------- |
-| groundInfo | String | 是    | 添加到地图上的地形图图层信息。该字符串为JSON格式如下： |
+| groundInfo | String | 是    | 添加到地图上的地形图图层信息｡该字符串为JSON格式如下: |
 
 ```
 var groundInfo={
@@ -995,7 +995,7 @@ if(!id){
 
 | 参数名称     | 参数类型   | 是否必选 | 说明                            |
 | -------- | ------ | ---- | ----------------------------- |
-| textInfo | String | 是    | 添加到地图上的文字覆盖物信息。该字符串为JSON格式如下： |
+| textInfo | String | 是    | 添加到地图上的文字覆盖物信息｡该字符串为JSON格式如下: |
 
 ```
 var textInfo = {
@@ -1098,7 +1098,7 @@ if(!id){
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                         |
 | ---------------- | -------- | ---- | -------------------------- |
-| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式，形式见下： |
+| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式,形式见下: |
 | callbackFunction | Function | 是    | 搜索结果的回调方法                  |
 
 ```json
@@ -1125,8 +1125,8 @@ var callbackFunction = function(error,data){}
 
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
-| error | Number | 搜索结果，0-成功，非0-失败 |
-| data  | Object | 成功时返回的数据，形式见下：  |
+| error | Number | 搜索结果,0-成功,非0-失败 |
+| data  | Object | 成功时返回的数据,形式见下:  |
 
 ```javascript
 var data = {
@@ -1198,7 +1198,7 @@ uexBaiduMap.poiSearchInCity(data, function(error,data) {
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                         |
 | ---------------- | -------- | ---- | -------------------------- |
-| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式，形式见下： |
+| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式,形式见下: |
 | callbackFunction | Function | 是    | 搜索结果的回调方法                  |
 
 ```
@@ -1229,8 +1229,8 @@ var callbackFunction = function(error,data){}
 
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
-| error | Number | 搜索结果，0-成功，非0-失败 |
-| data  | Object | 成功时返回的数据，形式见下：  |
+| error | Number | 搜索结果,0-成功,非0-失败 |
+| data  | Object | 成功时返回的数据,形式见下:  |
 
 ```javascript
 var data = {
@@ -1304,7 +1304,7 @@ uexBaiduMap.poiNearbySearch (jsonStr, function(error,data) {
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                         |
 | ---------------- | -------- | ---- | -------------------------- |
-| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式，形式见下： |
+| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式,形式见下: |
 | callbackFunction | Function | 是    | 搜索结果的回调方法                  |
 
 ```javascript
@@ -1341,8 +1341,8 @@ var callbackFunction = function(error,data){}
 
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
-| error | Number | 搜索结果，0-成功，非0-失败 |
-| data  | Object | 成功时返回的数据，形式见下：  |
+| error | Number | 搜索结果,0-成功,非0-失败 |
+| data  | Object | 成功时返回的数据,形式见下:  |
 
 ```javascript
 var data = {
@@ -1421,7 +1421,7 @@ uexBaiduMap.poiBoundSearch(data, function(error,data) {
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                         |
 | ---------------- | -------- | ---- | -------------------------- |
-| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式，形式见下： |
+| json             | String   | 是    | 搜索所需要的信息.该字符串为JSON格式,形式见下: |
 | callbackFunction | Function | 是    | 搜索结果的回调方法                  |
 
 ```
@@ -1446,8 +1446,8 @@ var callbackFunction = function(error,data){}
 
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
-| error | Number | 搜索结果，0-成功，非0-失败 |
-| data  | Object | 成功时返回的数据，形式见下：  |
+| error | Number | 搜索结果,0-成功,非0-失败 |
+| data  | Object | 成功时返回的数据,形式见下:  |
 
 ```javascript
 var data ={
@@ -1559,7 +1559,7 @@ uexBaiduMap.nextBusLineNode();
 
 | 参数名称             | 参数类型     | 是否必选 | 说明               |
 | ---------------- | -------- | ---- | ---------------- |
-| json             | String   | 是    | 规划路线所需要的信息，形式见下： |
+| json             | String   | 是    | 规划路线所需要的信息,形式见下: |
 | callbackFunction | Function | 是    | 回调方法             |
 
 ```javascript
@@ -1601,7 +1601,7 @@ var callbackFunction = function(error){}
 
 | 参数名称  | 参数类型   | 说明                       |
 | ----- | ------ | ------------------------ |
-| error | Number | 显示结果，0-成功，非0-失败，具体错误码见下： |
+| error | Number | 显示结果,0-成功,非0-失败,具体错误码见下: |
 
 | 错误码  | 说明               |
 | ---- | ---------------- |
@@ -1717,7 +1717,7 @@ alert(id);
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                         |
 | ---------------- | -------- | ---- | -------------------------- |
-| json             | String   | 是    | 接口所需要的信息.该字符串为JSON格式，形式见下： |
+| json             | String   | 是    | 接口所需要的信息.该字符串为JSON格式,形式见下: |
 | callbackFunction | Function | 是    | 回调方法                       |
 
 ```
@@ -1742,8 +1742,8 @@ var callbackFunction=function(error,data){}
 
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
-| error | Number | 编码结果，0-成功，非0-失败 |
-| data  | Object | 成功时返回的数据，形式见下：  |
+| error | Number | 编码结果,0-成功,非0-失败 |
+| data  | Object | 成功时返回的数据,形式见下:  |
 
 ```javascript
 var data = {
@@ -1779,7 +1779,7 @@ uexBaiduMap.geocode(data, function(error,data) {
 
 | 参数名称             | 参数类型     | 是否必选 | 说明                         |
 | ---------------- | -------- | ---- | -------------------------- |
-| json             | String   | 是    | 接口所需要的信息.该字符串为JSON格式，形式见下： |
+| json             | String   | 是    | 接口所需要的信息.该字符串为JSON格式,形式见下: |
 | callbackFunction | Function | 是    | 回调方法                       |
 
 ```javascript
@@ -1789,7 +1789,7 @@ var json = {
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 参数        | 是否必须 | 说明   |
 | --------- | ---- | ---- |
@@ -1804,8 +1804,8 @@ var callbackFunction=function(error,data){}
 
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
-| error | Number | 编码结果，0-成功，非0-失败 |
-| data  | Object | 成功时返回的数据，形式见下：  |
+| error | Number | 编码结果,0-成功,非0-失败 |
+| data  | Object | 成功时返回的数据,形式见下:  |
 
 ```json
 var data = {
@@ -1848,8 +1848,8 @@ var callbackFunction=function(error,data){}
 
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
-| error | Number | 获取结果，0-成功，非0-失败 |
-| data  | Object | 成功时返回的数据，形式见下：  |
+| error | Number | 获取结果,0-成功,非0-失败 |
+| data  | Object | 成功时返回的数据,形式见下:  |
 
 ```javascript
 var data = {
@@ -1985,7 +1985,7 @@ uexBaiduMap.zoomControlsEnabled(0)
 | lon2 | Number | 是    | 第二个坐标经度 |
 
 **返回值**
-Number类型，两点之间距离值.
+Number类型,两点之间距离值.
 
 **示例**
 
@@ -1993,7 +1993,7 @@ Number类型，两点之间距离值.
 var distance = uexBaiduMap.getDistance(lat1,lon1,lat2,lon2);
 ```
 
-## 2.2、监听方法
+## 2.2､监听方法
 
 ### 🍭 onMapClickListener 点击地图的监听方法 
 
@@ -2115,7 +2115,7 @@ uexBaiduMap.onMarkerBubbleClickListener = function(data){
 }
 ```
 
-### 🍭 onSDKReceiverError 初始化地图时,key非法、网络错误时的监听方法
+### 🍭 onSDKReceiverError 初始化地图时,key非法､网络错误时的监听方法
 
 `uexBaiduMap.onSDKReceiverError(data)`
 
@@ -2172,7 +2172,7 @@ uexBaiduMap.onReceiveLocation = function(data){
 
 **参数**
 
- status:(Number类型) 必选 线路规划搜索结果.0-表示成功，非0-表示失败
+ status:(Number类型) 必选 线路规划搜索结果.0-表示成功,非0-表示失败
 
 **示例**
 
@@ -2202,22 +2202,27 @@ uexBaiduMap.onZoomLevelChangeListener = function(data){
 }
 ```
 
-# 3、更新历史
+# 3､更新历史
 
 ### iOS
 
-API版本: `uexBaiduMap-4.0.0`
+API版本: `uexBaiduMap-4.0.1`
 
-最近更新时间:`2016-6-13`
+最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容                                     |
-| ------ | ---------------------------------------- |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.1 | 修复getCurrentLocation回调参数错误的问题 |
+| 4.0.0 | 百度地图插件 for iOS |
 
 ### Android
 
-API版本: `uexBaiduMap-4.0.0`
+API版本: `uexBaiduMap-4.0.2`
 
-最近更新时间:`2016-06-13`
+最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容                                     |
-| ------ | ---------------------------------------- |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.2 | searchRoutePlan支持function传入 |
+| 4.0.1 | 修复open中心点失效的问题 |
+| 4.0.0 | 百度地图插件,封装最新的百度地图API |

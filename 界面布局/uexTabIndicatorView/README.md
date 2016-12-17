@@ -1,26 +1,26 @@
 [TOC]
 
- # 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+ # 1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
  导航菜单指示器插件
-##1.1、说明
+##1.1､说明
 该插件需要与容器配合使用 
 
-##1.2、UI展示
+##1.2､UI展示
 ![preview](preview/preview-ios.png)
 
-##1.3、开源源码
+##1.3､开源源码
 插件测试用例与源码下载:[点击]() 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4、平台版本支持
+## 1.4､平台版本支持
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+## 1.5､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明. 
 
-#2、API概览
-## 2.1、方法
+#2､API概览
+## 2.1､方法
 
 ### 🍭 open 打开指示器插件
 
@@ -34,7 +34,7 @@
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```javascript
 var params ={
@@ -62,13 +62,13 @@ var params ={
 | bgColor        | String | 否    | 整个view 的背景色                     |
 | dividerColor   | String | 否    | 每两个tab之间的间隔线的颜色                 |
 | indicatorColor | String | 否    | 滚动指示器的颜色                        |
-| containerId    | String | 否    | 容器ID （bindMode为0时需要传）           |
-| multiPopName   | String | 否    | multiPop 的name （bindMode为1时需要传） |
-| bindMode       | int    | 否    | 绑定模式 0：与容器绑定，1：与multiPop绑定，默认为0 |
-| titles         | Array  | 是    | 顶部titles，String类型数组             |
+| containerId    | String | 否    | 容器ID (bindMode为0时需要传)           |
+| multiPopName   | String | 否    | multiPop 的name (bindMode为1时需要传) |
+| bindMode       | int    | 否    | 绑定模式 0:与容器绑定,1:与multiPop绑定,默认为0 |
+| titles         | Array  | 是    | 顶部titles,String类型数组             |
 **示例:**
 
-与容器绑定：
+与容器绑定:
 
 ```javascript
 var containerId="123";                       
@@ -94,7 +94,7 @@ var param = {
 };                                           
 uexTabIndicatorView.open(param);                                   
 ```
-与MultiPopover绑定：
+与MultiPopover绑定:
 
 ```javascript
 var top=1000;
@@ -143,7 +143,7 @@ uexTabIndicatorView.open(param);
 
 **参数:**
 
-params 为0或1 ，0为隐藏，1为显示
+params 为0或1 ,0为隐藏,1为显示
 
 **示例:**
 
@@ -171,24 +171,24 @@ uexTabIndicatorView.setVisible(1);
 uexTabIndicatorView.close();
 ```
 
-#3、更新历史 
+#3､更新历史 
 
 ### iOS
 
 API版本: `uexTabIndicatorView-4.0.0`
 
-最近更新时间:`2016-10-12`
+最近更新时间:`2016-12-15`
 
 | 历史发布版本 | 更新内容 |
-| ------ | ---- |
-|        |      |
+| ----- | ----- |
+| 4.0.0 | uexTabIndicatorView for iOS |
 
 ### Android
 
 API版本: `uexTabIndicatorView-4.0.0`
 
-最近更新时间:`2016-7-27`
+最近更新时间:`2016-12-15`
 
 | 历史发布版本 | 更新内容 |
-| ------ | ---- |
-|        |      |
+| ----- | ----- |
+| 4.0.0 | init |

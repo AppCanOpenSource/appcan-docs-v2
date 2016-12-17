@@ -1,18 +1,18 @@
 
 [TOC]
 
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
  高德地图插件
-## 1.1、说明
- 封装高德地图相关功能,包括放大缩小、移动和旋转等基本操作;标注;圆形、矩形和多边形覆盖物;定位、搜索、地理编码、离线地图等功能.
+## 1.1､说明
+ 封装高德地图相关功能,包括放大缩小､移动和旋转等基本操作;标注;圆形､矩形和多边形覆盖物;定位､搜索､地理编码､离线地图等功能.
 > **`注意:`**
-> 　　申请的插件appkey需要通过config.xml文件配置自定义参数的方法,可直接在官网公共插件里直接勾选使用,详见[附录](#4、附录 "附录").IDE插件因为涉及到高德地图方面的ID与Key暂时无法正常使用.具体操作见『[手册](http://newdocx.appcan.cn/newdocx/docx?type=1050_975 "手册")』
+>   申请的插件appkey需要通过config.xml文件配置自定义参数的方法,可直接在官网公共插件里直接勾选使用,详见[附录](#4､附录 "附录").IDE插件因为涉及到高德地图方面的ID与Key暂时无法正常使用.具体操作见『[手册](http://newdocx.appcan.cn/newdocx/docx?type=1050_975 "手册")』
 
-## 1.2、开源源码
+## 1.2､开源源码
 自定义插件下载:[点击此处](http://plugin.appcan.cn/details.html?id=428_index) (插件测试用例与插件包已经提供)
-## 1.3、 UI展示
+## 1.3､ UI展示
  ![](http://plugin.appcan.cn/pluginApi/getCImg?img=100857y2015t5o28ip.jpg)![](http://plugin.appcan.cn/pluginApi/getCImg?img=100909q2015h5f28yu.jpg)![](http://plugin.appcan.cn/pluginApi/getCImg?img=100918p2015g5h28ug.jpg)![](http://plugin.appcan.cn/pluginApi/getCImg?img=100925f2015t5o28pl.jpg)
-## 1.4、术语表
+## 1.4､术语表
 ### 1.4.1 Download Status
 
 | 状态码  | 描述     | 英文描述         |
@@ -35,20 +35,20 @@
 | -2        | 下载失败   | "已经存在列表中!"          |
 | -3        | 下载失败   | "已经下载完成,请到已下载列表查看!" |
 
-## 1.5、平台版本支持
+## 1.5､平台版本支持
 
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.6、接口有效性
+## 1.6､接口有效性
 
 本插件所有API默认在插件版本**4.0.0+**可用.
 
 在后续版本中新添加的接口会在文档中额外说明.
 
-# 2、API概述 
-## 2.1、方法
+# 2､API概述 
+## 2.1､方法
 ### 🍭 open  打开地图 
 
 `uexGaodeMap.open(json)`
@@ -605,11 +605,11 @@ var json = {
 | longitude | float | 是    | 经度  |
 | latitude | float | 是    | 纬度   |
 | title  | String  | 是    | 标题    |
-| titleSize | Number | 是    | 标题字号大小，默认是32px |
+| titleSize | Number | 是    | 标题字号大小,默认是32px |
 | titleColor  | String | 是    | 标题字体颜色, 默认黑色 |
 | subTitle  | String  | 否    | 子标题   |
 | subTitleSize  | Number | 否    | 子标题字号大小, 默认是28px |
-| subTitleColor | String | 否    | 子标题字体颜色，默认黑色 |
+| subTitleColor | String | 否    | 子标题字体颜色,默认黑色 |
 
 
 示例:
@@ -1454,7 +1454,7 @@ var json = {
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                                       |
 | ---- | ------ | ---- | ---------------------------------------- |
-| type | Number | 是    | 模式,1-只在第一次定位移动到地图中心点;2-定位、移动到地图中心点并跟随;3-定位、移动到地图中心点,跟踪并根据方向旋转地图. |
+| type | Number | 是    | 模式,1-只在第一次定位移动到地图中心点;2-定位､移动到地图中心点并跟随;3-定位､移动到地图中心点,跟踪并根据方向旋转地图. |
 
 
 **示例:**
@@ -1653,7 +1653,7 @@ uexGaodeMap.setCustomButton(JSON.stringify(json));
 
 **返回值**
 
-Object类型，显示结果数据，形式见下:
+Object类型,显示结果数据,形式见下:
 
 ```javascript
 var data = {
@@ -1687,7 +1687,7 @@ alert("callback:" + JSON.stringify(data));
 
 **返回值:**
 
-Object类型，隐藏结果数据，形式见下:
+Object类型,隐藏结果数据,形式见下:
 
 ```javascript
 var data = {
@@ -1727,7 +1727,7 @@ alert("callback:" + JSON.stringify(data));
 * 如果被删除的按钮已经被显示,会先隐藏按钮再删除
 
 **返回值:**
-Boolean类型，删除结果，true为删除成功,false为删除失败
+Boolean类型,删除结果,true为删除成功,false为删除失败
 
 **示例:**
 
@@ -1738,7 +1738,7 @@ var result = uexGaodeMap.deleteCustomButton(id);
 
 
 
-## 2.2、 监听方法
+## 2.2､ 监听方法
 ### 🍭 onMapLoadedListener 地图加载完成的监听方法
 
 `uexGaodeMap.onMapLoadedListener();`
@@ -1931,7 +1931,7 @@ var json = [
 | 参数名称  | 参数类型   | 是否必选 | 说明                   |
 | ----- | ------ | ---- | -------------------- |
 | error | Number | 是    | 0表示加入列表成功,非0表示加入列表失败 |
-| data  | Object | 是    | 返回的数据,形式见下：          |
+| data  | Object | 是    | 返回的数据,形式见下:          |
 
 
 ```javascript
@@ -2343,8 +2343,8 @@ iOS:
 ```
 
 
-# 4、附录
-## 4.1、通过config.xml配置插件的方法
+# 4､附录
+## 4.1､通过config.xml配置插件的方法
 
 * 将配置代码添加到`config.xml`中即可完成插件配置,无需进行自定义插件相关步骤
 * 详见[打包服务器公测](http://newdocx.appcan.cn/newdocx/docx?type=1669_1291)
@@ -2378,22 +2378,25 @@ iOS:
 ```
 **用户需要将上面字段中的XXX替换为自己申请的对应平台的key,然后添加至config.xml中:**即可完成相应key的配置 
 
-# 5、更新历史
+# 5､更新历史
 
 ### iOS
 
-API版本: `uexGaodeMap-4.0.0`
+API版本: `uexGaodeMap-4.0.1`
 
-最近更新时间:`2016-6-14`
+最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容                                     |
-| ------ | ---------------------------------------- |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.1 | 新增addMultiInfoWindow |
+| 4.0.0 | 支持引擎4.0,函数入参 |
 
 ### Android
 
-API版本: `uexGaodeMap-4.0.0`
+API版本: `uexGaodeMap-4.0.1`
 
-最近更新时间:`2016-6-14`
+最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容                               |
-| ------ | ---------------------------------- |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.1 | 支持多信息窗样式 |

@@ -78,9 +78,9 @@ var extras = {
 
 ```javascript
 uexWindow.open({
-    windName:"test",
+    name:"test",
     data:"index.html",
-    animationID:2,
+    animID:2,
     flag:1024
 });
 ```
@@ -103,7 +103,7 @@ uexWindow.open({
 
 ```javascript
 uexWindow.openPresentWindow({
-    windName:"test",
+   	name:"test",
     data:"index.html",
     animationID:2,
     flag:1024
