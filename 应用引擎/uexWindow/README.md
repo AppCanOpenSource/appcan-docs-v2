@@ -80,7 +80,7 @@ var extras = {
 uexWindow.open({
     name:"test",
     data:"index.html",
-    animationID:2,
+    animID:2,
     flag:1024
 });
 ```
