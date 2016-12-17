@@ -1,220 +1,173 @@
- 
+
 [TOC]
  #1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 解压插件
-##1.1、 说明
- 解压缩接口API。
+##1.1、说明
+ 解压缩接口API.
 
 ##1.2、UI展示
 
  ![](http://newdocx.appcan.cn/docximg/125135p2015q6p16r.png)
-##1.3 、 开源源码
+##1.3 、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=198_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+
+## 1.4、平台版本支持
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+有特殊版本要求的API会在文档中额外说明.
+
+## 1.5、接口有效性
+本插件所有API默认在插件版本**4.0.0+**可用.  
+在后续版本中新添加的接口会在文档中额外说明.
 
  #2、API概览
 
- 
+
 ##2.1、方法
 
-> ### 			zip	  压缩文件		
+### 🍭 zip 压缩文件		
 
-`uexZip.zip(srcPath,zippedPath)	`				
-** 			说明:		**
-压缩文件					
-回调 [cbZip](#cbZip 压缩的回调方法,压缩完成时被调用   "压缩的回调方法") 
-**  			参数:		**
+`uexZip.zip(srcPath,zippedPath,cb)	`				
+**说明:**
+压缩文件	
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| srcPath | String类型 | 必选 |  源文件路径。路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
-| zippedPath| String类型 | 必选 | 目标文件路径。路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
- 
-**			平台支持:		**
-Android2.2+					
-iOS6.0+					
-**		版本支持:		**
-3.0.0+					
-** 			示例:		**
-							  [见附录1](#3、附录一 "见附录1")					
-> ### 			zipWithPassword		以加密的方式压缩文件		
+**参数:**
 
-`uexZip.zipWithPassword(srcPath,zippedPath,password)	`				
-**  			说明:		**
-以加密的方式压缩文件					
-**			参数:		**
+| 参数名称       | 参数类型     | 是否必选 | 说明                                       |
+| ---------- | -------- | ---- | ---------------------------------------- |
+| srcPath    | String   | 是    | 源文件路径.路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| zippedPath | String   | 是    | 目标文件路径.路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| cb         | Function | 否    | 回调函数                                     |
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| srcPath | String类型 | 必选 |  压缩的文件或文件夹的路径,路径协议详见[CONSTAN](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTAN")T中PathTypes |
-| zippedPath| String类型 | 必选 | 目标文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
-| password | String类型 | 必选 | 密码 |
- 
-**		平台支持:		**
-Android2.2+					
- iOS6.0+					
-**	版本支持:		**
-3.0.0+					
-**			示例:		**
-							   [见附录1](#3、附录一 "见附录1")					
-> ### 			unzip		解压缩文件		
+**回调参数:**
 
-`uexZip.unzip(srcPath,zippedPath)				`	
-**  			说明:**
+```javascript
+var cb = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 压缩结果，0-成功，非0-失败 |
+
+**示例:**
+
+```javascript
+uexZip.zip(srcPath,zippedPath,function(result) {
+		alert("function result: "+result);
+});				
+```
+
+### 🍭 zipWithPassword 以加密的方式压缩文件		
+
+`uexZip.zipWithPassword(srcPath,zippedPath,password,cb)	`				
+**说明:**
+以加密的方式压缩文件			
+**参数:**
+
+| 参数名称       | 参数类型     | 是否必选 | 说明                                       |
+| ---------- | -------- | ---- | ---------------------------------------- |
+| srcPath    | String   | 是    | 压缩的文件或文件夹的路径,路径协议详见[CONSTAN](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTAN")T中PathTypes |
+| zippedPath | String   | 是    | 目标文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| password   | String   | 是    | 密码                                       |
+| cb         | Function | 否    | 回调函数                                     |
+
+**回调参数:**
+
+```javascript
+var cb = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 压缩结果，0-成功，非0-失败 |
+
+**示例:**
+```javascript
+function zipWithPassword() {srcPath,zippedPath,password,function(result){
+		alert("function result: "+result);
+	});
+}
+```
+
+
+
+### 🍭 unzip	解压缩文件		
+
+`uexZip.unzip(srcPath,zippedPath,cb)				`	
+**说明:**
 解压缩文件					
-** 			参数:		**
+**参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| srcPath | String类型 | 必选 |  要解压缩的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
-| zippedPath| String类型 | 必选 | 解压缩后的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
- 
-**		平台支持:		**
-Android2.2+					
-iOS6.0+					
-**		版本支持:**
-3.0.0+					
-**		示例:		**
-							   [见附录1](#3、附录一 "见附录1")					
-> ### 			unzipWithPassword		解压缩加密的文件		
+| 参数名称       | 参数类型     | 是否必选 | 说明                                       |
+| ---------- | -------- | ---- | ---------------------------------------- |
+| srcPath    | String   | 是    | 要解压缩的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| zippedPath | String   | 是    | 解压缩后的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| cb         | Function | 否    | 回调函数                                     |
 
-`uexZip.unzipWithPassword(srcPath,zippedPath,password)					`
-** 			说明:		**
-解压缩加密的文件					
-回调 [cbUnZip](#cbUnZip 解压缩的回调方法,解压缩完成时被调用  "解压缩的回调方法") 
-** 			参数:		**
+**回调参数:**
 
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| srcPath | String类型 | 必选 |  要解压缩的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes|
-| zippedPath| String类型 | 必选 | 解压缩后的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
-| password | String类型 | 必选 | 解压密码 |
- 
-**	平台支持:		**
-Android2.2+					
-iOS6.0+					
-**	版本支持:		**
-3.0.0+					
-**	示例:		**
-							   [见附录1](#3、附录一 "见附录1")					
-
-##2.2、回调方法
-> ### cbZip 压缩的回调方法,压缩完成时被调用 
-
-`uexZip.cbZip(opId,dataType,data)					`
-**		参数:		**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | String类型 | 必选 |  操作ID,在此函数中不起作用,可忽略|
-| dataType| Number类型 | 必选 | 返回数据类型为uex.cInt。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中CallbackDataTypes|
-| data | Number类型 | 必选 | 返回uex.cSuccess或者uex.cFailed。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中CallbackIntValue |
-
-**	版本支持:		**
-3.0.0+					
-> ### cbUnZip 解压缩的回调方法,解压缩完成时被调用 
-
-`uexZip.cbUnZip(opId,dataType,data)		`			
-**	参数:		**
-
-|  参数名称 | 参数类型  | 是否必选  |  说明 |
-| ----- | ----- | ----- | ----- |
-| opId | String类型 | 必选 |  操作ID,在此函数中不起作用,可忽略|
-| dataType| Number类型 | 必选 | 返回数据类型为uex.cInt。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Data Types "CONSTANT")中CallbackDataTypes|
-| data | Number类型 | 必选 | 返回uex.cSuccess或者uex.cFailed。详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Callback Int Values "CONSTANT")中CallbackIntValue |
- 
-**	版本支持:		**
-3.0.0+					
-
-# 3、附录一
-**	示例:		**
-
+```javascript
+var cb = function(error){}
 ```
-<!DOCTYPE HTML>
-            <html>
-            <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
-            <link rel="stylesheet" type="text/css" href="../css/index.css">
-            <title>压缩/解压缩功能</title>
-            <script type="text/javascript">
-            function zip(){
-            uexZip.zip("wgt://data/inziptest","wgt://data/outziptest.zip");
-            } 
-            function zipWithPassword(){
-            uexZip.zipWithPassword("wgt://data/inziptest","wgt://data/outziptestP.zip","1234");
-            }            
-            function unzip(){
-            uexZip.unzip("wgt://data/outziptest.zip","wgt://data/outzip");
-            }  
-            function unzipWithPassword(){
-            uexZip.unzipWithPassword("wgt://data/outziptestP.zip","wgt://data/outzipP","1234");
-            }        
-            
-            window.uexOnload = function(){
-            uexWidgetOne.cbError = function(opCode, errorCode, errorInfo){
-            alert(errorInfo);
-            }
-            
-            //uexZip.cbZip解压成功的回调函数
-            uexZip.cbZip = function(opCode, dataType, data){
-            
-            if (data == 0) {
-            alert("压缩成功");
-            }
-            else {
-            alert("压缩失败");
-            }
-            }
-            //uexZip.cbUnZip解压缩成功的回调函数
-            uexZip.cbUnZip = function(opCode, dataType, data){
-            if (data == 0) {
-            alert("解压成功");
-            }else {
-            alert("解压失败");
-            }
-            }
-            }
-            </script>
-            </head>
-            <body>
-            <div class="tit">
-            压缩/解压缩功能
-            </div>
-            <div class="conbor">
-            <div class="consj">
-            <input class="btn" type="button" value="压缩指定的文件夹" onClick="zip();">
-            <input class="btn" type="button" value="加密压缩指定的文件夹" onClick="zipWithPassword();">
-            <input class="btn" type="button" value="解压指定的文件" onClick="unzip();">
-            <input class="btn" type="button" value="解压加密的文件" onClick="unzipWithPassword();">
-            </div>
-            </body>
-            </html>
-        
+
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 压缩结果，0-成功，非0-失败 |
+
+**示例:**
+```javascript
+function unZip() {	uexZip.unzip(document.getElementById('hidunZip').value,document.getElementById('outPath').value,function(result){
+		alert("function result: "+result);
+	});
+}
 ```
+### 🍭 unzipWithPassword	解压缩加密的文件		
+
+`uexZip.unzipWithPassword(srcPath,zippedPath,password,cb)					`
+**说明:**
+解压缩加密的文件	
+**参数:**
+
+| 参数名称       | 参数类型     | 是否必选 | 说明                                       |
+| ---------- | -------- | ---- | ---------------------------------------- |
+| srcPath    | String   | 是    | 要解压缩的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| zippedPath | String   | 是    | 解压缩后的文件路径,路径协议详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中PathTypes |
+| password   | String   | 是    | 解压密码                                     |
+| cb         | Function | 否    | 回调函数                                     |
+
+**回调参数:**
+
+```javascript
+var cb = function(error){}
+```
+
+| 参数名称  | 参数类型   | 说明              |
+| ----- | ------ | --------------- |
+| error | Number | 压缩结果，0-成功，非0-失败 |
+
+**示例:**
+```javascript
+function unzipWithPassword(params) {			uexZip.unzipWithPassword(document.getElementById('hidunZip').value,document.getElementById('outPath').value,document.getElementById('pwd2').value,function(result){
+		alert("function result: "+result);
+	});
+}				
+```
+
 #3、更新历史
 
 ### iOS
 
-API版本:`uexZip-3.0.4`
+API版本: `uexZip-4.0.0`
 
 最近更新时间:`2015-12-26`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.4 | 添加IDE支持 |
-| 3.0.3 | 修改类名ZipArchive为UexZipArchive,解决与引擎的类名冲突 |
-| 3.0.2 | 解决压缩和解压缩大文件时,卡屏问题 |
-| 3.0.1 | 使用新版Xcode重新编译,支持arm64 |
-| 3.0.0 | zip压缩解压功能插件 |
+| 历史发布版本 | 更新内容                                    |
+| ------ | --------------------------------------- |
 
 ### Android
 
-API版本:`uexZip-3.0.2`
+API版本: `uexZip-4.0.0`
 
 最近更新时间:`2015-12-17`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 3.0.2 | 修复带密码加密时某些情况下返回成功但实际失败的问题 |
-| 3.0.1 | 修复非压缩文件也能解压成功的问题 |
-| 3.0.0 | zip压缩解压功能插件 |
+| 历史发布版本 | 更新内容                      |
+| ------ | ------------------------- |

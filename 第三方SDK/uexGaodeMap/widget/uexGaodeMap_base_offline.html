@@ -15,162 +15,7 @@
     </script>
     <script src="js/main.js">
     </script>
-    <script type="text/javascript">
-    function download(){
-        var city = document.getElementById("city").value;
-        startDownload(city);
-    }
-
-    function startDownload(city, type){
-        var params;
-        if(type == 1){
-            params = [
-                {
-                    city:city
-                }
-            ];
-        }else{
-            params = [
-                {
-                    province:city
-                }
-            ];
-        }
-        var data = JSON.stringify(params);
-        uexGaodeMap.download(data);
-    }
-
-    function pause(city){
-        //var city = document.getElementById("city").value;
-        var params = city.split(',');
-        var data = JSON.stringify(params);
-        uexGaodeMap.pause(data);
-    }
-
-    function restart(city){
-        //var city = document.getElementById("city").value;
-        var params = city.split(',');
-        var data = JSON.stringify(params);
-        uexGaodeMap.restart(data);
-    }
-
-    function getAvailableCityList(){
-        uexGaodeMap.getAvailableCityList();
-    }
-
-    function getAvailableProvinceList(){
-        uexGaodeMap.getAvailableProvinceList();
-    }
-
-    function getDownloadList(){
-        uexGaodeMap.getDownloadList();
-    }
-
-    function getDownloadingList(){
-        uexGaodeMap.getDownloadingList();
-    }
-
-    function isUpdate(city, type){
-        var params;
-        if(type == 1){
-            params = {
-                city:city
-            };
-        }else{
-            params = {
-                province:city
-            };
-        }
-        var data = JSON.stringify(params);
-        uexGaodeMap.isUpdate(data);
-    }
-
-    function deleteOffline(city){
-        //var city = document.getElementById("city").value;
-        var params = city.split(',');
-        var data = JSON.stringify(params);
-        uexGaodeMap.delete(data);
-    }
-
-        window.uexOnload = function(type){
-            if(type == 0){
-            uexGaodeMap.cbDownload = cbDownload;
-            uexGaodeMap.cbPause = cbPause;
-            uexGaodeMap.cbRestart = cbRestart;
-            uexGaodeMap.cbStopDownload = cbStopDownload;
-            uexGaodeMap.cbGetAvailableCityList = cbGetAvailableCityList;
-            uexGaodeMap.cbGetAvailableProvinceList = cbGetAvailableProvinceList;
-            uexGaodeMap.cbGetDownloadList = cbGetDownloadList;
-            uexGaodeMap.cbGetDownloadingList = cbGetDownloadingList;
-            uexGaodeMap.cbIsUpdate = cbIsUpdate;
-            uexGaodeMap.cbDelete = cbDelete;
-            uexGaodeMap.onDownload = onDownload;
-
-            }
-        }
-    function cbDownload(info){
-        alert(info);
-    }
-
-    function cbPause(info){
-        alert(info);
-    }
-
-    function cbRestart(info){
-        alert(info);
-    }
-
-    function cbStopDownload(info){
-        alert(info);
-    }
-
-    function cbGetAvailableCityList(info){
-        alert(info);
-    }
-
-    function cbGetAvailableProvinceList(info){
-        alert(info);
-    }
-
-    function cbGetDownloadList(info){
-        alert(info);
-    }
-
-    function cbGetDownloadingList(info){
-        alert(info);
-    }
-
-    function cbIsUpdate(info){
-        alert(info);
-    }
-
-    function cbDelete(info){
-        alert(info);
-    }
-
-    function onDownload(info){
-        var data = JSON.parse(info);
-        if(data.status == 0){
-            //uexWindow.toast(1,5,data.name + " 正在下载...",0);
-            document.getElementById('result').innerHTML=data.name + " 正在下载..."+data.completeCode+"%";
-        }
-        if(data.status == 1){
-           document.getElementById('result').innerHTML=data.name + " 正在解压...";
-        }
-        if(data.status == 4){
-            document.getElementById('result').innerHTML="***";
-            alert(data.name + " 离线地图下载成功！");
-        }
-        if(data.status == 3){
-           document.getElementById('result').innerHTML=data.name + " 暂停下载...";
-        }
-        if(data.status == -1){
-            document.getElementById('result').innerHTML="***"
-            alert(data.name + " 下载失败！");
-        }
-    }
-
-
+    <script src="js/offline.js">
     </script>
 </head>
 
@@ -188,16 +33,16 @@
         </div>
         <!--header结束--><!--content开始-->
         <div id="content" class="ub-f1 tx-l t-bla" style="">
-            
-            
-            
+
+
+
             <div class="consj" id="topDiv">
                 <input class='btn' type='button' value='getAvailableCityList' onclick='getAvailableCityList()'>
                 <input class='btn' type='button' value='getAvailableProvinceList' onclick='getAvailableProvinceList()'>
                 <input class='btn' type='button' value='getDownloadList' onclick='getDownloadList()'>
                 <input class='btn' type='button' value='getDownloadingList' onclick='getDownloadingList()'>
-                    
-                    
+
+
                     <br><div>info:</div><div id="result">***</div>
                 <table>
                     <tr>
@@ -241,7 +86,7 @@
                         <td style="padding:10px;color:#ff0000;" onclick="deleteOffline('北京,武汉,上海,天津')">批量删除</td>
                         <td style="padding:10px;color:#ff0000;" onclick="uexGaodeMap.delete()">删除所有</td>
                     </tr>
-                    
+
                 </table>
             </div>
         </div>

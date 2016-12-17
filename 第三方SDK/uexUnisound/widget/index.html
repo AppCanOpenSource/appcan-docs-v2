@@ -65,16 +65,7 @@
                 document.getElementById('TestCallBack3').innerHTML="onSpeakingCancel";
                 document.getElementById('TestData3').innerHTML=data;
             };
-            //cbPauseSpeaking
-            uexUnisound.cbPauseSpeaking=function(data){
-                document.getElementById('TestCallBack3').innerHTML="cbPauseSpeaking";
-                document.getElementById('TestData3').innerHTML=data;
-            };
-            //cbResumeSpeaking
-            uexUnisound.cbResumeSpeaking=function(data){
-                document.getElementById('TestCallBack3').innerHTML="cbResumeSpeaking";
-                document.getElementById('TestData3').innerHTML=data;
-            };
+
             //	onSpeakingErrorOccurr
             uexUnisound.onSpeakingErrorOccurr=function(data){
                 document.getElementById('TestCallBack3').innerHTML="onSpeakingErrorOccur";
@@ -131,26 +122,11 @@
     function speaking(){
         uexUnisound.speaking('{"text":"喂喂喂"}');
     }
-    //[4.3]	cancelSpeaking
-    function cancelSpeaking(){
-        uexUnisound.cancelSpeaking();
-    }
-    //[4.4]	pauseSpeaking
-    function pauseSpeaking(){
-        uexUnisound.pauseSpeaking();
-    }
     //[4.6]	resumeSpeaking
     function resumeSpeaking(){
         uexUnisound.resumeSpeaking();
     }
-    /*
-    function recognizeFile(){
-        var data = {
-            filePath:"res://1.wav"
-        }
-        uexUnisound.recognizeFile(JSON.stringify(data));
-    }
-     */
+
 
 	</script>
 </head>
@@ -197,10 +173,7 @@
             <input class='btn' type='button' value='调用接口' onclick='speaking()'>
             <span>cancelSpeaking</span>
             <input class='btn' type='button' value='调用接口' onclick='cancelSpeaking()'>
-            <span> pauseSpeaking</span>
-            <input class='btn' type='button' value='调用接口' onclick='pauseSpeaking()'>
-            <span> resumeSpeaking</span>
-            <input class='btn' type='button' value='调用接口' onclick='resumeSpeaking()'>
+
             
             <div>====回调区域</div>
             <div id='TestCallBack3'>原本内容</div>

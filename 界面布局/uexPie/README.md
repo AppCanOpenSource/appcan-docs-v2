@@ -2,7 +2,7 @@
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
  饼状图功能插件
 ## 1.1、说明
- 饼状图功能插件。
+ 饼状图功能插件.
 ## 1.2、公告 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fnew.gif)]() 
 此插件官方停止维护(**插件源码已经开放**),请开发者及时做好更新准备,欢迎使用新插件uexChart,详情查看对应文档
 ## 1.3、UI展示
@@ -13,7 +13,7 @@
 #2、API概述
 ## 2.1、方法
 
-> ### open　打开饼状图
+### 🍭 open　打开饼状图
 
 `uexPie.open(id,x,y,w,h)`
 
@@ -48,7 +48,7 @@ iOS6.0+
     uexPie.open(1,100,500,800,800);
 ```
 
-> ### close　关闭饼状图
+### 🍭 close　关闭饼状图
 
 `uexPie.close()`
 
@@ -75,7 +75,7 @@ iOS6.0+
     uexPie.close();
 ```
 
-> ### setJsonData　设置饼状图的数据源
+### 🍭 setJsonData　设置饼状图的数据源
 
 `uexPie.setJsonData(jsonStr)`
 
@@ -166,7 +166,7 @@ iOS6.0+
     uexPie.setJsonData(JSON.stringify(jsonStr));
 ```
 ## 2.2、回调方法
-> ### cbOpen　打开饼状图的回调方法
+### 🍭 cbOpen　打开饼状图的回调方法
 
 `uexPie.cbOpen(opId,dataType,data)`
 
@@ -201,29 +201,18 @@ iOS6.0+
 
 ### iOS
 
-API版本:`uexPie-3.0.3`
+API版本: `uexPie-4.0.0`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.3 | 添加IDE支持 |
-| 3.0.2 | 使用新版Xcode重新编译,支持arm64 |
-| 3.0.1 | 统一回调方法名,统一回调参数 |
-| 3.0.0 | 饼状图功能插件 |
 
 ### Android
 
-API版本:`uexPie-3.0.6`
+API版本: `uexPie-4.0.0`
 
 最近更新时间:`2016-1-29`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.6 | 修复plugin.xml |
-| 3.0.5 | 去掉插件中的ActivityGroup,配合引擎升级 |
-| 3.0.4 | 更新适配机型使用的方法 |
-| 3.0.3 | 修复按返回键崩溃的问题 |
-| 3.0.2 | 修复多个饼状图不能并存显示的问题 |
-| 3.0.1 | 修复饼状图打开后无法关闭的问题 |
-| 3.0.0 | 饼状图功能插件 |

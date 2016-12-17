@@ -19,20 +19,18 @@
 
 ### iOS
 
-API版本:`uexMultiDownloader-3.0.0`
+API版本: `uexMultiDownloader-4.0.0`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 插件 |
 
 ### Android
 
-API版本:`uexMultiDownloader-3.0.0`
+API版本: `uexMultiDownloader-4.0.0`
 
 最近更新时间:`2015-12-26`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 3.0.0 | 插件 |

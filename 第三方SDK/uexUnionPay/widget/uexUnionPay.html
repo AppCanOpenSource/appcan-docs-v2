@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/index.css">
@@ -13,28 +13,26 @@
             mode:"01"
         };
         var data = JSON.stringify(params);
-        uexUnionPay.startPay(data);
+        uexUnionPay.startPay(data,function(info){
+            alert("result: "+info.payResult);
+        });
     }
 
 
     window.uexOnload = function(type){
-        if(type == 0){
-            uexUnionPay.cbStartPay = cbStartPay;
-        }
+
     }
-    function cbStartPay(info){
-        alert(info);
-    }
+
     </script>
 </head>
 
 <body>
-    <div class="tit">uexUnionPay对象</div>
-        <div class="conbor">
-            <div class="consj">
-                <input class='btn' type='button' value='startPay' onclick='startPay()'>
-            </div>
-        </div>
+<div class="tit">uexUnionPay对象</div>
+<div class="conbor">
+    <div class="consj">
+        <input class='btn' type='button' value='startPay' onclick='startPay()'>
     </div>
+</div>
+</div>
 </body>
 </html>
