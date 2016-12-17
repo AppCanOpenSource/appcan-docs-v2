@@ -1167,6 +1167,63 @@ uexFileMgr.copy({
 
 
 
+### 🍭 getFileHashValue 获取文件哈希值
+
+`uexFileMgr.getFileHashValue(params,cbFunc)`
+
+**说明:**
+
+获取文件的哈希值
+
+**参数:**
+
+| 参数名称   | 参数类型     | 是否必选 | 说明      |
+| ------ | -------- | ---- | ------- |
+| params | JSON     | 是    | 文件路径及算法 |
+| cbFunc | Function | 否    | 获取的回调   |
+
+```javascript
+var params = {
+    path:,
+    algorithm:
+}
+```
+
+各字段含义如下:
+
+| 字段名称      | 类型     | 是否必选 | 说明                          |
+| --------- | ------ | ---- | --------------------------- |
+| path      | String | 是    | 文件路径，协议详见CONSTANT中PathTypes |
+| algorithm | String | 是    | 文件算法，例如：MD5、SHA-1           |
+
+
+**回调参数:**
+
+```javascript
+var cbFunc = function(data){
+}
+```
+
+| 参数名称 | 类型     | 说明     |
+| ---- | ------ | ------ |
+| data | String | 文件的哈希值 |
+
+**示例:**
+
+```javascript
+var data = {
+    path: "res://biaoge.xls",
+    algorithm: "SHA-1"
+};
+uexFileMgr.getFileHashValue(data,function(data){
+  	
+});
+```
+
+
+
+
+
 # 3、更新历史
 
 ### iOS
