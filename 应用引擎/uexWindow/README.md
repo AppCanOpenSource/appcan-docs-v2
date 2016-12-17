@@ -105,7 +105,7 @@ uexWindow.open({
 uexWindow.openPresentWindow({
    	name:"test",
     data:"index.html",
-    animationID:2,
+    animID:2,
     flag:1024
 });
 ```
@@ -488,6 +488,27 @@ uexWindow.openPopover({
   y:0,
   bottomMargin:100
 });
+```
+
+### 🍭 setPopoverVisibility 设置浮动窗口是否显示
+
+`uexWindow.setPopoverVisibility(popName,visible)`
+
+**说明:**
+
+设置浮动窗口是否显示
+
+**参数:**
+
+| 参数名称    | 参数类型   | 是否必选 | 说明         |
+| ------- | ------ | ---- | ---------- |
+| popName | String | 是    | 名称         |
+| visible | Number | 是    | 0-不显示，1-显示 |
+
+**示例:**
+
+```javascript
+uexWindow.setPopoverVisibility('sss',0);
 ```
 
 ### 🍭 closePopover 关闭浮动窗口
@@ -2586,7 +2607,7 @@ uexWindow.resetBounceView("1");
 | 参数名称   | 参数类型   | 是否必选 | 说明                  |
 | ------ | ------ | ---- | ------------------- |
 | type   | Number | 是    | 弹动的位置,0:顶端弹动;1:底部弹动 |
-| status | String | 是    | json                |
+| status | JSON   | 是    | json                |
 
 status中字段的说明
 
