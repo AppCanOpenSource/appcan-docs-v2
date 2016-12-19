@@ -663,7 +663,7 @@ uexImage.showLabelViewPic(JSON.stringify(data));
 var params = {
     "srcPath": ,
     "desLength": 
-    }
+}
 ```
 
 各字段含义如下:
@@ -690,7 +690,7 @@ var callback = function(error,info){
 var params = {
     "status": ,
     "filePath": 
-    }
+}
 ```
 
 各字段含义如下:
@@ -764,10 +764,10 @@ uexImage.onLabelClicked = function(id) {
 
 param为json字符串：
 
-```
+```javascript
 var param ={
         "imagePath":
-    }
+}
 
 ```
 
@@ -789,7 +789,7 @@ iOS 3.0.0+
 
 **示例**
 
-```
+```javascript
 window.uexOnload=function(type){
     uexImage.onImageLongClicked=function(info){
         alert(info);
