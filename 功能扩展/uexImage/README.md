@@ -45,7 +45,8 @@ var param = {
   max:,
   quality:,
   usePng:,
-  detailedInfo
+  detailedInfo,
+  style：1
 }
 ```
 
@@ -58,6 +59,7 @@ var param = {
 | quality      | Number  | 否    | JPG压缩质量 取值范围 0-1 越大表示质量越好         | 0.5   |
 | usePng       | Boolean | 否    | 用png格式导出图片 ,此参数为true时,quality参数无效 | false |
 | detailedInfo | Boolean | 否    | 此参数为true时,回调中会包含图片的额外信息           | false |
+| style | Number | 否 | 如果不传或者传0 为默认样式，传1为新样式(防微信)|0|
 
 * png 无损且支持透明色,但文件体积比jpg大.
 * 用户应按需求自行选择图片文件格式
@@ -94,11 +96,11 @@ var info = {
 
 ```
 var uexImageInfo={
-	localPath:,//String,必选,图片地址
-	timestamp:,//Number,可选,图片创建时间的10位时间戳 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
-	longitude:,//Number,可选,图片拍摄地点的经度 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
-	latitude:,//Number,可选,图片拍摄地点的纬度 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
-	altitude:,//Number,可选,图片拍摄地点的海拔 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
+    localPath:,//String,必选,图片地址
+    timestamp:,//Number,可选,图片创建时间的10位时间戳 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
+    longitude:,//Number,可选,图片拍摄地点的经度 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
+    latitude:,//Number,可选,图片拍摄地点的纬度 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
+    altitude:,//Number,可选,图片拍摄地点的海拔 (此参数读取自图片的EXIF数据,如无法获取或不存在,则无此参数)
 }
 ```
 
@@ -106,22 +108,23 @@ var uexImageInfo={
 
 ```javascript
 var data = {
-	min:2,
-	max:3,
-	quality:0.8,
-	detailedInfo:true
+    min:2,
+    max:3,
+    quality:0.8,
+    detailedInfo:true,
+    style：1
 }
 uexImage.openPicker(data,function(error,info){
-	if(error==-1){
-		alert("cancelled!");
-	}else if(error==0){
-		alert(info.data);
-		if(info.detailedImageInfo){
-			alert(JSON.stringify(info.detailedImageInfo));
-		}
-	}else{
-      	alert("error");
-	}
+    if(error==-1){
+        alert("cancelled!");
+    }else if(error==0){
+        alert(info.data);
+        if(info.detailedImageInfo){
+            alert(JSON.stringify(info.detailedImageInfo));
+        }
+    }else{
+        alert("error");
+    }
 });
 ```
 
@@ -144,12 +147,27 @@ uexImage.openPicker(data,function(error,info){
 
 ```javascript
 var param = {
-  	displayActionButton:,
-	displayNavArrows:,
-	enableGrid:,
-	startOnGrid:,
-	startIndex:,
-	data:[]
+    displayActionButton:,
+    displayNavArrows:,
+    enableGrid:,
+    startOnGrid:,
+    startIndex:,
+    data:[],
+    style,
+    gridBackgroundColor,  // style为1时生效
+    gridBrowserTitle,
+    viewFramePicPreview:{   //位置、大小
+      x:,
+      y:,
+      w:,
+      h:,
+    },
+    viewFramePicGrid:{   //位置、大小
+      x:,
+      y:,
+      w:,
+      h:,
+    }
 }
 ```
 
@@ -163,6 +181,11 @@ var param = {
 | startOnGrid         | Boolean | 否    | 以九宫格视图起始          | false |
 | startIndex          | Number  | 否    | 非负整数 起始图片位置       | 0     |
 | data                | Array   | 是    | 图片资源构成的数组         | 无     |
+| style | Number | 否 |UI样式，0：插件旧风格UI；1：仿照微信优化后的UI。 | 0 |
+| gridBackgroundColor | String | 否 | 九宫格背景颜色，style为1时支持 | 黑色 |
+| gridTitle | String | 否 | 九宫格预览图片的标题，style为1时支持 | 图片浏览 |
+| viewFramePicPreview | Json对象 | 否 | 单张图片视图的位置大小信息，为json字符串，形如："viewFramePicPreview":{ x:0, y:0,w:1080, h:1767}，style为1时支持 | 全屏 |
+| viewFramePicGrid | Json对象 | 否 |  九宫格视图的位置大小信息，为json字符串，形如："viewFramePicGrid":{ x:0, y:0,w:1080, h:1767}，style为1时支持 | 全屏 |
 
 * 即使只浏览一张图片 data也必须是数组
 * data内的元素可以是 字符串 或者是 Json对象 格式
@@ -171,14 +194,14 @@ var param = {
 
 ```
 {
-	src:,//(String,必选)图片资源路径,支持 wgt:// wgts:// res:// file:// http:// https:// 
-	thumb:,//(String,可选)图片缩略图路径
-	desc:,//(String,可选) 为图片添加一段文字描述
-	showBigPic:,//(Boolean 可选) 是否显示大图，默认不显示false，参数值为false、true
+    src:,//(String,必选)图片资源路径,支持 wgt:// wgts:// res:// file:// http:// https:// 
+    thumb:,//(String,可选)图片缩略图路径
+    desc:,//(String,可选) 为图片添加一段文字描述
+    showBigPic:,//(Boolean 可选) 是否显示大图，默认不显示false，参数值为false、true
 }
 ```
 **回调参数**
-​	
+​   
 回调函数`callback`没有参数
 
 
@@ -186,30 +209,45 @@ var param = {
 
 ```javascript
 var data ={
-	displayActionButton:true,
-	displayNavArrows:true,
-	enableGrid:true,
-	//startOnGrid:true,
-	startIndex:2,
-	data:["res://photo1.jpg",
-		{
-		src:"res://photo2.jpg",
-		thumb:"res://photo2t.jpg",
-		showBigPic: true
-		},
-		{
-		src:"res://photo3.jpg",
-		thumb:"res://photo3t.jpg",
-		desc:"22222222222222"
-		},
-		{
-		src:"http://it-eproducts.com/images/3-1347760443.jpg",
-		thumb:"res://photo4t.jpg",
-		desc:"22222222222222"
-		}]
+    displayActionButton:true,
+    displayNavArrows:true,
+    enableGrid:true,
+    //startOnGrid:true,
+    startIndex:2,
+    data:["res://photo1.jpg",
+        {
+        src:"res://photo2.jpg",
+        thumb:"res://photo2t.jpg",
+        showBigPic: true
+        },
+        {
+        src:"res://photo3.jpg",
+        thumb:"res://photo3t.jpg",
+        desc:"22222222222222"
+        },
+        {
+        src:"http://it-eproducts.com/images/3-1347760443.jpg",
+        thumb:"res://photo4t.jpg",
+        desc:"22222222222222"
+        }],
+        style:1,
+        gridBackgroundColor:"#4A88C1",  // style为1时生效
+        gridBrowserTitle:"图片浏览",
+        viewFramePicPreview:{   //位置、大小
+            x:0,
+            y:0,
+            w:1080,
+            h:1767,
+        },
+        viewFramePicGrid:{   //位置、大小
+            x:0,
+            y:0,
+            w:200,
+            h:1767,
+        }
 }
 uexImage.openBrowser(data,function(){
-	alert("browser closed!");
+    alert("browser closed!");
 });
 ```
 ### 🍭 openCropper 打开图片裁剪器
@@ -230,10 +268,10 @@ uexImage.openBrowser(data,function(){
 
 ```javascript
 var param = {
-  	src:,
-  	quality:,
-  	usePng:,
-	mode:1
+    src:,
+    quality:,
+    usePng:,
+    mode:1
 }
 ```
 
@@ -276,16 +314,16 @@ var info = {
 
 ```javascript
 var data={
-	src:"res://photo5.jpg",
-	mode:2
+    src:"res://photo5.jpg",
+    mode:2
 }
 uexImage.openCropper(data,function(error,info){
-	if(error==-1){
-		alert("cancelled!");
-	}else if(error==0) {
-		alert(info.data);
-	
-	}
+    if(error==-1){
+        alert("cancelled!");
+    }else if(error==0) {
+        alert(info.data);
+    
+    }
 });
 ```
 
@@ -330,14 +368,14 @@ var callback = function(error,errorInfo){
 
 ```javascript
 var data={
-	localPath:"res://photo4.jpg",
+    localPath:"res://photo4.jpg",
 }
 uexImage.saveToPhotoAlbum(data,function(err,errStr){
-	if(!err){
-		alert("储存成功!");
-	}else{
-		alert("储存失败:" + errStr);
-	}
+    if(!err){
+        alert("储存成功!");
+    }else{
+        alert("储存失败:" + errStr);
+    }
 });
 ```
 ### 🍭 clearOutputImages 清除由本插件导出的所有图片文件
@@ -460,7 +498,7 @@ var param = ［
     content://String 类型， label上的文本
     x: //标签相对于外部容器左上角的x坐标
     y://标签相对于外部容器左上角的y坐标
-	｝
+    ｝
 ］
 ```
 
@@ -604,6 +642,94 @@ var data = {
 uexImage.showLabelViewPic(JSON.stringify(data));
 ```
 
+
+### 🍭 compressImage 压缩图片文件接口
+
+`uexImage.compressImage(param,callback);`
+
+**说明**
+
+* 压缩图片文件至指定大小
+
+**参数**
+
+
+| 参数名称     | 参数类型     | 是否必选 | 说明             |
+| -------- | -------- | ---- | -------------- |
+| param    | String   | 是    | 压缩图片的配置参数     |
+| callback | Function | 否    | 压缩完成的回调函数 |
+
+```javascript
+var params = {
+    "srcPath": ,
+    "desLength": 
+}
+```
+
+各字段含义如下:
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 | 
+| ----- | ----- | ----- | ----- | ----- |
+| srcPath | String | 是 | 图片路径 支持res:// wgt:// wgts:// file://|
+| desLength |Number|是|压缩图片的指定大小，单位为B|
+
+**回调参数**
+
+```javascript
+var callback = function(error,info){
+}
+```
+
+| 参数名称  | 类型     | 说明                    |
+| ----- | ------ | --------------------- |
+| error | Number | 1为成功,0为压缩图片失败 |
+| info  | String | 返回的数据信息,形式见下:         |
+
+
+```javascript
+var params = {
+    "status": ,
+    "filePath": 
+}
+```
+
+各字段含义如下:
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 | 
+| ----- | ----- | ----- | ----- | ----- |
+| status | String | 是 | 是否压缩成功 ok/fail|
+| filePath |String|否|压缩后的图片路径，仅在图片压缩成功时才会有此参数|
+
+
+**平台支持**
+
+Android 2.2+ 
+iOS 7.0+ 
+
+**版本支持**
+
+Android 3.0.0+ 
+iOS 3.0.0+ 
+
+**示例**
+
+```javascript
+
+var params = {
+    srcPath : "/storage/emulated/0/DCIM/Camera/IMG_20161010_093830.jpg",
+     desLength : 30*1024
+};
+uexImage.compressImage(data, function(err,errStr){
+    if(1 == err) //成功
+    {
+        alert(errStr);
+    } else if (0 == err) //失败
+    {
+        alert("error");
+    }
+});
+```
+
 ##2.1、 监听方法
 
 ### 🍭 onLabelClicked 点击标签的回调
@@ -626,6 +752,51 @@ uexImage.onLabelClicked = function(id) {
 ```
 
 
+### 🍭 onImageLongClicked 长按图片的监听方法
+
+`uexImage.onImageLongClicked(param);`
+
+**说明**
+
+* 长按图片时,会回调此监听方法
+
+**参数**
+
+param为json字符串：
+
+```javascript
+var param ={
+        "imagePath":
+}
+
+```
+
+各字段含义如下:
+
+| 参数名称 | 参数类型 | 是否必选 | 说明 | 
+| ----- | ----- | ----- | ----- | ----- |
+| imagePath | String | 是 | 长按图片的路径|
+
+**平台支持**
+
+Android 2.2+ 
+iOS 7.0+ 
+
+**版本支持**
+
+Android 3.0.0+ 
+iOS 3.0.0+ 
+
+**示例**
+
+```javascript
+window.uexOnload=function(type){
+    uexImage.onImageLongClicked=function(info){
+        alert(info);
+    }
+}
+```
+
 
 # 3、更新历史
 
@@ -642,7 +813,9 @@ API版本: `uexImage-4.0.0`
 
 API版本: `uexImage-4.0.0`
 
-最近更新时间:`2016-5-17`
+最近更新时间:`2016-12-19`
 
 | 历史发布版本 | 更新内容                                |
 | ------ | ----------------------------------- |
+| 4.0.6 | 1.根据微信样式，优化插件UI；2.支持国际化；3.添加图片压缩接口compressImage。 |
+
