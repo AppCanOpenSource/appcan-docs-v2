@@ -181,11 +181,11 @@ var param = {
 | startOnGrid         | Boolean | 否    | 以九宫格视图起始          | false |
 | startIndex          | Number  | 否    | 非负整数 起始图片位置       | 0     |
 | data                | Array   | 是    | 图片资源构成的数组         | 无     |
-| style | Number | 否 |UI样式，0：插件就风格UI；1：仿照微信优化后的UI。 | 0 |
+| style | Number | 否 |UI样式，0：插件旧风格UI；1：仿照微信优化后的UI。 | 0 |
 | gridBackgroundColor | String | 否 | 九宫格背景颜色，style为1时支持 | 黑色 |
 | gridTitle | String | 否 | 九宫格预览图片的标题，style为1时支持 | 图片浏览 |
-| viewFramePicPreview | String | 否 | 单张图片视图的位置大小信息，为json字符串，形如："viewFramePicPreview":{ x:0, y:0,w:1080, h:1767}，style为1时支持 | 全屏 |
-| viewFramePicGrid | String | 否 |  九宫格视图的位置大小信息，为json字符串，形如："viewFramePicGrid":{ x:0, y:0,w:1080, h:1767}，style为1时支持 | 全屏 |
+| viewFramePicPreview | Json对象 | 否 | 单张图片视图的位置大小信息，为json字符串，形如："viewFramePicPreview":{ x:0, y:0,w:1080, h:1767}，style为1时支持 | 全屏 |
+| viewFramePicGrid | Json对象 | 否 |  九宫格视图的位置大小信息，为json字符串，形如："viewFramePicGrid":{ x:0, y:0,w:1080, h:1767}，style为1时支持 | 全屏 |
 
 * 即使只浏览一张图片 data也必须是数组
 * data内的元素可以是 字符串 或者是 Json对象 格式
