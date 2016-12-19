@@ -3198,7 +3198,11 @@ uexWindow.onSlipedUpward = function(){
 ```javascript
 uexWindow.onAnimationFinish = onAnimationFinish;
 function onAnimationFinish() {
-    uexWindow.alert("应用名称","动画完毕","ok");
+	uexWindow.alert({
+  title:"应用名称",
+  message:"动画完毕",
+  buttonLabel:"OK"
+});
 }
 ```
 

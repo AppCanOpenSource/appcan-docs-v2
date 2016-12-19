@@ -174,7 +174,7 @@ var param = {
 	src:,//(String,必选)图片资源路径,支持 wgt:// wgts:// res:// file:// http:// https:// 
 	thumb:,//(String,可选)图片缩略图路径
 	desc:,//(String,可选) 为图片添加一段文字描述
-	showBigPic:,//(Boolean 可选) 是否显示大图，默认不显示
+	showBigPic:,//(Boolean 可选) 是否显示大图，默认不显示false，参数值为false、true
 }
 ```
 **回调参数**
