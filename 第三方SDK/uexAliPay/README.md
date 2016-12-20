@@ -28,7 +28,7 @@
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=279_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.5、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+本插件的所有API默认支持**Android4.0+**和**iOS8.0+**操作系统.  
 有特殊版本要求的API会在文档中额外说明.
 
 ## 1.6、接口有效性
@@ -40,15 +40,20 @@
 ##  2.1、方法
 
 
-### 🍭   setPayInfo 设置商户信息
+### 🍭   ~~setPayInfo 设置商户信息~~ （已废弃)
 
 `uexAliPay.setPayInfo(partner,seller,rsaPrivate,rsaPublic,notifyUrl)    `
 
 **说明:**
 
-商户信息需要通过ms.alipay.com签约后获取,点击查看支付宝产品:
-[快捷支付(无线)](https://b.alipay.com/order/productDetail.htm?productId=2014110308141993) 
-[签约入口](https://b.alipay.com/order/productDetail.htm?productId=2014110308141993) 
+设置支付商户的基本信息
+**本接口仅适用于使用"移动接口支付"服务的旧版支付宝商户**
+
+
+
+* 该服务目前已下架,建议仍在使用此服务的用户尽快升级至新版"App接口支付"服务
+* ⚠️ 将私钥等信息保存在客户端是一种非常危险的行为,为防止商户私密数据泄露，造成不必要的资金损失，避免面临各种安全风险,强烈建议将签名过程放在服务端,并使用[payWithOrder](🍭-paywithorder-支付)接口进行支付
+* "移动接口支付"服务签名方法请参考[旧版支付宝官方文档](https://doc.open.alipay.com/doc2/detail?treeId=59&articleId=103663&docType=1)
 
 
 **参数:**
@@ -64,7 +69,7 @@
 
 **示例:**
 
-```
+```js
 var partner = "208845648165561";
 var seller = "48652321@qq.com";
 var rsaPrivate = "MIICdwIBADANBgkn4E3TszcjB+Kf7CGVQ/nsvyywjA+i+0vmaftUzoOdIcWnI8UEr9I=";
@@ -74,16 +79,23 @@ function setInfo(){
     var notifyUrl = document.getElementById("notifyURL").value;
     uexAliPay.setPayInfo(partner, seller, rsaPrivate, rsaPublic, notifyUrl);
 }
-
 ```
 
-### 🍭  pay 支付功能
+### 🍭  ~~pay 支付~~(已废弃)
 
 `uexAliPay.pay(num,subject,body,fee, callbackFunction)`
 
 **说明:**
 
-进行支付前必须先设置商户信息,否则无法完成支付
+进行支付前必须先调用setPayInfo设置商户信息,否则无法完成支付
+
+**本接口仅适用于使用"移动接口支付"服务的旧版支付宝商户用户**
+
+
+
+- 该服务目前已下架,建议老用户尽快升级至新版"App接口支付"服务
+- ⚠️ 将私钥等信息保存在客户端是一种非常危险的行为,为防止商户私密数据泄露，造成不必要的资金损失，避免面临各种安全风险,建议将签名过程放在服务端,并使用[payWithOrder](🍭-paywithorder-支付)接口进行支付
+- "移动接口支付"服务签名方法请参考[旧版支付宝官方文档](https://doc.open.alipay.com/doc2/detail?treeId=59&articleId=103663&docType=1)
 
 **参数:**
 
@@ -97,7 +109,7 @@ function setInfo(){
 
 **回调参数:**
 
-```
+```js
 var callbackFunction = function(error, data){}
 ```
 
@@ -110,7 +122,7 @@ callbackFunction的参数为status(状态值), msg(提示信息)
 
 **示例:**
 
-```
+```js
 var commonCallback = function(error, data) {
     if(!error){
       alert("支付成功");
@@ -129,6 +141,134 @@ function pay(){
 }
 ```
 
+
+
+###  🍭 payWithOrder 支付
+
+`uexAliPay.patWithOrder(order,callback)`
+
+**说明:**
+
+解析支付请求进行支付
+
+**本接口兼容使用"移动接口支付"服务的旧版支付宝商户和使用"app接口支付"服务新版支付宝商户**
+
+* 生成"移动接口支付"服务的支付请求请参考[旧版支付宝官方文档](https://doc.open.alipay.com/doc2/detail?treeId=59&articleId=103663&docType=1)
+* 生成"app接口支付"服务的支付请求请参考[新版支付宝官方文档](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.70InGu&treeId=193&articleId=105465&docType=1)
+
+**参数:**
+
+| 参数名称     | 参数类型     | 是否必选 | 说明      |
+| -------- | -------- | ---- | ------- |
+| order    | String   | 是    | 支付请求    |
+| callback | Function | 否    | 支付的回调函数 |
+
+**回调参数:**
+
+```
+var callback = function(error, message){}
+```
+
+| 参数名称    | 类型     | 说明              |
+| ------- | ------ | --------------- |
+| error   | Number | 支付状态,0-成功,非0-失败 |
+| message | String | 支付状态的说明信息       |
+
+
+
+⚠️ 当用户手机已安装支付宝App时,调用此接口会打开支付宝App进行支付,此时原应用可能会因为内存原因被关闭.当发生此情况时,用户应向服务器获取通过notify_url返回的支付结果，再进行下一步操作
+
+
+
+**示例:**
+
+```js
+var order = ... //从后台获得的支付请求
+uexAliPay.patWithOrder(order,function(error,message){
+  if(error){
+    alert("支付失败: " + message);
+  }else{
+    alert("支付成功")
+  }
+})
+```
+
+
+
+### 🍭 generatePayOrder 生成支付请求
+
+`uexAlipay.generatePayOrder(data)`
+
+**说明:**
+
+测试用接口,根据订单信息生成支付请求
+
+此接口仅适用于使用"App接口支付"服务的支付宝商户
+
+注意:将私钥等信息保存在客户端可能会商户私密数据泄露,造成不必要的资金损失,是一种非常危险的行为.
+
+ 🚫**此接口仅用于测试,严禁在正式环境中使用.**
+
+
+
+**参数:**
+
+```js
+var data = {
+  private_key: ,
+  app_id: ,
+  notify_url: ,
+  biz_content: {
+    subject:,
+  	body:,
+  	out_trade_no:,
+  	total_amount:,
+  	seller_id:
+  }
+};
+```
+
+
+
+| 参数名称         | 参数类型   | 是否必选 | 说明                                       |
+| ------------ | ------ | ---- | ---------------------------------------- |
+| private_key  | String | 是    | 签名用的RSA私钥                                |
+| app_id       | String | 是    | 支付宝分配给开发者的应用ID                           |
+| notify_url   | String | 是    | 支付宝异步通知的服务器地址,**建议使用https地址**            |
+| biz_content  | Object | 是    | 交易信息,详情见下                                |
+| subject      | String | 是    | 商品的标题/交易标题/订单标题/订单关键字等                   |
+| body         | String | 否    | 交易的具体描述信息                                |
+| out_trade_no | String | 是    | 商户网站唯一订单号,由用户自己生成,可传任意字符串                |
+| total_amount | String | 是    | 订单总金额，单位为元，可精确到小数点后两位，取值范围[0.01,100000000] |
+| seller_id    | String | 否    | 收款支付宝用户ID。 如果该值为空，则默认为商户签约账号对应的支付宝用户ID。  |
+
+
+
+**返回值:**
+
+生成的支付请求字符串
+
+**示例:**
+
+```js
+var order = uexAlipay.generatePayOrder({
+  private_key: "******",
+  app_id: "2014072300007148",
+  notify_url: "https://www.123.com/alipay/notify",
+  biz_content:{
+    subject:"iPhone 6s",
+    body: "64G 玫瑰金",
+    out_trade_no: "70501111111S001111119",
+    total_amount: "5988",
+    seller_id: "2088102147948060"
+  }
+});
+```
+
+
+
+
+
 # 3、更新历史
 
 ### iOS
@@ -137,8 +277,7 @@ API版本: `uexAliPay-4.0.0`
 
 最近更新时间:`2016-06-11`
 
-| 历史发布版本 | 更新内容                              |
-| ------ | --------------------------------- |
+
 
 ### Android
 
@@ -146,5 +285,4 @@ API版本: `uexAliPay-4.0.0`
 
 最近更新时间:`2016-06-11`
 
-| 历史发布版本 | 更新内容                                     |
-| ------ | ---------------------------------------- |
+
