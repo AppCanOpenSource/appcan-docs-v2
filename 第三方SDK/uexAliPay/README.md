@@ -12,7 +12,7 @@
 * 配置白名单方法请参考[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置urlScheme白名单)
 * uexAliPay需要进白名单添加的URLScheme如下
 
-```
+```xml
 <string>alipay</string>
 <string>alipayshare</string>
 ```
@@ -52,7 +52,7 @@
 
 
 * 该服务目前已下架,建议仍在使用此服务的用户尽快升级至新版"App接口支付"服务
-* ⚠️ 将私钥等信息保存在客户端是一种非常危险的行为,为防止商户私密数据泄露，造成不必要的资金损失，避免面临各种安全风险,强烈建议将签名过程放在服务端,并使用[payWithOrder](🍭-paywithorder-支付)接口进行支付
+* ⚠️ 将私钥等信息保存在客户端是一种非常危险的行为,为防止商户私密数据泄露，造成不必要的资金损失，避免面临各种安全风险,强烈建议将签名过程放在服务端,并使用[payWithOrder](#🍭-paywithorder-支付)接口进行支付
 * "移动接口支付"服务签名方法请参考[旧版支付宝官方文档](https://doc.open.alipay.com/doc2/detail?treeId=59&articleId=103663&docType=1)
 
 
@@ -94,7 +94,7 @@ function setInfo(){
 
 
 - 该服务目前已下架,建议老用户尽快升级至新版"App接口支付"服务
-- ⚠️ 将私钥等信息保存在客户端是一种非常危险的行为,为防止商户私密数据泄露，造成不必要的资金损失，避免面临各种安全风险,建议将签名过程放在服务端,并使用[payWithOrder](🍭-paywithorder-支付)接口进行支付
+- ⚠️ 将私钥等信息保存在客户端是一种非常危险的行为,为防止商户私密数据泄露，造成不必要的资金损失，避免面临各种安全风险,建议将签名过程放在服务端,并使用[payWithOrder](#🍭-paywithorder-支付)接口进行支付
 - "移动接口支付"服务签名方法请参考[旧版支付宝官方文档](https://doc.open.alipay.com/doc2/detail?treeId=59&articleId=103663&docType=1)
 
 **参数:**
