@@ -130,7 +130,7 @@ var req = ...;//之前通过create接口创建的Request对象
 
 uexXmlHttpMgr.send(req,0,
 					function(status,resStr,resCode,resInfo){
-                   		alert("state:" + state  + "\nresult:" + resStr + "\nresCode:" + resCode + "\nresInfo:" + JSON.stringify(resInfo));
+                   		alert("status:" + status  + "\nresult:" + resStr + "\nresCode:" + resCode + "\nresInfo:" + JSON.stringify(resInfo));
                    },
                    function(progress){
                     	document.getElementById('progress').innerHTML =  "上传进度:" + progress;
@@ -392,9 +392,9 @@ API版本: `uexXmlHttpMgr-4.0.0`
 
 最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 跨域异步请求功能插件 |
+| 历史发布版本 | 更新内容       |
+| ------ | ---------- |
+| 4.0.0  | 跨域异步请求功能插件 |
 
 ### Android
 
@@ -402,7 +402,7 @@ API版本: `uexXmlHttpMgr-4.0.1`
 
 最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.1 | 修复cookie 的问题 |
-| 4.0.0 | 4.0 |
+| 历史发布版本 | 更新内容         |
+| ------ | ------------ |
+| 4.0.1  | 修复cookie 的问题 |
+| 4.0.0  | 4.0          |

@@ -65,6 +65,31 @@ Path Types
 
 在后续版本中新添加的接口会在文档中额外说明. 
 
+### 1.7、 接入小米推送
+
+正常情况下应用在小米手机上被杀之后是无法收到消息的，现在可以通过接入小米推送来收消息，步骤如下：
+
+- 进入[小米推送的后台](http://dev.xiaomi.com/mipush/xmpush/app/applist?userId=913566583)，创建一个应用，完成后得到 AppID、AppKey、AppSecret。然后，登录[环信管理后台](http://console.easemob.com/)，选择你的应用—>选择推送证书—>Xiaomi—>新增证书。
+
+  证书名称为刚从小米推送后台拿到的 AppID，证书密钥为 AppSecret，以及填上你当前应用的包名，点击上传即可。
+
+- 打包勾选小米推送
+
+- `uexEasemob.initEasemob`增加参数`miPushAppId` `miPushAppKey`
+
+- `config.xml` 添加配置（以下配置只用更改“此处填写你的包名“为你的包名，其他不要更改）
+
+  ```xml
+  <config desc="uexMiPush" type="KEY">
+        <param name="$packageName$" platform="Android" value="此处填写你的包名"/>
+  </config>
+  <config desc="uexMiPush" type="KEY">
+      <param name="org.zywx.wbpalmstar.plugin.uexmipush.MiBroadcastReceiver" platform="Android" value="com.hyphenate.chat.EMMipushReceiver"/>
+  </config> 
+  ```
+
+  ​
+
 #2、API概述		
 ##2.1、Initialization
 ***
@@ -78,6 +103,8 @@ param为json字符串
 	apnsCertName:,//iOS中推送证书名称(仅iOS)
 	isAutoLoginEnabled:,//可选参数 是否开启自动登录功能 1-开启 2-关闭
 	isAutoAcceptGroupInvitation:,//可选参数 是否开启用户自动同意群邀请, 1-开启 2-关闭 默认为开启(此参数为3.0.22后新加入)
+	miPushAppId:,//String类型 小米推送的appId
+    miPushAppKey:,//String类型 小米推送的appKey
 };
 ```
 data为json字符串 
