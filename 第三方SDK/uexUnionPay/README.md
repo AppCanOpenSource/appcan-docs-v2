@@ -6,15 +6,31 @@ UnionPay银联支付插件
 ## 1.1、说明
  该插件实现UnionPay银联支付功能,使用该插件的开发者需要自己搭建商户后台,商户后台负责和银联后台交互得到交易流水号,开发者拿到交易流水号之后调用该插件的支付方法可实现支付功能.具体商户接入方式,开发者可参考[银联官方](https://open.unionpay.com/ajweb/index) .
 
+
+
+* iOS插件自4.0.1版本后支持打开银联钱包App进行支付.为确保此功能正常,需要在config.xml中添加以下至URLScheme白名单中
+
+  ```xml
+  <string>uppaysdk</string>
+  <string>uppaywallet</string>
+  <string>uppayx1</string>
+  <string>uppayx2</string>
+  <string>uppayx3</string>
+  ```
+
+  ​
+
+
+
 ## 1.2、UI展示
- ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/1.png) ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/2.png) ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/3.png) ![](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9SDK/uexUnionPay/img/4.png)
+ ![](img/1.png) ![](img/2.png) ![](img/3.png) ![](img/4.png)
 
 ## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=536_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.4、平台版本支持
 
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
+本插件的所有API默认支持**Android4.0+**和**iOS8.0+**操作系统. 
 有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
@@ -129,12 +145,22 @@ API版本: `uexUnionPay-4.0.0`
 调用之后弹出的支付界面可使用以下模拟银行卡支付:(**注该测试环境只支持以下银行卡信息支付**)
 
 ```javascript
-平安银行借记卡:6216 2610 0000 0000 018
-证件号:341126197709218366
-手机号:13552535506
-密码:123456
-姓名:全渠道
+招商银行借记卡:6226 0900 0000 0048
+手机号:18100000000
+密码:111101
 短信验证码:123456(注需要先点击"免费获取",进入验证码过期倒计时之后再输入该验证码)
+证件类型:01身份证
+证件号:510265790128303
+姓名:张三
+
+华夏银行贷记卡:6226 3880 0000 0095
+手机号:18100000000
+CVN2:248
+有效期:1219
+短信验证码:123456(注需要先点击"免费获取",进入验证码过期倒计时之后再输入该验证码)
+证件类型:01身份证
+证件号:510265790128303
+姓名:张三
 ```
 
 ### 银联正式环境
