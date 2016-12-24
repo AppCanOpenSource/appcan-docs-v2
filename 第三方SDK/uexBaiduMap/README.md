@@ -1809,7 +1809,13 @@ var callbackFunction=function(error,data){}
 
 ```json
 var data = {
-	address://地理位置信息
+	address://完整的地理位置信息
+ 
+  	streetNumber://街道号
+  	street://街道
+  	district://区域
+    city://城市
+    province://省份
 }
 ```
 
@@ -2210,10 +2216,10 @@ API版本: `uexBaiduMap-4.0.1`
 
 最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.1 | 修复getCurrentLocation回调参数错误的问题 |
-| 4.0.0 | 百度地图插件 for iOS |
+| 历史发布版本 | 更新内容                          |
+| ------ | ----------------------------- |
+| 4.0.1  | 修复getCurrentLocation回调参数错误的问题 |
+| 4.0.0  | 百度地图插件 for iOS                |
 
 ### Android
 
@@ -2221,8 +2227,8 @@ API版本: `uexBaiduMap-4.0.2`
 
 最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.2 | searchRoutePlan支持function传入 |
-| 4.0.1 | 修复open中心点失效的问题 |
-| 4.0.0 | 百度地图插件,封装最新的百度地图API |
+| 历史发布版本 | 更新内容                        |
+| ------ | --------------------------- |
+| 4.0.2  | searchRoutePlan支持function传入 |
+| 4.0.1  | 修复open中心点失效的问题              |
+| 4.0.0  | 百度地图插件,封装最新的百度地图API         |
