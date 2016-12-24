@@ -1,30 +1,30 @@
 
 [TOC]
 
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 
 科大讯飞语音插件
 
-## 1.1、说明
+## 1.1､说明
 封装了科大讯飞语音识别和语音合成的相关功能,两个功能都需要在线合成  
 
 **插件为单例插件,所有的回调函数将会回调到调用`init()`所在的Window**  
 如:在root页面调用`uexXunfei.init()`,则回调都会发送到root window
 
-## 1.2、开源源码
+## 1.2､开源源码
 [点击](http://plugin.appcan.cn/details.html?id=603_pluginlist)至插件详情页(测试用例与插件源码已经提供)
 
-## 1.3、平台版本支持
+## 1.3､平台版本支持
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.4、接口有效性
+## 1.4､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明.
 
-#2、 API预览
+#2､ API预览
 
-##2.1、 方法
+##2.1､ 方法
 
 ### 🍭 init  初始化
 
@@ -36,9 +36,9 @@
 
 **参数**
 
-| 参数名称             | 参数类型     | 是否必选 | 说明                  |
-| ---------------- | -------- | ---- | ------------------- |
-| param            | String   | 是    | param是json字符串,详情见下: |
+| 参数名称  | 参数类型   | 是否必选 | 说明                  |
+| ----- | ------ | ---- | ------------------- |
+| param | String | 是    | param是json字符串,详情见下: |
 
 
 ```javascript
@@ -46,7 +46,7 @@ var param = {
 	appID:
 }
 ```
-各字段含义如下：
+各字段含义如下:
 
 | 字段名称  | 类型     | 是否必选 | 说明      |
 | ----- | ------ | ---- | ------- |
@@ -63,13 +63,9 @@ function init(){
         appID:"56710b9c"
     };
     var data = JSON.stringify(params);
-    var result = uexXunfei.init(data);
+    uexXunfei.init(data);
 }
 ```
-
-**返回值：**
-
-boolean类型，初始化成功返回true, 失改返回false
 
 ### 🍭 initSpeaker 初始化语音合成
 
@@ -93,7 +89,7 @@ var param={
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 字段名称      | 类型     | 是否必选 | 说明                 |
 | --------- | ------ | ---- | ------------------ |
@@ -131,7 +127,7 @@ var param={
 }
 ```
 
- 各字段含义如下：
+ 各字段含义如下:
 
 | 字段名称 | 类型     | 是否必选 | 说明       |
 | ---- | ------ | ---- | -------- |
@@ -213,13 +209,13 @@ var param={
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 字段名称     | 类型     | 是否必选 | 说明                                       |
 | -------- | ------ | ---- | ---------------------------------------- |
-| domain   | String | 否    | 设置应用领域，短信和日常用语:iat (默认)；视频:video；地图:poi；音乐:music。 |
-| language | String | 否    | 设置语言，当前支持：简体中文:zh_cn(默认)；美式英文:en_us。     |
-| accent   | String | 否    | 设置方言，当前支持的中文方言有：普通话:mandarin(默认)；粤 语:cantonese；四川话:lmz；河南话:henanese。 |
+| domain   | String | 否    | 设置应用领域,短信和日常用语:iat (默认);视频:video;地图:poi;音乐:music｡ |
+| language | String | 否    | 设置语言,当前支持:简体中文:zh_cn(默认);美式英文:en_us｡     |
+| accent   | String | 否    | 设置方言,当前支持的中文方言有:普通话:mandarin(默认);粤 语:cantonese;四川话:lmz;河南话:henanese｡ |
 
 **示例**
 
@@ -281,7 +277,7 @@ uexXunfei.stopListening();
 uexXunfei.cancelListening();    
 ```
 
-##2.2、 监听方法
+##2.2､ 监听方法
 
 ### 🍭 onSpeakBegin 语音合成开始
 
@@ -535,27 +531,29 @@ var param={
 }
 ```
 
-#3、 附录
+#3､ 附录
 
 ##AppID申请
-AppID申请需要在讯飞官网申请完成。创建应用之后需要开通`语音听写` `在线语音合成`。 创建一个应用时，会自动关联一个Appid，Appid和对应的SDK具有一致性，故iOS插件建议在讯飞开放平台创建应用，生成Appid，并选中**组合服务SDK下载**，勾选`语音听写` `在线语音合成`，下载自定义sdk，用下载的sdk中的iflyMSC.framework替换掉插件包中的framework，作为自定义插件包使用。对于Android插件，开发者需要从讯飞官网下载应用对应的sdk，下载完成后，用sdk中的`libs`目录下的`Msc.jar`, `Sunflower.jar`替换插件包中的`jar`目录下的这两个文件，将sdk中的`libs/armeabi`下`libmsc.so`替换插件包中的`so`目录下的文件。
+AppID申请需要在讯飞官网申请完成｡创建应用之后需要开通`语音听写` `在线语音合成`｡ 创建一个应用时,会自动关联一个Appid,Appid和对应的SDK具有一致性,故iOS插件建议在讯飞开放平台创建应用,生成Appid,并选中**组合服务SDK下载**,勾选`语音听写` `在线语音合成`,下载自定义sdk,用下载的sdk中的iflyMSC.framework替换掉插件包中的framework,作为自定义插件包使用｡对于Android插件,开发者需要从讯飞官网下载应用对应的sdk,下载完成后,用sdk中的`libs`目录下的`Msc.jar`, `Sunflower.jar`替换插件包中的`jar`目录下的这两个文件,将sdk中的`libs/armeabi`下`libmsc.so`替换插件包中的`so`目录下的文件｡
 
-# 4、更新历史
+# 4､更新历史
 
 ### iOS
 
 API版本: `uexXunfei-4.0.0`
 
-最近更新时间:`2016-3-21`
+最近更新时间:`2016-12-15`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 讯飞语音 |
 
 ### Android
 
 API版本: `uexXunfei-4.0.0`
 
-最近更新时间:`2015-12-18`
+最近更新时间:`2016-12-15`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 科大讯飞语音插件 |

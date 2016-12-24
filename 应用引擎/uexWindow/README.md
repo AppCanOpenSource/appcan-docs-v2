@@ -78,9 +78,9 @@ var extras = {
 
 ```javascript
 uexWindow.open({
-    windName:"test",
+    name:"test",
     data:"index.html",
-    animationID:2,
+    animID:2,
     flag:1024
 });
 ```
@@ -103,9 +103,9 @@ uexWindow.open({
 
 ```javascript
 uexWindow.openPresentWindow({
-    windName:"test",
+   	name:"test",
     data:"index.html",
-    animationID:2,
+    animID:2,
     flag:1024
 });
 ```
@@ -488,6 +488,27 @@ uexWindow.openPopover({
   y:0,
   bottomMargin:100
 });
+```
+
+### 🍭 setPopoverVisibility 设置浮动窗口是否显示
+
+`uexWindow.setPopoverVisibility(popName,visible)`
+
+**说明:**
+
+设置浮动窗口是否显示
+
+**参数:**
+
+| 参数名称    | 参数类型   | 是否必选 | 说明         |
+| ------- | ------ | ---- | ---------- |
+| popName | String | 是    | 名称         |
+| visible | Number | 是    | 0-不显示，1-显示 |
+
+**示例:**
+
+```javascript
+uexWindow.setPopoverVisibility('sss',0);
 ```
 
 ### 🍭 closePopover 关闭浮动窗口
@@ -2586,7 +2607,7 @@ uexWindow.resetBounceView("1");
 | 参数名称   | 参数类型   | 是否必选 | 说明                  |
 | ------ | ------ | ---- | ------------------- |
 | type   | Number | 是    | 弹动的位置,0:顶端弹动;1:底部弹动 |
-| status | String | 是    | json                |
+| status | JSON   | 是    | json                |
 
 status中字段的说明
 
@@ -3029,6 +3050,33 @@ console.log(name);
 
 
 
+### 🍭 setInlineMediaPlaybackEnable
+
+###  设置当前页面是否允许内联视频播放
+
+`uexWindow.setInlineMediaPlaybackEnable(flag)`
+
+**说明:**
+
+当此属性设置为true时,可以让配置了`webkit-playsinline`属性的`video`标签以非全屏方式播放视频
+
+***此方法仅支持iOS***
+
+对于iPhone或者iPod,此属性默认值为false;
+对于iPad,此属性默认值为true;
+
+**参数:**
+
+flag为Boolean, true表示允许内联视频播放,false表示禁止
+
+  
+
+**示例:**
+
+```JavaScript
+ uexWindow.setInlineMediaPlaybackEnable(true);
+```
+
 
 
 ## 2.4 回调方法
@@ -3150,7 +3198,11 @@ uexWindow.onSlipedUpward = function(){
 ```javascript
 uexWindow.onAnimationFinish = onAnimationFinish;
 function onAnimationFinish() {
-    uexWindow.alert("应用名称","动画完毕","ok");
+	uexWindow.alert({
+  title:"应用名称",
+  message:"动画完毕",
+  buttonLabel:"OK"
+});
 }
 ```
 
