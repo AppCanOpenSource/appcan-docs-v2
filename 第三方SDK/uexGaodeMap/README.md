@@ -2340,8 +2340,6 @@ var GaodeBusline  = {
   uid:,           //String 公交线路id
   type:,          //String 公交类型
   name:,          //String 公交线路名称
-  startStop,      //String 首发站
-  endStop:,       //String 终点站
   departureStop:, //String 启程站
   arrivalStop:,   //String 下车站
   viaStops:,      //Array<String> 途径公交站
@@ -2349,7 +2347,6 @@ var GaodeBusline  = {
   endTime:,       //String 末班车时间
   distance:,      //Number 预计乘坐距离(米)
   duration:,      //Number 预计乘坐时间(秒)
-  price:,         //Number 票价
 }
 ```
 
