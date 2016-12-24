@@ -2457,6 +2457,7 @@ uexGaodeMap.drivingRouteSearch({
  	 	alert("路径规划结果: " + JSON.stringify(data));
  	}else{
  		alert("路径规划失败: " + data);
+    }
  });
 ```
 
@@ -2515,6 +2516,7 @@ uexGaodeMap.walkingRouteSearch({
  	 	alert("路径规划结果: " + JSON.stringify(data));
  	}else{
  		alert("路径规划失败: " + data);
+    }
  });
 ```
 
@@ -2573,6 +2575,7 @@ uexGaodeMap.ridingRouteSearch({
  	 	alert("路径规划结果: " + JSON.stringify(data));
  	}else{
  		alert("路径规划失败: " + data);
+    }
  });
 ```
 
@@ -2636,6 +2639,7 @@ uexGaodeMap.transitRouteSearch({
  	 	alert("路径规划结果: " + JSON.stringify(data));
  	}else{
  		alert("路径规划失败: " + data);
+    }
  });
 ```
 
