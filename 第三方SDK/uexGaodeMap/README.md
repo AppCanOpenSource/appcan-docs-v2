@@ -2408,8 +2408,8 @@ var GaodeTransit = {
  */
 
 var GaodeRouteResult = {
-  taxiCost:, //Number 预计总花费(元) 驾车搜索时可能会用到
-  paths:, //Array<GaodePath> 换乘路段
+  taxiCost:, //Number 预计总花费(元),驾车搜索时可能会用到.
+  paths:, //Array 路径规划结果.当进行公交路径规划规划时,paths为GaodeTransit对象构成的数组;当进行其他种类路径规划时,paths为GaodePath对象构成的数组.
 }
 ```
 
