@@ -2400,6 +2400,21 @@ var GaodeTransit = {
 
 
 
+#### GaodeRouteResult
+
+```js
+/**
+ * 返回结果
+ */
+
+var GaodeRouteResult = {
+  taxiCost:, //Number 预计总花费(元) 驾车搜索时可能会用到
+  paths:, //Array<GaodePath> 换乘路段
+}
+```
+
+
+
 ### 🍭 drivingRouteSearch 驾车路径规划
 
 `uexGaodeMap.drivingRouteSearch(info,callback)`
@@ -2427,7 +2442,7 @@ var info = {
 ```js
 var callback = function(error,data){
 	//error 非0表示失败 此时data为失败原因 String类型
-	//error 为0表示成功 此时data为符合条件的路径 是GaodePath结构构成的数组 Array<GaodePath>类型
+	//error 为0表示成功 此时data为符合条件的路径 是GaodeRouteResult类型
 	//data 可能为空数组,表示路径规划成功,但没有搜索到可以符合条件的路径
 }
 ```
@@ -2462,6 +2477,39 @@ uexGaodeMap.drivingRouteSearch({
  });
 ```
 
+**data 的数据结构如下：**
+
+```javascript
+{
+  "paths": [
+    {
+      "distance": 20105.0,
+      "duration": 4140,
+      "steps": [
+        {
+          "action": "向右前方行驶",
+          "distance": 303.0,
+          "duration": 60.0,
+          "instruction": "沿华远街向南行驶303米向右前方行驶",
+          "orientation": "南",
+          "points": [
+            {
+              "latitude": 39.910263,
+              "longitude": 116.371178
+            }
+          ],
+          "road": "华远街",
+          "tolls": 0.0
+        }
+      ],
+      "strategy": "距离最短",
+      "tolls": 0.0
+    }
+  ],
+  "taxiCost": 46.0579
+}
+```
+
 
 
 ### 🍭 walkingRouteSearch 步行路径规划
@@ -2489,7 +2537,7 @@ var info = {
 ```js
 var callback = function(error,data){
 	//error 非0表示失败 此时data为失败原因 String类型
-	//error 为0表示成功 此时data为符合条件的路径 是GaodePath结构构成的数组 Array<GaodePath>类型
+	//error 为0表示成功 此时data为符合条件的路径 是GaodeRouteResult类型
 	//data 可能为空数组,表示路径规划成功,但没有搜索到可以符合条件的路径
 }
 ```
@@ -2521,6 +2569,37 @@ uexGaodeMap.walkingRouteSearch({
  });
 ```
 
+**data 的数据结构如下：**
+
+```javascript
+{
+  "paths": [
+    {
+      "distance": 15606.0,
+      "duration": 11147,
+      "steps": [
+        {
+          "action": "往前走",
+          "distance": 113.0,
+          "duration": 81.0,
+          "instruction": "沿华远街向北步行113米往前走",
+          "orientation": "北",
+          "points": [
+            {
+              "latitude": 39.910591,
+              "longitude": 116.371178
+            }
+          ],
+          "road": "华远街",
+          "tolls": 0.0
+        }
+      ],
+      "tolls": 0.0
+    }
+  ]
+}
+```
+
 
 
 ### 🍭 ridingRouteSearch 骑行路径规划
@@ -2548,7 +2627,7 @@ var info = {
 ```js
 var callback = function(error,data){
 	//error 非0表示失败 此时data为失败原因 String类型
-	//error 为0表示成功 此时data为符合条件的路径 是GaodePath结构构成的数组 Array<GaodePath>类型
+	//error 为0表示成功 此时data为符合条件的路径 是GaodeRouteResult类型
 	//data 可能为空数组,表示路径规划成功,但没有搜索到可以符合条件的路径
 }
 ```
@@ -2578,6 +2657,37 @@ uexGaodeMap.ridingRouteSearch({
  		alert("路径规划失败: " + data);
     }
  });
+```
+
+**data 的数据结构如下：**
+
+```javascript
+{
+  "paths": [
+    {
+      "distance": 16846.0,
+      "duration": 4043,
+      "steps": [
+        {
+          "action": "直行",
+          "distance": 166.0,
+          "duration": 39.0,
+          "instruction": "沿华远街向北骑行166米直行",
+          "orientation": "北",
+          "points": [
+            {
+              "latitude": 39.910103,
+              "longitude": 116.371193
+            }
+          ],
+          "road": "华远街",
+          "tolls": 0.0
+        }
+      ],
+      "tolls": 0.0
+    }
+  ]
+}
 ```
 
 
@@ -2610,7 +2720,7 @@ var info = {
 ```js
 var callback = function(error,data){
 	//error 非0表示失败 此时data为失败原因 String类型
-	//error 为0表示成功 此时data为符合条件的路径 是GaodeTransit对象构成的数组 Array<GaodeTransit>类型
+	//error 为0表示成功 此时data为符合条件的路径 是GaodeRouteResult类型
 	//data 可能为空数组,表示路径规划成功,但没有搜索到可以符合条件的路径
 }
 ```
@@ -2644,7 +2754,72 @@ uexGaodeMap.transitRouteSearch({
  });
 ```
 
+**data 的数据结构如下：**
 
+```javascript
+{
+  "paths": [
+    {
+      "cost": 5.0,
+      "distance": 28477.0,
+      "duration": 3815,
+      "nightFlag": false,
+      "segments": [
+        {
+          "buslines": [
+            {
+              "distance": 4598.0,
+              "duration": 528.0,
+              "endTime": "2220",
+              "name": "地铁4号线大兴线(安河桥北--天宫院)",
+              "price": 0.0,
+              "startTime": "0500",
+              "type": "地铁线路",
+              "uid": "110100023076",
+              "viaStops": []
+            }
+          ],
+          "enterName": "F1口",
+          "enterPoint": {
+            "latitude": 39.908047,
+            "longitude": 116.373657
+          },
+          "walking": {
+            "destination": {
+              "latitude": 39.907387,
+              "longitude": 116.374046
+            },
+            "distance": 522.0,
+            "duration": 447,
+            "origin": {
+              "latitude": 39.910103,
+              "longitude": 116.371193
+            },
+            "steps": [
+              {
+                "action": "左转",
+                "distance": 146.0,
+                "duration": 0.0,
+                "instruction": "沿华远街步行146米左转",
+                "orientation": "",
+                "points": [
+                  {
+                    "latitude": 39.910103,
+                    "longitude": 116.371193
+                  }
+                ],
+                "road": "华远街",
+                "tolls": 0.0
+              }
+            ]
+          }
+        }
+      ],
+      "walkingDistance": 2028.0
+    }
+  ]
+}
+```
 
 
 
