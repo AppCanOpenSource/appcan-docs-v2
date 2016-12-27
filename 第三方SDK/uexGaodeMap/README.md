@@ -2340,6 +2340,8 @@ var GaodeBusline  = {
   uid:,           //String 公交线路id
   type:,          //String 公交类型
   name:,          //String 公交线路名称
+  startStop,      //String 可选 首发站 
+  endStop:,       //String 可选 终点站
   departureStop:, //String 启程站
   arrivalStop:,   //String 下车站
   viaStops:,      //Array<String> 途径公交站
@@ -2347,7 +2349,9 @@ var GaodeBusline  = {
   endTime:,       //String 末班车时间
   distance:,      //Number 预计乘坐距离(米)
   duration:,      //Number 预计乘坐时间(秒)
+  price:,         //Number 可选 票价
 }
+
 ```
 
 
@@ -2412,7 +2416,7 @@ var info = {
  	origin:, //GaodePoint 起始地
  	destination:,//GaodePoint 目的地
  	strategy:,//Number 可选 路径规划策略,默认0.  0-速度优先（时间）1-费用优先（不走收费路段的最快道路）2-距离优先 3-不走快速路 4-结合实时交通（躲避拥堵）5-多策略（同时使用速度优先、费用优先、距离优先三个策略）6-不走高速 7-不走高速且避免收费 8-躲避收费和拥堵 9-不走高速且躲避收费和拥堵
- 	avoidroad:,//String,可选,避让道路名
+ 	avoidRoad:,//String,可选,避让道路名
 }
 ```
 
