@@ -124,8 +124,7 @@ ace_share_1;
 **示例:**
 
 ```
-var jsonstr =
-'{
+var json = {
     "emojicons": "res://emojicons/emojicons.xml",
     "shares": "res://shares/shares.xml",
     "placeHold": "请输入内容",
@@ -140,8 +139,8 @@ var jsonstr =
     "sendBtnTextColor": "#FFF",
     "inputMode":1,
     "keywords": ["@"]
-}';
-uexChatKeyboard.open(jsonstr);
+};
+uexChatKeyboard.open(JSON.stringify(json));
 ```
 ### 🍭 close 关闭聊天输入 
 
