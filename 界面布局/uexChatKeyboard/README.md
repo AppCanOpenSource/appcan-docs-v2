@@ -235,7 +235,7 @@ uexChatKeyboard.changeWebViewFrame(600);
 `uexChatKeyboard.insertTextByKeyword(jsonStr)`
 
 **说明:**
-通过关键字插入内容功能。调用此接口之前先监听，监听方法[uexChatKeyboard.onInputKeyword](#onInputKeyword 编辑框输入监测的关键字之后的监听方法 "uexChatKeyboard.onInputKeyword")
+通过关键字插入内容功能。调用此接口之前需要在open方法中设置参数keywords来监听关键字（例如：@），监听方法[uexChatKeyboard.onInputKeyword](#onInputKeyword 编辑框输入监测的关键字之后的监听方法 "uexChatKeyboard.onInputKeyword")
 例子:
 @好友功能，收到关键字“@”的监听[uexChatKeyboard.onInputKeyword](#onInputKeyword编辑框输入监测的关键字之后的监听方法"uexChatKeyboard.onInputKeyword")之后，选择好友。选择完毕后调用此接口添加好友到关键字@后面,或替换原有@字符。
 
