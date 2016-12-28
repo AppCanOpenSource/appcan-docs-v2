@@ -119,14 +119,13 @@ Path Types
 var param = {
 	appKey:,//String,环信官网申请的appKey   
 	apnsCertName:,//String,可选 环信官网后台配置的iOS推送证书(仅iOS)
-	isAutoLoginEnabled:,//Number,可选 是否开启自动登录功能 1-开启 2-关闭
+	isAutoLoginEnabled:,//Number,可选 是否开启自动登录功能 1-开启 2-关闭 默认为开启
 	isAutoAcceptGroupInvitation:,//Number,可选 是否开启用户自动同意群邀请,1-开启 2-关闭 默认为开启
 	miPushAppId:,//String,可选 小米推送的appId(仅Android)
     miPushAppKey:,//String,可选 小米推送的appKey(仅Android)
 };
 ```
 * apnsCertName不传时,无法使用环信的APNs推送功能
-* 自动登录功能Android SDK 默认开启,iOS SDK默认关闭.
 
 
 
@@ -2104,13 +2103,13 @@ var data = {
 
 > ### 回调方法
 
-### 🍭 onApnsLaunch 应用由于APNs被打开
+### 🍭 onApnsLaunch 应用由于点击APNs推送被打开
 
 `uexEasemob.onApnsLaunch`
 
 **说明**
 
- 当应用由于APNs被打开时,当插件初始化时会触发此回调
+ 当应用由于点击APNs推送被打开时,会触发此回调
 
 **参数**
 
