@@ -805,13 +805,13 @@ uexWindow.setSelectedPopOverInMultiWindow({
 **示例:**
 
 ```javascript
-uexWindow.setMultiPopoverFrame(
+uexWindow.setMultiPopoverFrame({
   name:"multipop", 
   x:"10", 
   y:"10", 
   w:"600", 
   y:"600"
-);
+});
 ```
 
 ### 🍭 bringToFront 置顶当前浮动窗口
@@ -1671,10 +1671,10 @@ var state=uexWindow.getSlidingWindowState();
 
 返回值为JSON字符串，字段说明如下：
 
-|  字段名称 | 字段说明 |
-| ---------- | -------- |
-| kernelType | WebView内核类型，包括三种：**X5**（腾讯X5内核） 、**System(Blink)**（系统内核Android 4.4及以上）、**System(Webkit)**（系统内核Android 4.4以下） |
-| kernelVersion | WebView内核版本，如果是System(Webkit)内核类型，没有该字段 |
+| 字段名称          | 字段说明                                     |
+| ------------- | ---------------------------------------- |
+| kernelType    | WebView内核类型，包括三种：**X5**（腾讯X5内核） 、**System(Blink)**（系统内核Android 4.4及以上）、**System(Webkit)**（系统内核Android 4.4以下） |
+| kernelVersion | WebView内核版本，如果是System(Webkit)内核类型，没有该字段  |
 
 **版本支持:**
 4.1.0+
