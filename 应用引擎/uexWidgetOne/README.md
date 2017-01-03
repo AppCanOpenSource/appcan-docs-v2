@@ -44,7 +44,7 @@ alert('应用是否为全屏:' + uexWidgetOne.isFullScreen)";
 ```
 
 
-#2、方法
+#2、API概览
 
 * 以下的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统
 * 以下的所有API默认在引擎版本**4.0.0+**可用.
@@ -228,7 +228,7 @@ errorInfo:(String类型) 必选  错误信息````
 
 
 **示例:**
-​```
+​```javascript
 function cbError(opId,dataType,data){
     alert(data);
 }
