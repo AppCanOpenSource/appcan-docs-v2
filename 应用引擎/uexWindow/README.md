@@ -805,13 +805,13 @@ uexWindow.setSelectedPopOverInMultiWindow({
 **示例:**
 
 ```javascript
-uexWindow.setMultiPopoverFrame(
+uexWindow.setMultiPopoverFrame({
   name:"multipop", 
   x:"10", 
   y:"10", 
   w:"600", 
   y:"600"
-);
+});
 ```
 
 ### 🍭 bringToFront 置顶当前浮动窗口
@@ -1653,6 +1653,37 @@ Number类型,返回的显示情况,0:左侧菜单显示;1:主界面显示;2:右�
 
 ```javascript
 var state=uexWindow.getSlidingWindowState();
+```
+
+### 🍭 getWebViewKernelInfo 获取WebView内核信息
+
+`uexWindow.getWebViewKernelInfo()`
+
+**说明:**
+
+仅Android 
+
+**参数:**
+
+无
+
+**返回值:**
+
+返回值为JSON字符串，字段说明如下：
+
+| 字段名称          | 字段说明                                     |
+| ------------- | ---------------------------------------- |
+| kernelType    | WebView内核类型，包括三种：**X5**（腾讯X5内核） 、**System(Blink)**（系统内核Android 4.4及以上）、**System(Webkit)**（系统内核Android 4.4以下） |
+| kernelVersion | WebView内核版本，如果是System(Webkit)内核类型，没有该字段  |
+
+**版本支持:**
+4.1.0+
+
+**示例:**
+
+```javascript
+var kernelInfo = uexWindow.getWebViewKernelInfo();
+alert(kernelInfo);
 ```
 
 ## 2.2、系统UI类方法
@@ -2701,13 +2732,13 @@ uexWindow.setIsSupportSlideCallback(param);
 
 **说明:**
 
-左右滑动监听包括[onSwipeRight](#onSwipeRight 向右滑动的监听方法),[onSwipeLeft](#onSwipeLeft 向左滑动的监听方法),主窗口浮动窗口分别调用之后，onSwipeRight、onSwipeRight左右监听方法才会生效。
+左右滑动监听包括[onSwipeRight](#onSwipeRight 向右滑动的监听方法),[onSwipeLeft](#onSwipeLeft 向左滑动的监听方法),监听默认有效,如果要防止与多浮动窗口的手势冲突需要调用接口设置为false。
 
 **参数:**
 
 ```javascript
 var param = {
-    isSupport:true(支持);false(不支持).必选,默认为false.
+    isSupport:true(支持);false(不支持).必选,默认为true.
 }
 ```
 
