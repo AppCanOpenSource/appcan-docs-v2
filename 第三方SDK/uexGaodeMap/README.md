@@ -48,7 +48,7 @@
 在后续版本中新添加的接口会在文档中额外说明.
 
 # 2､API概述 
-## 2.1､方法
+## 2.1､地图基础方法
 ### 🍭 open  打开地图 
 
 `uexGaodeMap.open(json)`
@@ -102,6 +102,63 @@ var json = {
     };
     uexGaodeMap.open(JSON.stringify(json));
 ```
+
+
+
+### 🍭 resize  改变地图大小
+
+`uexGaodeMap.resize(data)`
+
+**说明:**
+
+打开地图.
+
+**参数:**
+
+| 参数名称 | 参数类型   | 是否必选 | 说明     |
+| ---- | ------ | ---- | ------ |
+| data | Object | 是    | 地图大小参数 |
+
+```javascript
+var data = {
+    left:,
+    top:,
+    width:,
+    height:,
+}
+```
+
+**各字段含义:**
+
+| 参数名称   | 参数类型   | 是否必选 | 说明             |
+| ------ | ------ | ---- | -------------- |
+| left   | Number | 否    | 左间距,不传表示不进行改变  |
+| top    | Number | 否    | 上间距,不传表示不进行改变  |
+| width  | Number | 否    | 地图宽度,不传表示不进行改变 |
+| height | Number | 否    | 地图高度,不传表示不进行改变 |
+
+
+
+**版本支持:**
+
+iOS 4.0.3+
+
+Android 4.0.2+
+
+
+
+**示例:**
+
+```javascript
+uexGaodeMap.resize({
+	left:0,
+ 	top:0,
+ 	width:800,
+ 	height:800
+});
+```
+
+
 
 ### 🍭  close  关闭地图
 
@@ -460,6 +517,76 @@ var json = {
     uexGaodeMap.setScrollEnable(JSON.stringify(json));
 ```
 
+### 🍭 setScaleVisible  设置地图是否显示比例尺
+
+`uexGaodeMap.setScaleVisible(json)`
+
+**参数:**
+
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| json | json字符串 | 是    | 传入参数 |
+
+```javascript
+var json = {
+    visible: 
+}
+```
+
+**各字段含义如下**:
+
+| 参数名称    | 参数类型    | 是否必选 | 说明                     |
+| ------- | ------- | ---- | ---------------------- |
+| visible | Boolean | 是    | 是否显示,true-显示;false-隐藏. |
+
+**示例:**
+
+```javascript
+  var json = {
+        visible:true
+    }
+    uexGaodeMap.setScaleVisible(JSON.stringify(json));
+```
+
+### 🍭 setZoomVisible  设置是否显示放大缩小按钮,仅支持Android
+
+`uexGaodeMap.setZoomVisible(json)`
+
+**参数:**
+
+| 参数名称 | 参数类型    | 是否必选 | 说明   |
+| ---- | ------- | ---- | ---- |
+| json | json字符串 | 是    | 传入参数 |
+
+```javascript
+var json = {
+    visible:
+}
+```
+
+**各字段含义如下**:
+
+| 参数名称    | 参数类型    | 是否必选 | 说明                     |
+| ------- | ------- | ---- | ---------------------- |
+| visible | Boolean | 是    | 是否显示,true-显示;false-隐藏. |
+
+**平台支持:**
+
+Android 4.0+
+
+**示例:**
+
+```javascript
+   var json = {
+        visible:true
+    }
+    uexGaodeMap.setZoomVisible(JSON.stringify(json));
+```
+
+### 
+
+## 2.2､标注和覆盖物
+
 ### 🍭  addMarkersOverlay  添加标注
 
 ` uexGaodeMap.addMarkersOverlay(json)`
@@ -579,8 +706,8 @@ var json = {
 
 **参数:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明           |
-| ---- | ------- | ---- | ------------ |
+| 参数名称 | 参数类型    | 是否必选 | 说明          |
+| ---- | ------- | ---- | ----------- |
 | json | json字符串 | 是    | 传入参数, 信息窗信息 |
 
 
@@ -599,17 +726,17 @@ var json = {
 ```
 **各字段含义:**
 
-| 参数名称      | 参数类型   | 是否必选 | 说明    |
-| --------- | ------ | ---- | ----- |
-| id        | Number | 是    | 唯一标识符 |
-| longitude | float | 是    | 经度  |
-| latitude | float | 是    | 纬度   |
-| title  | String  | 是    | 标题    |
-| titleSize | Number | 是    | 标题字号大小,默认是32px |
-| titleColor  | String | 是    | 标题字体颜色, 默认黑色 |
-| subTitle  | String  | 否    | 子标题   |
+| 参数名称          | 参数类型   | 是否必选 | 说明               |
+| ------------- | ------ | ---- | ---------------- |
+| id            | Number | 是    | 唯一标识符            |
+| longitude     | float  | 是    | 经度               |
+| latitude      | float  | 是    | 纬度               |
+| title         | String | 是    | 标题               |
+| titleSize     | Number | 是    | 标题字号大小,默认是32px   |
+| titleColor    | String | 是    | 标题字体颜色, 默认黑色     |
+| subTitle      | String | 否    | 子标题              |
 | subTitleSize  | Number | 否    | 子标题字号大小, 默认是28px |
-| subTitleColor | String | 否    | 子标题字体颜色,默认黑色 |
+| subTitleColor | String | 否    | 子标题字体颜色,默认黑色     |
 
 
 示例:
@@ -648,6 +775,31 @@ var param = [
 var data = JSON.stringify(param);
 uexGaodeMap.addMultiInfoWindow(data);
 ```
+
+
+
+### 🍭 removeMarkersOverlays  移除标注
+
+`uexGaodeMap.removeMarkersOverlays(json)`
+
+**参数:**
+
+| 参数名称 | 参数类型    | 是否必选 | 说明                        |
+| ---- | ------- | ---- | ------------------------- |
+| json | json字符串 | 否    | 传入参数,标注唯一标识符数组,不传时移除所有标注. |
+
+```javascript
+var json = [];
+```
+
+**示例:**
+
+```javascript
+    var json = [151,152];
+    uexGaodeMap.removeMarkersOverlays(JSON.stringify(json));
+```
+
+### 
 
 ### 🍭 addPolylineOverlay  添加折线覆盖物
 
@@ -710,31 +862,6 @@ var json = {
         ]
     };
     uexGaodeMap.addPolylineOverlay(JSON.stringify(json));
-```
-
-### 🍭 removeOverlays  移除覆盖物
-
-`uexGaodeMap.removeOverlays(json)`
-
-**参数:**
-
-| 参数名称 | 参数类型    | 是否必选 | 说明                          |
-| ---- | ------- | ---- | --------------------------- |
-| json | json字符串 | 可选   | 传入参数,覆盖物唯一标识符数组,不传时移除所有覆盖物. |
-
-
-```javascript
-var json = [];
-```
-
-  
-
-**示例:**
-
-```javascript
- 	var params = [151,152];
-    var json = JSON.stringify(params);
-    uexGaodeMap.removeOverlays(json);
 ```
 
 ### 🍭 addArcOverlay  添加弧形覆盖物,仅Android支持
@@ -983,26 +1110,51 @@ var json = {
     uexGaodeMap.addGroundOverlay(JSON.stringify(json));
 ```
 
-### 🍭 removeMarkersOverlays  移除标注
+### 🍭 removeOverlays  移除覆盖物
 
-`uexGaodeMap.removeMarkersOverlays(json)`
+`uexGaodeMap.removeOverlays(json)`
 
 **参数:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明                        |
-| ---- | ------- | ---- | ------------------------- |
-| json | json字符串 | 否    | 传入参数,标注唯一标识符数组,不传时移除所有标注. |
+| 参数名称 | 参数类型    | 是否必选 | 说明                          |
+| ---- | ------- | ---- | --------------------------- |
+| json | json字符串 | 可选   | 传入参数,覆盖物唯一标识符数组,不传时移除所有覆盖物. |
 
 ```javascript
 var json = [];
 ```
 
+  
+
 **示例:**
 
 ```javascript
-    var json = [151,152];
-    uexGaodeMap.removeMarkersOverlays(JSON.stringify(json));
+ 	var params = [151,152];
+    var json = JSON.stringify(params);
+    uexGaodeMap.removeOverlays(json);
 ```
+
+
+
+### 🍭 clear  清除地图上所有的标注和覆盖物
+
+`uexGaodeMap.clear()`
+
+**参数:**
+
+```
+无
+```
+
+**示例:**
+
+```
+    uexGaodeMap.clear();
+```
+
+### 
+
+## 2.3、兴趣点搜索
 
 ### 🍭 poiSearch  兴趣点搜索
 
@@ -1195,6 +1347,12 @@ var json = {
     });
 ```
 
+
+
+## 2.4、地理编码
+
+
+
 ### 🍭 geocode  地理编码,通过地址获得经纬度信息
 
 
@@ -1311,6 +1469,8 @@ var data = {
                 }
     });
 ```
+
+## 2.5、定位
 
 ### 🍭 getCurrentLocation  获取当前位置
 
@@ -1465,35 +1625,6 @@ var json = {
     }
     uexGaodeMap.setUserTrackingMode(JSON.stringify(json));
 ```
-### 🍭 setScaleVisible  设置地图是否显示比例尺
-
-`uexGaodeMap.setScaleVisible(json)`
-
-**参数:**
-
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
-
-```javascript
-var json = {
-    visible: 
-}
-```
-**各字段含义如下**:
-
-| 参数名称    | 参数类型    | 是否必选 | 说明                     |
-| ------- | ------- | ---- | ---------------------- |
-| visible | Boolean | 是    | 是否显示,true-显示;false-隐藏. |
-
-**示例:**
-
-```javascript
-  var json = {
-        visible:true
-    }
-    uexGaodeMap.setScaleVisible(JSON.stringify(json));
-```
 ### 🍭 setMyLocationButtonVisible 设置是否显示回到我的位置按钮,仅支持Android
 
   设置是否显示回到我的位置按钮,注意回到我的位置按钮点击生效的前提条件是开启定位.
@@ -1511,6 +1642,7 @@ var json = {
     visible:
 }
 ```
+
 **各字段含义如下**:
 
 | 参数名称    | 参数类型    | 是否必选 | 说明                     |
@@ -1529,54 +1661,10 @@ Android 4.0+
     }
     uexGaodeMap.setMyLocationButtonVisible(JSON.stringify(json));
 ```
-### 🍭 setZoomVisible  设置是否显示放大缩小按钮,仅支持Android
 
-`uexGaodeMap.setZoomVisible(json)`
+## 2.6、自定义按钮
 
-**参数:**
 
-| 参数名称 | 参数类型    | 是否必选 | 说明   |
-| ---- | ------- | ---- | ---- |
-| json | json字符串 | 是    | 传入参数 |
-
-````javascript
-var json = {
-    visible:
-}
-````
-**各字段含义如下**:
-
-| 参数名称    | 参数类型    | 是否必选 | 说明                     |
-| ------- | ------- | ---- | ---------------------- |
-| visible | Boolean | 是    | 是否显示,true-显示;false-隐藏. |
-
-**平台支持:**
-
-Android 4.0+
-
-**示例:**
-
-```javascript
-   var json = {
-        visible:true
-    }
-    uexGaodeMap.setZoomVisible(JSON.stringify(json));
-```
-### 🍭 clear  清除地图上所有的标注和覆盖物
-
-`uexGaodeMap.clear()`
-
-**参数:**
-
-```
-无
-```
-
-**示例:**
-
-```
-    uexGaodeMap.clear();
-```
 
 ### 🍭 setCustomButton 设置自定义按钮
 
@@ -1737,8 +1825,1008 @@ var result = uexGaodeMap.deleteCustomButton(id);
 
 
 
+## 2.7、离线地图 
 
-## 2.2､ 监听方法
+### 🍭 download 开始下载
+
+`uexGaodeMap.download(json,callBackFunction)`
+
+**说明:**
+
+  开始下载,当前如果有正在下载的任务,添加到正在下载列表中.
+
+**参数:**
+
+| 参数名称             | 参数类型     | 是否必选 | 说明                                  |
+| ---------------- | -------- | ---- | ----------------------------------- |
+| json             | json字符串  | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
+| callBackFunction | Function | 是    | 回调函数                                |
+
+```javascript
+var json = [
+    {
+        city:,//(可选) 城市名称
+        province://(可选) 省或直辖市名称
+    }
+]
+```
+
+各字段含义如下:
+
+| 参数名称     | 参数类型   | 是否必选 | 说明      |
+| -------- | ------ | ---- | ------- |
+| city     | String | 否    | 城市名称    |
+| province | String | 否    | 省或直辖市名称 |
+
+**回调参数**:
+
+| 参数名称  | 参数类型   | 是否必选 | 说明                   |
+| ----- | ------ | ---- | -------------------- |
+| error | Number | 是    | 0表示加入列表成功,非0表示加入列表失败 |
+| data  | Object | 是    | 返回的数据,形式见下:          |
+
+```javascript
+var data = {
+    name:,//(必选) 省或城市名称
+    errorStr://(可选) 错误描述,error非0时,该值有效.
+}
+```
+
+注:errorStr详情参见附录[cbDownload Status](#1.4.2 cbDownload Status)
+
+**示例:**
+
+```javascript
+    var params = [
+        {
+            city:'武汉'
+        },
+        {
+            province:'广东省'
+        }
+    ];
+    var json = JSON.stringify(params);
+    uexGaodeMap.download(json,function(error,data){
+      if(!error){
+         alert("callback:" + JSON.stringify(data));
+      }else{
+         alert("加入列表失败");
+      }
+        
+    });
+```
+
+### 🍭 onDownload 下载监听方法
+
+`uexGaodeMap.onDownload(json)`
+
+**参数:**
+
+```
+var json = {
+    name:,//(必选) 省或城市名称
+    completeCode:,//(必选) 进度百分比.
+    status://(可选) 下载状态,具体请参考附录onDownload Status.
+}
+```
+
+注:status下载状态参见附录[Download Status](#1.4.1 Download Status)
+
+​    
+
+**示例:**
+
+```
+    uexGaodeMap.onDownload = function(json) {
+        var data = JSON.parse(info);
+        if(data.status == 0){
+            uexWindow.toast(1,5,data.name + " 正在下载...",0);
+        }
+        if(data.status == 1){
+            uexWindow.toast(1,5,data.name + " 正在解压...",0);
+        }
+        if(data.status == 4){
+            uexWindow.closeToast();
+            alert(data.name + " 离线地图下载成功!");
+        }
+        if(data.status == 3){
+            uexWindow.toast(0,5,data.name + " 暂停下载...",2000);
+        }
+        if(data.status == -1){
+            uexWindow.closeToast();
+            alert(data.name + " 下载失败!");
+        }
+    }
+```
+
+### 🍭 pause 暂停下载
+
+`uexGaodeMap.pause(json)`
+
+**参数:**
+
+```
+var json = []//(必传) 省或城市名称数组
+```
+
+**示例:**
+
+```
+    var params = ["武汉","广东省"];
+    var data = JSON.stringify(params);
+    uexGaodeMap.pause(data);
+```
+
+### 🍭 restart 继续下载
+
+`uexGaodeMap.restart(json)`
+
+**参数:**
+
+```
+var json = []//(必传) 省或城市名称数组
+```
+
+
+
+**示例:**
+
+```
+    var params = ["武汉","广东省"];
+    var data = JSON.stringify(params);
+    uexGaodeMap.restart(data);
+```
+
+### 🍭 getAvailableCityList 获取可下载离线地图的城市列表
+
+`uexGaodeMap.getAvailableCityList(callBackFunction)`
+
+**参数:**
+
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
+| callBackFunction | Function | 是    | 回调函数 |
+
+**回调参数**:
+
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| error | Number | 是    | 0表示成功,非0表示失败 |
+| data  | Array  | 是    | 返回的数据        |
+
+```
+var data = [
+    {
+        city:,//(必选) 城市名称
+        size:,//(必选) 包大小,单位字节
+        completeCode:,//(必选) 进度百分比
+    }
+]
+```
+
+ 
+
+**示例:**
+
+```
+    uexGaodeMap.getAvailableCityList(function(error,data){
+      if(!error){
+         alert("callback:" + JSON.stringify(data));
+      }else{
+         alert("获取可下载离线地图的城市列表失败");
+        }
+    });
+```
+
+
+
+### 🍭 getAvailableProvinceList 获取可下载离线地图的省和城市列表
+
+`uexGaodeMap.getAvailableProvinceList(callBackFunction)`
+
+**参数:**
+
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
+| callBackFunction | Function | 是    | 回调函数 |
+
+**回调参数**:
+
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| error | Number | 是    | 0表示成功,非0表示失败 |
+| data  | Array  | 是    | 返回的数据        |
+
+```
+var data = [
+    {
+        cityList:[//(必选) 省包含的城市列表
+            {
+                city:,//(必选) 城市名称
+                size:,//(必选) 包大小,单位字节
+                completeCode:,//(必选) 进度百分比
+                status://(可选) 下载状态
+            }
+        ],
+        province:,//(必选) 省或直辖市名称
+        size:,//(必选) 包大小,单位字节
+        completeCode:,//(必选) 进度百分比
+
+    }
+]
+```
+
+  
+
+**示例:**
+
+```
+    uexGaodeMap.getAvailableProvinceList(function(error,data){
+        if(!error){
+         alert("callback:" + JSON.stringify(data));
+      }else{
+         alert(" 获取可下载离线地图的省和城市列表失败");
+        }
+    });
+```
+
+
+
+### 🍭 getDownloadList 获取已下载列表
+
+`uexGaodeMap.getDownloadList(callBackFunction)`
+
+**参数:**
+
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
+| callBackFunction | Function | 是    | 回调函数 |
+
+**回调参数**:
+
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| error | Number | 是    | 0表示成功,非0表示失败 |
+| data  | Array  | 是    | 返回的数据        |
+
+```
+var data = [
+    {
+        name:,//(必选) 省或城市名称
+        type:,//(必选) 类型,1-城市,2-省
+        size:,//(必选) 包大小,单位字节
+        completeCode:,//(必选) 进度百分比
+
+    }
+]
+```
+
+   
+
+**示例:**
+
+```
+    uexGaodeMap.getDownloadList(function(error,data){
+       if(!error){
+         alert("callback:" + JSON.stringify(data));
+      }else{
+         alert(" 获取可下载离线地图的省和城市列表失败");
+        }
+    });
+```
+
+
+
+### 🍭 getDownloadingList 获取正在下载列表
+
+`uexGaodeMap.getDownloadingList(callBackFunction)`
+
+**参数:**
+
+| 参数名称             | 参数类型     | 是否必选 | 说明   |
+| ---------------- | -------- | ---- | ---- |
+| callBackFunction | Function | 是    | 回调函数 |
+
+**回调参数**:
+
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| error | Number | 是    | 0表示成功,非0表示失败 |
+| data  | Array  | 是    | 返回的数据        |
+
+```
+var data = [
+    {
+        name:,//(必选) 省或城市名称
+        type:,//(必选) 类型,1-城市,2-省
+        size:,//(必选) 包大小,单位字节
+        completeCode:,//(必选) 进度百分比
+    }
+]
+```
+
+ 
+
+**示例:**
+
+```
+    uexGaodeMap.getDownloadingList(function(error,data){
+       if(!error){
+         alert("callback:" + JSON.stringify(data));
+      }else{
+         alert(" 获取可下载离线地图的省和城市列表失败");
+        }
+    });
+```
+
+
+
+### 🍭 isUpdate 检查已下载的离线地图数据是否需要更新
+
+`uexGaodeMap.isUpdate(json,callBackFunction)`
+
+**参数:**
+
+| 参数名称             | 参数类型     | 是否必选 | 说明                                  |
+| ---------------- | -------- | ---- | ----------------------------------- |
+| json             | json字符串  | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
+| callBackFunction | Function | 是    | 回调函数                                |
+
+```javascript
+var json = {
+    city:,//(可选) 城市名称
+    province://(可选) 省或直辖市名称
+}
+```
+
+**回调参数**:
+
+| 参数名称  | 参数类型   | 是否必选 | 说明           |
+| ----- | ------ | ---- | ------------ |
+| error | Number | 是    | 0表示成功,非0表示失败 |
+| data  | Object | 是    | 返回的数据        |
+
+```javascript
+var data = {
+    name:,//(必选) 省或城市名称
+    result://(可选) 是否有更新,0-有更新,1-没有更新
+}
+```
+
+**示例:**
+
+```javascript
+    var params = 
+        {
+            city:'武汉'
+        };
+    
+    var json = JSON.stringify(params);
+    uexGaodeMap.isUpdate(json,function(error,data){
+        if(!error){
+         alert("callback:" + JSON.stringify(data));
+      }else{
+         alert("检查失败");
+        }
+    });
+```
+
+
+
+### 🍭 delete  删除已下载或者正在下载数据
+
+`uexGaodeMap.delete(json,callBackFunction)`
+
+**参数:**
+
+| 参数名称             | 参数类型     | 是否必选 | 说明                                  |
+| ---------------- | -------- | ---- | ----------------------------------- |
+| json             | json字符串  | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
+| callBackFunction | Function | 是    | 回调函数                                |
+
+```
+var json = []//(可选,仅Android) 省或城市名称数组
+
+```
+
+**回调参数**:
+
+| 参数名称  | 参数类型   | 是否必选 | 说明                |
+| ----- | ------ | ---- | ----------------- |
+| error | Number | 是    | 状态码,0-删除成功,非0-失败. |
+| data  | Object | 是    | 返回数据,仅支持Android   |
+
+```
+var data = {
+    name:,//(必选) 省或城市名称
+    errorStr://(可选) 错误描述,errorCode非0时,该值有效.
+}
+```
+
+注:
+
+- json不传时会清除所有数据;
+- 受iOS SDK所限制,iOS仅支持删除所有数据
+- iOS系统下若有传入参数json,则插件不会作任何处理
+
+**示例:**
+
+```javascript
+Android:
+    var params = ["武汉"];
+    var json = JSON.stringify(params);
+    uexGaodeMap.delete(json,function(error,data){
+    	   if(!error){
+         alert("callback:" + JSON.stringify(data));
+      }else{
+         alert("删除失败");
+        }
+    });
+    
+iOS:
+    uexGaodeMap.delete();
+```
+
+
+
+## 2.8、路径规划
+
+### 路径规划用到的基础数据结构
+
+#### GaodeGeoPoint
+
+```js
+/**
+ * GaodeGeoPoint
+ * 地理坐标 
+ */
+
+var GaodeGeoPoint = {
+  latitude:,  //Number,纬度
+  longitude:, //Number,经度
+}
+```
+
+
+
+#### GaodeStep
+
+```js
+/**
+ * GaodeStep
+ * 导航路段
+ */
+
+var GaodeStep = {
+  distance:,// Number 路段长度(米)
+  duration:,// Number 预计耗时(秒)
+  instruction:, //String 行走提示
+  orientation:, //String 方向
+  road:,//String 道路名称
+  tolls:,//Number 可选 收费(元)
+  action:,//String 导航主要动作
+  points:.//Array<GaodeGeoPoint> 途径点的坐标 (按起点至终点排序) 
+}
+```
+
+
+
+#### GaodePath
+
+```js
+/**
+ * GaodePath  
+ * 规划路径
+ */
+
+var GaodePath = {
+  distance:,// Number 路程总长度(米)
+  duration:,// Number 预计总耗时(秒)
+  strategy:,// String 可选 导航策略
+  tolls:, // Number 可选 总收费(元)
+  steps:, // Array<GaodeStep> 规划的路段 (按起点至终点排序) 
+}
+```
+
+#### GaodeBusline
+
+```js
+/**
+ * GaodeBusline 
+ * 公交线路
+ */
+
+var GaodeBusline  = {
+  uid:,           //String 公交线路id
+  type:,          //String 公交类型
+  name:,          //String 公交线路名称
+  startStop,      //String 可选 首发站 
+  endStop:,       //String 可选 终点站
+  departureStop:, //String 启程站
+  arrivalStop:,   //String 下车站
+  viaStops:,      //Array<String> 途径公交站
+  startTime:,     //String 首班车时间
+  endTime:,       //String 末班车时间
+  distance:,      //Number 预计乘坐距离(米)
+  duration:,      //Number 预计乘坐时间(秒)
+  price:,         //Number 可选 票价
+}
+
+```
+
+
+
+#### GaodeSegment
+
+```js
+/**
+ * GaodeSegment
+ * 公交换乘路段
+ */
+
+var GaodeSegment = {
+  walking:{//Object 此换乘路段需要的的步行导航信息
+    origin:, //GaodeGeoPoint 步行起始坐标
+    destination:, //GaodeGeoPoint 步行终止坐标
+    distance:, //Number 步行总距离(米)
+    duration:, //Number 步行预计时间(秒)
+    steps:, //Array<GaodeStep> 步行路段
+  },
+  buslines:,//Array<GaodeBusline> 可供选择的不同公交线路
+  enterName:,//String 入口名称
+  enterPoint:,//GaodePoint 入口坐标
+  exitName:, //String 出口名称
+  exitPoint:, //GaodePoint 出口坐标
+}
+```
+
+#### GaodeTransit
+
+```js
+/**
+ * GaodeTransit
+ * 公交换乘方案
+ */
+
+var GaodeTransit = {
+  cost:, //Number 预计总花费(元)
+  duration:, //Number 预计总耗时
+  nightFlag:, //Boolean 是否是夜班车
+  walkingDistance:, //Number 此方案的步行总距离(米)
+  distance:, //Number 此方案的总距离
+  segments:, //Array<GaodeSegment> 换乘路段
+}
+```
+
+
+
+#### GaodeRouteResult
+
+```js
+/**
+ * 返回结果
+ */
+
+var GaodeRouteResult = {
+  taxiCost:, //Number 预计总花费(元),驾车搜索时可能会用到.
+  paths:, //Array 路径规划结果.当进行公交路径规划规划时,paths为GaodeTransit对象构成的数组;当进行其他种类路径规划时,paths为GaodePath对象构成的数组.
+}
+```
+
+
+
+### 🍭 drivingRouteSearch 驾车路径规划
+
+`uexGaodeMap.drivingRouteSearch(info,callback)`
+
+**参数:**
+
+| 参数名称     | 参数类型     | 是否必选 | 说明          |
+| -------- | -------- | ---- | ----------- |
+| info     | Object   | 是    | 路径规划参数,详情见下 |
+| callback | Function | 是    | 路径规划回调      |
+
+```js
+var info = {
+ 	origin:, //GaodePoint 起始地
+ 	destination:,//GaodePoint 目的地
+ 	strategy:,//Number 可选 路径规划策略,默认0.  0-速度优先（时间）1-费用优先（不走收费路段的最快道路）2-距离优先 3-不走快速路 4-结合实时交通（躲避拥堵）5-多策略（同时使用速度优先、费用优先、距离优先三个策略）6-不走高速 7-不走高速且避免收费 8-躲避收费和拥堵 9-不走高速且躲避收费和拥堵
+ 	avoidRoad:,//String,可选,避让道路名
+}
+```
+
+
+
+**回调参数**:
+
+```js
+var callback = function(error,data){
+	//error 非0表示失败 此时data为失败原因 String类型
+	//error 为0表示成功 此时data为符合条件的路径 是GaodeRouteResult类型
+	//data 可能为空数组,表示路径规划成功,但没有搜索到可以符合条件的路径
+}
+```
+
+ **版本支持:**
+
+iOS 4.0.3+
+
+Android 4.0.2+
+
+
+
+**示例:**
+
+```js
+uexGaodeMap.drivingRouteSearch({
+	origin: {
+ 		latitude: 39.910267,
+ 		longitude: 116.370888
+ 	},
+  	destination: {
+      	latitude:39.989872,
+      	longitude:116.481956
+  	},
+  	strategy: 5
+ },function(error,data){
+ 	if(!error){
+ 	 	alert("路径规划结果: " + JSON.stringify(data));
+ 	}else{
+ 		alert("路径规划失败: " + data);
+    }
+ });
+```
+
+**data 的数据结构如下：**
+
+```javascript
+{
+  "paths": [
+    {
+      "distance": 20105.0,
+      "duration": 4140,
+      "steps": [
+        {
+          "action": "向右前方行驶",
+          "distance": 303.0,
+          "duration": 60.0,
+          "instruction": "沿华远街向南行驶303米向右前方行驶",
+          "orientation": "南",
+          "points": [
+            {
+              "latitude": 39.910263,
+              "longitude": 116.371178
+            }
+          ],
+          "road": "华远街",
+          "tolls": 0.0
+        }
+      ],
+      "strategy": "距离最短",
+      "tolls": 0.0
+    }
+  ],
+  "taxiCost": 46.0579
+}
+```
+
+
+
+### 🍭 walkingRouteSearch 步行路径规划
+
+`uexGaodeMap.walkingRouteSearch(info,callback)`
+
+**参数:**
+
+| 参数名称     | 参数类型     | 是否必选 | 说明          |
+| -------- | -------- | ---- | ----------- |
+| info     | Object   | 是    | 路径规划参数,详情见下 |
+| callback | Function | 是    | 路径规划回调      |
+
+```js
+var info = {
+ 	origin:, //GaodePoint 起始地
+ 	destination:,//GaodePoint 目的地
+}
+```
+
+
+
+**回调参数**:
+
+```js
+var callback = function(error,data){
+	//error 非0表示失败 此时data为失败原因 String类型
+	//error 为0表示成功 此时data为符合条件的路径 是GaodeRouteResult类型
+	//data 可能为空数组,表示路径规划成功,但没有搜索到可以符合条件的路径
+}
+```
+
+**版本支持:**
+
+iOS 4.0.3+
+
+Android 4.0.2+ 
+
+**示例:**
+
+```js
+uexGaodeMap.walkingRouteSearch({
+	origin: {
+ 		latitude: 39.910267,
+ 		longitude: 116.370888
+ 	},
+  	destination: {
+      	latitude:39.989872,
+      	longitude:116.481956
+  	}
+ },function(error,data){
+ 	if(!error){
+ 	 	alert("路径规划结果: " + JSON.stringify(data));
+ 	}else{
+ 		alert("路径规划失败: " + data);
+    }
+ });
+```
+
+**data 的数据结构如下：**
+
+```javascript
+{
+  "paths": [
+    {
+      "distance": 15606.0,
+      "duration": 11147,
+      "steps": [
+        {
+          "action": "往前走",
+          "distance": 113.0,
+          "duration": 81.0,
+          "instruction": "沿华远街向北步行113米往前走",
+          "orientation": "北",
+          "points": [
+            {
+              "latitude": 39.910591,
+              "longitude": 116.371178
+            }
+          ],
+          "road": "华远街",
+          "tolls": 0.0
+        }
+      ],
+      "tolls": 0.0
+    }
+  ]
+}
+```
+
+
+
+### 🍭 ridingRouteSearch 骑行路径规划
+
+`uexGaodeMap.ridingRouteSearch(info,callback)`
+
+**参数:**
+
+| 参数名称     | 参数类型     | 是否必选 | 说明          |
+| -------- | -------- | ---- | ----------- |
+| info     | Object   | 是    | 路径规划参数,详情见下 |
+| callback | Function | 是    | 路径规划回调      |
+
+```js
+var info = {
+ 	origin:, //GaodePoint 起始地
+ 	destination:,//GaodePoint 目的地
+}
+```
+
+
+
+**回调参数**:
+
+```js
+var callback = function(error,data){
+	//error 非0表示失败 此时data为失败原因 String类型
+	//error 为0表示成功 此时data为符合条件的路径 是GaodeRouteResult类型
+	//data 可能为空数组,表示路径规划成功,但没有搜索到可以符合条件的路径
+}
+```
+
+**版本支持:**
+
+iOS 4.0.3+
+
+Android 4.0.2+ 
+
+**示例:**
+
+```js
+uexGaodeMap.ridingRouteSearch({
+	origin: {
+ 		latitude: 39.910267,
+ 		longitude: 116.370888
+ 	},
+  	destination: {
+      	latitude:39.989872,
+      	longitude:116.481956
+  	}
+ },function(error,data){
+ 	if(!error){
+ 	 	alert("路径规划结果: " + JSON.stringify(data));
+ 	}else{
+ 		alert("路径规划失败: " + data);
+    }
+ });
+```
+
+**data 的数据结构如下：**
+
+```javascript
+{
+  "paths": [
+    {
+      "distance": 16846.0,
+      "duration": 4043,
+      "steps": [
+        {
+          "action": "直行",
+          "distance": 166.0,
+          "duration": 39.0,
+          "instruction": "沿华远街向北骑行166米直行",
+          "orientation": "北",
+          "points": [
+            {
+              "latitude": 39.910103,
+              "longitude": 116.371193
+            }
+          ],
+          "road": "华远街",
+          "tolls": 0.0
+        }
+      ],
+      "tolls": 0.0
+    }
+  ]
+}
+```
+
+
+
+### 🍭 transitRouteSearch 公交路径规划
+
+`uexGaodeMap.transitRouteSearch(info,callback)`
+
+**参数:**
+
+| 参数名称     | 参数类型     | 是否必选 | 说明          |
+| -------- | -------- | ---- | ----------- |
+| info     | Object   | 是    | 路径规划参数,详情见下 |
+| callback | Function | 是    | 路径规划回调      |
+
+```js
+var info = {
+ 	origin:, //GaodePoint 起始地
+ 	destination:,//GaodePoint 目的地
+    city:, //String 当前城市
+  	nightFlag:,//Boolean 可选 是否包含夜班车  默认false
+  	strategy:, // Number 可选 公交换乘策略,默认0  0-最快捷模式；1-最经济模式；2-最少换乘模式；3-最少步行模式；4-最舒适模式；5-不乘地铁模式
+}
+```
+
+
+
+**回调参数**:
+
+```js
+var callback = function(error,data){
+	//error 非0表示失败 此时data为失败原因 String类型
+	//error 为0表示成功 此时data为符合条件的路径 是GaodeRouteResult类型
+	//data 可能为空数组,表示路径规划成功,但没有搜索到可以符合条件的路径
+}
+```
+
+**版本支持:**
+
+iOS 4.0.3+
+
+Android 4.0.2+ 
+
+**示例:**
+
+```js
+uexGaodeMap.transitRouteSearch({
+	origin: {
+ 		latitude: 39.910267,
+ 		longitude: 116.370888
+ 	},
+  	destination: {
+      	latitude:39.989872,
+      	longitude:116.481956
+  	},
+  	city: "北京市",
+  	strategy: 3,
+ },function(error,data){
+ 	if(!error){
+ 	 	alert("路径规划结果: " + JSON.stringify(data));
+ 	}else{
+ 		alert("路径规划失败: " + data);
+    }
+ });
+```
+
+**data 的数据结构如下：**
+
+```javascript
+{
+  "paths": [
+    {
+      "cost": 5.0,
+      "distance": 28477.0,
+      "duration": 3815,
+      "nightFlag": false,
+      "segments": [
+        {
+          "buslines": [
+            {
+              "distance": 4598.0,
+              "duration": 528.0,
+              "endTime": "2220",
+              "name": "地铁4号线大兴线(安河桥北--天宫院)",
+              "price": 0.0,
+              "startTime": "0500",
+              "type": "地铁线路",
+              "uid": "110100023076",
+              "viaStops": []
+            }
+          ],
+          "enterName": "F1口",
+          "enterPoint": {
+            "latitude": 39.908047,
+            "longitude": 116.373657
+          },
+          "walking": {
+            "destination": {
+              "latitude": 39.907387,
+              "longitude": 116.374046
+            },
+            "distance": 522.0,
+            "duration": 447,
+            "origin": {
+              "latitude": 39.910103,
+              "longitude": 116.371193
+            },
+            "steps": [
+              {
+                "action": "左转",
+                "distance": 146.0,
+                "duration": 0.0,
+                "instruction": "沿华远街步行146米左转",
+                "orientation": "",
+                "points": [
+                  {
+                    "latitude": 39.910103,
+                    "longitude": 116.371193
+                  }
+                ],
+                "road": "华远街",
+                "tolls": 0.0
+              }
+            ]
+          }
+        }
+      ],
+      "walkingDistance": 2028.0
+    }
+  ]
+}
+```
+
+
+
+
+
+
+## 2.9､ 地图监听回调
 ### 🍭 onMapLoadedListener 地图加载完成的监听方法
 
 `uexGaodeMap.onMapLoadedListener();`
@@ -1895,456 +2983,10 @@ uexGaodeMap.onCustomButtonClick = function(id) {
 }
 ```
 
-# 3 离线地图
-## 3.1 方法
-### 🍭 download 开始下载
+## 
 
-`uexGaodeMap.download(json,callBackFunction)`
-
-**说明:**
-
-  开始下载,当前如果有正在下载的任务,添加到正在下载列表中.
-
-**参数:**
-
-| 参数名称             | 参数类型     | 是否必选 | 说明                                  |
-| ---------------- | -------- | ---- | ----------------------------------- |
-| json             | json字符串  | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
-| callBackFunction | Function | 是    | 回调函数                                |
-```javascript
-var json = [
-    {
-        city:,//(可选) 城市名称
-        province://(可选) 省或直辖市名称
-    }
-]
-```
-各字段含义如下:
-
-| 参数名称     | 参数类型   | 是否必选 | 说明      |
-| -------- | ------ | ---- | ------- |
-| city     | String | 否    | 城市名称    |
-| province | String | 否    | 省或直辖市名称 |
-
-**回调参数**:
-
-| 参数名称  | 参数类型   | 是否必选 | 说明                   |
-| ----- | ------ | ---- | -------------------- |
-| error | Number | 是    | 0表示加入列表成功,非0表示加入列表失败 |
-| data  | Object | 是    | 返回的数据,形式见下:          |
-
-
-```javascript
-var data = {
-    name:,//(必选) 省或城市名称
-    errorStr://(可选) 错误描述,error非0时,该值有效.
-}
-```
-注:errorStr详情参见附录[cbDownload Status](#1.4.2 cbDownload Status)
-
-
-**示例:**
-
-```javascript
-    var params = [
-        {
-            city:'武汉'
-        },
-        {
-            province:'广东省'
-        }
-    ];
-    var json = JSON.stringify(params);
-    uexGaodeMap.download(json,function(error,data){
-      if(!error){
-         alert("callback:" + JSON.stringify(data));
-      }else{
-         alert("加入列表失败");
-      }
-        
-    });
-```
-
-### 🍭 onDownload 下载监听方法
-
-
-`uexGaodeMap.onDownload(json)`
-
-**参数:**
-
-```
-var json = {
-    name:,//(必选) 省或城市名称
-    completeCode:,//(必选) 进度百分比.
-    status://(可选) 下载状态,具体请参考附录onDownload Status.
-}
-```
-注:status下载状态参见附录[Download Status](#1.4.1 Download Status)
-
-​    
-
-**示例:**
-
-```
-    uexGaodeMap.onDownload = function(json) {
-        var data = JSON.parse(info);
-        if(data.status == 0){
-            uexWindow.toast(1,5,data.name + " 正在下载...",0);
-        }
-        if(data.status == 1){
-            uexWindow.toast(1,5,data.name + " 正在解压...",0);
-        }
-        if(data.status == 4){
-            uexWindow.closeToast();
-            alert(data.name + " 离线地图下载成功!");
-        }
-        if(data.status == 3){
-            uexWindow.toast(0,5,data.name + " 暂停下载...",2000);
-        }
-        if(data.status == -1){
-            uexWindow.closeToast();
-            alert(data.name + " 下载失败!");
-        }
-    }
-```
-
-### 🍭 pause 暂停下载
-
-`uexGaodeMap.pause(json)`
-
-**参数:**
-
-```
-var json = []//(必传) 省或城市名称数组
-```
-
-
-**示例:**
-
-```
-    var params = ["武汉","广东省"];
-    var data = JSON.stringify(params);
-    uexGaodeMap.pause(data);
-```
-
-### 🍭 restart 继续下载
-
-
-`uexGaodeMap.restart(json)`
-
-**参数:**
-
-```
-var json = []//(必传) 省或城市名称数组
-```
-
-
-
-**示例:**
-
-```
-    var params = ["武汉","广东省"];
-    var data = JSON.stringify(params);
-    uexGaodeMap.restart(data);
-```
-
-### 🍭 getAvailableCityList 获取可下载离线地图的城市列表
-
-
-`uexGaodeMap.getAvailableCityList(callBackFunction)`
-
-**参数:**
-
-| 参数名称             | 参数类型     | 是否必选 | 说明   |
-| ---------------- | -------- | ---- | ---- |
-| callBackFunction | Function | 是    | 回调函数 |
-
-**回调参数**:
-
-| 参数名称  | 参数类型   | 是否必选 | 说明           |
-| ----- | ------ | ---- | ------------ |
-| error | Number | 是    | 0表示成功,非0表示失败 |
-| data  | Array  | 是    | 返回的数据        |
-```
-var data = [
-    {
-        city:,//(必选) 城市名称
-        size:,//(必选) 包大小,单位字节
-        completeCode:,//(必选) 进度百分比
-    }
-]
-```
-
- 
-
-
-**示例:**
-
-```
-    uexGaodeMap.getAvailableCityList(function(error,data){
-      if(!error){
-         alert("callback:" + JSON.stringify(data));
-      }else{
-         alert("获取可下载离线地图的城市列表失败");
-        }
-    });
-```
-
-
-
-### 🍭 getAvailableProvinceList 获取可下载离线地图的省和城市列表
-
-`uexGaodeMap.getAvailableProvinceList(callBackFunction)`
-
-**参数:**
-
-| 参数名称             | 参数类型     | 是否必选 | 说明   |
-| ---------------- | -------- | ---- | ---- |
-| callBackFunction | Function | 是    | 回调函数 |
-
-**回调参数**:
-
-| 参数名称  | 参数类型   | 是否必选 | 说明           |
-| ----- | ------ | ---- | ------------ |
-| error | Number | 是    | 0表示成功,非0表示失败 |
-| data  | Array  | 是    | 返回的数据        |
-
-```
-var data = [
-    {
-        cityList:[//(必选) 省包含的城市列表
-            {
-                city:,//(必选) 城市名称
-                size:,//(必选) 包大小,单位字节
-                completeCode:,//(必选) 进度百分比
-                status://(可选) 下载状态
-            }
-        ],
-        province:,//(必选) 省或直辖市名称
-        size:,//(必选) 包大小,单位字节
-        completeCode:,//(必选) 进度百分比
-
-    }
-]
-```
-
-  
-
-**示例:**
-
-```
-    uexGaodeMap.getAvailableProvinceList(function(error,data){
-        if(!error){
-         alert("callback:" + JSON.stringify(data));
-      }else{
-         alert(" 获取可下载离线地图的省和城市列表失败");
-        }
-    });
-```
-
-
-
-### 🍭 getDownloadList 获取已下载列表
-
-
-`uexGaodeMap.getDownloadList(callBackFunction)`
-
-**参数:**
-
-| 参数名称             | 参数类型     | 是否必选 | 说明   |
-| ---------------- | -------- | ---- | ---- |
-| callBackFunction | Function | 是    | 回调函数 |
-
-**回调参数**:
-
-| 参数名称  | 参数类型   | 是否必选 | 说明           |
-| ----- | ------ | ---- | ------------ |
-| error | Number | 是    | 0表示成功,非0表示失败 |
-| data  | Array  | 是    | 返回的数据        |
-
-```
-var data = [
-    {
-        name:,//(必选) 省或城市名称
-        type:,//(必选) 类型,1-城市,2-省
-        size:,//(必选) 包大小,单位字节
-        completeCode:,//(必选) 进度百分比
-
-    }
-]
-```
-
-   
-
-**示例:**
-
-```
-    uexGaodeMap.getDownloadList(function(error,data){
-       if(!error){
-         alert("callback:" + JSON.stringify(data));
-      }else{
-         alert(" 获取可下载离线地图的省和城市列表失败");
-        }
-    });
-```
-
-
-
-### 🍭 getDownloadingList 获取正在下载列表
-
-
-`uexGaodeMap.getDownloadingList(callBackFunction)`
-
-**参数:**
-
-| 参数名称             | 参数类型     | 是否必选 | 说明   |
-| ---------------- | -------- | ---- | ---- |
-| callBackFunction | Function | 是    | 回调函数 |
-
-**回调参数**:
-
-| 参数名称  | 参数类型   | 是否必选 | 说明           |
-| ----- | ------ | ---- | ------------ |
-| error | Number | 是    | 0表示成功,非0表示失败 |
-| data  | Array  | 是    | 返回的数据        |
-
-```
-var data = [
-    {
-        name:,//(必选) 省或城市名称
-        type:,//(必选) 类型,1-城市,2-省
-        size:,//(必选) 包大小,单位字节
-        completeCode:,//(必选) 进度百分比
-    }
-]
-```
-
- 
-
-**示例:**
-
-```
-    uexGaodeMap.getDownloadingList(function(error,data){
-       if(!error){
-         alert("callback:" + JSON.stringify(data));
-      }else{
-         alert(" 获取可下载离线地图的省和城市列表失败");
-        }
-    });
-```
-
-
-
-### 🍭 isUpdate 检查已下载的离线地图数据是否需要更新
-
-
-`uexGaodeMap.isUpdate(json,callBackFunction)`
-
-**参数:**
-
-| 参数名称             | 参数类型     | 是否必选 | 说明                                  |
-| ---------------- | -------- | ---- | ----------------------------------- |
-| json             | json字符串  | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
-| callBackFunction | Function | 是    | 回调函数                                |
-
-```javascript
-var json = {
-    city:,//(可选) 城市名称
-    province://(可选) 省或直辖市名称
-}
-```
-**回调参数**:
-
-| 参数名称  | 参数类型   | 是否必选 | 说明           |
-| ----- | ------ | ---- | ------------ |
-| error | Number | 是    | 0表示成功,非0表示失败 |
-| data  | Object | 是    | 返回的数据        |
-
-```javascript
-var data = {
-    name:,//(必选) 省或城市名称
-    result://(可选) 是否有更新,0-有更新,1-没有更新
-}
-```
-
-
-**示例:**
-
-```javascript
-    var params = 
-        {
-            city:'武汉'
-        };
-    
-    var json = JSON.stringify(params);
-    uexGaodeMap.isUpdate(json,function(error,data){
-        if(!error){
-         alert("callback:" + JSON.stringify(data));
-      }else{
-         alert("检查失败");
-        }
-    });
-```
-
-
-
-### 🍭 delete  删除已下载或者正在下载数据
-
-`uexGaodeMap.delete(json,callBackFunction)`
-
-**参数:**
-
-| 参数名称             | 参数类型     | 是否必选 | 说明                                  |
-| ---------------- | -------- | ---- | ----------------------------------- |
-| json             | json字符串  | 是    | 传入参数,city或province必须传一个,都传时只有city有效 |
-| callBackFunction | Function | 是    | 回调函数                                |
-
-
-```
-var json = []//(可选,仅Android) 省或城市名称数组
-
-```
-**回调参数**:
-
-| 参数名称  | 参数类型   | 是否必选 | 说明                |
-| ----- | ------ | ---- | ----------------- |
-| error | Number | 是    | 状态码,0-删除成功,非0-失败. |
-| data  | Object | 是    | 返回数据,仅支持Android   |
-
-```
-var data = {
-    name:,//(必选) 省或城市名称
-    errorStr://(可选) 错误描述,errorCode非0时,该值有效.
-}
-```
-注:
-
-* json不传时会清除所有数据;
-* 受iOS SDK所限制,iOS仅支持删除所有数据
-* iOS系统下若有传入参数json,则插件不会作任何处理
-
-
-**示例:**
-
-```javascript
-Android:
-    var params = ["武汉"];
-    var json = JSON.stringify(params);
-    uexGaodeMap.delete(json,function(error,data){
-    	   if(!error){
-         alert("callback:" + JSON.stringify(data));
-      }else{
-         alert("删除失败");
-        }
-    });
-    
-iOS:
-    uexGaodeMap.delete();
-```
-
-
-# 4､附录
-## 4.1､通过config.xml配置插件的方法
+# 3､附录
+## 3.1､通过config.xml配置插件的方法
 
 * 将配置代码添加到`config.xml`中即可完成插件配置,无需进行自定义插件相关步骤
 * 详见[打包服务器公测](http://newdocx.appcan.cn/newdocx/docx?type=1669_1291)
@@ -2378,7 +3020,7 @@ iOS:
 ```
 **用户需要将上面字段中的XXX替换为自己申请的对应平台的key,然后添加至config.xml中:**即可完成相应key的配置 
 
-# 5､更新历史
+# 4､更新历史
 
 ### iOS
 
@@ -2386,10 +3028,10 @@ API版本: `uexGaodeMap-4.0.1`
 
 最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.1 | 新增addMultiInfoWindow |
-| 4.0.0 | 支持引擎4.0,函数入参 |
+| 历史发布版本 | 更新内容                 |
+| ------ | -------------------- |
+| 4.0.1  | 新增addMultiInfoWindow |
+| 4.0.0  | 支持引擎4.0,函数入参         |
 
 ### Android
 
@@ -2397,6 +3039,6 @@ API版本: `uexGaodeMap-4.0.1`
 
 最近更新时间:`2016-12-15`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.1 | 支持多信息窗样式 |
+| 历史发布版本 | 更新内容     |
+| ------ | -------- |
+| 4.0.1  | 支持多信息窗样式 |

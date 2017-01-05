@@ -251,7 +251,7 @@ var data = {
 **示例:**
 
 ```js
-var order = uexAlipay.generatePayOrder({
+var order = uexAliPay.generatePayOrder({
   private_key: "******",
   app_id: "2014072300007148",
   notify_url: "https://www.123.com/alipay/notify",

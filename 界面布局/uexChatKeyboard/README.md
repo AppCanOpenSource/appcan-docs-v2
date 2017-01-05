@@ -50,7 +50,8 @@ var viewInfo={
     "sendBtnText": ,
     "sendBtnTextSize": ,
     "sendBtnTextColor": ,
-    "inputMode":
+    "inputMode":,
+    "keywords":,
 }
 ```
 
@@ -71,7 +72,7 @@ var viewInfo={
 | sendBtnTextSize    | Number | 否    | 发送按钮文字大小                      |
 | sendBtnTextColor   | String | 否    | 发送按钮文字颜色                      |
 | inputMode          | Number | 否    | 输入框默认输入方式,0-文字输入;1-语音输入.默认为0. |
-
+| keywords          | Array | 否    | 要监听的输入关键字,是由字符串构成的数组.默认为空数组 |
 参数emojicons的自定义表情配置文件为:"res://emojicons/emojicons.xml"[res协议路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "res协议路径"),详细配置步骤:
 
 1、在widget的wgtRes目录下创建emojicons目录;
@@ -123,8 +124,7 @@ ace_share_1;
 **示例:**
 
 ```
-var jsonstr =
-'{
+var json = {
     "emojicons": "res://emojicons/emojicons.xml",
     "shares": "res://shares/shares.xml",
     "placeHold": "请输入内容",
@@ -137,9 +137,10 @@ var jsonstr =
     "sendBtnText": "发送",
     "sendBtnTextSize": "15.5",
     "sendBtnTextColor": "#FFF",
-    "inputMode":1
-}';
-uexChatKeyboard.open(jsonstr);
+    "inputMode":1,
+    "keywords": ["@"]
+};
+uexChatKeyboard.open(JSON.stringify(json));
 ```
 ### 🍭 close 关闭聊天输入 
 
@@ -234,7 +235,7 @@ uexChatKeyboard.changeWebViewFrame(600);
 `uexChatKeyboard.insertTextByKeyword(jsonStr)`
 
 **说明:**
-通过关键字插入内容功能。调用此接口之前先监听，监听方法[uexChatKeyboard.onInputKeyword](#onInputKeyword 编辑框输入监测的关键字之后的监听方法 "uexChatKeyboard.onInputKeyword")
+通过关键字插入内容功能。调用此接口之前需要在open方法中设置参数keywords来监听关键字（例如：@），监听方法[uexChatKeyboard.onInputKeyword](#onInputKeyword 编辑框输入监测的关键字之后的监听方法 "uexChatKeyboard.onInputKeyword")
 例子:
 @好友功能，收到关键字“@”的监听[uexChatKeyboard.onInputKeyword](#onInputKeyword编辑框输入监测的关键字之后的监听方法"uexChatKeyboard.onInputKeyword")之后，选择好友。选择完毕后调用此接口添加好友到关键字@后面,或替换原有@字符。
 
