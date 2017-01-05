@@ -301,7 +301,7 @@ var callbackFunction = function(data){
 
 ```
 var params = {
- 	setting:"GPS"//位置服务功能
+    setting:"GPS"//位置服务功能
 };
 var data = JSON.stringify(params);
 uexDevice.isFunctionEnable(data, function(data) {
@@ -362,11 +362,52 @@ var params = {
 
 ```
 var params = {
- 	setting:"GPS"//位置服务功能
+    setting:"GPS"//位置服务功能
 };
 var data = JSON.stringify(params);
 uexDevice.openSetting(data);
 ```
+
+### 🍭 startNetStatusListener 打开网络状态监听器
+
+`uexDevice.startNetStatusListener(params)`
+
+**说明:**
+
+- 打开网络状态监听器。
+- 为避免内存泄露，在不需要监听网络状态时，必须调用stopNetStatusListener关闭网络状态监听器。
+
+**参数:**
+
+无
+
+
+**示例:**
+
+```
+uexDevice.startNetStatusListener();
+```
+
+
+### 🍭 stopNetStatusListener 关闭网络状态监听器
+
+`uexDevice.stopNetStatusListener(params)`
+
+**说明:**
+
+关闭网络状态监听器。
+
+**参数:**
+
+无
+
+
+**示例:**
+
+```
+exDevice.stopNetStatusListener();
+```
+
 
 
 
@@ -392,11 +433,44 @@ uexDevice.openSetting(data);
 
 ```
  uexDevice.onOrientationChange = function(mode){
-	if(mode == 1){
-		alert("正竖屏");
-	}else if(mode == 2){
-		alert("左横屏");
-	}
+    if(mode == 1){
+        alert("正竖屏");
+    }else if(mode == 2){
+        alert("左横屏");
+    }
+};
+```
+
+### 🍭 onNetStatusChanged 网络状态变化的监听方法
+
+`uexDevice.onNetStatusChanged(data)`
+
+**说明:**
+
+网络状态变化的监听方法。
+
+**参数:**
+
+ 
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| data | String | 是 | 网络状态，-1：无网络连接；0：wifi网络；1:3G网络；3:4G网络。 |
+
+**平台支持:**
+
+Android2.2+
+iOS6.0+
+
+**版本支持:**
+
+3.0.0+
+
+**示例:**
+
+
+```
+ uexDevice.onNetStatusChanged = function(data){
+    alert(data);
 };
 ```
 
