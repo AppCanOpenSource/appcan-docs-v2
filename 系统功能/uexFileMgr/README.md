@@ -851,8 +851,7 @@ uexFile对象file
 ```javascript
 var file = uexFileMgr.createWithPassword({
 	path: "wgt://data/1.txt",
-	password: "123456",
-	mode: 3
+	password: "123456"
 });
 if(!file){
 	alert("创建失败!");

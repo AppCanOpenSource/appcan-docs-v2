@@ -145,7 +145,7 @@ function pay(){
 
 ###  🍭 payWithOrder 支付
 
-`uexAliPay.patWithOrder(order,callback)`
+`uexAliPay.payWithOrder(order,callback)`
 
 **说明:**
 
@@ -184,7 +184,7 @@ var callback = function(error, message){}
 
 ```js
 var order = ... //从后台获得的支付请求
-uexAliPay.patWithOrder(order,function(error,message){
+uexAliPay.payWithOrder(order,function(error,message){
   if(error){
     alert("支付失败: " + message);
   }else{
