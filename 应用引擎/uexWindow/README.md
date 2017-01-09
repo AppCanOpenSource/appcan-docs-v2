@@ -14,7 +14,7 @@ AppCan平台中,维护了一个窗口堆栈,每个窗口以唯一的窗口名字
 ## 1.3 多窗口之间的通讯
 　 **窗口之间的通讯**,比如从网络获取一个数据,根据返回的数据,让其它窗口执行相应的 变化,这就需要用到窗口间通讯机制.
 　 **主窗口之间通讯**: uexWindow.evaluateScript(winName, type, script)
-　** 主窗口与浮动窗口之间通讯**: uexWindow.evaluateScript(winName, type, script);  uexWindow.evaluatePopoverScript(winName, type, script);
+　**主窗口与浮动窗口之间通讯**: uexWindow.evaluateScript(winName, type, script);  uexWindow.evaluatePopoverScript(winName, type, script);
 　 最后一个参数script,是目标窗口的执行脚本.脚本形参限定为数字和字符串.如果是 特殊字符和汉字,则无法传递,可以通过window.localStorage暂存数据,在执行脚本的目标窗口中获取 localStorage.
 
 ## 1.4 多窗口通讯之订阅发布模式
@@ -2064,6 +2064,8 @@ uexWindow.setReportKey(1,1)
 
 **说明:**
 发送消息到状态栏
+
+* iOS 10.0+系统才支持将消息添加至通知中心
 
 **参数:**
 
