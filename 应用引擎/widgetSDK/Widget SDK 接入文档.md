@@ -4,7 +4,7 @@
 
 ### Android Studio
 
-1. 将`Engine-system-release-4.0.0.aar`拷入`libs`目录
+1. 将`Engine-system-release-4.0.0.aar`拷入`libs`目录，[下载地址](https://raw.githubusercontent.com/android-plugin/mvn-repo/master/org/appcan/engine/4.0.0/engine-4.0.0-systemRelease.aar)
 
 2. 在Application moudle `build.gradle`中加入如下配置：
 
