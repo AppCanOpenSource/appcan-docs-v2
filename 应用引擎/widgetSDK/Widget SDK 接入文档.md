@@ -16,7 +16,7 @@
    }
 
    dependencies {
-       compile(name: 'Engine-system-release-4.0.0', ext: 'aar')
+       compile(name: 'engine-4.0.0-systemRelease', ext: 'aar')
    }
    ```
 
