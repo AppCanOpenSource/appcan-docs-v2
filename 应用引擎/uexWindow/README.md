@@ -813,7 +813,7 @@ uexWindow.setMultiPopoverFrame({
   x:"10", 
   y:"10", 
   w:"600", 
-  y:"600"
+  h:"600"
 });
 ```
 
