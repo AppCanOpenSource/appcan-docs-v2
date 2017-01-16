@@ -46,7 +46,19 @@
          "y": ,
          "width": ,
          "height": ,
-         "isScrollWithWeb":
+         "isScrollWithWeb":,
+         "showClearText":,
+         "showInputBox":,
+         "maxInputLength":,
+         "hintText":,
+         "textColor":,
+         "hintTextColor":,
+         "backgroundColor":,
+         "textSize":,
+         "isRandom":,
+         "isHighlight":,
+         "logoPath":,
+         "isCleanPassword":
     }
 ```
 
@@ -60,7 +72,20 @@
 | y                   | Number | 是    | 输入框距屏幕顶部的距离                              |
 | width               | Number | 是    | 输入框的宽度                                   |
 | height              | Number | 是    | 输入框的高度                                   |
-| isScrollWithWeb     | bool   | 否    | 是否随网页滚动,默认为false                         |
+| isScrollWithWeb     | bool   | 否    | 是否随网页滚动,默认为false  |
+| showClearText | bool | 否 | 是否显示明文输入，默认为true |
+| showInputBox | bool | 否 | 是否显示插件输入框，默认为true |
+| maxInputLength | Number | 否 | 键盘输入的最大字符数（一个汉字为两个字符），默认不设限制 |
+| hintText | String | 否 | 输入框提示语，只有显示插件输入框时才有效，默认值为空 |
+| textColor | String | 否 | 输入框字体颜色（RGB色值），只有显示插件输入框时才有效，默认值为系统默认 |
+| hintTextColor | String | 否 | 输入框提示语字体颜色（RGB色值），只有显示插件输入框时才有效，默认值为系统默认 |
+| backgroundColor | String | 否 | 输入框背景颜色（RGB色值），只有显示插件输入框时才有效，默认值为透明 |
+| textSize | String | 否 | 输入框字体大小，只有显示插件输入框时才有效，默认值为系统默认 |
+| isRandom | bool | 否 | 是否键盘数字随机，默认为false,仅对纯数字键盘有效 |
+| isHighlight | bool | 否 | 是否在点击按键时显示高亮效果，默认为true |
+| logoPath | String | 否 | 需要显示logo图标的路径,支持appcan路径协议|
+| isCleanPassword | bool | 否 | 是否在应用退出时清空输入框，默认为false |
+
 
 **返回值:**
 
@@ -76,7 +101,19 @@
         "y":100,
         "width":250,
         "height":50,
-        "isScrollWithWeb":true
+        "isScrollWithWeb":true,
+        "showClearText":false,
+        "showInputBox":false，
+        "maxInputLength":1000，
+        "hintText":,
+        "textColor":"#00ff00",
+        "hintTextColor":"#ffff00",
+        "backgroundColor":"#ff0000",
+        "textSize": 16,
+        "isRandom":true,
+        "isHighlight":false,
+        "logoPath":"res://keyboard_logo@2x.png",
+        "isCleanPassword":true
     };
     var securityKeyboard = uexSecurityKeyboard.open(JSON.stringify(params));
 ```
@@ -129,6 +166,115 @@
    var content = uexSecurityKeyboard.getData(securityKeyboard);
 ```
 
+## 2.2、监听方法
+
+### 🍭 onKeyPress 键盘点击的监听方法
+
+`uexSecurityKeyboard.onKeyPress(param);`
+
+**说明**
+
+键盘点击的监听方法
+
+**参数**
+
+param为json字符串：
+
+```
+var param ={
+        "inputType":
+    }
+
+```
+
+各字段含义如下:
+
+| 名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| inputType | Number | 是 | 输入类型， 0：输入文本，包括数字、字母、特殊字符等；1：退格；2：完成。只有当showInputBox为false，即不显示插件输入框时，才会回调文本和退格的输入；输入完成的回调，两种情况都会有。|
+
+
+**示例**
+
+```
+window.uexOnload=function(type){
+    uexSecurityKeyboard.onKeyPress=function(info){
+        alert(info);
+    }
+}
+```
+
+### 🍭 onShowKeyboard 显示键盘的监听方法
+
+`uexSecurityKeyboard.onShowKeyboard(param);`
+
+**说明:**
+- 显示键盘的监听方法
+- 前端收到该监听后，可根据需求调整输入框位置，防止键盘盖住输入框等问题。
+
+**参数:**
+
+param为json字符串：
+
+```
+var param ={
+        "id":
+    }
+
+```
+
+各字段含义如下:
+
+| 名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| id | String | 是 | 显示键盘唯一标识符,与open方法中的id对应|
+
+
+**示例:**
+
+```
+window.uexOnload=function(type){
+    uexSecurityKeyboard.onShowKeyboard=function(info){
+        alert(info);
+    }
+}
+```
+
+### 🍭 onHideKeyboard 键盘消失的监听方法
+
+`uexSecurityKeyboard.onHideKeyboard(param);`
+
+**说明**
+
+显示键盘的监听方法
+
+**参数**
+
+param为json字符串：
+
+```
+var param ={
+        "id":
+    }
+
+```
+
+各字段含义如下:
+
+| 名称 | 类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| id | String | 是 | 消失键盘唯一标识符,与open方法中的id对应|
+
+
+**示例**
+
+```
+window.uexOnload=function(type){
+    uexSecurityKeyboard.onHideKeyboard=function(info){
+        alert(info);
+    }
+}
+```
 
 # 3、附录
 
