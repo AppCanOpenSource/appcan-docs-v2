@@ -210,7 +210,7 @@ alert(result);
 
 **说明:**
 
-当收到 [onKeyBoardShow](#onKeyBoardShow 键盘弹出或收起时的监听方法 "onKeyBoardShow")回调,并且status为1时调用这个方法传入当前div(表示文本输入框的高度)的高度,键盘会根据高度将聊天内容推上去
+当收到 [onKeyBoardShow](#onKeyBoardShow 键盘弹出或收起时的监听方法 "onKeyBoardShow")回调,并且status为1时调用这个方法传入当前div内容的高度,键盘会根据高度将聊天内容推上去
 
 **参数:**
 
