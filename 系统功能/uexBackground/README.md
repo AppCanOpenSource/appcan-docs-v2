@@ -49,7 +49,7 @@
 
 对于iOS系统,额外需要注意如下事项
 
-* 需要在config.xml中配置后台权限 app才能在后台时正常运行.具体配置方法见[这里](http://newdocx.appcan.cn/newdocx/docx?type=1505_1291#设置APP后台权限).
+* 需要在config.xml中配置后台权限 app才能在后台时正常运行.具体配置方法见[这里](http://newdocx.appcan.cn/dev-guide/config%C2%B7xml).
 * **不当的后台权限配置可能会影响上架AppStore!**
 
 
