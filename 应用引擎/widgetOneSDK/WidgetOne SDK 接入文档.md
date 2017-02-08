@@ -1,4 +1,4 @@
-#  AppCan Widget SDK 接入文档(Android)
+#  AppCan WidgetOne SDK 接入文档(Android)
 
 ## 添加依赖
 
