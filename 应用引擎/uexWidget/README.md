@@ -235,7 +235,7 @@ uexWidget.loadApp(scheme);
         "android.intent.category.WID1"
     ],
     "data": {
-        "mimeType": "image/png",
+        "mimeType": "image/png",//可选
         "scheme": "sip"
     }
 }
@@ -246,7 +246,7 @@ uexWidget.loadApp(scheme);
 | ----- | ----- | ----- |
 | category | 否 | category属性 |
 | data | 否 | data属性 |
-| mineType | 否 | mineType属性 |
+| mimeType | 否 | mimeType属性 |
 | scheme | 否 | scheme属性 |
 
 **注意事项:**
@@ -419,7 +419,21 @@ var optInfo = "{'key1':'value1'},{'key2':'value1'}";
 var extra='{data:"http://www.appcan.cn/"}';
 uexWidget.startApp(0, "com.tencent.mtt","com.tencent.mtt.MainActivity",optInfo,extra);
 ```
-
+4.指定用 系统浏览器（android） 打开链接：
+```javascript
+var value;
+       appcan.ready(function() {
+       value = uexWidgetOne.platformName;
+function openth() {
+            if (value == "android") {
+                uexWidget.startApp("1", "android.intent.action.VIEW", '{"data":{"mimeType":"text/html","scheme":"http://www.appcan.cn"}}');
+            } else {
+                uexWidget.loadApp("http://www.appcan.cn", null, null);
+            }
+        }
+        })
+//注意：mimeType参数可选，不传则会弹出一个选择框，提示用户选择哪个浏览器打开，但是会兼容所有的系统；如果加上此参数，就可以实现直接启动系统浏览器打开，但是有可能不兼容华为设备系统；
+```
 ### 🍭 getOpenerInfo 获取widget的相关信息
 
  ` uexWidget.getOpenerInfo()`

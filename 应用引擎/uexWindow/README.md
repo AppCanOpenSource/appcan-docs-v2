@@ -680,7 +680,7 @@ uexWindow.setPopoverFrame({
 | indexSelected | Number | 是    | 默认打开的页面索引,默认为0                           |
 | extras        | Object | 否    | 扩展参数,格式如下{extraInfo:{opaque:true,bgColor:"#011", delayTime:250}} |
 
-`content json`中各字段的说明:
+`content  `中各字段的说明:
 
 | 参数         | 是否必须 | 说明                                       |
 | ---------- | ---- | ---------------------------------------- |
@@ -691,7 +691,7 @@ uexWindow.setPopoverFrame({
 | opaque     | 否    | 是否透明true/false默认为false                   |
 | bgColor    | 否    | 背景色,支持图片和颜色,格式为#fff、#ffffff、rgba(r,g,b,a)等,图片路径支持res://、 wgt://等AppCan协议路径 |
 
-`extraInfo json`中各字段的说明:
+`extraInfo `中各字段的说明:
 
 | 参数        | 是否必须 | 说明                                       |
 | --------- | ---- | ---------------------------------------- |
@@ -810,10 +810,10 @@ uexWindow.setSelectedPopOverInMultiWindow({
 ```javascript
 uexWindow.setMultiPopoverFrame({
   name:"multipop", 
-  x:"10", 
-  y:"10", 
-  w:"600", 
-  h:"600"
+  x:10, 
+  y:10, 
+  w:600, 
+  h:600
 });
 ```
 
