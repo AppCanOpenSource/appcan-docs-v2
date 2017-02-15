@@ -26,7 +26,7 @@
 
 ### 🍭 open 打开系统默认邮件发送程序界面,发送邮件
 
-`uexEmail.open(receiverEmail,subject,content,attachmentPath,mimeType)`
+`uexEmail.open(receiverEmail,subject,content,attachmentPath)`
 
 **说明:**
 
@@ -45,7 +45,7 @@
 **示例:**
 
 ```javascript
-    var email = "ygeutter@126.com";
+            var email = "ygeutter@126.com";
             var subject = "测试邮件";
             var content = "我是邮件";
             var attachmentPath = "res://PDFDocument.pdf";

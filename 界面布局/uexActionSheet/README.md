@@ -89,8 +89,8 @@ var jsonData = {
 | textSize               | Number | 是    | 文字字号              |
 | textNColor             | String | 是    | 一般按钮,未被选中状态下的文字颜色 |
 | textHColor             | String | 是    | 一般按钮,被选中状态下的文字颜色  |
-| cancleTextNColor       | String | 是    | 取消按钮,未被选中状态下的文字颜色 |
-| cancleTextHColor       | String | 是    | 取消按钮,被选中状态下的文字颜色  |
+| cancelTextNColor       | String | 是    | 取消按钮,未被选中状态下的文字颜色 |
+| cancelTextHColor       | String | 是    | 取消按钮,被选中状态下的文字颜色  |
 | actionSheetList        | Array  | 是    | 菜单选项文字集合          |
 | name                   | String | 是    | 菜单项名称             |
 
@@ -117,8 +117,8 @@ var data={
 		textSize:17,//文字字号
 		textNColor:"#ffffff",//一般按钮,未被选中状态下的文字颜色
 		textHColor:"#ffff00",//一般按钮,被选中状态下的文字颜色
-		cancleTextNColor:"#ff00ff",//取消按钮,未被选中状态下的文字颜色
-		cancleTextHColor:"#000ffff",//取消按钮,被选中状态下的文字颜色
+		cancelTextNColor:"#ff00ff",//取消按钮,未被选中状态下的文字颜色
+		cancelTextHColor:"#000ffff",//取消按钮,被选中状态下的文字颜色
 		actionSheetList:[//按钮数据数组
 			{
 			name:"新浪微博"//item名称

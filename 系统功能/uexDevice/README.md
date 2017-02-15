@@ -132,6 +132,7 @@ var data = {
           } else {
               alert('截屏失败');
   }
+ });
 ```
 
 ### 🍭 setVolume 调整音量 
@@ -309,6 +310,7 @@ uexDevice.isFunctionEnable(data, function(data) {
            alert('已开启');
        } else {
            alert('未开启');
+		   }
 });
 ```
 

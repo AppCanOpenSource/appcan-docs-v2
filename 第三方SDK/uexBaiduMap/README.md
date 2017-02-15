@@ -2045,6 +2045,8 @@ var data={
 
 `uexBaiduMap.onMapStatusChangeListener(json);`
 
+**说明：**此方法仅支持android
+
 **参数**
 
 ```javascript
