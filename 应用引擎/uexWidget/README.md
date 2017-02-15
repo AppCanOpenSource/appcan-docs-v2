@@ -23,13 +23,13 @@
 
 data为Object类型,包含要加载的widget的一些信息,各字段含义如下
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| appId | String | 是 | 子widget的appId |
-| animId | String | 是 | 子widget载入时的动画id,详见CONSTANT中WindowAnimiID |
-| funcName | String | 否 | 方法名,子widget结束时将String型的任意字符回调给该方法,可为空. 注意:只在主窗口中有效,浮动窗口中无效 |
-| info | String | 否 | 传给子widget的信息 |
-| animDuration | String | 否 | 动画持续时长,单位为毫秒,默认200毫秒 |
+| 参数名称         | 参数类型   | 是否必选 | 说明                                       |
+| ------------ | ------ | ---- | ---------------------------------------- |
+| appId        | String | 是    | 子widget的appId                            |
+| animId       | String | 是    | 子widget载入时的动画id,详见CONSTANT中WindowAnimiID |
+| funcName     | String | 否    | 方法名,子widget结束时将String型的任意字符回调给该方法,可为空. 注意:只在主窗口中有效,浮动窗口中无效 |
+| info         | String | 否    | 传给子widget的信息                             |
+| animDuration | String | 否    | 动画持续时长,单位为毫秒,默认200毫秒                     |
 
 cb为加载widget的回调函数,拥有一个Number类型的参数error,error为0表示加载成功,非0时表示加载失败
 
@@ -70,11 +70,11 @@ uexWidget.startWidget(data,function(error){
 **参数:**
 
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| resultInfo | String | 否 | 此widget结束时,传递给opener的信息 |
-| appId | String | 否 | 要结束的widget的appId,为空时退出的是当前的widget |
-| finishMode | Number | 否 | 结束此widget的方式,0表示销毁该widget,下次再调 用startWidget时,重新打开;1表示把该widget置于后 台,下次再调用startWidget时,不重新打开,操作数据 全部保存.不传或为空时,默认为0.|
+| 参数名称       | 参数类型   | 是否必选 | 说明                                       |
+| ---------- | ------ | ---- | ---------------------------------------- |
+| resultInfo | String | 否    | 此widget结束时,传递给opener的信息                  |
+| appId      | String | 否    | 要结束的widget的appId,为空时退出的是当前的widget        |
+| finishMode | Number | 否    | 结束此widget的方式,0表示销毁该widget,下次再调 用startWidget时,重新打开;1表示把该widget置于后 台,下次再调用startWidget时,不重新打开,操作数据 全部保存.不传或为空时,默认为0. |
 
 **示例:**
 
@@ -97,9 +97,9 @@ uexWidget.startWidget(data,function(error){
 
 **参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| appId | String | 是 | widget的appId,主widget不能被删除. |
+| 参数名称  | 参数类型   | 是否必选 | 说明                         |
+| ----- | ------ | ---- | -------------------------- |
+| appId | String | 是    | widget的appId,主widget不能被删除. |
 
 **返回值:**
 
@@ -122,26 +122,26 @@ var result=uexWidget.removeWidget("12345");
 
 **参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| callback | Function | 是 | |
+| 参数名称     | 参数类型     | 是否必选 | 说明   |
+| -------- | -------- | ---- | ---- |
+| callback | Function | 是    |      |
 
 **回调参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| error | Json对象 | 是 | error 为对象,!error表示请求成功 |
-| data | Json对象 | 是 | data.result : 0- 需要更新 1- 不需要更新 |
+| 参数名称  | 参数类型   | 是否必选 | 说明                             |
+| ----- | ------ | ---- | ------------------------------ |
+| error | Json对象 | 是    | error 为对象,!error表示请求成功         |
+| data  | Json对象 | 是    | data.result : 0- 需要更新 1- 不需要更新 |
 
 **data 参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| result | Number类型 | 是 | 0- 需要更新 1- 不需要更新 |
-| name | String类型 | 是 | |
-| size | String类型 | 是 | |
-| url | String类型 | 是 | |
-| version | String类型 | 是 | |
+| 参数名称    | 参数类型     | 是否必选 | 说明               |
+| ------- | -------- | ---- | ---------------- |
+| result  | Number类型 | 是    | 0- 需要更新 1- 不需要更新 |
+| name    | String类型 | 是    |                  |
+| size    | String类型 | 是    |                  |
+| url     | String类型 | 是    |                  |
+| version | String类型 | 是    |                  |
 
 **示例:**
 
@@ -170,9 +170,9 @@ uexWidget.checkUpdate(function(error,data){
 
 **参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| scheme | String | 是 |  第三方应用的URLScheme |
+| 参数名称   | 参数类型   | 是否必选 | 说明              |
+| ------ | ------ | ---- | --------------- |
+| scheme | String | 是    | 第三方应用的URLScheme |
 
 **返回值:**
 
@@ -197,18 +197,18 @@ uexWidget.loadApp(scheme);
 
 **参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| startMode | String | 是 | 启动方式,0表示通过包名和类名启动,1表示通过Action启动. |
-| optInfo | String | 否 | 附加参数,键值对,{key:value}格式多个用英文","隔开,如:"{'key1':'value1'},{'key2':'value1'}". |
+| 参数名称      | 参数类型   | 是否必选 | 说明                                       |
+| --------- | ------ | ---- | ---------------------------------------- |
+| startMode | String | 是    | 启动方式,0表示通过包名和类名启动,1表示通过Action启动.         |
+| optInfo   | String | 否    | 附加参数,键值对,{key:value}格式多个用英文","隔开,如:"{'key1':'value1'},{'key2':'value1'}". |
 
 **startMode为0**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| mainInfo | String | 是 | 包名 |
-| addInfo | String | 否 | 类名,为空时启动应用入口类 |
-| extra | String | 否 | json格式如下: |
+| 参数名称     | 参数类型   | 是否必选 | 说明            |
+| -------- | ------ | ---- | ------------- |
+| mainInfo | String | 是    | 包名            |
+| addInfo  | String | 否    | 类名,为空时启动应用入口类 |
+| extra    | String | 否    | json格式如下:     |
 ```
 {
     "data": "http://www.baidu.com",
@@ -217,17 +217,17 @@ uexWidget.loadApp(scheme);
 ```
 各字段含义如下:
 
-| 参数 | 是否必须 | 说明 |
-| ----- | ----- | ----- |
-| data | 否 | data属性 |
-| isNewTask | 否 | 启动第三方Activity时,值为0,不使用NEW_TASK,值不为0,使用NEW_TASK,默认使用NEW_TASK |
+| 参数        | 是否必须 | 说明                                       |
+| --------- | ---- | ---------------------------------------- |
+| data      | 否    | data属性                                   |
+| isNewTask | 否    | 启动第三方Activity时,值为0,不使用NEW_TASK,值不为0,使用NEW_TASK,默认使用NEW_TASK |
 
 **startMode为1**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| mainInfo | String | 是 | action |
-| addInfo | String | 否 | category或data,json格式如下: |
+| 参数名称     | 参数类型   | 是否必选 | 说明                      |
+| -------- | ------ | ---- | ----------------------- |
+| mainInfo | String | 是    | action                  |
+| addInfo  | String | 否    | category或data,json格式如下: |
 ```json
 {
     "category": [
@@ -242,12 +242,12 @@ uexWidget.loadApp(scheme);
 ```
 各字段含义如下:
 
-| 参数 | 是否必须 | 说明 |
-| ----- | ----- | ----- |
-| category | 否 | category属性 |
-| data | 否 | data属性 |
-| mimeType | 否 | mimeType属性 |
-| scheme | 否 | scheme属性 |
+| 参数       | 是否必须 | 说明         |
+| -------- | ---- | ---------- |
+| category | 否    | category属性 |
+| data     | 否    | data属性     |
+| mimeType | 否    | mimeType属性 |
+| scheme   | 否    | scheme属性   |
 
 **注意事项:**
 
@@ -428,7 +428,7 @@ function openth() {
             if (value == "android") {
                 uexWidget.startApp("1", "android.intent.action.VIEW", '{"data":{"mimeType":"text/html","scheme":"http://www.appcan.cn"}}');
             } else {
-                uexWidget.loadApp("http://www.appcan.cn", null, null);
+                uexWidget.loadApp("http://www.appcan.cn");
             }
         }
         })
@@ -470,9 +470,9 @@ String类型 本widget的打开者通过startWidget函数打开本widget时传�
 
 **参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| appPath | String | 是 | apk所在路径 |
+| 参数名称    | 参数类型   | 是否必选 | 说明      |
+| ------- | ------ | ---- | ------- |
+| appPath | String | 是    | apk所在路径 |
 
 **示例:**
 
@@ -490,9 +490,9 @@ String类型 本widget的打开者通过startWidget函数打开本widget时传�
 
 **参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| type | String | 否 | 想要获取的推送消息内容类型,0:具体的推送内容,1:包含推送标题等其他推送消息的JSON字符串,默认值为0 |
+| 参数名称 | 参数类型   | 是否必选 | 说明                                       |
+| ---- | ------ | ---- | ---------------------------------------- |
+| type | String | 否    | 想要获取的推送消息内容类型,0:具体的推送内容,1:包含推送标题等其他推送消息的JSON字符串,默认值为0 |
 
 **返回值:**
 
@@ -525,9 +525,9 @@ var data=uexWidget.getPushInfo();
 
 **参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| cbFunction | Function | 是 | 回调函数 |
+| 参数名称       | 参数类型     | 是否必选 | 说明   |
+| ---------- | -------- | ---- | ---- |
+| cbFunction | Function | 是    | 回调函数 |
 
 **示例:**
 
@@ -546,10 +546,10 @@ uexWidget.setPushNotifyCallback(function pushCallback(){
 
 **参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| userId | String | 是 | 用户ID |
-| userName | String | 是 | 用户昵称 |
+| 参数名称     | 参数类型   | 是否必选 | 说明   |
+| -------- | ------ | ---- | ---- |
+| userId   | String | 是    | 用户ID |
+| userName | String | 是    | 用户昵称 |
 
 **示例:**
 
@@ -570,9 +570,9 @@ uexWidget.setPushInfo({
 
 **参数:**
 
-| 参数名称 | 参数类型 | 是否必选 | 说明 |
-| ----- | ----- | ----- | ----- |
-| state | Number | 是 | 推送服务状态0-关闭 1-开启 |
+| 参数名称  | 参数类型   | 是否必选 | 说明              |
+| ----- | ------ | ---- | --------------- |
+| state | Number | 是    | 推送服务状态0-关闭 1-开启 |
 
 
 **示例:**
@@ -667,8 +667,8 @@ Boolean类型返回值:当应用已安装时会返回`true`,当应用未安装�
 **说明:**
 
   程序将会在后台运行,不退出.
-  
-  * **此接口仅支持*Android*平台**
+
+* **此接口仅支持*Android*平台**
 
 **参数:**
 
