@@ -238,7 +238,7 @@ Android 4.1.3+
 **示例:**
 
 ```js
-uexWidgetOne.restart()
+uexWidgetOne.restart();
 ```
 
 ### 
