@@ -112,12 +112,12 @@ uexWidgetOne.exit(0);
 
 Json对象,各参数如下:
 
- | 参数名称 | 参数类型 | 说明 | 
- | ----- | ----- | ----- | 
- | appId | String | | 
- | version | String | | 
- | name | String | | 
- | icon | String | icon的路径 | 
+| 参数名称    | 参数类型   | 说明      |
+| ------- | ------ | ------- |
+| appId   | String |         |
+| version | String |         |
+| name    | String |         |
+| icon    | String | icon的路径 |
 
 
 **示例:**
@@ -214,7 +214,41 @@ alert("engine version code:" + uexWidgetOne.getEngineVersionCode());
 ```
 
 
+
+
+
+### 🍭 restart 重启应用
+
+`uexWidgetOne.restart()`
+
+**说明:**
+
+重启应用
+
+**参数:**
+
+无
+
+**版本支持:**
+
+iOS 4.1.0+
+
+Android 4.1.3+
+
+**示例:**
+
+```js
+uexWidgetOne.restart();
+```
+
+### 
+
+
+
+
+
 ##2.2、回调方法
+
 ### 🍭 cbError 出现异常时的回调方法
 
 `uexWidgetOne.cbError(opId,errorCode,errorInfo)`
@@ -225,15 +259,14 @@ alert("engine version code:" + uexWidgetOne.getEngineVersionCode());
 opId:(Number类型) 必选  操作ID,在此函数中不起作用,可忽略
 errorCode:(Number类型) 必选  错误代码
 errorInfo:(String类型) 必选  错误信息````
-
+````
 
 **示例:**
-​```javascript
+```javascript
 function cbError(opId,dataType,data){
     alert(data);
 }
 window.uexOnload = function() {
 uexWidgetOne.cbError = cbError;
 }
-​```
-````
+```
