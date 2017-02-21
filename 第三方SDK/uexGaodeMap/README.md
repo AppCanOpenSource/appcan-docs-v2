@@ -1154,7 +1154,7 @@ var json = [];
 
 ### 
 
-## 2.3、兴趣点搜索
+## 2.3､兴趣点搜索
 
 ### 🍭 poiSearch  兴趣点搜索
 
@@ -1349,7 +1349,7 @@ var json = {
 
 
 
-## 2.4、地理编码
+## 2.4､地理编码
 
 
 
@@ -1470,7 +1470,7 @@ var data = {
     });
 ```
 
-## 2.5、定位
+## 2.5､定位
 
 ### 🍭 getCurrentLocation  获取当前位置
 
@@ -1662,7 +1662,7 @@ Android 4.0+
     uexGaodeMap.setMyLocationButtonVisible(JSON.stringify(json));
 ```
 
-## 2.6、自定义按钮
+## 2.6､自定义按钮
 
 
 
@@ -1825,7 +1825,7 @@ var result = uexGaodeMap.deleteCustomButton(id);
 
 
 
-## 2.7、离线地图 
+## 2.7､离线地图 
 
 ### 🍭 download 开始下载
 
@@ -2269,7 +2269,7 @@ iOS:
 
 
 
-## 2.8、路径规划
+## 2.8､路径规划
 
 ### 路径规划用到的基础数据结构
 
@@ -2430,7 +2430,7 @@ var GaodeRouteResult = {
 var info = {
  	origin:, //GaodePoint 起始地
  	destination:,//GaodePoint 目的地
- 	strategy:,//Number 可选 路径规划策略,默认0.  0-速度优先（时间）1-费用优先（不走收费路段的最快道路）2-距离优先 3-不走快速路 4-结合实时交通（躲避拥堵）5-多策略（同时使用速度优先、费用优先、距离优先三个策略）6-不走高速 7-不走高速且避免收费 8-躲避收费和拥堵 9-不走高速且躲避收费和拥堵
+ 	strategy:,//Number 可选 路径规划策略,默认0.  0-速度优先(时间)1-费用优先(不走收费路段的最快道路)2-距离优先 3-不走快速路 4-结合实时交通(躲避拥堵)5-多策略(同时使用速度优先､费用优先､距离优先三个策略)6-不走高速 7-不走高速且避免收费 8-躲避收费和拥堵 9-不走高速且躲避收费和拥堵
  	avoidRoad:,//String,可选,避让道路名
 }
 ```
@@ -2477,7 +2477,7 @@ uexGaodeMap.drivingRouteSearch({
  });
 ```
 
-**data 的数据结构如下：**
+**data 的数据结构如下:**
 
 ```javascript
 {
@@ -2569,7 +2569,7 @@ uexGaodeMap.walkingRouteSearch({
  });
 ```
 
-**data 的数据结构如下：**
+**data 的数据结构如下:**
 
 ```javascript
 {
@@ -2659,7 +2659,7 @@ uexGaodeMap.ridingRouteSearch({
  });
 ```
 
-**data 的数据结构如下：**
+**data 的数据结构如下:**
 
 ```javascript
 {
@@ -2709,7 +2709,7 @@ var info = {
  	destination:,//GaodePoint 目的地
     city:, //String 当前城市
   	nightFlag:,//Boolean 可选 是否包含夜班车  默认false
-  	strategy:, // Number 可选 公交换乘策略,默认0  0-最快捷模式；1-最经济模式；2-最少换乘模式；3-最少步行模式；4-最舒适模式；5-不乘地铁模式
+  	strategy:, // Number 可选 公交换乘策略,默认0  0-最快捷模式;1-最经济模式;2-最少换乘模式;3-最少步行模式;4-最舒适模式;5-不乘地铁模式
 }
 ```
 
@@ -2754,7 +2754,7 @@ uexGaodeMap.transitRouteSearch({
  });
 ```
 
-**data 的数据结构如下：**
+**data 的数据结构如下:**
 
 ```javascript
 {
@@ -3024,21 +3024,24 @@ uexGaodeMap.onCustomButtonClick = function(id) {
 
 ### iOS
 
-API版本: `uexGaodeMap-4.0.1`
+API版本: `uexGaodeMap-4.0.2`
 
-最近更新时间:`2016-12-15`
+最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容                 |
-| ------ | -------------------- |
-| 4.0.1  | 新增addMultiInfoWindow |
-| 4.0.0  | 支持引擎4.0,函数入参         |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.2 | SDK更新 |
+| 4.0.1 | 新增addMultiInfoWindow |
+| 4.0.0 | 支持引擎4.0,函数入参 |
 
 ### Android
 
-API版本: `uexGaodeMap-4.0.1`
+API版本: `uexGaodeMap-4.0.2`
 
-最近更新时间:`2016-12-15`
+最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容     |
-| ------ | -------- |
-| 4.0.1  | 支持多信息窗样式 |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.2 | 支持路径规划 |
+| 4.0.1 | 支持多信息窗样式 |
+| 4.0.1 | 支持多信息窗样式 |

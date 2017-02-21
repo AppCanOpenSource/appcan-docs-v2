@@ -1,25 +1,25 @@
 [TOC]
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 
  socket插件
-## 1.1、说明
+## 1.1､说明
  socket管理接口API,该对象主要封装了tcp,udp的创建以及传输数据文件等接口.
-## 1.2、UI展示
+## 1.2､UI展示
 
  ![](http://newdocx.appcan.cn/docxapi/getCImg?img=133440g2015x6r16i.jpg)
-## 1.3、开源源码
+## 1.3､开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=189_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供) 
 
-## 1.4、平台版本支持
+## 1.4､平台版本支持
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+## 1.5､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明. 
 
-# 2、API概览
-## 2.1、方法
+# 2､API概览
+## 2.1､方法
 
 
 ### 🍭 createUDP 创建UDP对象
@@ -407,7 +407,7 @@ uexSocketMgr.close(socket,
 
 
 
-# 3、附录
+# 3､附录
 
 
 ###dataType 通讯数据类型
@@ -422,24 +422,24 @@ uexSocketMgr.close(socket,
 | 2        | gbk    | 当对方要求gbk编码时选择此项.前端应传入utf-8数据,插件会将数据重新按gbk编码后发送给对方; 收到对方的gbk数据时,插件会将数据重新按utf-8编码后返回给前端 |
 
 
-# 4、更新历史
+# 4､更新历史
 
 ### iOS
 
 API版本: `uexSocketMgr-4.0.0`
 
-最近更新时间:`2016-6-23`
+最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容       |
-| ------ | ---------- |
-
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.0 | Socket功能插件 |
 
 ### Android
 
 API版本: `uexSocketMgr-4.0.0`
 
-最近更新时间:`2016-6-23`
+最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容       |
-| ------ | ---------- |
-
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.0 | 支持function传入 |

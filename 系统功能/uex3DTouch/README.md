@@ -1,32 +1,32 @@
 [TOC]
 
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 
 3D Touch 插件
-## 1.1、说明
+## 1.1､说明
 
 * 可以通过此插件来实现3D Touch相关功能
 * shortcut 请先阅读[术语表-shortcut](#shortcut)
 * **如果用户需要设置静态shortcut,或者需要在shortcut里设置自定义图标,则需要自定义插件**.具体自定义的方法见附录.
 
-## 1.2、开源源码
+## 1.2､开源源码
 [点击](http://plugin.appcan.cn/details.html?id=511_pluginlist)至插件详情页(插件测试用例与插件源码已经提供)
 
 
-## 1.3、平台版本支持
+## 1.3､平台版本支持
 
 本插件的所有API默认只支持**iOS9.0+**操作系统,**不支持Android**.
 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.4、接口有效性
+## 1.4､接口有效性
 
 本插件所有API默认在插件版本**4.0.0+**可用.
 
 
-#2、 API预览
+#2､ API预览
 
-##2.1、 方法
+##2.1､ 方法
 
 ### 🍭 setDynamicShortcutItems 设置动态shortcut
 
@@ -107,7 +107,7 @@ var data=[
 uex3DTouch.setDynamicShortcutItems(JSON.stringify(data));
 ```
 
-##2.2、监听方法
+##2.2､监听方法
 
 ### 🍭 onLoadByShortcutClickEvent 程序被点击3DTouch Shortcut调起的监听方法
 
@@ -149,7 +149,7 @@ uex3DTouch.onLoadByShortcutClickEvent = function(data){
 }
 ```
 
-#3、术语表
+#3､术语表
 
 ### 🍭 shortcut
 
@@ -215,22 +215,23 @@ uex3DTouch.onLoadByShortcutClickEvent = function(data){
 | UIApplicationShortcutIconTypeAudio       | 声音   | 仅iOS 9.1+支持 |
 | UIApplicationShortcutIconTypeUpdate      | 升级   | 仅iOS 9.1+支持 |
 
-#4、更新历史
+#4､更新历史
 
 ### iOS
 
 API版本: `uex3DTouch-4.0.0`
 
-最近更新时间:`2016-5-10`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 3DTouch 功能插件 |
 
 ### Android
 
-**uex3DTouch不支持Android**
+**暂不支持!**
 
-#5、附录
+#5､附录
 
 ###如何自定义shortcut图标(自定义插件)
 

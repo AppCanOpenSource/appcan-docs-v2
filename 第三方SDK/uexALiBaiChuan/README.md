@@ -367,7 +367,7 @@ uexALiBaiChuan.openItemDetailPageByURL(JSON.stringify(params));
 
 API版本: `uexALiBaiChuan-4.0.0`
 
-最近更新时间:`2016-12-15`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
@@ -377,7 +377,7 @@ API版本: `uexALiBaiChuan-4.0.0`
 
 API版本: `uexALiBaiChuan-4.0.0`
 
-最近更新时间:`2016-12-15`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
