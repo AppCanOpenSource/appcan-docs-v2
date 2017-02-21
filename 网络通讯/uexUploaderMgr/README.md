@@ -189,7 +189,7 @@ uexUploaderMgr.uploadFile(uploader,"res://uexCoverFlow2_tupian.png","imageField"
 
 API版本: `uexUploaderMgr-4.0.0`
 
-最近更新时间:`2016-12-15`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
@@ -197,10 +197,13 @@ API版本: `uexUploaderMgr-4.0.0`
 
 ### Android
 
-API版本: `uexUploaderMgr-4.0.0`
+API版本: `uexUploaderMgr-4.0.3`
 
-最近更新时间:`2016-12-15`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.3 | :修复服务器返回2XX(非200)导致上传失败的问题,并修改自动处理重定向 |
+| 4.0.2 | :修复文件名有汉字时出错的问题 |
+| 4.0.1 | :修复uploadFile压缩参数失效的问题 |
 | 4.0.0 | :4.0 |

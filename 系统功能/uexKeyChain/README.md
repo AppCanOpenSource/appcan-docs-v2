@@ -1,28 +1,28 @@
 [TOC]
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 KeyChain(钥匙串)插件
 
-## 1.1、说明
+## 1.1､说明
 
 封装了iOS系统的KeyChain相关功能.iOS的keychain服务提供了一种安全的保存私密信息(如密码,序列号)的方式,每个ios程序都有一个独立的keychain存储.
 对于一些私密信息,比如密码等等,就需要使用更为安全的keychain了.keychain里保存的信息不会因App被删除而丢失,在用户重新安装App后依然有效,数据还在.
 
-## 1.2、开源源码
+## 1.2､开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=520_index)至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.3、平台版本支持
+## 1.3､平台版本支持
 
 本插件的所有API默认只支持**iOS7.0+**操作系统,**不支持Android**.
 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.4、接口有效性
+## 1.4､接口有效性
 
 本插件所有API默认在插件版本**4.0.0+**可用.
 
-# 2、API概览
+# 2､API概览
 
-## 2.1、方法
+## 2.1､方法
 
 ### 🍭 setItem 设置一个keyChain item
 
@@ -36,7 +36,7 @@ KeyChain(钥匙串)插件
 
 | 参数名称  | 参数类型     | 是否必选 | 说明           |
 | ----- | -------- | ---- | ------------ |
-| param | Object   | 是    | 接口所需数据，形式见下： |
+| param | Object   | 是    | 接口所需数据,形式见下: |
 | cb    | Function | 是    | 回调方法         |
 
 ```javascript
@@ -50,7 +50,7 @@ var param = {
 	TouchIDPrompt:
 }
 ```
-各字段含义如下：
+各字段含义如下:
 
 | 字段名称             | 类型      | 是否必选 | 说明                                       |
 | ---------------- | ------- | ---- | ---------------------------------------- |
@@ -87,7 +87,7 @@ var cb = function(error,data){}
 | 参数名称  | 参数类型   | 说明                 |
 | ----- | ------ | ------------------ |
 | error | Number | 为0表示操作成功,非0时表示操作失败 |
-| data  | Object | 操作回调结果，形式见下：       |
+| data  | Object | 操作回调结果,形式见下:       |
 
 ```javascript
 var data = {
@@ -133,7 +133,7 @@ uexKeyChain.setItem(param,function(err,data){
 
 | 参数名称  | 参数类型     | 是否必选 | 说明           |
 | ----- | -------- | ---- | ------------ |
-| param | Object   | 是    | 接口所需数据，形式见下： |
+| param | Object   | 是    | 接口所需数据,形式见下: |
 | cb    | Function | 是    | 回调方法         |
 
 ```javascript
@@ -143,7 +143,7 @@ var param={
 	TouchIDPrompt:
 }
 ```
-各字段含义如下：
+各字段含义如下:
 
 | 字段名称          | 类型     | 是否必选 | 说明                                       |
 | ------------- | ------ | ---- | ---------------------------------------- |
@@ -163,7 +163,7 @@ var cb = function(error,data){}
 | 参数名称  | 参数类型   | 说明                 |
 | ----- | ------ | ------------------ |
 | error | Number | 为0表示操作成功,非0时表示操作失败 |
-| data  | Object | 操作回调结果，形式见下：       |
+| data  | Object | 操作回调结果,形式见下:       |
 
 ```javascript
 var data = {
@@ -205,7 +205,7 @@ uexKeyChain.getItem(param,function(err,data){
 
 | 参数名称  | 参数类型     | 是否必选 | 说明           |
 | ----- | -------- | ---- | ------------ |
-| param | Object   | 是    | 接口所需数据，形式见下： |
+| param | Object   | 是    | 接口所需数据,形式见下: |
 | cb    | Function | 是    | 回调方法         |
 
 ```javascript
@@ -215,7 +215,7 @@ var param={
 }
 ```
 
-各字段含义如下：
+各字段含义如下:
 
 | 字段名称          | 类型     | 是否必选 | 说明                                       |
 | ------------- | ------ | ---- | ---------------------------------------- |
@@ -234,7 +234,7 @@ var cb = function(error,data){}
 | 参数名称  | 参数类型   | 说明                 |
 | ----- | ------ | ------------------ |
 | error | Number | 为0表示操作成功,非0时表示操作失败 |
-| data  | Object | 操作回调结果，形式见下：       |
+| data  | Object | 操作回调结果,形式见下:       |
 
 ```javascript
 var data = {
@@ -286,7 +286,7 @@ var uid = uexKeyChain.getDeviceUniqueIdentifier();
 alert(uid);
 ```
 
-#3、术语表
+#3､术语表
 
 ### 🍭 KeyChain 说明
 
@@ -318,20 +318,18 @@ alert(uid);
 
 * 传1~6之外的其他值,或者在iOS 8以下的系统上传6,此设置将会被忽略,插件会认为保护设置为默认值2
 
-# 4、更新历史
+# 4､更新历史
 
 ### iOS
 
 API版本: `uexKeyChain-4.0.0`
 
-最近更新时间:`2016-1-21`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
-| ------ | ---- |
-
-
+| ----- | ----- |
+| 4.0.0 | iOS钥匙串插件 |
 
 ### Android
 
-**uexKeyChain不支持Android**
-
+**暂不支持!**

@@ -1,29 +1,29 @@
 [TOC]
 
-# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 系统联系人插件
 
-## 1.1、说明
+## 1.1､说明
 打开,添加,删除,查找,修改联系人等功能.
 
-## 1.2、UI展示
+## 1.2､UI展示
  ![](http://newdocx.appcan.cn/docximg/152401g2015a6l7b.jpg)
 
-## 1.3、开源源码
+## 1.3､开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=161_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4、平台版本支持
+## 1.4､平台版本支持
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+## 1.5､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明. 
 
 
-# 2、API概览
+# 2､API概览
 
-## 2.1、方法
+## 2.1､方法
 
 ### 🍭 open 打开联系人界面
 
@@ -48,7 +48,7 @@ var callbackFunction=function(error,data){}
 | 参数名称  | 参数类型   | 说明                 |
 | ----- | ------ | ------------------ |
 | error | Number | 0表示成功,-1为取消,其他表示失败 |
-| data  | Object | 成功时返回的数据，形式见下：     |
+| data  | Object | 成功时返回的数据,形式见下:     |
 
 ```json
 var data = {
@@ -98,7 +98,7 @@ var callbackFunction=function(error,data){}
 | 参数名称  | 参数类型   | 说明                 |
 | ----- | ------ | ------------------ |
 | error | Number | 0表示成功,-1为取消,其他表示失败 |
-| data  | Array  | JSON数组类型,格式，形式见下：  |
+| data  | Array  | JSON数组类型,格式,形式见下:  |
 
 ```json
 var data = [{
@@ -311,7 +311,7 @@ var callbackFunction=function(error,data){}
 | 参数名称  | 参数类型   | 说明                     |
 | ----- | ------ | ---------------------- |
 | error | Number | 表示操作是否成功,0表示成功,其他表示失败. |
-| data  | Array  | 搜索结果数据，形式见下：           |
+| data  | Array  | 搜索结果数据,形式见下:           |
 
 ```JavaScript
 var data = [
@@ -544,22 +544,25 @@ uexContact.addItemWithVCard('BEGIN:VCARD\nVERSION:3.0\nN:韩;超\nTEL:22334752\n
 });
 ```
 
-# 3、更新历史
+# 3､更新历史
 
 ### iOS
 
 API版本: `uexContact-4.0.0`
 
-最近更新时间:`2016-7-1`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 联系人功能插件 |
 
 ### Android
 
-API版本: `uexContact-4.0.0`
+API版本: `uexContact-4.0.1`
 
-最近更新时间:`2016-7-1`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.1 | 解决获取联系人号码重复的问题 |
+| 4.0.0 | 4.0 |

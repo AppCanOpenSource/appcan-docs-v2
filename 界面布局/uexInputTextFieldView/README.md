@@ -1,27 +1,27 @@
 [TOC]
-# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 评论输入框插件
 
-## 1.1、说明
+## 1.1､说明
  提供评论输入相关的功能,集成了表情输入功能,只需简单的widget配置即可实现自定义表情集
-## 1.2、UI展示
+## 1.2､UI展示
 ![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexInputTextFieldView/img/1.png)        ![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexInputTextFieldView/img/2.png)
 
-## 1.3、开源源码
+## 1.3､开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=452_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 
-## 1.4、平台版本支持
+## 1.4､平台版本支持
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+## 1.5､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明.
 
-# 2、API概览
+# 2､API概览
 
-## 2.1、方法
+## 2.1､方法
 
 ### 🍭 open 打开评论输入
 
@@ -52,10 +52,10 @@ var json = {
 
 >参数emojicons的自定义表情配置文件为:"res://emojicons/emojicons.xml",详细配置步骤:
 
-1、在widget的wgtRes目录下创建emojicons目录;
-2、在emojicons中放入表情以及删除的图片资源,表情的默认命名格式:
+1､在widget的wgtRes目录下创建emojicons目录;
+2､在emojicons中放入表情以及删除的图片资源,表情的默认命名格式:
 ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png;
-3、在emojicons中创建emojicons.xml文件,格式如下:
+3､在emojicons中创建emojicons.xml文件,格式如下:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -70,7 +70,7 @@ ace_emoji_1,删除的默认命名格式:ace_emoji_delete.png;
 *   delete:删除对应的图片名;
 *   key:表情对应的文字;
 *   string:表情对应的图片名
-    * 说明:表情目录、图片名以及配置文件名都可以自定义命名,但是必须保证配置文件中的图片名与资源图片对应.
+    * 说明:表情目录､图片名以及配置文件名都可以自定义命名,但是必须保证配置文件中的图片名与资源图片对应.
 
 
 **示例**
@@ -149,7 +149,7 @@ var result=uexInputTextFieldView.getInputBarHeight();
 alert(result);
 ```
 
-## 2.2、监听方法
+## 2.2､监听方法
 
 ### 🍭 onCommitJson 点击发送的监听方法
 
@@ -208,22 +208,24 @@ window.uexOnload = function(){
 
  
 
-# 3、更新历史
+# 3､更新历史
 
 ### iOS
 
 API版本: `uexInputTextFieldView-4.0.0`
 
-最近更新时间:`2016-2-16`
+最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容                                     |
-| ------ | ---------------------------------------- |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.0 | :uexInputTextFieldView for iOS |
 
 ### Android
 
 API版本: `uexInputTextFieldView-4.0.0`
 
-最近更新时间:`2016-4-22`
+最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容                                     |
-| ------ | ---------------------------------------- |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.0 | 4.0 |

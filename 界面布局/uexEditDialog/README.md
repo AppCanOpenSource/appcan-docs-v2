@@ -1,27 +1,27 @@
 [TOC]
 
-# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 
 自定义编辑框插件
-## 1.1、说明
+## 1.1､说明
  实现自定义编辑框,获取输入框内内容数据进行复制粘贴等操作
-## 1.2、UI展示
+## 1.2､UI展示
 
  ![](http://newdocx.appcan.cn/docximg/141950m2015c6g16o.jpg)
-## 1.3、开源源码
+## 1.3､开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=170_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4、平台版本支持
+## 1.4､平台版本支持
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+## 1.5､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明. 
 
-# 2、API概览
+# 2､API概览
 
-## 2.1、方法
+## 2.1､方法
 ### 🍭 create 创建自定义的输入框对象
 
 ` var editDialog = uexEditDialog.create(params)`
@@ -34,7 +34,7 @@
 
 | 参数名称   | 参数类型   | 是否必选 | 说明           |
 | ------ | ------ | ---- | ------------ |
-| params | String | 是    | 接口所需数据，形式见下： |
+| params | String | 是    | 接口所需数据,形式见下: |
 
 ```javascript
 var params = {
@@ -98,14 +98,14 @@ var editDialog = uexEditDialog.create(JSON.stringify(params));
 
 **返回值:**
 
-Boolean类型，表示操作成功或失败.
+Boolean类型,表示操作成功或失败.
 
 **示例:**
 
 ```javascript
 var result = uexEditDialog.close(editDialog);
 if(result){
-  alert("关闭成功！");
+  alert("关闭成功!");
 }
 ```
 ### 🍭 insert 插入数据
@@ -125,7 +125,7 @@ if(result){
 
 **返回值:**
 
-Boolean类型，插入成功后返回true, 失败返回false
+Boolean类型,插入成功后返回true, 失败返回false
 
 **示例:**
 
@@ -148,14 +148,14 @@ uexEditDialog.insert(editDialog,"这是5个字");
 
 **返回值:**
 
-Boolean类型，表示操作成功或失败.
+Boolean类型,表示操作成功或失败.
 
 **示例:**
 
 ```javascript
 var result = uexEditDialog.cleanAll(editDialog);
 if(result){
-  alert("清除成功！");
+  alert("清除成功!");
 }
 ```
 
@@ -175,7 +175,7 @@ if(result){
 
 **返回值:**
 
-String类型，数据.
+String类型,数据.
 
 **示例:**
 
@@ -184,7 +184,7 @@ var data = uexEditDialog.getContent(editDialog)
 ```
 
 
-## 2.2、监听方法
+## 2.2､监听方法
 
 ### 🍭 onNum 文本框字数改变时返回的剩余字数的回调函数
 
@@ -205,22 +205,24 @@ uexEditDialog.onNum = function(editDialog, num){
 };
 ```
 
-# 3、更新历史
+# 3､更新历史
 
 ### iOS
 
 API版本: `uexEditDialog-4.0.0`
 
-最近更新时间:`2016-7-29`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | uexEditDialog for iOS |
 
 ### Android
 
 API版本: `uexEditDialog-4.0.0`
 
-最近更新时间:`2016-7-29`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 自定义编辑框功能插件 4.0 |

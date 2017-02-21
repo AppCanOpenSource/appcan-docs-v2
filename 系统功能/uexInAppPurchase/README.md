@@ -1,26 +1,26 @@
 [TOC]
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 内部支付(IAP)插件
-## 1.1、说明
+## 1.1､说明
 封装内部支付(IAP)相关操作
-## 1.2、UI展示
+## 1.2､UI展示
 
-## 1.3、公告 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fnew.gif)]() 
+## 1.3､公告 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fnew.gif)]() 
 
-iOS开发的收入有三种来源:出售应用、内购和广告.国内用户通常很少直接购买应用,因此对于开发者而言(特别是个人开发者),内购和广告收入就成了主要的收入来源.内购营销模式,通常软件本身是不收费的,但是要获得某些特权就必须购买一些道具,需要通过内购的方式来实现,而内购的过程是由苹果官方统一来管理的.
+iOS开发的收入有三种来源:出售应用､内购和广告.国内用户通常很少直接购买应用,因此对于开发者而言(特别是个人开发者),内购和广告收入就成了主要的收入来源.内购营销模式,通常软件本身是不收费的,但是要获得某些特权就必须购买一些道具,需要通过内购的方式来实现,而内购的过程是由苹果官方统一来管理的.
     
-## 1.4、开源源码
+## 1.4､开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=567) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
-## 1.5、平台版本支持
-本插件的所有API默认只支持***iOS7.0+**操作系统，**不支持Android**.
+## 1.5､平台版本支持
+本插件的所有API默认只支持***iOS7.0+**操作系统,**不支持Android**.
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.6、接口有效性
+## 1.6､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明.
-# 2、API概览
+# 2､API概览
 
-##2.1、方法
+##2.1､方法
 
 ### 🍭 getProductList 获取有效的产品列表
 
@@ -31,7 +31,7 @@ iOS开发的收入有三种来源:出售应用、内购和广告.国内用户通
 
 **说明:**
 
-该方法从苹果服务器返回有效产品信息,包括产品描述信息、参考名称、价格、产品ID,通过cbGetProductList回调实现.
+该方法从苹果服务器返回有效产品信息,包括产品描述信息､参考名称､价格､产品ID,通过cbGetProductList回调实现.
 
                
 
@@ -39,7 +39,7 @@ iOS开发的收入有三种来源:出售应用、内购和广告.国内用户通
 
 | 参数名称     | 参数类型     | 是否必选 | 说明           |
 | -------- | -------- | ---- | ------------ |
-| param     | Object   | 是    | 接口所需数据，形式见下： |
+| param     | Object   | 是    | 接口所需数据,形式见下: |
 | callback | Function | 是    | 回调方法         |
 
  ```
@@ -60,7 +60,7 @@ var callback = function (error,data){}
 | 参数名称  | 类型     | 说明           |
 | ----- | ------ | ------------ |
 | error | Number | 0表示成功,非0表示失败 |
-| data  | String | 从苹果服务器获取的有效产品信息,格式如下：|
+| data  | String | 从苹果服务器获取的有效产品信息,格式如下:|
 
 ```
 var data = [
@@ -184,7 +184,7 @@ uexInAppPurchase.purchase(params);
 uexInAppPurchase.restorePurchase();               
 ```
 
-## 2.1、监听方法
+## 2.1､监听方法
 
 ### 🍭 onRequestState 对发送产品请求进行监听
 
@@ -198,7 +198,7 @@ uexInAppPurchase.restorePurchase();
 
 | 参数名称 | 参数类型   | 是否必选 | 说明           |
 | ---- | ------ | ---- | ------------ |
-| result | String | 是    | 形式见下： |
+| result | String | 是    | 形式见下: |
 
 ```
 var result ={
@@ -237,7 +237,7 @@ window.uexOnload = function(){
 
 | 参数名称 | 参数类型   | 是否必选 | 说明           |
 | ---- | ------ | ---- | ------------ |
-| result | String | 是    | 形式见下： |
+| result | String | 是    | 形式见下: |
 
 ```
 var result ={
@@ -277,7 +277,7 @@ window.uexOnload = function(){
 
 | 参数名称 | 参数类型   | 是否必选 | 说明           |
 | ---- | ------ | ---- | ------------ |
-| result | String | 是    | 形式见下： |
+| result | String | 是    | 形式见下: |
 
 ```
 var result ={
@@ -340,7 +340,7 @@ window.uexOnload = function(){
 
 | 参数名称 | 参数类型   | 是否必选 | 说明           |
 | ---- | ------ | ---- | ------------ |
-| result | String | 是    | 形式见下： |
+| result | String | 是    | 形式见下: |
 
 ```
 var result ={
@@ -368,7 +368,7 @@ window.uexOnload = function(){
     uexInAppPurchase.onRestoreState = onRestoreState;
 }
 ```
-# 3、更新历史
+# 3､更新历史
 
 ### iOS
 
@@ -379,7 +379,7 @@ API版本: `uexInAppPurchase-4.0.0`
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
 | 4.0.0 | 内购插件4.0 |
+
 ### Android
 
-**uexInAppPurchase不支持Android**
-
+**暂不支持!**
