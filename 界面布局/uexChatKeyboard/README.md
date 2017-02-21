@@ -48,6 +48,7 @@ var viewInfo={
     "sendBtnbgColorUp": ,
     "sendBtnbgColorDown": ,
     "sendBtnText": ,
+  	"maxLines":,
     "sendBtnTextSize": ,
     "sendBtnTextColor": ,
     "inputMode":,
@@ -73,6 +74,7 @@ var viewInfo={
 | sendBtnTextColor   | String | 否    | 发送按钮文字颜色                      |
 | inputMode          | Number | 否    | 输入框默认输入方式,0-文字输入;1-语音输入.默认为0. |
 | keywords           | Array  | 否    | 要监听的输入关键字,是由字符串构成的数组.默认为空数组   |
+| maxLines           | Number | 否    | 输入框的最大行数                      |
 参数emojicons的自定义表情配置文件为:"res://emojicons/emojicons.xml"[res协议路径](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "res协议路径"),详细配置步骤:
 
 1、在widget的wgtRes目录下创建emojicons目录;
