@@ -267,6 +267,116 @@ var order = uexAliPay.generatePayOrder({
 
 
 
+### 🍭 getAuthInfo 生成授权信息
+
+`uexAlipay.getAuthInfo(data)`
+
+**说明:**
+
+测试用接口,根据数据生成授权信息
+
+此接口仅适用于使用"App支付宝登录"服务的支付宝商户
+
+注意:将私钥等信息保存在客户端可能会商户私密数据泄露,造成不必要的资金损失,是一种非常危险的行为.
+
+ 🚫**此接口仅用于测试,严禁在正式环境中使用.**
+
+
+
+**参数:**
+
+```js
+var data = {
+  rsaPrivate: ,
+  pid: ,
+  appId: ,
+  targetId:,
+  authType:,
+  rsa2:,
+};
+```
+
+
+
+| 参数名称       | 参数类型    | 是否必选 | 说明                                       |
+| ---------- | ------- | ---- | ---------------------------------------- |
+| rsaPrivate | String  | 是    | 签名用的RSA私钥                                |
+| pid        | String  | 是    | 签约的支付宝账号对应的支付宝唯一用户号                      |
+| appId      | String  | 是    | 支付宝分配给开发者的应用ID                           |
+| targetId   | String  | 是    | 商户标识该次用户授权请求的ID，该值在商户端应保持唯一              |
+| authType   | String  | 是    | 标识授权类型,取值范围: "AUTHACCOUNT"代表授权,"LOGIN"代表登录 |
+| rsa2       | Boolean | 是    | 签名算法是否使用RSA2(SHA256withRSA)              |
+
+
+
+**返回值:**
+
+生成的授权信息字符串
+
+**示例:**
+
+```js
+var authInfo = uexAliPay.getAuthInfo({
+ 	rsaPrivate:"******",
+  	pid:"******",
+  	appId:"******",
+  	targetId:new Date().getTime(),
+  	rsa2:true
+});
+```
+
+
+
+### 🍭 auth 授权登录
+
+`uexAliPay.auth(authInfo,callback)`
+
+此接口仅适用于使用"App支付宝登录"服务的支付宝商户
+
+如何生成授权请求请参考[支付宝官方文档](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.MOlJZ3&treeId=193&articleId=105327&docType=1)
+
+**说明:**
+
+解析授权请求进行授权登录
+
+**参数:**
+
+| 参数名称     | 参数类型     | 是否必选 | 说明        |
+| -------- | -------- | ---- | --------- |
+| authInfo | String   | 是    | 授权请求      |
+| callback | Function | 否    | 授权登录的回调函数 |
+
+**回调参数:**
+
+```js
+var callback = function(error, data){}
+```
+
+| 参数名称  | 类型     | 说明                                       |
+| ----- | ------ | ---------------------------------------- |
+| error | Number | 授权结果,0-成功,非0-失败                          |
+| data  | Object | 授权登录返回结果,字段说明见[支付宝官方文档](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.MOlJZ3&treeId=193&articleId=105327&docType=1) |
+
+
+
+**示例:**
+
+```js
+var authInfo = ... //从后台获得的授权请求
+uexAliPay.auth(order,function(error,data){
+  if(error){
+    alert("支付失败");
+  }else{
+    alert("支付成功");
+  }
+  alert("授权结果: " + JSON.stringify(data));
+})
+```
+
+
+
+
+
 
 
 # 3、更新历史
