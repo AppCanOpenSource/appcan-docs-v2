@@ -118,7 +118,7 @@ var data={
 		textNColor:"#ffffff",//一般按钮,未被选中状态下的文字颜色
 		textHColor:"#ffff00",//一般按钮,被选中状态下的文字颜色
 		cancelTextNColor:"#ff00ff",//取消按钮,未被选中状态下的文字颜色
-		cancelTextHColor:"#000ffff",//取消按钮,被选中状态下的文字颜色
+		cancelTextHColor:"#00ffff",//取消按钮,被选中状态下的文字颜色
 		actionSheetList:[//按钮数据数组
 			{
 			name:"新浪微博"//item名称
