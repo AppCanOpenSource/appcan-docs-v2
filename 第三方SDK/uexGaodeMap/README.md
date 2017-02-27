@@ -799,7 +799,7 @@ var json = [];
     uexGaodeMap.removeMarkersOverlays(JSON.stringify(json));
 ```
 
-### 
+
 
 ### 🍭 addPolylineOverlay  添加折线覆盖物
 
@@ -1160,15 +1160,13 @@ var json = [];
 
 ```javascript
 var json = {
-    sequenceLineId: 1,
 	traceList: [
     	{
-       		"longitude": ,
-        	"time": ,
-        	"address": "",
-        	"speed": ,
-        	"bearing": ,
-        	"latitude": 
+       		longitude: ,
+        	time: ,
+        	speed: ,
+        	bearing: ,
+        	latitude: 
     	}
     ],
   	coordinateType:
@@ -1177,45 +1175,44 @@ var json = {
 
 **各字段含义:**
 
-| 参数名称           | 参数类型   | 是否必选 | 说明                                      |
-| -------------- | ------ | ---- | --------------------------------------- |
-| sequenceLineId | Number | 是    | 唯一标识符， 如果多条轨迹调起纠偏接口，则sequenceLineId需不同。 |
-| traceList      | Array  | 是    | 轨迹点的信息，具体字段见下表                          |
-| coordinateType | Number | 是    | 轨迹点的坐标系类型。1为高德坐标系，2为GPS坐标系，3为百度坐标系      |
+| 参数名称           | 参数类型   | 是否必选 | 说明                                 |
+| -------------- | ------ | ---- | ---------------------------------- |
+| traceList      | Array  | 是    | 轨迹点的信息，具体字段见下表                     |
+| coordinateType | Number | 是    | 轨迹点的坐标系类型。1为高德坐标系，2为GPS坐标系，3为百度坐标系 |
 
  轨迹点参数
 
-| 参数名称      | 参数类型   | 是否必选 | 说明   |
-| --------- | ------ | ---- | ---- |
-| longitude | Number | 是    | 经度   |
-| latitude  | Number | 是    | 纬度   |
-| speed     | Number | 否    | 速度   |
-| bearing   | Number | 否    | 方向角  |
-| time      | Number | 否    | 时间   |
+| 参数名称      | 参数类型   | 是否必选 | 说明       |
+| --------- | ------ | ---- | -------- |
+| longitude | Number | 是    | 经度       |
+| latitude  | Number | 是    | 纬度       |
+| speed     | Number | 否    | 速度(千米/时) |
+| bearing   | Number | 否    | 方向角(度)   |
+| time      | Number | 否    | 时间(毫秒)   |
 
  
 
 ```javascript
-var callback=function(error,data){
+var callback = function(error,data){
   	//error 为0表示成功，其他表示失败
+  	//失败时,data为String类型,表示失败的原因
+  	//成功时,data为Object类型,各字段详情见下
 }
 ```
 
 ```javascript
-var data={
-	"distance":318,
-	"lineID":1,
-	"linePoints":[
+var data = {
+	distance: 318,
+	linePoints: [
       {
-        "latitude":39.995995,
-        "longitude":116.47695
+        latitude: 39.995995,
+        longitude: 116.47695
       },
       {
-        "latitude":39.99593,
-        "longitude":116.47705
+        latitude: 39.99593,
+        longitude: 116.47705
       }
-    ],
-	"waitingTime":0
+    ]
 }
 ```
 
@@ -1223,11 +1220,10 @@ var data={
 
 `data`各字段如下：
 
-| 参数名称        | 参数类型   | 是否必选 | 说明        |
-| ----------- | ------ | ---- | --------- |
-| lineID      | Number | 是    | 唯一标识符     |
-| linePoints  | Array  | 是    | 纠偏后的点列表   |
-| waitingTime | Number | 是    | 该轨迹中间停止时间 |
+| 参数名称       | 参数类型   | 是否必选 | 说明         |
+| ---------- | ------ | ---- | ---------- |
+| distance   | Number | 是    | 纠偏后的总距离(米) |
+| linePoints | Array  | 是    | 纠偏后的点列表    |
 
  
 
@@ -1235,33 +1231,26 @@ var data={
 
 ```javascript
 var params = {
-    sequenceLineId: 1,
     traceList: [
         {
-            "longitude": 116.47676009385665,
-            "time": 1470212510269,
-            "address": "",
-            "speed": 10.471948623657227,
-            "bearing": 44.10205841064453,
-            "provider": "gps",
-            "accuracy": 350,
-            "latitude": 39.995825200614696
+            longitude: 116.47676009385665,
+            time: 1470212510269,
+            speed: 10.471948623657227,
+            bearing: 44.10205841064453,
+            latitude: 39.995825200614696
         },
         {
-            "longitude": 116.4779446327818,
-            "time": 1470212512259,
-            "address": "",
-            "speed": 8.426321029663086,
-            "bearing": 32.86181640625,
-            "provider": "gps",
-            "accuracy": 16,
-            "latitude": 39.99609261805374
+            longitude: 116.4779446327818,
+            time: 1470212512259,
+            speed: 8.426321029663086,
+            bearing: 32.86181640625,
+            latitude: 39.99609261805374
         }
     ],
     coordinateType: 1
 };
 uexGaodeMap.queryProcessedTrace(params, function (error, data) {
-    console.log(JSON.stringify(data));
+    alert(JSON.stringify(data));
 });
 ```
 
