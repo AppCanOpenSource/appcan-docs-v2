@@ -1006,13 +1006,8 @@ callback拥有一个参数data,`Array<EMChatterInfo>`类型 一个由EMChatterI
 
 callback是回调函数,Function类型
 
-callback拥有一个参数data,Object类型 
+callback拥有一个参数data,Array<String>类型 用户姓名字符串构成的数组	
 
-```js
-var data = {
-	usernames:,//Array<String>,用户姓名字符串构成的数组	
-};
-```
 
 
 ​   
