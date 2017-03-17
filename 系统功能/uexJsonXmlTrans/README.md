@@ -1,26 +1,26 @@
 [TOC]
-# 1、简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 JSON, XML转换工具
 
-## 1.1、说明
+## 1.1､说明
 该插件封装了JSON, XML格式数据相互转换的功能
 
-## 1.2、UI展示
+## 1.2､UI展示
 无
-## 1.3、开源源码
+## 1.3､开源源码
 插件测试用例与源码下载:[点击](xxxx ) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
-## 1.4、平台版本支持
+## 1.4､平台版本支持
 
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5、接口有效性
+## 1.5､接口有效性
 
 本插件所有API默认在插件版本**4.0.0+**可用.
-# 2、API概览
+# 2､API概览
 
-## 2.1、方法
+## 2.1､方法
 
 ### 🍭 json2xml 将json字符串转为xml
 
@@ -45,7 +45,7 @@ var cb = function(error,data){}
 
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
-| error | Number | 转换结果，0-成功，非0-失败 |
+| error | Number | 转换结果,0-成功,非0-失败 |
 | data  | String | 转换后的数据          |
 
 **示例:**
@@ -91,7 +91,7 @@ var cb = function(error,data){}
 
 | 参数名称  | 参数类型   | 说明              |
 | ----- | ------ | --------------- |
-| error | Number | 转换结果，0-成功，非0-失败 |
+| error | Number | 转换结果,0-成功,非0-失败 |
 | data  | Object | 转换后的数据          |
 
 **示例:**
@@ -109,22 +109,24 @@ uexJsonXmlTrans.xml2json(param,function(error, data){
 ```
 
 
-# 3、更新历史
+# 3､更新历史
 
 ### iOS
 
 API版本: `uexJsonXmlTrans-4.0.0`
 
-最近更新时间:`2016-7-1`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | uexJsonXmlTrans 4.0插件 |
 
 ### Android
 
 API版本: `uexJsonXmlTrans-4.0.0`
 
-最近更新时间:`2016-7-1`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 4.0插件 |

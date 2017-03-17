@@ -1,28 +1,28 @@
 [TOC]
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 短信插件
-## 1.1、说明
+## 1.1､说明
 封装发送短信相关操作,支持发送多人,IOS不支持直接发送,Android支持直接发送
-## 1.2、UI展示
+## 1.2､UI展示
 ![](http://newdocx.appcan.cn/docximg/151359l2015u6d7t.jpg)
-## 1.3、公告 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fnew.gif)]() 
+## 1.3､公告 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fnew.gif)]() 
 (公告:直接发送短信接口由于涉及隐私权限,官方已废弃)
  原因如下:
     uexCall的call直接拨打电话接口和uexSMS的send直接发送短信接口都需要预先配置相应的权限.而这些权限对于手机系统来说,属于敏感权限.因此如果应用中带有这些权限,在上某些应用市场审核时,会被驳回.(已有开发者反馈该问题)但不影响功能使用,可以使用跳到拨号或者短信界面,使用`uexCall.dial(number) uexSMS.open(phoneNum, content)`方法
 
-## 1.4、开源源码
+## 1.4､开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=188_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
-## 1.5、平台版本支持
+## 1.5､平台版本支持
 
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.6、接口有效性
+## 1.6､接口有效性
 
 本插件所有API默认在插件版本**4.0.0+**可用.
-# 2、API概览
-##2.1、方法
+# 2､API概览
+##2.1､方法
 
 ### 🍭 open 打开系统默认发送短信程序的界面
 
@@ -45,22 +45,24 @@
 uexSMS.open("13211049876","测试短信");
 ```
 
-# 3、更新历史
+# 3､更新历史
 
 ### iOS
 
 API版本: `uexSMS-4.0.0`
 
-最近更新时间:`2016-7-1`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | uexSMS支持引擎4.0 |
 
 ### Android
 
 API版本: `uexSMS-4.0.0`
 
-最近更新时间:`2016-7-1`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.0 | 短信功能插件 |

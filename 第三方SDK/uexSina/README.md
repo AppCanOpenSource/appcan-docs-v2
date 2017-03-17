@@ -1,9 +1,9 @@
 [TOC]
 
-# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 新浪分享插件
 
-## 1.1、说明
+## 1.1､说明
 调用新浪分享文字,图片.
 
 **iOS 9 以后,为了预防APP通过非正常渠道获取用户的某些隐私信息,Apple启用了URLScheme白名单机制.**
@@ -21,7 +21,7 @@
 <string>weibosdk2.5</string>
 ```
 
-* iOS App用过uexSina插件打开新浪客户端进行授权、分享过程完成后,新浪客户端通过应用自定义的UrlScheme返回到本App,并传回授权、分享结果时,需要配置UrlScheme值.通过config.xml配置插件的方法如下
+* iOS App用过uexSina插件打开新浪客户端进行授权､分享过程完成后,新浪客户端通过应用自定义的UrlScheme返回到本App,并传回授权､分享结果时,需要配置UrlScheme值.通过config.xml配置插件的方法如下
 
 ```
 <config desc="uexSina" type="URLSCHEME">
@@ -30,13 +30,13 @@
 ```
 其中'wb407216840'的'407216840'改成您自己申请到的新浪appkey,`需要是wb+appkey的形式`
 
-## 1.2、UI展示
+## 1.2､UI展示
  ![](http://newdocx.appcan.cn/docximg/164911i2015y6i16c.png)
 
-## 1.3、开源源码
+## 1.3､开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=186_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4、术语表
+## 1.4､术语表
 -----
 Path Types
 
@@ -47,16 +47,16 @@ Path Types
 | wgts://         | /storage/emulated/0/widgetone/widgets/   | /Documents/widgets/               |
 | file:///sdcard/ | /storage/emulated/0/                     | 无                                 |
 
-## 1.5、平台版本支持
+## 1.5､平台版本支持
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.6、接口有效性
+## 1.6､接口有效性
 本插件所有API默认在插件版本**4.0.0+**可用.
 在后续版本中新添加的接口会在文档中额外说明.
 
-# 2、API概览
-##  2.1、方法
+# 2､API概览
+##  2.1､方法
 
 ### 🍭 login 登录
 
@@ -245,22 +245,24 @@ uexSina.sendImageContent(realImgPath, content,function(data) {
 });
 ```
 
-# 3、更新历史
+# 3､更新历史
 
 ### iOS
 
 API版本: `uexSina-4.0.0`
 
-最近更新时间:`2016-06-06`
+最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容                                     |
-| ------ | ---------------------------------------- |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.0 | uexSina支持引擎4.0 |
 
 ### Android
 
 API版本: `uexSina-4.0.0`
 
-最近更新时间:`2016-06-06`
+最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容                                     |
-| ------ | ---------------------------------------- |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.0 | 4.0 |

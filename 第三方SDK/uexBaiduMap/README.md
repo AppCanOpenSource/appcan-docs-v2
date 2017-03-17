@@ -2045,6 +2045,8 @@ var data={
 
 `uexBaiduMap.onMapStatusChangeListener(json);`
 
+**说明:**此方法仅支持android
+
 **参数**
 
 ```javascript
@@ -2212,23 +2214,27 @@ uexBaiduMap.onZoomLevelChangeListener = function(data){
 
 ### iOS
 
-API版本: `uexBaiduMap-4.0.1`
+API版本: `uexBaiduMap-4.0.3`
 
-最近更新时间:`2016-12-15`
+最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容                          |
-| ------ | ----------------------------- |
-| 4.0.1  | 修复getCurrentLocation回调参数错误的问题 |
-| 4.0.0  | 百度地图插件 for iOS                |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.3 | 修复窗口关闭导致后续的搜索功能异常的问题 |
+| 4.0.2 | SDK更新,支持ATS;反地理编码现在可以返回更详细的信息 |
+| 4.0.1 | 修复getCurrentLocation回调参数错误的问题 |
+| 4.0.0 | 百度地图插件 for iOS |
 
 ### Android
 
-API版本: `uexBaiduMap-4.0.2`
+API版本: `uexBaiduMap-4.0.4`
 
-最近更新时间:`2016-12-15`
+最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容                        |
-| ------ | --------------------------- |
-| 4.0.2  | searchRoutePlan支持function传入 |
-| 4.0.1  | 修复open中心点失效的问题              |
-| 4.0.0  | 百度地图插件,封装最新的百度地图API         |
+| 历史发布版本 | 更新内容 |
+| ----- | ----- |
+| 4.0.4 | 支持同时多个地理编码 |
+| 4.0.3 | reverseGeocode返回详细信息 |
+| 4.0.2 | searchRoutePlan支持function传入 |
+| 4.0.1 | 修复open中心点失效的问题 |
+| 4.0.0 | 百度地图插件,封装最新的百度地图API |

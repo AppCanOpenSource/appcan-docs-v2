@@ -197,19 +197,20 @@ uexMobSMS.commitCode(JSON.stringify(params),function(error,data) {
 
 ### iOS
 
-API版本: `uexMobSMS-4.0.0`
+API版本: `uexMobSMS-4.0.1`
 
-最近更新时间:`2016-12-15`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.1 | 更新SDK到2.1.0,支持ATS |
 | 4.0.0 | uexMobSMS 4.0插件出新 |
 
 ### Android
 
 API版本: `uexMobSMS-4.0.1`
 
-最近更新时间:`2016-12-15`
+最近更新时间:`2017-02-21`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |

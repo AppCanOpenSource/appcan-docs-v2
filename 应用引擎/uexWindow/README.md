@@ -14,7 +14,7 @@ AppCan平台中,维护了一个窗口堆栈,每个窗口以唯一的窗口名字
 ## 1.3 多窗口之间的通讯
 　 **窗口之间的通讯**,比如从网络获取一个数据,根据返回的数据,让其它窗口执行相应的 变化,这就需要用到窗口间通讯机制.
 　 **主窗口之间通讯**: uexWindow.evaluateScript(winName, type, script)
-　** 主窗口与浮动窗口之间通讯**: uexWindow.evaluateScript(winName, type, script);  uexWindow.evaluatePopoverScript(winName, type, script);
+　**主窗口与浮动窗口之间通讯**: uexWindow.evaluateScript(winName, type, script);  uexWindow.evaluatePopoverScript(winName, type, script);
 　 最后一个参数script,是目标窗口的执行脚本.脚本形参限定为数字和字符串.如果是 特殊字符和汉字,则无法传递,可以通过window.localStorage暂存数据,在执行脚本的目标窗口中获取 localStorage.
 
 ## 1.4 多窗口通讯之订阅发布模式
@@ -668,7 +668,7 @@ uexWindow.setPopoverFrame({
 
 | 参数名称          | 参数类型   | 是否必选 | 说明                                       |
 | ------------- | ------ | ---- | ---------------------------------------- |
-| content       | JSON对象 | 是    | 多页面窗口数据格式为json.不可为空. json格式如下:    '{"content":[{"inPageName":"p1","inUrl":"xxx1.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}, {"inPageName":"p2","inUrl":"xxx2.html","inData":"", {"extraInfo":{"opaque":"true","bgColor":"#011"}}}]}' |
+| content       | Object | 是    | 多页面窗口数据.不可为空.格式如下:    {content:[{inPageName:"p1",inUrl:"xxx1.html",inData:"", extraInfo:{opaque:true,bgColor:"#011"}}, {inPageName:"p2",inUrl:"xxx2.html",inData:"", extraInfo:{opaque:true,bgColor:"#011"}}]} |
 | name          | String | 是    | 浮动窗口名称                                   |
 | dataType      | Number | 否    | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入;2:既有url方式, 又有html内容方式,默认为0 |
 | x             | Number | 是    | x坐标                                      |
@@ -678,9 +678,9 @@ uexWindow.setPopoverFrame({
 | fontSize      | Number | 是    | 字体大小                                     |
 | flag          | Number | 是    | 浮动窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
 | indexSelected | Number | 是    | 默认打开的页面索引,默认为0                           |
-| extras        | Object | 否    | 扩展参数,json格式如下:{"extraInfo":{"opaque":"true","bgColor":"#011", "delayTime":"250"}} |
+| extras        | Object | 否    | 扩展参数,格式如下{extraInfo:{opaque:true,bgColor:"#011", delayTime:250}} |
 
-`content json`中各字段的说明:
+`content  `中各字段的说明:
 
 | 参数         | 是否必须 | 说明                                       |
 | ---------- | ---- | ---------------------------------------- |
@@ -691,7 +691,7 @@ uexWindow.setPopoverFrame({
 | opaque     | 否    | 是否透明true/false默认为false                   |
 | bgColor    | 否    | 背景色,支持图片和颜色,格式为#fff、#ffffff、rgba(r,g,b,a)等,图片路径支持res://、 wgt://等AppCan协议路径 |
 
-`extraInfo json`中各字段的说明:
+`extraInfo `中各字段的说明:
 
 | 参数        | 是否必须 | 说明                                       |
 | --------- | ---- | ---------------------------------------- |
@@ -703,30 +703,33 @@ uexWindow.setPopoverFrame({
 
 
 **示例:**
-[实例下载](/docAttach/1249/打开多浮动窗口通用适配case  &#40;1&#41;.zip "实例下载"),建议采用JSSDK封装接口方法,参考[appcan.frame.open](http://newdocx.appcan.cn/newdocx/docx?type=1260_1254 "appcan.frame.open")和[appcan.window.openMultiPopover](http://newdocx.appcan.cn/newdocx/docx?type=1259_1254 "appcan.window.openMultiPopover")
+[实例下载](/docAttach/1249/打开多浮动窗口通用适配case  (1).zip "实例下载"),建议采用JSSDK封装接口方法,参考[appcan.frame.open](http://newdocx.appcan.cn/newdocx/docx?type=1260_1254 "appcan.frame.open")和[appcan.window.openMultiPopover](http://newdocx.appcan.cn/newdocx/docx?type=1259_1254 "appcan.window.openMultiPopover")
 
 ```javascript
 uexWindow.openMultiPopover({
-	{
-  		"content":[
-  			{
-  				"inPageName":"p1", 
-  				"inUrl":"hidden.html",
-  				"inData":""
-			},									
-            {
-  				"inPageName":"p2", 
-  				"inUrl":"hidden1.html",
-  				"inData":""
-			}
-       ]
+	content: {
+      	content: [{
+  				inPageName: "p1", 
+  				inUrl: "hidden.html",
+  				inData: "",
+          		 extrainfo: {opaque:true,bgColor:"#011"}
+      			},									
+            	{
+  				inPageName: "p2", 
+  				inUrl: "hidden1.html",
+  				inData: "",
+                 extrainfo: {opaque:true,bgColor:"#022"}
+				}]
     },
-	name:"sss",
-	dataType:0,
-   	x:400,
-    y:0,
-    flag:0,
-    indexSelected:1
+	name: "sss",
+	dataType: 0,
+   	x: 400,
+    y: 0,
+    flag: 0,
+    indexSelected: 1,
+  	extras:{
+      extraInfo:{opaque:true,bgColor:"#011", delayTime:250}
+  	}
 });
 ```
 
@@ -805,13 +808,13 @@ uexWindow.setSelectedPopOverInMultiWindow({
 **示例:**
 
 ```javascript
-uexWindow.setMultiPopoverFrame(
+uexWindow.setMultiPopoverFrame({
   name:"multipop", 
-  x:"10", 
-  y:"10", 
-  w:"600", 
-  y:"600"
-);
+  x:10, 
+  y:10, 
+  w:600, 
+  h:600
+});
 ```
 
 ### 🍭 bringToFront 置顶当前浮动窗口
@@ -1671,10 +1674,10 @@ var state=uexWindow.getSlidingWindowState();
 
 返回值为JSON字符串，字段说明如下：
 
-|  字段名称 | 字段说明 |
-| ---------- | -------- |
-| kernelType | WebView内核类型，包括三种：**X5**（腾讯X5内核） 、**System(Blink)**（系统内核Android 4.4及以上）、**System(Webkit)**（系统内核Android 4.4以下） |
-| kernelVersion | WebView内核版本，如果是System(Webkit)内核类型，没有该字段 |
+| 字段名称          | 字段说明                                     |
+| ------------- | ---------------------------------------- |
+| kernelType    | WebView内核类型，包括三种：**X5**（腾讯X5内核） 、**System(Blink)**（系统内核Android 4.4及以上）、**System(Webkit)**（系统内核Android 4.4以下） |
+| kernelVersion | WebView内核版本，如果是System(Webkit)内核类型，没有该字段  |
 
 **版本支持:**
 4.1.0+
@@ -2064,6 +2067,8 @@ uexWindow.setReportKey(1,1)
 
 **说明:**
 发送消息到状态栏
+
+* iOS 10.0+系统才支持将消息添加至通知中心
 
 **参数:**
 

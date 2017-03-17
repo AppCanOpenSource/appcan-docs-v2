@@ -223,7 +223,7 @@ uexAudio.openSoundPool();
 
 **说明:**
 
-  iOS支持WAV、AMR、AIF、CAF格式.Android支持WAV、MIDI、AMR格式.
+  Android支持WAV、MIDI、AMR格式。在iOS中，音效池接口使用的系统声音服务接口，用于播放不超过30秒的声音。它支持的文件格式有限，具体地说只有CAF、AIF和使用PCM或IMA/ADPCM数据的WAV文件。并且这些函数没有提供操纵声音和控制音量的功能。
 
 **参数:**
 
