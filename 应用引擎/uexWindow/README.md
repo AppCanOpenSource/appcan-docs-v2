@@ -706,31 +706,33 @@ uexWindow.setPopoverFrame({
 [实例下载](/docAttach/1249/打开多浮动窗口通用适配case  (1).zip "实例下载"),建议采用JSSDK封装接口方法,参考[appcan.frame.open](http://newdocx.appcan.cn/newdocx/docx?type=1260_1254 "appcan.frame.open")和[appcan.window.openMultiPopover](http://newdocx.appcan.cn/newdocx/docx?type=1259_1254 "appcan.window.openMultiPopover")
 
 ```javascript
-uexWindow.openMultiPopover({
-	content: {
-      	content: [{
-  				inPageName: "p1", 
-  				inUrl: "hidden.html",
-  				inData: "",
-          		 extrainfo: {opaque:true,bgColor:"#011"}
-      			},									
-            	{
-  				inPageName: "p2", 
-  				inUrl: "hidden1.html",
-  				inData: "",
-                 extrainfo: {opaque:true,bgColor:"#022"}
-				}]
-    },
-	name: "sss",
-	dataType: 0,
-   	x: 400,
-    y: 0,
-    flag: 0,
-    indexSelected: 1,
-  	extras:{
-      extraInfo:{opaque:true,bgColor:"#011", delayTime:250}
-  	}
-});
+    uexWindow.openMultiPopover({
+        content: {
+            content: [
+                {
+                     inPageName: "p1",
+                     inUrl: "hidden.html",
+                     inData: "",
+                     extraInfo: {opaque:true,bgColor:"#011"}
+                },
+                {
+                     inPageName: "p2",
+                     inUrl: "hidden1.html",
+                     inData: "",
+                     extraInfo: {opaque:true,bgColor:"#022"}
+                }
+            ]
+        },
+        name: "sss",
+        dataType: 0,
+        x: 400,
+        y: 0,
+        flag: 0,
+        indexSelected: 1,
+        extras:{
+            extraInfo:{opaque:true,bgColor:"#011", delayTime:250}
+        }
+    });
 ```
 
 ### 🍭 closeMultiPopover 关闭多页面浮动窗口
