@@ -27,4 +27,6 @@ proguard/
 *.log
 .DS_Store
 Thumbs.db
-第三方SDK/uexEasemob/README - 副本.md
+
+.idea/
+
