@@ -1553,9 +1553,9 @@ uexWindow.publishChannelNotification("No1","channel 1 test just!");
 **示例:**
 
 ```javascript
-var json = ｛
-      key :value
-｝
+var json = {
+      key :"value"
+}
 uexWindow.publishChannelNotificationForJson("No1",JSON.stringify(json));
 ```
 
@@ -1926,7 +1926,7 @@ uexWindow.actionSheet({
   cancel:"Cancel",
   buttons:"Opt1,Opt2,Opt3,Opt4,Opt5,Opt6"
 },function(index){
-  alert("点击了第"+(index+1)+"个按钮";
+  alert("点击了第"+(index+1)+"个按钮");
 });
 ```
 
