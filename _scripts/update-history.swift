@@ -290,9 +290,9 @@ class Plugin{
         case 开发指导
         case 网络通讯
         case 系统功能
-        
+        case 功能扩展
         static let all: [Category] = {
-            return [.第三方SDK, .界面布局, .开发指导, .网络通讯, .系统功能]
+            return [.第三方SDK, .界面布局, .开发指导, .网络通讯, .系统功能, .功能扩展]
         }()
     }
     let name: String
