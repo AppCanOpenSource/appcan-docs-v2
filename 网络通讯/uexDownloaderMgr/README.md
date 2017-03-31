@@ -121,6 +121,7 @@ uexDownloaderMgr.download(downloader,
                   case 2:
                       alert("下载失败");
                   break;
+				  }				  
 });
 ```
 
