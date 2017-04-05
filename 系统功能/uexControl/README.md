@@ -289,8 +289,8 @@ var params = {
         }
     }
 }
-var data = JSON.stringify(params);
-uexControl.openDatePickerWithConfig(data, callback);
+//var data = JSON.stringify(params);//此写法也兼容
+uexControl.openDatePickerWithConfig(params, callback);
 ```
 
 示例2､通过相对日期限制日期范围:
@@ -317,8 +317,8 @@ var params = {
         }
     }
 }
-var data = JSON.stringify(params);
-uexControl.openDatePickerWithConfig(data, callback);
+//var data = JSON.stringify(params);//此写法也兼容
+uexControl.openDatePickerWithConfig(params, callback);
 ```
 
 示例3､单范围限制,即只限制最大日期:
@@ -339,8 +339,8 @@ var params = {
         }
     }
 }
-var data = JSON.stringify(params);
-uexControl.openDatePickerWithConfig(data, callback);
+//var data = JSON.stringify(params);//此写法也兼容
+uexControl.openDatePickerWithConfig(params, callback);
 ```
 
 ## 2.2､监听方法
