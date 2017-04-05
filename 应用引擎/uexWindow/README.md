@@ -673,9 +673,9 @@ uexWindow.setPopoverFrame({
 | dataType      | Number | 否    | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入;2:既有url方式, 又有html内容方式,默认为0 |
 | x             | Number | 是    | x坐标                                      |
 | y             | Number | 是    | y坐标                                      |
-| w             | Number | 是    | 宽度,为空时默认为window的宽度                       |
-| h             | Number | 是    | 高度,为空时默认为window的高度                       |
-| fontSize      | Number | 是    | 字体大小                                     |
+| w             | Number | 否    | 宽度,不传或者传空时默认为window的宽度                   |
+| h             | Number | 否    | 高度,不传或者传空时默认为window的高度                   |
+| fontSize      | Number | 否    | 字体大小,不传或者传空时为系统默认大小                      |
 | flag          | Number | 是    | 浮动窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
 | indexSelected | Number | 是    | 默认打开的页面索引,默认为0                           |
 | extras        | Object | 否    | 扩展参数,格式如下{extraInfo:{opaque:true,bgColor:"#011", delayTime:250}} |
@@ -727,9 +727,6 @@ uexWindow.setPopoverFrame({
         dataType: 0,
         x: 400,
         y: 0,
-        w:'',//必选，宽度,为空时默认为window的宽度
-        h:'',//必选，高度,为空时默认为window的高度
-        fontSize:'',
         flag: 0,
         indexSelected: 1,
         extras:{
