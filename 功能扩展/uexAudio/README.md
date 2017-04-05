@@ -45,13 +45,13 @@ uexAudio.open("res://song.mp3");
 
 **说明:**
 
-  播放音频
+  播放音频，回调[onPlayFinished](#-onplayfinished-)
 
 **参数:**
 
 | 参数名称    | 参数类型   | 是否必选 | 说明                 |
 | ------- | ------ | ---- | ------------------ |
-| repeats | Number | 是    | 重复次数,-1:无限循环,0:不循环 |
+| repeats | Number | 是    | 重复次数(定值)；</br>0:不循环；-1:无限循环;</br>【注：当传0或-1时，回调监听[onPlayFinished](#-onplayfinished-)正常，其参数`loopTime`无效】 |
 
 **示例:**
 
@@ -324,7 +324,6 @@ var params = {
 var param = {
     playMode:1
 };
-param = JSON.stringify(param);
 uexAudio.setPlayMode(param);
 ```
 

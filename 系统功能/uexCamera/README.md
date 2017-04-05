@@ -57,8 +57,8 @@ var callbackFunction = function(picPath){}
 **示例:**
 
 ```
-var comtextareass = '0';
-var quality = '100';
+var comtextareass = 0;
+var quality = 100;
 uexCamera.open(comtextareass, quality, function(picPath) {
   alert(picPath);
 });
@@ -94,8 +94,8 @@ var callbackFunction = function(picPath){}
 **示例:**
 
 ```
-var comtextareass = '0';
-var quality = '100';
+var comtextareass = 0;
+var quality = 100;
 uexCamera.openInternal(comtextareass, quality, function(data) {
   alert(data);
 });

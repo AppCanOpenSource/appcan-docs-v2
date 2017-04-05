@@ -727,6 +727,9 @@ uexWindow.setPopoverFrame({
         dataType: 0,
         x: 400,
         y: 0,
+        w:'',//必选，宽度,为空时默认为window的宽度
+        h:'',//必选，高度,为空时默认为window的高度
+        fontSize:'',
         flag: 0,
         indexSelected: 1,
         extras:{
@@ -1798,7 +1801,7 @@ uexWindow.prompt({
 
 ### 🍭 toast 弹出消息提示框
 
-`uexWindow.toast(json)`
+`uexWindow.toastjson)`
 
 **说明:**
 

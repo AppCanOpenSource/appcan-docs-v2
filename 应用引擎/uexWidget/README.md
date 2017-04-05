@@ -722,7 +722,7 @@ uexWidget.reloadWidgetByAppId(sdk2015);
 ````javascript
 uexWidget.setKeyboardMode({
     mode:0
-};);
+});
 ````
 
 ### 🍭 getMBaaSHost 获取MBaaS主机内容
