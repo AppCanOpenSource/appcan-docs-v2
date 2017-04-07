@@ -480,6 +480,65 @@ function shareImgTextToQZone(){
     });
 }
 ```
+### 🍭 getUserInfo 获取登录QQ的信息   
+
+`uexQQ.getUserInfo(appId, callbackFunction);`
+
+**说明:**
+
+**参数:**
+
+| 参数名称  | 参数类型   | 是否必选 | 说明                |
+| ----- | ------ | ---- | ----------------- |
+| appId | String | 是    | 在腾讯开放平台注册的应用appId |
+
+**回调参数:**
+
+```\
+var callbackFunction = function(data){}
+```
+
+| 参数名称 | 类型   | 说明   |
+| ---- | ---- | ---- |
+| data | JSON | 返回   |
+
+`data`对应字段如下：
+
+```javascript
+      {
+    "is_yellow_year_vip": "0",
+    "ret": 0,
+    "figureurl_qq_1":
+    "http://q.qlogo.cn/qqapp/222222/8C75BBE3DC6B0E9A64BD31449A3C8CB0/40",
+    "figureurl_qq_2":
+    "http://q.qlogo.cn/qqapp/222222/8C75BBE3DC6B0E9A64BD31449A3C8CB0/100",
+    "nickname": "小罗",
+    "yellow_vip_level": "0",
+    "msg": "",
+    "figureurl_1":
+    "http://qzapp.qlogo.cn/qzapp/222222/8C75BBE3DC6B0E9A64BD31449A3C8CB0/50",
+    "vip": "0",
+    "level": "0",
+    "figureurl_2":
+    "http://qzapp.qlogo.cn/qzapp/222222/8C75BBE3DC6B0E9A64BD31449A3C8CB0/100",
+    "is_yellow_vip": "0",
+    "gender": "男",
+    "figureurl":
+    "http://qzapp.qlogo.cn/qzapp/222222/8C75BBE3DC6B0E9A64BD31449A3C8CB0/30"
+      }
+```
+
+
+
+示例:**
+
+
+```javascript
+uexQQ.getUserInfo(appId, function(data) {
+        console.log("data:" + JSON.stringify(data));
+        alert("commonCallback:" + JSON.stringify(data));
+      };);
+```
 
 
 # 3、更新历史

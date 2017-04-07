@@ -92,7 +92,7 @@ var callbackFunction = function(data){}
 | ---- | ------ | -------------- |
 | data | Object | json格式数据,形式如下: |
 
-```
+```js
 var data = {
     hour:,
     minute:
@@ -101,7 +101,7 @@ var data = {
 
 **示例:**
 
-```
+```js
 uexControl.openTimePicker(10,23, function(data) {
     alert(JSON.stringify(data));
 });
@@ -136,7 +136,7 @@ var callbackFunction = function(data){}
 
 **示例:**
 
-```
+```js
 uexControl.openInputDialog(0,"默认数据","按钮", fuction(data) {
     alert(data);
 }) 
@@ -169,7 +169,7 @@ var callbackFunction = function(data){}
 | ---- | ------ | -------------- |
 | data | Object | json格式数据,形式如下: |
 
-```
+```js
 var data = {
     year:,
     month:
@@ -178,7 +178,7 @@ var data = {
 
 **示例:**
 
-```
+```js
 uexControl.openDatePickerWithoutDay(1990,8, function(data) {
     alert(JSON.stringify(data);
 });
@@ -198,10 +198,10 @@ uexControl.openDatePickerWithoutDay(1990,8, function(data) {
 
 | 参数名称             | 参数类型     | 是否必须 | 说明         |
 | ---------------- | -------- | ---- | ---------- |
-| params           | Object   | 是    | 配置信息       |
+| params           | String   | 是    | 配置信息       |
 | callbackFunction | Function | 是    | 选择日期后的回调函数 |
 
-```
+```js
 var params = {
     initDate:{
         year:,
@@ -230,11 +230,11 @@ var params = {
 
 | 参数名称      | 参数类型   | 是否必选 | 说明                                       |
 | --------- | ------ | ---- | ---------------------------------------- |
-| initDate  | Json   | 否    | 初始化日期,默认为当前日期                            |
-| minDate   | Json   | 否    | 最小日期值                                    |
-| maxDate   | Json   | 否    | 最大日期值                                    |
+| initDate  | Object | 否    | 初始化日期,默认为当前日期                            |
+| minDate   | Object | 否    | 最小日期值                                    |
+| maxDate   | Object | 否    | 最大日期值                                    |
 | limitType | Number | 是    | 限制方式,0-表示具体日期限制,此种方式年月日参数必选;1-表示相对于初始化日期的前后天数,月数或年数,此种方式年月日参数有且只有一个有效,有效的优先级为日>月>年.具体用法请参考示例. |
-| data      | Json   | 是    | 限制数据                                     |
+| data      | Object | 是    | 限制数据                                     |
 | year      | Number | 是    | 年,当limitType为0时,必传,表示具体年份.当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中年的相对值x,负数表示小于初始化年份x年,正数表示大于初始化年份x年 |
 | month     | Number | 是    | 月,当limitType为0时,必传,表示具体月份.当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中月的相对值x,负数表示小于初始化月份x月,正数表示大于初始化月份x月 |
 | day       | Number | 是    | 日,当limitType为0时,必传,表示具体日期.当limitType为1时,可选(但年,月,日有且只有一个有效)表示相对于初始化日期中日的相对值x,负数表示小于初始化日期x天,正数表示大于初始化日期x天 |
@@ -262,7 +262,7 @@ var data = {
 **示例:**
 
 示例1､通过具体日期限制日期范围:
-```
+```js
 var callback = function(data) {
     alert(JSON.stringify(data));
 }
@@ -289,12 +289,12 @@ var params = {
         }
     }
 }
-//var data = JSON.stringify(params);//此写法也兼容
-uexControl.openDatePickerWithConfig(params, callback);
+var data = JSON.stringify(params);
+uexControl.openDatePickerWithConfig(data, callback);
 ```
 
 示例2､通过相对日期限制日期范围:
-```
+```js
 var callback = function(data) {
     alert(JSON.stringify(data));
 }
@@ -317,12 +317,12 @@ var params = {
         }
     }
 }
-//var data = JSON.stringify(params);//此写法也兼容
-uexControl.openDatePickerWithConfig(params, callback);
+var data = JSON.stringify(params);
+uexControl.openDatePickerWithConfig(data, callback);
 ```
 
 示例3､单范围限制,即只限制最大日期:
-```
+```js
 var callback = function(data) {
     alert(JSON.stringify(data));
 }
@@ -339,8 +339,8 @@ var params = {
         }
     }
 }
-//var data = JSON.stringify(params);//此写法也兼容
-uexControl.openDatePickerWithConfig(params, callback);
+var data = JSON.stringify(params);
+uexControl.openDatePickerWithConfig(data, callback);
 ```
 
 ## 2.2､监听方法
@@ -365,7 +365,7 @@ var data = {
 
 **示例:**
 
-```
+```js
 function onError(data) {
     alert(data);
 }
@@ -382,9 +382,9 @@ API版本: `uexControl-4.0.0`
 
 最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 时间日期选择功能插件 |
+| 历史发布版本 | 更新内容       |
+| ------ | ---------- |
+| 4.0.0  | 时间日期选择功能插件 |
 
 ### Android
 
@@ -392,9 +392,9 @@ API版本: `uexControl-4.0.0`
 
 最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 时间日期选择功能插件 |
+| 历史发布版本 | 更新内容       |
+| ------ | ---------- |
+| 4.0.0  | 时间日期选择功能插件 |
 
 # 4､附录
 

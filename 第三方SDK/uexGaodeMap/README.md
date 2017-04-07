@@ -1152,15 +1152,15 @@ var json = [];
     uexGaodeMap.clear();
 ```
 
-### **queryProcessedTrace  //轨迹纠偏**
+### 🍭 queryProcessedTrace  轨迹纠偏
 
 `uexGaodeMap.queryProcessedTrace(json,callback)`
 
 **参数:**
 
-| 参数名称           | 参数类型   | 是否必选 | 说明                                 |
-| -------------- | ------ | ---- | ---------------------------------- |
-| json      | Object  | 是    | 请求参数                    |
+| 参数名称     | 参数类型     | 是否必选 | 说明   |
+| -------- | -------- | ---- | ---- |
+| json     | Object   | 是    | 请求参数 |
 | callback | Function | 是    | 回调函数 |
 
 ```javascript
@@ -1195,7 +1195,7 @@ var json = {
 | bearing   | Number | 否    | 方向角(度)   |
 | time      | Number | 否    | 时间(毫秒)   |
 
- 
+
 **回调参数:**
 ```javascript
 var callback = function(error,data){
@@ -1225,7 +1225,7 @@ var data = {
     ]
 }
 ```
- 
+
 
 **示例:**
 
