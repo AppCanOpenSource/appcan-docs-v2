@@ -1,8 +1,8 @@
 [TOC]
 # 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
-内置浏览器功能插件
+视频播放插件
 ## 1.1、说明
-App中使用此插件实现内置浏览器功能。iOS使用WKWebView、Android使用腾讯X5作为浏览器内核。
+Android 封装腾讯X5浏览器相关接口
 
 ## 1.2、UI展示
 ## 1.3、开源源码

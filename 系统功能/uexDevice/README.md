@@ -383,10 +383,6 @@ uexDevice.openSetting(data);
 
 无
 
-**版本支持:**
-
-- iOS 4.0.3+
-- Android 4.0.2+
 
 **示例:**
 
@@ -407,10 +403,6 @@ uexDevice.startNetStatusListener();
 
 无
 
-**版本支持:**
-
-- iOS 4.0.3+
-- Android 4.0.2+
 
 **示例:**
 
