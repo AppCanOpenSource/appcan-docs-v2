@@ -280,7 +280,36 @@ uexVideo.onExportWithProgress = function(progress){
  	console.log(progress);
 }
 ```
+> ###### ** onPlayerFinish  //播放完成后的监听方法**
 
+
+`uexVideo.onPlayerFinish()`
+
+**参数:**
+
+|  参数名称 | 参数类型    |  是否必须 |说明 |
+| ----- | ----- | ----- |----- |
+| 无 | - |- | - |
+
+**系统支持**
+
+- iOS 7.0+
+- Android 2.3+
+
+**版本支持:**
+
+- iOS 3.0.5+
+- Android 3.0.8+
+
+**示例**
+
+```
+window.uexOnload = function(){
+    uexVideo.onPlayerFinish = function() {
+        alert("video completed!");
+    };
+}
+```
 # 3、更新历史
 
 ### iOS
