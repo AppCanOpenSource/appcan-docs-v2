@@ -529,10 +529,16 @@ var data=uexWidget.getPushInfo();
 | ---------- | -------- | ---- | ---- |
 | cbFunction | Function | 是    | 回调函数 |
 
+```javascript
+var cbFunction=function pushCallback(type){
+  //type：string类型，表示应用的状态，0 未启动，1 启动/后台， 2 启动/前台 
+}
+```
+
 **示例:**
 
 ```javascript
-uexWidget.setPushNotifyCallback(function pushCallback(){
+uexWidget.setPushNotifyCallback(function pushCallback(type){
 	alert("收到推送消息");
 });
 ```
