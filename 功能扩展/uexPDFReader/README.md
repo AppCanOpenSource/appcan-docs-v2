@@ -87,13 +87,14 @@ var params={
 
 各字段含义如下：
 
-| 参数名称   | 参数类型   | 是否必选 | 说明                 |
-| ------ | ------ | ---- | ------------------ |
-| x      | Number | 否    | 默认为0               |
-| y      | Number | 否    | 默认为0               |
-| width  | Number | 是    | view的宽度            |
-| height | Number | 是    | view的高度            |
-| path   | String | 是    | pdf路径，支持appcan协议路径 |
+| 参数名称          | 参数类型    | 是否必选 | 说明                 |
+| ------------- | ------- | ---- | ------------------ |
+| x             | Number  | 否    | 默认为0               |
+| y             | Number  | 否    | 默认为0               |
+| scrollWithWeb | Boolean | 否    | 是否跟随网页滑动 默认false   |
+| width         | Number  | 是    | view的宽度            |
+| height        | Number  | 是    | view的高度            |
+| path          | String  | 是    | pdf路径，支持appcan协议路径 |
 
 
 
