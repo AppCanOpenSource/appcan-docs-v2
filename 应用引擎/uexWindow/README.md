@@ -1774,6 +1774,7 @@ uexWindow.confirm({
 | defaultValue | String | 是    | 输入框默认文字,不需要时请传空字符串`""`       |
 | buttonLabels | String | 是    | 显示在按钮上的文字的集合 ,多个按钮之间用逗号`,`分隔 |
 | hint         | String | 否    | 输入框中的提示文字,在输入框中内容为空时显示       |
+| mode         | Number | 否    | 0-一般文本输入(默认) 1-密码输入          |
 `callback`为Function类型,参数如下:
 
 | 参数名称  | 参数类型   | 说明     |
