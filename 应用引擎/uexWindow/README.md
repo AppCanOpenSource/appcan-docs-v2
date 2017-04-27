@@ -459,8 +459,8 @@ uexWindow.evaluateMultiPopoverScript({
 | data         | String | 否    | data类型数据,用于当dataType为1时,把相应html的内容传进去.比如传入的是一个'<div>hello,world!</div>' |
 | x            | Number | 否    | x坐标,默认为0                                 |
 | y            | Number | 否    | y坐标,默认为0                                 |
-| w            | Number | 否    | 宽度,为空时默认为window的宽度                       |
-| h            | Number | 否    | 高度,为空时默认为window的高度                       |
+| w            | Number | 否    | 宽度,为空null时默认为window的宽度                       |
+| h            | Number | 否    | 高度,为空null时默认为window的高度                       |
 | fontSize     | Number | 否    | 字体大小                                     |
 | flag         | Number | 否    | 浮动窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
 | bottomMargin | Number | 否    | 浮动窗口相对父窗口底部的距离.当值不等于0时,h参数无效.            |
@@ -660,7 +660,7 @@ uexWindow.setPopoverFrame({
 
 **说明:**
 
-在当前window打开一个多页面浮动窗口,页面之间滑动切换,设置是否支持滑动参照[setMultilPopoverFlippingEnbaled](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249#setMultilPopoverFlippingEnbaled 设置控件是否响应滑动事件 "setMultilPopoverFlippingEnbaled")
+在当前window打开一个多页面浮动窗口,页面之间滑动切换,设置是否支持滑动参照[setMultilPopoverFlippingEnbaled](http://newdocx.appcan.cn/app-engine/uexWindow#-setmultilpopoverflippingenbaled-  "setMultilPopoverFlippingEnbaled设置控件是否响应滑动事件")
 
 **参数:**
 
@@ -673,9 +673,9 @@ uexWindow.setPopoverFrame({
 | dataType      | Number | 否    | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入;2:既有url方式, 又有html内容方式,默认为0 |
 | x             | Number | 是    | x坐标                                      |
 | y             | Number | 是    | y坐标                                      |
-| w             | Number | 否    | 宽度,不传或者传空时默认为window的宽度                   |
-| h             | Number | 否    | 高度,不传或者传空时默认为window的高度                   |
-| fontSize      | Number | 否    | 字体大小,不传或者传空时为系统默认大小                      |
+| w             | Number | 否    | 宽度,不传或者传空null时默认为window的宽度                   |
+| h             | Number | 否    | 高度,不传或者传空null时默认为window的高度                   |
+| fontSize      | Number | 否    | 字体大小,不传或者传空null时为系统默认大小                      |
 | flag          | Number | 是    | 浮动窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
 | indexSelected | Number | 是    | 默认打开的页面索引,默认为0                           |
 | extras        | Object | 否    | 扩展参数,格式如下{extraInfo:{opaque:true,bgColor:"#011", delayTime:250}} |
