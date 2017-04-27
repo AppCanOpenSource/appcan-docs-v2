@@ -93,8 +93,8 @@ var param = {
 
 ```javascript
 var params = {
-    w:1080,
-    h:600,
+    width:1080,
+    height:600,
     y:500,
     url:"http://www.appcan.cn"
 };
