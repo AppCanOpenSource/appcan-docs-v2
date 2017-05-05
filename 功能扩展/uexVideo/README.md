@@ -43,6 +43,7 @@
 var param = {
 	src:,
 	startTime:,
+    endTime:,
 	autoStart:,
 	forceFullScreen:,
 	showCloseButton:,
@@ -61,6 +62,7 @@ var param = {
 | --------------- | ------- | ---- | ---------------------------------------- |
 | src             | String  | 是    | 播放文件路径. 支持本地路径wgt://,res://,file://和网络路径http://,https:// |
 | startTime       | Number  | 否    | 视频开始播放时间,单位为s(秒).默认为0.                   |
+| endTime         | Number  | 否    | 视频结束播放时间,单位为s(秒).默认为0.可以用于试看等功能          |
 | autoStart       | Boolean | 否    | 是否自动开始.默认为false.                         |
 | forceFullScreen | Boolean | 否    | 是否强制全屏,详见下方说明.默认为false.                  |
 | showCloseButton | Boolean | 否    | 是否显示关闭按钮,用户可以通过点击此按钮关闭播放器.默认为false.      |
@@ -280,26 +282,22 @@ uexVideo.onExportWithProgress = function(progress){
  	console.log(progress);
 }
 ```
-> ###### ** onPlayerFinish  //播放完成后的监听方法**
+### 🍭 onPlayerFinish  播放完成后的监听方法
 
 
 `uexVideo.onPlayerFinish()`
 
 **参数:**
 
-|  参数名称 | 参数类型    |  是否必须 |说明 |
-| ----- | ----- | ----- |----- |
-| 无 | - |- | - |
-
-**系统支持**
-
-- iOS 7.0+
-- Android 2.3+
+| 参数名称 | 参数类型 | 是否必须 | 说明   |
+| ---- | ---- | ---- | ---- |
+| 无    | -    | -    | -    |
 
 **版本支持:**
 
-- iOS 3.0.5+
-- Android 3.0.8+
+iOS 3.0.5+
+
+Android 3.0.8+
 
 **示例**
 
@@ -310,6 +308,26 @@ window.uexOnload = function(){
     };
 }
 ```
+### 🍭 onPlayerEndTime 视频播放到endTime 的监听
+
+`uexVideo.onPlayerEndTime()`
+
+**参数:**
+
+无
+
+**版本支持:**
+
+4.0.3+
+
+**示例:**
+
+```javascript
+uexVideo.onPlayerEndTime = function(){
+ 	
+}
+```
+
 # 3、更新历史
 
 ### iOS
