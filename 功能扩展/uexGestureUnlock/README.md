@@ -146,7 +146,7 @@ var params = {
 var data={
 	backgroundImage:"res://bgImage.jpg",
 	iconImage:"res://icon.png",
-     normalThemeColor:"#F1F1F1",
+     normalThemeColor:"#000000",
      selectedThemeColor:"#00ff00",
      errorThemeColor:"#ff0000",
 	cancelVerificationButtonTitle:"切换其他账号",
