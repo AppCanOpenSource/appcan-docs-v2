@@ -53,31 +53,33 @@ var param = {
 	x:,
 	y:,
  	scrollWithWeb:,
+    isAutoEndFullScreen:
 }
 ```
 
 各字段含义如下:
 
-| 字段名称            | 类型      | 是否必选 | 说明                                       |
-| --------------- | ------- | ---- | ---------------------------------------- |
-| src             | String  | 是    | 播放文件路径. 支持本地路径wgt://,res://,file://和网络路径http://,https:// |
-| startTime       | Number  | 否    | 视频开始播放时间,单位为s(秒).默认为0.                   |
-| endTime         | Number  | 否    | 视频结束播放时间,单位为s(秒).默认为0.可以用于试看等功能          |
-| autoStart       | Boolean | 否    | 是否自动开始.默认为false.                         |
-| forceFullScreen | Boolean | 否    | 是否强制全屏,详见下方说明.默认为false.                  |
-| showCloseButton | Boolean | 否    | 是否显示关闭按钮,用户可以通过点击此按钮关闭播放器.默认为false.      |
-| showScaleButton | Boolean | 否    | 是否显示缩放按钮,用户可以通过点击此按钮切换全屏/非全屏模式.默认为true.  |
-| width           | Number  | 否    | 播放器宽度,单位px.默认为屏幕宽度.                      |
-| height          | Number  | 否    | 播放器高度,单位px.默认为屏幕高度.                      |
-| x               | Number  | 否    | 播放器左边距,单位px.默认为0.                        |
-| y               | Number  | 否    | 播放器上边距,单位px.默认为0.                        |
-| scrollWithWeb   | Boolean | 否    | 普通状态下播放器是否跟随网页滑动.默认为true.                |
+| 字段名称                | 类型      | 是否必选 | 说明                                       |
+| ------------------- | ------- | ---- | ---------------------------------------- |
+| src                 | String  | 是    | 播放文件路径. 支持本地路径wgt://,res://,file://和网络路径http://,https:// |
+| startTime           | Number  | 否    | 视频开始播放时间,单位为s(秒).默认为0.                   |
+| endTime             | Number  | 否    | 视频结束播放时间,单位为s(秒).默认为0.可以用于试看等功能          |
+| autoStart           | Boolean | 否    | 是否自动开始.默认为false.                         |
+| forceFullScreen     | Boolean | 否    | 是否强制全屏,详见下方说明.默认为false.                  |
+| showCloseButton     | Boolean | 否    | 是否显示关闭按钮,用户可以通过点击此按钮关闭播放器.默认为false.      |
+| showScaleButton     | Boolean | 否    | 是否显示缩放按钮,用户可以通过点击此按钮切换全屏/非全屏模式.默认为true.  |
+| width               | Number  | 否    | 播放器宽度,单位px.默认为屏幕宽度.                      |
+| height              | Number  | 否    | 播放器高度,单位px.默认为屏幕高度.                      |
+| x                   | Number  | 否    | 播放器左边距,单位px.默认为0.                        |
+| y                   | Number  | 否    | 播放器上边距,单位px.默认为0.                        |
+| scrollWithWeb       | Boolean | 否    | 普通状态下播放器是否跟随网页滑动.默认为true.                |
+| isAutoEndFullScreen | Boolean | 否    | 全屏状态下播放完成后是否自动切换为正常状态，默认false，forceFullScreen参数为false时生效 |
 
 * forceFullScreen参数说明
   * 此参数传true时播放器会默认进入全屏状态,**且不能切换回普通状态**.
   * 此参数传true时showCloseButton会被强制设置为true,传入的参数将被忽略.
   * 此参数传true时showScaleButton会被强制设置为false,传入的参数将被忽略.
-  * 此参数传true时,width,height,x,y,scrollWithWeb 这5个参数无效.
+  * 此参数传true时,width,height,x,y,scrollWithWeb,isAutoEndFullScreen 这6个参数无效.
 
 
 **示例:**
