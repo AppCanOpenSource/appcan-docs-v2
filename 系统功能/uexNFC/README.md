@@ -181,7 +181,7 @@ Boolean 类型，`true`表示成功，`false`表示失败
  uexNFC.cbGetNFCData(opCode,dataType,data) 
 
 **说明:**
-在接受到该回调时会自动停止扫描NFC状态。
+在接收到该回调时会自动停止扫描NFC状态。
 
 **参数:**
 
