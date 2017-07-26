@@ -63,6 +63,70 @@ uexPDFReader.openPDFReader(file);
 ```javascript
 uexPDFReader.close();
 ```
+
+
+### 🍭 openView 打开PDF阅读器View
+
+`uexPDFReader.openView(params)`
+
+**说明:**
+
+在window上添加一个阅读器View
+
+**参数:**
+
+```javascript
+var params={
+  x:,
+  y:,
+  width:,
+  height:,
+  path:
+}
+```
+
+各字段含义如下：
+
+| 参数名称          | 参数类型    | 是否必选 | 说明                 |
+| ------------- | ------- | ---- | ------------------ |
+| x             | Number  | 否    | 默认为0               |
+| y             | Number  | 否    | 默认为0               |
+| scrollWithWeb | Boolean | 否    | 是否跟随网页滑动 默认false   |
+| width         | Number  | 是    | view的宽度            |
+| height        | Number  | 是    | view的高度            |
+| path          | String  | 是    | pdf路径，支持appcan协议路径 |
+
+
+
+**示例:**
+
+```javascript
+var file = "res://PDFDocument.pdf"
+uexPDFReader.openView({
+    width:600,
+    height:800,
+    path:file
+});
+```
+
+### 🍭 closeView 关闭阅读器View
+
+`uexPDFReader.closeView()`
+
+**说明:**
+
+关闭PDF阅读器View
+
+**参数:**
+
+  无
+
+**示例:**
+
+```javascript
+uexPDFReader.closeView();
+```
+
 # 3、更新历史
 
 ### iOS

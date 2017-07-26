@@ -4,6 +4,9 @@
 
 ## 1.1､说明
  提供评论输入相关的功能,集成了表情输入功能,只需简单的widget配置即可实现自定义表情集
+   
+  **特别说明Tips:**
+  在键盘弹出的时候，改变浮动窗口中内容div的高度，可以避免内容被键盘遮挡。对于Android的话，需要通过js来计算进行处理。而对于iOS的需要调用[changeWebViewFrame](#-changewebviewframe-webview-)这个接口来处理。
 ## 1.2､UI展示
 ![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexInputTextFieldView/img/1.png)        ![](https://raw.githubusercontent.com/AppCanOpenSource/appcan-docs-v2/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80/uexInputTextFieldView/img/2.png)
 
@@ -148,7 +151,35 @@ Number类型,工具条高度.
 var result=uexInputTextFieldView.getInputBarHeight();
 alert(result);
 ```
+> ### changeWebViewFrame 改变webview的高度以适应弹出的键盘
 
+`uexInputTextFieldView.changeWebViewFrame(height)`
+
+**说明:**
+
+收到 onKeyBoardShow回调,并且status为1时调用这个方法传入当前div的高度,键盘会根据高度将评论内容推上去
+
+`在键盘弹出的时候，改变浮动窗口中内容div的高度，可以避免内容被键盘遮挡。对于Android的话，需要通过js来计算进行处理。而对于iOS的需要调用changeWebViewFrame这个接口来处理。`
+
+**参数:**
+
+|  参数名称 | 参数类型  | 是否必选  |  说明 |
+| ----- | ----- | ----- | ----- |
+| height| Number | 是 | div的高度 |
+
+**平台支持:**
+
+iOS6.0+
+
+**版本支持:**
+
+iOS 3.0.10+
+
+**示例:**
+
+```
+uexInputTextFieldView.changeWebViewFrame(600);
+ ```
 ## 2.2､监听方法
 
 ### 🍭 onCommitJson 点击发送的监听方法

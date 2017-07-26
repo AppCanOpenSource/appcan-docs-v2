@@ -57,8 +57,8 @@ var callbackFunction = function(picPath){}
 **示例:**
 
 ```
-var comtextareass = '0';
-var quality = '100';
+var comtextareass = 0;
+var quality = 100;
 uexCamera.open(comtextareass, quality, function(picPath) {
   alert(picPath);
 });
@@ -94,8 +94,8 @@ var callbackFunction = function(picPath){}
 **示例:**
 
 ```
-var comtextareass = '0';
-var quality = '100';
+var comtextareass = 0;
+var quality = 100;
 uexCamera.openInternal(comtextareass, quality, function(data) {
   alert(data);
 });
@@ -103,7 +103,7 @@ uexCamera.openInternal(comtextareass, quality, function(data) {
 
 ### 🍭 openViewCamera 打开自定义View照相机
 
-`uexCamera.openViewCamera(x, y, width, heigth, label, quality, callbackFunction)`
+`uexCamera.openViewCamera(config, callbackFunction)`
 
 **说明:**
 
@@ -111,15 +111,30 @@ uexCamera.openInternal(comtextareass, quality, function(data) {
 
 **参数:**
 
+config是有如下结构构成的JSON Object
+
+```js
+var config = {//各字段详细涵义见下表
+  x:,
+  y:,
+  width:,
+  height:,
+  hint:,
+  quality:
+}
+```
+
+
+
 | 参数名称             | 参数类型     | 是否必选 | 说明                                      |
 | ---------------- | -------- | ---- | --------------------------------------- |
-| x                | Number类型 | 必选   | 照相机View起始位置x坐标,x为0时有效,取值范围[0,屏幕分辨率最大宽度] |
-| y                | Number类型 | 必选   | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
-| width            | Number类型 | 必选   | 照相机View宽度,width为0时有效,取值范围[0,屏幕分辨率最大宽度]  |
-| heigth           | Number类型 | 必选   | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
-| label            | String类型 | 必选   | 拍照时显示在界面中的提示语或标签                        |
-| quality          | Number类型 | 必选   | 图片压缩质量,comtextareass为0时有效,取值范围[0,100]   |
-| callbackFunction | 函数       | 必选   | 回调函数,用来获取拍照后图片的存储路径                     |
+| x                | Number   | 必选   | 照相机View起始位置x坐标,x为0时有效,取值范围[0,屏幕分辨率最大宽度] |
+| y                | Number   | 必选   | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
+| width            | Number   | 必选   | 照相机View宽度,width为0时有效,取值范围[0,屏幕分辨率最大宽度]  |
+| height           | Number   | 必选   | 照相机View起始位置y坐标,y为0时有效,取值范围[0,屏幕分辨率最大高度] |
+| hint             | String   | 可选   | 拍照时显示在界面中的提示语                           |
+| quality          | Number   | 可选   | 图片压缩质量,comtextareass为0时有效,取值范围[0,100]   |
+| callbackFunction | Function | 必选   | 回调函数,用来获取拍照后图片的存储路径                     |
 
 **回调参数:**
 
@@ -133,18 +148,22 @@ var callbackFunction = function(data){}
 
 ```javascript
 var data = {
-    "photoPath": "/storage/emulated/0/widgetone/apps/11352882/uexViewCameraPhotos/2016-06-06_19-52-13.jpg",
-    "location": "奥格瑞玛",
-    "label": "奥格瑞玛"  //拍照时显示在界面中的提示语或标签
+    "photoPath": "/storage/emulated/0/widgetone/apps/11352882/uexViewCameraPhotos/2016-06-06_19-52-13.jpg"
 }
 ```
 
 
 **示例:**
 
-```
-uexCamera.openViewCamera(x, y, w, h,label,quality, function(data) {
-  alert(JSON.stringify(data));
+```js
+uexCamera.openViewCamera({
+	x: 0,
+	y: 0,
+	width: 1080,
+	height: 1920,
+	hint: "hello!"
+}, function(data) {
+  	alert(JSON.stringify(data));
 });
 ```
 
@@ -225,10 +244,10 @@ API版本: `uexCamera-4.0.1`
 
 最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.1 | open接口修改为不对图片尺寸进行压缩 |
-| 4.0.0 | 相机插件 |
+| 历史发布版本 | 更新内容                |
+| ------ | ------------------- |
+| 4.0.1  | open接口修改为不对图片尺寸进行压缩 |
+| 4.0.0  | 相机插件                |
 
 ### Android
 
@@ -236,7 +255,7 @@ API版本: `uexCamera-4.0.1`
 
 最近更新时间:`2017-02-21`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.1 | 修复open和openInternal接口兼容3.0回调问题 |
-| 4.0.0 | 4.0插件 |
+| 历史发布版本 | 更新内容                           |
+| ------ | ------------------------------ |
+| 4.0.1  | 修复open和openInternal接口兼容3.0回调问题 |
+| 4.0.0  | 4.0插件                          |

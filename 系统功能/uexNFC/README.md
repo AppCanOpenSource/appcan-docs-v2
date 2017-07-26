@@ -181,7 +181,7 @@ Boolean 类型，`true`表示成功，`false`表示失败
  uexNFC.cbGetNFCData(opCode,dataType,data) 
 
 **说明:**
-在接受到该回调时会自动停止扫描NFC状态。
+在接收到该回调时会自动停止扫描NFC状态。
 
 **参数:**
 
@@ -195,6 +195,7 @@ Boolean 类型，`true`表示成功，`false`表示失败
 var data = JSON.stringfy({
   	"uid":"D0453393",				//卡片id，十六进制格式
   	"technologies":"NfcA,MifareClassic,NdefFormatable",			//卡片支持的NFC协议名称，使用逗号区分
+  	"data":[["xxx"]] //String类型二维数组，"NDEF"时，里面的数据内容，一般取第一个数组的第一个元素
 });
 ```
 # 3、更新历史

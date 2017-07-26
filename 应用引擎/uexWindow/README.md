@@ -459,8 +459,8 @@ uexWindow.evaluateMultiPopoverScript({
 | data         | String | 否    | data类型数据,用于当dataType为1时,把相应html的内容传进去.比如传入的是一个'<div>hello,world!</div>' |
 | x            | Number | 否    | x坐标,默认为0                                 |
 | y            | Number | 否    | y坐标,默认为0                                 |
-| w            | Number | 否    | 宽度,为空时默认为window的宽度                       |
-| h            | Number | 否    | 高度,为空时默认为window的高度                       |
+| w            | Number | 否    | 宽度,为空null时默认为window的宽度                       |
+| h            | Number | 否    | 高度,为空null时默认为window的高度                       |
 | fontSize     | Number | 否    | 字体大小                                     |
 | flag         | Number | 否    | 浮动窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
 | bottomMargin | Number | 否    | 浮动窗口相对父窗口底部的距离.当值不等于0时,h参数无效.            |
@@ -660,7 +660,7 @@ uexWindow.setPopoverFrame({
 
 **说明:**
 
-在当前window打开一个多页面浮动窗口,页面之间滑动切换,设置是否支持滑动参照[setMultilPopoverFlippingEnbaled](http://newdocx.appcan.cn/newdocx/docx?type=1390_1249#setMultilPopoverFlippingEnbaled 设置控件是否响应滑动事件 "setMultilPopoverFlippingEnbaled")
+在当前window打开一个多页面浮动窗口,页面之间滑动切换,设置是否支持滑动参照[setMultilPopoverFlippingEnbaled](http://newdocx.appcan.cn/app-engine/uexWindow#-setmultilpopoverflippingenbaled-  "setMultilPopoverFlippingEnbaled设置控件是否响应滑动事件")
 
 **参数:**
 
@@ -673,9 +673,9 @@ uexWindow.setPopoverFrame({
 | dataType      | Number | 否    | 窗口载入的数据的类型,0:url方式载入;1:html内容方式载入;2:既有url方式, 又有html内容方式,默认为0 |
 | x             | Number | 是    | x坐标                                      |
 | y             | Number | 是    | y坐标                                      |
-| w             | Number | 是    | 宽度,为空时默认为window的宽度                       |
-| h             | Number | 是    | 高度,为空时默认为window的高度                       |
-| fontSize      | Number | 是    | 字体大小                                     |
+| w             | Number | 否    | 宽度,不传或者传空null时默认为window的宽度                   |
+| h             | Number | 否    | 高度,不传或者传空null时默认为window的高度                   |
+| fontSize      | Number | 否    | 字体大小,不传或者传空null时为系统默认大小                      |
 | flag          | Number | 是    | 浮动窗口标记,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Window Flags "CONSTANT")中WindowFlags |
 | indexSelected | Number | 是    | 默认打开的页面索引,默认为0                           |
 | extras        | Object | 否    | 扩展参数,格式如下{extraInfo:{opaque:true,bgColor:"#011", delayTime:250}} |
@@ -706,31 +706,33 @@ uexWindow.setPopoverFrame({
 [实例下载](/docAttach/1249/打开多浮动窗口通用适配case  (1).zip "实例下载"),建议采用JSSDK封装接口方法,参考[appcan.frame.open](http://newdocx.appcan.cn/newdocx/docx?type=1260_1254 "appcan.frame.open")和[appcan.window.openMultiPopover](http://newdocx.appcan.cn/newdocx/docx?type=1259_1254 "appcan.window.openMultiPopover")
 
 ```javascript
-uexWindow.openMultiPopover({
-	content: {
-      	content: [{
-  				inPageName: "p1", 
-  				inUrl: "hidden.html",
-  				inData: "",
-          		 extrainfo: {opaque:true,bgColor:"#011"}
-      			},									
-            	{
-  				inPageName: "p2", 
-  				inUrl: "hidden1.html",
-  				inData: "",
-                 extrainfo: {opaque:true,bgColor:"#022"}
-				}]
-    },
-	name: "sss",
-	dataType: 0,
-   	x: 400,
-    y: 0,
-    flag: 0,
-    indexSelected: 1,
-  	extras:{
-      extraInfo:{opaque:true,bgColor:"#011", delayTime:250}
-  	}
-});
+    uexWindow.openMultiPopover({
+        content: {
+            content: [
+                {
+                     inPageName: "p1",
+                     inUrl: "hidden.html",
+                     inData: "",
+                     extraInfo: {opaque:true,bgColor:"#011"}
+                },
+                {
+                     inPageName: "p2",
+                     inUrl: "hidden1.html",
+                     inData: "",
+                     extraInfo: {opaque:true,bgColor:"#022"}
+                }
+            ]
+        },
+        name: "sss",
+        dataType: 0,
+        x: 400,
+        y: 0,
+        flag: 0,
+        indexSelected: 1,
+        extras:{
+            extraInfo:{opaque:true,bgColor:"#011", delayTime:250}
+        }
+    });
 ```
 
 ### 🍭 closeMultiPopover 关闭多页面浮动窗口
@@ -1551,9 +1553,9 @@ uexWindow.publishChannelNotification("No1","channel 1 test just!");
 **示例:**
 
 ```javascript
-var json = ｛
-      key :value
-｝
+var json = {
+      key :"value"
+}
 uexWindow.publishChannelNotificationForJson("No1",JSON.stringify(json));
 ```
 
@@ -1772,6 +1774,7 @@ uexWindow.confirm({
 | defaultValue | String | 是    | 输入框默认文字,不需要时请传空字符串`""`       |
 | buttonLabels | String | 是    | 显示在按钮上的文字的集合 ,多个按钮之间用逗号`,`分隔 |
 | hint         | String | 否    | 输入框中的提示文字,在输入框中内容为空时显示       |
+| mode         | Number | 否    | 0-一般文本输入(默认) 1-密码输入          |
 `callback`为Function类型,参数如下:
 
 | 参数名称  | 参数类型   | 说明     |
@@ -1796,7 +1799,7 @@ uexWindow.prompt({
 
 ### 🍭 toast 弹出消息提示框
 
-`uexWindow.toast(json)`
+`uexWindow.toastjson)`
 
 **说明:**
 
@@ -1924,7 +1927,7 @@ uexWindow.actionSheet({
   cancel:"Cancel",
   buttons:"Opt1,Opt2,Opt3,Opt4,Opt5,Opt6"
 },function(index){
-  alert("点击了第"+(index+1)+"个按钮";
+  alert("点击了第"+(index+1)+"个按钮");
 });
 ```
 

@@ -119,8 +119,8 @@ var params = {
 | ----------------------------- | -------- | -------------------- | ---------------- | ----------------------------------- |
 | minimumCodeLength             | Number   | 设置密码时的最短长度           | 4                | 至少为1                                |
 | maximumAllowTrialTimes        | Number   | 验证密码时的最多尝试次数         | 5                | 设置为0时表示没有上限,                        |
-| errorRemainInterval           | Number   | 错误状态的保留时间            | 1.0              |                                     |
-| successRemainInterval         | Number   | 操作成功后的保留时间           | 0.2              | 操作成功后,经过此时间之后才会关闭插件UI               |
+| errorRemainInterval           | Number   | 错误状态的保留时间            | 1000             | 单位毫秒，验证错误时，经过此时间之后才会错误状态提醒会消失       |
+| successRemainInterval         | Number   | 操作成功后的保留时间           | 200              | 单位毫秒，操作成功后,经过此时间之后才会关闭插件UI          |
 | backgroundColor               | String   | 手势解锁界面的背景色           | "#F1F1F1"        | 支持 3位6位8位的HEXcolor/ RBG / RBGA      |
 | normalThemeColor              | String   | 普通状态下的主题颜色           | "#002849"        | 同上                                  |
 | selectedThemeColor            | String   | 选中状态下的主题颜色           | "#22B2F6"        | 同上                                  |
@@ -146,7 +146,7 @@ var params = {
 var data={
 	backgroundImage:"res://bgImage.jpg",
 	iconImage:"res://icon.png",
-     normalThemeColor:"#F1F1F1",
+     normalThemeColor:"#000000",
      selectedThemeColor:"#00ff00",
      errorThemeColor:"#ff0000",
 	cancelVerificationButtonTitle:"切换其他账号",
