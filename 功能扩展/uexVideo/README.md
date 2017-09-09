@@ -167,6 +167,30 @@ var params = {
 uexVideo.record(JSON.stringify(params));
 ```
 
+### 🍭 videoPicker 打开视频选择界面
+
+`uexVideo.videoPicker()`
+
+**说明:**
+
+ 打开视频选择界面,监听方法 [onVideoPickerClosed](#onVideoPickerClosed 选择视频结束的回调方法)
+
+**参数:**
+
+| 参数名称 | 参数类型 | 是否必须 | 说明   |
+| ---- | ---- | ---- | ---- |
+| 无    | -    | -    | -    |
+
+**版本支持:**
+
+Android 4.0.7+
+
+**示例:**
+
+```javascript
+uexVideo.videoPicker();
+```
+
 ## 2.2、监听方法
 
 ### 🍭 onPlayerClose 播放器被关闭时的监听方法
@@ -327,6 +351,45 @@ window.uexOnload = function(){
 ```javascript
 uexVideo.onPlayerEndTime = function(){
  	
+}
+```
+
+### 🍭 onVideoPickerClosed 选择视频结束的回调方法
+
+`uexVideo.onVideoPickerClosed(data)`
+
+**参数:**
+
+data 是 JSON Object
+
+```
+var data = {
+	data:[
+		{ 
+		    src :,
+		}
+		...
+	]
+	isCancelled:,
+}
+```
+
+| 字段名称   | 类型     | 说明                                     |
+| ------ | ------ | -------------------------------------- |
+| data | Array | 选择结果. |
+| src   | String | 选择视频的本地绝对路径 |
+| isCancelled   | boolean | 是否为取消选择,取消为true,其他为false |
+
+
+
+**示例**
+
+```
+
+window.uexOnload = function(){
+    uexVideo.onVideoPickerClosed = function(data){
+    	alert("onVideoPickerClosed:" + JSON.stringify(data));
+    };
 }
 ```
 
