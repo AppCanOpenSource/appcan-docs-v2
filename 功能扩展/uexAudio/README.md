@@ -151,7 +151,7 @@ uexAudio.volumeDown()
 
 **说明:**
 
-开始后台录音
+开始后台录音，若无权限会触发回调[onPermissionDenied](#-onPermissionDenied-)
 
 **参数:**
 
@@ -375,6 +375,37 @@ window.uexOnload = function(){
     uexAudio.onPlayFinished = onPlayFinished;
 }
 ```
+
+### 🍭 onPermissionDenied 权限检测回调
+
+`uexAudio.onPermissionDenied(data)`
+
+**参数:**
+
+| 参数名称     | 参数类型   | 是否必选 | 说明    |
+| -------- | ------ | ---- | ----- |
+| data | JSON类型 | 必选    | 返回一个JSON对象 |
+
+```
+data = {
+        "errCode":"1",                //失败权限类型，返回1代表麦克风
+        "info":"调用麦克风失败，请在 设置-隐私-麦克风 中开启权限",            //失败提示，建议根据不同app自定义提示
+    };
+    
+    注：info 字段在Android和iOS上略有差异,建议根据不同app自定义提示
+```
+
+**示例:**
+
+```
+function onPermissionDenied(data) {
+    alert(data.errCode);
+}
+window.uexOnload = function(){
+    uexAudio.onPermissionDenied = onPermissionDenied;
+}
+```
+
 # 3、更新历史
 
 ### iOS
