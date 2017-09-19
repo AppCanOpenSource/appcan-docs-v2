@@ -9,11 +9,11 @@
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=177_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.4､平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
+本插件的所有API默认支持 **Android4.0+** 和 **iOS7.0+** 操作系统.
 有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5､接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用.
+本插件所有API默认在插件版本 **4.0.0+** 可用.
 在后续版本中新添加的接口会在文档中额外说明.
 
 # 2､API概览
@@ -217,6 +217,7 @@ alert(obj.latitude+","+obj.longitude);//同步返回json字符串
 
 
 ## 2.2､监听方法
+
 ### 🍭 onChange 设备位置变化的监听方法
 
   uexLocation.onChange(lat, log)
@@ -235,6 +236,40 @@ alert(obj.latitude+","+obj.longitude);//同步返回json字符串
     uexLocation.onChange = function(lat, log){
         alert(lat + "," + log);
     }
+```
+
+### 🍭 onPermissionDenied 权限检测回调
+
+`uexLocation.onPermissionDenied(data)`
+
+**说明:**
+
+因Android权限有百度SDK进行矫正,Android暂无该回调
+
+**参数:**
+
+| 参数名称     | 参数类型   | 是否必选 | 说明    |
+| -------- | ------ | ---- | ----- |
+| data | JSON类型 | 必选    | 返回一个JSON对象 |
+
+```
+data = {
+        "errCode":"1",                //失败权限类型，返回1代表定位服务
+        "info":"调用定位服务失败，请在 设置-隐私-定位服务 中开启权限",            //失败提示，建议根据不同app自定义提示
+    };
+    
+    注：info 字段在Android和iOS上略有差异,建议根据不同app自定义提示
+```
+
+**示例:**
+
+```
+function onPermissionDenied(data) {
+    alert(data.errCode);
+}
+window.uexOnload = function(){
+    uexLocation.onPermissionDenied = onPermissionDenied;
+}
 ```
 
 # 3､更新历史
