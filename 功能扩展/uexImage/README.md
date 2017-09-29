@@ -7,21 +7,21 @@
 ## 1.1、说明
 封装了图片的相关功能:您可以使用该插件进行选择.导出、裁剪、浏览、存入系统相册等一系列针对图片的操作.
 ## 1.2、UI展示
- ![](/docImg/975/093141n2015r11c2vt&#40;2&#41;.png)  ![](/docImg/975/093145g2015m11b2se&#40;2&#41;.png) 
+ ![](http://newdocx.appcan.cn/docImg/975/093141n2015r11c2vt&#40;2&#41;.png)  ![](http://newdocx.appcan.cn/docImg/975/093145g2015m11b2se&#40;2&#41;.png) 
 ## 1.3、开源源码
 [点击](http://plugin.appcan.cn/details.html?id=505_index)至插件详情页(插件测试用例与插件包已经提供)
 ## 1.4、平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+本插件的所有API默认支持 **Android4.0+** 和 **iOS7.0+** 操作系统.  
 有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5、接口有效性
-本插件所有API默认在插件版本**4.0.0+**可用.  
+本插件所有API默认在插件版本 **4.0.0+** 可用.  
 在后续版本中新添加的接口会在文档中额外说明.
 
 
-#2、 API预览
+# 2、 API预览
 
-##2.1、 方法
+## 2.1、 方法
 
 ### 🍭 openPicker 打开照片选择器
 
@@ -776,6 +776,39 @@ window.uexOnload=function(type){
 }
 ```
 
+### 🍭 onPermissionDenied 权限检测回调
+
+`uexImage.onPermissionDenied(data)`
+
+**说明**
+
+* Android暂无该回调
+
+**参数:**
+
+| 参数名称     | 参数类型   | 是否必选 | 说明    |
+| -------- | ------ | ---- | ----- |
+| data | JSON类型 | 必选    | 返回一个JSON对象 |
+
+```
+data = {
+        "errCode":"1",                //失败权限类型，返回1代表照片
+        "info":"调用照片失败，请在 设置-隐私-照片 中开启权限",            //失败提示，建议根据不同app自定义提示
+    };
+    
+    注：info 字段在Android和iOS上略有差异,建议根据不同app自定义提示
+```
+
+**示例:**
+
+```
+function onPermissionDenied(data) {
+    alert(data.errCode);
+}
+window.uexOnload = function(){
+    uexImage.onPermissionDenied = onPermissionDenied;
+}
+```
 
 # 3、更新历史
 
