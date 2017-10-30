@@ -805,6 +805,11 @@ var json = [];
 
 `uexGaodeMap.addPolylineOverlay(json)`
 
+
+**说明:**
+纹理素材格式：纹理图片须是正方形，宽高是2的整数幂，如64*64，否则无效；若设置了纹理图片，设置线颜色、连接类型和端点类型将无效。
+注意：目前仅支持对折线设置纹理，其余覆盖物目前暂不支持设置纹理。
+
 **参数:**
 
 | 参数名称 | 参数类型    | 是否必选 | 说明           |
@@ -831,6 +836,8 @@ var json = {
 | 参数名称      | 参数类型   | 是否必选 | 说明    |
 | --------- | ------ | ---- | ----- |
 | id        | Number | 是    | 唯一标识符 |
+| isShowLineImage | String | 否    | 折线是否使用纹理  |
+| lineImagePath | String | 否    | 纹理图片路径  |
 | fillColor | String | 否    | 折线颜色  |
 | lineWidth | Number | 否    | 折线宽   |
 | property  | Array  | 是    | 数据    |
@@ -844,6 +851,8 @@ var json = {
 ```javascript
     var json = {
         id:151,
+        isShowLineImage:true,
+        lineImagePath:"res://lineImage1.png",
         fillColor:"#f00",
         lineWidth:10.0,
         property:[
@@ -1716,7 +1725,7 @@ var json = {
 
 | 参数名称 | 参数类型   | 是否必选 | 说明                                       |
 | ---- | ------ | ---- | ---------------------------------------- |
-| type | Number | 是    | 模式,1-只在第一次定位移动到地图中心点;2-定位､移动到地图中心点并跟随;3-定位､移动到地图中心点,跟踪并根据方向旋转地图. |
+| type | Number | 是    | 模式，</br> 1-定位一次，且将视角移动到地图中心点；</br> 2-连续定位、且将视角移动到地图中心点，定位蓝点跟随设备移动；</br> 3-连续定位、且将视角移动到地图中心点，地图依照设备方向旋转，定位点会跟随设备移动；</br> 4-连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动；默认执行此种模式。 |
 
 
 **示例:**
@@ -3083,6 +3092,29 @@ var json = {
 uexGaodeMap.onCustomButtonClick = function(id) {
  	alert("onCustomButtonClick:"+id);
 }
+```
+
+> ### onCameraChangeFinish 地图状态改变的监听方法
+
+`uexGaodeMap.onCameraChangeFinish(json);`
+
+**参数:**
+
+```
+var json = {
+    zoom:,//当前地图缩放级别的数值
+    longitude:,//当前地图中心点的经度
+    latitude://当前地图中心点的纬度
+}
+
+```
+
+**示例:**
+
+```
+ uexGaodeMap.onCameraChangeFinish = function(json) {
+        alert("onCameraChangeFinish: "+json);
+    }
 ```
 
 ## 
