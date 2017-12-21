@@ -20,7 +20,7 @@
 
 > ### openDataBase 打开数据库
 
-`uexDataBaseMgr.openDataBase(dbName,id)`
+`uexDataBaseMgr.openDataBase(dbName,id,dbKey)`
 
 **说明:**
 
@@ -33,6 +33,7 @@
 | ----- | ----- | ----- | ----- |
 | dbName | String | 是 | 数据库名称 |
 | id | Number | 是 | 唯一标识符 |
+| dbKey | String | 否 | 加密数据库所需的密钥。若为空，则不加密数据库。首次加密打开数据库后，暂不支持再更改密码 |
 
 **平台支持:**
 
@@ -47,6 +48,11 @@ iOS6.0+
 
 ```
     uexDataBaseMgr.openDataBase("uexDB",1);
+```
+
+```
+    //加密数据库
+    uexDataBaseMgr.openDataBase("uexDB",1,"abcd1234");
 ```
 
 > ### executeSql Sql语句的执行
