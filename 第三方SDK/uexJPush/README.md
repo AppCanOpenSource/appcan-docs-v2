@@ -179,13 +179,14 @@ uexJPush.setTags(json, function(error,data) {
 });
 ```
 
-### 🍭 setAliasAndTags  同时设置别名与标签
+### 🍭 setAliasAndTags  同时设置别名与标签（ios 插件已不支持）
 
 `uexJPush.setAliasAndTags(json, callbackFunction)`
 
 **说明**
 
 同时设置别名与标签, 执行完成后回调`callbackFunction`
+ios 插件4.0.2已不再支持此方法
 
 **参数**
 
@@ -680,12 +681,13 @@ $UEXJPUSH_APS_ENVIRONMENT$ ----->推送证书类型   0-开发者证书(develope
 
 ### iOS
 
-API版本: `uexJPush-4.0.1`
+API版本: `uexJPush-4.0.2`
 
-最近更新时间:`2017-02-21`
+最近更新时间:`2018-08-23`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.1 |更新JPush SDK至3.1.0,setAliasandTags方法不在支持|
 | 4.0.1 | 更新JPush SDK至3.0.0 |
 | 4.0.0 | 极光推送插件 |
 
