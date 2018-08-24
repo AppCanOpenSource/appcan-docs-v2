@@ -687,7 +687,7 @@ API版本: `uexJPush-4.0.2`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
-| 4.0.1 |更新JPush SDK至3.1.0,setAliasandTags方法不在支持|
+| 4.0.2 |更新JPush SDK至3.1.0,setAliasandTags方法不在支持|
 | 4.0.1 | 更新JPush SDK至3.0.0 |
 | 4.0.0 | 极光推送插件 |
 
