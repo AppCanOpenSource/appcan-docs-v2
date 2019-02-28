@@ -1020,6 +1020,8 @@ var fileInfo = {
 	fileName:,
 	filePath:,
 	fileType:
+    fileModTimestamp:
+    fileCreateTimestamp:
 }
 ```
 
@@ -1227,12 +1229,14 @@ uexFileMgr.getFileHashValue(data,function(data){
 
 ### iOS
 
-API版本: `uexFileMgr-4.0.3`
+API版本: `uexFileMgr-4.0.5`
 
-最近更新时间:`2017-02-21`
+最近更新时间:`2019-02-28`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.5 | 获取文件的创建时间和修改时间排序--新增fileModTimestamp，fileCreateTimestamp 字段  |
+| 4.0.4 | 修复getFileSizeByPath方法传入非文件夹路径时返回大小为0的bug |
 | 4.0.3 | 修正部分cb旧接口的参数问题 |
 | 4.0.2 | 兼容性更新 |
 | 4.0.1 | 新增getFileHashValue接口 |
