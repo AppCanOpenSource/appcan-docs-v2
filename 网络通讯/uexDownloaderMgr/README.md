@@ -71,7 +71,7 @@ uexDownloaderMgr.setHeaders(downloader, headJson);
 
 ### 🍭 download 下载文件
 
-`uexDownloaderMgr.download(downloader,serverURL,savePath,mode,cb)`
+`uexDownloaderMgr.download(downloader,serverURL,savePath,mode,cb,isReName)`
 
 **说明:**
 
@@ -86,7 +86,7 @@ uexDownloaderMgr.setHeaders(downloader, headJson);
 | savePath   | String   | 是    | 本地保存地址                              |
 | mode       | Number   | 是    | 是否支持断点续传,0:不支持,1:支持                 |
 | cb         | Function | 是    | 下载进度回调,详见下                          |
-
+| isReName   | NSNumber | 是    | 是否需要重命名,0：（默认或者不传此参数）不需要改名，1：需要重命名                          |
 
 **回调参数:**
 
@@ -122,7 +122,8 @@ uexDownloaderMgr.download(downloader,
                       alert("下载失败");
                   break;
 				  }				  
-});
+});,
+1
 ```
 
 ### 🍭 cancelDownload 取消下载
@@ -226,6 +227,7 @@ API版本: `uexDownloaderMgr-4.0.1`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.11 | download方法添加isReName参数,是否需要重命名 |
 | 4.0.1 | 修复一个会导致崩溃的问题 |
 | 4.0.0 | 下载功能插件 |
 
