@@ -1,8 +1,8 @@
 [TOC]
 
-# 1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+#1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
  照相机插件
-## 1.1､说明
+##1.1､说明
  调用设备照相机拍摄照片,成功后返回相关图片存储地址.
  自定义相机功能接口只适用安卓平台系统,其他接口功能支持跨平台使用
  <div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">&times;</button> 注意!
@@ -10,22 +10,59 @@
 主要是因为,系统相机和调用系统相机的APP不在同一进程,因内存过低,系统将APP杀死.
 </div>
 
-## 1.2､UI展示
+##1.2､UI展示
  ![](http://newdocx.appcan.cn/docximg/151400o2015o6w7s.jpg)
-## 1.3､开源源码
+##1.3､开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=159_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 ## 1.4､平台版本支持
-本插件的所有API默认支持 **Android4.0+** 和 **iOS7.0+** 操作系统.
+本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 有特殊版本要求的API会在文档中额外说明.
 
 ## 1.5､接口有效性
-本插件所有API默认在插件版本 **4.0.0+** 可用.
+本插件所有API默认在插件版本**4.0.0+**可用.
 在后续版本中新添加的接口会在文档中额外说明.
 
-# 2､API概览
- 
-## 2.1､方法
+#2､API概览
+ ##2.1､方法
+
+### 🍭 isEnableCamera 检查是否照相机权限是否开启
+`uexCamera.isEnableCamera(callbackFunction)`
+
+**说明:**
+
+通过此方法判断，应用是否开启相机权限
+
+**参数:**
+
+| 参数名称             | 参数类型     | 是否必选 | 说明                                    |
+| ---------------- | -------- | ---- | ------------------------------------- |
+| callbackFunction | 函数       | 必选   | 回调函数,用来获取相关业务数据                       |
+
+**回调参数:**
+
+code： 200表示开启相机权限，403表示相机权限未开启
+
+data：返回字符串信息
+
+```javascript
+var callbackFunction = function(code,data){}
+```
+
+**示例:**
+
+```
+		
+	 uexCamera.isEnableCamera(function(code,data){
+	                if("200"==code){ //
+	                    alert(data);
+	                }else if("403"==code){
+	                   alert(code+"===="+data);
+	                }
+	            });
+	        };
+```
+
 
 ### 🍭 open 打开相机
 
@@ -237,40 +274,7 @@ var position = uexCamera.changeCameraPosition(cameraPosition);
 alert(position);
 ```
 
-## 2.2、监听方法
-
-### 🍭 onPermissionDenied 权限检测回调
-
-`uexCamera.onPermissionDenied(data)`
-
-**参数:**
-
-| 参数名称     | 参数类型   | 是否必选 | 说明    |
-| -------- | ------ | ---- | ----- |
-| data | JSON类型 | 必选    | 返回一个JSON对象 |
-
-```
-data = {
-        "errCode":"1",                //失败权限类型，返回1代表相机
-        "info":"调用相机失败，请在 设置-隐私-相机 中开启权限",            //失败提示，建议根据不同app自定义提示
-    };
-    
-    注：info 字段在Android和iOS上略有差异,建议根据不同app自定义提示
-```
-
-**示例:**
-
-```
-function onPermissionDenied(data) {
-    alert(data.errCode);
-}
-window.uexOnload = function(){
-    uexCamera.onPermissionDenied = onPermissionDenied;
-}
-```
-
-
-# 3､更新历史 
+#3､更新历史 
 
 ### iOS
 
