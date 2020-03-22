@@ -240,7 +240,7 @@ uexWidget.loadApp(scheme);
 
 * **此接口仅支持*Android*平台**
 
-**参数:**
+**公共参数:**
 
 | 参数名称      | 参数类型   | 是否必选 | 说明                                       |
 | --------- | ------ | ---- | ---------------------------------------- |
@@ -281,7 +281,7 @@ uexWidget.loadApp(scheme);
     ],
     "data": {
         "mimeType": "image/png",//可选
-        "scheme": "sip"
+        "scheme": "appcan://"
     }
 }
 ```
@@ -289,10 +289,10 @@ uexWidget.loadApp(scheme);
 
 | 参数       | 是否必须 | 说明         |
 | -------- | ---- | ---------- |
-| category | 否    | category属性 |
-| data     | 否    | data属性     |
+| category | 否    | json数组，元素为category字符串，支持传入多个。对应的就是要启动的组件在AndroidManifest中声明的category |
+| data     | 否    | 其他扩展属性  |
 | mimeType | 否    | mimeType属性 |
-| scheme   | 否    | scheme属性   |
+| scheme   | 否    | scheme属性，此处要填写完整Uri字符串，包括scheme、host、port、path等连接起来，例如appcan://   |
 
 **注意事项:**
 
@@ -306,13 +306,13 @@ var optInfo = "{'key1':'value1'},{'key2':'value1'}";
 uexWidget.startApp(0,packageName,className,optInfo);
 ```
 
-
 **返回值:**
 
 Boolean类型,true为成功,false为失败
 
 **示例:**
-  1.要启动的AndroidManifest.xml文件如下:
+
+1.要启动的AndroidManifest.xml文件如下:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -320,9 +320,6 @@ Boolean类型,true为成功,false为失败
     package="com.dongjf.mytest"//com.dongjf.mytest即为包名
     android:versionCode="1"
     android:versionName="1.0" >
-    <uses-sdk
-        android:minSdkVersion="11"
-        android:targetSdkVersion="18" ></uses>
     
   <application
         android:allowBackup="true"
@@ -372,6 +369,7 @@ Boolean类型,true为成功,false为失败
    </application>
 </manifest>
 ```
+
   2.启动该应用对应界面示例如下:
 
 ```html
@@ -457,13 +455,15 @@ function startAppA(mode){
 </body>
 </html>
 ```
+
 3.指定用QQ浏览器打开链接:
 
 ```javascript
 var optInfo = "{'key1':'value1'},{'key2':'value1'}";
-var extra='{data:"http://www.appcan.cn/"}';
+var extra='{"data":"http://www.appcan.cn/"}';
 uexWidget.startApp(0, "com.tencent.mtt","com.tencent.mtt.MainActivity",optInfo,extra);
 ```
+
 4.指定用 系统浏览器（android） 打开链接：
 ```javascript
 var value;
