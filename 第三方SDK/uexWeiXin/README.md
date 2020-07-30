@@ -1,16 +1,17 @@
 [TOC]
-# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+# 1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
 微信分享插件
 
-## 1.1､说明
+## 1.1、说明
 
-封装了微信开放平台的SDK,集成了微信登录､微信分享功能;可用于实现第三方账号登录,分享内容到朋友圈或好友;使用之前须从[微信开放平台](https://open.weixin.qq.com/ "微信开放平台")申请开发者账号并创建应用,获取 appid 和 secret.同时包含微信支付功能.
+封装了微信开放平台的SDK,集成了微信登录、微信分享功能;可用于实现第三方账号登录,分享内容到朋友圈或好友;使用之前须从[微信开放平台](https://open.weixin.qq.com/ "微信开放平台")申请开发者账号并创建应用,获取 appid 和 secret.同时包含微信支付功能.
 
 如何申请请参考[附录](http://newdocx.appcan.cn/newdocx/docx?type=1449_975 "附录").
 
-* IDE不建议测试使用,原因:IDE涉及证书和包名问题! 
+* IDE不建议测试使用,原因:IDE涉及证书和包名问题!　
 * 安卓微信插件在使用时,调用接口时只需填写对应的参数,直接在线勾选插件使用;`注意:安卓偶尔收不到回调的问题要设置接收回调窗口setCallbackWindowName方法`.
 * iOS微信插件在使用在微信支付或分享过程中,App用过uexWeiXin插件打开微信客户端进行支付,支付过程完成后,微信客户端通过应用自定义的UrlScheme返回到本App,并传回支付结果时,需要配置UrlScheme值
+* [AppCan iOS 通用连接（Universal Link）配置说明](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/AppCan%20iOS%20%E9%80%9A%E7%94%A8%E8%BF%9E%E6%8E%A5%EF%BC%88Universal%20Link%EF%BC%89%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E.md)
 
 
 **通过config.xml配置插件的方法,iOS微信插件可直接在官网公共插件里直接勾选使用**,示例配置代码如下: 
@@ -36,10 +37,10 @@ iOS 9 以后,为了预防APP通过非正常渠道获取用户的某些隐私信�
 ## 1.2､UI展示
 ![](http://newdocx.appcan.cn/docximg/162019s2015p6u16v.png)
 
-## 1.3､开源源码
+## 1.3、开源源码
 插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=195_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4､术语表
+## 1.4、术语表
 -----
 Path Types
 
@@ -50,30 +51,30 @@ Path Types
 | wgts://         | /storage/emulated/0/widgetone/widgets/   | /Documents/widgets/               |
 | file:///sdcard/ | /storage/emulated/0/                     | 无                                 |
 
-## 1.5､错误返回码说明
+## 1.5、错误返回码说明
 前端收到的回调中的错误返回码errCode可查看下方链接获取详细信息
 [微信官方全局返回码说明地址](http://mp.weixin.qq.com/wiki/17/fa4e1434e57290788bde25603fa2fcbd.html)
 
 
-## 1.6､接口有效性
+## 1.6、接口有效性
 
 本插件所有API默认在插件版本**4.0.0+**可用.
 
 在后续版本中新添加的接口会在文档中额外说明.
 
-## 1.7､平台版本支持
+## 1.7、平台版本支持
 
 本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
 
 有特殊版本要求的API会在文档中额外说明.
 
-# 2､API概览
+# 2、API概览
 
-## 2.1､方法
+## 2.1、方法
 
 ### 🍭 registerApp 用户授权
 
-`var info = uexWeiXin.registerApp(appID)`
+`var info = uexWeiXin.registerApp(appID,universalLink)`
 
 **说明:**
 
@@ -84,6 +85,10 @@ Path Types
 | 参数名称  | 参数类型     | 是否必选 | 说明                             |
 | ----- | -------- | ---- | ------------------------------ |
 | appID | String类型 | 是    | 到微信开发者登记页面进行登记并设置相关信息后将获得appID |
+| universalLink | String类型 | 是    | 到微信开发者登记页面进行登记并配置universalLink | 
+
+ [iOS 通用连接（Universal Link）配置说明](https://github.com/AppCanOpenSource/appcan-docs-v2/blob/master/%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC/AppCan%20iOS%20%E9%80%9A%E7%94%A8%E8%BF%9E%E6%8E%A5%EF%BC%88Universal%20Link%EF%BC%89%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E.md)
+
 
 **返回值:**
 
@@ -92,7 +97,7 @@ Number类型授权结果,0-成功,1-失败.
 **示例:**
 
 ```
-var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f');
+var info = uexWeiXin.registerApp('wxd930ea5d5a258f4f','https://appcan.cn/app/');
 alert(info);
 ```
 
@@ -121,7 +126,7 @@ alert(info);
 
 ### 🍭 isWXAppSupportApi 判断当前微信的版本是否支持OpenApi
 
-`var info = uexWeiXin.isWXAppSupportApi()`
+`var info =uexWeiXin.isWXAppSupportApi()`
 
 **说明:**
 
@@ -346,7 +351,7 @@ uexWeiXin.shareTextContent(jsonstr, function(error){
 
 | 参数名称     | 参数类型     | 是否必选 | 说明                                       |
 | -------- | -------- | ---- | ---------------------------------------- |
-| jsonData | String   | 是    | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type |
+| jsonData | String   | 是    | 分享的文本内容,路径协议见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975#Path Types "CONSTANT")中的 path type, Android不支持网络路径图片 |
 | cbFun    | Function | 是    | 分享结束后的回调函数                               |
 
 ```javascript
@@ -363,7 +368,7 @@ var jsonData = {
 | 字段名称     | 类型     | 是否必选 | 说明                     |
 | -------- | ------ | ---- | ---------------------- |
 | thumbImg | String | 是    | 缩略图地址Url(大小必须小于32k)    |
-| image    | String | 是    | 图片地址, Android不支持网络路径图片 |
+| image    | String | 是    | 图片地址                   |
 | scene    | Number | 是    | 发送的目标场景 0-会话场景 1-朋友圈场景 |
 | title    | String | 否    | 图片标题(仅iOS)             |
 
@@ -443,153 +448,6 @@ uexWeiXin.shareLinkContent(JsonData,function(data){
 ```
 
 
-### 🍭 shareVideoContent 分享视频
-
-`uexWeiXin.shareVideoContent(jsonData,cbFun)`
-
-**说明:**
-
-分享视频到微信
-
-
-**参数:**
-
-| 参数名称     | 参数类型     | 是否必选 | 说明              |
-| -------- | -------- | ---- | --------------- |
-| jsonData | Object   | 是    | 分享视频所需参数,JSON格式 |
-| cbFun    | Function | 是    | 分享结束后的回调函数      |
-
-```javascript
-var json = {
-    thumbImg:,
-    videoUrl:,
-    videoLowBandUrl:,
-    scene:,
-    title:,
-    description:
-}
-```
-
-各字段含义如下:
-
-| 字段名称            | 类型     | 是否必选 | 说明                                       |
-| --------------- | ------ | ---- | ---------------------------------------- |
-| thumbImg        | String | 是    | 缩略图地址Url(大小必须小于32k)                      |
-| videoUrl        | String | 否    | 视频链接,限制长度不超过10KB。**和videoLowBandUrl参数不能同时为空**。 |
-| videoLowBandUrl | String | 否    | 供低带宽的环境下使用的视频链接,限制长度不超过10KB。**和videoUrl参数不能同时为空**。 |
-| scene           | Number | 是    | 发送的目标场景 0-会话场景 1-朋友圈场景                   |
-| title           | String | 是    | 链接标题,长度不超过512字节                          |
-| description     | String | 否    | 链接描述内容,长度不能超过1K                          |
-
-**回调参数:**
-
-```javascript
-var cbFun = function(error){}
-```
-
-| 参数名称  | 类型     | 说明                 |
-| ----- | ------ | ------------------ |
-| error | Number | 返回的错误码,0-成功,非0-失败. |
-
-**版本支持:**
-Android 4.0.5+
-iOS 4.0.3+
-
-**示例:**
-
-```javascript
-var params = {
-    thumbImg:"res://icon.png",
-    videoUrl:"http://m.iqiyi.com/v_19rr794vlc.html?social_platform=link&p1=2_22_221",
-    //videoLowBandUrl:"http://m.iqiyi.com/v_19rr794vlc.html?social_platform=link&p1=2_22_221",
-    scene:0,
-    title:"视频标题",
-    description:"视频描述"
-};
-uexWeiXin.shareVideoContent(params,function(error){
-        if(!error){
-			alert("分享成功");
-        }else{
-			alert("分享失败");
-        }
-});
-```
-
-
-
-### 🍭 shareMusicContent 分享音乐
-
-`uexWeiXin.shareMusicContent(jsonData,cbFun)`
-
-**说明:**
-
-分享音乐到微信
-
-
-**参数:**
-
-| 参数名称     | 参数类型     | 是否必选 | 说明              |
-| -------- | -------- | ---- | --------------- |
-| jsonData | Object   | 是    | 分享音乐所需参数,JSON格式 |
-| cbFun    | Function | 是    | 分享结束后的回调函数      |
-
-```javascript
-var json = {
-    thumbImg:,
-    musicUrl:,
-    musicLowBandUrl:,
-    scene:,
-    title:,
-    description:
-}
-```
-
-各字段含义如下:
-
-| 字段名称            | 类型     | 是否必选 | 说明                                       |
-| --------------- | ------ | ---- | ---------------------------------------- |
-| thumbImg        | String | 否    | 缩略图地址Url(大小必须小于32k)                      |
-| musicUrl        | String | 否    | 音频网页的URL地址, 限制长度不超过10KB。**和musicLowBandUrl参数不能同时为空**。 |
-| musicLowBandUrl | String | 否    | 供低带宽环境下使用的音频网页URL地址,限制长度不超过10KB。**和musicUrl参数不能同时为空**。 |
-| scene           | Number | 是    | 发送的目标场景 0-会话场景 1-朋友圈场景                   |
-| title           | String | 是    | 链接标题,长度不超过512字节                          |
-| description     | String | 否    | 链接描述内容,长度不能超过1K                          |
-
-**回调参数:**
-
-```javascript
-var cbFun = function(error){}
-```
-
-| 参数名称  | 类型     | 说明                 |
-| ----- | ------ | ------------------ |
-| error | Number | 返回的错误码,0-成功,非0-失败. |
-
-**版本支持:**
-Android 4.0.5+
-iOS 4.0.3+
-
-**示例:**
-
-```javascript
-var params = {
-    thumbImg:"res://icon.png",
-    musicUrl:"http://staff2.ustc.edu.cn/~wdw/softdown/index.asp/0042515_05.ANDY.mp3",
-    scene:0,
-    title:"音乐标题",
-    description:"音乐描述"
-};
-uexWeiXin.shareMusicContent(params,function(error){
-        if(!error){
-			alert("分享成功");
-        }else{
-			alert("分享失败");
-        }
-});
-```
-
-
-
 ### 🍭 getPrepayId 生成预支付订单
 
 `uexWeiXin.getPrepayId(json,cbFun)`
@@ -617,7 +475,7 @@ var json = {
     body:,//(必选) 商品或支付单简要描述
     detail:,//(可选) 商品名称明细列表
     attach:,//(可选) 附加数据,在查询API和支付通知中原样返回,该字段主要用于商户携带订单的自定义数据
-    out_trade_no://(必选) 商户系统内部的订单号,32个字符内､可包含字母
+    out_trade_no://(必选) 商户系统内部的订单号,32个字符内、可包含字母
     fee_type:,//(可选) 符合ISO 4217标准的三位字母代码,默认人民币:CNY
     total_fee:,//(必选) 订单总金额,只能为整数,单位为分
     spbill_create_ip:,//(必选) 用户端ip
@@ -709,9 +567,9 @@ var json ={
 var cbFun = function(data){}
 ```
 
-| 参数名称 | 类型     | 说明                                       |
-| ---- | ------ | ---------------------------------------- |
-| data | Object | 返回参数,参数说明及生成办法详见微信开放平台文档[调起支付接口](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口")参数说明中的"返回结果" |
+| 参数名称 | 类型      | 说明                                       |
+| ---- | ------- | ---------------------------------------- |
+| data | Json字符串 | 返回参数,参数说明及生成办法详见微信开放平台文档[调起支付接口](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 "调起支付接口")参数说明中的"返回结果" |
 
 
 **示例:**
@@ -767,9 +625,9 @@ var json = {
 var cbFun = function(data){}
 ```
 
-| 参数名称 | 类型     | 说明         |
-| ---- | ------ | ---------- |
-| data | Object | 返回数据,形式如下: |
+| 参数名称 | 类型      | 说明         |
+| ---- | ------- | ---------- |
+| data | Json字符串 | 返回数据,形式如下: |
 
 ```javascript
 var data = {
@@ -840,9 +698,9 @@ var json = {
 var cbFun = function(data){}
 ```
 
-| 参数名称 | 类型     | 说明         |
-| ---- | ------ | ---------- |
-| data | Object | 返回数据,形式如下: |
+| 参数名称 | 类型      | 说明         |
+| ---- | ------- | ---------- |
+| data | Json字符串 | 返回数据,形式如下: |
 
 ```
 var data = {
@@ -880,6 +738,91 @@ var data = {
 });
 ```
 
+### 🍭 openMiniProgram 打开小程序
+
+`uexWeiXin.openMiniProgram(JSON.stringify(params));`
+
+**说明:**
+
+ 打开小程序 
+
+**参数:**
+
+| 参数名称  | 参数类型     | 是否必选 | 说明   |
+| ----- | -------- | ---- | ---- |
+| userName  | String  | 是    | 小程序username |
+| path | String | 是    | 小程序页面的路径,不填默认拉起小程序首页 |
+| miniProgramType | String | 是    | 小程序的版本,0 正式版, 1开发版, 2体验版 |
+
+```
+var params = {
+    userName:"gh_d43f693ca31f@app",
+    path:"",
+    miniProgramType:"0"
+};
+uexWeiXin.openMiniProgram(JSON.stringify(params));
+```
+
+
+### 🍭 openChooseInvoice 打开微信选择发票
+
+`uexWeiXin.openChooseInvoice(JSON.stringify(params),cbFun);`
+
+**说明:**
+
+打开微信选择发票
+
+**参数:**
+
+| 参数名称  | 参数类型     | 是否必选 | 说明   |
+| ----- | -------- | ---- | ---- |
+| json  | json字符串  | 非    | 预留参数 |
+| cbFun | Function | 是    | 回调函数 |
+
+```
+var json = {
+}
+```
+
+**回调参数:**
+
+```javascript
+var cbFun = function(data){}
+```
+
+| 参数名称 | 类型      | 说明         |
+| ---- | ------- | ---------- |
+| data | Json字符串 | 返回数据,形式如下: |
+
+```
+var data = {
+    "cardAry": [
+    {
+    "cardId": "wx69b6673576ec5a65",
+    "encryptCode": "pDe7ajrY4G5z_SIDSauDkLSuF9NI",
+    "appID": "O/mPnGTpBu22a1szmK2ogzhFPBh9eYzv2p70L8yzyymSPw4zpNYIVN0JMyArQ9smSepbKd2CQdkv3NvGuaGLaJYjrlrdSVrGhDOnedMr01zKjzDJkO4MOSALnNeDuIpb"
+    },{
+     "cardId": "wx69b6673576ec5a65",
+       "encryptCode": "pDe7ajrY4G5z_SIDSauDkLSuF9NI",
+       "appID": "O/mPnGTpBu22a1szmK2ogzhFPBh9eYzv2p70L8yzyymSPw4zpNYIVN0JMyArQ9smSepbKd2CQdkv3NvGuaGLaJYjrlrdSVrGhDOnedMr01zKjzDJkO4MOSALnNeDuIpb"
+}]
+    
+}
+```
+
+各字段含义如下:
+
+| 参数名称          | 参数类型   | 是否必选 | 说明                             |
+| ------------- | ------ | ---- | ------------------------------ |
+| cardId  | String | 是    | 发票卡券的 card_id                        |
+| encryptCode    | String | 是    | 发票卡券的加密 code ，和 card_id 共同构成一张发票卡券的唯一标识 |
+| appID | String | 是    | 用户appid               |
+
+
+具体发票信息请通过 https://developers.weixin.qq.com/doc/offiaccount/WeChat_Invoice/E_Invoice/Reimburser_API_List.html?#4
+5，6 查询报销发票信息 接口获取，相关传入参数已通过本接口返回
+
+
 ### 🍭 getLoginRefreshAccessToken 获取刷新access_token
 
 `uexWeiXin.getLoginRefreshAccessToken(json,cbFun)`
@@ -914,9 +857,9 @@ var json = {
 var cbFun = function(data){}
 ```
 
-| 参数名称 | 类型     | 说明         |
-| ---- | ------ | ---------- |
-| data | Object | 返回数据,形式如下: |
+| 参数名称 | 类型      | 说明         |
+| ---- | ------- | ---------- |
+| data | Json字符串 | 返回数据,形式如下: |
 
 ```javascript
 var data = {
@@ -985,9 +928,9 @@ var json = {
 var cbFun = function(data){}
 ```
 
-| 参数名称 | 类型     | 说明         |
-| ---- | ------ | ---------- |
-| data | Object | 返回数据,形式如下: |
+| 参数名称 | 类型      | 说明         |
+| ---- | ------- | ---------- |
+| data | Json字符串 | 返回数据,形式如下: |
 
 ```javascript
 var data = {
@@ -1022,7 +965,7 @@ var data = {
 
 **说明:**
 
-获取用户个人信息,UnionID机制,开发者可通过OpenID来获取用户基本信息.特别需要注意的是,如果开发者拥有多个移动应用､网站应用和公众帐号,可通过获取用户基本信息中的unionid来区分用户的唯一性,因为只要是同一个微信开放平台帐号下的移动应用､网站应用和公众帐号,用户的unionid是唯一的.换句话说,同一用户,对同一个微信开放平台下的不同应用,unionid是相同的.
+获取用户个人信息,UnionID机制,开发者可通过OpenID来获取用户基本信息.特别需要注意的是,如果开发者拥有多个移动应用、网站应用和公众帐号,可通过获取用户基本信息中的unionid来区分用户的唯一性,因为只要是同一个微信开放平台帐号下的移动应用、网站应用和公众帐号,用户的unionid是唯一的.换句话说,同一用户,对同一个微信开放平台下的不同应用,unionid是相同的.
 
 **参数:**
 
@@ -1049,9 +992,9 @@ var json = {
 var cbFun = function(data){}
 ```
 
-| 参数名称 | 类型     | 说明         |
-| ---- | ------ | ---------- |
-| data | Object | 返回数据,形式见下: |
+| 参数名称 | 类型      | 说明         |
+| ---- | ------- | ---------- |
+| data | Json字符串 | 返回数据,形式见下: |
 
 ```javascript
 var data = {
@@ -1079,7 +1022,7 @@ var data = {
 | city       | String | 是    | 普通用户个人资料填写的城市                            |
 | province   | String | 是    | 普通用户个人资料填写的省份                            |
 | country    | String | 是    | 国家,如中国为CN                                |
-| headimgurl | String | 是    | 用户头像,最后一个数值代表正方形头像大小(有0､46､64､96､132数值可选,0代表640*640正方形头像),用户没有头像时该项为空 |
+| headimgurl | String | 是    | 用户头像,最后一个数值代表正方形头像大小(有0、46、64、96、132数值可选,0代表640*640正方形头像),用户没有头像时该项为空 |
 | privilege  | String | 是    | 用户特权信息,json数组,如微信沃卡用户为(chinaunicom)      |
 | unionid    | String | 是    | 用户统一标识.针对一个微信开放平台帐号下的应用,同一用户的unionid是唯一的. |
 
@@ -1104,7 +1047,7 @@ var data = {
 
 **说明:**
 
-该方法用于设置接收分享､登陆和支付相关回调方法的窗口名称.具体用法见示例.
+该方法用于设置接收分享、登陆和支付相关回调方法的窗口名称.具体用法见示例.
 
 **参数:**
 
@@ -1157,29 +1100,23 @@ open调用方法:
 
 
 
-#3､更新历史
+#3、更新历史
 
 ### iOS
 
-API版本: `uexWeiXin-4.0.2`
+API版本: `uexWeiXin-4.0.0`
 
-最近更新时间:`2017-02-21`
+最近更新时间:`2020-7-1`
 
-| 历史发布版本 | 更新内容                  |
-| ------ | --------------------- |
-| 4.0.2  | 修改全部function回调数据类型为对象 |
-| 4.0.1  | SDK升级至1.7.5           |
-| 4.0.0  | uexWeiXin支持引擎4.0      |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+4.0.5   微信SDK升级，添加universalLink配置，添加openMiniProgram 打开小程序及openChooseInvoice发票选择接口
 
 ### Android
 
-API版本: `uexWeiXin-4.0.3`
+API版本: `uexWeiXin-4.0.0`
 
-最近更新时间:`2017-02-21`
+最近更新时间:`2016-6-7`
 
-| 历史发布版本 | 更新内容                       |
-| ------ | -------------------------- |
-| 4.0.3  | 统一回调参数为json对象              |
-| 4.0.2  | 升级SDK,修复不能上架Google Play的问题 |
-| 4.0.1  | shareLinkContent支持网络图片     |
-| 4.0.0  | 微信分享功能插件                   |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
