@@ -31,6 +31,29 @@
 #2､API概览
 ##2.1､方法
 
+### 🍭 setConfig 参数配置
+
+`uexJPush.setConfig(config)`
+
+**参数**
+
+```
+var config = {
+		"isEnableBadge":isBadgeEnable  //设置开启自动管理角标的功能（仅支持华为等厂商开放了API的部分机型，需要配合uexShortcutBadger插件使用）
+	};
+```
+
+**示例**
+
+```javascript
+	var isBadgeEnable = true;
+	var config = {
+		"isEnableBadge":isBadgeEnable
+	};
+	alert(JSON.stringify(config));
+	uexJPush.setConfig(JSON.stringify(config));
+```
+
 ### 🍭 stopPush  停止推送服务,仅支持Android
 
 `uexJPush.stopPush()`
