@@ -1,8 +1,18 @@
-[TOC]
-# 1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+/*
+Sort: 13
+Toc: 1
+Tips: 文件管理操作
+keywords: appcan开发文档,插件API,系统功能,uexFileMgr 
+description: uexFileMgr 插件主要封装了文件操作,主要包含创建文件,打开文件,以及文件提供过路径或者文件对象进行文件增,删,改,查等,读取文件内容,限utf-8编码txt文件,以及文本阅读器等多个接口.更多appcan开发文档，请见http://newdocx.appcan.cn
+Show: /newdocx/docx?type=1401_975
+*/
+- [1、简介](#-1-http-appcan-download-oss-cn-beijing-aliyuncs-com-e5-85-ac-e6-b5-8b-2fgf-png-ignore- "1、简介")
+- [2、API概览](#-2-api-ignore- "2、API概览")
+- [3、更新历史](#-3-ignore- "3、更新历史")
+#### **1、简介** *[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() *<ignore>
 该对象主要封装了文件操作,主要包含创建文件,打开文件,以及文件提供过路径或者文件对象进行文件增,删,改,查等,读取文件内容,限utf-8编码txt文件,以及文本阅读器等多个接口.
 
-## 1.1､说明
+###### **1.1、说明**<ignore>
 
 > 文件路径包括:`wgt://...`,`res://...`,`wgts://...`,`file://...`,`http://...`,`https://...`
 > 其中: `wgt://...`对应widget的沙盒根路径,可读可写
@@ -10,31 +20,31 @@
 
 关于文件路径的使用,可调用uexFileMgr.getFileRealPath接口获得文件真实路径作为参考
 
-## 1.2､UI展示
-![](./img/screenshot1.jpg)
-![](./img/screenshot2.jpg)
+###### **1.2、UI展示**<ignore>
+*![](http://newdocx.appcan.cn/docximg/151401f2015r6l7o.jpg)*
+*![](./img/screenshot2.jpg)*
 
-## 1.3､开源源码
-插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=172_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+###### **1.3、开源源码**<ignore>
+插件测试用例与源码下载:<a href="http://plugin.appcan.cn/details.html?id=172_index" target="_blank">点击</a>插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4､平台版本支持
+###### **1.4、平台版本支持**<ignore>
 
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统
+本插件的所有API默认支持**Android4.3+**和**iOS10.0+**操作系统
 
 有特殊版本要求的API会在文档中额外说明
 
-## 1.5､接口有效性
+###### **1.5、接口有效性**<ignore>
 
 本插件所有API默认在插件版本**4.0.0+**可用
 
 在后续版本中新添加的接口会在文档中额外说明
 
 
-# 2､API概览
+#### **2、API概览**<ignore>
 
-## 2.1､方法
+###### **2.1、方法**<ignore>
 
-### 🍭 create 创建文件
+> ######  **create //创建文件** 
 
 `uexFileMgr.create(param)`
 
@@ -59,7 +69,7 @@ var param = {
 
 | 字段名称 | 类型     | 是否必选 | 说明                                    |
 | ---- | ------ | ---- | ------------------------------------- |
-| path | String | 是    | 文件路径.支持"wgt://","wgts://"､"file://"协议 |
+| path | String | 是    | 文件路径.支持"wgt://","wgts://"、"file://"协议 |
 
 **返回值:**
 
@@ -77,7 +87,7 @@ if(!file){
 }
 ```
 
-### 🍭 mkdir 创建文件夹
+> ######  **mkdir //创建文件夹** 
 
 `uexFileMgr.mkdir(param)`
 
@@ -102,7 +112,7 @@ var param = {
 
 | 字段名称 | 类型     | 是否必选 | 说明                                     |
 | ---- | ------ | ---- | -------------------------------------- |
-| path | String | 是    | 文件夹路径.支持"wgt://","wgts://"､"file://"协议 |
+| path | String | 是    | 文件夹路径.支持"wgt://","wgts://"、"file://"协议 |
 
 **返回值:**
 
@@ -117,7 +127,7 @@ var ret = uexFileMgr.mkdir({
 alert(ret);
 ```
 
-### 🍭 open 打开文件
+> ######  **open //打开文件** 
 
 `uexFileMgr.open(param)`
 
@@ -144,7 +154,7 @@ var param = {
 
 | 字段名称 | 类型     | 是否必选 | 说明                                       |
 | ---- | ------ | ---- | ---------------------------------------- |
-| path | String | 是    | 文件路径.支持"wgt://","wgts://"､"file://"协议    |
+| path | String | 是    | 文件路径.支持"wgt://","wgts://"、"file://"协议    |
 | mode | Number | 是    | 打开设置,1-可读 2-可写 4-不存在时创建新文件,可累加,如1+2 = 3表示可读可写. |
 
 **返回值:**
@@ -164,7 +174,7 @@ if(!file){
 }
 ```
 
-### 🍭 deleteFileByPath 根据路径删除文件
+> ######  **deleteFileByPath //根据路径删除文件** 
 
 `uexFileMgr.deleteFileByPath(path)`
 
@@ -189,7 +199,7 @@ var ret = uexFileMgr.deleteFileByPath("wgt://data/test.txt");
 alert(ret);
 ```
 
-### 🍭 isFileExistByPath 根据路径判断文件是否存在
+> ######  **isFileExistByPath //根据路径判断文件是否存在** 
 
 `uexFileMgr.isFileExistByPath(path)`
 
@@ -215,7 +225,7 @@ var ret = uexFileMgr.isFileExistByPath("wgt://data/test.txt");
 alert(ret);
 ```
 
-### 🍭 getFileTypeByPath 根据路径获取文件类型
+> ######  **getFileTypeByPath //根据路径获取文件类型** 
 
 `uexFileMgr.getFileTypeByPath(path)`
 
@@ -240,7 +250,7 @@ var ret = uexFileMgr.getFileTypeByPath("wgt://data/test.txt");
 alert(ret);
 ```
 
-### 🍭 explorer 文件管理器
+> ######  **explorer //文件管理器** 
 
 `uexFileMgr.explorer(folderPath,cbFunc)`
 
@@ -275,7 +285,7 @@ uexFileMgr.explorer("/sdcard/widgetone",function(err,path){
 });
 ```
 
-### 🍭 multiExplorer 文件管理器(多选)
+> ######  **multiExplorer //文件管理器,支持选择多个文件** 
 
 `uexFileMgr.multiExplorer(path,cb)`
 
@@ -309,7 +319,7 @@ uexFileMgr.multiExplorer("/sdcard/widgetone",function(err,path){
 });
 ```
 
-### 🍭 seekFile 定位到文件某一位置
+> ######  **seekFile //定位到文件某一位置**
 
 `uexFileMgr.seekFile(file,len)`
 
@@ -339,7 +349,7 @@ var ret = uexFileMgr.seekFile(file, 1);
 alert(ret);
 ```
 
-### 🍭 seekBeginOfFile 定位到起始位置
+> ######  **seekBeginOfFile //定位到起始位置** 
 
 `uexFileMgr.seekBeginOfFile(file)`
 
@@ -368,7 +378,7 @@ var ret = uexFileMgr.seekBeginOfFile(file);
 alert(ret);
 ```
 
-### 🍭 seekEndOfFile 定位到结束位置
+> ######  **seekEndOfFile //定位到结束位置** 
 
 `uexFileMgr.seekEndOfFile(file)`
 
@@ -397,13 +407,13 @@ var ret = uexFileMgr.seekEndOfFile(file);
 alert(ret);
 ```
 
-### 🍭 writeFile 写文件
+> ######  **writeFile //写文件** 
 
 `uexFileMgr.writeFile(file,flag,data,cb)`
 
 **说明:**
 
-写文件 
+写文件　
 
 **参数:**
 
@@ -443,7 +453,7 @@ uexFileMgr.writeFile(file, 0, "test",function(err){
 });
 ```
 
-### 🍭 readFile 读文件
+> ######  **readFile //读文件** 
 
 `uexFileMgr.readFile(file,len,flag,cb)`
 
@@ -495,7 +505,7 @@ uexFileMgr.readFile(file, -1,0,function(error,data){
 });
 ```
 
-### 🍭 getFileSize 获取文件大小
+> ######  **getFileSize //获取文件大小** 
 
 `uexFileMgr.getFileSize(file)`
 
@@ -524,7 +534,7 @@ var size = uexFileMgr.getFileSize(file);
 alert(size);
 ```
 
-### 🍭 getFilePath 获取文件路径
+> ######  **getFilePath //获取文件路径** 
 
 `uexFileMgr.getFilePath(file)`
 
@@ -553,7 +563,7 @@ var file = uexFileMgr.open({
 var path = uexFileMgr.getFilePath(file);
 alert(path);
 ```
-### 🍭 getFileRealPath 获取文件实际路径
+> ######  **getFileRealPath //获取文件实际路径** 
 
 `uexFileMgr.getFileRealPath(path)`
 
@@ -579,7 +589,7 @@ var realPath = uexFileMgr.getFileRealPath("wgt://data/test.txt");
 alert(realPath);
 ```
 
-### 🍭 closeFile 关闭文件
+> ######  **closeFile //关闭文件** 
 
 `uexFileMgr.closeFile(file)`
 
@@ -607,7 +617,7 @@ var file = uexFileMgr.open({
 var ret = uexFileMgr.closeFile(file);
 alert(ret);
 ```
-### 🍭 getReaderOffset 获取文件偏移值
+> ######  **getReaderOffset //获取文件偏移值** 
 
 `uexFileMgr.getReaderOffset(file)`
 
@@ -636,7 +646,7 @@ var offset = uexFileMgr.getReaderOffset(file);
 alert(offset);
 ```
 
-### 🍭 readPercent 读百分比对应位置的字符
+> ######  **readPercent //读百分比对应位置的字符** 
 
 `uexFileMgr.readPercent(file,percent,len,cb)`
 
@@ -679,7 +689,7 @@ uexFileMgr.readPercent(file,20,3,function(error,data){
 });
 ```
 
-### 🍭 readNext 读取下一页字符
+> ######  **readNext //读取下一页字符** 
 
 `uexFileMgr.readNext(file,len,cb)`
 
@@ -722,7 +732,7 @@ uexFileMgr.readNext(file, 20,function(error,data){
 });
 ```
 
-### 🍭 readPre 读取上一页字符
+> ######  **readPre //读取上一页字符**
 
 `uexFileMgr.readPre(file,len,cb)`
 
@@ -763,7 +773,7 @@ uexFileMgr.readPre(file,20,function(error,data){
 });
 ```
 
-### 🍭 openWithPassword 使用密码打开文件
+> ######  **openWithPassword //使用密码打开文件**
 
 `uexFileMgr.openWithPassword(param)`
 
@@ -790,7 +800,7 @@ var param = {
 
 | 字段名称     | 类型     | 是否必选 | 说明                                       |
 | -------- | ------ | ---- | ---------------------------------------- |
-| path     | String | 是    | 文件路径.支持"wgt://","wgts://"､"file://"协议    |
+| path     | String | 是    | 文件路径.支持"wgt://","wgts://"、"file://"协议    |
 | password | String | 是    | 文件密码                                     |
 | mode     | Number | 是    | 打开设置,1-可读 2-可写 4-不存在时创建新文件,可累加,如1+2 = 3表示可读可写. |
 
@@ -814,7 +824,7 @@ if(!file){
 
 
 
-### 🍭 createWithPassword 使用密码创建文件
+######  **createWithPassword //使用密码创建文件** 
 
 `uexFileMgr.createWithPassword(param)`
 
@@ -838,7 +848,7 @@ var param = {
 
 | 字段名称     | 类型     | 是否必选 | 说明                                    |
 | -------- | ------ | ---- | ------------------------------------- |
-| path     | String | 是    | 文件路径.支持"wgt://","wgts://"､"file://"协议 |
+| path     | String | 是    | 文件路径.支持"wgt://","wgts://"、"file://"协议 |
 | password | String | 是    | 文件密码                                  |
 
 **返回值:**
@@ -851,14 +861,14 @@ uexFile对象file
 ```javascript
 var file = uexFileMgr.createWithPassword({
 	path: "wgt://data/1.txt",
-	password: "123456"
+	password: "123456",
 });
 if(!file){
 	alert("创建失败!");
 }
 ```
 
-### 🍭 renameFile 重命名文件
+> ######  **renameFile //重命名文件** 
 
 `uexFileMgr.renameFile(param,cb)`
 
@@ -918,7 +928,7 @@ uexFileMgr.renameFile(JSON.stringify(data),function(err){
 });
 ```
 
-### 🍭 search 搜索文件
+> ######  **search //搜索文件** 
 
 `uexFileMgr.search(param,cb)`
 
@@ -994,7 +1004,7 @@ uexFileMgr.search(JSON.stringify(data),function(err,result){
 });
 ```
 
-### 🍭 getFileListByPath 获取某路径下的所有文件
+> ######  **getFileListByPath //获取某路径下的所有文件** 
 
 `uexFileMgr.getFileListByPath(path)`
 
@@ -1020,8 +1030,6 @@ var fileInfo = {
 	fileName:,
 	filePath:,
 	fileType:
-    fileModTimestamp:
-    fileCreateTimestamp:
 }
 ```
 
@@ -1041,7 +1049,7 @@ var result = uexFileMgr.getFileListByPath(path);
 alert(result);
 ```
 
-### 🍭 getFileSizeByPath 通过路径获取文件大小
+> ######  **getFileSizeByPath //通过路径获取文件或文件夹大小**
 
 `uexFileMgr.getFileSizeByPath(params,cb)`
 
@@ -1067,8 +1075,8 @@ var params = {
 
 | 字段名称 | 类型     | 是否必选 | 说明                                       |
 | ---- | ------ | ---- | ---------------------------------------- |
-| path | String | 是    | 文件或文件夹路径,支持wgt://, wgts://, file://协议路径,参考[协议](#PathTypes) |
-| unit | String | 否    | 文件大小单位,默认为"B",取值范围参考[unit](#GetFileSizeUnit) |
+| path | String | 是    | 文件或文件夹路径,支持wgt://, wgts://, file://协议路径,参考[协议](#-pathtypes-ignore-) |
+| unit | String | 否    | 文件大小单位,默认为"B",取值范围参考[unit](#-getfilesizeunit-ignore-) |
 
 **回调参数:**
 
@@ -1109,7 +1117,7 @@ uexFileMgr.getFileSizeByPath(data,function(err,info){
 });
 ```
 
-### 🍭 copy 复制 
+> ######  **copy //复制文件或文件夹**  
 
 `uexFileMgr.copy(param,cbFunc);`
 
@@ -1166,9 +1174,7 @@ uexFileMgr.copy({
 });
 ```
 
-
-
-### 🍭 getFileHashValue 获取文件哈希值
+> ######  **getFileHashValue //获取文件哈希值**
 
 `uexFileMgr.getFileHashValue(params,cbFunc)`
 
@@ -1194,8 +1200,8 @@ var params = {
 
 | 字段名称      | 类型     | 是否必选 | 说明                          |
 | --------- | ------ | ---- | --------------------------- |
-| path      | String | 是    | 文件路径,协议详见CONSTANT中PathTypes |
-| algorithm | String | 是    | 文件算法,例如:MD5､SHA-1           |
+| path      | String | 是    | 文件路径，协议详见CONSTANT中PathTypes |
+| algorithm | String | 是    | 文件算法，例如：MD5、SHA-1           |
 
 
 **回调参数:**
@@ -1221,40 +1227,36 @@ uexFileMgr.getFileHashValue(data,function(data){
 });
 ```
 
+####  **3、更新历史**<ignore>
 
-
-
-
-# 3､更新历史
-
-### iOS
+###### **iOS**<ignore>
 
 API版本: `uexFileMgr-4.0.5`
 
-最近更新时间:`2019-02-28`
+最近更新时间:`2019-08-26`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.5 | 获取文件的创建时间和修改时间排序--新增fileModTimestamp，fileCreateTimestamp 字段  |
-| 4.0.4 | 修复getFileSizeByPath方法传入非文件夹路径时返回大小为0的bug |
-| 4.0.3 | 修正部分cb旧接口的参数问题 |
-| 4.0.2 | 兼容性更新 |
-| 4.0.1 | 新增getFileHashValue接口 |
-| 4.0.0 | 文件管理插件 |
+| 历史发布版本 | 更新内容     |
+| ------ | -------- |
+| 4.0.5 |回调方法调整，放入主线程处理|
+| 4.0.4 |修复getFileSizeByPath方法传入非文件夹路径时返回大小为0的bug|
+| 4.0.3 |修正部分cb旧接口的参数问题|
+| 4.0.1 |新增getFileHashValue接口     |
 
-### Android
+###### **Android**<ignore>
 
-API版本: `uexFileMgr-4.0.0`
+API版本: `uexFileMgr-4.0.4`
 
-最近更新时间:`2017-02-21`
+最近更新时间:`2019-05-24`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 4.0 插件 |
+| 历史发布版本 | 更新内容     |
+| ------ | -------- |
+| 4.0.4 |根目录下无返回箭头或返回报错问题|
+| 4.3.2 |添加动态权限申请|
+| 4.0.2 |修复EUExFile中空指针异常|
 
-# 4､附录
+#### **4、附录**<ignore>
 
-### GetFileSizeErrorCode
+###### **GetFileSizeErrorCode**<ignore>
 
 | errorCode | 说明            |
 | --------- | ------------- |
@@ -1263,7 +1265,7 @@ API版本: `uexFileMgr-4.0.0`
 | -2        | 当前路径文件或文件夹不存在 |
 | -3        | 未知错误          |
 
-### GetFileSizeUnit
+###### **GetFileSizeUnit**<ignore>
 
 | value | 说明           |
 | ----- | ------------ |
@@ -1272,7 +1274,7 @@ API版本: `uexFileMgr-4.0.0`
 | MB    | 1MB = 1024KB |
 | GB    | 1GB = 1024MB |
 
-### PathTypes
+###### **PathTypes**<ignore>
 
 | 协议头             | Android对应路径 (其中"/sdcard/"等 同于"/storage/emulated/0/") | iOS对应路径                           |
 | --------------- | ---------------------------------------- | --------------------------------- |

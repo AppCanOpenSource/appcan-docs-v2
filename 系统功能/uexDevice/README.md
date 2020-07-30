@@ -1,31 +1,41 @@
-[TOC]
+/*
+Sort: 10
+Toc: 1
+Tips: 设备信息与设置
+keywords: appcan开发文档,插件API,系统功能,uexDevice
+description: uexDevice插件主要封装了设备硬件参数相关信息和硬件状态相关信息.更多appcan开发文档，请见http://newdocx.appcan.cn
+Show: /newdocx/docx?type=1398_975
+*/
 
-# 1､简介[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+- [1、简介](#-1-http-appcan-download-oss-cn-beijing-aliyuncs-com-e5-85-ac-e6-b5-8b-2fgf-png-ignore- "1、简介")
+- [2、API概览](#-2-api-ignore- "2、API概览")
+- [3、更新历史](#-3-ignore- "3、更新历史")
+#### **1、简介** *[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() *<ignore>
 设备信息插件
 
-## 1.1､说明
+###### **1.1、说明**<ignore>
  本类封装了设备硬件参数相关信息和硬件状态相关信息.
 
-## 1.2､UI展示
- ![](http://newdocx.appcan.cn/docximg/104339w2015d6d16t.jpg)
+###### **1.2、UI展示**<ignore>
+*![](http://newdocx.appcan.cn/docximg/104339w2015d6d16t.jpg) *
 
-## 1.3､开源源码
-插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=167_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+###### **1.3、开源源码**<ignore>
+插件测试用例与源码下载:<a href="http://plugin.appcan.cn/details.html?id=167_index" target="_blank">点击</a>插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 
-## 1.4､平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.
+###### **1.4、平台版本支持**<ignore>
+本插件的所有API默认支持**Android4.3+**和**iOS10.0+**操作系统.
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5､接口有效性
+###### **1.5、接口有效性**<ignore>
 本插件所有API默认在插件版本**4.0.0+**可用.
 在后续版本中新添加的接口会在文档中额外说明.
 
-# 2､API概览
+#### **2、API概览**<ignore>
 
-## 2.1､方法
+###### **2.1、方法**<ignore>
 
-### 🍭 vibrate 开启设备震动
+> ######  **vibrate //开启设备震动** 
 
 `uexDevice.vibrate(milliseconds)`
 
@@ -47,7 +57,7 @@
     uexDevice.vibrate(500);
 ```
 
-### 🍭 cancelVibrate 关闭设备震动
+> ######  **cancelVibrate //关闭设备震动** 
 
 `uexDevice.cancelVibrate()`
 
@@ -66,7 +76,7 @@
     uexDevice.cancelVibrate();
 ```
 
-### 🍭 getInfo 获取设备信息
+> ######  **getInfo //获取设备信息** 
 
 `uexDevice.getInfo(infoID)`
 
@@ -79,7 +89,7 @@
 
 | 参数名称   | 参数类型   | 是否必选 | 说明                                       |
 | ------ | ------ | ---- | ---------------------------------------- |
-| infoID | Number | 是    | 设备信息类型,详见[CONSTANT](http://newdocx.appcan.cn/newdocx/docx?type=978_975 "CONSTANT")中设备信息类型. |
+| infoID | Number | 是    | 设备信息类型,详见[CONSTANT](/plugin-API/·Constant#-device-info-types- "CONSTANT")中设备信息类型. |
 
 **返回值:**
 
@@ -92,7 +102,7 @@ String类型对应设备信息.
  var systemVersion = uexDevice.getInfo('1');//获取系统版本
  alert(systemVersion);
 ```
-### 🍭 screenCapture 屏幕截图
+> ######  **screenCapture //获取当前屏幕截图** 
 
 `uexDevice.screenCapture(quality, callbackFunction)`
 
@@ -132,10 +142,10 @@ var data = {
           } else {
               alert('截屏失败');
   }
- });
+  });
 ```
 
-### 🍭 setVolume 调整音量 
+> ######  **setVolume //设置系统音量值** 
 
 `uexDevice.setVolume(volume)`
 
@@ -155,7 +165,7 @@ var data = {
 ```
     uexDevice.setVolume(0.5);//设置系统音量
 ```
-### 🍭 getVolume 获取系统音量值
+######  **getVolume //获取系统音量值** 
 
 `uexDevice.getVolume()`
 
@@ -178,7 +188,7 @@ Number类型音量值
  var volume = uexDevice.getVolume();//获取系统音量值
  alert(volume);
 ```
-### 🍭 setScreenAlwaysBright 屏幕常亮控制 
+> ######  **setScreenAlwaysBright //屏幕常亮控制** 
 
 `uexDevice.setScreenAlwaysBright(data)`
 
@@ -200,7 +210,7 @@ Number类型音量值
     uexDevice.setScreenAlwaysBright(1);//设置屏幕常亮
 ```
 
-### 🍭 setScreenBrightness 调整屏幕亮度
+> ######  **setScreenBrightness //调整屏幕亮度** 
 
 `uexDevice.setScreenBrightness(brightness)`
 
@@ -222,7 +232,7 @@ Number类型音量值
     uexDevice.setScreenBrightness(0.5);//设置屏幕亮度
 ```
 
-### 🍭 getScreenBrightness 获取屏幕亮度
+> ######  **getScreenBrightness //获取屏幕亮度值** 
 
 `uexDevice.getScreenBrightness()`
 
@@ -245,7 +255,7 @@ Number类型屏幕亮度值
  alert(brightness);
 ```
 
-### 🍭 openWiFiInterface 打开WIFI设置页
+> ######  **openWiFiInterface //打开WIFI设置页面** 
 
 `uexDevice.openWiFiInterface()`
 
@@ -264,7 +274,7 @@ Number类型屏幕亮度值
     uexDevice.openWiFiInterface();//打开WIFI设置页面
 ```
 
-### 🍭 isFunctionEnable 判断某功能是否开启
+> ######  **isFunctionEnable //判断某功能是否开启** 
 
 `uexDevice.isFunctionEnable(params, callbackFunction)`
 
@@ -284,7 +294,7 @@ var params = {
 
 | 字段名称             | 类型     | 是否必选 | 说明                        |
 | ---------------- | ------ | ---- | ------------------------- |
-| setting          | String | 是    | 功能名称,详情请参考[功能](#Settings) |
+| setting          | String | 是    | 功能名称,详情请参考[功能](#-settings-ignore-) |
 | callbackFunction | 函数     | 必选   | 回调函数,用来获取相关业务数据           |
 
 **回调参数:**
@@ -302,7 +312,7 @@ var callbackFunction = function(data){
 
 ```
 var params = {
-    setting:"GPS"//位置服务功能
+ 	setting:"GPS"//位置服务功能
 };
 var data = JSON.stringify(params);
 uexDevice.isFunctionEnable(data, function(data) {
@@ -313,14 +323,13 @@ uexDevice.isFunctionEnable(data, function(data) {
 		   }
 });
 ```
-
-### 🍭 getIP 获取系统IP
+> ######  **getIP //获取系统IP**
 
 `uexDevice.getIP()`
 
 **说明:**
 
-获取系统IP,同步返回内网地址
+获取系统IP，同步返回内网地址
 
 **参数:**
 
@@ -337,8 +346,7 @@ String 内网IP
  var ip = uexDevice.getIP();
  alert(ip);
 ```
-
-### 🍭 openSetting 打开设置界面
+> ######  **openSetting //打开设置界面** 
 
 `uexDevice.openSetting(params)`
 
@@ -358,26 +366,25 @@ var params = {
 
 | 字段名称    | 类型     | 是否必选 | 说明                                    |
 | ------- | ------ | ---- | ------------------------------------- |
-| setting | String | 否    | 功能名称,详情请参考[功能](#Settings),不传时打开设置入口界面 |
+| setting | String | 否    | 功能名称,详情请参考[功能](#-settings-ignore-),不传时打开设置入口界面 |
 
 **示例:**
 
 ```
 var params = {
-    setting:"GPS"//位置服务功能
+ 	setting:"GPS"//位置服务功能
 };
 var data = JSON.stringify(params);
 uexDevice.openSetting(data);
 ```
-
-### 🍭 startNetStatusListener 打开网络状态监听器
+> ######  **startNetStatusListener //打开网络状态监听器**
 
 `uexDevice.startNetStatusListener(params)`
 
 **说明:**
 
-- 打开网络状态监听器｡
-- 为避免内存泄露,在不需要监听网络状态时,必须调用stopNetStatusListener关闭网络状态监听器｡
+- 打开网络状态监听器。
+- 为避免内存泄露，在不需要监听网络状态时，必须调用stopNetStatusListener关闭网络状态监听器。
 
 **参数:**
 
@@ -395,13 +402,13 @@ uexDevice.startNetStatusListener();
 ```
 
 
-### 🍭 stopNetStatusListener 关闭网络状态监听器
+> ######  **stopNetStatusListener //关闭网络状态监听器**
 
 `uexDevice.stopNetStatusListener(params)`
 
 **说明:**
 
-关闭网络状态监听器｡
+关闭网络状态监听器。
 
 **参数:**
 
@@ -415,15 +422,13 @@ uexDevice.startNetStatusListener();
 **示例:**
 
 ```
-exDevice.stopNetStatusListener();
+uexDevice.stopNetStatusListener();
 ```
 
 
+###### **2.2、监听方法**<ignore>
 
-
-## 2.2､监听方法
-
-### 🍭 onOrientationChange 屏幕旋转的监听方法
+> ######  **onOrientationChange //屏幕旋转的监听方法** 
 
 `uexDevice.onOrientationChange(mode)`
 
@@ -443,28 +448,27 @@ exDevice.stopNetStatusListener();
 
 ```
  uexDevice.onOrientationChange = function(mode){
-    if(mode == 1){
-        alert("正竖屏");
-    }else if(mode == 2){
-        alert("左横屏");
-    }
+	if(mode == 1){
+		alert("正竖屏");
+	}else if(mode == 2){
+		alert("左横屏");
+	}
 };
 ```
-
-### 🍭 onNetStatusChanged 网络状态变化的监听方法
+> ######  **onNetStatusChanged //网络状态变化的监听方法**
 
 `uexDevice.onNetStatusChanged(data)`
 
 **说明:**
 
-网络状态变化的监听方法｡
+网络状态变化的监听方法。
 
 **参数:**
 
  
 |  参数名称 | 参数类型  | 是否必选  |  说明 |
 | ----- | ----- | ----- | ----- |
-| data | String | 是 | 网络状态,-1:无网络连接;0:wifi网络;1:3G网络;3:4G网络｡ |
+| data | String | 是 | 网络状态，-1：无网络连接；0：wifi网络；1:3G网络；3:4G网络。 |
 
 **平台支持:**
 
@@ -483,35 +487,42 @@ iOS6.0+
     alert(data);
 };
 ```
+#### **3、更新历史**<ignore>
 
-# 3､更新历史
+###### **iOS**<ignore>
 
-### iOS
+API版本: `uexDevice-4.0.8`
 
-API版本: `uexDevice-4.0.1`
+最近更新时间:`2019-09-09`
 
-最近更新时间:`2017-02-21`
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+| 4.0.8 |回调方法调整，放入主线程处理|
+| 4.0.7 |添加iPhone XS、iPhone XS Max和iPhone XR机型model|
+| 4.0.6 |网络监测回调方法不成功修改|
+| 4.0.4 |plugin.xml文件配置startNetStatusListener和stopsNetStatusListener方法 |
+| 4.0.3 |增加onNetStatusChanged,startNetStatusListener和stopsNetStatusListener网络监听方法  |
+| 4.0.1 |添加接口getIP(),可以获取本地IP地址 |
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.1 | 支持获取本地IP |
-| 4.0.0 | uexDevice for iOS |
 
-### Android
+###### **Android**<ignore>
 
-API版本: `uexDevice-4.0.2`
+API版本: `uexDevice-4.4.8`
 
-最近更新时间:`2017-02-21`
+最近更新时间:`2019-10-28`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.2 | 增加网络状态监听的功能 |
-| 4.0.1 | 新增获取ip接口 |
-| 4.0.0 | 设备能力功能插件 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+| 4.4.8 |修改广播动态根据包名去生成定制权限，避免权限冲突|
+| 4.3.7 |修改部分手机获取IMEI号为空|
+| 4.3.4 |添加动态权限申请|
+| 4.0.4 |开启关闭屏幕常亮失效|
+| 4.0.2 | 增加网络状态监听的功能    |
+| 4.0.1 | 添加接口getIP(),可以获取本地IP地址     |
+####  **4、附录**<ignore>
 
-# 4､附录
+ ###### **Settings**<ignore>
 
-### Settings
 | value        | 说明           |
 | ------------ | ------------ |
 | GPS          | GPS功能        |

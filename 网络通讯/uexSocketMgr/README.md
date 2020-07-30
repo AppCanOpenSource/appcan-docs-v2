@@ -1,28 +1,39 @@
-[TOC]
-# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() 
+/*
+Sort: 3
+Toc: 1
+Tips: 套接字socket
+keywords: appcan开发文档,插件API,网络通讯,uexSocketMgr 
+description: uexSocketMgr管理接口API,该对象主要封装了tcp,udp的创建以及传输数据文件等接口.更多appcan开发文档，请见http://newdocx.appcan.cn
+Show: /newdocx/docx?type=1446_975
+*/
+
+- [1、简介](#-1-http-appcan-download-oss-cn-beijing-aliyuncs-com-e5-85-ac-e6-b5-8b-2fgf-png-ignore- "1、简介")
+- [2、API概览](#-2-api-ignore- "2、API概览")
+- [3、更新历史](#-3-ignore- "3、更新历史")
+#### **1、简介** *[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() *<ignore>
 
  socket插件
-## 1.1､说明
+###### **1.1、说明**<ignore>
  socket管理接口API,该对象主要封装了tcp,udp的创建以及传输数据文件等接口.
-## 1.2､UI展示
+###### **1.2、UI展示**<ignore>
 
- ![](http://newdocx.appcan.cn/docxapi/getCImg?img=133440g2015x6r16i.jpg)
-## 1.3､开源源码
-插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=189_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供) 
+*![](http://newdocx.appcan.cn/docxapi/getCImg?img=133440g2015x6r16i.jpg) *
+###### **1.3、开源源码**<ignore>
+插件测试用例与源码下载:<a href="http://plugin.appcan.cn/details.html?id=189_index" target="_blank">点击</a>插件中心至插件详情页 (插件测试用例与插件源码已经提供) 
 
-## 1.4､平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统. 
+###### **1.4、平台版本支持**<ignore>
+本插件的所有API默认支持**Android4.3+**和**iOS10.0+**操作系统. 
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5､接口有效性
+###### **1.5、接口有效性**<ignore>
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明. 
 
-# 2､API概览
-## 2.1､方法
+#### **2、API概览**<ignore>
+###### **2.1、方法**<ignore>
 
 
-### 🍭 createUDP 创建UDP对象
+> ######  **createUDP //创建UDP对象**
 
 `uexSocketMgr.createUDP(param,onData)`
 
@@ -49,7 +60,7 @@ var param = {
 | 参数名称     | 参数类型   | 是否必选 | 说明                                       |
 | -------- | ------ | ---- | ---------------------------------------- |
 | port     | Number | 是    | 要绑定的本地端口                                 |
-| dataType | Number | 否    | 通讯数据类型 取值范围{0,1,2},详见[附录-DataType](#dataType 通讯数据类型) .**默认为0** |
+| dataType | Number | 否    | 通讯数据类型 取值范围{0,1,2},详见[附录-DataType](#-datatype-ignore-) .**默认为0** |
 
 **回调参数:**
 
@@ -97,13 +108,13 @@ if(!udp){
 }
 ```
 
-### 🍭 send UDP对象发送数据
+> ######  **send  //UDP对象发送数据**
 
 `uexSocketMgr.send(udp,param,cb)`
 
 **说明:**
 
-UDP对象发送数据.
+UDP对象发送数据。
 
 **参数:**
 
@@ -158,7 +169,7 @@ uexSocketMgr.send(udp,
 ```
 
 
-### 🍭 createTCP 创建TCP对象
+> ######  **createTCP //创建TCP对象**
 
 `uexSocketMgr.createTCP(param,onStatus,onData)`
 
@@ -184,7 +195,7 @@ var param = {
 
 | 参数名称     | 参数类型   | 是否必选 | 说明                                       |
 | -------- | ------ | ---- | ---------------------------------------- |
-| dataType | Number | 否    | 通讯数据类型 取值范围{0,1,2},详见[附录-DataType](#dataType 通讯数据类型) .**默认为0** |
+| dataType | Number | 否    | 通讯数据类型 取值范围{0,1,2},详见[附录-DataType](#-datatype-ignore-) .**默认为0** |
 
 **回调参数:**
 
@@ -238,7 +249,7 @@ if(!tcp){
 }
 ```
 
-### 🍭 connect TCP对象连接服务器
+> ######  **connect //TCP对象连接至指定的TCP服务器** 
 
 `uexSocketMgr.connect(tcp,param,cb)`
 
@@ -297,7 +308,7 @@ uexSocketMgr.connect(tcp,
 ```
 
 
-### 🍭 write TCP对象写入数据
+> ######  **write //TCP对象写入数据**
 
 `uexSocketMgr.write(tcp,param,cb)`
 
@@ -353,7 +364,7 @@ uexSocketMgr.write(tcp,
 ```
 
 
-### 🍭 close 关闭Socket
+> ######  **close //关闭Socket** 
 
 `uexSocketMgr.close(socket,param,cb)`
 
@@ -407,10 +418,10 @@ uexSocketMgr.close(socket,
 
 
 
-# 3､附录
+#### **3、附录**<ignore>
 
 
-###dataType 通讯数据类型
+###### **dataType 通讯数据类型**<ignore>
 
 此值表示与对方(TCP服务端,或者其他UDP客户端)通讯时采用的数据类型,是一个Number类型的枚举值
 
@@ -422,24 +433,26 @@ uexSocketMgr.close(socket,
 | 2        | gbk    | 当对方要求gbk编码时选择此项.前端应传入utf-8数据,插件会将数据重新按gbk编码后发送给对方; 收到对方的gbk数据时,插件会将数据重新按utf-8编码后返回给前端 |
 
 
-# 4､更新历史
+#### **4、更新历史**<ignore>
 
-### iOS
+###### **iOS**<ignore>
+
+API版本: `uexSocketMgr-4.0.2`
+
+最近更新时间:`2019-08-26`
+
+| 历史发布版本 | 更新内容       |
+| ------ | ---------- |
+| 4.0.2 |回调方法调整，放入主线程处理|
+| 4.0.1 | RAC依赖库更新 |
+
+
+###### **Android**<ignore>
 
 API版本: `uexSocketMgr-4.0.0`
 
-最近更新时间:`2017-02-21`
+最近更新时间:`2016-6-23`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | Socket功能插件 |
-
-### Android
-
-API版本: `uexSocketMgr-4.0.0`
-
-最近更新时间:`2017-02-21`
-
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.0 | 支持function传入 |
+| 历史发布版本 | 更新内容       |
+| ------ | ---------- |
+|  4.0.0 |Socket功能插件|

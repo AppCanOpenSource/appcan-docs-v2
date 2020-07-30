@@ -1,29 +1,39 @@
-[TOC]
-# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+/*
+Sort: 5
+Toc: 1
+Tips: 跨域异步请求
+keywords: appcan开发文档,插件API,网络通讯,uexXmlHttpMgr 
+description: uexXmlHttpMgr即跨域异步请求插件，uexXmlHttpMgr插件一般与官方提供的JSSDK关联使用,即对appcan私有的异步请求进行封装的[网络请求 Request接口](http://newdocx.appcan.cn/newdocx/docx?type=1263_1254 "网络请求 Request接口")官方默认提供的是最新插件,同时提供的最新的jssdk文件是兼容最新版本插件,如有问题可优先排查此处.更多appcan开发文档，请见http://newdocx.appcan.cn
+Show: /newdocx/docx?type=1448_975
+*/
+- [1、简介](#-1-http-appcan-download-oss-cn-beijing-aliyuncs-com-e5-85-ac-e6-b5-8b-2fgf-png-ignore- "1、简介")
+- [2、API概览](#-2-api-ignore- "2、API概览")
+- [3、更新历史](#-3-ignore- "3、更新历史")
+#### **1、简介** *[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() *<ignore>
  跨域异步请求插件
-## 1.1､说明
-本插件一般与官方提供的JSSDK关联使用,即对appcan私有的异步请求进行封装的[网络请求 Request接口](http://newdocx.appcan.cn/newdocx/docx?type=1263_1254 "网络请求 Request接口")
+###### **1.1、说明**<ignore>
+本插件一般与官方提供的JSSDK关联使用,即对appcan私有的异步请求进行封装的[网络请求 Request接口](/JSSDK/Request "网络请求 Request接口")
 官方默认提供的是最新插件,同时提供的最新的jssdk文件是兼容最新版本插件,如有问题可优先排查此处.
-## 1.2､UI展示
-![](http://newdocx.appcan.cn/docximg/134211l2015p6p16w.png)
-## 1.3､开源源码
-插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=197_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+###### **1.2、UI展示**<ignore>
+*![](http://newdocx.appcan.cn/docximg/134211l2015p6p16w.png) *
+###### **1.3、开源源码**<ignore>
+插件测试用例与源码下载:<a href="http://plugin.appcan.cn/details.html?id=197_index" target="_blank">点击</a>插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
 
-## 1.4､平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+###### **1.4、平台版本支持**<ignore>
+本插件的所有API默认支持**Android4.3+**和**iOS10.0+**操作系统.  
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5､接口有效性
+###### **1.5、接口有效性**<ignore>
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明.
 
 
-# 2､API概览
+#### **2、API概览**<ignore>
 
-## 2.1､方法
+###### **2.1、方法**<ignore>
 
-### 🍭 create 创建请求对象
+> ######  **create //创建一个请求对象**
 
 `uexXmlHttpMgr.create(param)`
 
@@ -42,20 +52,20 @@ var param = {
 	method:,
 	url:,
 	timeout:,
-  	certificateValidation:,
+	certificateValidation:,
 }
 ```
 
 各字段含义如下:
 
-| 字段名称                  | 类型      | 是否必选 | 说明                    |
-| --------------------- | ------- | ---- | --------------------- |
-| method                | String  | 是    | 请求的方法,请传"POST"或者"GET" |
-| url                   | String  | 是    | 请求的URL                |
-| timeout               | Number  | 否    | 请求超时时间,单位毫秒,默认为30000  |
-| certificateValidation | Boolean | 否    | 是否开启证书校验.默认false      |
+| 字段名称    | 类型     | 是否必选 | 说明                    |
+| ------- | ------ | ---- | --------------------- |
+| method  | String | 是    | 请求的方法,请传"POST"或者"GET" |
+| url     | String | 是    | 请求的URL                |
+| timeout | Number | 否    | 请求超时时间,单位毫秒,默认为30000  |
+| certificateValidation | Boolean | 否    | 是否开启证书校验.默认false，此配置项仅`iOS`支持,但对Android无影响，可配置开启ssl证书信任链校验。     |
 
-* certificateValidation
+* 关于certificateValidation：
 
   * 对于非https连接,此参数不起作用
   * 对于使用不在Apple信任链中的证书(比如自签名证书)的https请求,此参数设为true会导致请求失败
@@ -63,11 +73,6 @@ var param = {
   * 部分服务器可能会要求前端进行证书校验.这种情况下,设置此参数为false将会导致请求失败
 
   ​
-
-
-
-
-
 **返回值:**
 
 返回XmlHttp请求对象
@@ -88,7 +93,7 @@ if(!req){
 
 
 
-### 🍭 send 发送请求
+> ######  **send //发送请求**
 
 `uexXmlHttpMgr.send(req, flag,onResult,onProgress)`
 
@@ -100,8 +105,8 @@ if(!req){
 
 | 参数名称       | 参数类型     | 是否必选 | 说明                                       |
 | ---------- | -------- | ---- | ---------------------------------------- |
-| req        | Request  | 是    | 由`create`接口创建的请求对象,见[create](# create 创建请求对象) |
-| flag       | Number   | 是    | 本次请求的flag.取值范围:0､1､2､3.(仅Android支持)  当flag传入1时,表示通知底层,将本次请求的header､状态码､结果等输出log到日志文件.  当flag传入2时,表示通知底层,如果本次请求发生了异常,就将本次请求的异常输出log到日志文件. 当flag传入3时,表示通知底层,0x1和0x2的操作均需要. |
+| req        | Request  | 是    | 由`create`接口创建的请求对象,见[create](#-create-) |
+| flag       | Number   | 是    | 本次请求的flag.取值范围:0、1、2、3.(仅Android支持)  当flag传入1时,表示通知底层,将本次请求的header、状态码、结果等输出log到日志文件.  当flag传入2时,表示通知底层,如果本次请求发生了异常,就将本次请求的异常输出log到日志文件. 当flag传入3时,表示通知底层,0x1和0x2的操作均需要. |
 | onResult   | Function | 是    | 请求状态有变化时,将调用此回调函数                        |
 | onProgress | Function | 否    | 当发送Post请求进行文件上传时,会通过此函数来回调上传进度           |
 
@@ -145,14 +150,14 @@ var req = ...;//之前通过create接口创建的Request对象
 
 uexXmlHttpMgr.send(req,0,
 					function(status,resStr,resCode,resInfo){
-                   		alert("status:" + status  + "\nresult:" + resStr + "\nresCode:" + resCode + "\nresInfo:" + JSON.stringify(resInfo));
+                   		alert("status  :" + status    + "\nresult:" + resStr + "\nresCode:" + resCode + "\nresInfo:" + JSON.stringify(resInfo));
                    },
                    function(progress){
                     	document.getElementById('progress').innerHTML =  "上传进度:" + progress;
                    });
 ```
 
-### 🍭 close 关闭一个请求对象
+> ######  **close //关闭请求对象** 
 
 `uexXmlHttpMgr.close(req)`
 
@@ -164,7 +169,7 @@ uexXmlHttpMgr.send(req,0,
 
 | 参数名称 | 参数类型    | 是否必选 | 说明                                       |
 | ---- | ------- | ---- | ---------------------------------------- |
-| req  | Request | 是    | 由`create`接口创建的请求对象,见[create](# create 创建请求对象) |
+| req  | Request | 是    | 由`create`接口创建的请求对象,见[create](#-create-) |
 
 **返回值:**
 
@@ -178,7 +183,7 @@ var ret = uexXmlHttpMgr.close(req);
 alert(ret);
 ```
 
-### 🍭 setPostData 设置post请求数据
+> ######  **setPostData //设置POST请求内容** 
 
 `uexXmlHttpMgr.setPostData(req, dataType, key, value)`
 
@@ -191,7 +196,7 @@ alert(ret);
 
 | 参数名称     | 参数类型    | 是否必选 | 说明                                       |
 | -------- | ------- | ---- | ---------------------------------------- |
-| req      | Request | 是    | 由`create`接口创建的请求对象,见[create](# create 创建请求对象) |
+| req      | Request | 是    | 由`create`接口创建的请求对象,见[create](#-create-) |
 | dataType | Number  | 是    | 请求中要发送的数据格式. 0-文本 1-文件                   |
 | key      | String  | 是    | 请求数据中的对应的键                               |
 | value    | String  | 是    | dataType为0时,value为要发送的文本数据,dataType为1时,value为要发送的文件的路径,路径支持res:// ,wgt://  ,wgts:// ,file:// 协议 |
@@ -211,7 +216,7 @@ alert(result1);
 alert(result2);
 ```
 
-### 🍭 setInputStream 根据本地文件设置请求体
+> ######  **setInputStream //根据本地文件设置请求体** 
 
 `uexXmlHttpMgr.setInputStream(req, filePath)`
 
@@ -226,7 +231,7 @@ alert(result2);
 
 | 参数名称     | 参数类型    | 是否必选 | 说明                                       |
 | -------- | ------- | ---- | ---------------------------------------- |
-| req      | Request | 是    | 由`create`接口创建的请求对象,见[create](# create 创建请求对象) |
+| req      | Request | 是    | 由`create`接口创建的请求对象,见[create](#-create-) |
 | filePath | String  | 是    | 文件路径,支持res:// ,wgt://  ,wgts:// ,file:// 协议 |
 
 **返回值:**
@@ -241,7 +246,7 @@ var ret = uexXmlHttpMgr.setInputStream(req, file);
 alert(ret);
 ```
 
-### 🍭 setBody 设置post请求发送的数据体
+> ######  **setBody //设置post请求发送的数据体**
 
 `uexXmlHttpMgr.setBody(req, data)`
 
@@ -255,7 +260,7 @@ alert(ret);
 
 | 参数名称 | 参数类型    | 是否必选 | 说明                                       |
 | ---- | ------- | ---- | ---------------------------------------- |
-| req  | Request | 是    | 由`create`接口创建的请求对象,见[create](# create 创建请求对象) |
+| req  | Request | 是    | 由`create`接口创建的请求对象,见[create](#-create-) |
 | data | String  | 是    | 请求中要发送的数据体                               |
 
 
@@ -268,7 +273,7 @@ var ret = uexXmlHttpMgr.setBody(req, "body content");
 alert(ret);
 ```
 
-### 🍭 setAppVerify 设置是否在请求头中加入appVerify字段
+> ######  **setAppVerify //设置是否在请求头中加入appVerify字段**
 
 `uexXmlHttpMgr.setAppVerify(req,isVerify)`
 
@@ -281,8 +286,8 @@ alert(ret);
 
 | 参数名称     | 参数类型    | 是否必选 | 说明                                       |
 | -------- | ------- | ---- | ---------------------------------------- |
-| req      | Request | 是    | 由`create`接口创建的请求对象,见[create](# create 创建请求对象) |
-| isVerify | Number  | 是    | 0:不在请求头中增加appVerify字段,对本次请求不做任何处理 1:在请求头中增加appVerify字段,get､post都会增加 |
+| req      | Request | 是    | 由`create`接口创建的请求对象,见[create](#-create-) |
+| isVerify | Number  | 是    | 0:不在请求头中增加appVerify字段,对本次请求不做任何处理 1:在请求头中增加appVerify字段,get、post都会增加 |
 
 **返回值:**
 
@@ -296,7 +301,7 @@ var ret = uexXmlHttpMgr.setAppVerify(req, 1);
 alert(ret);
 ```
 
-### 🍭 setHeaders 设置请求头
+> ######  **setHeaders //设置请求头** 
 
 `uexXmlHttpMgr.setHeaders(req, json)`
 
@@ -309,7 +314,7 @@ alert(ret);
 
 | 参数名称 | 参数类型    | 是否必选 | 说明                                       |
 | ---- | ------- | ---- | ---------------------------------------- |
-| req  | Request | 是    | 由`create`接口创建的请求对象,见[create](# create 创建请求对象) |
+| req  | Request | 是    | 由`create`接口创建的请求对象,见[create](#-create-) |
 | json | String  | 是    | 要设置的请求头, json数据格式.                       |
 
 **返回值:**
@@ -327,7 +332,7 @@ var ret = uexXmlHttpMgr.setHeaders(req, JSON.stringify(header));
 alert(ret);
 ```
 
-### 🍭 setCertificate 设置本次请求使用的数字证书
+> ######  **setCertificate //设置本次异步请求使用的数字证书** 
 
 `uexXmlHttpMgr.setCertificate(req, passsword, path)`
 
@@ -339,7 +344,7 @@ alert(ret);
 
 | 参数名称     | 参数类型    | 是否必选 | 说明                                       |
 | -------- | ------- | ---- | ---------------------------------------- |
-| req      | Request | 是    | 由`create`接口创建的请求对象,见[create](# create 创建请求对象) |
+| req      | Request | 是    | 由`create`接口创建的请求对象,见[create](#-create-) |
 | password | String  | 是    | 数字证书密码.当使用appcan默认证书时,此参数应为null或者""      |
 | path     | String  | 是    | 证书路径,支持 file://,res://,wgt://等协议路径, 当传入'default'时,本次请求将取appcan默认数字证书. |
 
@@ -355,7 +360,7 @@ var ret = uexXmlHttpMgr.setCertificate(req, "" , "default");
 alert(ret);
 ```
 
-### 🍭 getCookie 获取指定url的cookie信息
+> ######  **getCookie //获取指定url的cookie信息** 
 
 `uexXmlHttpMgr.getCookie(url)`
 
@@ -380,7 +385,7 @@ var ret = uexXmlHttpMgr.getCookie("http://www.baidu.com/");
 alert(ret);
 ```
 
-### 🍭 clearCookie 清空cookie信息
+> ######  **clearCookie //清空cookie信息** 
 
 `uexXmlHttpMgr.clearCookie()`
 
@@ -399,26 +404,36 @@ uexXmlHttpMgr.clearCookie()
 ```
 
 
-# 3､更新历史
+#### **3、更新历史**<ignore>
 
-### iOS
+###### **iOS**<ignore>
 
-API版本: `uexXmlHttpMgr-4.0.0`
+API版本: `uexXmlHttpMgr-4.3.7`
 
-最近更新时间:`2017-02-21`
+最近更新时间:`2019-11-06`
 
 | 历史发布版本 | 更新内容       |
 | ------ | ---------- |
+| 4.3.7  |增加setCookie接口|
+| 4.3.6.1|初步适配iOS13的兼容性问题|
+| 4.0.5  |x-mas-app-id 根据wgtType判断|
+| 4.0.3  | create接口传入的json中添加配置项certificateValidation,支持开启ssl证书信任链校验|
 | 4.0.0  | 跨域异步请求功能插件 |
 
-### Android
+###### **Android**<ignore>
 
-API版本: `uexXmlHttpMgr-4.0.2`
+API版本: `uexXmlHttpMgr-4.0.7.2`
 
-最近更新时间:`2017-02-21`
+最近更新时间:`2019-12-16`
 
-| 历史发布版本 | 更新内容             |
-| ------ | ---------------- |
-| 4.0.2  | 修复某些异常情况下导致的崩溃问题 |
-| 4.0.1  | 修复cookie 的问题     |
-| 4.0.0  | 4.0              |
+| 历史发布版本 | 更新内容       |
+| ------ | ---------- |
+| 4.0.7.2|修复setCookie方法处理错误导致无法生效的问题|
+| 4.0.7  |添加setCookie方法|
+| 4.0.6.2|修复post请求非200时，responseError字段和responseMessage都为空的问题|
+| 4.0.5  |兼容plugin子应用中首页配置为在线调试页面时的验证头错误问题|
+| 4.0.4  |兼容个别形式的cookie无法被正确保存和携带的问题|
+| 4.0.3  |修复返回界面时HTTP请求取消崩溃问题|
+| 4.0.2  |修复某些异常情况下导致的崩溃问题 |
+| 4.0.1  |修复cookie 的问题 |
+| 4.0.0  |4.0          |

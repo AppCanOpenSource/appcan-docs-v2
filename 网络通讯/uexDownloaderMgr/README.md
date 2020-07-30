@@ -1,26 +1,41 @@
-[TOC]
-# 1､简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
+/*
+Sort: 2
+Toc: 1
+Tips: 文件下载
+keywords: appcan开发文档,插件API,网络通讯,uexDownloaderMgr 
+description: uexDownloaderMgr即文件下载插件，文件下载管理接口API,该对象主要封装了下载数据的接口,支持多个文件下载,断点续传下载,下载文件大小无限制.更多appcan开发文档，请见http://newdocx.appcan.cn
+Show: /newdocx/docx?type=1445_975
+*/
+
+- [1、简介](#-1-http-appcan-download-oss-cn-beijing-aliyuncs-com-e5-85-ac-e6-b5-8b-2fgf-png-ignore- "1、简介")
+- [2、API概览](#-2-api-ignore- "2、API概览")
+- [3、更新历史](#-3-ignore- "3、更新历史")
+#### **1、简介** *[![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]() *<ignore>
 文件下载插件
-## 1.1､说明
+###### **1.1、说明**<ignore>
 文件下载管理接口API,该对象主要封装了下载数据的接口,支持多个文件下载,断点续传下载,下载文件大小无限制.
+>本文的目的是为了开发能够更好更快地将API集成到自己的项目中，在使用前最好先使用好我们提供的[demo](#-1-3-ignore-)并对照文档运行看看效果。
+></br>这里可以【[参考](http://newdocx.appcan.cn/quickstart/create-app)教程】下载AppCan IDE为开发者工具开发，然后集成到自己的项目上。
+ 
 
-## 1.2､UI展示
-![](http://newdocx.appcan.cn/docximg/133313p2015r6s16g.png)
+###### **1.2、UI展示**<ignore>
+*![](http://newdocx.appcan.cn/docximg/133313p2015r6s16g.png) *
 
-## 1.3､开源源码
-插件测试用例与源码下载:[点击](http://plugin.appcan.cn/details.html?id=169_index) 插件中心至插件详情页 (插件测试用例与插件源码已经提供)
+###### **1.3、开源源码**<ignore>
+插件测试用例与源码下载:<a href="http://plugin.appcan.cn/details.html?id=169_index" target="_blank">点击</a>插件中心至插件详情页 (插件测试用例与插件源码已经提供)
 
-## 1.4､平台版本支持
-本插件的所有API默认支持**Android4.0+**和**iOS7.0+**操作系统.  
+###### **1.4、平台版本支持**<ignore>
+本插件的所有API默认支持**Android4.3+**和**iOS10.0+**操作系统.  
 有特殊版本要求的API会在文档中额外说明.
 
-## 1.5､接口有效性
+###### **1.5、接口有效性**<ignore>
 本插件所有API默认在插件版本**4.0.0+**可用.  
 在后续版本中新添加的接口会在文档中额外说明.
 
-# 2､API概览
-## 2.1､方法
-### 🍭 create 创建下载对象
+#### **2、API概览**<ignore>
+###### **2.1、方法**<ignore>
+
+> ######  **create //创建下载对象** 
 
 `uexDownloaderMgr.create()`
 
@@ -46,7 +61,7 @@ if(!downloader){
 }
 ```
 
-### 🍭 setHeaders 设置请求头
+> ######  **setHeaders //设置请求头**
 
 `uexDownloaderMgr.setHeaders(downloader, json)`
 
@@ -58,7 +73,7 @@ if(!downloader){
 
 | 参数名称       | 参数类型    | 是否必选 | 说明                                  |
 | ---------- | ------- | ---- | ----------------------------------- |
-| downloader | Object  | 是    | 由[create](# create 创建下载对象)接口创建的下载对象 |
+| downloader | Object  | 是    | 由[create](#-create-)接口创建的下载对象 |
 | json       | JSON字符串 | 是    | 请求头信息                               |
 
 **示例:**
@@ -69,9 +84,9 @@ var headJson = '{"Content-type":"application/json;charset=utf-8"}';
 uexDownloaderMgr.setHeaders(downloader, headJson);
 ```
 
-### 🍭 download 下载文件
+> ######  **download //下载文件** 
 
-`uexDownloaderMgr.download(downloader,serverURL,savePath,mode,cb,isReName)`
+`uexDownloaderMgr.download(downloader,serverURL,savePath,mode,cb)`
 
 **说明:**
 
@@ -81,12 +96,12 @@ uexDownloaderMgr.setHeaders(downloader, headJson);
 
 | 参数名称       | 参数类型     | 是否必选 | 说明                                  |
 | ---------- | -------- | ---- | ----------------------------------- |
-| downloader | Object   | 是    | 由[create](# create 创建下载对象)接口创建的下载对象 |
+| downloader | Object   | 是    | 由[create](#-create-)接口创建的下载对象 |
 | serverURL  | String   | 是    | 服务器地址                               |
 | savePath   | String   | 是    | 本地保存地址                              |
 | mode       | Number   | 是    | 是否支持断点续传,0:不支持,1:支持                 |
 | cb         | Function | 是    | 下载进度回调,详见下                          |
-| isRename   | NSNumber | 是    | 是否需要重命名,0：（默认或者不传此参数）不需要改名，1：需要重命名                          |
+
 
 **回调参数:**
 
@@ -122,10 +137,10 @@ uexDownloaderMgr.download(downloader,
                       alert("下载失败");
                   break;
 				  }				  
-},0);
+});
 ```
 
-### 🍭 cancelDownload 取消下载
+> ######  **cancelDownload //取消下载** 
 
 `uexDownloaderMgr.cancelDownload(serverURL,clearMode)`
 
@@ -148,7 +163,7 @@ uexDownloaderMgr.download(downloader,
 uexDownloaderMgr.cancelDownload("http://wallpaper.pocketdigi.com/upload/1/bigImage/1284565196.jpg");
 ```
 
-### 🍭 closeDownloader 关闭下载对象
+> ######  **closeDownloader //关闭下载对象** 
 
 `uexDownloaderMgr.closeDownloader(downloader)`
 
@@ -160,7 +175,7 @@ uexDownloaderMgr.cancelDownload("http://wallpaper.pocketdigi.com/upload/1/bigIma
 
 | 参数名称       | 参数类型   | 是否必选 | 说明                                  |
 | ---------- | ------ | ---- | ----------------------------------- |
-| downloader | Object | 是    | 由[create](# create 创建下载对象)接口创建的下载对象 |
+| downloader | Object | 是    | 由[create](#-create-)接口创建的下载对象 |
 
 
 
@@ -172,7 +187,7 @@ var downloader = ...//由create接口创建的下载对象
 uexDownloaderMgr.closeDownloader(downloader);
 ```
 
-### 🍭 getInfo 获取下载对象的相关信息
+> ######  **getInfo //获取下载对象的相关信息**
 
 `uexDownloaderMgr.getInfo(serverURL)`
 
@@ -216,30 +231,32 @@ alert(JSON.stringify(info));
 ```
 
 
-# 3､更新历史
+#### **3、更新历史**<ignore>
 
-### iOS
+###### **iOS**<ignore>
 
-API版本: `uexDownloaderMgr-4.0.11`
+API版本: `uexDownloaderMgr-4.3.3.2`
 
-最近更新时间:`2019-04-19`
+最近更新时间:`2019-8-26`
 
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.0.11 | download方法添加isRename参数,是否需要重命名 |
-| 4.0.1 | 修复一个会导致崩溃的问题 |
-| 4.0.0 | 下载功能插件 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+|   4.3.3.2  |初步适配iOS13,解决闪退问题|
+|   4.0.2    |关闭网页后,会正确停止当前网页的下载任务 |
+|   4.0.1    |修复一个会导致崩溃的问题 |
+###### **Android**<ignore>
 
-### Android
+API版本: `uexDownloaderMgr-4.3.8`
 
-API版本: `uexDownloaderMgr-4.1.4`
+最近更新时间:`2019-10-09`
 
-最近更新时间:`2017-02-21`
-
-| 历史发布版本 | 更新内容 |
-| ----- | ----- |
-| 4.1.4 | (需要引擎4.1.0以上)修复某些url不能下载的问题 |
-| 4.1.3 | 修复服务器返回2XX(非200､206)导致下载失败的问题,并修改自动处理重定向 |
-| 4.1.2 | (需要引擎4.1.0以上)修复不能下载中文链接的问题 |
-| 4.0.1 | 解决回调过快导致卡死的问题 |
-| 4.0.0 | 4.0改造 |
+| 历史发布版本 | 更新内容                                     |
+| ------ | ---------------------------------------- |
+|   4.3.8    |（需要引擎4.1.0以上）部分手机下载没有回调问题|
+|   4.3.6    |添加动态权限申请|
+|   4.1.6    |（需要引擎4.1.0以上）修复含有空格不能下载的问题|
+|   4.1.5    |（需要引擎4.1.0以上）修复重定向链接不能下载的问题 |
+|   4.1.4    |（需要引擎4.1.0以上）修复某些url不能下载的问题 |
+|   4.1.3    |修复服务器返回2XX（非200、206）导致下载失败的问题，并修改自动处理重定向 |
+|   4.1.2    | （需要引擎4.1.0以上）修复不能下载中文链接的问题|                                   
+|   4.0.1    | 解决回调过快导致卡死的问题|
