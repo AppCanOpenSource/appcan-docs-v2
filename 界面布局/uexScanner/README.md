@@ -89,7 +89,8 @@ var params = {
     pickBgImg: ,
     tipLabel: ,
     title: ,
-    charset:
+    charset:,
+    isGallery:
 }
 ```
 
@@ -102,6 +103,7 @@ var params = {
 | tipLabel  | String | 否        | 扫描区下部提示语 |
 | title     | String | 否,仅iOS支持 | 扫描界面顶部标题 |
 | charset   | String | 否        | 设置字符编码   |
+| isGallery   | String | 否        | isGallery，是否显示相册按钮，0不显示，1显示，默认1显示  |
 
 **示例:**
 
@@ -110,7 +112,8 @@ var jsonData = {
   lineImg:"res://line.png",
   pickBgImg:"res://pick_bg.png",
   tipLabel:"对准二维码/条形码,即可自动扫描",
-  title:"扫一下"
+  title:"扫一下",
+  isGallery:"1"
 };
 uexScanner.setJsonData(jsonData);
 ```
@@ -144,12 +147,13 @@ uexScanner.setJsonData(jsonData);
 
 ### iOS
 
-API版本: `uexScanner-4.0.1`
+API版本: `uexScanner-4.0.1.6`
 
-最近更新时间:`2017-02-21`
+最近更新时间:`2020-08-05`
 
 | 历史发布版本 | 更新内容 |
 | ----- | ----- |
+| 4.0.1.6 | 修改相册显示，setJsonData方法传入参数isGallery，0不显示，1显示，默认1显示 |
 | 4.0.1 | 修复首次启动用户确认相机权限时可能闪退的问题 |
 | 4.0.0 | 二维码插件 |
 
