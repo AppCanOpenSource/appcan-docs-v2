@@ -11,7 +11,7 @@
 ###### 注:这里的appID是指：TeamID+BundleId的组成（例：9JA89QQLNQ.com.apple.test）（TeamID可以在开发者账号里面查看，BundleId是项目的Bundle Identifier）。
 ###### 这里的paths是指：是设置允许的路径列表，可以是一个也可以是多个，最简单的方式是使用“*”，通配符，表示允许该域名下的任意路径。（注意：paths中的大小写是敏感的，一定要一一对应）
 2. 上传apple-app-site-association文件（这里就能拿到app中配置需要的域名）
-- （1）将apple-app-site-association文件发给服务器端的同事，让他上传到域名的根目录下或者.well-known的子目录下（这里的域名必须要是可访问的域名，由服务器端的同事给到）。
+- （1）将apple-app-site-association文件发给服务器端的同事，让他上传到域名的.well-known子目录下（这里的域名必须要是可访问的域名，由服务器端的同事给到，iOS14后已不再支持放根目录下）。
 - （2）Web server需要支持https，客户端通过https来访问，并且不支持重定向。
 下面是描述文件的配置:
 登录苹果开发者账号，选择对应的appid,编辑，勾选Associated Domains 选项，如下图
